@@ -5,6 +5,7 @@
   "type": "module",
   "engines": { "node": ">=24 <25" },
   "scripts": {
+    "content:import": "node tools/content/import-learning.mjs",
     "dev": "astro dev",
     "check": "astro check",
     "build": "astro build",

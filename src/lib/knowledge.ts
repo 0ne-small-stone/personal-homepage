@@ -20,5 +20,7 @@ export async function publishedKnowledge() {
     }
     stableIds.add(entry.data.entryId);
   }
-  return entries.sort((a, b) => a.data.title.localeCompare(b.data.title, 'zh-CN'));
+  return entries.sort((a, b) =>
+    a.data.topics.join('/').localeCompare(b.data.topics.join('/'), 'zh-CN') ||
+    a.data.title.localeCompare(b.data.title, 'zh-CN', { numeric: true }));
 }

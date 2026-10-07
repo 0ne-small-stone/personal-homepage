@@ -7,6 +7,7 @@ entryId: demo-article-reading
 kind: article
 topics: [阅读与整理]
 example: true
+draft: true
 related: [demo-resource-reading, demo-note-reading]
 ---
 

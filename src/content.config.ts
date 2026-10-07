@@ -17,6 +17,21 @@ export const collections = {
         topics: z.array(z.string()).default([]),
         example: z.boolean().default(false),
         related: z.array(z.string()).default([]),
+        source: z.discriminatedUnion('format', [
+          z.object({
+            id: z.string().regex(/^[a-z0-9-]+$/),
+            format: z.literal('pdf'),
+            author: z.string().optional(),
+            bytes: z.number().int().positive(),
+            pages: z.number().int().positive(),
+          }),
+          z.object({
+            id: z.string().regex(/^[a-z0-9-]+$/),
+            format: z.literal('link'),
+            author: z.string(),
+            url: z.url({ protocol: /^https$/ }),
+          }),
+        ]).optional(),
       }),
     }),
   }),

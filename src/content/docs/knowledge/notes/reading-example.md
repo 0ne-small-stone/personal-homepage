@@ -5,6 +5,7 @@ entryId: demo-note-reading
 kind: note
 topics: [阅读与整理]
 example: true
+draft: true
 related: [demo-resource-reading, demo-article-reading]
 ---
 
