@@ -73,4 +73,4 @@
 
 ## 当前事实
 
-2026-10-07：8 份规划文档已按设计、技术两类整理，另有 `docs/README.md` 维护对应关系。已初始化本地 Git `main`，建立 `.github/workflows/site.yml` 和 `tools/ci/` 校验工具；根目录 Astro 工程及其 package.json 尚未创建。用户选择 GitHub Pages，并授权自主创建个人主页仓库和管理规范；公开仓库 `0ne-small-stone/personal-homepage` 已创建，目录与提交规则、PR/Issue 模板已建立。实际远程设置、上传和 CI 结果见技术计划，不能凭配置文件判断已上线。T01 仅完成 Git 与工具准备，T15 已建立并验证仓库 CI，T16 仅完成 Pages 来源设置，网站工程、功能与设计任务的后续进度以对应计划为准。原始学习资料为 38 个文件（36 PDF、2 TXT），共约 507.9 MiB，由 `.gitignore` 排除且完整保留。本地检查命令与接入条件见 [GitHub 工作流说明](docs/technical/GITHUB_WORKFLOW.md)。后续任务开始前重新检查，避免覆盖用户新增内容。
+2026-10-07：8 份规划文档按设计、技术两类整理，`docs/README.md` 维护对应关系。公开仓库 `0ne-small-stone/personal-homepage` 已创建，main 已保护；根 Astro/Starlight 工程、锁文件和 dev/check/build/preview 命令已建立。T01 完成，T04 的基础博客组合及本地类型/生产构建通过；U01 的四入口与示例学习旅程已有实际浏览器证据。知识库只使用资料、文章、笔记，P04/P07 保持停用；其他内容或服务显示真实待配置状态。T15 接入网站构建，T16 的实际部署与大陆访问尚未完成，详细状态以两侧 PLAN 为准。原始学习资料为 38 个文件（36 PDF、2 TXT），约 507.9 MiB，由 `.gitignore` 排除且完整保留；新增 `洛雪音乐.txt` 未由本轮发布。运行与验收见根 README 和 [GitHub 工作流说明](docs/technical/GITHUB_WORKFLOW.md)。后续任务开始前重新检查，避免覆盖用户新增内容。

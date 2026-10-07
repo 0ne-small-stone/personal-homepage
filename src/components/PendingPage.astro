@@ -1,0 +1,18 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { sitePath } from '../lib/paths';
+interface Props { title: string; description: string; status: string; detail: string; }
+const { title, description, status, detail } = Astro.props;
+---
+<SiteLayout title={title} description={description}>
+  <div class="page-content">
+    <a class="breadcrumb" href={sitePath()}>← 返回首页</a>
+    <h1>{title}</h1>
+    <p class="muted">{description}</p>
+    <section class="empty-state" aria-label="当前状态">
+      <h2>{status}</h2>
+      <p class="muted">{detail}</p>
+    </section>
+    <a class="text-link" href={sitePath('knowledge')}>先去学习总览看看 →</a>
+  </div>
+</SiteLayout>

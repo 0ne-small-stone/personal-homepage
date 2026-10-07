@@ -1,6 +1,6 @@
 # GitHub 工作流说明
 
-更新：2026-10-07。发布目标已由用户选择为 GitHub Pages；公开仓库 [0ne-small-stone/personal-homepage](https://github.com/0ne-small-stone/personal-homepage) 已创建并上传。仓库与工作流语法检查已在 GitHub 通过，Pages 来源与 main 保护已应用并读回；Astro 网站工程尚未建立，构建与部署明确跳过，网站尚未上线。
+更新：2026-10-07。发布目标已由用户选择为 GitHub Pages；公开仓库 [0ne-small-stone/personal-homepage](https://github.com/0ne-small-stone/personal-homepage) 已创建并上传。仓库与工作流语法检查已在 GitHub 通过，Pages 来源与 main 保护已应用并读回；Astro 基础工程已建立并通过本地类型与生产构建，远程网站检查以技术 PLAN 的证据为准，网站尚未上线。
 
 账号连接已完成：2026-10-07 通过 GitHub 连接读取个人资料与实际登录身份，均核对为 `0ne-small-stone`；本机 Git Credential Manager 凭证也通过官方 API 核对同一身份，可用于 Git 推送与仓库管理。插件的仓库 App 安装列表尚未返回目标账号；仅该插件的仓库能力需补充授权，不阻止本次通过 Git 和官方 API 接入。凭证只在进程内使用，不写入仓库。
 
@@ -23,18 +23,18 @@ flowchart LR
 
 修改推送到 `main`、面向 `main` 的 Pull Request，以及 Actions 页手动执行，都会触发同一个主工作流。PR 检查修改是否可合入；默认分支的成功构建用于发布。任何前置检查失败都会阻止后续构建或部署。
 
-当前只存在规划文档，因此检查正常执行，构建与发布明确跳过。以后在根目录加入完整 Astro 工程后，无需新增另一套发布流程；工程只建到一半、缺锁文件或缺命令会直接报错。
+根目录已加入完整 Astro 工程，工程状态判断返回就绪，现有流程会执行 Astro build，无需新增另一套发布流程；缺锁文件或缺命令仍会直接报错。PR 只构建和保存产物，正式部署由合并后的默认分支执行。
 
 ## 各文件负责什么
 
 | 文件 | 作用 |
 | --- | --- |
 | [site.yml](../../.github/workflows/site.yml) | 主流程，定义触发条件、检查、构建、产物上传和 Pages 部署依赖 |
-| [dependabot.yml](../../.github/dependabot.yml) | 每周检查 Actions 和校验工具更新，通过 PR 提议更新；检查通过后再合并 |
+| [dependabot.yml](../../.github/dependabot.yml) | 每周检查 Actions、根网站依赖和校验工具更新，通过 PR 提议更新；检查通过后再合并 |
 | [.gitignore](../../.gitignore) | 排除本地原始资料、依赖目录、生成文件和环境配置；不会删除本地文件 |
 | [.gitattributes](../../.gitattributes) | 统一文本换行，减少 Windows 与 Linux 之间的无关差异 |
 | [.node-version](../../.node-version) | 指定 Node.js 24，工作流读取该文件；本地也使用这个版本 |
-| [校验工具包](../../tools/ci/package.json)与[锁文件](../../tools/ci/package-lock.json) | 独立保存 CI 工具依赖；与未来根目录的网站依赖分开；`npm ci` 按锁文件安装 |
+| [校验工具包](../../tools/ci/package.json)与[锁文件](../../tools/ci/package-lock.json) | 独立保存 CI 工具依赖；与根目录的网站依赖分开；`npm ci` 按锁文件安装 |
 | [files.mjs](../../tools/ci/files.mjs) | 通过 Git 文件清单检查原始资料、环境配置、符号链接与超过项目上限的文件 |
 | [docs.mjs](../../tools/ci/docs.mjs) | 配置 remark、GFM 和链接插件，检查本地文件及跨文档章节锚点；不改写 Markdown |
 | [project.mjs](../../tools/ci/project.mjs) | 判断网站是否初始化；给后续 job 输出 `app_ready`，并在 Actions 摘要说明跳过或就绪状态 |
@@ -47,7 +47,7 @@ flowchart LR
 | --- | --- | --- |
 | Repository checks | checkout → Node → 安装校验工具 → 文件和文档检查 → 测试 → 工程状态判断 | 本地与首轮 GitHub Actions 均通过 |
 | Workflow syntax | 使用 actionlint 官方容器检查 YAML、Actions 表达式和 job 依赖 | 本地便携工具与首轮 GitHub 官方容器检查均通过 |
-| Astro build | 安装网站依赖 → `npm run check` → `npm run build` → 核验 `dist/` → 上传 Pages 产物 | 等待完整 Astro 工程；尚未运行网站构建 |
+| Astro build | 安装网站依赖 → `npm run check` → `npm run build` → 核验 `dist/` → 上传 Pages 产物 | 工程已就绪，本地通过；远程结果在技术 PLAN 记录 |
 | Deploy to GitHub Pages | 获取当前成功构建的产物，通过官方 deploy-pages 发布，返回实际站点地址 | Pages 来源已配置；等待网站工程和成功构建，首轮跳过，尚未发布 |
 
 构建使用官方 checkout、setup-node、upload-pages-artifact；部署使用 deploy-pages。Actions 固定到已核对的提交 SHA，由 Dependabot 维护更新。主流程只授予仓库读取权限；部署 job 单独获得 `pages: write` 和 `id-token: write`。PR 不执行部署。
@@ -63,6 +63,10 @@ npm ci --prefix tools/ci --ignore-scripts --no-audit --no-fund
 npm --prefix tools/ci run check
 npm --prefix tools/ci test
 node tools/ci/project.mjs
+npm ci --no-audit --no-fund
+npm run check
+npm run build
+node tools/ci/dist.mjs
 ```
 
 工作流语法可用 actionlint 检查：

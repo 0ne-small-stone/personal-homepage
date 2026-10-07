@@ -12,7 +12,8 @@ docs/
 │   ├── PLAN.md               设计计划、工作流与验收（U01–U14）
 │   ├── REFERENCES.md         设计案例、组件、素材与许可
 │   ├── CONCEPT.md            概念、场景、动作与控件
-│   └── SYSTEM.md             颜色、字体、尺寸、状态与运动参数
+│   ├── SYSTEM.md             颜色、字体、尺寸、状态与运动参数
+│   └── iterations/           U/P 迭代记录与实际截图证据
 └── technical/                架构、数据、服务、工程与技术验证
     ├── SPEC.md               技术方案与功能需求（R01–R13）
     ├── PLAN.md               实施任务与技术验收（T01–T29）

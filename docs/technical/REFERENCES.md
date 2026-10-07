@@ -4,13 +4,29 @@
 
 本文件保存 2026-10-02 的基础调研，以及 2026-10-03 对 Starlight、博客和搜索说明的补充核对，供实施时定位官方文档和候选项目。链接存在和文档描述可支持选型，不能代替实际版本兼容、账号权限、网络表现和部署验证。
 
-本项目尚未安装下列依赖。具体插件仍属于实施候选，决策边界见 [技术方案](SPEC.md)；组件与素材的许可、改造范围见[设计复用与素材来源](../design/REFERENCES.md)，接入阶段见[技术实施计划](PLAN.md)。
+2026-10-07 已开始安装 Astro、Starlight 和博客插件，采用清单见下文。未列为已采用的依赖仍属于实施候选，决策边界见 [技术方案](SPEC.md)；组件与素材的许可、改造范围见[设计复用与素材来源](../design/REFERENCES.md)，接入阶段见[技术实施计划](PLAN.md)。
 
 2026-10-03 方案更新：学习资料、博客和数字花园合并为知识库，现成方案优先。先沿用框架与插件原生集合和路由，再配置统一入口、检索和引用；对实际缺口做最小扩展。
 
 2026-10-07 候选范围调整：按用户最新需求移除知识关系图及其插件、接入文档；学习内容通过总览、搜索和普通引用浏览。原有其余来源与未验证状态沿用。
 
 ## Astro 官方能力
+
+### T01 工程采用记录（2026-10-07）
+
+从 [Starlight 官方快速开始](https://starlight.astro.build/getting-started/) 的模板初始化，保留原生 docs loader/schema、阅读导航、目录和 Pagefind。自定义主站页面使用 Astro 静态组件，学习总览使用官方 [StarlightPage](https://starlight.astro.build/guides/pages/#starlightpage-component)。博客按插件的 [配置](https://starlight-blog-docs.vercel.app/configuration/) 设置 `knowledge/blog` 前缀；演示阶段关闭 RSS 与结构化个人信息，正式内容接入后再启用。
+
+| 直接依赖 | 锁定版本 | 安装包许可 | 本轮用途 |
+| --- | --- | --- | --- |
+| astro | 7.3.6 | MIT | 静态页面、开发与预览服务 |
+| @astrojs/starlight | 0.42.5 | MIT | 知识阅读与原生搜索 |
+| @astrojs/markdown-remark | 7.3.2 | MIT | Starlight 要求的官方 peer 依赖 |
+| starlight-blog | 0.30.0 | MIT | 原生文章列表和标签 |
+| sharp | 0.35.3 | Apache-2.0 | 官方模板的图片处理依赖 |
+| @astrojs/check | 0.9.10 | MIT | Astro 类型检查 |
+| typescript | 5.9.3 | Apache-2.0 | 严格类型配置 |
+
+版本、peer 范围与许可已通过 npm 官方注册表及已安装包核对，完整依赖树锁定于根 `package-lock.json`。这些许可不扩展到个人正文、照片或本地教材。当前页面没有需要 React 的复杂交互，未提前安装 React、动画、3D、CMS 或播放器候选。兼容与浏览器实际结果另记于 PLAN。
 
 | 来源 | 用于什么 |
 | --- | --- |

@@ -1,0 +1,28 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { sitePath } from '../lib/paths';
+const entrances = [
+  { title: '学习', path: 'knowledge', description: '资料、文章与笔记，在同一处浏览。' },
+  { title: '展示', path: 'showcase', description: '项目、照片与社交作品的共同入口。' },
+  { title: '常用网站', path: 'links', description: '整理常用工具与值得收藏的网址。' },
+  { title: '音乐电台', path: 'music', description: '听歌、分享，也留下一首推荐。' },
+];
+---
+<SiteLayout title="个人主页">
+  <section class="hero" aria-labelledby="home-title">
+    <p class="eyebrow">结构预览 / 四个入口</p>
+    <h1 id="home-title">学习、记录<br />与日常。</h1>
+    <p class="muted">从一个入口开始。学习区已有标注为演示的内容，其余区域正在准备。</p>
+  </section>
+  <nav aria-label="内容入口">
+    <ol class="entrances">
+      {entrances.map((entry, index) => <li>
+        <a class="entrance" href={sitePath(entry.path)}>
+          <span class="entrance-number" aria-hidden="true">0{index + 1}</span>
+          <div><h2>{entry.title}</h2><p>{entry.description}</p></div>
+          <span class="entrance-arrow" aria-hidden="true">↗</span>
+        </a>
+      </li>)}
+    </ol>
+  </nav>
+</SiteLayout>

@@ -15,4 +15,13 @@ npm --prefix tools/ci run check
 npm --prefix tools/ci test
 ```
 
-当前尚无 Astro 网站工程，构建与发布会明确跳过。不要提交本地原始学习资料、凭证、生成目录或私密草稿。素材采用前查明来源与许可。
+网站工程已建立，涉及工程或内容时追加：
+
+```powershell
+npm ci --no-audit --no-fund
+npm run check
+npm run build
+node tools/ci/dist.mjs
+```
+
+本地开发用 `npm run dev`，生产预览用 `npm run preview`；地址带 `/personal-homepage/` 前缀。开发模式下 Pagefind 提示未构建属于原生行为，搜索验收使用生产构建后的预览。不要提交本地原始学习资料、凭证、生成目录或私密草稿。素材采用前查明来源与许可。

@@ -1,0 +1,18 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { publishedKnowledge, kindLabels } from '../../lib/knowledge';
+import { sitePath } from '../../lib/paths';
+const entries = await publishedKnowledge();
+---
+<StarlightPage frontmatter={{ title: '学习总览', description: '在同一个入口浏览资料、文章与笔记。', tableOfContents: false }}>
+  <p class="knowledge-summary">资料、文章与笔记共用这里的导航和搜索。当前三条内容均为结构演示，正式学习资料尚未导入。</p>
+  <a class="knowledge-blog-link" href={sitePath('knowledge/blog')}>按时间浏览文章 →</a>
+  <ul class="knowledge-list">
+    {entries.map((entry) => <li>
+      <div class="knowledge-meta">{kindLabels[entry.data.kind]} · {entry.data.topics.join(' / ')}{entry.data.example ? ' · 演示内容' : ''}</div>
+      <a href={sitePath(entry.id)}>{entry.data.title}</a>
+      <p>{entry.data.description}</p>
+    </li>)}
+  </ul>
+  <p><a href={sitePath()}>← 返回首页</a></p>
+</StarlightPage>

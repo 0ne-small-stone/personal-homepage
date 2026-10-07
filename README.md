@@ -25,14 +25,35 @@ GitHub 的触发方式、各 job 和本地检查命令见[工作流说明](docs/
 
 - 文档目录整理日期：2026-10-07；原规划基线日期：2026-10-03。
 - 已完成 8 份规划文档：页面规格、概念施工说明、小步迭代工作流、设计规范 v0.1、复用与素材来源，以及技术方案、技术实施计划、技术调研来源。已核算规范色值的静态对比度；真实合成画面仍待原型验证。
-- 设计任务的实际进度见[设计计划](docs/design/PLAN.md)；T01 已完成 Git 与 CI 工具准备，T15 已验证仓库 CI，T16 已设置 Pages 来源。网站工程与各功能的后续进度按对应计划记录，文档和 CI 配置完成不代表网站已经实现。
-- 已初始化本地 Git `main` 分支，建立 GitHub 检查、构建和 Pages 发布配置。网站应用代码和根目录 package.json 尚未创建；`tools/ci/package.json` 只管理校验工具。
+- T01 Astro 基础工程已建立，T04 的 Starlight/博客组合与本地生产构建通过。U01 四入口与学习阅读旅程已核验，实际截图与限制见[迭代记录](docs/design/iterations/u01-p01-2026-10-07-01.md)；其余功能和设计进度以两侧计划为准。
+- 根目录 package.json 管理网站命令与锁定依赖，`tools/ci/package.json` 单独管理仓库校验。主站为静态 Astro 页面，知识阅读与搜索沿用 Starlight，当前内容均明确标为演示。
 - 已创建并上传公开仓库 [0ne-small-stone/personal-homepage](https://github.com/0ne-small-stone/personal-homepage)。main 已保护，PR 必须通过仓库与工作流检查后 Squash 合并；Issues/Discussions 已开启，Wiki 已关闭。
-- [首轮 GitHub Actions](https://github.com/0ne-small-stone/personal-homepage/actions/runs/37596208177) 的仓库与语法检查通过；Pages 来源已设为 GitHub Actions。Astro 工程尚未建立，网站构建和部署明确跳过，网站尚未上线。
+- [首轮 GitHub Actions](https://github.com/0ne-small-stone/personal-homepage/actions/runs/37596208177) 的仓库与语法检查通过；Pages 来源已设为 GitHub Actions。Astro 工程已接入现有条件式构建，远程网站构建和正式部署状态以技术计划为准，网站尚未上线。
 - GitHub 登录身份及本机 Git 凭证均核对为 `0ne-small-stone`；可通过 Git/官方 API 管理仓库。GitHub 插件的目标仓库 App 授权仍待补充，不影响本次 Git 接入。
 - 已有本地素材：大二上学习资源目录；本次检查为 38 个文件（36 PDF、2 TXT），共约 507.9 MiB。文件保持原目录，大小与存储边界见技术方案。
-- Astro、CMS、Giscus、音乐同步和 AI 功能均尚未实现或接入。
+- 正式学习资料、作品与个人内容尚未导入；CMS、Giscus、音乐同步、棱镜场景和 AI 功能均未接入。
 - 文档中的技术候选、内容模型和目录结构是拟实施方案。
+
+## 本地预览与验收
+
+使用 Node.js 24，在项目根目录执行：
+
+```powershell
+npm ci --no-audit --no-fund
+npm run dev
+```
+
+打开 `http://localhost:4321/personal-homepage/`。当前提供四组首页入口、学习总览、资料/笔记/文章演示，以及其他页面的待配置状态；没有课程、学习路线或知识关系图。
+
+验收搜索时使用生产预览，Pagefind 由 Starlight 在构建中生成：
+
+```powershell
+npm run check
+npm run build
+npm run preview
+```
+
+可以先走“首页 → 学习 → 资料 → 笔记 → 文章”，再试搜索“演示”、浏览器返回、深链刷新和手机宽度。按[设计计划](docs/design/PLAN.md)每轮记录一个主要变量，CI 检查与实际体验分别验收。
 
 ## 从哪里开始
 
@@ -45,6 +66,6 @@ GitHub 的触发方式、各 job 和本地检查命令见[工作流说明](docs/
 3. 取设计规范的参数，从复用清单选择现成组件/素材，制作一个可操作样本。
 4. 留下同条件对照、实际操作结果与下一步；通过后再组合到页面及跨页旅程。
 
-会话试作仅用于设计探索，不能视为正式网站已经实现。后续真实迭代记录按工作流放入 `docs/design/iterations/`；当前尚未创建该证据目录。
+真实迭代记录与证据已放入 `docs/design/iterations/`；基础页面结构通过不代表最终场景视觉或外部服务完成。
 
 设计与技术文档按分类维护；后续提交可通过 GitHub 工作流检查。真实构建、账号接入与发布结果按技术计划的证据记录。

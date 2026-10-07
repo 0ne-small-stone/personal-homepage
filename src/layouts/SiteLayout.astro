@@ -1,0 +1,36 @@
+---
+import '../styles/site.css';
+import { sitePath } from '../lib/paths';
+interface Props { title: string; description?: string; }
+const { title, description = '学习、记录与日常。' } = Astro.props;
+const links = [
+  { label: '学习', path: 'knowledge' },
+  { label: '展示', path: 'showcase' },
+  { label: '网站', path: 'links' },
+  { label: '电台', path: 'music' },
+];
+---
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/favicon.svg`} />
+    <title>{title === '个人主页' ? title : `${title} · 个人主页`}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">跳到正文</a>
+    <header class="site-header container">
+      <a class="brand" href={sitePath()}>个人主页</a>
+      <nav aria-label="主要导航">
+        {links.map(({ label, path }) => <a href={sitePath(path)} aria-current={Astro.url.pathname === sitePath(path) ? 'page' : undefined}>{label}</a>)}
+      </nav>
+    </header>
+    <main id="main-content" class="container" tabindex="-1"><slot /></main>
+    <footer class="site-footer container">
+      <p>结构预览 · 内容正在整理</p>
+      <div><a href={sitePath('about')}>关于</a><span aria-hidden="true">　/　</span><a href={sitePath('guestbook')}>留言</a></div>
+    </footer>
+  </body>
+</html>

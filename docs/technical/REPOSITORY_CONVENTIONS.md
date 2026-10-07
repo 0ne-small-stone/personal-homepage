@@ -7,7 +7,7 @@
 - 仓库名为 `personal-homepage`，默认分支为 `main`，用于个人主页代码、允许公开的内容与项目文档。
 - 采用公开仓库，配合已选择的 GitHub Pages 与低成本路线。公开仓库的文件和历史均可被读取；网站的 `draft` 字段不能隐藏仓库中的私密草稿。[Pages 使用条件](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages)
 - 本地 `大二上学习资源/` 完整保留且不上传；发布资料时另行核对公开范围、许可与大小，选择派生文件或外部地址。
-- 当前只有文档与 CI 工具，尚无网站工程。目录规划、模板、账号登录和 Pages 设置均不能作为网站功能完成的证据。
+- 已开始搭建 Astro 网站工程；具体功能与验收以两侧 PLAN 的真实证据为准。模板、账号登录和 Pages 设置均不能作为网站全部功能完成的证据。
 - 不自动为整仓库添加 MIT 等通用许可证。代码、正文、照片、教材与第三方素材分别记录使用条件，采用资源时在设计或技术参考文档保留来源和许可。
 
 ## 文件层级与职责
@@ -23,6 +23,9 @@ personal-homepage/
 ├── .gitattributes                    Git 文本换行
 ├── .gitignore                        本地资料、凭证及生成文件排除
 ├── .node-version                     Node.js 版本
+├── package.json / package-lock.json  网站命令与锁定依赖
+├── astro.config.mjs / tsconfig.json  静态路径、插件及类型约束
+├── src/                             页面、布局、内容、主题与少量适配
 ├── .github/
 │   ├── workflows/site.yml            检查、条件构建及 Pages 发布
 │   ├── dependabot.yml                依赖更新 PR
@@ -36,9 +39,9 @@ personal-homepage/
 └── tools/ci/                         独立安装、锁定的仓库校验工具
 ```
 
-网站初始化时再按官方 Astro 模板建立下列目录；现在不建立空 `src/` 或根 `package.json`，避免 CI 把文档阶段误判为残缺工程：
+网站按官方 Astro/Starlight 模板建立下列目录；只创建实际需要的路径，不用空目录或半套配置代替可运行工程：
 
-| 未来路径 | 职责与约束 |
+| 工程路径 | 职责与约束 |
 | --- | --- |
 | `src/pages/` | Astro 文件路由；以框架路由规则为准 |
 | `src/layouts/` | 页面骨架及通用布局 |
@@ -98,12 +101,12 @@ P、R、U、T 编号沿用现有文档；P04、P07 已停用，不重新分配�
 - 标签使用 `bug`、`enhancement`、`documentation` 和 `area:design`、`area:technical`、`area:content`、`area:ci`；一项问题标明类型和主要领域即可。
 - Discussions 为后续 Giscus 留言准备。开启 Discussions 不代表 Giscus 已安装、分类已绑定或留言已接通；推歌审核仍是独立功能。
 - Wiki 关闭，项目资料统一保存在 `docs/`；当前不另建 Projects 看板，不重复维护同一任务状态。
-- Dependabot 的更新进入 PR，检查后人工合并，不自动更新正式分支。网站工程建立后再加入根 npm 更新配置。
+- Dependabot 的更新进入 PR，检查后人工合并，不自动更新正式分支。根网站依赖与 tools/ci 的 npm 更新分别配置。
 - 首个真正可用版本验证后再打 `v0.1.0` 标签与发布记录，后续版本记录新增、修复和限制。当前不创建表示网站已完成的版本。
 
 ## 检查、发布与资源边界
 
-PR 必需检查为 `Repository checks` 和 `Workflow syntax`。网站工程准备好后再将 `Astro build` 加为必需检查；当前构建与发布明确跳过，不以跳过代替成功构建。
+PR 必需检查为 `Repository checks` 和 `Workflow syntax`。网站工程的 `Astro build` 在同一工作流中执行；远程首次成功后再将其加为必需检查，状态记录在技术 PLAN。不以跳过代替成功构建。
 
 ```powershell
 npm ci --prefix tools/ci --ignore-scripts --no-audit --no-fund
@@ -121,7 +124,7 @@ Actions 默认令牌只读，Pages 部署 job 单独申请 pages/id-token 写权
 
 [repository-settings.json](../../.github/repository-settings.json) 保存本阶段远程设置的期望值，GitHub 不会自动读取这个文件。远程应用与读回验证的日期和结果记录在 [技术计划](PLAN.md)，状态不得只凭本文件判断。
 
-2026-10-07 已通过官方 API 应用并读回下列设置；初始化 CI 两项检查均成功，绑定的 GitHub Actions App ID 为 15368。网站工程仍未建立，Pages 尚未部署。
+2026-10-07 已通过官方 API 应用并读回下列设置；初始化 CI 两项检查均成功，绑定的 GitHub Actions App ID 为 15368。Astro 基础工程正在功能分支建立，Pages 尚未部署。
 
 | 设置 | 本阶段期望值 |
 | --- | --- |
