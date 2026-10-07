@@ -26,13 +26,14 @@ GitHub 的触发方式、各 job 和本地检查命令见[工作流说明](docs/
 - 文档目录整理日期：2026-10-07；原规划基线日期：2026-10-03。
 - 已完成 8 份规划文档：页面规格、概念施工说明、小步迭代工作流、设计规范 v0.1、复用与素材来源，以及技术方案、技术实施计划、技术调研来源。已核算规范色值的静态对比度；真实合成画面仍待原型验证。
 - T01 Astro 基础工程已建立，T04 的 Starlight/博客组合与本地生产构建通过。U01 四入口与学习阅读旅程已核验，实际截图与限制见[迭代记录](docs/design/iterations/u01-p01-2026-10-07-01.md)；其余功能和设计进度以两侧计划为准。
-- 根目录 package.json 管理网站命令与锁定依赖，`tools/ci/package.json` 单独管理仓库校验。主站为静态 Astro 页面，知识阅读与搜索沿用 Starlight，当前内容均明确标为演示。
+- 根目录 package.json 管理网站命令与锁定依赖，`tools/ci/package.json` 单独管理仓库校验。主站为静态 Astro 页面，知识阅读与搜索沿用 Starlight。
 - T07.01 学习类型筛选已实现并通过执行者验证，待用户体验；选择资料、文章、笔记只显示对应条目，类型参数支持刷新和前进后退。[本轮记录与证据](docs/design/iterations/u09-p03-t07-01-2026-10-07-01.md)和[所需设计资源](docs/design/REFERENCES.md#t0701-学习类型筛选资源清单)已登记，新增下载素材及依赖均为 0。
 - 已创建并上传公开仓库 [0ne-small-stone/personal-homepage](https://github.com/0ne-small-stone/personal-homepage)。main 已保护，PR 必须通过仓库与工作流检查后 Squash 合并；Issues/Discussions 已开启，Wiki 已关闭。
 - Astro 工程已接入现有 CI，[草稿 PR #2](https://github.com/0ne-small-stone/personal-homepage/pull/2) 的首次 Actions 仓库、语法和 Astro 构建全部通过，main 已要求三项检查。Pages 来源已设为 GitHub Actions，PR 不部署，网站尚未上线。
 - GitHub 登录身份及本机 Git 凭证均核对为 `0ne-small-stone`；可通过 Git/官方 API 管理仓库。GitHub 插件的目标仓库 App 授权仍待补充，不影响本次 Git 接入。
 - 已有本地素材：大二上学习资源目录；本次检查为 38 个文件（36 PDF、2 TXT），共约 507.9 MiB。文件保持原目录，大小与存储边界见技术方案。
-- 正式学习资料、作品与个人内容尚未导入；CMS、Giscus、音乐同步、棱镜场景和 AI 功能均未接入。
+- T06.02 已分类接入六个科目的 34 条资料与 5 条笔记收藏，来源为 36 PDF 与 2 TXT（含三个外部笔记链接）。PDF 只接入元信息，原件完整保留；外部笔记保留原作者与原站入口。三条结构演示转为草稿。[分类清单](docs/technical/content/LEARNING_MATERIALS.md)可逐项核对。
+- PDF 附件、作品与其他个人内容尚未接入；CMS、Giscus、音乐同步、棱镜场景和 AI 功能均未接入。
 - 文档中的技术候选、内容模型和目录结构是拟实施方案。
 
 ## 本地预览与验收
@@ -44,7 +45,7 @@ npm ci --no-audit --no-fund
 npm run dev
 ```
 
-打开 `http://localhost:4321/personal-homepage/`。当前提供四组首页入口、学习总览、资料/笔记/文章演示，以及其他页面的待配置状态；没有课程、学习路线或知识关系图。
+打开 `http://localhost:4321/personal-homepage/`。本分支提供四组首页入口、学习总览、已分类资料及笔记收藏，以及其他页面的待配置状态；没有课程、学习路线或知识关系图。
 
 验收搜索时使用生产预览，Pagefind 由 Starlight 在构建中生成：
 
@@ -63,13 +64,15 @@ npm run preview -- status
 
 停止后台预览用 `npm run preview -- stop`。后台预览仍读取 `dist/`；修改页面后重新构建即可查看新产物。
 
-可以先走“首页 → 学习 → 资料 → 笔记 → 文章”，再试搜索“演示”、浏览器返回、深链刷新和手机宽度。按[设计计划](docs/design/PLAN.md)每轮记录一个主要变量，CI 检查与实际体验分别验收。
+可以先走“首页 → 学习 → 展开科目 → 资料信息 / 笔记原站入口”，再试搜索“概率论”或“NoughtQ”、浏览器返回、深链刷新和手机宽度。按[设计计划](docs/design/PLAN.md)每轮记录一个主要变量，CI 检查与实际体验分别验收。
 
-2026-10-07 T07.01 独立验证地址为 `http://127.0.0.1:4322/personal-homepage/knowledge/`。选择资料、文章、笔记各显示 1 条演示，全部显示 3 条；刷新、复制参数地址及前进后退保持类型。该切片在独立工作目录后台预览，保留原 4321 基础预览；恢复该预览时在切片目录运行 `npm run preview -- --background --host 127.0.0.1 --port 4322`。
+2026-10-07 当前独立验证地址为 `http://127.0.0.1:4322/personal-homepage/knowledge/`。T06.02 接入后，资料为 34 条、笔记为 5 条、全部为 39 条，文章当前为空；刷新、复制参数地址及前进后退保持 T07.01 类型状态。展开目录的“学习资料”和“笔记”按科目核对，再从条目进入同科目内容。独立工作目录后台预览保留原 4321 基础预览；恢复时在切片目录运行 `npm run preview -- --background --host 127.0.0.1 --port 4322`。
+
+资料分类使用 `docs/technical/content/learning-materials.json` 保存来源、稳定 ID、大小、页数与 SHA-256。运行 `npm run content:import` 可重复生成原生 Markdown 条目与分类清单；追加 `-- --source <原始资料目录>` 核对原件。导入只读取原件，不移动、改名或复制 PDF。此次接入没有新增依赖。
 
 ## 从哪里开始
 
-后续 AI 先读 AGENTS.md，再读技术方案和技术实施计划。当前工程已初始化；从[单页与跨页开发盘点](docs/technical/PLAN.md#页面与跨页开发盘点2026-10-07)领取一个可独立验收的切片。T07.01 已交付供用户体验，其他切片按用户后续范围领取。平台授权、域名和音乐账号配置在对应功能需要时解决。
+后续 AI 先读 AGENTS.md，再读技术方案和技术实施计划。当前工程已初始化；从[单页与跨页开发盘点](docs/technical/PLAN.md#页面与跨页开发盘点2026-10-07)领取一个可独立验收的切片。T07.01 与 T06.02 已交付供用户体验，PDF 附件仍归 T06.01/T08.01，其他切片按用户后续范围领取。平台授权、域名和音乐账号配置在对应功能需要时解决。
 
 涉及页面与交互时，按下面的最短路径施工：
 
