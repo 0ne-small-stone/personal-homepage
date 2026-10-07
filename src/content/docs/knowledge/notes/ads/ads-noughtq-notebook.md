@@ -5,6 +5,7 @@ entryId: note-ads-noughtq-notebook
 kind: note
 topics: ["高级数据结构与算法分析"]
 related: ["resource-ads-2024-handout","note-ads-algorithms-notes"]
+tableOfContents: false
 sidebar:
   order: 100
 source:

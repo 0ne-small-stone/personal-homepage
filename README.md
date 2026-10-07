@@ -32,8 +32,8 @@ GitHub 的触发方式、各 job 和本地检查命令见[工作流说明](docs/
 - Astro 工程已接入现有 CI，[草稿 PR #2](https://github.com/0ne-small-stone/personal-homepage/pull/2) 的首次 Actions 仓库、语法和 Astro 构建全部通过，main 已要求三项检查。Pages 来源已设为 GitHub Actions，PR 不部署，网站尚未上线。
 - GitHub 登录身份及本机 Git 凭证均核对为 `0ne-small-stone`；可通过 Git/官方 API 管理仓库。GitHub 插件的目标仓库 App 授权仍待补充，不影响本次 Git 接入。
 - 已有本地素材：大二上学习资源目录；本次检查为 38 个文件（36 PDF、2 TXT），共约 507.9 MiB。文件保持原目录，大小与存储边界见技术方案。
-- T06.02 已分类接入六个科目的 34 条资料与 5 条笔记收藏，来源为 36 PDF 与 2 TXT（含三个外部笔记链接）。PDF 只接入元信息，原件完整保留；外部笔记保留原作者与原站入口。三条结构演示转为草稿。[分类清单](docs/technical/content/LEARNING_MATERIALS.md)可逐项核对。
-- PDF 附件、作品与其他个人内容尚未接入；CMS、Giscus、音乐同步、棱镜场景和 AI 功能均未接入。
+- T06.02 已分类接入六个科目的 34 条资料与 5 条笔记收藏，来源为 36 PDF 与 2 TXT（含三个外部笔记链接）。T08.01 接入本地 PDF 直接阅读和外部笔记直接跳转；原件完整保留，三条结构演示保持草稿。[分类清单](docs/technical/content/LEARNING_MATERIALS.md)可逐项核对。
+- 公开 PDF 附件存储、作品与其他个人内容尚未接入；CMS、Giscus、音乐同步、棱镜场景和 AI 功能均未接入。当前 4322 可阅读本地 PDF，不能当作网上附件已发布。
 - 文档中的技术候选、内容模型和目录结构是拟实施方案。
 
 ## 本地预览与验收
@@ -64,15 +64,25 @@ npm run preview -- status
 
 停止后台预览用 `npm run preview -- stop`。后台预览仍读取 `dist/`；修改页面后重新构建即可查看新产物。
 
-可以先走“首页 → 学习 → 展开科目 → 资料信息 / 笔记原站入口”，再试搜索“概率论”或“NoughtQ”、浏览器返回、深链刷新和手机宽度。按[设计计划](docs/design/PLAN.md)每轮记录一个主要变量，CI 检查与实际体验分别验收。
+可以先走“首页 → 学习 → 展开科目 → PDF 直接阅读 / 笔记原站”，再试搜索“概率论”或“NoughtQ”、浏览器返回、深链刷新和手机宽度。按[设计计划](docs/design/PLAN.md)每轮记录一个主要变量，CI 检查与实际体验分别验收。
 
 2026-10-07 当前独立验证地址为 `http://127.0.0.1:4322/personal-homepage/knowledge/`。T06.02 接入后，资料为 34 条、笔记为 5 条、全部为 39 条，文章当前为空；刷新、复制参数地址及前进后退保持 T07.01 类型状态。展开目录的“学习资料”和“笔记”按科目核对，再从条目进入同科目内容。独立工作目录后台预览保留原 4321 基础预览；恢复时在切片目录运行 `npm run preview -- --background --host 127.0.0.1 --port 4322`。
 
-资料分类使用 `docs/technical/content/learning-materials.json` 保存来源、稳定 ID、大小、页数与 SHA-256。运行 `npm run content:import` 可重复生成原生 Markdown 条目与分类清单；追加 `-- --source <原始资料目录>` 核对原件。导入只读取原件，不移动、改名或复制 PDF。此次接入没有新增依赖。
+资料分类使用 `docs/technical/content/learning-materials.json` 保存来源、稳定 ID、大小、页数与 SHA-256。运行 `npm run content:import` 可重复生成原生 Markdown 条目与分类清单；追加 `-- --source <原始资料目录>` 核对原件。导入只读取原件，不移动、改名或复制 PDF。
+
+本地 PDF 阅读另运行以下步骤；副本与原件 SHA-256 一致，副本目录被 Git 忽略。项目根目录没有原始资料时，第一步追加 `-- --source <原始资料目录>`：
+
+```powershell
+npm run materials:prepare
+npm run build
+node tools/ci/dist.mjs --local-preview
+```
+
+阅读器复用 [PDF.js 官方发行版](public/pdfjs/README.md)，直接显示当前条目，保留翻页、缩放、文字层搜索和下载。PDF 缺失时显示待配置状态；读取失败可重试；关闭 JavaScript 后可打开原文件。附件不在 CI 检出内容中，默认产物检查拒绝 `local-materials`，避免本地预览副本误上传。[T08.01 实际记录](docs/technical/iterations/t08-01-2026-10-07.md)包含浏览器证据及公开存储边界。
 
 ## 从哪里开始
 
-后续 AI 先读 AGENTS.md，再读技术方案和技术实施计划。当前工程已初始化；从[单页与跨页开发盘点](docs/technical/PLAN.md#页面与跨页开发盘点2026-10-07)领取一个可独立验收的切片。T07.01 与 T06.02 已交付供用户体验，PDF 附件仍归 T06.01/T08.01，其他切片按用户后续范围领取。平台授权、域名和音乐账号配置在对应功能需要时解决。
+后续 AI 先读 AGENTS.md，再读技术方案和技术实施计划。当前工程已初始化；从[单页与跨页开发盘点](docs/technical/PLAN.md#页面与跨页开发盘点2026-10-07)领取一个可独立验收的切片。T07.01、T06.02 与 T08.01 本地阅读已交付供用户体验，公开附件存储仍归 T06.01，其他切片按用户后续范围领取。平台授权、域名和音乐账号配置在对应功能需要时解决。
 
 涉及页面与交互时，按下面的最短路径施工：
 

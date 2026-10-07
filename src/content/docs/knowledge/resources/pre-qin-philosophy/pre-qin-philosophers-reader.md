@@ -5,6 +5,7 @@ entryId: resource-pre-qin-philosophers-reader
 kind: resource
 topics: ["先秦哲学"]
 related: []
+tableOfContents: false
 sidebar:
   order: 100
 source:
@@ -30,9 +31,9 @@ source:
 | 大小 | 49.02 MiB（51,404,780 字节） |
 | 页数 | 349 |
 | 作者 | 何善蒙（原文件名标注） |
-| 附件状态 | 原件保留在本地，网页附件尚未接入 |
+| 阅读方式 | 页面内 PDF 阅读器；附件缺失时显示实际待配置状态 |
 
-当前可核对资料信息。完成附件接入后，才会提供阅读与下载入口。
+原文件保持完整；阅读器支持翻页、缩放和下载。扫描 PDF 能否搜索文字取决于原件是否含文字层。
 
 ## 同科目内容
 

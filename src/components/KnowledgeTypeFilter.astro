@@ -27,7 +27,7 @@ const types = [
         {entry.data.source?.format === 'pdf' && ` · PDF · ${((entry.data.source.bytes ?? 0) / 1024 / 1024).toFixed(2)} MiB · ${entry.data.source.pages} 页`}
         {entry.data.source?.format === 'link' && ` · 外部笔记 · ${entry.data.source.author}`}
       </div>
-      <a href={sitePath(entry.id)}>{entry.data.title}</a>
+      <a href={entry.data.source?.format === 'link' ? entry.data.source.url : sitePath(entry.id)}>{entry.data.title}</a>
       <p>{entry.data.description}</p>
     </li>)}
   </ul>

@@ -92,6 +92,8 @@ Waline 曾作为匿名留言候选。当前用户已接受 Giscus，Waline 不�
 
 ## 部署和文件限制
 
+2026-10-07 T08.01：复用 [PDF.js 官方 generic 发行版](https://mozilla.github.io/pdf.js/getting_started/)及[官方 6.4.299 附件](https://github.com/mozilla/pdf.js/releases/download/v6.4.299/pdfjs-6.4.299-dist.zip)，Apache-2.0；运行代码、worker、CMap/字体、WASM 与本地语言完整接入，来源校验见 [vendor 登记](../../public/pdfjs/README.md)。成熟阅读器已覆盖分页、缩放、搜索、下载；适配代码只承接结构化来源 ID、当前条目 iframe、加载/失败反馈和本地副本准备，不重写 PDF 渲染。PDF 全文未进入 Pagefind，扫描文件无文字层时不提供 OCR 搜索。
+
 2026-10-07 仓库管理规范依据：[Issue/PR 模板](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)、[Issue 表单语法](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)、[仓库 REST API](https://docs.github.com/en/rest/repos/repos)、[分支保护 API](https://docs.github.com/en/rest/branches/branch-protection)、[Actions 权限 API](https://docs.github.com/en/rest/actions/permissions)与[Pages 设置 API](https://docs.github.com/en/rest/pages/pages)。本地模板和期望值已建立，实际设置必须应用后读回验证，记录在技术计划。
 
 2026-10-07 用户已选择 GitHub Pages。本轮工作流相关来源如下；当前检查工具已在本地安装验证，远程运行与网站发布仍待接入。

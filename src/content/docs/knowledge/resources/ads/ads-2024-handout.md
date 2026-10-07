@@ -5,6 +5,7 @@ entryId: resource-ads-2024-handout
 kind: resource
 topics: ["高级数据结构与算法分析"]
 related: ["note-ads-algorithms-notes","note-ads-noughtq-notebook"]
+tableOfContents: false
 sidebar:
   order: 100
 source:
@@ -30,9 +31,9 @@ source:
 | 大小 | 4.47 MiB（4,688,055 字节） |
 | 页数 | 177 |
 | 作者 | 吴一航（wyy） |
-| 附件状态 | 原件保留在本地，网页附件尚未接入 |
+| 阅读方式 | 页面内 PDF 阅读器；附件缺失时显示实际待配置状态 |
 
-当前可核对资料信息。完成附件接入后，才会提供阅读与下载入口。
+原文件保持完整；阅读器支持翻页、缩放和下载。扫描 PDF 能否搜索文字取决于原件是否含文字层。
 
 ## 同科目内容
 

@@ -5,6 +5,7 @@ entryId: resource-physics-chapter-14
 kind: resource
 topics: ["大学物理Ⅱ"]
 related: ["resource-physics-chapter-9","resource-physics-electrostatics-alt","resource-physics-chapter-10","resource-physics-chapter-11","resource-physics-chapter-12","resource-physics-chapter-13","resource-physics-chapter-15","resource-physics-chapter-16","resource-physics-chapter-17","resource-physics-chapter-18","resource-physics-chapter-19","resource-physics-chapter-20","resource-physics-chapter-21","resource-physics-chapter-22","resource-physics-chapter-23","resource-engineering-physics-third-edition"]
+tableOfContents: false
 sidebar:
   order: 14
 source:
@@ -29,9 +30,9 @@ source:
 | 大小 | 0.57 MiB（599,973 字节） |
 | 页数 | 7 |
 | 作者 | 未明确标注 |
-| 附件状态 | 原件保留在本地，网页附件尚未接入 |
+| 阅读方式 | 页面内 PDF 阅读器；附件缺失时显示实际待配置状态 |
 
-当前可核对资料信息。完成附件接入后，才会提供阅读与下载入口。
+原文件保持完整；阅读器支持翻页、缩放和下载。扫描 PDF 能否搜索文字取决于原件是否含文字层。
 
 ## 同科目内容
 

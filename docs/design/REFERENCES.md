@@ -79,6 +79,8 @@ React Bits 当前许可为 [MIT 加 Commons Clause](https://github.com/DavidHDev
 
 ## 素材登记字段
 
+2026-10-07 T08.01 已采用 [Mozilla PDF.js 官方 generic viewer](https://mozilla.github.io/pdf.js/getting_started/)，版本 6.4.299、Apache-2.0；保留附带图标、字体、CMap 与语言文件及版权声明。来源附件、SHA-256、排除文件和改造范围见 [工程资源登记](../../public/pdfjs/README.md)。仅适配工具栏主题、焦点、减少动画和手机换行；未新增插图或自研渲染引擎。本地 PDF 来自完整原件的校验副本，外部笔记保留作者并直接跳转，不转载。实际接入见 [U09 阅读迭代](iterations/u09-p05-t08-01-2026-10-07-01.md)。
+
 正式采用素材时，最少记录以下信息；候选阶段允许缺项，并明确标注尚未选用。
 
 | 字段 | 内容 |

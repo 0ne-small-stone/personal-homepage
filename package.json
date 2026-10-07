@@ -6,6 +6,7 @@
   "engines": { "node": ">=24 <25" },
   "scripts": {
     "content:import": "node tools/content/import-learning.mjs",
+    "materials:prepare": "node tools/content/prepare-local-materials.mjs",
     "dev": "astro dev",
     "check": "astro check",
     "build": "astro build",
