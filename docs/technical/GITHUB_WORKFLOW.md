@@ -1,6 +1,6 @@
 # GitHub 工作流说明
 
-更新：2026-10-07。发布目标已由用户选择为 GitHub Pages；公开仓库 [0ne-small-stone/personal-homepage](https://github.com/0ne-small-stone/personal-homepage) 已创建。本地 Git、工作流配置、校验工具与仓库管理模板已建立，Pages 设置和真实运行进度见技术计划；Astro 网站工程尚未完成。
+更新：2026-10-07。发布目标已由用户选择为 GitHub Pages；公开仓库 [0ne-small-stone/personal-homepage](https://github.com/0ne-small-stone/personal-homepage) 已创建并上传。仓库与工作流语法检查已在 GitHub 通过，Pages 来源与 main 保护已应用并读回；Astro 网站工程尚未建立，构建与部署明确跳过，网站尚未上线。
 
 账号连接已完成：2026-10-07 通过 GitHub 连接读取个人资料与实际登录身份，均核对为 `0ne-small-stone`；本机 Git Credential Manager 凭证也通过官方 API 核对同一身份，可用于 Git 推送与仓库管理。插件的仓库 App 安装列表尚未返回目标账号；仅该插件的仓库能力需补充授权，不阻止本次通过 Git 和官方 API 接入。凭证只在进程内使用，不写入仓库。
 
@@ -45,10 +45,10 @@ flowchart LR
 
 | job | 执行内容 | 当前状态 |
 | --- | --- | --- |
-| Repository checks | checkout → Node → 安装校验工具 → 文件和文档检查 → 测试 → 工程状态判断 | 可在文档阶段执行，已本地验证 |
-| Workflow syntax | 使用 actionlint 官方容器检查 YAML、Actions 表达式和 job 依赖 | 工作流文件已用官方便携工具本地检查 |
+| Repository checks | checkout → Node → 安装校验工具 → 文件和文档检查 → 测试 → 工程状态判断 | 本地与首轮 GitHub Actions 均通过 |
+| Workflow syntax | 使用 actionlint 官方容器检查 YAML、Actions 表达式和 job 依赖 | 本地便携工具与首轮 GitHub 官方容器检查均通过 |
 | Astro build | 安装网站依赖 → `npm run check` → `npm run build` → 核验 `dist/` → 上传 Pages 产物 | 等待完整 Astro 工程；尚未运行网站构建 |
-| Deploy to GitHub Pages | 获取当前成功构建的产物，通过官方 deploy-pages 发布，返回实际站点地址 | 等待远程仓库、Pages 配置和成功构建；尚未发布 |
+| Deploy to GitHub Pages | 获取当前成功构建的产物，通过官方 deploy-pages 发布，返回实际站点地址 | Pages 来源已配置；等待网站工程和成功构建，首轮跳过，尚未发布 |
 
 构建使用官方 checkout、setup-node、upload-pages-artifact；部署使用 deploy-pages。Actions 固定到已核对的提交 SHA，由 Dependabot 维护更新。主流程只授予仓库读取权限；部署 job 单独获得 `pages: write` 和 `id-token: write`。PR 不执行部署。
 
@@ -93,11 +93,11 @@ export default defineConfig({
 
 站内链接、素材路径和搜索资源应适配 `base`，实施时核验深层地址、刷新、404 和 Pagefind。知识库及 CMS 接入后，内容字段、草稿排除、资源派生与关系索引校验加入现有原生构建流程。
 
-## GitHub 端还需要什么
+## GitHub 端配置与后续接入
 
 1. 公开仓库已创建。GitHub Free 的 Pages 需要公开仓库；公开仓库中的代码和文档也能被任何人读取。[GitHub Pages 使用条件](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages)
-2. 把允许上传的文件提交到 `main` 并连接实际远程地址。Git 文件清单会排除原始学习资料及本地依赖。
-3. 在仓库 `Settings → Pages` 中把 Source 设为 `GitHub Actions`。网站工程完成后，主流程会执行实际部署。[Astro 官方部署说明](https://docs.astro.build/en/guides/deploy/github/)
-4. 第一轮运行成功后，按[仓库管理规范](REPOSITORY_CONVENTIONS.md)启用分支保护。网站工程未初始化时 build 为跳过，当前只要求 `Repository checks`、`Workflow syntax`；工程建立并实际构建成功后再加入 `Astro build`。设置应用和读回结果见技术计划。
+2. 已将 32 个允许公开的文件提交到 `main`，本地 origin 已连接实际地址。Git 文件清单排除原始学习资料及本地依赖。
+3. Pages 的 Source 已通过官方 API 设为 `GitHub Actions` 并读回为 `workflow`。网站工程完成后，主流程才会执行实际部署。[Astro 官方部署说明](https://docs.astro.build/en/guides/deploy/github/)
+4. [首轮运行](https://github.com/0ne-small-stone/personal-homepage/actions/runs/37596208177)成功后已启用 main 保护，必需检查为 `Repository checks`、`Workflow syntax`，绑定实际 GitHub Actions App。工程建立并实际构建成功后再加入 `Astro build`。设置应用和读回结果见技术计划。
 
 Giscus 授权、CMS 字段、音乐同步与 AI 服务仍由各自技术任务实现。这些服务不因 CI 文件创建而自动接入，也不在本次工作流中使用它们的凭证。

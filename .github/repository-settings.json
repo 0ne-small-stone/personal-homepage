@@ -19,10 +19,9 @@
   "branchProtection": {
     "required_status_checks": {
       "strict": true,
-      "contexts": [],
       "checks": [
-        { "context": "Repository checks" },
-        { "context": "Workflow syntax" }
+        { "context": "Repository checks", "app_id": 15368 },
+        { "context": "Workflow syntax", "app_id": 15368 }
       ]
     },
     "enforce_admins": true,

@@ -73,4 +73,4 @@
 
 ## 当前事实
 
-2026-10-07：8 份规划文档已按设计、技术两类整理，另有 `docs/README.md` 维护对应关系。已初始化本地 Git `main`，建立 `.github/workflows/site.yml` 和 `tools/ci/` 校验工具；根目录 Astro 工程及其 package.json 尚未创建。用户选择 GitHub Pages，并授权自主创建个人主页仓库和管理规范；公开仓库 `0ne-small-stone/personal-homepage` 已创建，目录与提交规则、PR/Issue 模板已建立。实际远程设置、上传和 CI 结果见技术计划，不能凭配置文件判断已上线。T01 仅完成 Git 与工具准备，T15 已建立本地配置，其他技术任务及 U01–U14 未开始。原始学习资料为 38 个文件（36 PDF、2 TXT），共约 507.9 MiB，由 `.gitignore` 排除且完整保留。本地检查命令与接入条件见 [GitHub 工作流说明](docs/technical/GITHUB_WORKFLOW.md)。后续任务开始前重新检查，避免覆盖用户新增内容。
+2026-10-07：8 份规划文档已按设计、技术两类整理，另有 `docs/README.md` 维护对应关系。已初始化本地 Git `main`，建立 `.github/workflows/site.yml` 和 `tools/ci/` 校验工具；根目录 Astro 工程及其 package.json 尚未创建。用户选择 GitHub Pages，并授权自主创建个人主页仓库和管理规范；公开仓库 `0ne-small-stone/personal-homepage` 已创建，目录与提交规则、PR/Issue 模板已建立。实际远程设置、上传和 CI 结果见技术计划，不能凭配置文件判断已上线。T01 仅完成 Git 与工具准备，T15 已建立并验证仓库 CI，T16 仅完成 Pages 来源设置，网站工程、功能与设计任务的后续进度以对应计划为准。原始学习资料为 38 个文件（36 PDF、2 TXT），共约 507.9 MiB，由 `.gitignore` 排除且完整保留。本地检查命令与接入条件见 [GitHub 工作流说明](docs/technical/GITHUB_WORKFLOW.md)。后续任务开始前重新检查，避免覆盖用户新增内容。

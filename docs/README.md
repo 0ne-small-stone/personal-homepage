@@ -16,7 +16,9 @@ docs/
 └── technical/                架构、数据、服务、工程与技术验证
     ├── SPEC.md               技术方案与功能需求（R01–R13）
     ├── PLAN.md               实施任务与技术验收（T01–T29）
-    └── REFERENCES.md         官方文档、候选依赖与平台约束
+    ├── REFERENCES.md         官方文档、候选依赖与平台约束
+    ├── GITHUB_WORKFLOW.md    CI、构建与 Pages 接入
+    └── REPOSITORY_CONVENTIONS.md  仓库、目录、命名与提交规则
 ```
 
 同名文件承担相同层级的职责：`SPEC.md` 定义目标与边界，`PLAN.md` 定义执行与验收，`REFERENCES.md` 保存来源与候选。设计专用的概念和统一参数由技术规格中的运行时、组件与资源约束承接。
