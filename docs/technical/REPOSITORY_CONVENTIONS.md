@@ -83,8 +83,8 @@ P、R、U、T 编号沿用现有文档；P04、P07 已停用，不重新分配�
 
 1. 根据实际问题建立 Issue；小型文档或维护修改可以直接开 PR。
 2. 从最新 `main` 建立一个范围明确的工作分支。
-3. 修改对应规范和实际文件，运行相关检查，向 `main` 提交 PR。
-4. PR 写明 P/R/U/T 编号、变更后的行为、真实验证和未完成项。
+3. 一轮实现一个可独立验收的小目标，大任务拆成切片；修改对应规范和实际文件，运行相关检查，向 `main` 提交 PR。
+4. 每个实现切片使用可定位的提交；PR 写明 P/R/U/T 编号、本轮目标、变更后的行为、复现入口/步骤、真实验证和未完成项，计划记录引用对应提交/PR与下一步。
 5. 必需检查通过、分支更新到最新 `main`、讨论解决后，以 Squash 合并并自动删除远程工作分支。
 
 分支格式为 `<类型>/<编号或范围>-<说明>`：`feature/t07-knowledge-overview`、`fix/pdf-download`、`design/u03-prism-motion`、`docs/repository-conventions`、`content/first-note`、`chore/update-ci-tools`。
