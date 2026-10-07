@@ -42,7 +42,7 @@
 
 ## 完整功能范围
 
-全部功能当前均未实现。下表定义完整目标，分阶段交付不代表放弃后续需求。R02、R09 和 R10 是同一个知识库的不同能力，共享数据和浏览入口。
+Astro 基础工程、演示知识浏览及原生搜索已有验证，完整业务目标尚未全部实现；实际进度与证据见[技术计划](PLAN.md)。下表定义完整目标，分阶段交付不代表放弃后续需求。R02、R09 和 R10 是同一个知识库的不同能力，共享数据和浏览入口。
 
 | 编号 | 功能 | 实现目标 |
 | --- | --- | --- |
@@ -96,7 +96,7 @@
 
 不以安装全部插件作为实施目标。按完整功能选用必要依赖，保留稳定、可维护的内容和页面结构。
 
-Starlight 已提供导航、搜索等基础能力；默认搜索由 Pagefind 实现。starlight-blog 在 Starlight 中补充博客功能，并通过扩展原生 docs schema 接入文章。以上能力已核对官方说明，插件组合在本项目中尚未安装或验证。[Starlight](https://starlight.astro.build/zh-cn/)、[搜索说明](https://starlight.astro.build/zh-cn/guides/site-search/)、[博客接入说明](https://starlight-blog-docs.vercel.app/getting-started/)。
+Starlight 已提供导航、搜索等基础能力；默认搜索由 Pagefind 实现。starlight-blog 在 Starlight 中补充博客功能，并通过扩展原生 docs schema 接入文章。基础组合已在本项目安装并通过类型检查、生产构建及演示浏览；版本以锁文件为准，完整筛选、引用和正式内容仍待接入。[Starlight](https://starlight.astro.build/zh-cn/)、[搜索说明](https://starlight.astro.build/zh-cn/guides/site-search/)、[博客接入说明](https://starlight-blog-docs.vercel.app/getting-started/)。
 
 ## 页面组织建议
 
@@ -252,7 +252,7 @@ Git LFS 或 GitHub Releases 是可研究的分发方式，但不会自动解决�
 
 2026-10-07 已搭建 GitHub Actions，发布目标为 GitHub Pages，公开仓库 `0ne-small-stone/personal-homepage` 已创建并上传，仓库 CI 已通过。使用一个主工作流串联仓库检查、网站构建和 Pages 发布，复用官方 checkout、setup-node、upload-pages-artifact 与 deploy-pages；安装采用 `npm ci` 和已提交的锁文件。文档校验复用 remark、unified-engine 与链接校验插件，工作流语法复用 actionlint。当前无 Astro 工程时明确跳过网站构建与发布；工程完整后才自动启用，缺失锁文件或检查命令视为错误。只有默认分支的成功构建可以发布。
 
-原始学习资料目录保持本地保存并由 `.gitignore` 排除。少量适配代码仅检查本项目的文件纳入边界、工程是否就绪与静态产物，不重写 Markdown 解析、工作流语法分析、框架构建或 Pages 部署。CMS、图片/PDF 派生、知识引用及 Pagefind 的真实集成仍在各自任务完成后接入原生构建流程。
+原始学习资料目录保持本地保存并由 `.gitignore` 排除。少量适配代码仅检查本项目的文件纳入边界、工程是否就绪与静态产物，不重写 Markdown 解析、工作流语法分析、框架构建或 Pages 部署。Pagefind 已由 Starlight 原生构建生成；CMS、图片/PDF 派生及自动知识关联仍待各自任务接入原生流程。
 
 复用取舍：withastro/action 已提供完整的 Astro/Pages 接入，但当前项目需要显式执行 `npm ci`、独立类型检查与产物检查，因此组合 GitHub 官方 Actions。remark CLI 的实装依赖审计发现文件监听依赖链的已知漏洞；本项目不需要监听功能，改为直接调用其底层 unified-engine，以少量入口配置保留跨文档链接与锚点校验。Git 纳入文件与产物规则是现成工具没有表达的项目边界，适配仅覆盖这些规则。
 
