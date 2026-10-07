@@ -2,7 +2,23 @@
 
 文档对应（2026-10-07 整理）：本文件为设计侧 `REFERENCES.md`，对应[技术调研与候选方案](../technical/REFERENCES.md)。本文维护体验参考、素材许可与改造范围，技术侧维护依赖能力和运行条件；职责与任务映射见[文档对应表](../README.md)。
 
-更新日期：2026-10-07。本文为[整体页面与交互设计](SPEC.md)提供可追溯的设计参考、组件候选和素材来源。记录的是调研结果与拟采用方式；下列代码尚未接入项目，素材尚未下载或用于正式页面。
+更新日期：2026-10-07。本文为[整体页面与交互设计](SPEC.md)提供可追溯的设计参考、组件候选和素材来源。未列实际采用及验证记录的代码、素材仍为候选，不能视为已接入项目或正式页面。
+
+## T07.01 学习类型筛选资源清单
+
+2026-10-07：本轮只实现 P03 的类型筛选，复用现有页面、文字、系统字体和主题变量。新增下载素材与 npm 依赖均为 0。下面的资源用于 K01 类型选择和 K02 清空；图片、墙材、棱镜、图标、音频及新字体不属于此切片的资源需求。
+
+| 资源 ID | 资源与来源 | 本轮用途与采用边界 |
+| --- | --- | --- |
+| `filter-native-radio` | 浏览器原生 [radio 单选输入](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/radio) | 用 fieldset/legend 与可见标签表达单选；保留浏览器键盘行为。不是下载素材，无第三方控件代码拷贝 |
+| `filter-theme-tokens` | [设计规范](SYSTEM.md)与现有 `src/styles/tokens.css`、`src/styles/knowledge.css` | 复用深浅主题、边界、焦点、间距、控件尺寸；选中同时使用原生圆点、边界与字重，不另定配色 |
+| `filter-system-font` | 现有正文系统字体栈 | 控件及状态文案沿用正文；不下载或嵌入新字体 |
+| `filter-type-copy` | 既有资料／文章／笔记类型，新增“全部”、类型分组名称、结果数量及空结果说明 | 类型名称读取现有 kindLabels；清空通过选择“全部”完成；本轮不替换栏目命名或歌词 |
+| `filter-demo-content` | `src/content/docs/knowledge/` 中现有三条已发布演示内容 | 实际验证三类结果；保留演示标识，不导入原始资料，不伪装为真实用户内容 |
+
+复用取舍：本机 Starlight 0.42.5 的 `dist/user-components/Tabs.astro` 提供面板切换和可选 localStorage 同步，并未提供同一列表按类型及 URL 参数筛选。若把“全部”和三个类型分别作为面板会复制条目。因此保留同一批静态列表，以原生单选和 [Astro 客户端脚本／自定义元素](https://docs.astro.build/en/guides/client-side-scripts/#web-components-with-custom-elements)补最小筛选与历史恢复逻辑；组件连接时注册事件、移除时释放。本轮不接入 React、额外 UI 库或新路由方案。Starlight 和 Astro 的版本及许可见[技术采用记录](../technical/REFERENCES.md#t01-工程采用记录2026-10-07)。
+
+采用状态：上述五项已在 T07.01 实际使用；本地生产构建与浏览器验证通过，截图和限制见[U09 局部记录](iterations/u09-p03-t07-01-2026-10-07-01.md)。用户体验待反馈。
 
 ## 如何使用这份清单
 

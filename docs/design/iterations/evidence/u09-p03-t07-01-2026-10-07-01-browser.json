@@ -1,0 +1,188 @@
+{
+  "date": "2026-10-07",
+  "target": "http://127.0.0.1:4322/personal-homepage/knowledge/",
+  "task": "T07.01",
+  "browser": "Microsoft Edge (Playwright)",
+  "findings": [
+    {
+      "check": "全部及资料、文章、笔记逐项筛选",
+      "result": "pass",
+      "counts": {
+        "all": 3,
+        "resource": 1,
+        "article": 1,
+        "note": 1
+      }
+    },
+    {
+      "check": "参数地址、刷新与浏览器前进后退",
+      "result": "pass"
+    },
+    {
+      "check": "全部清空类型参数并恢复完整列表",
+      "result": "pass"
+    },
+    {
+      "check": "筛选只更新 type，保留其他参数和锚点",
+      "result": "pass"
+    },
+    {
+      "check": "三类可见条目的实际详情链接及基本返回",
+      "result": "pass"
+    },
+    {
+      "check": "未知类型回退及显式 all 地址",
+      "result": "pass"
+    },
+    {
+      "check": "原生方向键选择、焦点留在控件及可见轮廓",
+      "result": "pass"
+    },
+    {
+      "check": "桌面暗色与减少动画环境",
+      "result": "pass",
+      "metrics": {
+        "width": 1440,
+        "scroll": 1440,
+        "targets": [
+          {
+            "width": 87,
+            "height": 44
+          },
+          {
+            "width": 87,
+            "height": 44
+          },
+          {
+            "width": 87,
+            "height": 44
+          },
+          {
+            "width": 87,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "check": "768 宽",
+      "result": "pass",
+      "metrics": {
+        "width": 768,
+        "scroll": 768,
+        "targets": [
+          {
+            "width": 87,
+            "height": 44
+          },
+          {
+            "width": 87,
+            "height": 44
+          },
+          {
+            "width": 87,
+            "height": 44
+          },
+          {
+            "width": 87,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "check": "390 宽手机浅色",
+      "result": "pass",
+      "metrics": {
+        "width": 390,
+        "scroll": 390,
+        "targets": [
+          {
+            "width": 87,
+            "height": 44
+          },
+          {
+            "width": 87,
+            "height": 44
+          },
+          {
+            "width": 87,
+            "height": 44
+          },
+          {
+            "width": 87,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "check": "320 宽自然换行",
+      "result": "pass",
+      "metrics": {
+        "width": 320,
+        "scroll": 320,
+        "targets": [
+          {
+            "width": 87,
+            "height": 44
+          },
+          {
+            "width": 87,
+            "height": 44
+          },
+          {
+            "width": 87,
+            "height": 44
+          },
+          {
+            "width": 87,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "check": "手机横屏",
+      "result": "pass",
+      "metrics": {
+        "width": 844,
+        "scroll": 844,
+        "targets": [
+          {
+            "width": 87,
+            "height": 44
+          },
+          {
+            "width": 87,
+            "height": 44
+          },
+          {
+            "width": 87,
+            "height": 44
+          },
+          {
+            "width": 87,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "check": "无该类型的临时 DOM 样本：空结果、全部恢复、组件重连",
+      "result": "pass",
+      "fixtureOnly": true
+    },
+    {
+      "check": "禁用 JavaScript 时完整列表可读、隐藏不可用控件并说明",
+      "result": "pass"
+    },
+    {
+      "check": "脚本和本地资源错误",
+      "result": "pass",
+      "errors": []
+    }
+  ],
+  "errors": [],
+  "result": "passed"
+}

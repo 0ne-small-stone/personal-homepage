@@ -1,0 +1,90 @@
+---
+import { kindLabels, publishedKnowledge } from '../lib/knowledge';
+import { sitePath } from '../lib/paths';
+
+interface Props { entries: Awaited<ReturnType<typeof publishedKnowledge>>; }
+const { entries } = Astro.props;
+const types = [
+  { value: 'all', label: '全部' },
+  ...Object.entries(kindLabels).map(([value, label]) => ({ value, label })),
+];
+---
+<knowledge-type-filter>
+  <fieldset class="knowledge-type-controls" hidden data-pagefind-ignore>
+    <legend>内容类型</legend>
+    <div class="knowledge-type-options">
+      {types.map(({ value, label }) => <label class="knowledge-type-option">
+        <input type="radio" name="knowledge-type" value={value} data-label={label} checked={value === 'all'} />
+        <span>{label}</span>
+      </label>)}
+    </div>
+  </fieldset>
+  <p class="knowledge-result-status" role="status" aria-live="polite" aria-atomic="true" data-pagefind-ignore>全部：{entries.length} 条内容。</p>
+  <p class="knowledge-empty" hidden data-pagefind-ignore>当前类型暂无已发布内容。选择“全部”查看其他内容。</p>
+  <ul class="knowledge-list">
+    {entries.map((entry) => <li data-knowledge-kind={entry.data.kind}>
+      <div class="knowledge-meta">{kindLabels[entry.data.kind]} · {entry.data.topics.join(' / ')}{entry.data.example ? ' · 演示内容' : ''}</div>
+      <a href={sitePath(entry.id)}>{entry.data.title}</a>
+      <p>{entry.data.description}</p>
+    </li>)}
+  </ul>
+  <p class="knowledge-filter-fallback" data-pagefind-ignore>类型筛选暂不可用，当前仍可浏览全部内容。</p>
+</knowledge-type-filter>
+
+<script>
+  class KnowledgeTypeFilter extends HTMLElement {
+    private controller?: AbortController;
+
+    connectedCallback() {
+      if (this.controller && !this.controller.signal.aborted) return;
+      const fieldset = this.querySelector<HTMLFieldSetElement>('.knowledge-type-controls');
+      const status = this.querySelector<HTMLElement>('.knowledge-result-status');
+      const empty = this.querySelector<HTMLElement>('.knowledge-empty');
+      const fallback = this.querySelector<HTMLElement>('.knowledge-filter-fallback');
+      if (!fieldset || !status || !empty) return;
+
+      const controls = [...fieldset.querySelectorAll<HTMLInputElement>('input[type="radio"]')];
+      const items = [...this.querySelectorAll<HTMLLIElement>('.knowledge-list > li[data-knowledge-kind]')];
+      const allowedTypes = new Set(controls.map((control) => control.value));
+
+      const update = () => {
+        const requested = new URL(window.location.href).searchParams.get('type');
+        const invalid = requested !== null && !allowedTypes.has(requested);
+        const type = requested && allowedTypes.has(requested) ? requested : 'all';
+        let count = 0;
+        for (const item of items) {
+          item.hidden = type !== 'all' && item.dataset.knowledgeKind !== type;
+          if (!item.hidden) count++;
+        }
+        for (const control of controls) control.checked = control.value === type;
+        const label = controls.find((control) => control.checked)?.dataset.label ?? '全部';
+        status.textContent = `${invalid ? '未识别此类型，已显示全部内容。' : ''}${label}：${count} 条内容。`;
+        empty.hidden = count !== 0;
+      };
+
+      this.controller = new AbortController();
+      const { signal } = this.controller;
+      fieldset.addEventListener('change', (event) => {
+        const control = event.target;
+        if (!(control instanceof HTMLInputElement) || !allowedTypes.has(control.value)) return;
+        const url = new URL(window.location.href);
+        if (control.value === 'all') url.searchParams.delete('type');
+        else url.searchParams.set('type', control.value);
+        if (url.href !== window.location.href) window.history.pushState(window.history.state, '', url);
+        update();
+      }, { signal });
+      window.addEventListener('popstate', update, { signal });
+      update();
+      fieldset.hidden = false;
+      if (fallback) fallback.hidden = true;
+    }
+
+    disconnectedCallback() {
+      this.controller?.abort();
+    }
+  }
+
+  if (!customElements.get('knowledge-type-filter')) {
+    customElements.define('knowledge-type-filter', KnowledgeTypeFilter);
+  }
+</script>
