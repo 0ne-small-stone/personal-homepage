@@ -1,0 +1,22 @@
+# Local source materials: publish selected derivatives only.
+/大二上学习资源/
+
+# Dependencies and generated output.
+node_modules/
+/dist/
+/.astro/
+/coverage/
+*.log
+
+# Local credentials and editor files.
+.env
+.env.*
+!.env.example
+!.env.*.example
+.DS_Store
+Thumbs.db
+/.vscode/
+
+# Local CI tool downloads and temporary verification fixtures.
+/.local-tools/
+/.ci-tmp/

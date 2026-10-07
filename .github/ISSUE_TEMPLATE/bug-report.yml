@@ -1,0 +1,36 @@
+name: 故障报告
+description: 记录可复现的问题与实际环境
+title: '[Bug] '
+labels: [bug]
+body:
+  - type: input
+    id: scope
+    attributes:
+      label: 影响范围
+      description: 页面、控件、文件或工作流；有编号时填写 P/R/U/T。
+      placeholder: P05 资料详情 / PDF 下载
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 复现步骤
+      description: 从哪个页面或命令开始，做了哪些操作？
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: 预期与实际结果
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: 环境
+      placeholder: 浏览器、手机/桌面、系统，或 Actions 运行链接
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 截图或日志
+      description: 可附实际证据；提交前移除凭证和私人信息。

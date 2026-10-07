@@ -1,0 +1,40 @@
+name: 需求与变更
+description: 记录设计、技术或内容变更及验收目标
+title: '[Change] '
+labels: [enhancement]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: 主要领域
+      options:
+        - 设计与体验
+        - 技术与架构
+        - 内容与素材
+        - 仓库与 CI
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: 需要解决的问题
+      description: 写清使用场景与目标，区分提议与用户已确认的需求。
+    validations:
+      required: true
+  - type: input
+    id: references
+    attributes:
+      label: 对应依据
+      description: 相关 P/R/U/T 编号、规范或来源。
+  - type: textarea
+    id: reuse
+    attributes:
+      label: 现成方案与实际缺口
+      description: 按需要记录候选、已验证能力、许可与最小改造范围。
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 验收方式
+      description: 写明可观察的结果与验证方法；设计迭代注明本轮主要变量。
+    validations:
+      required: true

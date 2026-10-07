@@ -1,0 +1,19 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 3
+    groups:
+      actions:
+        patterns: ['*']
+
+  - package-ecosystem: npm
+    directory: /tools/ci
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 3
+    groups:
+      validation-tools:
+        patterns: ['*']

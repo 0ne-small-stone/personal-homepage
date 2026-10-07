@@ -1,0 +1,20 @@
+{
+  "name": "personal-homepage-ci",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "check": "npm run check:files && npm run check:docs",
+    "check:files": "node files.mjs",
+    "check:docs": "node docs.mjs",
+    "test": "node --test checks.test.mjs"
+  },
+  "devDependencies": {
+    "remark": "15.0.1",
+    "remark-gfm": "4.0.1",
+    "remark-validate-links": "13.1.0",
+    "unified-engine": "11.2.2"
+  }
+}
