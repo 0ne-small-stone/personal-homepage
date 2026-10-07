@@ -28,7 +28,7 @@ GitHub 的触发方式、各 job 和本地检查命令见[工作流说明](docs/
 - T01 Astro 基础工程已建立，T04 的 Starlight/博客组合与本地生产构建通过。U01 四入口与学习阅读旅程已核验，实际截图与限制见[迭代记录](docs/design/iterations/u01-p01-2026-10-07-01.md)；其余功能和设计进度以两侧计划为准。
 - 根目录 package.json 管理网站命令与锁定依赖，`tools/ci/package.json` 单独管理仓库校验。主站为静态 Astro 页面，知识阅读与搜索沿用 Starlight，当前内容均明确标为演示。
 - 已创建并上传公开仓库 [0ne-small-stone/personal-homepage](https://github.com/0ne-small-stone/personal-homepage)。main 已保护，PR 必须通过仓库与工作流检查后 Squash 合并；Issues/Discussions 已开启，Wiki 已关闭。
-- [首轮 GitHub Actions](https://github.com/0ne-small-stone/personal-homepage/actions/runs/37596208177) 的仓库与语法检查通过；Pages 来源已设为 GitHub Actions。Astro 工程已接入现有条件式构建，远程网站构建和正式部署状态以技术计划为准，网站尚未上线。
+- Astro 工程已接入现有 CI，[草稿 PR #2](https://github.com/0ne-small-stone/personal-homepage/pull/2) 的首次 Actions 仓库、语法和 Astro 构建全部通过，main 已要求三项检查。Pages 来源已设为 GitHub Actions，PR 不部署，网站尚未上线。
 - GitHub 登录身份及本机 Git 凭证均核对为 `0ne-small-stone`；可通过 Git/官方 API 管理仓库。GitHub 插件的目标仓库 App 授权仍待补充，不影响本次 Git 接入。
 - 已有本地素材：大二上学习资源目录；本次检查为 38 个文件（36 PDF、2 TXT），共约 507.9 MiB。文件保持原目录，大小与存储边界见技术方案。
 - 正式学习资料、作品与个人内容尚未导入；CMS、Giscus、音乐同步、棱镜场景和 AI 功能均未接入。

@@ -176,7 +176,9 @@ PDF 提取失败需要记录状态。扫描 PDF 的 OCR 可以作为后续增强
 
 最终本地检查：根锁文件 `npm ci` 成功，`npm --prefix tools/ci run check` 的 16 份文档链接与文件检查通过，5 项既有检查测试通过，actionlint 通过。第一次重装依赖因 Windows 预览进程占用原生模块失败，停止预览后重装成功；这是本机文件占用，未调整依赖版本或权限配置。
 
-当前完成：T01、T04 的 Astro/Starlight/博客基础组合。当前进行中：T02、T05、T07（入口已建，筛选 URL 未做）、T09（示例引用与草稿排除已验，反向引用与地址迁移未做）、T10（原生统一检索已验，类型/主题过滤与 PDF 全文未做）、T15（本地构建接入）、T16（Pages 来源已设置，网站部署与访问验证未执行）。
+远程验收：工程提交 `003f98928ea0a2e3e4560a7b1b10f121da4d8c09` 已推送至 `feature/t01-astro-foundation`，创建并附加 [草稿 PR #2](https://github.com/0ne-small-stone/personal-homepage/pull/2)。[Actions 37598839477](https://github.com/0ne-small-stone/personal-homepage/actions/runs/37598839477) 整体成功，Repository checks、Workflow syntax、Astro build 均 success，Deploy to GitHub Pages 为 skipped。网站尚未发布。按既有规范将 Astro build 加入 main 必需检查，官方 API 读回 strict=true、三项 checks 均绑定 GitHub Actions App 15368，其他保护保持原值。
+
+当前完成：T01、T04 的 Astro/Starlight/博客基础组合。当前进行中：T02、T05、T07（入口已建，筛选 URL 未做）、T09（示例引用与草稿排除已验，反向引用与地址迁移未做）、T10（原生统一检索已验，类型/主题过滤与 PDF 全文未做）、T15（本地与远程构建通过，正式发布待验）、T16（Pages 来源已设置，网站部署与访问验证未执行）。
 
 当前未开始：T03、T06、T08、T11–T14、T17–T29。PDF、真实内容、CMS、Giscus、音乐、空间动效、真机及大陆访问仍未验证，网站尚未上线。
 

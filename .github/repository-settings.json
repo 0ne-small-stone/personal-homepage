@@ -21,7 +21,8 @@
       "strict": true,
       "checks": [
         { "context": "Repository checks", "app_id": 15368 },
-        { "context": "Workflow syntax", "app_id": 15368 }
+        { "context": "Workflow syntax", "app_id": 15368 },
+        { "context": "Astro build", "app_id": 15368 }
       ]
     },
     "enforce_admins": true,

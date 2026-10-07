@@ -106,7 +106,7 @@ P、R、U、T 编号沿用现有文档；P04、P07 已停用，不重新分配�
 
 ## 检查、发布与资源边界
 
-PR 必需检查为 `Repository checks` 和 `Workflow syntax`。网站工程的 `Astro build` 在同一工作流中执行；远程首次成功后再将其加为必需检查，状态记录在技术 PLAN。不以跳过代替成功构建。
+PR 必需检查为 `Repository checks`、`Workflow syntax` 和 `Astro build`。2026-10-07 网站工程首次远程构建成功后，第三项已加入并读回，证据记录在技术 PLAN。不以跳过代替成功构建。
 
 ```powershell
 npm ci --prefix tools/ci --ignore-scripts --no-audit --no-fund
@@ -131,7 +131,7 @@ Actions 默认令牌只读，Pages 部署 job 单独申请 pages/id-token 写权
 | 可见性、默认分支 | public、main |
 | 合并 | 仅 Squash；合并后删除工作分支；自动合并关闭 |
 | 主分支保护 | 必须 PR；0 个强制审批；管理员同样受约束；不允许强推与删除；要求解决讨论与线性历史 |
-| 必需检查 | Repository checks、Workflow syntax；来源由已运行的 GitHub Actions 核对 |
+| 必需检查 | Repository checks、Workflow syntax、Astro build；来源由已运行的 GitHub Actions 核对，均绑定 App 15368 |
 | Actions 默认权限 | read；不允许 Actions 自动批准 PR |
 | Pages 来源 | GitHub Actions；无网站工程时不发布 |
 | Issues / Discussions / Wiki | 开启 / 开启（待接 Giscus）/ 关闭 |
