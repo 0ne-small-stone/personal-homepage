@@ -250,7 +250,7 @@ Git LFS 或 GitHub Releases 是可研究的分发方式，但不会自动解决�
 
 流水线目标为：内容编辑保存到 GitHub，Actions 校验内容与资源，生成图片派生版本、PDF 封面和统一知识关系，构建 Astro，基于产物生成搜索索引，再上传静态产物。
 
-2026-10-07 开始搭建 GitHub Actions，发布目标已选择 GitHub Pages，拟新建 `0ne-small-stone/personal-homepage`。使用一个主工作流串联仓库检查、网站构建和 Pages 发布，复用官方 checkout、setup-node、upload-pages-artifact 与 deploy-pages；安装采用 `npm ci` 和已提交的锁文件。文档校验复用 remark、unified-engine 与链接校验插件，工作流语法复用 actionlint。当前无 Astro 工程时明确跳过网站构建与发布；工程完整后才自动启用，缺失锁文件或检查命令视为错误。只有默认分支的成功构建可以发布。
+2026-10-07 已搭建 GitHub Actions，发布目标为 GitHub Pages，公开仓库 `0ne-small-stone/personal-homepage` 已创建并上传，仓库 CI 已通过。使用一个主工作流串联仓库检查、网站构建和 Pages 发布，复用官方 checkout、setup-node、upload-pages-artifact 与 deploy-pages；安装采用 `npm ci` 和已提交的锁文件。文档校验复用 remark、unified-engine 与链接校验插件，工作流语法复用 actionlint。当前无 Astro 工程时明确跳过网站构建与发布；工程完整后才自动启用，缺失锁文件或检查命令视为错误。只有默认分支的成功构建可以发布。
 
 原始学习资料目录保持本地保存并由 `.gitignore` 排除。少量适配代码仅检查本项目的文件纳入边界、工程是否就绪与静态产物，不重写 Markdown 解析、工作流语法分析、框架构建或 Pages 部署。CMS、图片/PDF 派生、知识引用及 Pagefind 的真实集成仍在各自任务完成后接入原生构建流程。
 

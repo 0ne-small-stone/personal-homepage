@@ -25,7 +25,7 @@ GitHub 的触发方式、各 job 和本地检查命令见[工作流说明](docs/
 
 - 文档目录整理日期：2026-10-07；原规划基线日期：2026-10-03。
 - 已完成 8 份规划文档：页面规格、概念施工说明、小步迭代工作流、设计规范 v0.1、复用与素材来源，以及技术方案、技术实施计划、技术调研来源。已核算规范色值的静态对比度；真实合成画面仍待原型验证。
-- 设计任务 U01–U14 尚未开始；T01 仅完成本地 Git 与 CI 工具准备，T15 完成本地工作流配置，其余技术任务未开始。文档和 CI 配置完成不代表网站已经实现。
+- 设计任务的实际进度见[设计计划](docs/design/PLAN.md)；T01 已完成 Git 与 CI 工具准备，T15 已验证仓库 CI，T16 已设置 Pages 来源。网站工程与各功能的后续进度按对应计划记录，文档和 CI 配置完成不代表网站已经实现。
 - 已初始化本地 Git `main` 分支，建立 GitHub 检查、构建和 Pages 发布配置。网站应用代码和根目录 package.json 尚未创建；`tools/ci/package.json` 只管理校验工具。
 - 已创建并上传公开仓库 [0ne-small-stone/personal-homepage](https://github.com/0ne-small-stone/personal-homepage)。main 已保护，PR 必须通过仓库与工作流检查后 Squash 合并；Issues/Discussions 已开启，Wiki 已关闭。
 - [首轮 GitHub Actions](https://github.com/0ne-small-stone/personal-homepage/actions/runs/37596208177) 的仓库与语法检查通过；Pages 来源已设为 GitHub Actions。Astro 工程尚未建立，网站构建和部署明确跳过，网站尚未上线。
