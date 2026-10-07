@@ -18,6 +18,10 @@ export default defineConfig({
       locales: { root: { label: '简体中文', lang: 'zh-CN' } },
       description: '资料、文章与笔记，共用一个学习入口。',
       customCss: ['./src/styles/tokens.css', './src/styles/knowledge.css'],
+      components: {
+        MarkdownContent: './src/components/KnowledgeContent.astro',
+        Head: './src/components/KnowledgeHead.astro',
+      },
       plugins: [starlightBlog({
         title: '文章',
         prefix: 'knowledge/blog',

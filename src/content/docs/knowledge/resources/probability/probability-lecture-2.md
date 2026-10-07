@@ -5,6 +5,7 @@ entryId: resource-probability-lecture-2
 kind: resource
 topics: ["概率论与数理统计"]
 related: ["resource-probability-forliage","resource-probability-lecture-0","resource-probability-lecture-1","resource-probability-lecture-3","resource-probability-lecture-4","resource-probability-lecture-5","resource-probability-lecture-6","resource-probability-lecture-7","resource-probability-lecture-8","resource-probability-lecture-9","resource-probability-tutorial-v1"]
+tableOfContents: false
 sidebar:
   order: 2
 source:
@@ -30,9 +31,9 @@ Savia 整理的分讲复习资料：一维随机变量的概率分布。
 | 大小 | 0.30 MiB（318,604 字节） |
 | 页数 | 4 |
 | 作者 | Savia |
-| 附件状态 | 原件保留在本地，网页附件尚未接入 |
+| 阅读方式 | 页面内 PDF 阅读器；附件缺失时显示实际待配置状态 |
 
-当前可核对资料信息。完成附件接入后，才会提供阅读与下载入口。
+原文件保持完整；阅读器支持翻页、缩放和下载。扫描 PDF 能否搜索文字取决于原件是否含文字层。
 
 ## 同科目内容
 

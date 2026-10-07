@@ -1,0 +1,22 @@
+---
+import DefaultContent from 'starlight-blog/overrides/MarkdownContent.astro';
+import PdfReader from './PdfReader.astro';
+const { entry } = Astro.locals.starlightRoute;
+const source = entry.data.source;
+---
+{source?.format === 'pdf' ? (
+  <>
+    <PdfReader source={source} title={entry.data.title} />
+    <details class="source-details">
+      <summary>资料说明与来源</summary>
+      <DefaultContent><slot /></DefaultContent>
+    </details>
+  </>
+) : (
+  <DefaultContent><slot /></DefaultContent>
+)}
+<style>
+  .source-details { margin-block: var(--space-5); }
+  summary { cursor: pointer; padding-block: var(--space-3); min-height: var(--target-min); }
+  summary:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+</style>

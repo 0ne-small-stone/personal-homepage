@@ -1,0 +1,98 @@
+---
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
+interface Props {
+  title: string;
+  source: { id: string; pages: number; bytes: number; author?: string };
+}
+const { source, title } = Astro.props;
+const available = existsSync(resolve('public/local-materials', `${source.id}.pdf`));
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const file = `${base}/local-materials/${source.id}.pdf`;
+const viewer = `${base}/pdfjs/web/viewer.html?file=${encodeURIComponent(file)}#zoom=page-width`;
+---
+<pdf-reader class="pdf-reader" aria-label={`${title} PDF 阅读器`} aria-busy={available ? 'true' : 'false'}>
+  <div class="reader-bar">
+    <p role="status" data-status>{available ? '正在加载 PDF…' : 'PDF 附件尚未接入，暂时无法阅读。'}</p>
+    {available && <div class="reader-actions">
+      <a href={viewer} target="_blank" rel="noopener">全屏阅读</a>
+      <a href={file} download={`${title}.pdf`}>下载 PDF</a>
+    </div>}
+  </div>
+  {available && <>
+    <div class="reader-error" data-error hidden>
+      <p>PDF 未能加载，请重试或下载原文件阅读。</p>
+      <button type="button" data-retry>重新加载</button>
+    </div>
+    <iframe src={viewer} title={`${title} · ${source.pages} 页 PDF`} data-pages={source.pages} loading="eager" allowfullscreen></iframe>
+    <noscript><p>内嵌阅读器需要 JavaScript。<a href={file}>直接打开 PDF 原文件</a>，可使用浏览器自带阅读器。</p></noscript>
+  </>}
+</pdf-reader>
+<style>
+  .pdf-reader { display: block; width: 100%; }
+  .reader-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-4); }
+  p { margin: 0; }
+  .reader-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+  .reader-actions a, button { display: inline-flex; align-items: center; min-height: var(--target-min); padding-inline: var(--space-2); }
+  a { color: var(--sl-color-accent); }
+  iframe { display: block; width: 100%; height: 76svh; min-height: 28rem; margin-top: var(--space-2); border: 1px solid var(--color-border); border-radius: 8px; background: var(--color-surface); }
+  .reader-error { margin-block: var(--space-3); padding: var(--space-4); border: 1px solid var(--color-border); border-radius: 8px; }
+  .reader-error[hidden] { display: none; }
+  button { margin-top: var(--space-2); background: var(--color-surface); color: var(--color-text); border: 1px solid var(--color-border); border-radius: 6px; cursor: pointer; font: inherit; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+</style>
+<script>
+  type ViewerEvent = { error?: unknown };
+  interface ViewerApplication {
+    initializedPromise: Promise<void>;
+    eventBus: {
+      on(name: string, callback: (event: ViewerEvent) => void, options: { signal: AbortSignal }): void;
+    };
+    pdfViewer?: { getPageView(index: number): { renderingState: number } | undefined };
+  }
+  class PdfReader extends HTMLElement {
+    private controller?: AbortController;
+    connectedCallback() {
+      this.controller?.abort();
+      this.controller = new AbortController();
+      const { signal } = this.controller;
+      const frame = this.querySelector('iframe');
+      if (!frame) return;
+      const status = this.querySelector<HTMLElement>('[data-status]')!;
+      const failure = this.querySelector<HTMLElement>('[data-error]')!;
+      const fail = () => {
+        if (signal.aborted) return;
+        this.setAttribute('aria-busy', 'false');
+        status.textContent = 'PDF 加载失败';
+        failure.hidden = false;
+      };
+      const ready = (event: ViewerEvent = {}) => {
+        if (event.error) return fail();
+        if (signal.aborted) return;
+        this.setAttribute('aria-busy', 'false');
+        status.textContent = `共 ${frame.dataset.pages} 页 · 可翻页、缩放与搜索`;
+        failure.hidden = true;
+      };
+      frame.addEventListener('load', async () => {
+        try {
+          const app = (frame.contentWindow as Window & { PDFViewerApplication?: ViewerApplication })?.PDFViewerApplication;
+          if (!app) return fail();
+          await app.initializedPromise;
+          if (signal.aborted) return;
+          app.eventBus.on('pagerendered', ready, { signal });
+          app.eventBus.on('documenterror', fail, { signal });
+          if (app.pdfViewer?.getPageView(0)?.renderingState === 3) ready();
+        } catch { fail(); }
+      }, { signal });
+      frame.addEventListener('error', fail, { signal });
+      this.querySelector('[data-retry]')?.addEventListener('click', () => {
+        failure.hidden = true;
+        status.textContent = '正在重新加载 PDF…';
+        this.setAttribute('aria-busy', 'true');
+        frame.contentWindow?.location.reload();
+      }, { signal });
+    }
+    disconnectedCallback() { this.controller?.abort(); }
+  }
+  if (!customElements.get('pdf-reader')) customElements.define('pdf-reader', PdfReader);
+</script>

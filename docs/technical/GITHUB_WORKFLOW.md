@@ -99,6 +99,8 @@ export default defineConfig({
 
 ## GitHub 端配置与后续接入
 
+2026-10-07 T08.01：`public/local-materials/` 是被忽略的本地阅读副本目录。默认 `node tools/ci/dist.mjs` 拒绝该目录，只有本地验收命令 `node tools/ci/dist.mjs --local-preview` 放行；CI 不运行资料复制工具。干净检出没有附件时显示真实待配置状态，公开存储接入前不将本地副本并入 Pages 发布。仓库文件检查也拒绝将该目录强行纳入 Git。
+
 1. 公开仓库已创建。GitHub Free 的 Pages 需要公开仓库；公开仓库中的代码和文档也能被任何人读取。[GitHub Pages 使用条件](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages)
 2. 已将 32 个允许公开的文件提交到 `main`，本地 origin 已连接实际地址。Git 文件清单排除原始学习资料及本地依赖。
 3. Pages 的 Source 已通过官方 API 设为 `GitHub Actions` 并读回为 `workflow`。网站工程完成后，主流程才会执行实际部署。[Astro 官方部署说明](https://docs.astro.build/en/guides/deploy/github/)

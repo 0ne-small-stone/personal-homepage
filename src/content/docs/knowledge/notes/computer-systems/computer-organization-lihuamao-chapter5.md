@@ -5,6 +5,7 @@ entryId: note-computer-organization-lihuamao-chapter5
 kind: note
 topics: ["计算机系统"]
 related: ["note-computer-system-zhang-each-notebook","note-computer-system-review","resource-computer-organization-risc-v-fifth-edition"]
+tableOfContents: false
 sidebar:
   order: 100
 source:

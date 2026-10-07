@@ -1,0 +1,6 @@
+---
+import DefaultHead from '@astrojs/starlight/components/Head.astro';
+const source = Astro.locals.starlightRoute.entry.data.source;
+---
+<DefaultHead />
+{source?.format === 'link' && <meta http-equiv="refresh" content={`0;url=${source.url}`} />}

@@ -1,0 +1,49 @@
+/* Reading controls use docs/design/SYSTEM.md; document pages keep original colors. */
+:root {
+  color-scheme: dark;
+  --toolbar-height: 48px;
+  --toolbar-vertical-padding: 2px;
+  --main-color: #f0eee8;
+  --body-bg-color: #0b0d0f;
+  --toolbar-bg-color: #151a1d;
+  --toolbar-border-color: #70787b;
+  --progressBar-color: #a8c7cc;
+  --sidebar-toolbar-bg-color: #151a1d;
+  --sidebar-narrow-bg-color: #151a1d;
+}
+body, input, select, button { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+/* This surface is for reading existing notes; annotation content still renders. */
+#editorModeButtons, #editorModeSeparator { display: none !important; }
+@media (max-width: 360px) {
+  :root { --toolbar-height: 96px; }
+  #mainContainer { min-width: 0; }
+  #toolbarViewer {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: 44px 44px;
+    gap: 4px;
+  }
+  #toolbarViewer > * { min-width: 0; }
+  #toolbarViewerLeft { grid-column: 1 / -1; grid-row: 1; }
+  #toolbarViewerMiddle { grid-column: 1; grid-row: 2; }
+  #toolbarViewerRight { grid-column: 2; grid-row: 2; }
+  #toolbarSidebar { height: 48px; }
+  #toolbarContainer { --menuitem-height: 44px; }
+  #findbar {
+    --toolbar-height: 48px;
+    position: fixed;
+    inset-inline: 12px;
+    top: calc(96px + 4px);
+    width: auto;
+    min-width: 0;
+    max-width: none;
+  }
+}
+.toolbarButton:focus-visible, .dropdownToolbarButton:focus-visible, input:focus-visible {
+  outline: 2px solid #a8c7cc;
+  outline-offset: -2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root { --sidebar-transition-duration: 0ms; }
+  *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; }
+}
