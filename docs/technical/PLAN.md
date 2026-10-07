@@ -146,6 +146,10 @@ PDF 提取失败需要记录状态。扫描 PDF 的 OCR 可以作为后续增强
 
 已建立 [仓库管理规范](REPOSITORY_CONVENTIONS.md)、根 CONTRIBUTING、EditorConfig、PR 模板与故障/变更表单；`.github/repository-settings.json` 保存期望远程设置，不能作为已应用的证据。目录沿用设计与技术两类，未来 Astro 目录只作规划。上传前检查通过：32 个允许公开的文件、15 份 Markdown 链接与章节锚点、5 项既有检查测试及 actionlint；原始学习资料仍未纳入 Git。主分支保护、Pages 设置与远程 CI 的实际结果后续补记。
 
+2026-10-07 远程验收：初始化提交 `839e1954491cd0c949fdaea9981afc3fbac6a0fe` 已推送到 origin/main，共 32 个允许公开的文件。本地原始资料、凭证、下载工具和生成目录未上传。[首轮 Actions](https://github.com/0ne-small-stone/personal-homepage/actions/runs/37596208177)（运行 ID 37596208177）整体成功；Repository checks 与 Workflow syntax 成功，Astro build 与 Deploy to GitHub Pages 明确 skipped。
+
+实际远程设置已应用并读回：Pages build_type 为 workflow，尚无部署；Actions 默认权限 read，自动批准 PR 为 false；7 个规范标签已设置；main 要求 PR、最新分支与解决讨论，必需两项检查均绑定实际 GitHub Actions App 15368，管理员同样受约束，审批人数 0，线性历史开启，强推和删除关闭。GitHub 新版 API 的 checks 与旧 contexts 不可同时提交，期望值快照已改为仅 checks。后续记录通过工作分支及 PR 提交，不直接更新 main。
+
 2026-10-07 需求调整：用户取消知识关系图。移除 P07 页面、对应入口和 K05 控件，T04、T09、T26 及构建验收移除图谱内容，知识库保留总览、搜索、阅读和普通引用。此项完成的是规划同步，不表示知识库已经实现；其他技术任务状态沿用。
 
 上一轮移除 P07 后的验证：当时 17 个现行页面与对应表一致，138 处本地链接及章节锚点有效；13 项需求、14 项设计任务、29 项技术任务编号完整；仓库文件检查通过。关系图相关文字仅保留在取消记录中，原候选依赖已移除。

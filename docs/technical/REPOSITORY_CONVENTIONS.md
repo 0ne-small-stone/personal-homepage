@@ -121,6 +121,8 @@ Actions 默认令牌只读，Pages 部署 job 单独申请 pages/id-token 写权
 
 [repository-settings.json](../../.github/repository-settings.json) 保存本阶段远程设置的期望值，GitHub 不会自动读取这个文件。远程应用与读回验证的日期和结果记录在 [技术计划](PLAN.md)，状态不得只凭本文件判断。
 
+2026-10-07 已通过官方 API 应用并读回下列设置；初始化 CI 两项检查均成功，绑定的 GitHub Actions App ID 为 15368。网站工程仍未建立，Pages 尚未部署。
+
 | 设置 | 本阶段期望值 |
 | --- | --- |
 | 可见性、默认分支 | public、main |
