@@ -1,0 +1,686 @@
+{
+  "schemaVersion": 1,
+  "sourceDirectory": "大二上学习资源",
+  "classificationBasis": "文件目录、文件名、PDF 页数、首页与首两页内容、TXT 中原始链接；外部笔记归笔记收藏，讲义和教材归资料。",
+  "sources": [
+    {
+      "id": "source-ads-2024-handout",
+      "path": "2024春夏ADS讲义-wyy.pdf",
+      "bytes": 4688055,
+      "sha256": "523abadae6f067a5d432198d066217a050819cadc14bc32cf3764bc2240e8be2",
+      "pages": 177
+    },
+    {
+      "id": "source-ads-note-links",
+      "path": "ads Nought Q笔记.txt",
+      "bytes": 109,
+      "sha256": "13fe8db37701a21675ed676c309050739ec2522ee9d66ee7c37f2d20085111bc"
+    },
+    {
+      "id": "source-ads-algorithms-notes",
+      "path": "ADSNotes_Algorithms.pdf",
+      "bytes": 52613705,
+      "sha256": "3838b7c6820d94958870f30328e968f7ac0c1d3d6e52a0da8a6dd4f06b38e699",
+      "pages": 35
+    },
+    {
+      "id": "source-pre-qin-philosophers-reader",
+      "path": "先秦诸子导读 (何善蒙著, 何善蒙, 1977- author, 何善蒙, (1977- )) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+      "bytes": 51404780,
+      "sha256": "71c2dd4d6618d63da39d7fd301afab3f3bc22cf6315fd8097bef3fabc23c5360",
+      "pages": 349
+    },
+    {
+      "id": "source-physics-lab-recalled-exams",
+      "path": "大学物理实验历年回忆卷合集.pdf",
+      "bytes": 2098617,
+      "sha256": "680bbbc70fbc5a10bf0a4bde39783e6b7840e69a82339d73bad5b443858c0658",
+      "pages": 23
+    },
+    {
+      "id": "source-physics-chapter-10",
+      "path": "大物2/大学物理 第 10 章.pdf",
+      "bytes": 591375,
+      "sha256": "43e1ecc3550f57d3ed94452369c512e49a58dadda03fd8d8c8853a79033737ec",
+      "pages": 8
+    },
+    {
+      "id": "source-physics-chapter-11",
+      "path": "大物2/大学物理 第 11 章.pdf",
+      "bytes": 166821,
+      "sha256": "ebfc319732093904203b3c0d9624f8c17cfa732edb502a55c8eb13698d59ada8",
+      "pages": 1
+    },
+    {
+      "id": "source-physics-chapter-12",
+      "path": "大物2/大学物理 第 12 章.pdf",
+      "bytes": 627748,
+      "sha256": "7d0c5d65802bedb48dd33b4ff8de8e915cd31e8393cecc83886ac04e742e5ee4",
+      "pages": 10
+    },
+    {
+      "id": "source-physics-chapter-13",
+      "path": "大物2/大学物理 第 13 章.pdf",
+      "bytes": 406366,
+      "sha256": "0edc35427475141ea549491092b887ee6f3cb71282257c01a4cc47ffedf0346d",
+      "pages": 3
+    },
+    {
+      "id": "source-physics-chapter-14",
+      "path": "大物2/大学物理 第 14 章.pdf",
+      "bytes": 599973,
+      "sha256": "6957675edb1571e96b5e2581a846067093f8627bcf45e3a4908e409d0ec0990f",
+      "pages": 7
+    },
+    {
+      "id": "source-physics-chapter-15",
+      "path": "大物2/大学物理 第 15 章.pdf",
+      "bytes": 238191,
+      "sha256": "d9668222252eacaf12de0c66ae5abd911a40512c8e82710af8a0bc4280482da1",
+      "pages": 1
+    },
+    {
+      "id": "source-physics-chapter-16",
+      "path": "大物2/大学物理 第 16 章.pdf",
+      "bytes": 385981,
+      "sha256": "e00eff5b65be4e7e81296e98130ab3b70824ad50be9f782db59b9ab8736aacf2",
+      "pages": 3
+    },
+    {
+      "id": "source-physics-chapter-17",
+      "path": "大物2/大学物理 第 17 章.pdf",
+      "bytes": 388364,
+      "sha256": "ca89c881777889b3d908ca81cee4bf0b8a55267757e2c7084fe915e031ba59a5",
+      "pages": 4
+    },
+    {
+      "id": "source-physics-chapter-18",
+      "path": "大物2/大学物理 第 18 章.pdf",
+      "bytes": 378617,
+      "sha256": "e0b9286ee014a898148371e86d26fcd7cae1e83f91ef951dde1391bbade8b0b4",
+      "pages": 4
+    },
+    {
+      "id": "source-physics-chapter-19",
+      "path": "大物2/大学物理 第 19 章.pdf",
+      "bytes": 197079,
+      "sha256": "623ea5d15042e3c35fc3e5ac70d92ddf762d60d2f996545ad0540d3eb1bac874",
+      "pages": 1
+    },
+    {
+      "id": "source-physics-chapter-20",
+      "path": "大物2/大学物理 第 20 章.pdf",
+      "bytes": 313677,
+      "sha256": "71cc1a97f00d93be870e0b2b7bdbe42e01ada60b7de218056ed760b9fa340e34",
+      "pages": 3
+    },
+    {
+      "id": "source-physics-chapter-21",
+      "path": "大物2/大学物理 第 21 章.pdf",
+      "bytes": 275732,
+      "sha256": "385e2ff6ac10633ebaa60575fbf0b2ccd05ad166dfd11bcf6d008accd42c7087",
+      "pages": 2
+    },
+    {
+      "id": "source-physics-chapter-22",
+      "path": "大物2/大学物理 第 22 章.pdf",
+      "bytes": 379453,
+      "sha256": "abdebd0bec86b0af4752140fc58d81a5e41e057f1905055105213736cf865dd5",
+      "pages": 3
+    },
+    {
+      "id": "source-physics-chapter-23",
+      "path": "大物2/大学物理 第 23 章.pdf",
+      "bytes": 228854,
+      "sha256": "3774832a995438f184cff562d60eaafd3677b6d1f5b87ae301c1a8dd7ebca097",
+      "pages": 1
+    },
+    {
+      "id": "source-physics-chapter-9",
+      "path": "大物2/大学物理 第 9 章.pdf",
+      "bytes": 442258,
+      "sha256": "75ef449b81f3b37886a29031ce927861688bc6e1f9642c4824ecec35c53c4cf9",
+      "pages": 4
+    },
+    {
+      "id": "source-physics-electrostatics-alt",
+      "path": "大物2/第 9 章 真空中的静电场.pdf",
+      "bytes": 883189,
+      "sha256": "b59d0a47d86b35d0328a53856af8f6cc8ebc820ad16cad0d7a9221fdec1d7f29",
+      "pages": 5
+    },
+    {
+      "id": "source-physics-lab-review",
+      "path": "大物实验知识点盘点.pdf",
+      "bytes": 2642484,
+      "sha256": "ea47cca07214c34915949de2e34d3d96f4600bb067ff88628639ed9a7abb210c",
+      "pages": 17
+    },
+    {
+      "id": "source-engineering-physics-third-edition",
+      "path": "工程物理学(第三版) (诸葛向彬,陆赟豪,金洪英) (Z-Library).pdf",
+      "bytes": 186298673,
+      "sha256": "0fd4d655a6731eedf9f567ffe8da3c85f381a2112a1146a13b2e6083c8ee108b",
+      "pages": 654
+    },
+    {
+      "id": "source-probability-tutorial-v1",
+      "path": "概率论与数理统计 辅导讲义 v1.0.pdf",
+      "bytes": 1756391,
+      "sha256": "b6fb3fb9ffa0a7d1d53a17447133719bfa9abfac87da29431600a71763077759",
+      "pages": 67
+    },
+    {
+      "id": "source-probability-forliage",
+      "path": "概率论讲义.pdf",
+      "bytes": 268599,
+      "sha256": "b04782740d0ac1bf78e5931f8f329ca2f24d89e03646facdbe2b448dac51f045",
+      "pages": 35
+    },
+    {
+      "id": "source-probability-lecture-0",
+      "path": "概统讲义/概率论与数理统计/概率论与数理统计 第 0 讲.pdf",
+      "bytes": 371886,
+      "sha256": "bd070730e8e556a7d486aaa7f683241e2ef93afb6d235ac180a523b83312ee12",
+      "pages": 6
+    },
+    {
+      "id": "source-probability-lecture-1",
+      "path": "概统讲义/概率论与数理统计/概率论与数理统计 第 1 讲.pdf",
+      "bytes": 472472,
+      "sha256": "deb91e9221a3133e56112edd8300bfa1118cc378c7c3335df61e9435481cf996",
+      "pages": 7
+    },
+    {
+      "id": "source-probability-lecture-2",
+      "path": "概统讲义/概率论与数理统计/概率论与数理统计 第 2 讲.pdf",
+      "bytes": 318604,
+      "sha256": "eb40259be8089e6254d9f98fcdca715f049060ed835094f43294342d774cc198",
+      "pages": 4
+    },
+    {
+      "id": "source-probability-lecture-3",
+      "path": "概统讲义/概率论与数理统计/概率论与数理统计 第 3 讲.pdf",
+      "bytes": 624887,
+      "sha256": "3abb8469449032a6d660bcc6f73374b8cf27723964ac2a28192daa2164a3ca21",
+      "pages": 8
+    },
+    {
+      "id": "source-probability-lecture-4",
+      "path": "概统讲义/概率论与数理统计/概率论与数理统计 第 4 讲.pdf",
+      "bytes": 409918,
+      "sha256": "cc5418578b65f73c1815e795f1284bfe319535109d7118d4031149e410ba0219",
+      "pages": 5
+    },
+    {
+      "id": "source-probability-lecture-5",
+      "path": "概统讲义/概率论与数理统计/概率论与数理统计 第 5 讲.pdf",
+      "bytes": 377610,
+      "sha256": "d964b824b215c8af141853d818232ed6a0d6e0b9397bbadf9619900c5c695042",
+      "pages": 5
+    },
+    {
+      "id": "source-probability-lecture-6",
+      "path": "概统讲义/概率论与数理统计/概率论与数理统计 第 6 讲.pdf",
+      "bytes": 340416,
+      "sha256": "ffb7979e59427e8e1fe1717481a99cf9a43050fba1581de64b076cbf7ac80776",
+      "pages": 3
+    },
+    {
+      "id": "source-probability-lecture-7",
+      "path": "概统讲义/概率论与数理统计/概率论与数理统计 第 7 讲.pdf",
+      "bytes": 335855,
+      "sha256": "eda0e626802928b6ea67d6f61770c0f32bf20206f0ba1f3e911a7bc34d8f9311",
+      "pages": 6
+    },
+    {
+      "id": "source-probability-lecture-8",
+      "path": "概统讲义/概率论与数理统计/概率论与数理统计 第 8 讲.pdf",
+      "bytes": 376072,
+      "sha256": "3007c42ca7217b86bc7d53a290caf122e7acf28dba0273f14f06e439c20c3da2",
+      "pages": 5
+    },
+    {
+      "id": "source-probability-lecture-9",
+      "path": "概统讲义/概率论与数理统计/概率论与数理统计 第 9 讲.pdf",
+      "bytes": 458339,
+      "sha256": "9e202511545b98584acdedf6203ea56114c733710194309999e3d563bf7ff385",
+      "pages": 8
+    },
+    {
+      "id": "source-computer-system-review",
+      "path": "计算机系统.pdf",
+      "bytes": 3846477,
+      "sha256": "6537ce077af7e147201641a8f818912e04c614858ab3e841e43d1497d30e36c1",
+      "pages": 62
+    },
+    {
+      "id": "source-computer-system-note-links",
+      "path": "计算机系统.txt",
+      "bytes": 187,
+      "sha256": "23fc7a5379a62250e349dd8824353944f40b7240cefae14abd6b317e9f80f21b"
+    },
+    {
+      "id": "source-computer-organization-risc-v-fifth-edition",
+      "path": "计算机组成与设计：硬件软件接口（原书第5版·RISC-V版） (戴维 A.帕特森 (David A. Patterson) etc.) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+      "bytes": 216380449,
+      "sha256": "b94ae45977f755eb0a3c7693c278e9e5f02353b872e8d148eee2f9c9e0d20549",
+      "pages": 494
+    }
+  ],
+  "entries": [
+    {
+      "entryId": "resource-physics-lab-recalled-exams",
+      "sourceId": "source-physics-lab-recalled-exams",
+      "slug": "physics-lab-recalled-exams",
+      "category": "physics-lab",
+      "topic": "大学物理实验",
+      "kind": "resource",
+      "title": "大学物理实验 · 历年回忆卷合集",
+      "description": "历年回忆卷整理，含部分答案；原文说明部分模糊题目没有答案。",
+      "author": "沐梓（原文件标注）"
+    },
+    {
+      "entryId": "resource-physics-lab-review",
+      "sourceId": "source-physics-lab-review",
+      "slug": "physics-lab-review",
+      "category": "physics-lab",
+      "topic": "大学物理实验",
+      "kind": "resource",
+      "title": "大学物理实验 · 知识点盘点",
+      "description": "实验复习资料，内容涉及测量、误差与实验中的基本概念。"
+    },
+    {
+      "entryId": "resource-physics-chapter-9",
+      "sourceId": "source-physics-chapter-9",
+      "slug": "physics-chapter-9",
+      "category": "physics",
+      "topic": "大学物理Ⅱ",
+      "kind": "resource",
+      "title": "大学物理Ⅱ · 第 9 章",
+      "description": "第 9 章复习资料，内容涉及真空中的静电场。"
+    },
+    {
+      "entryId": "resource-physics-electrostatics-alt",
+      "sourceId": "source-physics-electrostatics-alt",
+      "slug": "physics-electrostatics-alt",
+      "category": "physics",
+      "topic": "大学物理Ⅱ",
+      "kind": "resource",
+      "title": "大学物理Ⅱ · 第 9 章 真空中的静电场（另一版本）",
+      "description": "真空中的静电场复习资料，共 5 页；与第 9 章的 4 页版本分别保留。"
+    },
+    {
+      "entryId": "resource-physics-chapter-10",
+      "sourceId": "source-physics-chapter-10",
+      "slug": "physics-chapter-10",
+      "category": "physics",
+      "topic": "大学物理Ⅱ",
+      "kind": "resource",
+      "title": "大学物理Ⅱ · 第 10 章",
+      "description": "第 10 章复习资料，内容涉及静电场中的导体与电介质。"
+    },
+    {
+      "entryId": "resource-physics-chapter-11",
+      "sourceId": "source-physics-chapter-11",
+      "slug": "physics-chapter-11",
+      "category": "physics",
+      "topic": "大学物理Ⅱ",
+      "kind": "resource",
+      "title": "大学物理Ⅱ · 第 11 章",
+      "description": "第 11 章复习资料，内容涉及稳恒电流。"
+    },
+    {
+      "entryId": "resource-physics-chapter-12",
+      "sourceId": "source-physics-chapter-12",
+      "slug": "physics-chapter-12",
+      "category": "physics",
+      "topic": "大学物理Ⅱ",
+      "kind": "resource",
+      "title": "大学物理Ⅱ · 第 12 章",
+      "description": "第 12 章复习资料，内容涉及稳恒磁场。"
+    },
+    {
+      "entryId": "resource-physics-chapter-13",
+      "sourceId": "source-physics-chapter-13",
+      "slug": "physics-chapter-13",
+      "category": "physics",
+      "topic": "大学物理Ⅱ",
+      "kind": "resource",
+      "title": "大学物理Ⅱ · 第 13 章",
+      "description": "第 13 章复习资料，内容涉及磁介质。"
+    },
+    {
+      "entryId": "resource-physics-chapter-14",
+      "sourceId": "source-physics-chapter-14",
+      "slug": "physics-chapter-14",
+      "category": "physics",
+      "topic": "大学物理Ⅱ",
+      "kind": "resource",
+      "title": "大学物理Ⅱ · 第 14 章",
+      "description": "第 14 章复习资料，内容涉及电磁感应。"
+    },
+    {
+      "entryId": "resource-physics-chapter-15",
+      "sourceId": "source-physics-chapter-15",
+      "slug": "physics-chapter-15",
+      "category": "physics",
+      "topic": "大学物理Ⅱ",
+      "kind": "resource",
+      "title": "大学物理Ⅱ · 第 15 章",
+      "description": "第 15 章复习资料，内容涉及位移电流与电磁场。"
+    },
+    {
+      "entryId": "resource-physics-chapter-16",
+      "sourceId": "source-physics-chapter-16",
+      "slug": "physics-chapter-16",
+      "category": "physics",
+      "topic": "大学物理Ⅱ",
+      "kind": "resource",
+      "title": "大学物理Ⅱ · 第 16 章",
+      "description": "第 16 章复习资料，内容涉及光的干涉。"
+    },
+    {
+      "entryId": "resource-physics-chapter-17",
+      "sourceId": "source-physics-chapter-17",
+      "slug": "physics-chapter-17",
+      "category": "physics",
+      "topic": "大学物理Ⅱ",
+      "kind": "resource",
+      "title": "大学物理Ⅱ · 第 17 章",
+      "description": "第 17 章复习资料，内容涉及光的衍射。"
+    },
+    {
+      "entryId": "resource-physics-chapter-18",
+      "sourceId": "source-physics-chapter-18",
+      "slug": "physics-chapter-18",
+      "category": "physics",
+      "topic": "大学物理Ⅱ",
+      "kind": "resource",
+      "title": "大学物理Ⅱ · 第 18 章",
+      "description": "第 18 章复习资料，内容涉及光的偏振。"
+    },
+    {
+      "entryId": "resource-physics-chapter-19",
+      "sourceId": "source-physics-chapter-19",
+      "slug": "physics-chapter-19",
+      "category": "physics",
+      "topic": "大学物理Ⅱ",
+      "kind": "resource",
+      "title": "大学物理Ⅱ · 第 19 章",
+      "description": "第 19 章复习资料，内容涉及几何光学。"
+    },
+    {
+      "entryId": "resource-physics-chapter-20",
+      "sourceId": "source-physics-chapter-20",
+      "slug": "physics-chapter-20",
+      "category": "physics",
+      "topic": "大学物理Ⅱ",
+      "kind": "resource",
+      "title": "大学物理Ⅱ · 第 20 章",
+      "description": "第 20 章复习资料，内容涉及电磁辐射的量子性。"
+    },
+    {
+      "entryId": "resource-physics-chapter-21",
+      "sourceId": "source-physics-chapter-21",
+      "slug": "physics-chapter-21",
+      "category": "physics",
+      "topic": "大学物理Ⅱ",
+      "kind": "resource",
+      "title": "大学物理Ⅱ · 第 21 章",
+      "description": "第 21 章复习资料，内容涉及物质波。"
+    },
+    {
+      "entryId": "resource-physics-chapter-22",
+      "sourceId": "source-physics-chapter-22",
+      "slug": "physics-chapter-22",
+      "category": "physics",
+      "topic": "大学物理Ⅱ",
+      "kind": "resource",
+      "title": "大学物理Ⅱ · 第 22 章",
+      "description": "第 22 章复习资料，内容涉及原子结构。"
+    },
+    {
+      "entryId": "resource-physics-chapter-23",
+      "sourceId": "source-physics-chapter-23",
+      "slug": "physics-chapter-23",
+      "category": "physics",
+      "topic": "大学物理Ⅱ",
+      "kind": "resource",
+      "title": "大学物理Ⅱ · 第 23 章",
+      "description": "第 23 章复习资料，内容涉及能带与半导体。"
+    },
+    {
+      "entryId": "resource-engineering-physics-third-edition",
+      "sourceId": "source-engineering-physics-third-edition",
+      "slug": "engineering-physics-third-edition",
+      "category": "physics",
+      "topic": "大学物理Ⅱ",
+      "kind": "resource",
+      "title": "工程物理学（第三版）",
+      "description": "工程物理学教材收藏，原文件为 654 页 PDF，作为大学物理参考资料。",
+      "author": "诸葛向彬、陆赟豪、金洪英（原文件名标注）"
+    },
+    {
+      "entryId": "resource-probability-forliage",
+      "sourceId": "source-probability-forliage",
+      "slug": "probability-forliage",
+      "category": "probability",
+      "topic": "概率论与数理统计",
+      "kind": "resource",
+      "title": "概率论讲义（Forliage）",
+      "description": "Forliage 的概率论讲义，35 页；原文件首页标注 December 2024。",
+      "author": "Forliage（原文件标注）"
+    },
+    {
+      "entryId": "resource-probability-lecture-0",
+      "sourceId": "source-probability-lecture-0",
+      "slug": "probability-lecture-0",
+      "category": "probability",
+      "topic": "概率论与数理统计",
+      "kind": "resource",
+      "title": "概率论与数理统计 · 第 0 讲 概统基本概念一览",
+      "description": "Savia 整理的分讲复习资料：概统基本概念一览。",
+      "author": "Savia"
+    },
+    {
+      "entryId": "resource-probability-lecture-1",
+      "sourceId": "source-probability-lecture-1",
+      "slug": "probability-lecture-1",
+      "category": "probability",
+      "topic": "概率论与数理统计",
+      "kind": "resource",
+      "title": "概率论与数理统计 · 第 1 讲 随机事件与概率",
+      "description": "Savia 整理的分讲复习资料：随机事件与概率。",
+      "author": "Savia"
+    },
+    {
+      "entryId": "resource-probability-lecture-2",
+      "sourceId": "source-probability-lecture-2",
+      "slug": "probability-lecture-2",
+      "category": "probability",
+      "topic": "概率论与数理统计",
+      "kind": "resource",
+      "title": "概率论与数理统计 · 第 2 讲 一维随机变量的概率分布",
+      "description": "Savia 整理的分讲复习资料：一维随机变量的概率分布。",
+      "author": "Savia"
+    },
+    {
+      "entryId": "resource-probability-lecture-3",
+      "sourceId": "source-probability-lecture-3",
+      "slug": "probability-lecture-3",
+      "category": "probability",
+      "topic": "概率论与数理统计",
+      "kind": "resource",
+      "title": "概率论与数理统计 · 第 3 讲 二维随机变量的概率分布",
+      "description": "Savia 整理的分讲复习资料：二维随机变量的概率分布。",
+      "author": "Savia"
+    },
+    {
+      "entryId": "resource-probability-lecture-4",
+      "sourceId": "source-probability-lecture-4",
+      "slug": "probability-lecture-4",
+      "category": "probability",
+      "topic": "概率论与数理统计",
+      "kind": "resource",
+      "title": "概率论与数理统计 · 第 4 讲 常见随机变量的概率分布",
+      "description": "Savia 整理的分讲复习资料：常见随机变量的概率分布。",
+      "author": "Savia"
+    },
+    {
+      "entryId": "resource-probability-lecture-5",
+      "sourceId": "source-probability-lecture-5",
+      "slug": "probability-lecture-5",
+      "category": "probability",
+      "topic": "概率论与数理统计",
+      "kind": "resource",
+      "title": "概率论与数理统计 · 第 5 讲 随机变量函数的概率分布",
+      "description": "Savia 整理的分讲复习资料：随机变量函数的概率分布。",
+      "author": "Savia"
+    },
+    {
+      "entryId": "resource-probability-lecture-6",
+      "sourceId": "source-probability-lecture-6",
+      "slug": "probability-lecture-6",
+      "category": "probability",
+      "topic": "概率论与数理统计",
+      "kind": "resource",
+      "title": "概率论与数理统计 · 第 6 讲 大数定律与中心极限定理",
+      "description": "Savia 整理的分讲复习资料：大数定律与中心极限定理。",
+      "author": "Savia"
+    },
+    {
+      "entryId": "resource-probability-lecture-7",
+      "sourceId": "source-probability-lecture-7",
+      "slug": "probability-lecture-7",
+      "category": "probability",
+      "topic": "概率论与数理统计",
+      "kind": "resource",
+      "title": "概率论与数理统计 · 第 7 讲 统计量与抽样分布",
+      "description": "Savia 整理的分讲复习资料：统计量与抽样分布。",
+      "author": "Savia"
+    },
+    {
+      "entryId": "resource-probability-lecture-8",
+      "sourceId": "source-probability-lecture-8",
+      "slug": "probability-lecture-8",
+      "category": "probability",
+      "topic": "概率论与数理统计",
+      "kind": "resource",
+      "title": "概率论与数理统计 · 第 8 讲 点估计",
+      "description": "Savia 整理的分讲复习资料：点估计。",
+      "author": "Savia"
+    },
+    {
+      "entryId": "resource-probability-lecture-9",
+      "sourceId": "source-probability-lecture-9",
+      "slug": "probability-lecture-9",
+      "category": "probability",
+      "topic": "概率论与数理统计",
+      "kind": "resource",
+      "title": "概率论与数理统计 · 第 9 讲 区间估计与假设检验",
+      "description": "Savia 整理的分讲复习资料：区间估计与假设检验。",
+      "author": "Savia"
+    },
+    {
+      "entryId": "resource-probability-tutorial-v1",
+      "sourceId": "source-probability-tutorial-v1",
+      "slug": "probability-tutorial-v1",
+      "category": "probability",
+      "topic": "概率论与数理统计",
+      "kind": "resource",
+      "title": "概率论与数理统计 · 辅导讲义 v1.0",
+      "description": "概统辅导讲义合并版，共 67 页；与第 0–9 讲分讲资料同时保留。"
+    },
+    {
+      "entryId": "resource-ads-2024-handout",
+      "sourceId": "source-ads-2024-handout",
+      "slug": "ads-2024-handout",
+      "category": "ads",
+      "topic": "高级数据结构与算法分析",
+      "kind": "resource",
+      "title": "高级数据结构与算法分析 · 2024 春夏讲义（wyy）",
+      "description": "2024 春夏 ADS 讲义，包含平衡搜索树、Splay 树与摊还分析等内容。",
+      "author": "吴一航（wyy）"
+    },
+    {
+      "entryId": "note-ads-algorithms-notes",
+      "sourceId": "source-ads-algorithms-notes",
+      "slug": "ads-algorithms-notes",
+      "category": "ads",
+      "topic": "高级数据结构与算法分析",
+      "kind": "note",
+      "title": "高级数据结构与算法分析 · 算法笔记（PDF）",
+      "description": "含手写批注的算法笔记，首页从回溯与八皇后问题展开。"
+    },
+    {
+      "entryId": "note-ads-noughtq-notebook",
+      "sourceId": "source-ads-note-links",
+      "slug": "ads-noughtq-notebook",
+      "category": "ads",
+      "topic": "高级数据结构与算法分析",
+      "kind": "note",
+      "title": "高级数据结构与算法分析 · NoughtQ 的笔记本",
+      "description": "收藏的 ADS 外部笔记入口，在 NoughtQ 的笔记本阅读原文。",
+      "author": "NoughtQ",
+      "url": "https://note.noughtq.top/algo/ads/"
+    },
+    {
+      "entryId": "note-computer-system-zhang-each-notebook",
+      "sourceId": "source-computer-system-note-links",
+      "slug": "computer-system-zhang-each-notebook",
+      "category": "computer-systems",
+      "topic": "计算机系统",
+      "kind": "note",
+      "title": "计算机系统 · 小角龙的学习记录",
+      "description": "收藏的计算机系统外部笔记入口，在小角龙的学习记录阅读原文。",
+      "author": "小角龙",
+      "url": "https://zhang-each.github.io/My-CS-Notebook/System/"
+    },
+    {
+      "entryId": "note-computer-system-review",
+      "sourceId": "source-computer-system-review",
+      "slug": "computer-system-review",
+      "category": "computer-systems",
+      "topic": "计算机系统",
+      "kind": "note",
+      "title": "计算机系统原理 · 复习笔记（RandomStar）",
+      "description": "RandomStar 的计算机系统原理复习笔记，从计算机基本知识展开。",
+      "author": "RandomStar（原文件标注）"
+    },
+    {
+      "entryId": "note-computer-organization-lihuamao-chapter5",
+      "sourceId": "source-computer-system-note-links",
+      "slug": "computer-organization-lihuamao-chapter5",
+      "category": "computer-systems",
+      "topic": "计算机系统",
+      "kind": "note",
+      "title": "计算机组成 · lihuamao0810 的第五章笔记",
+      "description": "收藏的计算机组成第五章外部笔记入口，保留原站章节地址。",
+      "author": "lihuamao0810（原链接账号）",
+      "url": "https://lihuamao0810.github.io/MkDocsNote/ComputerOrganization/chapter5/"
+    },
+    {
+      "entryId": "resource-computer-organization-risc-v-fifth-edition",
+      "sourceId": "source-computer-organization-risc-v-fifth-edition",
+      "slug": "computer-organization-risc-v-fifth-edition",
+      "category": "computer-systems",
+      "topic": "计算机系统",
+      "kind": "resource",
+      "title": "计算机组成与设计：硬件软件接口（第 5 版 · RISC-V 版）",
+      "description": "计算机组成与设计教材收藏，原文件为 494 页 PDF。",
+      "author": "David A. Patterson 等（原文件名标注）"
+    },
+    {
+      "entryId": "resource-pre-qin-philosophers-reader",
+      "sourceId": "source-pre-qin-philosophers-reader",
+      "slug": "pre-qin-philosophers-reader",
+      "category": "pre-qin-philosophy",
+      "topic": "先秦哲学",
+      "kind": "resource",
+      "title": "先秦诸子导读",
+      "description": "何善蒙的先秦诸子导读教材收藏，原文件为 349 页 PDF。",
+      "author": "何善蒙（原文件名标注）"
+    }
+  ]
+}

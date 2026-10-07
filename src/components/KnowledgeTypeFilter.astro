@@ -23,7 +23,10 @@ const types = [
   <p class="knowledge-empty" hidden data-pagefind-ignore>当前类型暂无已发布内容。选择“全部”查看其他内容。</p>
   <ul class="knowledge-list">
     {entries.map((entry) => <li data-knowledge-kind={entry.data.kind}>
-      <div class="knowledge-meta">{kindLabels[entry.data.kind]} · {entry.data.topics.join(' / ')}{entry.data.example ? ' · 演示内容' : ''}</div>
+      <div class="knowledge-meta">{kindLabels[entry.data.kind]} · {entry.data.topics.join(' / ')}{entry.data.example ? ' · 演示内容' : ''}
+        {entry.data.source?.format === 'pdf' && ` · PDF · ${((entry.data.source.bytes ?? 0) / 1024 / 1024).toFixed(2)} MiB · ${entry.data.source.pages} 页`}
+        {entry.data.source?.format === 'link' && ` · 外部笔记 · ${entry.data.source.author}`}
+      </div>
       <a href={sitePath(entry.id)}>{entry.data.title}</a>
       <p>{entry.data.description}</p>
     </li>)}

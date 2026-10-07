@@ -4,9 +4,12 @@ import KnowledgeTypeFilter from '../../components/KnowledgeTypeFilter.astro';
 import { publishedKnowledge } from '../../lib/knowledge';
 import { sitePath } from '../../lib/paths';
 const entries = await publishedKnowledge();
+const resourceCount = entries.filter((entry) => entry.data.kind === 'resource').length;
+const noteCount = entries.filter((entry) => entry.data.kind === 'note').length;
 ---
 <StarlightPage frontmatter={{ title: '学习总览', description: '在同一个入口浏览资料、文章与笔记。', tableOfContents: false }}>
-  <p class="knowledge-summary">资料、文章与笔记共用这里的导航和搜索。当前三条内容均为结构演示，正式学习资料尚未导入。</p>
+  <p class="knowledge-summary">已按六个科目整理 {resourceCount} 条学习资料与 {noteCount} 条笔记收藏。目录中的“学习资料”和“笔记”可按科目展开，资料标题与说明共用搜索。</p>
+  <p>PDF 原件保留在本地，网页附件尚未接入；外部笔记可从条目页访问原站。</p>
   <a class="knowledge-blog-link" href={sitePath('knowledge/blog')}>按时间浏览文章 →</a>
   <KnowledgeTypeFilter entries={entries} />
   <p><a href={sitePath()}>← 返回首页</a></p>
