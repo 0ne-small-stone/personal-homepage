@@ -13,7 +13,7 @@ const viewer = `${base}/pdfjs/web/viewer.html?file=${encodeURIComponent(file)}#z
 ---
 <pdf-reader class="pdf-reader" aria-label={`${title} PDF 阅读器`} aria-busy={available ? 'true' : 'false'}>
   <div class="reader-bar">
-    <p role="status" data-status>{available ? '正在加载 PDF…' : 'PDF 附件尚未配置，请在本地准备资料后重新构建。'}</p>
+    <p role="status" data-status>{available ? '正在加载 PDF…' : 'PDF 附件尚未接入，暂时无法阅读。'}</p>
     {available && <div class="reader-actions">
       <a href={viewer} target="_blank" rel="noopener">全屏阅读</a>
       <a href={file} download={`${title}.pdf`}>下载 PDF</a>
