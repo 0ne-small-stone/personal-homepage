@@ -53,6 +53,15 @@ npm run build
 npm run preview
 ```
 
+需要在关闭临时命令会话后继续访问预览时，使用 Astro 原生后台模式（仅监听本机）：
+
+```powershell
+npm run preview -- --background --host 127.0.0.1 --port 4321
+npm run preview -- status
+```
+
+停止后台预览用 `npm run preview -- stop`。后台预览仍读取 `dist/`；修改页面后重新构建即可查看新产物。
+
 可以先走“首页 → 学习 → 资料 → 笔记 → 文章”，再试搜索“演示”、浏览器返回、深链刷新和手机宽度。按[设计计划](docs/design/PLAN.md)每轮记录一个主要变量，CI 检查与实际体验分别验收。
 
 ## 从哪里开始
