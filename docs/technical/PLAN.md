@@ -250,6 +250,8 @@ PDF 提取失败需要记录状态。扫描 PDF 的 OCR 可以作为后续增强
 
 T13.01 实现 `ac8666e` 已推送，[草稿 PR #8](https://github.com/0ne-small-stone/personal-homepage/pull/8)只含本轮 CMS 差异；[该提交 CI](https://github.com/0ne-small-stone/personal-homepage/actions/runs/37725448523)三项检查成功、部署跳过。日期回归测试进入同一 CI。主分支保护读回保持 PR/strict/三项检查、管理员约束及禁止强推/删除；没有合并或正式发布。
 
+2026-10-08 T13.01 用户实测保存失败：GitHub 文件写入返回 `Resource not accessible by integration`，官方定义为集成令牌权限不足。已读回工作分支未保护、规则为空、仓库未归档、草稿没有新提交；具体 Pages CMS 安装范围和 Contents 写权限待设置页核对。浏览器控制启动失败，本地 Git 凭证不支持安装列表接口；[诊断与恢复步骤](CMS_WORKFLOW.md#保存报-resource-not-accessible-by-integration)已记录。没有改 main 保护或 CI 写权限，真实保存继续未完成。
+
 2026-10-08 T06.02 用户纠正：第九章 5 页为（上）、4 页为（下），标题、说明、同科目链接、侧栏及搜索同步；38 原件哈希一致，Edge 四组通过。独立提交 `7ec7e21`，[PR #7](https://github.com/0ne-small-stone/personal-homepage/pull/7)及[同提交 CI](https://github.com/0ne-small-stone/personal-homepage/actions/runs/37725026381)通过，部署跳过。[纠正记录](iterations/t06-02-2026-10-08-correction.md)。
 
 2026-10-07 T08.01 开工：用户要求修复 GitHub 推送服务器错误，并以“打开即正文、PDF 渲染或外部笔记跳转”验收。基于 T06.02 `cf3d079`，分支 `codex/t08-01-direct-reading`；本轮接入全部 36 份 PDF 的本地阅读、三个外部笔记直接跳转及真实失败恢复，保留科目与类型。通过条件：真实浏览器逐项确认 PDF 第一页渲染；翻页/缩放/手机可用；外链跳转目标正确；缺失文件有恢复提示；原件 SHA-256 不变；本地附件不上传；代码与 CI 可读回。

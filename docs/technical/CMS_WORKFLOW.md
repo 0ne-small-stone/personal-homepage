@@ -11,6 +11,18 @@ T13.01 / P17、P06 / R13。当前只准备一篇固定的测试草稿，官方�
 
 首次登录和仓库授权需由账号持有人完成。本次浏览器控制工具启动失败，执行者仅在独立、未登录的 Edge 会话确认官方入口 HTTP 200 和 GitHub 登录按钮，没有操作用户已有会话或完成网页保存。
 
+## 保存报 Resource not accessible by integration
+
+2026-10-08 用户实际保存时报告该错误，关联 GitHub `create-or-update-file-contents` 接口。[GitHub 官方排错](https://docs.github.com/en/rest/using-the-rest-api/troubleshooting-the-rest-api#resource-not-accessible)将它归为令牌权限不足；该接口需要 [Contents 写权限](https://docs.github.com/en/rest/repos/contents#create-or-update-file-contents)。公开仓库可以读取不代表集成可以写入。
+
+实际只读核对：工作分支 `codex/t13-01-web-drafts` 为 `protected: false`，有效分支规则为空，仓库未归档；草稿没有新增保存提交。因此本次先核对 Pages CMS 安装授权，不改应用 schema、CI 默认权限或 main 保护。
+
+1. 保留当前尚未保存的标题和正文，在另一个页面打开 [GitHub 已安装应用](https://github.com/settings/installations)。账号为 `0ne-small-stone`，找到 **Pages CMS → Configure**。如果尚未安装，从 Pages CMS 官方入口完成安装。
+2. 核对 **Repository access** 包含 `personal-homepage`；使用 **Only select repositories** 时添加目标仓库并 Save。核对 **Permissions** 中 Contents 为 **Read and write**；有权限更新请求时，需账号持有人审核批准本次所需写权限。
+3. 返回原草稿页面，在相同工作分支再次保存。若授权已正确但仍报同错，先保留未保存内容，再退出 Pages CMS 并使用同一 GitHub 账号重新登录后重试。重新登录属于刷新认证的尝试，不能预先记为修复成功。
+
+当前浏览器控制进程仍无法启动，本地 Git 凭证调用安装列表接口也返回 403（该接口要求 GitHub App 用户令牌），无法用它读取或修改 Pages CMS 的真实安装授权。这与用户遇到的文件写入 403 是两次不同请求。具体安装范围和权限仍需设置页读回；只有实际网页保存及 GitHub 新提交确认后，才记为修复。
+
 ## 保存后如何核对
 
 保存会在所选分支创建 Git 提交。它与 PR、CI、合并、网站部署是不同步骤；配置没有部署按钮。主分支继续受保护，后台需使用上述工作分支，不能因为保存被拒绝而关闭分支规则。
