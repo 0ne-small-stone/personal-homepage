@@ -25,12 +25,18 @@ related:
 
 - 正文以 Markdown 保存。
 - [已发布的阅读功能样稿](../article-reading-check/)保持原有地址。
-- 发布与图片上传在后续步骤单独验证。
+- 此稿保持草稿；图片用于本轮验证，发布另行验证。
 
 ```js
 const draft = true;
 console.log('仍是草稿', draft);
 ```
+
+## 图片验证
+
+![灰色方块与 T13.02 字样组成的网页上传验证样本。](../../../../assets/article-images/muzkwysr-37s36uzh.png)
+
+图片说明：这张功能样本通过 Pages CMS 媒体库上传，正文保存后重新打开核对。
 
 ## 验证标记
 

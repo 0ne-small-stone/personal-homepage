@@ -121,3 +121,11 @@ Waline 曾作为匿名留言候选。当前用户已接受 Giscus，Waline 不�
 | [EdgeOne 定价](https://pages.edgeone.ai/pricing) | 部署前重新核对免费额度、收费和区域条件 |
 
 2026-10-07 用户已选择 GitHub Pages；EdgeOne 保留为历史候选。不要把免费额度写成永久承诺，也不要把外部服务对大陆访客的可用性写成已验证结论。
+
+## T13.02 原生图片接入来源（2026-10-08）
+
+- [Pages CMS 媒体源](https://pagescms.org/docs/configuration/media/)：仓库存储 input、正文 output、格式过滤、随机重命名与媒体提交模板。
+- [原生富文本图片](https://pagescms.org/docs/configuration/fields/rich-text/)：命名媒体源、Markdown 与 Editor/Source；[图片字段](https://pagescms.org/docs/configuration/fields/image/)仅作为候选，本轮正文插图无需另设字段。
+- [固定官方源码](https://github.com/hunvreus/pagescms/tree/6f4e860a35d934406580287e7042e5e111e207a1)：`lib/config-schema.ts`、`lib/github-image.ts`、`fields/core/rich-text/edit-component.tsx`、`components/ui/editor/index.tsx`。核对相对路径往返和原生 alt 控件；来源 MIT，本轮不复制组件到产品代码。托管部署版本未读回。
+- [Astro 原生 Markdown 图片](https://docs.astro.build/en/guides/images/#images-in-markdown-files)：使用 src 中的相对路径，处理尺寸和构建资源；public 原样复制。当前 7.3.6 实测草稿引用的图片仍会被输出，页面排除不代表图片二进制私密。
+- [Starlight-blog 草稿](https://starlight-blog-docs.vercel.app/guides/frontmatter/#draft)：原生开发模式预览、生产排除，本机 0.30.0 已用 Edge 核验。
