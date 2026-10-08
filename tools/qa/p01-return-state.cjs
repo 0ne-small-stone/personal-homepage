@@ -72,6 +72,8 @@ function firstCheck(value, expected, index, focus) {
   async function collect(page, name, expected, index, focus = true) {
     await page.waitForFunction(({ index, focus }) => window.__frames.some(row => row.enhanced && !row.restoring && row.mainVisibility === 'visible' &&
       row.motion?.activeItem === index && (!focus || row.focus === `entry-${['projects','radio','album','links'][index]}`)), { index, focus });
+    // Preserve earliest state above; let the screenshot compositor receive two paints.
+    await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
     const screenshotTime = await page.evaluate(() => performance.now());
     await page.screenshot({ path: path.join(out, `${name}.png`) });
     await page.waitForTimeout(450);

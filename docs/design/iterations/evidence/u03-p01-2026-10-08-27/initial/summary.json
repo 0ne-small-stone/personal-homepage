@@ -1,0 +1,670 @@
+{
+  "date": "2026-10-08T13:48:18.991Z",
+  "browser": "154.0.8037.98",
+  "checks": 50,
+  "errors": 0,
+  "cases": [
+    {
+      "name": "desktop-album-nohash-1",
+      "expected": 3700,
+      "first": {
+        "time": 767.4000000059605,
+        "y": 3700,
+        "raw": {
+          "kv": 1,
+          "intro": 1,
+          "works": 0.6,
+          "event": 0.75,
+          "snap": 0.6666666666666666,
+          "outro": 0,
+          "wall": 0
+        },
+        "rendered": {
+          "progress": 0.6,
+          "index": 3,
+          "background": 3,
+          "intro": 1
+        },
+        "camera": {
+          "position": [
+            0,
+            0,
+            6
+          ],
+          "fov": 46.25
+        },
+        "initialization": {
+          "revision": 2,
+          "y": 3700,
+          "zoom": 0,
+          "reason": "back-forward"
+        },
+        "lerpers": {
+          "progress": {
+            "current": 0.6,
+            "target": 0.6
+          },
+          "index": {
+            "current": 3,
+            "target": 3
+          },
+          "background": {
+            "current": 0.6,
+            "target": 0.6
+          },
+          "intro": {
+            "current": 1,
+            "target": 1
+          }
+        },
+        "focus": "entry-album",
+        "current": "03",
+        "loader": 0
+      },
+      "restores": [
+        {
+          "type": "before",
+          "detail": {
+            "y": 3700,
+            "focusOrigin": "entry-album",
+            "reason": "back-forward"
+          },
+          "time": 762.2000000178814
+        },
+        {
+          "type": "complete",
+          "detail": {
+            "revision": 2,
+            "y": 3700,
+            "zoom": 0,
+            "reason": "back-forward",
+            "focusOrigin": "entry-album"
+          },
+          "time": 767.2000000178814
+        }
+      ],
+      "hiddenPaints": 64,
+      "frames": 40
+    },
+    {
+      "name": "desktop-album-nohash-2",
+      "expected": 3700,
+      "first": {
+        "time": 486.7999999821186,
+        "y": 3700,
+        "raw": {
+          "kv": 1,
+          "intro": 1,
+          "works": 0.6,
+          "event": 0.75,
+          "snap": 0.6666666666666666,
+          "outro": 0,
+          "wall": 0
+        },
+        "rendered": {
+          "progress": 0.6,
+          "index": 3,
+          "background": 3,
+          "intro": 1
+        },
+        "camera": {
+          "position": [
+            0,
+            0,
+            6
+          ],
+          "fov": 46.25
+        },
+        "initialization": {
+          "revision": 2,
+          "y": 3700,
+          "zoom": 0,
+          "reason": "back-forward"
+        },
+        "lerpers": {
+          "progress": {
+            "current": 0.6,
+            "target": 0.6
+          },
+          "index": {
+            "current": 3,
+            "target": 3
+          },
+          "background": {
+            "current": 0.6,
+            "target": 0.6
+          },
+          "intro": {
+            "current": 1,
+            "target": 1
+          }
+        },
+        "focus": "entry-album",
+        "current": "03",
+        "loader": 0
+      },
+      "restores": [
+        {
+          "type": "before",
+          "detail": {
+            "y": 3700,
+            "focusOrigin": "entry-album",
+            "reason": "back-forward"
+          },
+          "time": 479.2999999821186
+        },
+        {
+          "type": "complete",
+          "detail": {
+            "revision": 2,
+            "y": 3700,
+            "zoom": 0,
+            "reason": "back-forward",
+            "focusOrigin": "entry-album"
+          },
+          "time": 486.5
+        }
+      ],
+      "hiddenPaints": 65,
+      "frames": 40
+    },
+    {
+      "name": "desktop-album-reload",
+      "expected": 3700,
+      "first": {
+        "time": 567.5999999940395,
+        "y": 3700,
+        "raw": {
+          "kv": 1,
+          "intro": 1,
+          "works": 0.6,
+          "event": 0.75,
+          "snap": 0.6666666666666666,
+          "outro": 0,
+          "wall": 0
+        },
+        "rendered": {
+          "progress": 0.6,
+          "index": 3,
+          "background": 3,
+          "intro": 1
+        },
+        "camera": {
+          "position": [
+            0,
+            0,
+            6
+          ],
+          "fov": 46.25
+        },
+        "initialization": {
+          "revision": 2,
+          "y": 3700,
+          "zoom": 0,
+          "reason": "reload"
+        },
+        "lerpers": {
+          "progress": {
+            "current": 0.6,
+            "target": 0.6
+          },
+          "index": {
+            "current": 3,
+            "target": 3
+          },
+          "background": {
+            "current": 0.6,
+            "target": 0.6
+          },
+          "intro": {
+            "current": 1,
+            "target": 1
+          }
+        },
+        "focus": "entry-album",
+        "current": "03",
+        "loader": 0
+      },
+      "restores": [
+        {
+          "type": "before",
+          "detail": {
+            "y": 3700,
+            "focusOrigin": "entry-album",
+            "reason": "reload"
+          },
+          "time": 559.5
+        },
+        {
+          "type": "complete",
+          "detail": {
+            "revision": 2,
+            "y": 3700,
+            "zoom": 0,
+            "reason": "reload",
+            "focusOrigin": "entry-album"
+          },
+          "time": 567.3000000119209
+        }
+      ],
+      "hiddenPaints": 75,
+      "frames": 41
+    },
+    {
+      "name": "desktop-album-hash",
+      "expected": 3700,
+      "first": {
+        "time": 739.7000000178814,
+        "y": 3700,
+        "raw": {
+          "kv": 1,
+          "intro": 1,
+          "works": 0.6,
+          "event": 0.75,
+          "snap": 0.6666666666666666,
+          "outro": 0,
+          "wall": 0
+        },
+        "rendered": {
+          "progress": 0.6,
+          "index": 3,
+          "background": 3,
+          "intro": 1
+        },
+        "camera": {
+          "position": [
+            0,
+            0,
+            6
+          ],
+          "fov": 46.25
+        },
+        "initialization": {
+          "revision": 2,
+          "y": 3700,
+          "zoom": 0,
+          "reason": "back-forward"
+        },
+        "lerpers": {
+          "progress": {
+            "current": 0.6,
+            "target": 0.6
+          },
+          "index": {
+            "current": 3,
+            "target": 3
+          },
+          "background": {
+            "current": 0.6,
+            "target": 0.6
+          },
+          "intro": {
+            "current": 1,
+            "target": 1
+          }
+        },
+        "focus": "entry-album",
+        "current": "03",
+        "loader": 0
+      },
+      "restores": [
+        {
+          "type": "before",
+          "detail": {
+            "y": 3700,
+            "focusOrigin": "entry-album",
+            "reason": "back-forward"
+          },
+          "time": 735.5
+        },
+        {
+          "type": "complete",
+          "detail": {
+            "revision": 2,
+            "y": 3700,
+            "zoom": 0,
+            "reason": "back-forward",
+            "focusOrigin": "entry-album"
+          },
+          "time": 739.4000000059605
+        }
+      ],
+      "hiddenPaints": 69,
+      "frames": 39
+    },
+    {
+      "name": "desktop-links-hash",
+      "expected": 4600,
+      "first": {
+        "time": 524,
+        "y": 4600,
+        "raw": {
+          "kv": 1,
+          "intro": 1,
+          "works": 0.8,
+          "event": 1,
+          "snap": 1,
+          "outro": 0,
+          "wall": 0
+        },
+        "rendered": {
+          "progress": 0.8,
+          "index": 4,
+          "background": 4,
+          "intro": 1
+        },
+        "camera": {
+          "position": [
+            0,
+            0,
+            6
+          ],
+          "fov": 46.25
+        },
+        "initialization": {
+          "revision": 2,
+          "y": 4600,
+          "zoom": 0,
+          "reason": "back-forward"
+        },
+        "lerpers": {
+          "progress": {
+            "current": 0.8,
+            "target": 0.8
+          },
+          "index": {
+            "current": 4,
+            "target": 4
+          },
+          "background": {
+            "current": 0.8,
+            "target": 0.8
+          },
+          "intro": {
+            "current": 1,
+            "target": 1
+          }
+        },
+        "focus": "entry-links",
+        "current": "04",
+        "loader": 0
+      },
+      "restores": [
+        {
+          "type": "before",
+          "detail": {
+            "y": 4600,
+            "focusOrigin": "entry-links",
+            "reason": "back-forward"
+          },
+          "time": 515.9000000059605
+        },
+        {
+          "type": "complete",
+          "detail": {
+            "revision": 2,
+            "y": 4600,
+            "zoom": 0,
+            "reason": "back-forward",
+            "focusOrigin": "entry-links"
+          },
+          "time": 523.6000000238419
+        }
+      ],
+      "hiddenPaints": 75,
+      "frames": 37
+    },
+    {
+      "name": "mobile-album-hash",
+      "expected": 3476,
+      "first": {
+        "time": 750.8000000119209,
+        "y": 3476,
+        "raw": {
+          "kv": 1,
+          "intro": 1,
+          "works": 0.6,
+          "event": 0.75,
+          "snap": 0.6666666666666666,
+          "outro": 0,
+          "wall": 0
+        },
+        "rendered": {
+          "progress": 0.6,
+          "index": 3,
+          "background": 3,
+          "intro": 1
+        },
+        "camera": {
+          "position": [
+            0,
+            0,
+            6
+          ],
+          "fov": 73.95384615384616
+        },
+        "initialization": {
+          "revision": 2,
+          "y": 3476,
+          "zoom": 0,
+          "reason": "back-forward"
+        },
+        "lerpers": {
+          "progress": {
+            "current": 0.6,
+            "target": 0.6
+          },
+          "index": {
+            "current": 3,
+            "target": 3
+          },
+          "background": {
+            "current": 0.6,
+            "target": 0.6
+          },
+          "intro": {
+            "current": 1,
+            "target": 1
+          }
+        },
+        "focus": "entry-album",
+        "current": "03",
+        "loader": 0
+      },
+      "restores": [
+        {
+          "type": "before",
+          "detail": {
+            "y": 3476,
+            "focusOrigin": "entry-album",
+            "reason": "back-forward"
+          },
+          "time": 706
+        },
+        {
+          "type": "complete",
+          "detail": {
+            "revision": 2,
+            "y": 3476,
+            "zoom": 0,
+            "reason": "back-forward",
+            "focusOrigin": "entry-album"
+          },
+          "time": 750.5
+        }
+      ],
+      "hiddenPaints": 70,
+      "frames": 87
+    },
+    {
+      "name": "album-new-viewport",
+      "expected": 3476,
+      "first": {
+        "time": 757.0999999940395,
+        "y": 3476,
+        "raw": {
+          "kv": 1,
+          "intro": 1,
+          "works": 0.6,
+          "event": 0.75,
+          "snap": 0.6666666666666666,
+          "outro": 0,
+          "wall": 0
+        },
+        "rendered": {
+          "progress": 0.6,
+          "index": 3,
+          "background": 3,
+          "intro": 1
+        },
+        "camera": {
+          "position": [
+            0,
+            0,
+            6
+          ],
+          "fov": 73.95384615384616
+        },
+        "initialization": {
+          "revision": 2,
+          "y": 3476,
+          "zoom": 0,
+          "reason": "back-forward"
+        },
+        "lerpers": {
+          "progress": {
+            "current": 0.6,
+            "target": 0.6
+          },
+          "index": {
+            "current": 3,
+            "target": 3
+          },
+          "background": {
+            "current": 0.6,
+            "target": 0.6
+          },
+          "intro": {
+            "current": 1,
+            "target": 1
+          }
+        },
+        "focus": "entry-album",
+        "current": "03",
+        "loader": 0
+      },
+      "restores": [
+        {
+          "type": "before",
+          "detail": {
+            "y": 3476,
+            "focusOrigin": "entry-album",
+            "reason": "back-forward"
+          },
+          "time": 751.9000000059605
+        },
+        {
+          "type": "complete",
+          "detail": {
+            "revision": 2,
+            "y": 3476,
+            "zoom": 0,
+            "reason": "back-forward",
+            "focusOrigin": "entry-album"
+          },
+          "time": 756.8000000119209
+        }
+      ],
+      "hiddenPaints": 70,
+      "frames": 85
+    },
+    {
+      "name": "desktop-direct-hash",
+      "expected": 3700,
+      "first": {
+        "time": 1210.0999999940395,
+        "y": 3700,
+        "raw": {
+          "kv": 1,
+          "intro": 1,
+          "works": 0.6,
+          "event": 0.75,
+          "snap": 0.6666666666666666,
+          "outro": 0,
+          "wall": 0
+        },
+        "rendered": {
+          "progress": 0.6,
+          "index": 3,
+          "background": 3,
+          "intro": 1
+        },
+        "camera": {
+          "position": [
+            0,
+            0,
+            6
+          ],
+          "fov": 46.25
+        },
+        "initialization": {
+          "revision": 2,
+          "y": 3700,
+          "zoom": 0,
+          "reason": "deep-link"
+        },
+        "lerpers": {
+          "progress": {
+            "current": 0.6,
+            "target": 0.6
+          },
+          "index": {
+            "current": 3,
+            "target": 3
+          },
+          "background": {
+            "current": 0.6,
+            "target": 0.6
+          },
+          "intro": {
+            "current": 1,
+            "target": 1
+          }
+        },
+        "focus": "",
+        "current": "03",
+        "loader": 0
+      },
+      "restores": [
+        {
+          "type": "before",
+          "detail": {
+            "y": 3700,
+            "focusOrigin": "",
+            "reason": "deep-link"
+          },
+          "time": 1205.199999988079
+        },
+        {
+          "type": "complete",
+          "detail": {
+            "revision": 2,
+            "y": 3700,
+            "zoom": 0,
+            "reason": "deep-link",
+            "focusOrigin": ""
+          },
+          "time": 1207.8999999761581
+        }
+      ],
+      "hiddenPaints": 147,
+      "frames": 39
+    }
+  ],
+  "bundle": [
+    {
+      "name": "HomeJourney.CXa-QBcJ.js",
+      "sha256": "70eeb2f833de8ed4821589a75606e6193adcf4fc713aa3c0dce18ea9d988248a"
+    }
+  ]
+}
