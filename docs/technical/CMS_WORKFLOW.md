@@ -2,16 +2,16 @@
 
 ## T13.03 文章发布状态与修改
 
-本轮使用 `codex/t13-03-article-publication`，打开[文章编辑与发布验证](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-03-article-publication/file/article-draft)。原生“草稿”字段可编辑，当前原文仍开启。关闭后保存表示提交发布候选，保存工作分支自动运行现有三项检查；正式站需 PR 合并并部署成功。再次开启也需正常部署才会从正式站撤下，不将保存或 CI 成功称为上线。
+当前真实验证分支为 `codex/t13-03-hosted-publication`，打开[文章编辑与发布验证](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-03-hosted-publication/file/article-draft)。原生“草稿”字段可编辑，当前原文已恢复并开启。关闭后保存表示提交发布候选，保存工作分支自动运行现有三项检查；正式站需 PR 合并并部署成功。再次开启也需正常部署才会从正式站撤下，不将保存或 CI 成功称为上线。
 
 1. 核对标题、摘要、日期、标签、正文与图片说明。关闭“草稿”，保存并刷新，检查该字段仍关闭。
 2. 在 GitHub 分支提交及 Actions 查看本次保存对应的构建；工作分支 Deploy 应跳过。构建失败时定位日志，修改后重试，不修改 main 保护。
 3. 修改同一篇的标题、摘要或正文再次保存，核对固定路径与稳定 ID 未变。开发者拉取真实保存后更新本机预览；网页保存不会自动拉取到本机。
 4. 完成验证后可再次开启草稿并保存。正式部署与内容确认在 T16 处理，当前没有真实上线。
 
-执行者已用三份隔离生产构建验证上述状态，原文未改写。可对照[首版候选](http://127.0.0.1:4351/personal-homepage/knowledge/blog/editor-draft-check/)、[修改后候选](http://127.0.0.1:4352/personal-homepage/knowledge/blog/editor-draft-check/)和[回草稿后的学习总览](http://127.0.0.1:4353/personal-homepage/knowledge/)。这些明确标注的样稿是本机快照，网页保存后不会自动更新快照，也不是 Pages CMS 操作或正式部署证据。[本轮记录](iterations/t13-03-2026-10-08.md)。
+2026-10-08 执行者真实保存三次：首版候选 `a5cc0bb`、修改候选 `1ba65a5`、恢复原文与草稿 `be0554b`，各自三项 CI 成功、Deploy 跳过，CMS 刷新后值保持。最终文章与验证前逐字节一致。可对照[首版候选](http://127.0.0.1:4371/personal-homepage/knowledge/blog/editor-draft-check/)、[修改后候选](http://127.0.0.1:4372/personal-homepage/knowledge/blog/editor-draft-check/)和[回草稿后的学习总览](http://127.0.0.1:4373/personal-homepage/knowledge/)。这些本机生产快照来自三笔真实 CMS 提交，网页保存后不会自动更新快照，也不是正式部署证据。[实际记录](iterations/t13-03-hosted-2026-10-08.md)，[初轮模拟快照历史](iterations/t13-03-2026-10-08.md)。
 
-无需新增设计素材，继续复用上轮图片样本、原生开关与现有学习排版；T13.02 的单张图片真实网页上传已补验，T13.03 的真实发布状态切换另验。
+无需新增设计素材，继续复用上轮图片样本、原生开关与现有学习排版；T13.02 单张真实上传及 T13.03 真实候选状态切换已验，后台取消/失败状态和 T16 正式部署另验。
 
 ## T13.02 图片上传与预览
 
