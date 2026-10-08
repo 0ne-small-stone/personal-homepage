@@ -1,0 +1,255 @@
+{
+  "browser": "Microsoft Edge",
+  "scope": "local isolated production fixture and canonical local production; not deployment",
+  "fixtures": {
+    "scope": "isolated local production fixture; not canonical content",
+    "samples": [
+      {
+        "file": "src/content/docs/knowledge/blog/pagination-check-01.md",
+        "id": "01",
+        "draft": false,
+        "date": "2026-10-07",
+        "tag": "奇数验证"
+      },
+      {
+        "file": "src/content/docs/knowledge/blog/pagination-check-02.md",
+        "id": "02",
+        "draft": false,
+        "date": "2026-10-06",
+        "tag": "偶数验证"
+      },
+      {
+        "file": "src/content/docs/knowledge/blog/pagination-check-03.md",
+        "id": "03",
+        "draft": false,
+        "date": "2026-10-05",
+        "tag": "奇数验证"
+      },
+      {
+        "file": "src/content/docs/knowledge/blog/pagination-check-04.md",
+        "id": "04",
+        "draft": false,
+        "date": "2026-10-04",
+        "tag": "偶数验证"
+      },
+      {
+        "file": "src/content/docs/knowledge/blog/pagination-check-05.md",
+        "id": "05",
+        "draft": false,
+        "date": "2026-10-03",
+        "tag": "奇数验证"
+      },
+      {
+        "file": "src/content/docs/knowledge/blog/pagination-check-06.md",
+        "id": "06",
+        "draft": false,
+        "date": "2026-10-02",
+        "tag": "偶数验证"
+      },
+      {
+        "file": "src/content/docs/knowledge/blog/pagination-check-07.md",
+        "id": "07",
+        "draft": false,
+        "date": "2026-10-01",
+        "tag": "奇数验证"
+      },
+      {
+        "file": "src/content/docs/knowledge/blog/pagination-check-08.md",
+        "id": "08",
+        "draft": false,
+        "date": "2026-09-30",
+        "tag": "偶数验证"
+      },
+      {
+        "file": "src/content/docs/knowledge/blog/pagination-check-09.md",
+        "id": "09",
+        "draft": false,
+        "date": "2026-09-29",
+        "tag": "奇数验证"
+      },
+      {
+        "file": "src/content/docs/knowledge/blog/pagination-check-10.md",
+        "id": "10",
+        "draft": false,
+        "date": "2026-09-28",
+        "tag": "偶数验证"
+      },
+      {
+        "file": "src/content/docs/knowledge/blog/pagination-check-11.md",
+        "id": "11",
+        "draft": false,
+        "date": "2026-09-27",
+        "tag": "奇数验证"
+      },
+      {
+        "file": "src/content/docs/knowledge/blog/pagination-check-12.md",
+        "id": "12",
+        "draft": true,
+        "date": "2026-09-26",
+        "tag": "草稿分页排除"
+      }
+    ],
+    "sourceArticles": [
+      {
+        "name": "src/content/docs/knowledge/blog/article-reading-check.md",
+        "sha256": "ff3b02a33c12367f4a973180ae0ed45900f2b9031b4834828a3689b4efeee42b"
+      },
+      {
+        "name": "src/content/docs/knowledge/blog/editor-draft-check.md",
+        "sha256": "12043820f89db84ee343a87e9f5088a1828dbfd3837d16b4633baf363e0cba77"
+      },
+      {
+        "name": "src/content/docs/knowledge/blog/reading-example.md",
+        "sha256": "bf0950e25b370830fd7a1a95bddfd9ec2f16c3edbe00cda82014a202f9e1a0db"
+      }
+    ],
+    "originalArticlesUnchanged": true,
+    "pages": 67,
+    "success": true
+  },
+  "records": [
+    {
+      "check": "native-page-order-count-boundaries-and-refresh",
+      "result": "passed",
+      "page": 1,
+      "paths": [
+        "/personal-homepage/knowledge/blog/article-reading-check/",
+        "/personal-homepage/knowledge/blog/pagination-check-01/",
+        "/personal-homepage/knowledge/blog/pagination-check-02/",
+        "/personal-homepage/knowledge/blog/pagination-check-03/",
+        "/personal-homepage/knowledge/blog/pagination-check-04/"
+      ],
+      "posts": 5
+    },
+    {
+      "check": "native-page-order-count-boundaries-and-refresh",
+      "result": "passed",
+      "page": 2,
+      "paths": [
+        "/personal-homepage/knowledge/blog/pagination-check-05/",
+        "/personal-homepage/knowledge/blog/pagination-check-06/",
+        "/personal-homepage/knowledge/blog/pagination-check-07/",
+        "/personal-homepage/knowledge/blog/pagination-check-08/",
+        "/personal-homepage/knowledge/blog/pagination-check-09/"
+      ],
+      "posts": 5
+    },
+    {
+      "check": "native-page-order-count-boundaries-and-refresh",
+      "result": "passed",
+      "page": 3,
+      "paths": [
+        "/personal-homepage/knowledge/blog/pagination-check-10/",
+        "/personal-homepage/knowledge/blog/pagination-check-11/"
+      ],
+      "posts": 2
+    },
+    {
+      "check": "native-next-prev-browser-back-forward",
+      "result": "passed"
+    },
+    {
+      "check": "native-tag-matching-order-and-count",
+      "result": "passed",
+      "tag": "分页验证",
+      "count": 11,
+      "pagination": false
+    },
+    {
+      "check": "native-tag-matching-order-and-count",
+      "result": "passed",
+      "tag": "奇数验证",
+      "count": 6,
+      "pagination": false
+    },
+    {
+      "check": "native-tag-matching-order-and-count",
+      "result": "passed",
+      "tag": "偶数验证",
+      "count": 5,
+      "pagination": false
+    },
+    {
+      "check": "native-tags-link-from-list-and-article",
+      "result": "passed"
+    },
+    {
+      "check": "article-return-restores-source-position-focus",
+      "result": "passed",
+      "source": "http://127.0.0.1:4361/personal-homepage/knowledge/blog/2/",
+      "index": 3,
+      "label": "← 返回文章列表",
+      "scrollY": 517
+    },
+    {
+      "check": "article-return-restores-source-position-focus",
+      "result": "passed",
+      "source": "http://127.0.0.1:4361/personal-homepage/knowledge/blog/3/",
+      "index": 1,
+      "label": "← 返回文章列表",
+      "scrollY": 0
+    },
+    {
+      "check": "article-return-restores-source-position-focus",
+      "result": "passed",
+      "source": "http://127.0.0.1:4361/personal-homepage/knowledge/blog/tags/%E5%A5%87%E6%95%B0%E9%AA%8C%E8%AF%81/",
+      "index": 4,
+      "label": "← 返回标签结果",
+      "scrollY": 986
+    },
+    {
+      "check": "direct-article-default-return",
+      "result": "passed"
+    },
+    {
+      "check": "unknown-page-tag-and-draft-exclusion",
+      "result": "passed",
+      "articleCount": 12,
+      "missingStatus": 404,
+      "hiddenDraftSearch": [
+        "/personal-homepage/knowledge/blog/pagination-check-01/",
+        "/personal-homepage/knowledge/blog/pagination-check-02/",
+        "/personal-homepage/knowledge/blog/pagination-check-03/",
+        "/personal-homepage/knowledge/blog/pagination-check-04/",
+        "/personal-homepage/knowledge/blog/pagination-check-05/",
+        "/personal-homepage/knowledge/blog/pagination-check-06/",
+        "/personal-homepage/knowledge/blog/pagination-check-07/",
+        "/personal-homepage/knowledge/blog/pagination-check-08/",
+        "/personal-homepage/knowledge/blog/pagination-check-09/",
+        "/personal-homepage/knowledge/blog/pagination-check-10/",
+        "/personal-homepage/knowledge/blog/pagination-check-11/",
+        "/personal-homepage/knowledge/"
+      ]
+    },
+    {
+      "check": "keyboard-native-pagination",
+      "result": "passed",
+      "focus": {
+        "focused": true,
+        "outline": "solid"
+      }
+    },
+    {
+      "check": "mobile-page-tag-overflow",
+      "result": "passed",
+      "viewport": "390x844"
+    },
+    {
+      "check": "without-JavaScript-native-pages-tags-and-fallback",
+      "result": "passed"
+    },
+    {
+      "check": "storage-blocked-real-link-fallback",
+      "result": "passed"
+    },
+    {
+      "check": "canonical-one-article-no-pagination-and-tag-return",
+      "result": "passed"
+    },
+    {
+      "check": "browser-page-errors",
+      "result": "passed",
+      "errors": []
+    }
+  ]
+}

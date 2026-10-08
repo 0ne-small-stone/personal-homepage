@@ -1,5 +1,11 @@
 # 个人主页技术调研来源和候选方案
 
+## T07.03 原生标签与分页（2026-10-08）
+
+- [starlight-blog 配置](https://starlight-blog-docs.vercel.app/configuration/#postcount)：`postCount` 控制主文章列表每页数量，默认 5；本轮显式设为 5。原生静态页地址和前后链接通过本机生产构建验证。
+- [标签和草稿 frontmatter](https://starlight-blog-docs.vercel.app/guides/frontmatter/)：沿用原生 `tags` 和 `draft`，同一已发布查询参与列表/标签。已安装 0.30.0 的 `libs/content.ts`、`libs/tags.ts`、`routes/Blog.astro` 和 `routes/Tags.astro` 实查：主列表分页，标签一页显示全部匹配文章，不能把主列表 `postCount` 描述为标签分页配置。
+- 原生路由、Posts 与 PrevNextLinks 未修改；唯一标签适配在已有来源返回中辨认 `data-blog-page="tag"`。19 组结果和样本来源见 [T07.03 证据](iterations/t07-03-2026-10-08.md)。没有新增依赖或候选主题。
+
 文档对应（2026-10-07 整理）：本文件为技术侧 `REFERENCES.md`，对应[设计复用与素材来源](../design/REFERENCES.md)。本文维护依赖能力、官方文档与运行条件，设计侧维护体验参考、素材许可和改造范围；职责映射见[文档对应表](../README.md)。原调研日期与未验证边界沿用。
 
 本文件保存 2026-10-02 的基础调研，以及 2026-10-03 对 Starlight、博客和搜索说明的补充核对，供实施时定位官方文档和候选项目。链接存在和文档描述可支持选型，不能代替实际版本兼容、账号权限、网络表现和部署验证。

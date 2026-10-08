@@ -26,6 +26,7 @@ export default defineConfig({
         title: '文章',
         prefix: 'knowledge/blog',
         navigation: 'none',
+        postCount: 5,
         rss: false,
         structuredData: false,
       })],
