@@ -49,6 +49,9 @@ Astro 的交互组件可用于静态主站，但服务端动作和延迟服务�
 | --- | --- |
 | [Pages CMS](https://github.com/hunvreus/pagescms) | GitHub 内容与媒体编辑；默认考虑官方托管版，自托管当前需要 PostgreSQL 等依赖 |
 | [Pages CMS 配置](https://pagescms.org/docs/configuration/) | 配置 .pages.yml、内容集合、字段、媒体与工作流按钮 |
+| [内容字段](https://pagescms.org/docs/configuration/content/fields/)、[操作范围](https://pagescms.org/docs/configuration/content/operations/) | T13.01 固定文件、隐藏/只读字段及关闭创建/改名/删除；readonly 是表单行为 |
+| [合并及提交配置](https://pagescms.org/docs/configuration/settings/)、[日期字段](https://pagescms.org/docs/configuration/fields/date/) | `merge: true` 保留未建模字段；保存提交与 PR/发布区分；日期字符串需兼容博客 Date |
+| [富文本](https://pagescms.org/docs/configuration/fields/rich-text/)、[快速开始](https://pagescms.org/docs/quick-start/) | 原生 Markdown/Source、关闭媒体；官方托管版登录和仓库授权步骤 |
 | [Pages CMS 工作流按钮](https://pagescms.org/docs/configuration/actions/) | 可配置自定义 Actions 入口 |
 | [Pages CMS Astro 示例](https://github.com/pagescms/astro-blog-template) | 参考 Astro 内容与 CMS 配置，不盲目继承旧依赖 |
 | [Starlight](https://starlight.astro.build/zh-cn/) | 当前优先验证的知识库基础方案；提供导航、搜索、代码高亮等原生能力 |
