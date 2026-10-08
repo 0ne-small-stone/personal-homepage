@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LSSH · 第24轮四入口验收</title>
+<style>
+:root{color-scheme:dark}body{margin:0;background:#000;color:#ededed;font:15px/1.65 "PingFang SC","Microsoft YaHei",sans-serif}main{max-width:1200px;margin:auto;padding:32px 20px 72px}h1{font-size:25px;font-weight:500}h2{font-size:19px;font-weight:500;margin-top:32px}p{color:#a1a1a1}a{color:inherit;text-underline-offset:4px}nav{display:flex;flex-wrap:wrap;gap:12px}button{border:1px solid #555;background:#171717;color:inherit;border-radius:8px;min-height:44px;padding:8px 14px;cursor:pointer}button:focus-visible,a:focus-visible{outline:2px solid #ededed;outline-offset:4px}button[aria-pressed=true]{background:#ededed;color:#000}.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}figure{margin:0}figcaption{margin-bottom:8px;color:#a1a1a1}img{display:block;width:100%;height:auto;background:#111}.mobile img{max-height:640px;width:auto;max-width:100%;margin:auto}table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}th,td{text-align:left;padding:10px 8px;border-bottom:1px solid #333}th{color:#a1a1a1;font-weight:400}.scroll{overflow:auto}code{font-size:13px;color:#a1a1a1}@media(max-width:700px){.pair{grid-template-columns:1fr}main{padding:20px 12px}td,th{white-space:nowrap}}
+</style>
+<main>
+<h1>第24轮：四个入口，共用一条曲面轨道</h1>
+<p>项目、电台、相册、常用网站。桌面 1440×900、手机模拟 390×844；Chrome / SwiftShader。官方专辑图为标明身份的视觉占位，栏目内容与服务接入另行验收。</p>
+<nav><a href="http://127.0.0.1:4321/personal-homepage/">体验实际首页</a><a href="checks.json">修复后完整记录</a><a href="checks-initial.json">首次采集（含报错）</a></nav>
+<h2>四个停驻画面</h2><nav id="items"></nav>
+<div class="pair"><figure><figcaption>桌面</figcaption><img id="desktop" alt="桌面入口停驻画面"></figure><figure class="mobile"><figcaption>手机布局模拟</figcaption><img id="mobile" alt="手机入口停驻画面"></figure></div>
+<p id="rest-state"></p>
+<h2>连续输入与实际状态</h2>
+<p>每条方向记录由 5 次真实滚轮事件组成。下表只摘录浏览器实际收到输入的时刻及其后的第一条状态读回；全部逐帧数据保存在完整 JSON。截图与这些读回不宣称 GPU 同时刻。</p>
+<div class="scroll"><table><thead><tr><th>方向</th><th>输入相对时间 / ms</th><th>deltaY</th><th>trusted</th><th>读回 scrollY</th><th>当前项</th><th>渲染索引</th></tr></thead><tbody id="inputs"></tbody></table></div>
+<h2>吸附与中断</h2><p id="snap-state"></p>
+<h2>三个新增入口返回</h2><nav id="returns"></nav><figure><figcaption id="return-label"></figcaption><img id="return-image" alt="栏目返回后恢复停驻和入口焦点"></figure>
+<p>返回截图在卡片索引追随收敛后采集。相册/网站图中仍能看到引入标题 Afterimage 的暂态追随尾部；没有等待所有场景通道静止，不将这些图片叫作整场景最终静帧。位置、焦点及有效透明度见原始记录。音乐、相册和网站栏目是已有真实路由，内部功能仍需各自接入。</p>
+<h2>工程结果</h2><ul id="checks"></ul>
+<p>首次检查发现 GSAP 吸附完成后的数字 0 状态被当作对象调用；记录原样保留。确认轮兼容该状态，并重新检查运行时错误、吸附、中断、往返与降级。设计复核和用户确认另记；玻璃、全屏展开及升墙仍在后续切片。</p>
+</main>
+<script type="module">
+const data=await fetch('checks.json').then(r=>r.json());
+const ids=['projects','radio','album','links'], names=['项目 · Afterimage','电台 · Echoes','相册 · A moment remains','网站 · Elsewhere'];
+function buttonRow(target,labels,onSelect){labels.forEach((label,index)=>{const b=document.createElement('button');b.textContent=label;b.setAttribute('aria-pressed','false');b.onclick=()=>{for(const peer of target.children)peer.setAttribute('aria-pressed',String(peer===b));onSelect(index);};target.append(b);if(index===0)b.click();});}
+buttonRow(document.querySelector('#items'),names,index=>{for(const mode of ['desktop','mobile'])document.querySelector(`#${mode}`).src=`${mode}-${ids[index]}.png`;const d=data.desktop[index],m=data.mobile[index];document.querySelector('#rest-state').textContent=`实际 S：桌面 ${d.y}px / 手机 ${m.y}px；当前项 ${d.active} / ${m.active}；有效 CTA 透明度 ${d.items[index].effectiveOpacity} / ${m.items[index].effectiveOpacity}。`;});
+function addRow(target,values){const tr=document.createElement('tr');for(const value of values){const td=document.createElement('td');td.textContent=String(value);tr.append(td);}target.append(tr);}
+for(const [key,label] of [['forward','正向'],['backward','反向']]){const trace=data[key],start=trace.inputs[0].time;for(const input of trace.inputs){const row=trace.rows.find(x=>x.time>=input.time);addRow(document.querySelector('#inputs'),[label,(input.time-start).toFixed(1),input.deltaY,input.trusted,row?.y?.toFixed(1),row?.active,row?.index?.toFixed(4)]);}}
+document.querySelector('#snap-state').textContent=data.snaps.map(s=>{const rows=s.trace.rows.filter(x=>x.snap);return `${names[s.index]}：${s.delta>0?'+':''}${s.delta}px 输入后回到 ${s.end.y}px，实际吸附状态 ${rows.length} 帧`;}).join('；')+`。中断前 active=${data.interruptBefore.snap}，新输入后 active=${data.interruptImmediate.snap}。`;
+buttonRow(document.querySelector('#returns'),names.slice(1),index=>{const r=data.returns[index],v=r.value;document.querySelector('#return-image').src=`return-${ids[r.index]}.png`;document.querySelector('#return-label').textContent=`${names[r.index]} · ${v.y}px · 焦点 ${v.focus} · loader=${v.loader}`;});
+const labels={'forward visits all four':'正向实际穿越四入口','forward CTA exclusivity':'正向 CTA 仅当前且可见时命中','backward visits all four':'反向实际穿越四入口','backward CTA exclusivity':'反向 CTA 仅当前且可见时命中','snap near radio':'电台中心附近吸附','snap near album':'相册中心附近吸附','new input interrupts active snap':'新输入中断正在执行的吸附','no JS preserves four native entries':'无 JS 保留四个原生入口','reduced motion preserves native art and CTAs':'减少动画保留图片及入口','asset failure keeps native album title and route':'素材失败保留语义标题和相册去向','no unexpected script errors':'无非预期页面脚本错误'};
+for(const c of data.checks){const li=document.createElement('li');let label=labels[c.name];if(!label){const [mode,type,id]=c.name.split(' ');label=type==='rest'?`${mode==='desktop'?'桌面':'手机'}停驻 · ${names[ids.indexOf(id)]}`:c.name.startsWith('route and return')?`真实切页与返回 · ${names[ids.indexOf(c.name.split(' ').at(-1))]}`:c.name;}li.textContent=`${c.pass?'通过':'失败'} · ${label}`;document.querySelector('#checks').append(li);}
+</script></html>
