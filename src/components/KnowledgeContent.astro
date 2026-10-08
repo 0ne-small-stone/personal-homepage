@@ -2,6 +2,7 @@
 import DefaultContent from 'starlight-blog/overrides/MarkdownContent.astro';
 import PdfReader from './PdfReader.astro';
 import ArticleNavigation from './ArticleNavigation.astro';
+import RelatedKnowledge from './RelatedKnowledge.astro';
 const { entry } = Astro.locals.starlightRoute;
 const source = entry.data.source;
 ---
@@ -19,6 +20,7 @@ const source = entry.data.source;
     <DefaultContent><slot /></DefaultContent>
   </>
 )}
+<RelatedKnowledge />
 <style>
   .source-details { margin-block: var(--space-5); }
   summary { cursor: pointer; padding-block: var(--space-3); min-height: var(--target-min); }

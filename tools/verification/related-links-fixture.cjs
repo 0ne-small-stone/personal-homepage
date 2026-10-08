@@ -1,0 +1,48 @@
+const fs=require('node:fs');
+const path=require('node:path');
+const assert=require('node:assert/strict');
+const {execFileSync,spawnSync}=require('node:child_process');
+const {createHash}=require('node:crypto');
+const root=process.cwd();
+const fixture=path.resolve('.ci-tmp/t09-01-fixture-with-pdfs');
+assert(fixture.startsWith(root+path.sep+'.ci-tmp'+path.sep));
+assert(!fs.existsSync(fixture),'Use a fresh fixture directory; do not overwrite a snapshot.');
+fs.mkdirSync(fixture,{recursive:true});
+const files=execFileSync('git',['ls-files','-z'],{encoding:'utf8'}).split('\0').filter(Boolean);
+const extra=['src/lib/knowledge-links.ts','src/components/RelatedKnowledge.astro'];
+const hash=name=>createHash('sha256').update(fs.readFileSync(name)).digest('hex');
+const originals=files.filter(name=>name.startsWith('src/content/docs/knowledge/')).map(name=>({name,sha256:hash(name)}));
+for(const name of new Set([...files,...extra])){const destination=path.join(fixture,name);fs.mkdirSync(path.dirname(destination),{recursive:true});fs.copyFileSync(name,destination);}
+fs.symlinkSync(path.join(root,'node_modules'),path.join(fixture,'node_modules'),'junction');
+const localPdfs=[];
+const catalog=JSON.parse(fs.readFileSync('docs/technical/content/learning-materials.json','utf8'));
+for(const id of ['source-probability-lecture-0','source-ads-algorithms-notes']) {
+  const source=path.join(root,'public/local-materials',id+'.pdf');
+  if(!fs.existsSync(source))continue;
+  const expected=catalog.sources.find(source=>source.id===id);
+  assert.equal(hash(source),expected.sha256);
+  const destination=path.join(fixture,'public/local-materials',id+'.pdf');
+  fs.mkdirSync(path.dirname(destination),{recursive:true});fs.copyFileSync(source,destination);
+  localPdfs.push({id,sha256:hash(source),bytes:fs.statSync(source).size});
+}
+const directory=path.join(fixture,'src/content/docs/knowledge/notes');
+fs.writeFileSync(path.join(directory,'related-links-check.md'),`---\ntitle: 关联链接验证（仅本机样稿）\ndescription: 仅用于 T09.01 三类关联验证，不是正式笔记。\nentryId: demo-related-links-note\nkind: note\ntopics: [功能验证]\nexample: true\nrelated: [resource-probability-lecture-0, demo-article-reading-check, note-ads-algorithms-notes, demo-related-links-draft, demo-related-links-note, demo-article-reading-check]\n---\n\n这是仅本机的功能验证笔记，不是正式内容。下方关联应只有资料、文章、笔记三条，按声明顺序展示。\n`);
+fs.writeFileSync(path.join(directory,'related-links-draft.md'),`---\ntitle: T09HIDDENTITLE20261008\nentryId: demo-related-links-draft\nkind: note\ndraft: true\nrelated: [unfinished-draft-reference]\n---\n\nT09HIDDENBODY20261008\n`);
+const article='src/content/docs/knowledge/blog/article-reading-check.md';
+const articlePath=path.join(fixture,article);
+const valid=fs.readFileSync(articlePath,'utf8');
+const modified=valid.replace(/^related:.*$/m,'related: [demo-related-links-missing]');
+assert.notEqual(modified,valid);
+fs.writeFileSync(articlePath,modified);
+const invalid=spawnSync(process.execPath,['node_modules/astro/bin/astro.mjs','build'],{cwd:fixture,encoding:'utf8',maxBuffer:16*1024*1024});
+const diagnostics=invalid.stdout+'\n'+invalid.stderr;
+fs.writeFileSync('.ci-tmp/t09-01-invalid-build.log',diagnostics);
+assert.notEqual(invalid.status,0);
+assert(diagnostics.includes('未知关联 ID')&&diagnostics.includes('demo-related-links-missing')&&diagnostics.includes('article-reading-check.md'));
+fs.writeFileSync(articlePath,valid);
+const output=execFileSync(process.execPath,['node_modules/astro/bin/astro.mjs','build'],{cwd:fixture,encoding:'utf8',maxBuffer:16*1024*1024});
+fs.writeFileSync('.ci-tmp/t09-01-fixture-build.log',output);
+for(const original of originals)assert.equal(hash(original.name),original.sha256);
+const record={scope:'isolated local production fixture; no canonical content added',originals,originalKnowledgeUnchanged:true,localPdfs,invalidBuild:{status:invalid.status,source:article,target:'demo-related-links-missing',diagnosticConfirmed:true},validBuild:{pages:Number(output.match(/\[build\] (\d+) page\(s\) built/)?.[1]),success:true},samplePublished:1,sampleDraft:1};
+fs.writeFileSync('.ci-tmp/t09-01-fixtures.json',JSON.stringify(record,null,2));
+console.log(JSON.stringify({invalidBuildRejected:true,sourceIdentified:true,pages:record.validBuild.pages,originalKnowledgeUnchanged:true}));

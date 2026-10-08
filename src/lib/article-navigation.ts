@@ -100,7 +100,7 @@ function restoreSource(visit: ReadingVisit, signal: AbortSignal) {
       return true;
     }, signal);
   } else {
-    const link = Array.from(document.querySelectorAll<HTMLAnchorElement>('.knowledge-list a, .sl-blog-preview-link'))
+    const link = Array.from(document.querySelectorAll<HTMLAnchorElement>('.knowledge-list a, .sl-blog-preview-link, .related-knowledge a'))
       .find((item) => item.href === visit.to);
     link?.focus({ preventScroll: true });
     // Wait until the browser has performed its native scroll restoration.

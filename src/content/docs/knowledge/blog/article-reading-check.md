@@ -7,6 +7,7 @@ entryId: demo-article-reading-check
 kind: article
 topics: [阅读与整理]
 example: true
+related: [resource-probability-lecture-0, note-ads-algorithms-notes]
 draft: false
 ---
 

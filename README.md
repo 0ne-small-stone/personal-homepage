@@ -8,6 +8,8 @@
 
 ## 文档入口
 
+本轮 T09.01 普通关联已接入：资料、文章和笔记的声明 ID 自动生成真实类型/标题链接；未知目标阻止构建、草稿隐藏。当前 426 条关联、类型/生产构建、25 项内容测试与 Edge 15 组通过。[当前文章底部](http://127.0.0.1:4322/personal-homepage/knowledge/blog/article-reading-check/#related-knowledge-title)、[三类目标本机样本](http://127.0.0.1:4362/personal-homepage/knowledge/notes/related-links-check/)、[复现和证据](docs/technical/iterations/t09-01-2026-10-08.md)。反向引用与正式部署仍待后续切片。
+
 [文档导航与对应表](docs/README.md)是统一入口，包含完整目录、P 页面与 R 需求、U 设计任务、T 技术任务的对应关系。[AGENTS.md](AGENTS.md)维护后续 AI 的工作约定和阅读顺序。
 
 | 层级 | 设计：`docs/design/` | 技术：`docs/technical/` |
