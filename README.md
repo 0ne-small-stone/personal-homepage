@@ -8,6 +8,8 @@
 
 ## 文档入口
 
+本轮 **T07.02 主题与类型组合筛选**已接入学习总览：主题选择读取同一批已发布内容，与类型取交集；topic/type 保留在地址中，清空、无结果与未知条件有明确反馈。类型检查、51 页构建及 Edge 19 组通过，76 种组合与独立读取的内容字段一致。[概率资料](http://127.0.0.1:4322/personal-homepage/knowledge/?type=resource&topic=%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1)、[计算机系统笔记](http://127.0.0.1:4322/personal-homepage/knowledge/?type=note&topic=%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F)、[复现与证据](docs/technical/iterations/t07-02-2026-10-08.md)。正式内容未修改，用户体验与部署待验。
+
 本轮 **T02.01 公共目录**已接入主站与学习区：展开“全站目录”可直达学习、展示、常用网站、音乐电台、关于我、留言墙，区分当前页与当前栏目；修复学习侧栏三处重复部署前缀。类型检查、51 页生产构建、Edge 16 组及产物路由检查通过。[从文章体验](http://127.0.0.1:4322/personal-homepage/knowledge/blog/article-reading-check/)、[从首页体验](http://127.0.0.1:4322/personal-homepage/)、[步骤与证据](docs/technical/iterations/t02-01-2026-10-08.md)。4322 使用本轮产物，4363/4364 继续保留上一轮关联快照。用户体验与正式部署分别待验。
 
 本轮 T09.02 反向列表已接入：在同一公开关联基础上显示“哪些内容关联了它”，列出真实来源类型和标题；草稿两端排除、无来源隐藏，增删关联后重新构建两端一致。当前 426 条反向链接、类型/生产构建、33 项内容测试与 Edge 15 组通过。[现有 PDF 的来源](http://127.0.0.1:4322/personal-homepage/knowledge/resources/probability/probability-lecture-0/#backlinks-knowledge-title)、[新增关联样本](http://127.0.0.1:4363/personal-homepage/knowledge/blog/article-reading-check/#backlinks-knowledge-title)、[移除关联样本](http://127.0.0.1:4364/personal-homepage/knowledge/blog/article-reading-check/)、[复现和证据](docs/technical/iterations/t09-02-2026-10-08.md)。现有内容未修改，正式部署仍待验；[上一轮正向关联](docs/technical/iterations/t09-01-2026-10-08.md)保留独立记录。
