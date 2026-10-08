@@ -14,6 +14,17 @@
 body, input, select, button { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
 /* This surface is for reading existing notes; annotation content still renders. */
 #editorModeButtons, #editorModeSeparator { display: none !important; }
+/* Keep a close action inside the panel, including when it covers the toolbar. */
+#lsshViewsManagerClose {
+  flex: 0 0 auto;
+  margin-inline-start: auto;
+  min-width: 44px;
+  min-height: 44px;
+  padding-inline: 8px;
+  color: inherit;
+  font: inherit;
+}
+#lsshViewsManagerClose:focus-visible { outline: 2px solid #a8c7cc; outline-offset: -2px; }
 @media (max-width: 360px) {
   :root { --toolbar-height: 96px; }
   #mainContainer { min-width: 0; }

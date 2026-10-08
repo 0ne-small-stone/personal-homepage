@@ -1,5 +1,9 @@
 # 个人主页技术调研来源和候选方案
 
+## T08.02 PDF 侧栏收起（2026-10-08）
+
+已安装 PDF.js 6.4.299 的 Sidebar/ViewsManager 与 viewer.html 实读：关闭由外部 viewsManagerToggleButton 管理，标题内 viewsManagerSelectorButton 只切换视图，没有关闭入口。本轮以独立 lssh-controls.mjs 调用原生开关，不编辑发行版 viewer.mjs/viewer.css、不自管状态；关闭历史和aria继续由原生实现维护。具体改造及Apache-2.0声明见[资源登记](../../public/pdfjs/README.md)，行为和尺寸见[本轮证据](iterations/t08-02-2026-10-08.md)。
+
 ## T07.04 学习总览排序复用（2026-10-08）
 
 原生 Starlight 导航不提供跨类型统一业务列表排序，starlight-blog 的日期列表仅覆盖文章；本轮复用已发布查询、原生 HTML select 和 URL/history，以构建期中文自然标题序号补充该最小缺口。浏览器只移动已有列表节点，无新主题、集合、排序库或数据服务。相同标题按稳定 ID 排序，降序为完整升序的反转；默认恢复现有主题序号。

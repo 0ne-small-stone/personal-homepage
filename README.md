@@ -8,6 +8,8 @@
 
 ## 文档入口
 
+本轮 **T08.02 PDF 侧栏收起**：侧栏右上新增“收起”，支持鼠标、Enter/Space及Esc，关闭后可从原生工具栏再打开，保持页码和缩放。刷新[当前资料](http://127.0.0.1:4322/personal-homepage/knowledge/resources/computer-systems/computer-organization-risc-v-fifth-edition/)即可体验。11组独立Edge、26文件类型检查和52页构建通过，[复现与实际截图](docs/technical/iterations/t08-02-2026-10-08.md)。
+
 本轮 **T07.04 学习总览标题排序**：可按主题（默认）、标题升序、标题降序浏览，与类型/主题组合；刷新、前进后退与阅读返回保持，清空筛选保留排序。204 种组合与当前/隔离 Edge 16/17 组通过。[物理资料排序体验](http://127.0.0.1:4322/personal-homepage/knowledge/?type=resource&topic=%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%E2%85%A1&sort=title-asc)、[复现与证据](docs/technical/iterations/t07-04-2026-10-08.md)。总览一并正确统计公开 PDF；内容与原件未改，CMS 真实上传及正式部署继续待验。
 
 本轮 **T06.01 单个公开 PDF**：新增《PDF 阅读验证说明》四页功能样本，随静态产物发布，可直接阅读和下载；不依赖本机附件目录。[干净构建体验](http://127.0.0.1:4366/personal-homepage/knowledge/resources/reading-guide/)、[筛选入口](http://127.0.0.1:4366/personal-homepage/knowledge/?type=resource&topic=%E9%98%85%E8%AF%BB%E4%B8%8E%E6%95%B4%E7%90%86)、[复现与证据](docs/technical/iterations/t06-01-2026-10-08.md)。52 页构建、Edge 17 组、7 种坏附件拒绝已通过；原有 44 个内容文件保持原状。此为公开通路功能样本，网站正式部署仍待 T16。

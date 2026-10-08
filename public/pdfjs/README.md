@@ -7,3 +7,5 @@ Mozilla PDF.js 官方 generic 发行版 **6.4.299**，Apache-2.0，完整许可�
 改造范围：保留 build/web 运行文件、worker、CMap、标准字体、WASM、图标和全部语言；排除 source maps、调试器及示例 PDF。viewer.html 修改标题、初始语言、允许用户缩放，并附加 lssh-theme.css；主题调整阅读控件、焦点与减少动画，隐藏新增批注工具（原件批注继续渲染），窄屏工具栏换成两行，不修改页面内容和渲染逻辑。
 
 资料通过同源 `file` 参数按当前条目加载。不将示例 PDF 或本地学习原件包含在此目录。升级时重新核对发行附件、许可、浏览器兼容性与迭代中的实际阅读用例。
+
+2026-10-08 T08.02：viewer.html 侧栏标题区添加中文“收起”按钮，lssh-controls.mjs 触发原生开关并恢复焦点，lssh-theme.css 保证 44px 操作尺寸。不修改官方 viewer.mjs/viewer.css 和渲染引擎；升级时保留或重新核验这三个适配点。
