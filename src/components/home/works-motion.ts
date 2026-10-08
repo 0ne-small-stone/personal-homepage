@@ -15,6 +15,7 @@ export interface MotionState {
   snapActive: boolean;
   frame: number;
   time: number;
+  initialization: { revision: number; y: number; zoom: number; reason: string };
   cards: { index: number; position: number[]; rotationY: number; scale: number; alpha: number; visible: boolean }[];
   camera: { position: number[]; fov: number } | null;
   glass: { anchor: number[]; quaternion: number[]; scale: number; projectedAnchor: number[]; bounds: number[]; centeredLocalBounds: number[] } | null;
@@ -35,7 +36,8 @@ export function createMotionState(): MotionState {
     height: 900, scrollY: 0, velocity: 0, phase: 'kv',
     raw: { kv: 0, intro: 0, works: 0, event: 0, snap: 0, outro: 0, wall: 0 },
     rendered: { progress: 0, index: 0, background: 0, intro: 0 },
-    activeItem: -1, snapActive: false, frame: 0, time: 0, cards: [], camera: null, glass: null,
+    activeItem: -1, snapActive: false, frame: 0, time: 0,
+    initialization: { revision: 0, y: 0, zoom: 1, reason: 'pending' }, cards: [], camera: null, glass: null,
   };
 }
 
@@ -44,6 +46,8 @@ export class MotionLerper {
   private current: number | undefined;
   private target = 0;
   constructor(private multiplier: number) {}
+  reset(value: number) { this.current = this.target = value; }
+  snapshot() { return { current: this.current, target: this.target }; }
   read(target: number) {
     this.target = target;
     this.current ??= target;

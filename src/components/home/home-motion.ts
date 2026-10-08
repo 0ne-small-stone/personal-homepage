@@ -110,17 +110,42 @@ export function installWorksMotion(model: JourneyModel) {
   const disconnect = lenis.on('scroll', () => ScrollTrigger.update());
   const progress = new MotionLerper(1), center = new MotionLerper(.5), background = new MotionLerper(.7), title = new MotionLerper(.3);
   const allLerpers = [progress, center, background, title];
+  let pendingFocus: string | undefined;
+  const phaseAt = (s: number) => {
+    const h = model.motion.height;
+    return s <= introGap ? 'kv' : s < h + introGap ? 'works_intro' : s < (workCount + 1) * h + introGap ? 'works' : s < (workCount + 2.5) * h + introGap ? 'works_outro' : 'wall';
+  };
+  const centeredIndex = (p: number) => {
+    const o = (workCount + 1) * p, rounded = Math.round(o + Number.EPSILON * 8);
+    return rounded + .4 * (o - rounded);
+  };
+  function initialize(y: number, reason: string) {
+    abortSnap(); lenis.resize(); lenis.scrollTo(y, { immediate: true, force: true }); ScrollTrigger.update();
+    const s = scrollY, h = model.motion.height;
+    for (const channel of channels) {
+      const [start, end] = motionRange(channel, h);
+      model.motion.raw[channel] = Math.max(0, Math.min(1, (s - start) / (end - start)));
+    }
+    const p = model.motion.raw.works, u = centeredIndex(p);
+    progress.reset(p); center.reset(u); background.reset(p); title.reset(model.motion.raw.intro);
+    model.motion.rendered = { progress: p, index: u, background: p * (workCount + 1), intro: model.motion.raw.intro };
+    model.motion.scrollY = s; model.motion.phase = phaseAt(s); model.motion.snapActive = false;
+    model.motion.initialization = { revision: model.motion.initialization.revision + 1, y: s, zoom: s <= introGap ? 1 : 0, reason };
+    sections.forEach((_, index) => hide(index, true));
+    const index = sections.findIndex((_, i) => s >= (1.5 + i) * h + introGap && s < (2.5 + i) * h + introGap);
+    if (index >= 0) show(index, true);
+    model.invalidate();
+  }
   model.drive = (time, _dt) => {
     lenis.raf(time);
     model.motion.time = time; model.motion.frame++;
     model.motion.scrollY = scrollY; model.motion.velocity = lenis.velocity;
     const h = model.motion.height, s = scrollY;
-    model.motion.phase = s <= introGap ? 'kv' : s < h + introGap ? 'works_intro' : s < (workCount + 1) * h + introGap ? 'works' : s < (workCount + 2.5) * h + introGap ? 'works_outro' : 'wall';
-    const p = progress.read(model.motion.raw.works), o = (workCount + 1) * p;
+    model.motion.phase = phaseAt(s);
+    const p = progress.read(model.motion.raw.works);
     // Stabilize the exact half index after N=6 → N=4 floating point conversion.
     // The 8-ULP tie tolerance is far smaller than a physical scroll pixel.
-    const rounded = Math.round(o + Number.EPSILON * 8);
-    model.motion.rendered = { progress: p, index: center.read(rounded + .4 * (o - rounded)),
+    model.motion.rendered = { progress: p, index: center.read(centeredIndex(p)),
       background: background.read(model.motion.raw.works) * (workCount + 1), intro: title.read(model.motion.raw.intro) };
     // ScrollTrigger uses numeric 0 after completion/interruption, not only undefined.
     const snapTween = triggers[4].getTween(true);
@@ -142,20 +167,28 @@ export function installWorksMotion(model: JourneyModel) {
     document.querySelectorAll('.home-chapter-index a').forEach((link, index) => index === (body.dataset.chapter === 'wall' ? 5 : current) ? link.setAttribute('aria-current', 'location') : link.removeAttribute('aria-current'));
   };
   model.afterFrame = dt => {
+    // Camera and cards have consumed this revision in the same R3F frame.
+    if (pendingFocus !== undefined && body.classList.contains('home-enhanced')) {
+      const focusOrigin = pendingFocus; pendingFocus = undefined;
+      delete body.dataset.homeRestoring;
+      document.getElementById(focusOrigin)?.focus({ preventScroll: true });
+      document.dispatchEvent(new CustomEvent('lssh:home-restored', { detail: { ...model.motion.initialization, focusOrigin } }));
+    }
     // Optional read-only diagnostics: browser tests subscribe; no product controls or text.
     if (document.documentElement.dataset.motionDiagnostics === 'true')
-      document.dispatchEvent(new CustomEvent('lssh:motion', { detail: structuredClone(model.motion) }));
+      document.dispatchEvent(new CustomEvent('lssh:motion', { detail: { ...structuredClone(model.motion),
+        lerpers: { progress: progress.snapshot(), index: center.snapshot(), background: background.snapshot(), intro: title.snapshot() } } }));
     allLerpers.forEach(lerper => lerper.update(dt));
   };
-  const abortSnap = () => {
+  function abortSnap() {
     const tween = triggers[4].getTween(true);
     if (tween) tween.kill();
-  };
+  }
   window.addEventListener('wheel', abortSnap, { passive: true, signal: controller.signal });
   window.addEventListener('touchstart', abortSnap, { passive: true, signal: controller.signal });
   const resize = () => { measure(); lenis.resize(); ScrollTrigger.refresh(); model.invalidate(); };
   window.addEventListener('resize', resize, { signal: controller.signal });
-  window.addEventListener('pageshow', () => { lenis.resize(); lenis.scrollTo(scrollY, { immediate: true, force: true }); ScrollTrigger.refresh(); }, { signal: controller.signal });
+  window.addEventListener('pageshow', event => { if (event.persisted) { ScrollTrigger.refresh(); initialize(scrollY, 'pageshow'); } }, { signal: controller.signal });
   document.addEventListener('click', event => {
     const anchor = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>('.home-chapter-index a, .home-scroll, .home-header-wall, .home-wall-bottom a[href="#intro"]') : null;
     if (!anchor || event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.altKey || event.shiftKey) return;
@@ -173,14 +206,11 @@ export function installWorksMotion(model: JourneyModel) {
     }
   }, { signal: controller.signal });
   document.addEventListener('lssh:home-restore', event => {
-    const { y, focusOrigin } = (event as CustomEvent<{ y: number; focusOrigin: string }>).detail;
-    abortSnap(); lenis.scrollTo(y, { immediate: true, force: true }); ScrollTrigger.update();
-    const focus = document.getElementById(focusOrigin), section = focus?.closest<HTMLElement>('[data-work-item]');
-    const index = section ? sections.indexOf(section) : -1;
-    if (index >= 0) show(index, true);
-    focus?.focus({ preventScroll: true });
+    const { y, focusOrigin, reason } = (event as CustomEvent<{ y: number; focusOrigin: string; reason?: string }>).detail;
+    pendingFocus = focusOrigin;
+    initialize(y, reason || 'restore');
   }, { signal: controller.signal });
-  ScrollTrigger.refresh(); ScrollTrigger.update(); model.invalidate();
+  ScrollTrigger.refresh(); initialize(scrollY, 'layout');
   body.dataset.homeMotion = 'ready'; document.dispatchEvent(new Event('lssh:home-layout-ready'));
   return () => {
     model.drive = undefined; model.afterFrame = undefined;
