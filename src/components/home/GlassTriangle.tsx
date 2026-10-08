@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { MeshTransmissionMaterial } from '@react-three/drei';
-import { ExtrudeGeometry, Shape, Path, Vector2, Euler, Quaternion, MathUtils, type Mesh } from 'three';
+import { ExtrudeGeometry, Shape, Path, Vector2, Euler, Quaternion, MathUtils, Scene, type Mesh } from 'three';
 import type { JourneyModel } from './scene-state';
 import { chapterPose } from './scene-state';
 import GlassOptics from './GlassOptics';
+import GlassReflectionEnvironment from './GlassReflectionEnvironment';
 
 function roundedTriangle(points: Vector2[], radius: number, target: Shape | Path) {
   const entries = points.map((v, i) => v.clone().lerp(points[(i + points.length - 1) % points.length], radius));
@@ -43,6 +44,7 @@ const poses = [
 export default function GlassTriangle({ model, paused, mobile, low, detailed }: { model: JourneyModel; paused: boolean; mobile: boolean; low: boolean; detailed:boolean }) {
   const mesh = useRef<Mesh>(null);
   const geometry = useMemo(makeTriangleGeometry, []);
+  const reflectionScene = useMemo(() => new Scene(), []);
   const rotation = useMemo(() => new Quaternion(), []);
   const spin = useRef(0);
   const { viewport } = useThree();
@@ -67,7 +69,10 @@ export default function GlassTriangle({ model, paused, mobile, low, detailed }: 
     model.pointer.vx *= Math.exp(-8 * dt);
     model.pointer.vy *= Math.exp(-8 * dt);
   },-1);
-  return <mesh ref={mesh} geometry={geometry}>
-    {detailed ? <GlassOptics mesh={mesh} low={low} /> : <MeshTransmissionMaterial samples={low ? 2 : 4} resolution={low ? 256 : 512} transmission={1} roughness={.08} thickness={.25} ior={1.45} chromaticAberration={.015} anisotropicBlur={0} distortion={0} temporalDistortion={0} backside={false} color="#ffffff" envMapIntensity={.8} specularIntensity={.35} />}
-  </mesh>;
+  return <>
+    {detailed && <GlassReflectionEnvironment scene={reflectionScene} />}
+    <mesh ref={mesh} geometry={geometry}>
+      {detailed ? <GlassOptics mesh={mesh} low={low} reflectionScene={reflectionScene} /> : <MeshTransmissionMaterial samples={low ? 2 : 4} resolution={low ? 256 : 512} transmission={1} roughness={.08} thickness={.25} ior={1.45} chromaticAberration={.015} anisotropicBlur={0} distortion={0} temporalDistortion={0} backside={false} color="#ffffff" envMapIntensity={.8} specularIntensity={.35} />}
+    </mesh>
+  </>;
 }

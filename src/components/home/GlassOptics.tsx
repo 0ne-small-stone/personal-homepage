@@ -1,7 +1,7 @@
 import { useEffect, useMemo, type RefObject } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { useFBO } from '@react-three/drei';
-import { CubeTexture, DataTexture, RGBAFormat, ShaderMaterial, Vector2, NoToneMapping, type Mesh } from 'three';
+import { CubeTexture, DataTexture, RGBAFormat, ShaderMaterial, Vector2, NoToneMapping, type Mesh, type Scene } from 'three';
 
 const vertexShader = /* glsl */`
   varying vec3 vNormal;
@@ -47,7 +47,7 @@ const fragmentShader = /* glsl */`
   }
 `;
 
-export default function GlassOptics({mesh,low}:{mesh:RefObject<Mesh|null>;low:boolean}) {
+export default function GlassOptics({mesh,low,reflectionScene}:{mesh:RefObject<Mesh|null>;low:boolean;reflectionScene:Scene}) {
   const {size}=useThree();
   const width=low?256:512;
   const target=useFBO(width,Math.max(128,Math.round(width*size.height/size.width)));
@@ -65,7 +65,8 @@ export default function GlassOptics({mesh,low}:{mesh:RefObject<Mesh|null>;low:bo
     object.visible=false;
     try{gl.toneMapping=NoToneMapping;gl.setRenderTarget(target);gl.render(scene,camera);}finally{gl.setRenderTarget(oldTarget);gl.toneMapping=oldTone;object.visible=visible;}
     material.uniforms.uScene.value=target.texture;
-    if(scene.environment instanceof CubeTexture)material.uniforms.uEnvironment.value=scene.environment;
+    const environment=reflectionScene.environment ?? scene.environment;
+    if(environment instanceof CubeTexture)material.uniforms.uEnvironment.value=environment;
     gl.getDrawingBufferSize(material.uniforms.uResolution.value);
   },-.5);
   return <primitive object={material} attach="material" />;
