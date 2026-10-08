@@ -1,6 +1,6 @@
 ---
-title: 网页编辑草稿验证（测试草稿）吃吃吃 · 修改验证
-description: 用于验证网页后台保存、分支追溯与草稿排除。 托管修改验证后应在列表与正文保持一致。
+title: 网页编辑草稿验证（测试草稿）吃吃吃
+description: 用于验证网页后台保存、分支追溯与草稿排除。
 date: 2026-10-08
 tags:
   - 功能验证
@@ -9,13 +9,13 @@ kind: article
 topics:
   - 阅读与整理
 example: true
-draft: false
+draft: true
 sidebar:
   hidden: true
 related:
   - demo-article-reading-check
 ---
-这是“托管发布修改验证”的功能样稿，仅用于工作分支的生产预览，尚未正式上线。
+这是一篇用于网页编辑验证的测试草稿，不是正式文章。保存草稿后，它仍不会出现在公开网站的文章列表、学习总览或搜索中。
 
 ## 写一段文字
 
@@ -25,7 +25,7 @@ related:
 
 - 正文以 Markdown 保存。
 - [已发布的阅读功能样稿](../article-reading-check/)保持原有地址。
-- 本轮验证发布候选与修改；正式发布另行验收。
+- 此稿保持草稿；图片用于本轮验证，发布另行验证。
 
 ```js
 const draft = true;
@@ -40,6 +40,6 @@ console.log('仍是草稿', draft);
 
 ## 验证标记
 
-T13UPDATEDHOSTED20261008
+T13.01-DRAFT-ONLY-20261008
 
-这个标记用于追溯修改候选的构建与搜索结果，不代表正式上线。
+这个标记用于确认草稿正文没有进入公开页面和搜索索引，不代表用户个人资料。
