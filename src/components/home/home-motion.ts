@@ -9,6 +9,7 @@ export function installWorksMotion(model: JourneyModel) {
   const body = document.body;
   const sections = [...document.querySelectorAll<HTMLElement>('[data-work-item]')];
   const hero = document.querySelector<HTMLElement>('#intro .home-chapter-viewport')!;
+  const brand = document.querySelector<HTMLAnchorElement>('.home-brand')!;
   const introTitle = document.querySelector<HTMLElement>('.home-works-intro-title')!;
   const controller = new AbortController();
   const timelines = new Map<number, gsap.core.Timeline>();
@@ -24,9 +25,17 @@ export function installWorksMotion(model: JourneyModel) {
   });
   const containers = sections.map(section => section.querySelector<HTMLElement>('.home-chapter-viewport')!);
   const details = sections.map(section => [...section.querySelectorAll<HTMLElement>('.home-description, .home-cta, .home-chapter-note')]);
+  const ctas = sections.map(section => section.querySelector<HTMLAnchorElement>('.home-cta')!);
+
+  function enableCta(index: number, enabled: boolean) {
+    ctas[index].inert = !enabled;
+    if (enabled) ctas[index].removeAttribute('aria-hidden');
+    else ctas[index].setAttribute('aria-hidden', 'true');
+  }
 
   function hide(index: number, immediate = false) {
     timelines.get(index)?.kill();
+    enableCta(index, false);
     sections[index].inert = true;
     sections[index].setAttribute('aria-hidden', 'true');
     sections[index].dataset.workActive = 'false';
@@ -48,6 +57,7 @@ export function installWorksMotion(model: JourneyModel) {
     if (model.motion.activeItem === index && !keyboard) return;
     if (model.motion.activeItem >= 0 && model.motion.activeItem !== index) hide(model.motion.activeItem);
     timelines.get(index)?.kill();
+    enableCta(index, false);
     const wasHidden = Number(gsap.getProperty(containers[index], 'opacity')) < .001;
     if (wasHidden) gsap.set(characters[index], { y: 10, opacity: 0 });
     sections[index].dataset.workVisible = 'true';
@@ -58,12 +68,19 @@ export function installWorksMotion(model: JourneyModel) {
     if (keyboard) {
       gsap.set(containers[index], { opacity: 1 });
       gsap.set(characters[index], { y: 0, opacity: 1 });
-      gsap.set(details[index], { opacity: 1 }); return;
+      gsap.set(details[index], { opacity: 1 });
+      enableCta(index, true); return;
     }
     const tl = gsap.timeline();
     tl.to(containers[index], { opacity: 1, duration: .3, ease: 'power2.out' }, 0)
       .to(characters[index], { y: 0, opacity: 1, duration: .7, ease: 'power4.out', stagger: .01 }, 0)
-      .to(details[index], { opacity: 1, duration: .5, ease: 'power2.out' }, .3);
+      .to(details[index], { opacity: 1, duration: .5, ease: 'power2.out', onUpdate: () => {
+        // The section/title enter first. Its CTA stays inert throughout the delay;
+        // killing this timeline also cancels any pending gate update on reversal.
+        enableCta(index, model.motion.activeItem === index && !sections[index].inert &&
+          Number(gsap.getProperty(ctas[index], 'opacity')) > 0 &&
+          Number(gsap.getProperty(containers[index], 'opacity')) > 0);
+      } }, .3);
     timelines.set(index, tl);
   }
 
@@ -108,8 +125,15 @@ export function installWorksMotion(model: JourneyModel) {
     model.motion.snapActive = Boolean(triggers[4].getTween(true)?.isActive());
     // Existing glass/wall poses are retained until their separate interaction slices.
     model.progress = s < h + introGap ? model.motion.raw.intro : model.motion.raw.wall > 0 ? 4.65 + .35 * model.motion.raw.wall : 1 + Math.max(0, model.motion.rendered.index - 1);
-    hero.style.opacity = String(1 - model.motion.raw.intro);
-    hero.inert = s > introGap;
+    const identityProgress = Math.max(0, Math.min(1, s / introGap));
+    const identityHidden = s >= introGap;
+    hero.style.opacity = String(1 - identityProgress ** 2 * (3 - 2 * identityProgress));
+    // Move only focus that would otherwise remain inside the hidden identity layer.
+    if (identityHidden && hero.contains(document.activeElement)) brand.focus({ preventScroll: true });
+    hero.style.visibility = identityHidden ? 'hidden' : 'visible';
+    hero.inert = identityHidden;
+    if (identityHidden) hero.setAttribute('aria-hidden', 'true');
+    else hero.removeAttribute('aria-hidden');
     const current = s < h + introGap ? 0 : model.motion.activeItem >= 0 ? model.motion.activeItem + 1 : Math.min(4, Math.max(1, Math.round(model.motion.rendered.index)));
     body.dataset.chapter = s >= motionRange('wall', h)[0] ? 'wall' : s < h + introGap ? 'intro' : sections[Math.max(0, current - 1)]?.id || 'projects';
     body.classList.toggle('home-on-wall', model.motion.raw.wall > .98);
@@ -160,9 +184,11 @@ export function installWorksMotion(model: JourneyModel) {
     timelines.forEach(timeline => timeline.kill());
     sections.forEach((section, index) => {
       section.inert = false; section.removeAttribute('aria-hidden'); delete section.dataset.workActive; delete section.dataset.workVisible;
+      enableCta(index, true);
       gsap.set(containers[index], { clearProps: 'all' }); gsap.set(details[index], { clearProps: 'all' });
       headings[index].textContent = originals[index]; headings[index].removeAttribute('aria-label');
     });
-    hero.inert = false; hero.style.removeProperty('opacity'); introTitle.removeAttribute('style');
+    hero.inert = false; hero.removeAttribute('aria-hidden');
+    hero.style.removeProperty('opacity'); hero.style.removeProperty('visibility'); introTitle.removeAttribute('style');
   };
 }
