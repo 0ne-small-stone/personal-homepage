@@ -1,0 +1,87 @@
+---
+import { siteSections, sectionCurrent } from '../lib/site-navigation';
+import { sitePath } from '../lib/paths';
+interface Props { align?: 'start' | 'end'; }
+const { align = 'end' } = Astro.props;
+---
+<public-directory data-pagefind-ignore>
+  <details class:list={['public-directory', { 'align-start': align === 'start' }]}>
+    <summary>全站目录<span class="directory-indicator" aria-hidden="true"></span></summary>
+    <div class="directory-panel">
+      <nav aria-label="全站目录">
+        <ul>
+          {siteSections.map(({ label, path }) => {
+            const href = sitePath(path);
+            const current = sectionCurrent(Astro.url.pathname, href);
+            return <li><a href={href} aria-current={current}>
+              <span>{label}</span>
+              {current && <span class="current-label" aria-hidden="true">{current === 'page' ? '当前页' : '当前栏目'}</span>}
+            </a></li>;
+          })}
+        </ul>
+      </nav>
+      <button type="button" data-directory-close hidden>关闭目录</button>
+    </div>
+  </details>
+</public-directory>
+<script>
+  class PublicDirectory extends HTMLElement {
+    #controller?: AbortController;
+    connectedCallback() {
+      this.#controller?.abort();
+      this.#controller = new AbortController();
+      const { signal } = this.#controller;
+      const details = this.querySelector('details');
+      const summary = this.querySelector('summary');
+      const button = this.querySelector<HTMLButtonElement>('[data-directory-close]');
+      if (!details || !summary || !button) return;
+      button.hidden = false;
+      const close = (restoreFocus: boolean) => {
+        details.open = false;
+        if (restoreFocus) summary.focus();
+      };
+      button.addEventListener('click', () => close(true), { signal });
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !event.defaultPrevented && details.open) {
+          event.preventDefault();
+          close(true);
+        }
+      }, { signal });
+      document.addEventListener('pointerdown', (event) => {
+        if (details.open && event.target instanceof Node && !this.contains(event.target)) close(false);
+      }, { signal });
+      this.addEventListener('focusout', (event) => {
+        // relatedTarget is the destination; activeElement may still be body during pointer focus.
+        if (details.open && event.relatedTarget instanceof Node && !this.contains(event.relatedTarget)) close(false);
+      }, { signal });
+      window.addEventListener('pageshow', () => close(this.contains(document.activeElement)), { signal });
+    }
+    disconnectedCallback() { this.#controller?.abort(); }
+  }
+  if (!customElements.get('public-directory')) customElements.define('public-directory', PublicDirectory);
+</script>
+<style>
+  public-directory { display: block; flex: none; font-family: inherit; }
+  .public-directory {
+    --directory-bg: var(--sl-color-bg, var(--color-surface));
+    --directory-text: var(--sl-color-text, var(--color-text));
+    --directory-muted: var(--sl-color-gray-2, var(--color-muted));
+    --directory-border: var(--sl-color-gray-5, var(--color-border));
+    color: var(--directory-text);
+  }
+  summary { display: flex; align-items: center; justify-content: center; min-height: var(--target-min); padding: var(--space-2) var(--space-3); border: 1px solid var(--directory-border); border-radius: 0.625rem; font-size: 0.875rem; line-height: 1.5; cursor: pointer; list-style: none; white-space: nowrap; }
+  summary::-webkit-details-marker { display: none; }
+  .directory-indicator::after { content: '+'; margin-inline-start: var(--space-2); }
+  details[open] .directory-indicator::after { content: '−'; }
+  .directory-panel { position: absolute; inset-inline-end: 0; top: calc(100% + var(--space-2)); z-index: 100; width: min(20rem, calc(100vw - var(--space-6))); max-height: calc(100dvh - 8rem); overflow-y: auto; padding: var(--space-3); border: 1px solid var(--directory-border); border-radius: 1rem; background: var(--directory-bg); color: var(--directory-text); }
+  .align-start .directory-panel { inset-inline-start: 0; inset-inline-end: auto; }
+  ul { list-style: none; padding: 0; margin: 0; }
+  .directory-panel a { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); min-height: var(--target-min); padding: var(--space-2) var(--space-3); border-radius: 0.625rem; color: var(--directory-text); font-size: 1rem; text-decoration: none; }
+  .directory-panel a[aria-current] { font-weight: 600; text-decoration: underline; text-underline-offset: 0.3em; }
+  .current-label { color: var(--directory-muted); font-size: 0.75rem; font-weight: 400; }
+  button { min-height: var(--target-min); padding: var(--space-2) var(--space-3); margin-top: var(--space-2); border: 1px solid var(--directory-border); border-radius: 0.625rem; background: transparent; color: var(--directory-text); font: inherit; font-size: 0.875rem; cursor: pointer; }
+  :is(summary, a, button):hover { text-decoration: underline; text-underline-offset: 0.3em; }
+  :is(summary, a, button):focus-visible { outline: 2px solid var(--directory-text); outline-offset: 2px; }
+  [hidden] { display: none !important; }
+  @media print { public-directory { display: none; } }
+</style>

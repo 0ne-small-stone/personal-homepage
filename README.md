@@ -8,6 +8,8 @@
 
 ## 文档入口
 
+本轮 **T02.01 公共目录**已接入主站与学习区：展开“全站目录”可直达学习、展示、常用网站、音乐电台、关于我、留言墙，区分当前页与当前栏目；修复学习侧栏三处重复部署前缀。类型检查、51 页生产构建、Edge 16 组及产物路由检查通过。[从文章体验](http://127.0.0.1:4322/personal-homepage/knowledge/blog/article-reading-check/)、[从首页体验](http://127.0.0.1:4322/personal-homepage/)、[步骤与证据](docs/technical/iterations/t02-01-2026-10-08.md)。4322 使用本轮产物，4363/4364 继续保留上一轮关联快照。用户体验与正式部署分别待验。
+
 本轮 T09.02 反向列表已接入：在同一公开关联基础上显示“哪些内容关联了它”，列出真实来源类型和标题；草稿两端排除、无来源隐藏，增删关联后重新构建两端一致。当前 426 条反向链接、类型/生产构建、33 项内容测试与 Edge 15 组通过。[现有 PDF 的来源](http://127.0.0.1:4322/personal-homepage/knowledge/resources/probability/probability-lecture-0/#backlinks-knowledge-title)、[新增关联样本](http://127.0.0.1:4363/personal-homepage/knowledge/blog/article-reading-check/#backlinks-knowledge-title)、[移除关联样本](http://127.0.0.1:4364/personal-homepage/knowledge/blog/article-reading-check/)、[复现和证据](docs/technical/iterations/t09-02-2026-10-08.md)。现有内容未修改，正式部署仍待验；[上一轮正向关联](docs/technical/iterations/t09-01-2026-10-08.md)保留独立记录。
 
 [文档导航与对应表](docs/README.md)是统一入口，包含完整目录、P 页面与 R 需求、U 设计任务、T 技术任务的对应关系。[AGENTS.md](AGENTS.md)维护后续 AI 的工作约定和阅读顺序。

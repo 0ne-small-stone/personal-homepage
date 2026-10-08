@@ -1,14 +1,9 @@
 ---
 import '../styles/site.css';
 import { sitePath } from '../lib/paths';
+import PublicDirectory from '../components/PublicDirectory.astro';
 interface Props { title: string; description?: string; }
 const { title, description = '学习、记录与日常。' } = Astro.props;
-const links = [
-  { label: '学习', path: 'knowledge' },
-  { label: '展示', path: 'showcase' },
-  { label: '网站', path: 'links' },
-  { label: '电台', path: 'music' },
-];
 ---
 <!doctype html>
 <html lang="zh-CN">
@@ -23,9 +18,7 @@ const links = [
     <a class="skip-link" href="#main-content">跳到正文</a>
     <header class="site-header container">
       <a class="brand" href={sitePath()}>个人主页</a>
-      <nav aria-label="主要导航">
-        {links.map(({ label, path }) => <a href={sitePath(path)} aria-current={Astro.url.pathname === sitePath(path) ? 'page' : undefined}>{label}</a>)}
-      </nav>
+      <PublicDirectory />
     </header>
     <main id="main-content" class="container" tabindex="-1"><slot /></main>
     <footer class="site-footer container">

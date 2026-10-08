@@ -1,0 +1,13 @@
+---
+import SiteTitle from '@astrojs/starlight/components/SiteTitle.astro';
+import PublicDirectory from './PublicDirectory.astro';
+---
+<div class="site-title-directory">
+  <SiteTitle />
+  <PublicDirectory align="start" />
+</div>
+<style>
+  .site-title-directory { display: flex; align-items: center; gap: var(--space-3); position: relative; min-width: 0; }
+  /* Keep the disclosure outside the native title clipping box. Search/TOC stay native. */
+  :global(.title-wrapper:has(.site-title-directory)) { overflow: visible; }
+</style>

@@ -163,6 +163,10 @@ Starlight 是当前优先验证的知识库基础方案。若某个插件不兼�
 
 ## 前端组件和运行时约束
 
+2026-10-08 T02.01：`site-navigation.ts` 维护四个功能栏目及关于、留言的六条路径，主站与 Starlight 的 `PublicDirectory` 共用。普通链接由 `sitePath` 生成部署前缀；原生 Starlight sidebar 配置使用不含 base 的路径，由框架补一次。栏目首页使用 `aria-current="page"`，栏目子页使用 `location`，首页与 404 不标记栏目。
+
+展开使用原生 details/summary，无脚本可打开、关闭并访问。少量 custom element 补充 Esc、关闭按钮、外部点击、焦点离开与 pageshow 收起；主动关闭恢复 summary 焦点，外部点击和焦点离开尊重实际目标。事件按 AbortController 在断开时销毁、连接时恢复，不接管链接和 history。全站目录忽略 Pagefind 正文索引。Starlight 仅覆盖 SiteTitle 并复用原生组件，保留 Header 搜索、主题、学习侧栏和正文目录；本轮没有 ClientRouter 或新依赖。最新首页场景及品牌素材接入仍由各自任务验收。
+
 2026-10-08 T07.03：starlight-blog 0.30.0 明确配置 `postCount: 5`，按原生日期倒序和标题次序生成主列表及 `/knowledge/blog/2/` 等静态分页。标签读取同一原生已发布文章查询，一标签一页面，集中展示匹配文章；不新建集合、分页路由或标签筛选器。来源返回适配只按原生 `data-blog-page="tag"` 区分标签文案，沿用同一 sessionStorage/history 恢复逻辑。分页边界用被忽略的隔离生产快照验收，仓库正文不添加测试文章。
 
 - 内容页面优先生成静态 HTML，React 组件按任务选择 Astro 客户端加载指令。
