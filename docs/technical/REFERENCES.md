@@ -1,5 +1,13 @@
 # 个人主页技术调研来源和候选方案
 
+## T06.01 单个公开 PDF 来源（2026-10-08）
+
+复用 Astro public 静态复制与已接入的 PDF.js 6.4.299，同源路径覆盖阅读和下载；原生 docs schema 增加两个配对字段即可，无资源服务、集合或 npm 依赖。现有 Git 文件与发布预算足以承载本次 65,959 字节样本。
+
+正文由项目生成，采用 [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/)；嵌入中文字体采用 [Google Fonts Noto Sans SC](https://github.com/google/fonts/blob/main/ofl/notosanssc/upstream_info.md) 及独立 [OFL-1.1](https://raw.githubusercontent.com/google/fonts/main/ofl/notosanssc/OFL.txt)，版本和实际哈希见[登记](../../public/materials/README.md)。本机静态 OTF 为 CFF 轮廓，ReportLab 不支持，因此使用已有可变 TrueType 经 fontTools 实例化 400/600 字重后子集嵌入。PDF 制作工具仅用于生成和复验，网站及 CI 使用已提交 PDF，不安装 Python 或网页字体。
+
+干净构建的阅读／下载及 SHA 校验、7 种坏附件拒绝、独立 Edge 17 组见[本轮记录](iterations/t06-01-2026-10-08.md)。PDF 内中文搜索实测可用；Pagefind 只检索条目 HTML，不增加 PDF 全文或 OCR 承诺。远程文件可访问和正式站部署分别验收。
+
 ## T26.01 阅读返回与 PDF 原生历史（2026-10-08）
 
 - [MDN pageshow](https://developer.mozilla.org/en-US/docs/Web/API/Window/pageshow_event) 与 [History.back](https://developer.mozilla.org/en-US/docs/Web/API/History/back)：复用真实浏览器历史，pageshow/popstate 恢复来源状态；章节 hash 另建历史时直接沿来源 href 并交接焦点，不用一次 back 猜测目的地。

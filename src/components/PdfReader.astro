@@ -1,14 +1,26 @@
 ---
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { resolve } from 'node:path';
 interface Props {
   title: string;
-  source: { id: string; pages: number; bytes: number; author?: string };
+  source: { id: string; pages: number; bytes: number; author?: string; file?: string; sha256?: string };
 }
 const { source, title } = Astro.props;
-const available = existsSync(resolve('public/local-materials', `${source.id}.pdf`));
+const relativeFile = source.file ?? `local-materials/${source.id}.pdf`;
+const diskFile = resolve('public', relativeFile);
+const available = existsSync(diskFile);
+// An explicit public file is a publishing promise. Reject missing/changed assets
+// at build time; absent private preview copies still show the truthful empty state.
+if (source.file) {
+  if (!available) throw new Error(`Public PDF missing: ${source.file}`);
+  const data = readFileSync(diskFile);
+  if (data.byteLength !== source.bytes || createHash('sha256').update(data).digest('hex') !== source.sha256) {
+    throw new Error(`Public PDF metadata mismatch: ${source.file}`);
+  }
+}
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const file = `${base}/local-materials/${source.id}.pdf`;
+const file = `${base}/${relativeFile}`;
 // Let the native viewer restore its fingerprint-keyed page/zoom history.
 const viewer = `${base}/pdfjs/web/viewer.html?file=${encodeURIComponent(file)}`;
 ---

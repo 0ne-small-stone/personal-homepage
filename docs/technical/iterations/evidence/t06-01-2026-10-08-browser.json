@@ -1,0 +1,86 @@
+{
+  "base": "http://127.0.0.1:4366/personal-homepage",
+  "browser": "Edge headless",
+  "result": "passed",
+  "groups": 17,
+  "checks": [
+    {
+      "name": "clean-preview HTTP attachment and checksum",
+      "result": "passed",
+      "bytes": 65959,
+      "sha256": "9e2aac37f32cc56aff3a15434a525659c95096d4481c8739c7ee9471fca953be"
+    },
+    {
+      "name": "filtered overview opens directly rendered sample",
+      "result": "passed"
+    },
+    {
+      "name": "visible source, license and metadata",
+      "result": "passed"
+    },
+    {
+      "name": "page 3 and 125% survive refresh",
+      "result": "passed"
+    },
+    {
+      "name": "return preserves type, topic and original list focus",
+      "result": "passed"
+    },
+    {
+      "name": "reading position survives list round trip",
+      "result": "passed"
+    },
+    {
+      "name": "native Chinese search finds real text",
+      "result": "passed",
+      "matches": [
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "download contains identical PDF bytes",
+      "result": "passed",
+      "suggestedFilename": "PDF 阅读验证说明（功能样本）.pdf"
+    },
+    {
+      "name": "full reader opens same-origin attachment",
+      "result": "passed"
+    },
+    {
+      "name": "mobile 390px fits outer page and actions",
+      "result": "passed"
+    },
+    {
+      "name": "mobile 320px fits outer page and actions",
+      "result": "passed"
+    },
+    {
+      "name": "download keyboard focus remains visible",
+      "result": "passed"
+    },
+    {
+      "name": "no page script errors in normal reading",
+      "result": "passed",
+      "errors": []
+    },
+    {
+      "name": "failed PDF shows fallback and retry recovers",
+      "result": "passed"
+    },
+    {
+      "name": "clean build leaves private PDF unavailable truthfully",
+      "result": "passed"
+    },
+    {
+      "name": "existing local 35-page note still renders on 4322",
+      "result": "passed"
+    },
+    {
+      "name": "no JavaScript has directly accessible PDF fallback",
+      "result": "passed"
+    }
+  ]
+}

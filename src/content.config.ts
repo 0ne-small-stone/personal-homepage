@@ -26,6 +26,11 @@ export const collections = {
             author: z.string().optional(),
             bytes: z.number().int().positive(),
             pages: z.number().int().positive(),
+            // Public attachments use portable, same-origin static paths.
+            file: z.string().regex(/^materials\/[a-z0-9-]+\.pdf$/).optional(),
+            sha256: z.string().regex(/^[a-f0-9]{64}$/).optional(),
+          }).refine((source) => Boolean(source.file) === Boolean(source.sha256), {
+            message: 'Public PDF source.file and source.sha256 must be supplied together.',
           }),
           z.object({
             id: z.string().regex(/^[a-z0-9-]+$/),
