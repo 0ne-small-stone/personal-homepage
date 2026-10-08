@@ -36,3 +36,10 @@ export function resolveRelated<T extends KnowledgeEntry>(source: T | undefined, 
   }
   return targets;
 }
+
+/** Invert the same public forward links; never infer or store a second relation. */
+export function resolveBacklinks<T extends KnowledgeEntry>(target: T | undefined, index: ReadonlyMap<string, T>): T[] {
+  if (!target || target.data.draft) return [];
+  return [...index.values()].filter((source) =>
+    resolveRelated(source, index).some((related) => related.data.entryId === target.data.entryId));
+}

@@ -148,3 +148,9 @@ Waline 曾作为匿名留言候选。当前用户已接受 Giscus，Waline 不�
 - [GitHub 工作流分支过滤](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onpushbranchesbranches-ignore)：当前新增 `codex/t13-03-*` 的 push 构建验证。部署条件继续读取默认分支，工作分支只能生成候选产物。
 - [原生 CMS actions](https://pagescms.org/docs/configuration/actions/)需要 workflow_dispatch payload；已有 push 工作流覆盖当前保存后构建目标，因此本轮不新增后台 action、workflow 或额外授权。
 - [Starlight-blog draft](https://starlight-blog-docs.vercel.app/guides/frontmatter/#draft)及已安装 0.30.0：三份原生生产构建实际验证关闭草稿、修改内容、再次开启的各视图结果。
+
+## T09.02 反向关系与验收来源（2026-10-08）
+
+- [Starlight 组件扩展](https://starlight.astro.build/guides/overriding-components/)：在既有 MarkdownContent 扩展中保留原生正文并追加静态导航，本轮不改路由或 loader。已安装 Starlight 0.42.5 / starlight-blog 0.30.0；现有业务 `entryId` 关系仍由上一轮最小适配承接。
+- [Quartz 反向链接](https://quartz.jzhao.xyz/features/backlinks)：借鉴来源链接列表和空列表隐藏。其插件面向 Quartz，本轮已有 Astro/Starlight 工程，因此只参考体验，不引入另一个站点框架或复制源码；同一公开关系的反转约 6 行，无额外依赖。
+- [Astro cacheDir](https://docs.astro.build/en/reference/configuration-reference/#cachedir)：默认缓存位于 `node_modules/.astro`。本机样稿共享依赖 junction 时，首次并行构建出现 51/54 页不一致；已核对安装源码的内容数据缓存路径。验收生成器为自身设置独立 Astro/Vite 缓存，逐快照检查三个来源页与目标列表；重建两份均为 54 页。正式工程的配置未改。
