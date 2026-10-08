@@ -4,7 +4,7 @@ import { MeshTransmissionMaterial } from '@react-three/drei';
 import { ExtrudeGeometry, Shape, Path, Vector2, Euler, Quaternion, MathUtils, type Mesh } from 'three';
 import type { JourneyModel } from './scene-state';
 import { chapterPose } from './scene-state';
-
+import GlassOptics from './GlassOptics';
 
 function roundedTriangle(points: Vector2[], radius: number, target: Shape | Path) {
   const entries = points.map((v, i) => v.clone().lerp(points[(i + points.length - 1) % points.length], radius));
@@ -68,6 +68,6 @@ export default function GlassTriangle({ model, paused, mobile, low, detailed }: 
     model.pointer.vy *= Math.exp(-8 * dt);
   },-1);
   return <mesh ref={mesh} geometry={geometry}>
-    <MeshTransmissionMaterial samples={low ? 2 : 4} resolution={low ? 256 : 512} transmission={1} roughness={.08} thickness={.25} ior={1.45} chromaticAberration={.015} anisotropicBlur={0} distortion={0} temporalDistortion={0} backside={false} color="#ffffff" envMapIntensity={.8} specularIntensity={.35} />
+    {detailed ? <GlassOptics mesh={mesh} low={low} /> : <MeshTransmissionMaterial samples={low ? 2 : 4} resolution={low ? 256 : 512} transmission={1} roughness={.08} thickness={.25} ior={1.45} chromaticAberration={.015} anisotropicBlur={0} distortion={0} temporalDistortion={0} backside={false} color="#ffffff" envMapIntensity={.8} specularIntensity={.35} />}
   </mesh>;
 }
