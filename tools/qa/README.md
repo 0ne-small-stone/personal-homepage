@@ -10,6 +10,7 @@ P01 / T03.02 的人工验收辅助，不纳入 CI。需自行提供 Playwright �
 - `node tools/qa/p01-visibility.cjs`：第 22 轮身份退出及 CTA 自身门禁。`LSSH_QA_PHASE=before` 采修复前点位和延迟状态，`after` 批量检查桌面/手机、真实探索点击、焦点阈值、滚轮反向、首卡返回及降级，`confirm` 只确认延迟期取消、重入和真实 Tab。结果写入第 22 轮 evidence；`LSSH_QA_URL` 可指定预览地址。进入 trace 从实际激活时刻计时，每个浏览器 RAF 读取自身及祖先透明度，不把请求时间或截图当作相同动画相位。
 - `node tools/qa/p01-four-cards.cjs`：第 24 轮四停驻点（桌面/手机）、正反向真实滚轮、第二/第三中心吸附、新输入中断、音乐/相册/网站真实路由返回和静态降级。结果与截图写入第 24 轮 evidence；首次结果保存在 `checks-initial.json`，修复后的确认结果为 `checks.json`。逐帧时间为实际读取时间，返回截图在曲面卡片追随收敛后采集。
 - `node tools/qa/p01-return-state.cjs`：第 27 轮最早可见场景与布局门禁，覆盖无 hash 实际滚轮、目录 hash、连续返回、reload、手机/改变视口、直接 hash；并抽查普通追随、CTA、吸附中断、减少动画/无 JS/素材失败。逐帧诊断和独立 RAF 的 DOM 可见性读取均保存，不以延长等待截图掩盖首帧问题。截图工具执行时间单独记录，不叫 GPU 第一帧。
+- `node tools/qa/p01-glass-color.cjs`：第28轮 `LSSH_QA_PHASE=before/after` 在对应实际构建采集同姿态两桌面视图；after另采原生时钟/姿态的手机页面。只读probe与唯一四元数锚点匹配失败即停止。随后运行 `p01-glass-color-compare.cjs`，`LSSH_QA_PNGJS` 指向可加载PNG模块，读取原PNG比较玻璃外全部像素、指定面内区域及材质/renderer实际状态；不新增应用依赖。比对两份主包分别记录哈希，其他实际非HTML资源须相同。
 
 结果写入设计迭代 evidence 对应目录。原站读取主包并核对固定 SHA-256；只插入状态读回，不改变其渲染。原站版本改变需重新研究并修探针，不能忽略校验。正面测试控制仅作用于独立测试页面，不进入产品。
 

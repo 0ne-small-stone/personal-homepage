@@ -57,7 +57,7 @@ export default function GlassOptics({mesh,low,reflectionScene}:{mesh:RefObject<M
     const cube=new CubeTexture(Array.from({length:6},()=>texture));cube.needsUpdate=true;
     return {texture,cube};
   },[]);
-  const material=useMemo(()=>new ShaderMaterial({vertexShader,fragmentShader,uniforms:{uScene:{value:target.texture},uEnvironment:{value:empty.cube},uResolution:{value:new Vector2()}}}),[target,empty]);
+  const material=useMemo(()=>new ShaderMaterial({toneMapped:false,vertexShader,fragmentShader,uniforms:{uScene:{value:target.texture},uEnvironment:{value:empty.cube},uResolution:{value:new Vector2()}}}),[target,empty]);
   useEffect(()=>()=>{material.dispose();empty.texture.dispose();empty.cube.dispose();},[material,empty]);
   useFrame(({gl,scene,camera})=>{
     const object=mesh.current;if(!object?.visible)return;
