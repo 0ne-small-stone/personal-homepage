@@ -54,6 +54,7 @@ function remember(event: MouseEvent) {
     scrollY: window.scrollY, search: searchInput?.value || null,
     label: searchInput ? '← 返回搜索结果' :
       document.querySelector('knowledge-type-filter') ? '← 返回学习总览' :
+      document.querySelector('.sl-blog-posts[data-blog-page="tag"]') ? '← 返回标签结果' :
       document.querySelector('.sl-blog-preview') ? '← 返回文章列表' : '← 返回上一页',
   };
   try {

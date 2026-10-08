@@ -129,3 +129,9 @@ P17 / AD01 / U13 使用 [Pages CMS 官方托管后台](https://app.pagescms.org/
 P17 / P06 / U13 / R13。仅需一张允许公开的 PNG/JPG/JPEG/WebP/AVIF、图片替代文本和图下说明。复用 Pages CMS 原生上传、媒体选择和 alt 编辑，Astro 原生尺寸处理；不需要新图标、字体、主题或裁切组件。
 
 当前 [960×540 PNG 样本](../../src/assets/article-images/t13-02-image-check.png)是开发者用简单代码绘制的灰色块体和验证编号，17,954 字节。用途为图片路径/尺寸/排版验证，非正式文章或品牌素材，不使用用户账号截图、教材或第三方图片；无需外部授权，不为整仓库另设通用许可。真实网页上传尚未取得。[本轮实际截图与检查](iterations/u13-p17-t13-02-2026-10-08-01.md)。
+
+## T07.03 标签与分页资源清单
+
+P06/P03 / U09 / R10。复用已安装的 starlight-blog 0.30.0 原生标签、Posts 和 PrevNextLinks，作者 HiDeoo、MIT；已核对包内 LICENSE，版权声明保留于依赖。沿用现有学习区字体、颜色与焦点，不需新图片、图标、字体或设计稿。来源为[官方配置](https://starlight-blog-docs.vercel.app/configuration/)及包内组件，仅配置每页 5 篇和适配来源返回文案。
+
+测试资源为开发者生成的 11 篇公开样稿和 1 篇测试草稿，只存在于本机隔离目录；每篇注明“仅本机样稿”，不复用第三方文章或实际个人经历。[可复现的样本生成器](../../tools/verification/blog-pagination-fixture.cjs)与[实际验收](iterations/u09-p06-t07-03-2026-10-08-01.md)保存范围，正式文章未新增。
