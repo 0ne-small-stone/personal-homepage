@@ -101,6 +101,11 @@ jobs:
       - name: Verify static output
         run: node tools/ci/dist.mjs
 
+      - name: Verify public PDF assets and reader URLs
+        run: |
+          node tools/verification/public-pdf-check.mjs
+          node tools/verification/public-pdf-guards.mjs
+
       - name: Save Pages artifact
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5
         with:
