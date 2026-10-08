@@ -1,0 +1,70 @@
+{
+  "browser": "Microsoft Edge",
+  "records": [
+    {
+      "check": "production-HTML-draft-exclusion",
+      "result": "passed",
+      "htmlFiles": 52
+    },
+    {
+      "check": "overview-published-count",
+      "result": "passed",
+      "total": 40,
+      "article": 1
+    },
+    {
+      "check": "native-blog-list-date-and-reading-regression",
+      "result": "passed",
+      "published": 1,
+      "date": "2026年10月8日"
+    },
+    {
+      "check": "native-Pagefind-draft-exclusion",
+      "result": "passed",
+      "searches": [
+        {
+          "query": "T13.01-DRAFT-ONLY-20261008",
+          "items": [
+            {
+              "url": "/personal-homepage/knowledge/blog/article-reading-check/",
+              "title": "博客阅读验证（功能验证样稿）"
+            }
+          ]
+        },
+        {
+          "query": "网页编辑草稿验证",
+          "items": [
+            {
+              "url": "/personal-homepage/knowledge/blog/article-reading-check/",
+              "title": "博客阅读验证（功能验证样稿）"
+            }
+          ]
+        },
+        {
+          "query": "博客阅读验证",
+          "items": [
+            {
+              "url": "/personal-homepage/knowledge/blog/article-reading-check/",
+              "title": "博客阅读验证（功能验证样稿）"
+            },
+            {
+              "url": "/personal-homepage/knowledge/",
+              "title": "学习总览"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "check": "draft-direct-route",
+      "result": "passed",
+      "status": 404
+    },
+    {
+      "check": "local-page-errors",
+      "result": "passed",
+      "errors": []
+    }
+  ],
+  "hostedSave": "not yet tested"
+}

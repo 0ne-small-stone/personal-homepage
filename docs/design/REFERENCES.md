@@ -95,6 +95,12 @@ React Bits 当前许可为 [MIT 加 Commons Clause](https://github.com/DavidHDev
 
 ## 素材登记字段
 
+### T13.01 单篇草稿编辑资源清单
+
+P17 / AD01 / U13 使用 [Pages CMS 官方托管后台](https://app.pagescms.org/)及其 [原生文件、字段配置](https://pagescms.org/docs/configuration/content/)；源码 MIT，官方仓库 `hunvreus/pagescms` 校验提交 `6f4e860a35d934406580287e7042e5e111e207a1`。托管版登录和 App 授权仍待真实验证，源码许可不代替托管服务条款。
+
+正文复用[原生 Markdown 富文本及 Source 切换](https://pagescms.org/docs/configuration/fields/rich-text/)，只配置中文标签与当前草稿流程；不复制第三方后台视觉、字体或图标。资源为 `.pages.yml` 和测试草稿，新增图像/字体/图标文件为 0。字段配置校验通过，真实编辑状态与用户体验待验，见[U13 记录](iterations/u13-p17-t13-01-2026-10-08-01.md)。
+
 2026-10-07 T08.01 已采用 [Mozilla PDF.js 官方 generic viewer](https://mozilla.github.io/pdf.js/getting_started/)，版本 6.4.299、Apache-2.0；保留附带图标、字体、CMap 与语言文件及版权声明。来源附件、SHA-256、排除文件和改造范围见 [工程资源登记](../../public/pdfjs/README.md)。仅适配工具栏主题、焦点、减少动画和手机换行；未新增插图或自研渲染引擎。本地 PDF 来自完整原件的校验副本，外部笔记保留作者并直接跳转，不转载。实际接入见 [U09 阅读迭代](iterations/u09-p05-t08-01-2026-10-07-01.md)。
 
 正式采用素材时，最少记录以下信息；候选阶段允许缺项，并明确标注尚未选用。

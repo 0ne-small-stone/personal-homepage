@@ -3,6 +3,7 @@ import { z } from 'astro/zod';
 import { docsLoader, i18nLoader } from '@astrojs/starlight/loaders';
 import { docsSchema, i18nSchema } from '@astrojs/starlight/schema';
 import { blogSchema } from 'starlight-blog/schema';
+import { articleDateSchema } from './lib/article-date';
 
 export const collections = {
   i18n: defineCollection({ loader: i18nLoader(), schema: i18nSchema() }),
@@ -10,6 +11,7 @@ export const collections = {
     loader: docsLoader(),
     schema: docsSchema({
       extend: (context) => blogSchema(context).extend({
+        date: articleDateSchema,
         // Virtual blog lists and custom Starlight pages also use this schema.
         // Real knowledge entries are validated by publishedKnowledge().
         entryId: z.string().regex(/^[a-z0-9-]+$/).optional(),
