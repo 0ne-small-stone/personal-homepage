@@ -6,6 +6,7 @@ T13.01 / P17、P06 / R13。当前只准备一篇固定的测试草稿，官方�
 
 1. 在 Pages CMS 使用 GitHub 登录。按官方引导安装或授权 Pages CMS GitHub App，仓库选择 `0ne-small-stone/personal-homepage`。如果已经接入，可直接打开仓库。
 2. 选择工作分支 `codex/t13-01-web-drafts`，打开“文章草稿验证”。[直接编辑入口](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-01-web-drafts/file/article-draft)使用官方原生文件路由；未登录会先进入登录页面。
+   安装后若落到 `main/configuration`，改用上面的工作分支入口。本轮 `.pages.yml` 已在工作分支配置完成，main 尚未合并该配置；主分支配置页的创建按钮会触发 PR/检查保护。
 3. 核对标题、摘要、文章日期、主题、标签与正文。草稿状态应开启且只读。标题改为“网页编辑草稿验证（网页已保存）”，正文末尾加入“T13.01 网页保存验证：文字、章节和代码仍在。”，保存。
 4. 刷新编辑页，确认修改仍在。切换正文的 Editor / Source，检查章节、链接和代码；尝试清空标题观察原生必填提示，再取消这次未保存的修改。离开提示、错误恢复、历史入口均需真实界面逐项验证，配置通过不能代替这些结果。
 
@@ -22,6 +23,12 @@ T13.01 / P17、P06 / R13。当前只准备一篇固定的测试草稿，官方�
 3. 返回原草稿页面，在相同工作分支再次保存。若授权已正确但仍报同错，先保留未保存内容，再退出 Pages CMS 并使用同一 GitHub 账号重新登录后重试。重新登录属于刷新认证的尝试，不能预先记为修复成功。
 
 当前浏览器控制进程仍无法启动，本地 Git 凭证调用安装列表接口也返回 403（该接口要求 GitHub App 用户令牌），无法用它读取或修改 Pages CMS 的真实安装授权。这与用户遇到的文件写入 403 是两次不同请求。具体安装范围和权限仍需设置页读回；只有实际网页保存及 GitHub 新提交确认后，才记为修复。
+
+## 创建配置报 Changes must be made through a pull request
+
+2026-10-08 用户在 `/main/configuration` 报该错误，GitHub 同时提示 3 项必需检查。远程读回 main 的 `.pages.yml` 为 404、分支受保护；工作分支 `.pages.yml` 为 200、分支未保护。当前配置与测试草稿已准备在 `codex/t13-01-web-drafts`，进入[文章草稿验证](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-01-web-drafts/file/article-draft)编辑现有文件即可。
+
+main 的配置接入以后通过正常 PR 与三项检查完成。当前保持原保护规则，本轮先验证工作分支的草稿保存。此报错是主分支规则拒绝写入，不能单凭它宣称 Pages CMS 安装权限和真实保存已验收。
 
 ## 保存后如何核对
 
