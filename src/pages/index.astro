@@ -1,28 +1,40 @@
 ---
-import SiteLayout from '../layouts/SiteLayout.astro';
+import HomeLayout from '../layouts/HomeLayout.astro';
+import HomeCta from '../components/home/HomeCta.astro';
+import { homeChapters, photoCredit, selectedLinks } from '../components/home/home-chapters';
 import { sitePath } from '../lib/paths';
-const entrances = [
-  { title: '学习', path: 'knowledge', description: '资料、文章与笔记，在同一处浏览。' },
-  { title: '展示', path: 'showcase', description: '项目、照片与社交作品的共同入口。' },
-  { title: '常用网站', path: 'links', description: '整理常用工具与值得收藏的网址。' },
-  { title: '音乐电台', path: 'music', description: '听歌、分享，也留下一首推荐。' },
-];
+import { Image } from 'astro:assets';
+import wordmark from '../assets/home/lssh-wordmark.png';
+import coast from '../assets/home/coast-sample.jpg';
 ---
-<SiteLayout title="个人主页">
-  <section class="hero" aria-labelledby="home-title">
-    <p class="eyebrow">结构预览 / 四个入口</p>
-    <h1 id="home-title">学习、记录<br />与日常。</h1>
-    <p class="muted">从一个入口开始。学习区已有标注为演示的内容，其余区域正在准备。</p>
+<HomeLayout journey>
+  <section id="intro" class="home-chapter home-hero" aria-labelledby="home-title" data-chapter="intro">
+    <div class="home-chapter-viewport"><div class="home-chapter-content">
+      <h1 id="home-title" class="sr-only">Little Stone Still Here</h1>
+      <Image class="home-wordmark" src={wordmark} width={768} alt="Little Stone Still Here" loading="eager" format="webp" quality={90} />
+      <p class="home-description">留下的东西，仍在这里。</p>
+      <a class="home-scroll" href="#projects"><svg width="16" height="20" viewBox="0 0 16 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v14M3 11l5 5 5-5" /></svg>向下探索</a>
+    </div></div>
   </section>
-  <nav aria-label="内容入口">
-    <ol class="entrances">
-      {entrances.map((entry, index) => <li>
-        <a class="entrance" href={sitePath(entry.path)}>
-          <span class="entrance-number" aria-hidden="true">0{index + 1}</span>
-          <div><h2>{entry.title}</h2><p>{entry.description}</p></div>
-          <span class="entrance-arrow" aria-hidden="true">↗</span>
-        </a>
-      </li>)}
-    </ol>
-  </nav>
-</SiteLayout>
+  {homeChapters.slice(1,5).map((chapter) => 'path' in chapter && <section id={chapter.id} class="home-chapter" aria-labelledby={`title-${chapter.id}`} data-chapter={chapter.id}>
+    <div class="home-chapter-viewport">
+      <div class="home-chapter-content"><h2 id={`title-${chapter.id}`}>{chapter.title}</h2><p class="home-description">{chapter.description}</p><HomeCta href={sitePath(chapter.path)} label={chapter.action} id={`entry-${chapter.id}`} />
+        {chapter.id === 'projects' && <p class="home-chapter-note">这里的第一个项目，正是这个网站。</p>}
+        {chapter.id === 'radio' && <p class="home-chapter-note">Pink Floyd / Echoes · 播放与共享歌单待接入</p>}
+      </div>
+      {chapter.id === 'projects' && <div class="home-art home-art--scene"><div class="home-project-preview"><span>LSSH</span><strong>Little Stone<br />Still Here</strong><small>个人网站 · 建造中</small></div></div>}
+      {chapter.id === 'radio' && <div class="home-art home-art--scene" aria-label="音乐入口的唱片造型"><div class="home-disc"><span>Pink Floyd<br />Echoes</span></div></div>}
+      {chapter.id === 'album' && <figure class="home-art"><Image class="home-photo" src={coast} width={1100} alt="黑白海岸选图样本：海浪与天空之间的辽阔留白" loading="lazy" format="webp" quality={85} /><figcaption class="home-photo-credit">选图样本 · <a href={photoCredit.url} target="_blank" rel="noreferrer">{photoCredit.author} / Unsplash <span class="sr-only">（新窗口）</span></a></figcaption></figure>}
+      {chapter.id === 'links' && <ul class="home-art home-links-preview">{selectedLinks.map(link => <li><a href={link.url} target="_blank" rel="noreferrer"><strong>{link.title}</strong><span>{link.detail}<span class="sr-only">（新窗口）</span></span></a></li>)}</ul>}
+    </div>
+  </section>)}
+  <section id="wall" class="home-chapter home-wall" aria-labelledby="title-wall" data-chapter="wall">
+    <div class="home-chapter-viewport"><div class="home-wall-surface" aria-hidden="true"></div><div class="home-chapter-content">
+      <h2 id="title-wall">The Wall</h2><p class="home-description">走到这里，也留下你的回声。</p>
+      <div class="home-wall-empty"><p>墙上还没有公开的话语。</p><p class="home-description">留言区尚未接通。接通后，用 GitHub 账号留下话语，与后来的人相遇。</p></div>
+      <HomeCta href={sitePath('guestbook')} label="查看留言区" id="entry-wall" />
+      <div class="home-wall-bottom"><a href="#intro">回到序章</a><a href={sitePath('about')}>认识小石</a></div>
+    </div></div>
+  </section>
+  <nav class="home-chapter-index" aria-label="首页章节">{homeChapters.map((chapter,index) => <a href={`#${chapter.id}`} aria-label={`转到${chapter.label}`} aria-current={index === 0 ? 'location' : undefined}>{String(index).padStart(2,'0')}</a>)}</nav>
+</HomeLayout>

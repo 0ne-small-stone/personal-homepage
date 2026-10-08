@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightBlog from 'starlight-blog';
+import react from '@astrojs/react';
 
 // GitHub Pages project sites require this prefix in routes, assets and search.
 const base = '/personal-homepage';
@@ -12,6 +13,7 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'always',
   integrations: [
+    react(),
     starlight({
       title: '个人主页',
       defaultLocale: 'root',
