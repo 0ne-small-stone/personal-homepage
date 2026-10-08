@@ -8,11 +8,13 @@ import { sitePath } from '../lib/paths';
 import { Image, getImage } from 'astro:assets';
 import wordmark from '../assets/home/lssh-wordmark.png';
 import coast from '../assets/home/coast-sample.jpg';
+import projectCover from '../assets/home/the-wall-placeholder.jpg';
 const markImage = await getImage({src:wordmark,width:768,format:'webp',quality:90});
 const photoImage = await getImage({src:coast,width:1100,format:'webp',quality:85});
+const projectImage = await getImage({src:projectCover,width:1100,format:'webp',quality:85});
 ---
 <HomeLayout journey>
-  <HomeJourney client:only="react" wordmarkUrl={markImage.src} photoUrl={photoImage.src} />
+  <HomeJourney client:only="react" wordmarkUrl={markImage.src} photoUrl={photoImage.src} projectUrl={projectImage.src} />
   <section id="intro" class="home-chapter home-hero" aria-labelledby="home-title" data-chapter="intro">
     <div class="home-chapter-viewport"><div class="home-chapter-content">
       <h1 id="home-title" class="sr-only">Little Stone Still Here</h1>
@@ -24,10 +26,10 @@ const photoImage = await getImage({src:coast,width:1100,format:'webp',quality:85
   {homeChapters.slice(1,5).map((chapter) => 'path' in chapter && <section id={chapter.id} class="home-chapter" aria-labelledby={`title-${chapter.id}`} data-chapter={chapter.id}>
     <div class="home-chapter-viewport">
       <div class="home-chapter-content"><h2 id={`title-${chapter.id}`}>{chapter.title}</h2><p class="home-description">{chapter.description}</p><HomeCta href={sitePath(chapter.path)} label={chapter.action} id={`entry-${chapter.id}`} />
-        {chapter.id === 'projects' && <p class="home-chapter-note">这里的第一个项目，正是这个网站。</p>}
+        {chapter.id === 'projects' && <p class="home-chapter-note">视觉占位 · Pink Floyd — The Wall</p>}
         {chapter.id === 'radio' && <p class="home-chapter-note">Pink Floyd / Echoes · 播放与共享歌单待接入</p>}
       </div>
-      {chapter.id === 'projects' && <div class="home-art home-art--scene"><div class="home-project-preview"><span>LSSH</span><strong>Little Stone<br />Still Here</strong><small>个人网站 · 建造中</small></div></div>}
+      {chapter.id === 'projects' && <figure class="home-art home-art--scene"><img class="home-project-cover" src={projectImage.src} width={projectImage.attributes.width} height={projectImage.attributes.height} alt="视觉占位：Pink Floyd《The Wall》专辑封面，规整的白色砖墙" loading="lazy" /></figure>}
       {chapter.id === 'radio' && <div class="home-art home-art--scene" aria-label="音乐入口的唱片造型"><div class="home-disc"><span>Pink Floyd<br />Echoes</span></div></div>}
       {chapter.id === 'album' && <figure class="home-art"><Image class="home-photo" src={coast} width={1100} alt="黑白海岸选图样本：海浪与天空之间的辽阔留白" loading="lazy" format="webp" quality={85} /><figcaption class="home-photo-credit">选图样本 · <a href={photoCredit.url} target="_blank" rel="noreferrer">{photoCredit.author} / Unsplash <span class="sr-only">（新窗口）</span></a></figcaption></figure>}
       {chapter.id === 'links' && <ul class="home-art home-links-preview">{selectedLinks.map(link => <li><a href={link.url} target="_blank" rel="noreferrer"><strong>{link.title}</strong><span>{link.detail}<span class="sr-only">（新窗口）</span></span></a></li>)}</ul>}

@@ -32,7 +32,7 @@ function FirstFrame({ model, onReady }: {model: JourneyModel; onReady: () => voi
   return null;
 }
 
-export default function HomeJourney({wordmarkUrl,photoUrl}: {wordmarkUrl: string;photoUrl:string}) {
+export default function HomeJourney({wordmarkUrl,photoUrl,projectUrl}: {wordmarkUrl: string;photoUrl:string;projectUrl:string}) {
   const model = useRef(createJourneyModel()).current;
   const [status,setStatus] = useState<'loading'|'ready'|'fallback'|'error'>(()=>{try{return sessionStorage.getItem('lssh.home.seen')==='true'?'ready':'loading';}catch{return 'loading';}});
   const [paused,setPaused] = useState(false);
@@ -131,7 +131,7 @@ export default function HomeJourney({wordmarkUrl,photoUrl}: {wordmarkUrl: string
       const lost=(event:Event)=>{event.preventDefault();fallback(true);};
       gl.domElement.addEventListener('webglcontextlost',lost,{once:true});
     }} fallback={<span>图形不可用</span>}>
-      <Suspense fallback={null}><CameraRig model={model} mobile={mobile} quiet={paused||reduced} /><SceneLighting /><SceneBackdrop model={model} mobile={mobile} /><GlassTriangle model={model} paused={paused||reduced} mobile={mobile} low={mobile} detailed={detailed} /><ProjectScene model={model} mobile={mobile} wordmarkUrl={wordmarkUrl} /><RadioScene model={model} mobile={mobile} /><RisingWall model={model} /><FirstFrame model={model} onReady={onReady} /></Suspense>
+      <Suspense fallback={null}><CameraRig model={model} mobile={mobile} quiet={paused||reduced} /><SceneLighting /><SceneBackdrop model={model} mobile={mobile} /><GlassTriangle model={model} paused={paused||reduced} mobile={mobile} low={mobile} detailed={detailed} /><ProjectScene model={model} mobile={mobile} projectUrl={projectUrl} /><RadioScene model={model} mobile={mobile} /><RisingWall model={model} /><FirstFrame model={model} onReady={onReady} /></Suspense>
       {albumNear&&<SceneBoundary onError={()=>{document.body.classList.remove('home-photo-ready');setMessage('影像加载失败，可继续浏览相册入口。');}}><Suspense fallback={null}><AlbumScene model={model} mobile={mobile} photoUrl={photoUrl} /></Suspense></SceneBoundary>}
     </Canvas></SceneBoundary></div>}
     {status === 'loading' && <div ref={loader} className="home-loader" role="status"><img className="home-loader-logo" src={wordmarkUrl} width="768" height="512" alt="Little Stone Still Here" /><p>正在准备光与玻璃</p><button onClick={()=>fallback()}>普通浏览</button></div>}

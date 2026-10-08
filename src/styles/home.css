@@ -42,6 +42,7 @@
 .home-project-preview span { font: .75rem var(--font-home-nav); }
 .home-project-preview strong { font: 500 clamp(2rem, 4vw, 4rem)/1 var(--font-home-display); letter-spacing: -.025em; max-width: 80%; }
 .home-project-preview small { color: #a1a1a1; }
+.home-project-cover { width: 100%; height: auto; object-fit: contain; border-radius: .5rem; }
 .home-disc { width: min(32rem, 90%); aspect-ratio: 1; border-radius: 50%; background: repeating-radial-gradient(circle at center, #101010 0 2px, #181818 3px, #0a0a0a 4px 7px); display: grid; place-content: center; text-align: center; margin: auto; }
 .home-disc span { width: 9rem; height: 9rem; border-radius: 50%; background: #e8e4dc; color: #272a2c; font-family: var(--font-home-display); display: grid; place-content: center; line-height: 1.4; }
 .home-photo { aspect-ratio: 1.45; border-radius: .5rem; object-fit: cover; }

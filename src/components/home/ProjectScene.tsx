@@ -4,9 +4,9 @@ import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.j
 import { TextureLoader, SRGBColorSpace, MathUtils, type Group } from 'three';
 import type { JourneyModel } from './scene-state';
 
-export default function ProjectScene({model, mobile, wordmarkUrl}: {model: JourneyModel; mobile: boolean; wordmarkUrl: string}) {
+export default function ProjectScene({model, mobile, projectUrl}: {model: JourneyModel; mobile: boolean; projectUrl: string}) {
   const group = useRef<Group>(null);
-  const texture = useLoader(TextureLoader,wordmarkUrl);
+  const texture = useLoader(TextureLoader,projectUrl);
   const {viewport} = useThree();
   const geometry = useMemo(()=>new RoundedBoxGeometry(3.8,2.54,.1,2,.04),[]);
   useEffect(()=>{texture.colorSpace=SRGBColorSpace;return ()=>geometry.dispose();},[texture,geometry]);
@@ -21,7 +21,7 @@ export default function ProjectScene({model, mobile, wordmarkUrl}: {model: Journ
   },-1);
   return <group ref={group}>
     <mesh geometry={geometry}><meshStandardMaterial color="#1f1f1f" roughness={.68} metalness={.1} /></mesh>
-    <mesh position={[0,0,.058]}><planeGeometry args={[3.68,2.45]} /><meshBasicMaterial map={texture} transparent toneMapped={false} /></mesh>
+    <mesh position={[0,0,.058]}><planeGeometry args={[2.45*1500/1350,2.45]} /><meshBasicMaterial map={texture} toneMapped={false} /></mesh>
     <mesh geometry={geometry} position={[.55,.3,-.7]} rotation={[0,.15,.06]}><meshStandardMaterial color="#101010" roughness={.8} /></mesh>
   </group>;
 }
