@@ -10,7 +10,7 @@ const { title = 'Little Stone Still Here', description = '小石的学习、作�
 ---
 <!doctype html>
 <html lang="zh-CN">
-  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content={description} /><meta name="theme-color" content="#000000" /><title>{title === 'Little Stone Still Here' ? title : `${title} · Little Stone Still Here`}</title></head>
+  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content={description} /><meta name="theme-color" content="#000000" /><link rel="icon" href="data:," /><title>{title === 'Little Stone Still Here' ? title : `${title} · Little Stone Still Here`}</title></head>
   <body class:list={['lssh-home', { 'has-journey': journey }]}>
     <a class="home-skip" href="#main-content">跳到正文</a><HomeHeader />
     <main id="main-content" tabindex="-1"><slot /></main>

@@ -1,13 +1,18 @@
 ---
 import HomeLayout from '../layouts/HomeLayout.astro';
 import HomeCta from '../components/home/HomeCta.astro';
+import HomeJourney from '../components/home/HomeJourney';
+import Guestbook from '../components/home/Guestbook.astro';
 import { homeChapters, photoCredit, selectedLinks } from '../components/home/home-chapters';
 import { sitePath } from '../lib/paths';
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import wordmark from '../assets/home/lssh-wordmark.png';
 import coast from '../assets/home/coast-sample.jpg';
+const markImage = await getImage({src:wordmark,width:768,format:'webp',quality:90});
+const photoImage = await getImage({src:coast,width:1100,format:'webp',quality:85});
 ---
 <HomeLayout journey>
+  <HomeJourney client:only="react" wordmarkUrl={markImage.src} photoUrl={photoImage.src} />
   <section id="intro" class="home-chapter home-hero" aria-labelledby="home-title" data-chapter="intro">
     <div class="home-chapter-viewport"><div class="home-chapter-content">
       <h1 id="home-title" class="sr-only">Little Stone Still Here</h1>
@@ -31,7 +36,7 @@ import coast from '../assets/home/coast-sample.jpg';
   <section id="wall" class="home-chapter home-wall" aria-labelledby="title-wall" data-chapter="wall">
     <div class="home-chapter-viewport"><div class="home-wall-surface" aria-hidden="true"></div><div class="home-chapter-content">
       <h2 id="title-wall">The Wall</h2><p class="home-description">走到这里，也留下你的回声。</p>
-      <div class="home-wall-empty"><p>墙上还没有公开的话语。</p><p class="home-description">留言区尚未接通。接通后，用 GitHub 账号留下话语，与后来的人相遇。</p></div>
+      <div class="home-wall-empty"><Guestbook /></div>
       <HomeCta href={sitePath('guestbook')} label="查看留言区" id="entry-wall" />
       <div class="home-wall-bottom"><a href="#intro">回到序章</a><a href={sitePath('about')}>认识小石</a></div>
     </div></div>
