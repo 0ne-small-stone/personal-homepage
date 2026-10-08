@@ -3,20 +3,20 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 import HomeCta from '../components/home/HomeCta.astro';
 import HomeJourney from '../components/home/HomeJourney';
 import Guestbook from '../components/home/Guestbook.astro';
-import { homeChapters, photoCredit, selectedLinks } from '../components/home/home-chapters';
+import { homeChapters, selectedLinks } from '../components/home/home-chapters';
 import { sitePath } from '../lib/paths';
 import { Image, getImage } from 'astro:assets';
 import wordmark from '../assets/home/lssh-wordmark.png';
-import coast from '../assets/home/coast-sample.jpg';
+import albumCover from '../assets/home/echoes-placeholder.jpg';
 import projectCover from '../assets/home/the-wall-placeholder.jpg';
 import neighborCover from '../assets/home/wish-neighbor-placeholder.png';
 const markImage = await getImage({src:wordmark,width:768,format:'webp',quality:90});
-const photoImage = await getImage({src:coast,width:1100,format:'webp',quality:85});
+const albumImage = await getImage({src:albumCover,width:1100,format:'webp',quality:85});
 const projectImage = await getImage({src:projectCover,width:1100,format:'webp',quality:85});
 const neighborImage = await getImage({src:neighborCover,width:1000,format:'webp',quality:85});
 ---
 <HomeLayout journey>
-  <HomeJourney client:only="react" wordmarkUrl={markImage.src} photoUrl={photoImage.src} projectUrl={projectImage.src} neighborUrl={neighborImage.src} />
+  <HomeJourney client:only="react" wordmarkUrl={markImage.src} albumUrl={albumImage.src} projectUrl={projectImage.src} neighborUrl={neighborImage.src} />
   <section id="intro" class="home-chapter home-hero" aria-labelledby="home-title" data-chapter="intro">
     <div class="home-chapter-viewport"><div class="home-chapter-content">
       <h1 id="home-title" class="sr-only">Little Stone Still Here</h1>
@@ -32,10 +32,11 @@ const neighborImage = await getImage({src:neighborCover,width:1000,format:'webp'
       <div class="home-chapter-content"><h2 id={`title-${chapter.id}`}>{chapter.title}</h2><p class="home-description">{chapter.description}</p><HomeCta href={sitePath(chapter.path)} label={chapter.action} id={`entry-${chapter.id}`} />
         {chapter.id === 'projects' && <p class="home-chapter-note">视觉占位 · Pink Floyd — The Wall</p>}
         {chapter.id === 'radio' && <p class="home-chapter-note">唱片图占位 · Wish You Were Here · 播放与共享歌单待接入</p>}
+        {chapter.id === 'album' && <p class="home-chapter-note">影像占位 · Pink Floyd — Echoes</p>}
       </div>
       {chapter.id === 'projects' && <figure class="home-art home-art--scene"><img class="home-project-cover" src={projectImage.src} width={projectImage.attributes.width} height={projectImage.attributes.height} alt="视觉占位：Pink Floyd《The Wall》专辑封面，规整的白色砖墙" loading="lazy" /></figure>}
       {chapter.id === 'radio' && <figure class="home-art home-art--scene"><img class="home-project-cover" src={neighborImage.src} width={neighborImage.attributes.width} height={neighborImage.attributes.height} alt="唱片图占位：Pink Floyd《Wish You Were Here》黑胶唱片，保留透明外缘与中心孔" loading="lazy" /></figure>}
-      {chapter.id === 'album' && <figure class="home-art"><Image class="home-photo" src={coast} width={1100} alt="黑白海岸选图样本：海浪与天空之间的辽阔留白" loading="lazy" format="webp" quality={85} /><figcaption class="home-photo-credit">选图样本 · <a href={photoCredit.url} target="_blank" rel="noreferrer">{photoCredit.author} / Unsplash <span class="sr-only">（新窗口）</span></a></figcaption></figure>}
+      {chapter.id === 'album' && <figure class="home-art home-art--scene"><img class="home-project-cover" src={albumImage.src} width={albumImage.attributes.width} height={albumImage.attributes.height} alt="影像占位：Pink Floyd《Echoes》精选集封面，完整保留嵌套窗口与摄影拼景" loading="lazy" /></figure>}
       {chapter.id === 'links' && <ul class="home-art home-links-preview">{selectedLinks.map(link => <li><a href={link.url} target="_blank" rel="noreferrer"><strong>{link.title}</strong><span>{link.detail}<span class="sr-only">（新窗口）</span></span></a></li>)}</ul>}
     </div>
   </section>)}

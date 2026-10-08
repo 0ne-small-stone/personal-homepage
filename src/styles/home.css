@@ -58,8 +58,7 @@
 .home-enhanced:not(.home-quiet) .home-work-chapter[inert] .home-chapter-content { pointer-events: none; }
 .home-enhanced:not(.home-quiet) .home-works-outro { display: block; height: calc(var(--journey-height, 100svh) * 1.5); }
 .home-enhanced:not(.home-quiet) .home-wall-reveal { display: block; height: var(--journey-height, 100svh); }
-.home-enhanced:not(.home-quiet) .home-work-album .home-art, .home-enhanced:not(.home-quiet) .home-work-links .home-art { visibility: visible; }
-.home-enhanced:not(.home-quiet) .home-work-projects .home-art, .home-enhanced:not(.home-quiet) .home-work-radio .home-art { visibility: hidden; }
+.home-enhanced:not(.home-quiet) .home-work-chapter .home-art { visibility: hidden; }
 @media (min-width: 768px) {
   .home-enhanced:not(.home-quiet) .home-work-chapter .home-chapter-content { max-width: 24rem; }
   .home-enhanced:not(.home-quiet) .home-work-chapter h2 { font-size: clamp(2.5rem, 3.2vw, 3.5rem); }

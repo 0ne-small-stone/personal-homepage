@@ -122,7 +122,9 @@ export function installWorksMotion(model: JourneyModel) {
     const rounded = Math.round(o + Number.EPSILON * 8);
     model.motion.rendered = { progress: p, index: center.read(rounded + .4 * (o - rounded)),
       background: background.read(model.motion.raw.works) * (workCount + 1), intro: title.read(model.motion.raw.intro) };
-    model.motion.snapActive = Boolean(triggers[4].getTween(true)?.isActive());
+    // ScrollTrigger uses numeric 0 after completion/interruption, not only undefined.
+    const snapTween = triggers[4].getTween(true);
+    model.motion.snapActive = Boolean(snapTween && snapTween.isActive());
     // Existing glass/wall poses are retained until their separate interaction slices.
     model.progress = s < h + introGap ? model.motion.raw.intro : model.motion.raw.wall > 0 ? 4.65 + .35 * model.motion.raw.wall : 1 + Math.max(0, model.motion.rendered.index - 1);
     const identityProgress = Math.max(0, Math.min(1, s / introGap));
@@ -145,7 +147,10 @@ export function installWorksMotion(model: JourneyModel) {
       document.dispatchEvent(new CustomEvent('lssh:motion', { detail: structuredClone(model.motion) }));
     allLerpers.forEach(lerper => lerper.update(dt));
   };
-  const abortSnap = () => triggers[4].getTween(true)?.kill();
+  const abortSnap = () => {
+    const tween = triggers[4].getTween(true);
+    if (tween) tween.kill();
+  };
   window.addEventListener('wheel', abortSnap, { passive: true, signal: controller.signal });
   window.addEventListener('touchstart', abortSnap, { passive: true, signal: controller.signal });
   const resize = () => { measure(); lenis.resize(); ScrollTrigger.refresh(); model.invalidate(); };
