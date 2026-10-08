@@ -1,18 +1,20 @@
 ---
-title: 网页编辑草稿验证（测试草稿）
+title: 网页编辑草稿验证（测试草稿）吃吃吃
 description: 用于验证网页后台保存、分支追溯与草稿排除。
-date: '2026-10-08'
-tags: [功能验证]
+date: 2026-10-08
+tags:
+  - 功能验证
 entryId: demo-article-editor-draft
 kind: article
-topics: [阅读与整理]
+topics:
+  - 阅读与整理
 example: true
 draft: true
 sidebar:
   hidden: true
-related: [demo-article-reading-check]
+related:
+  - demo-article-reading-check
 ---
-
 这是一篇用于网页编辑验证的测试草稿，不是正式文章。保存草稿后，它仍不会出现在公开网站的文章列表、学习总览或搜索中。
 
 ## 写一段文字
