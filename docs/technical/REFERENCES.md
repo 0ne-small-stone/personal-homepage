@@ -1,5 +1,12 @@
 # 个人主页技术调研来源和候选方案
 
+## T02.01 公共目录与前缀（2026-10-08）
+
+- [Starlight 组件扩展](https://starlight.astro.build/reference/overrides/)：只覆盖 SiteTitle，在组合层复用原生 SiteTitle；已实查 0.42.5 的 `dist/components/SiteTitle.astro`、Header、Sidebar、PageFrame 和 MIT 许可，保留原生搜索、主题与移动学习导航。适配 title-wrapper 的局部裁切，不替换整个 Header。
+- [Starlight sidebar](https://starlight.astro.build/guides/sidebar/)：手写内部链接交给原生路由处理 base，修复此前三处手动重复前缀；主站共享路径继续由已有 sitePath 生成。实际产物与点击验收支持本轮配置结论。
+- [原生 details](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/details) 提供无脚本展开/关闭与 summary 键盘行为；[ARIA current](https://www.w3.org/TR/wai-aria-1.2/#aria-current) 区分栏目首页 page 和子页所属 location。仅补项目要求的关闭、焦点和生命周期，不新增 React 控件库。
+- [本轮记录](iterations/t02-01-2026-10-08.md)保存 16 组浏览器结果和重复前缀失败证据；CI 增加构建产物检查，不修改工作流触发和部署条件。
+
 ## T09.01 稳定 ID 与原生链接（2026-10-08）
 
 - [Astro 集合引用](https://docs.astro.build/en/guides/content-collections/#defining-collection-references)：原生 reference 按集合条目 ID 引用；当前 `related` 已存业务 `entryId`，两者不同。沿用 getCollection 和现有 loader/schema，补小范围 ID 映射，避免迁移现有内容或替换路由。
