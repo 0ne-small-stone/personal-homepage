@@ -11,10 +11,11 @@ const noteCount = entries.filter((entry) => entry.data.kind === 'note').length;
 const exampleArticleCount = entries.filter((entry) => entry.data.kind === 'article' && entry.data.example).length;
 const formalArticleCount = entries.filter((entry) => entry.data.kind === 'article' && !entry.data.example).length;
 const pdfEntries = entries.filter((entry) => entry.data.source?.format === 'pdf');
-const availablePdfs = pdfEntries.filter((entry) => existsSync(resolve('public/local-materials', `${entry.data.source!.id}.pdf`))).length;
+const availablePdfs = pdfEntries.filter(({ data: { source } }) => source?.format === 'pdf' &&
+  existsSync(resolve('public', source.file ?? `local-materials/${source.id}.pdf`))).length;
 ---
 <StarlightPage frontmatter={{ title: '学习总览', description: '在同一个入口浏览资料、文章与笔记。', tableOfContents: false }}>
-  <p class="knowledge-summary">已按六个科目整理 {resourceCount} 条学习资料与 {noteCount} 条笔记收藏。目录中的“学习资料”和“笔记”可按科目展开，资料标题与说明共用搜索。</p>
+  <p class="knowledge-summary">已整理 {resourceCount} 条学习资料与 {noteCount} 条笔记收藏。目录中的“学习资料”和“笔记”可按科目展开，资料标题与说明共用搜索。</p>
   {exampleArticleCount > 0 && <p>另有 {exampleArticleCount} 篇功能验证样稿，用于体验文章阅读；{formalArticleCount === 0 ? '正式文章尚待添加。' : `正式文章 ${formalArticleCount} 篇。`}</p>}
   <p>{availablePdfs === pdfEntries.length ? '点开资料或 PDF 笔记即可阅读' : `已接入 ${availablePdfs} 份 PDF，其他附件待配置`}；外部笔记直接进入作者原站。资料原件完整保留。</p>
   <a class="knowledge-blog-link" href={sitePath('knowledge/blog')}>按时间浏览文章 →</a>

@@ -10,6 +10,10 @@ const types = [
 ];
 const topics = [...new Set(entries.flatMap((entry) => entry.data.topics).filter(Boolean))]
   .sort((a, b) => a.localeCompare(b, 'zh-CN', { numeric: true }));
+// Compute one canonical order at build time, independently of visitor locale/ICU.
+const titleOrder = new Map([...entries].sort((a, b) =>
+  a.data.title.localeCompare(b.data.title, 'zh-CN', { numeric: true }) ||
+  a.data.entryId.localeCompare(b.data.entryId, 'en')).map((entry, index) => [entry.data.entryId, index]));
 ---
 <knowledge-type-filter>
   <fieldset class="knowledge-type-controls" hidden data-pagefind-ignore>
@@ -29,10 +33,18 @@ const topics = [...new Set(entries.flatMap((entry) => entry.data.topics).filter(
     </select>
     <button type="button" data-clear-filters hidden>清空筛选</button>
   </div>
+  <div class="knowledge-sort-controls" hidden data-pagefind-ignore>
+    <label for="knowledge-sort">排序</label>
+    <select id="knowledge-sort" name="knowledge-sort">
+      <option value="default">按主题（默认）</option>
+      <option value="title-asc">标题升序</option>
+      <option value="title-desc">标题降序</option>
+    </select>
+  </div>
   <p class="knowledge-result-status" role="status" aria-live="polite" aria-atomic="true" data-pagefind-ignore>全部主题 · 全部：{entries.length} 条内容。</p>
   <p class="knowledge-empty" hidden data-pagefind-ignore>当前筛选暂无已发布内容。可调整主题或类型，也可“清空筛选”查看全部内容。</p>
   <ul class="knowledge-list">
-    {entries.map((entry) => <li data-knowledge-kind={entry.data.kind} data-knowledge-topics={JSON.stringify(entry.data.topics)}>
+    {entries.map((entry, index) => <li data-knowledge-kind={entry.data.kind} data-knowledge-topics={JSON.stringify(entry.data.topics)} data-knowledge-order={index} data-knowledge-title-order={titleOrder.get(entry.data.entryId)}>
       <div class="knowledge-meta">{kindLabels[entry.data.kind]} · {entry.data.topics.join(' / ')}{entry.data.example ? ' · 演示内容' : ''}
         {entry.data.source?.format === 'pdf' && ` · PDF · ${((entry.data.source.bytes ?? 0) / 1024 / 1024).toFixed(2)} MiB · ${entry.data.source.pages} 页`}
         {entry.data.source?.format === 'link' && ` · 外部笔记 · ${entry.data.source.author}`}
@@ -41,7 +53,7 @@ const topics = [...new Set(entries.flatMap((entry) => entry.data.topics).filter(
       <p>{entry.data.description}</p>
     </li>)}
   </ul>
-  <p class="knowledge-filter-fallback" data-pagefind-ignore>类型与主题筛选暂不可用，当前仍可浏览全部内容。</p>
+  <p class="knowledge-filter-fallback" data-pagefind-ignore>类型与主题筛选、排序暂不可用，当前仍可按主题顺序浏览全部内容。</p>
 </knowledge-type-filter>
 
 <script>
@@ -53,26 +65,39 @@ const topics = [...new Set(entries.flatMap((entry) => entry.data.topics).filter(
       const fieldset = this.querySelector<HTMLFieldSetElement>('.knowledge-type-controls');
       const topicControls = this.querySelector<HTMLElement>('.knowledge-topic-controls');
       const topicSelect = this.querySelector<HTMLSelectElement>('#knowledge-topic');
+      const sortControls = this.querySelector<HTMLElement>('.knowledge-sort-controls');
+      const sortSelect = this.querySelector<HTMLSelectElement>('#knowledge-sort');
+      const list = this.querySelector<HTMLUListElement>('.knowledge-list');
       const clear = this.querySelector<HTMLButtonElement>('[data-clear-filters]');
       const status = this.querySelector<HTMLElement>('.knowledge-result-status');
       const empty = this.querySelector<HTMLElement>('.knowledge-empty');
       const fallback = this.querySelector<HTMLElement>('.knowledge-filter-fallback');
-      if (!fieldset || !topicControls || !topicSelect || !clear || !status || !empty) return;
+      if (!fieldset || !topicControls || !topicSelect || !sortControls || !sortSelect || !list || !clear || !status || !empty) return;
 
       const controls = [...fieldset.querySelectorAll<HTMLInputElement>('input[type="radio"]')];
       const items = [...this.querySelectorAll<HTMLLIElement>('.knowledge-list > li[data-knowledge-kind]')];
       const allowedTypes = new Set(controls.map((control) => control.value));
       const allowedTopics = new Set([...topicSelect.options].map((option) => option.value));
+      const allowedSorts = new Set([...sortSelect.options].map((option) => option.value));
       const itemTopics = new Map(items.map((item) => [item, JSON.parse(item.dataset.knowledgeTopics ?? '[]') as string[]]));
 
       const update = () => {
         const params = new URL(window.location.href).searchParams;
         const requested = params.get('type');
         const requestedTopic = params.get('topic');
+        const requestedSort = params.get('sort');
         const invalid = requested !== null && !allowedTypes.has(requested);
         const invalidTopic = requestedTopic !== null && !allowedTopics.has(requestedTopic);
+        const invalidSort = requestedSort !== null && !allowedSorts.has(requestedSort);
         const type = requested && allowedTypes.has(requested) ? requested : 'all';
         const topic = requestedTopic && allowedTopics.has(requestedTopic) ? requestedTopic : '';
+        const sort = requestedSort && allowedSorts.has(requestedSort) ? requestedSort : 'default';
+        const ordered = [...items].sort((a, b) => sort === 'default'
+          ? Number(a.dataset.knowledgeOrder) - Number(b.dataset.knowledgeOrder)
+          : (Number(a.dataset.knowledgeTitleOrder) - Number(b.dataset.knowledgeTitleOrder)) * (sort === 'title-desc' ? -1 : 1));
+        // Avoid moving nodes on pageshow when order is already correct, preserving
+        // the original link focus during reading returns.
+        if (ordered.some((item, index) => list.children[index] !== item)) list.append(...ordered);
         let count = 0;
         for (const item of items) {
           item.hidden = (type !== 'all' && item.dataset.knowledgeKind !== type) ||
@@ -81,8 +106,10 @@ const topics = [...new Set(entries.flatMap((entry) => entry.data.topics).filter(
         }
         for (const control of controls) control.checked = control.value === type;
         topicSelect.value = topic;
+        sortSelect.value = sort;
         const label = controls.find((control) => control.checked)?.dataset.label ?? '全部';
-        status.textContent = `${invalid ? '未识别此类型，已显示全部类型。' : ''}${invalidTopic ? '未识别此主题，已显示全部主题。' : ''}${topic || '全部主题'} · ${label}：${count} 条内容。`;
+        const sortLabel = sortSelect.selectedOptions[0].textContent;
+        status.textContent = `${invalid ? '未识别此类型，已显示全部类型。' : ''}${invalidTopic ? '未识别此主题，已显示全部主题。' : ''}${invalidSort ? '未识别此排序，已按主题排序。' : ''}${topic || '全部主题'} · ${label}：${count} 条内容。排序：${sortLabel}。`;
         empty.hidden = count !== 0;
         clear.hidden = requested === null && requestedTopic === null;
       };
@@ -116,11 +143,18 @@ const topics = [...new Set(entries.flatMap((entry) => entry.data.topics).filter(
         // The clear control is now hidden; keep keyboard focus on a visible filter.
         controls.find((control) => control.value === 'all')?.focus();
       }, { signal });
+      sortSelect.addEventListener('change', () => {
+        const url = new URL(window.location.href);
+        if (sortSelect.value === 'default') url.searchParams.delete('sort');
+        else url.searchParams.set('sort', sortSelect.value);
+        navigate(url);
+      }, { signal });
       window.addEventListener('popstate', update, { signal });
       window.addEventListener('pageshow', update, { signal });
       update();
       fieldset.hidden = false;
       topicControls.hidden = false;
+      sortControls.hidden = false;
       if (fallback) fallback.hidden = true;
     }
 
