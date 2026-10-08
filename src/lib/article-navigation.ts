@@ -1,4 +1,4 @@
-// Native page navigation and Pagefind remain in charge. Only article return context is added.
+// Native navigation/Pagefind/PDF.js stay in charge. Reuse the article return adapter for all reading.
 interface ReadingVisit {
   id: string;
   from: string;
@@ -6,16 +6,29 @@ interface ReadingVisit {
   scrollY: number;
   search: string | null;
   label: string;
+  focusScope?: keyof typeof focusScopes;
 }
+
+const focusScopes = {
+  list: '.knowledge-list a',
+  blog: '.sl-blog-preview-link',
+  related: '.related-knowledge a',
+  content: '.sl-markdown-content a',
+  sidebar: '.sidebar a',
+};
 
 const storageKey = 'lssh:article-visits:v1';
 const pendingKey = 'lssh:article-pending:v1';
 const sourceKey = 'lsshArticleSource';
 const returnKey = 'lsshArticleReturn';
-const articlePaths = new Set<string>(JSON.parse(
-  document.querySelector<HTMLMetaElement>('meta[name="lssh-article-paths"]')?.content || '[]',
+const readingPaths = new Set<string>(JSON.parse(
+  document.querySelector<HTMLMetaElement>('meta[name="lssh-reading-paths"]')?.content || '[]',
 ));
+const externalNotes = new Set<string>((JSON.parse(
+  document.querySelector<HTMLMetaElement>('meta[name="lssh-external-notes"]')?.content || '[]',
+) as string[]).map((value) => new URL(value).href));
 let controller: AbortController | undefined;
+let activeVisitId: string | undefined;
 
 function localUrl(value: string): URL | null {
   try {
@@ -30,11 +43,17 @@ function visits(): ReadingVisit[] {
     if (!Array.isArray(value)) return [];
     return value.filter((item): item is ReadingVisit =>
       typeof item?.id === 'string' && typeof item.from === 'string' && typeof item.to === 'string' &&
-      Boolean(localUrl(item.from)) && articlePaths.has(localUrl(item.to)?.pathname || '') &&
+      Boolean(localUrl(item.from)) && readingTarget(item.to) &&
       Number.isFinite(item.scrollY) && item.scrollY >= 0 &&
-      (item.search === null || typeof item.search === 'string') && typeof item.label === 'string',
+      (item.search === null || typeof item.search === 'string') && typeof item.label === 'string' &&
+      (item.focusScope === undefined || (typeof item.focusScope === 'string' && Object.hasOwn(focusScopes, item.focusScope))),
     ).slice(-20);
   } catch { return []; }
+}
+
+function readingTarget(value: string): boolean {
+  const local = localUrl(value);
+  return local ? readingPaths.has(local.pathname) : externalNotes.has(value);
 }
 
 function plainClick(event: MouseEvent, anchor: HTMLAnchorElement): boolean {
@@ -46,12 +65,15 @@ function plainClick(event: MouseEvent, anchor: HTMLAnchorElement): boolean {
 function remember(event: MouseEvent) {
   const anchor = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>('a[href]') : null;
   if (!anchor || !plainClick(event, anchor) || anchor.hasAttribute('data-article-return')) return;
-  const destination = localUrl(anchor.href);
-  if (!destination || !articlePaths.has(destination.pathname) || destination.pathname === location.pathname) return;
+  const destination = new URL(anchor.href);
+  if (!readingTarget(destination.href) ||
+    (destination.origin === location.origin && destination.pathname === location.pathname)) return;
   const searchInput = anchor.closest('#starlight__search')?.querySelector<HTMLInputElement>('input');
   const visit: ReadingVisit = {
     id: crypto.randomUUID(), from: location.href, to: destination.href,
     scrollY: window.scrollY, search: searchInput?.value || null,
+    focusScope: (Object.keys(focusScopes) as (keyof typeof focusScopes)[])
+      .find((scope) => anchor.matches(focusScopes[scope])),
     label: searchInput ? '← 返回搜索结果' :
       document.querySelector('knowledge-type-filter') ? '← 返回学习总览' :
       document.querySelector('.sl-blog-posts[data-blog-page="tag"]') ? '← 返回标签结果' :
@@ -100,12 +122,15 @@ function restoreSource(visit: ReadingVisit, signal: AbortSignal) {
       return true;
     }, signal);
   } else {
-    const link = Array.from(document.querySelectorAll<HTMLAnchorElement>('.knowledge-list a, .sl-blog-preview-link, .related-knowledge a'))
-      .find((item) => item.href === visit.to);
-    link?.focus({ preventScroll: true });
-    // Wait until the browser has performed its native scroll restoration.
+    const selector = visit.focusScope && Object.hasOwn(focusScopes, visit.focusScope)
+      ? focusScopes[visit.focusScope] : Object.values(focusScopes).join(', ');
+    // Restore after native history/filter rendering so it cannot replace our focus.
     requestAnimationFrame(() => requestAnimationFrame(() => {
-      if (!signal.aborted) window.scrollTo({ top: visit.scrollY, behavior: 'instant' });
+      if (signal.aborted) return;
+      const link = Array.from(document.querySelectorAll<HTMLAnchorElement>(selector))
+        .find((item) => item.href === visit.to && item.getClientRects().length > 0);
+      link?.focus({ preventScroll: true });
+      window.scrollTo({ top: visit.scrollY, behavior: 'instant' });
     }));
   }
 }
@@ -115,18 +140,20 @@ function activate() {
   controller = new AbortController();
   const { signal } = controller;
   const saved = visits();
+  const referrer = localUrl(document.referrer);
+  let pending: string | null = null;
+  try { pending = sessionStorage.getItem(pendingKey); } catch { /* Ordinary fallback. */ }
   const back = document.querySelector<HTMLAnchorElement>('[data-article-return]');
   if (back) {
-    const referrer = localUrl(document.referrer);
-    let pending: string | null = null;
-    try { pending = sessionStorage.getItem(pendingKey); } catch { /* Ordinary fallback. */ }
     const visit = [...saved].reverse().find((item) => {
       if (localUrl(item.to)?.pathname !== location.pathname) return false;
-      if (history.state?.[returnKey] === item.id) return true;
+      // Native TOC links can replace history.state; retain this document's own handoff.
+      if (history.state?.[returnKey] === item.id || activeVisitId === item.id) return true;
       const from = localUrl(item.from);
       return item.id === pending && Boolean(referrer && from && referrer.pathname === from.pathname && referrer.search === from.search);
     });
     if (visit) {
+      activeVisitId = visit.id;
       try {
         history.replaceState({ ...history.state, [returnKey]: visit.id }, '');
         // sessionStorage can be copied into a new tab; consume the same-tab handoff once.
@@ -135,18 +162,36 @@ function activate() {
       back.href = visit.from;
       back.textContent = visit.label;
       back.addEventListener('click', (event) => {
-        if (!plainClick(event, back) || history.length <= 1) return;
+        if (!plainClick(event, back)) return;
+        // A chapter hash can add another entry; follow the real source href directly.
+        if (location.href !== visit.to) {
+          try { sessionStorage.setItem(pendingKey, visit.id); } catch { /* Real href still works. */ }
+          return;
+        }
+        if (history.length <= 1) return;
         event.preventDefault();
         history.back();
       }, { signal });
     }
   }
-  const source = saved.find((item) => item.id === history.state?.[sourceKey]);
-  if (source) restoreSource(source, signal);
+  const source = saved.find((item) => item.id === history.state?.[sourceKey]) || saved.find((item) =>
+    item.id === pending && item.from === location.href && referrer?.pathname === localUrl(item.to)?.pathname,
+  );
+  if (source) {
+    if (pending === source.id) {
+      try {
+        history.replaceState({ ...history.state, [sourceKey]: source.id }, '');
+        sessionStorage.removeItem(pendingKey);
+      } catch { /* Storage unavailable: keep native navigation. */ }
+    }
+    restoreSource(source, signal);
+  }
   document.addEventListener('click', remember, { capture: true, signal });
 }
 
 window.addEventListener('pageshow', activate);
+// Also refresh when the browser restores history state within the document.
+window.addEventListener('popstate', activate);
 window.addEventListener('pagehide', () => controller?.abort());
 // Astro's bundled module is deferred; install before any user interaction.
 activate();

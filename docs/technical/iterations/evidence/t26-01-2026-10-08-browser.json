@@ -1,0 +1,214 @@
+{
+  "scope": "T26.01 real production preview; unchanged 40 published knowledge entries; original PDF.js 6.4.299",
+  "result": "passed",
+  "records": [
+    {
+      "check": "direct-three-kinds-real-fallback",
+      "result": "passed"
+    },
+    {
+      "check": "resource-pdf-page-zoom-reload",
+      "result": "passed",
+      "before": {
+        "page": 3,
+        "zoom": "1.5"
+      },
+      "after": {
+        "page": 3,
+        "zoom": "1.5",
+        "pages": 6,
+        "history": false
+      },
+      "nativeEmbeddedHistory": false
+    },
+    {
+      "check": "resource-return-type-topic-url-scroll-keyboard-focus",
+      "result": "passed",
+      "url": "http://127.0.0.1:4322/personal-homepage/knowledge/?type=resource&topic=%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1&verify=reading",
+      "beforeY": 478,
+      "afterY": 478
+    },
+    {
+      "check": "resource-browser-back-forward-retains-reading-and-list",
+      "result": "passed"
+    },
+    {
+      "check": "pdf-note-reading-return-with-extra-param-and-hash",
+      "result": "passed",
+      "url": "http://127.0.0.1:4322/personal-homepage/knowledge/?type=note&topic=%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90&verify=note#learning-entries",
+      "beforeY": 0,
+      "afterY": 0,
+      "PDF": {
+        "page": 5,
+        "zoom": "1.25",
+        "pages": 35,
+        "history": false
+      }
+    },
+    {
+      "check": "article-filter-and-native-blog-return-regression",
+      "result": "passed"
+    },
+    {
+      "check": "article-toc-reading-still-returns-original-list",
+      "result": "passed"
+    },
+    {
+      "check": "markdown-origin-focus-with-duplicate-related-link",
+      "result": "passed"
+    },
+    {
+      "check": "sidebar-origin-focus-with-duplicate-content-link",
+      "result": "passed"
+    },
+    {
+      "check": "resource-related-article-back-to-pdf-and-original-list",
+      "result": "passed",
+      "PDF": {
+        "page": 3,
+        "zoom": "1.5",
+        "pages": 6,
+        "history": false
+      }
+    },
+    {
+      "check": "pagefind-pdf-return",
+      "result": "passed",
+      "query": "概统基本概念一览",
+      "url": "http://127.0.0.1:4322/personal-homepage/knowledge/resources/probability/probability-lecture-0/",
+      "restoredQueryAndFocus": true
+    },
+    {
+      "check": "pagefind-pdf-return",
+      "result": "passed",
+      "query": "算法笔记",
+      "url": "http://127.0.0.1:4322/personal-homepage/knowledge/notes/ads/ads-algorithms-notes/",
+      "restoredQueryAndFocus": true
+    },
+    {
+      "check": "external-note-original-url-browser-back-focus",
+      "result": "passed",
+      "destination": "https://note.noughtq.top/algo/ads/",
+      "network": "intercepted external page for navigation only; availability not asserted",
+      "beforeY": 463,
+      "afterY": 463
+    },
+    {
+      "check": "target-blank-and-control-click-use-own-fallback",
+      "result": "passed"
+    },
+    {
+      "check": "direct-address-after-existing-journeys-fallback",
+      "result": "passed"
+    },
+    {
+      "check": "responsive-return-target-and-visible-keyboard-focus",
+      "result": "passed",
+      "width": 390,
+      "height": 44,
+      "focus": {
+        "active": true,
+        "outline": "2px",
+        "style": "solid"
+      }
+    },
+    {
+      "check": "responsive-return-target-and-visible-keyboard-focus",
+      "result": "passed",
+      "width": 320,
+      "height": 44,
+      "focus": {
+        "active": true,
+        "outline": "2px",
+        "style": "solid"
+      }
+    },
+    {
+      "check": "responsive-return-target-and-visible-keyboard-focus",
+      "result": "passed",
+      "width": 768,
+      "height": 44,
+      "focus": {
+        "active": true,
+        "outline": "2px",
+        "style": "solid"
+      }
+    },
+    {
+      "check": "return-text-theme-contrast",
+      "result": "passed",
+      "theme": "light",
+      "color": "rgb(52, 91, 99)",
+      "background": "rgb(242, 239, 232)",
+      "contrast": 6.4788405104789355
+    },
+    {
+      "check": "return-text-theme-contrast",
+      "result": "passed",
+      "theme": "dark",
+      "color": "rgb(168, 199, 204)",
+      "background": "rgb(11, 13, 15)",
+      "contrast": 10.852225444740599
+    },
+    {
+      "check": "dark-return-reader-screenshot",
+      "result": "passed"
+    },
+    {
+      "check": "no-script-real-return-and-original-pdf-fallback",
+      "result": "passed"
+    },
+    {
+      "check": "new-browser-context-native-auto-no-inherited-pdf-state",
+      "result": "passed",
+      "page": 1,
+      "zoom": "auto",
+      "pages": 35,
+      "history": false
+    },
+    {
+      "check": "blocked-local-storage-pdf-still-renders-without-persistence",
+      "result": "passed",
+      "page": 1,
+      "zoom": "auto",
+      "pages": 6,
+      "history": false
+    },
+    {
+      "check": "blocked-session-storage-readable-with-real-fallback",
+      "result": "passed"
+    },
+    {
+      "check": "malformed-session-storage-safe-fallback",
+      "result": "passed"
+    },
+    {
+      "check": "main-browser-no-uncaught-errors",
+      "result": "passed",
+      "errors": []
+    },
+    {
+      "check": "native-tag-reload-return-regression",
+      "result": "passed",
+      "tag": "http://127.0.0.1:4322/personal-homepage/knowledge/blog/tags/%E9%98%85%E8%AF%BB%E4%B8%8E%E6%95%B4%E7%90%86/",
+      "scrollY": 0
+    },
+    {
+      "check": "search-chapter-then-another-chapter-reload-return",
+      "result": "passed",
+      "entryHash": "#%E4%BB%8E%E4%B8%80%E4%B8%AA%E5%85%A5%E5%8F%A3%E5%BC%80%E5%A7%8B",
+      "restoredQuery": "博客阅读验证",
+      "focus": "http://127.0.0.1:4322/personal-homepage/knowledge/blog/article-reading-check/#%E4%BB%8E%E4%B8%80%E4%B8%AA%E5%85%A5%E5%8F%A3%E5%BC%80%E5%A7%8B"
+    },
+    {
+      "check": "all-published-internal-details-static-return-and-pdf-policy",
+      "result": "passed",
+      "internal": 37,
+      "external": 3,
+      "drafts": 4,
+      "source": "independently parsed existing YAML; no test content"
+    }
+  ],
+  "errors": [],
+  "additionalErrors": []
+}

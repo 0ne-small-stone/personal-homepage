@@ -9,7 +9,8 @@ const { source, title } = Astro.props;
 const available = existsSync(resolve('public/local-materials', `${source.id}.pdf`));
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const file = `${base}/local-materials/${source.id}.pdf`;
-const viewer = `${base}/pdfjs/web/viewer.html?file=${encodeURIComponent(file)}#zoom=page-width`;
+// Let the native viewer restore its fingerprint-keyed page/zoom history.
+const viewer = `${base}/pdfjs/web/viewer.html?file=${encodeURIComponent(file)}`;
 ---
 <pdf-reader class="pdf-reader" aria-label={`${title} PDF 阅读器`} aria-busy={available ? 'true' : 'false'}>
   <div class="reader-bar">
