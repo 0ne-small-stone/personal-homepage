@@ -1,5 +1,11 @@
 # 个人主页技术调研来源和候选方案
 
+## T09.01 稳定 ID 与原生链接（2026-10-08）
+
+- [Astro 集合引用](https://docs.astro.build/en/guides/content-collections/#defining-collection-references)：原生 reference 按集合条目 ID 引用；当前 `related` 已存业务 `entryId`，两者不同。沿用 getCollection 和现有 loader/schema，补小范围 ID 映射，避免迁移现有内容或替换路由。
+- [Starlight MarkdownContent 覆盖](https://starlight.astro.build/reference/overrides/#markdowncontent)：继续在既有覆盖中组合静态正文与关联 nav，保留博客原生 MarkdownContent；没有新主题或客户端依赖。
+- 目标地址使用已有 `sitePath`，明暗模式使用 Starlight 语义色。实际版本沿用锁文件；未知 ID 失败、草稿排除、当前 426 条关联和浏览器证据见 [本轮记录](iterations/t09-01-2026-10-08.md)。
+
 ## T07.03 原生标签与分页（2026-10-08）
 
 - [starlight-blog 配置](https://starlight-blog-docs.vercel.app/configuration/#postcount)：`postCount` 控制主文章列表每页数量，默认 5；本轮显式设为 5。原生静态页地址和前后链接通过本机生产构建验证。

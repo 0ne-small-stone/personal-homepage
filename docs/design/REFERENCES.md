@@ -135,3 +135,9 @@ P17 / P06 / U13 / R13。仅需一张允许公开的 PNG/JPG/JPEG/WebP/AVIF、图
 P06/P03 / U09 / R10。复用已安装的 starlight-blog 0.30.0 原生标签、Posts 和 PrevNextLinks，作者 HiDeoo、MIT；已核对包内 LICENSE，版权声明保留于依赖。沿用现有学习区字体、颜色与焦点，不需新图片、图标、字体或设计稿。来源为[官方配置](https://starlight-blog-docs.vercel.app/configuration/)及包内组件，仅配置每页 5 篇和适配来源返回文案。
 
 测试资源为开发者生成的 11 篇公开样稿和 1 篇测试草稿，只存在于本机隔离目录；每篇注明“仅本机样稿”，不复用第三方文章或实际个人经历。[可复现的样本生成器](../../tools/verification/blog-pagination-fixture.cjs)与[实际验收](iterations/u09-p06-t07-03-2026-10-08-01.md)保存范围，正式文章未新增。
+
+## T09.01 普通关联资源清单
+
+P05/P06 / K03 / U09 / R02、R09、R10。复用原生 HTML 链接与列表、现有 Starlight 阅读外壳和语义颜色；框架/插件许可沿用已核对的 MIT，依赖版权声明保留。只适配既有业务 ID 和区域排版，无需图片、图标、字体、封面或新素材。
+
+当前功能文章声明正文已有的两个验证链接，不当作学术引用。三类型边界用一篇“仅本机样稿”笔记和一篇测试草稿；验收目录可选复制两份已校验的本机 PDF（6 页概率讲义、35 页算法笔记），副本只用于本机，不上传或新增许可声明。[样本生成器](../../tools/verification/related-links-fixture.cjs)、[实际证据](iterations/u09-p06-t09-01-2026-10-08-01.md)。

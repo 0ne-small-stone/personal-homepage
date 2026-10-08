@@ -1,0 +1,27 @@
+---
+import { kindLabels, relatedKnowledge } from '../lib/knowledge';
+import { sitePath } from '../lib/paths';
+const entries = await relatedKnowledge(Astro.locals.starlightRoute.entry.data.entryId);
+---
+{entries.length > 0 && (
+  <nav class="related-knowledge" aria-labelledby="related-knowledge-title" data-pagefind-ignore>
+    <h2 id="related-knowledge-title">关联内容</h2>
+    <ul>
+      {entries.map((entry) => (
+        <li><a href={sitePath(entry.id)}>
+          <span class="kind">{kindLabels[entry.data.kind!]}</span>
+          <span>{entry.data.title}</span>
+        </a></li>
+      ))}
+    </ul>
+  </nav>
+)}
+<style>
+  .related-knowledge { margin-block: var(--space-5); border-top: 1px solid var(--sl-color-gray-5); padding-top: var(--space-4); }
+  h2 { font-size: 1.25rem; margin: 0 0 var(--space-3); }
+  ul { list-style: none; margin: 0; padding: 0; }
+  a { display: flex; align-items: baseline; gap: var(--space-3); min-height: var(--target-min); padding-block: var(--space-2); color: var(--sl-color-text-accent); text-underline-offset: 0.2em; }
+  .kind { flex: none; color: var(--sl-color-gray-2); font-size: 0.875rem; }
+  a span:last-child { overflow-wrap: anywhere; }
+  a:focus-visible { outline: 2px solid var(--sl-color-text-accent); outline-offset: 3px; border-radius: var(--space-1); }
+</style>

@@ -89,8 +89,8 @@ jobs:
       - name: Check Astro and TypeScript
         run: npm run check
 
-      - name: Test article date compatibility
-        run: node --test tools/content/article-date.test.mjs
+      - name: Test article dates and related knowledge links
+        run: node --test tools/content/article-date.test.mjs tools/content/knowledge-links.test.mjs
 
       - name: Build static website
         run: npm run build
