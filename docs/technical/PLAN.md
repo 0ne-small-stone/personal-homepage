@@ -14,6 +14,8 @@
 
 原生候选已覆盖列表、标签、目录、代码和检索；缺口是文章自身的来源返回入口、搜索输入并未写入 URL。最小适配只记录本标签页的一次文章来源及返回时恢复原生搜索，不重写列表、路由、搜索或正文渲染。
 
+T09.03 实现提交 `6a420627485d185b2f5f16c6b0081fc41bf0716d` 已推送，[草稿 PR #6](https://github.com/0ne-small-stone/personal-homepage/pull/6) 已建立并附加。最终远程 head 与 CI 运行链接由 PR 描述/Checks 保存，当前范围不合并、不发布；先前阅读切片继续保持各自验收记录。
+
 T08.01 远程验收已读回：[运行 37646983191](https://github.com/0ne-small-stone/personal-homepage/actions/runs/37646983191) 对交付记录提交 `1b42debe8fc9e1c30b88655ff4f287b968cd7a11` 的三项检查全成功、部署跳过。GitHub 推送与 PR 创建连续成功；本地 36 个 PDF 和三个原站入口有独立浏览器证据。后续文案/记录提交的检查以 [PR #5](https://github.com/0ne-small-stone/personal-homepage/pull/5) 最新 head 为准，公开附件与部署不提升为完成。
 
 T08.01 本地交付：实现提交 `f5d0251b03238dfdb4cd8ad12dd48643e50f6cb1` 已成功推送；[草稿 PR #5](https://github.com/0ne-small-stone/personal-homepage/pull/5) 基于 T06.02，已附加本聊天。36 份 PDF 打开即渲染、三条外部笔记直达；Edge 51 项及本地类型/生产构建、6 项产物工具测试通过，非预期浏览器错误 0。[实际验收](iterations/t08-01-2026-10-07.md)和[阅读设计迭代](../design/iterations/u09-p05-t08-01-2026-10-07-01.md)保存证据。当前切片最终提交的远程检查以 PR Checks 读回为准；本地阅读不等于公开附件存储或部署完成，T06.01/T16 保持未完成。
