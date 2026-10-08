@@ -1,5 +1,11 @@
 # 个人主页技术调研来源和候选方案
 
+## T26.01 阅读返回与 PDF 原生历史（2026-10-08）
+
+- [MDN pageshow](https://developer.mozilla.org/en-US/docs/Web/API/Window/pageshow_event) 与 [History.back](https://developer.mozilla.org/en-US/docs/Web/API/History/back)：复用真实浏览器历史，pageshow/popstate 恢复来源状态；章节 hash 另建历史时直接沿来源 href 并交接焦点，不用一次 back 猜测目的地。
+- [PDF.js ViewHistory 源码](https://github.com/mozilla/pdf.js/blob/master/web/view_history.js)为能力参考；实际核对仓库已锁定 6.4.299 的 `public/pdfjs/web/viewer.mjs` 中 ViewHistory、storedHash/setInitialView/updateviewarea 和嵌入时不创建 PDFHistory 的条件。当前原生按 fingerprint 持久 page/zoom，固定 zoom hash 会优先覆盖该状态；只删除应用 URL 中的强制 fragment，不改 vendor 文件或新增 PDF 状态依赖。
+- 复用已有发布查询、来源适配及 PDF.js 的 Apache-2.0，外部笔记地址只取已发布 source.url。新依赖为 0；[本轮记录](iterations/t26-01-2026-10-08.md)登记真实浏览器结果、改前基线和持久能力限制。浏览器外站回退测试与外站可达性分别记录。
+
 ## T07.02 原生主题选择与 URL（2026-10-08）
 
 - [Astro 内容集合](https://docs.astro.build/en/guides/content-collections/)：继续使用现有 getCollection/docs loader 和 publishedKnowledge，主题来自同一公开查询，不新建索引集合或迁移内容字段。

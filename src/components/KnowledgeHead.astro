@@ -3,10 +3,13 @@ import DefaultHead from '@astrojs/starlight/components/Head.astro';
 import { publishedKnowledge } from '../lib/knowledge';
 import { sitePath } from '../lib/paths';
 const source = Astro.locals.starlightRoute.entry.data.source;
-const articlePaths = (await publishedKnowledge()).filter((entry) => entry.data.kind === 'article').map((entry) => sitePath(entry.id));
+const entries = await publishedKnowledge();
+const readingPaths = entries.map((entry) => sitePath(entry.id));
+const externalNotes = entries.flatMap((entry) => entry.data.source?.format === 'link' ? [entry.data.source.url] : []);
 ---
 <DefaultHead />
-<meta name="lssh-article-paths" content={JSON.stringify(articlePaths)} />
+<meta name="lssh-reading-paths" content={JSON.stringify(readingPaths)} />
+<meta name="lssh-external-notes" content={JSON.stringify(externalNotes)} />
 {source?.format === 'link' && <meta http-equiv="refresh" content={`0;url=${source.url}`} />}
 <script>
   import '../lib/article-navigation';

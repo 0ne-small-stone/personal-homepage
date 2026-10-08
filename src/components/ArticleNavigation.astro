@@ -1,11 +1,14 @@
 ---
 import { sitePath } from '../lib/paths';
+interface Props { kind?: 'resource' | 'article' | 'note'; }
+const { kind = 'article' } = Astro.props;
+const fallback = kind === 'article' ? sitePath('knowledge/blog') : `${sitePath('knowledge')}?type=${kind}`;
 ---
-<nav class="article-navigation" aria-label="文章阅读导航" data-pagefind-ignore>
-  <a data-article-return href={sitePath('knowledge/blog')}>← 返回文章列表</a>
-  <a href={`${sitePath('knowledge')}?type=article`}>学习总览 · 文章</a>
+<nav class="article-navigation" aria-label="知识阅读导航" data-pagefind-ignore>
+  <a data-article-return href={fallback}>← {kind === 'article' ? '返回文章列表' : '返回学习总览'}</a>
+  {kind === 'article' && <a href={`${sitePath('knowledge')}?type=article`}>学习总览 · 文章</a>}
 </nav>
 <style>
   .article-navigation { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); margin-bottom: var(--space-5); }
-  a { display: inline-flex; align-items: center; min-height: var(--target-min); font-weight: 500; }
+  a { display: inline-flex; align-items: center; min-height: var(--target-min); font-weight: 500; color: var(--sl-color-accent); }
 </style>

@@ -6,6 +6,7 @@ import RelatedKnowledge from './RelatedKnowledge.astro';
 const { entry } = Astro.locals.starlightRoute;
 const source = entry.data.source;
 ---
+{entry.data.kind && <ArticleNavigation kind={entry.data.kind} />}
 {source?.format === 'pdf' ? (
   <>
     <PdfReader source={source} title={entry.data.title} />
@@ -16,7 +17,6 @@ const source = entry.data.source;
   </>
 ) : (
   <>
-    {entry.data.kind === 'article' && <ArticleNavigation />}
     <DefaultContent><slot /></DefaultContent>
   </>
 )}
