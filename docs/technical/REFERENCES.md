@@ -43,6 +43,8 @@ Astro 的交互组件可用于静态主站，但服务端动作和延迟服务�
 
 ## 内容管理和阅读
 
+2026-10-08 T09.03：继续使用已锁定的 Astro/Starlight/blog/Expressive Code，不增加依赖。已核对已安装的 `Search.astro`、blog `Preview.astro`、`Metadata.astro` 与条件 MarkdownContent 包装；原生支持正文、目录、列表、代码及检索。按 [Starlight 组件覆盖](https://starlight.astro.build/guides/overriding-components/)保留原生 slot；按 [博客 UI 翻译](https://starlight-blog-docs.vercel.app/guides/i18n/)及 [Starlight 翻译集合](https://starlight.astro.build/zh-cn/guides/i18n/)补中文日期/标签和检索文案。插件不内置中文，已安装源码与官方文档一致。本轮最小缺口适配仅涉及来源返回和原生搜索状态恢复，实际验收见 [T09.03](iterations/t09-03-2026-10-08.md)。
+
 | 项目 | 适用范围和取舍 |
 | --- | --- |
 | [Pages CMS](https://github.com/hunvreus/pagescms) | GitHub 内容与媒体编辑；默认考虑官方托管版，自托管当前需要 PostgreSQL 等依赖 |
