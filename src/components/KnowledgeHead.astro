@@ -1,6 +1,13 @@
 ---
 import DefaultHead from '@astrojs/starlight/components/Head.astro';
+import { publishedKnowledge } from '../lib/knowledge';
+import { sitePath } from '../lib/paths';
 const source = Astro.locals.starlightRoute.entry.data.source;
+const articlePaths = (await publishedKnowledge()).filter((entry) => entry.data.kind === 'article').map((entry) => sitePath(entry.id));
 ---
 <DefaultHead />
+<meta name="lssh-article-paths" content={JSON.stringify(articlePaths)} />
 {source?.format === 'link' && <meta http-equiv="refresh" content={`0;url=${source.url}`} />}
+<script>
+  import '../lib/article-navigation';
+</script>

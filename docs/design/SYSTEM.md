@@ -32,6 +32,8 @@
 
 ## 3. 字体与排版
 
+2026-10-07 用户更新：学习区（资料、博客、数字花园）的标题、正文、目录、控件和辅助说明统一采用苹方优先的 `--font-reading`：`"PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", system-ui, sans-serif`。不分发苹方字体文件；无苹方设备使用本机回退，实际渲染字族须读回。此规则覆盖下表对学习区的通用字体建议；本轮 T09.03 仅接入阅读字体栈，其他视觉参数以最新设计聊天的独立样本验收为准。
+
 | 用途 | 初始规范 |
 | --- | --- |
 | 正文与控件 | 系统无衬线：`system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif` |

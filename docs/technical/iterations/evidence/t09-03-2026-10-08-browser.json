@@ -1,0 +1,107 @@
+{
+  "browser": "Microsoft Edge",
+  "base": "http://127.0.0.1:4322/personal-homepage/",
+  "viewport": "1440x900 / 390x844 / 320x844",
+  "records": [
+    {
+      "check": "direct-body-metadata-font",
+      "result": "passed",
+      "date": "2026年10月8日",
+      "fonts": [
+        {
+          "familyName": ".PingFang SC",
+          "postScriptName": "PingFang SC Medium",
+          "isCustomFont": false,
+          "glyphCount": 85
+        }
+      ]
+    },
+    {
+      "check": "native-toc-and-keyboard-code-copy",
+      "result": "passed",
+      "hash": "#阅读代码片段",
+      "clipboard": "const readingTypes = ['资料', '文章', '笔记'];\r\nconsole.log(readingTypes.join(' / '));"
+    },
+    {
+      "check": "overview-type-return-position-focus",
+      "result": "passed",
+      "url": "http://127.0.0.1:4322/personal-homepage/knowledge/?type=article",
+      "scrollY": 0
+    },
+    {
+      "check": "long-overview-return-nonzero-position",
+      "result": "passed",
+      "scrollY": 6588
+    },
+    {
+      "check": "new-tab-fallback-with-copied-session-storage",
+      "result": "passed",
+      "trigger": "native target=_blank rel=opener link"
+    },
+    {
+      "check": "list-return-reload-keyboard-back-forward",
+      "result": "passed",
+      "scrollY": 0
+    },
+    {
+      "check": "pagefind-chapter-result-return-query-focus",
+      "result": "passed",
+      "query": "博客阅读验证",
+      "focus": "http://127.0.0.1:4322/personal-homepage/knowledge/blog/article-reading-check/#%E4%BB%8E%E4%B8%80%E4%B8%AA%E5%85%A5%E5%8F%A3%E5%BC%80%E5%A7%8B"
+    },
+    {
+      "check": "restored-search-escape",
+      "result": "passed"
+    },
+    {
+      "check": "browser-history-search-restoration",
+      "result": "passed"
+    },
+    {
+      "check": "drafts-not-generated-or-searchable",
+      "result": "passed"
+    },
+    {
+      "check": "article-link-to-rendered-pdf",
+      "result": "passed",
+      "label": "概率论第 0 次课讲义",
+      "pages": 6,
+      "canvasWidth": 678
+    },
+    {
+      "check": "article-link-to-rendered-pdf",
+      "result": "passed",
+      "label": "高级数据结构课程 PDF 笔记",
+      "pages": 35,
+      "canvasWidth": 678
+    },
+    {
+      "check": "mobile-native-reading-toc-code",
+      "result": "passed",
+      "width": 390
+    },
+    {
+      "check": "mobile-native-reading-toc-code",
+      "result": "passed",
+      "width": 320
+    },
+    {
+      "check": "mobile-pagefind-return",
+      "result": "passed",
+      "width": 320
+    },
+    {
+      "check": "no-script-readable-and-return",
+      "result": "passed"
+    },
+    {
+      "check": "storage-unavailable-real-link-fallback",
+      "result": "passed"
+    },
+    {
+      "check": "no-unexpected-browser-or-request-errors",
+      "result": "passed"
+    }
+  ],
+  "unexpectedErrors": []
+}

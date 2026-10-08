@@ -1,6 +1,7 @@
 ---
 import DefaultContent from 'starlight-blog/overrides/MarkdownContent.astro';
 import PdfReader from './PdfReader.astro';
+import ArticleNavigation from './ArticleNavigation.astro';
 const { entry } = Astro.locals.starlightRoute;
 const source = entry.data.source;
 ---
@@ -13,7 +14,10 @@ const source = entry.data.source;
     </details>
   </>
 ) : (
-  <DefaultContent><slot /></DefaultContent>
+  <>
+    {entry.data.kind === 'article' && <ArticleNavigation />}
+    <DefaultContent><slot /></DefaultContent>
+  </>
 )}
 <style>
   .source-details { margin-block: var(--space-5); }
