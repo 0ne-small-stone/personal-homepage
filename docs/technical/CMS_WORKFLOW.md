@@ -11,18 +11,20 @@
 
 执行者已用三份隔离生产构建验证上述状态，原文未改写。可对照[首版候选](http://127.0.0.1:4351/personal-homepage/knowledge/blog/editor-draft-check/)、[修改后候选](http://127.0.0.1:4352/personal-homepage/knowledge/blog/editor-draft-check/)和[回草稿后的学习总览](http://127.0.0.1:4353/personal-homepage/knowledge/)。这些明确标注的样稿是本机快照，网页保存后不会自动更新快照，也不是 Pages CMS 操作或正式部署证据。[本轮记录](iterations/t13-03-2026-10-08.md)。
 
-无需新增设计素材，继续复用上轮图片样本、原生开关与现有学习排版；T13.02 的真实网页图片上传仍待验。
+无需新增设计素材，继续复用上轮图片样本、原生开关与现有学习排版；T13.02 的单张图片真实网页上传已补验，T13.03 的真实发布状态切换另验。
 
 ## T13.02 图片上传与预览
 
 当前验证分支为 `codex/t13-02-image-upload`，打开[图片上传草稿入口](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-02-image-upload/file/article-draft)。上轮 T13.01 的文字保存入口保留作历史记录；本轮勿在 main 创建配置。
+
+2026-10-08 已实际通过：原生媒体库 Upload → 文件选择器 → PNG 上传 → Source 填相对路径/alt/说明 → Editor 预览 → Save → 刷新。图片 `muzkwysr-37s36uzh.png` 和正文分别由 CMS 提交 `a656ce4`、`b217cb8` 保存；本机已接入当前工程。[真实记录](iterations/t13-02-hosted-2026-10-08.md)。编辑器的原生 alt 弹窗及上传取消/失败仍待单独测试。
 
 1. 在正文 Editor 模式定位到“图片验证”一节，用原生插图入口上传一张允许公开的 PNG、JPG/JPEG、WebP 或 AVIF。也可从左侧“文章图片（公开仓库）”上传，再在正文选择该图片。建议小于 1 MiB，这是建议，并非后台已验证的硬性上限。
 2. 选择图片后填替代文本（原生控件名 `Image alt text`）；若托管版入口不同，可切到 Source 将 `![](路径)` 中的方括号补为有意义的说明。图下另写一行“图片说明：……”。不要粘贴 HTML `<img>` 或临时 blob/data 地址；本轮复用 Astro 的原生 Markdown 图片处理。
 3. 保存正文，再刷新编辑页。核对图片仍显示、alt 与图下说明保留、草稿仍开启。上传图片和保存正文可能分别产生提交；上传成功不代表正文已保存。
 4. 告知开发者“图片已上传并保存”，开发者读回图片与正文提交，拉取、验证并刷新本地草稿预览。网页后台保存不会自动拉取到这台电脑。
 
-当前已有一张**开发者放入仓库**的功能验证样本，尚不能代替真实网页上传结果。[原生草稿预览](http://127.0.0.1:4324/personal-homepage/knowledge/blog/editor-draft-check/#图片验证)只用于本机开发；若服务关闭，在当前工作分支运行 `npm run dev -- --host 127.0.0.1 --port 4324`。原生开发模式显示草稿警示，生产预览仍是 [4322](http://127.0.0.1:4322/personal-homepage/knowledge/)，草稿直达应为 404。
+最初的功能样本由开发者放入仓库；当前正文改用经媒体库真实上传的同一张图片，文件指纹一致。[原生草稿预览](http://127.0.0.1:4324/personal-homepage/knowledge/blog/editor-draft-check/#图片验证)已显示上传结果，只用于本机开发；若服务关闭，在当前工作分支运行 `npm run dev -- --host 127.0.0.1 --port 4324`。原生开发模式显示草稿警示，生产预览仍是 [4322](http://127.0.0.1:4322/personal-homepage/knowledge/)，草稿直达已核验为 404。
 
 公开仓库中的上传文件立即可被读取。生产不显示草稿页面/正文/搜索，但 Astro 仍会输出草稿引用的图片文件；不要用该流程保存私密图片。[本轮记录与实际证据](iterations/t13-02-2026-10-08.md)。
 
