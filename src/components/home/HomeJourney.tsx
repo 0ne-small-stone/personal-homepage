@@ -6,9 +6,12 @@ import { createJourneyModel, type JourneyModel } from './scene-state';
 import GlassTriangle from './GlassTriangle';
 import SceneLighting from './SceneLighting';
 import SceneBackdrop from './SceneBackdrop';
-import ProjectScene from './ProjectScene';
+import WorksScene from './WorksScene';
+import WorksMotionDriver from './WorksMotionDriver';
+import WorksIntroTitle from './WorksIntroTitle';
+import { installWorksMotion } from './home-motion';
+import 'lenis/dist/lenis.css';
 import CameraRig from './CameraRig';
-import RadioScene from './RadioScene';
 import AlbumScene from './AlbumScene';
 import RisingWall from './RisingWall';
 import { installHomeReturn } from './home-return';
@@ -32,7 +35,7 @@ function FirstFrame({ model, onReady }: {model: JourneyModel; onReady: () => voi
   return null;
 }
 
-export default function HomeJourney({wordmarkUrl,photoUrl,projectUrl}: {wordmarkUrl: string;photoUrl:string;projectUrl:string}) {
+export default function HomeJourney({wordmarkUrl,photoUrl,projectUrl,neighborUrl}: {wordmarkUrl: string;photoUrl:string;projectUrl:string;neighborUrl:string}) {
   const model = useRef(createJourneyModel()).current;
   const [status,setStatus] = useState<'loading'|'ready'|'fallback'|'error'>(()=>{try{return sessionStorage.getItem('lssh.home.seen')==='true'?'ready':'loading';}catch{return 'loading';}});
   const [paused,setPaused] = useState(false);
@@ -84,22 +87,6 @@ export default function HomeJourney({wordmarkUrl,photoUrl,projectUrl}: {wordmark
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    const sections = [...document.querySelectorAll<HTMLElement>('[data-chapter]')];
-    const update = () => {
-      const y = scrollY;
-      let index = 0;
-      sections.forEach((section,i) => {if (y >= section.offsetTop) index = i;});
-      const section = sections[index];
-      const progress = Math.min(5, index + Math.max(0,(y-section.offsetTop) / section.offsetHeight));
-      model.progress = document.body.classList.contains('home-quiet') ? 0 : progress;
-      if(progress>2.4)setAlbumNear(true);
-      document.body.dataset.chapter = section.id;
-      document.body.classList.toggle('home-on-wall',progress >= 4.98);
-      document.querySelectorAll('.home-chapter-index a').forEach((link,i)=> i === index ? link.setAttribute('aria-current','location') : link.removeAttribute('aria-current'));
-      model.invalidate();
-    };
-    const trigger = ScrollTrigger.create({trigger:document.querySelector('main')!, start:0, end:'max', onUpdate:update, onRefresh:update});
-    update();
     let previous = {x:0,y:0,time:0};
     const pointer = (event: PointerEvent) => {
       if (event.pointerType !== 'mouse') return;
@@ -113,8 +100,18 @@ export default function HomeJourney({wordmarkUrl,photoUrl,projectUrl}: {wordmark
     const leave = () => {model.pointer.x=0;model.pointer.y=0;};
     window.addEventListener('pointermove',pointer,{passive:true}); document.documentElement.addEventListener('pointerleave',leave);
     const timeout = window.setTimeout(()=>{if(!ready.current) fallback(true);},8000);
-    return () => {trigger.kill(); clearTimeout(timeout);window.removeEventListener('pointermove',pointer);document.documentElement.removeEventListener('pointerleave',leave);};
+    return () => {clearTimeout(timeout);window.removeEventListener('pointermove',pointer);document.documentElement.removeEventListener('pointerleave',leave);};
   }, [model,attempt]);
+
+  useEffect(() => {
+    if(status !== 'ready' || paused || reduced) return;
+    return installWorksMotion(model);
+  }, [status, paused, reduced, model, attempt]);
+  useEffect(() => {
+    const near = () => { if(scrollY > innerHeight * 2.5 + 100) setAlbumNear(true); };
+    window.addEventListener('scroll',near,{passive:true}); near();
+    return () => window.removeEventListener('scroll',near);
+  }, []);
 
   useEffect(()=>{
     document.body.classList.toggle('home-quiet',paused||reduced);
@@ -131,7 +128,7 @@ export default function HomeJourney({wordmarkUrl,photoUrl,projectUrl}: {wordmark
       const lost=(event:Event)=>{event.preventDefault();fallback(true);};
       gl.domElement.addEventListener('webglcontextlost',lost,{once:true});
     }} fallback={<span>图形不可用</span>}>
-      <Suspense fallback={null}><CameraRig model={model} mobile={mobile} quiet={paused||reduced} /><SceneLighting /><SceneBackdrop model={model} mobile={mobile} /><GlassTriangle model={model} paused={paused||reduced} mobile={mobile} low={mobile} detailed={detailed} /><ProjectScene model={model} mobile={mobile} projectUrl={projectUrl} /><RadioScene model={model} mobile={mobile} /><RisingWall model={model} /><FirstFrame model={model} onReady={onReady} /></Suspense>
+      <Suspense fallback={null}><WorksMotionDriver model={model} /><CameraRig model={model} mobile={mobile} quiet={paused||reduced} /><SceneLighting /><SceneBackdrop model={model} mobile={mobile} /><GlassTriangle model={model} paused={paused||reduced} mobile={mobile} low={mobile} detailed={detailed} />{!paused&&!reduced&&<><WorksIntroTitle model={model} /><WorksScene model={model} projectUrl={projectUrl} neighborUrl={neighborUrl} /></>}<RisingWall model={model} /><FirstFrame model={model} onReady={onReady} /></Suspense>
       {albumNear&&<SceneBoundary onError={()=>{document.body.classList.remove('home-photo-ready');setMessage('影像加载失败，可继续浏览相册入口。');}}><Suspense fallback={null}><AlbumScene model={model} mobile={mobile} photoUrl={photoUrl} /></Suspense></SceneBoundary>}
     </Canvas></SceneBoundary></div>}
     {status === 'loading' && <div ref={loader} className="home-loader" role="status"><img className="home-loader-logo" src={wordmarkUrl} width="768" height="512" alt="Little Stone Still Here" /><p>正在准备光与玻璃</p><button onClick={()=>fallback()}>普通浏览</button></div>}

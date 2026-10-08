@@ -63,7 +63,9 @@ export default function GlassOptics({mesh,low,reflectionScene}:{mesh:RefObject<M
     const object=mesh.current;if(!object?.visible)return;
     const visible=object.visible,oldTarget=gl.getRenderTarget(),oldTone=gl.toneMapping;
     object.visible=false;
-    try{gl.toneMapping=NoToneMapping;gl.setRenderTarget(target);gl.render(scene,camera);}finally{gl.setRenderTarget(oldTarget);gl.toneMapping=oldTone;object.visible=visible;}
+    const layers=camera.layers.mask;
+    // Foreground WORKS cards are composited after glass and never enter its snapshot.
+    try{camera.layers.disable(1);gl.toneMapping=NoToneMapping;gl.setRenderTarget(target);gl.render(scene,camera);}finally{camera.layers.mask=layers;gl.setRenderTarget(oldTarget);gl.toneMapping=oldTone;object.visible=visible;}
     material.uniforms.uScene.value=target.texture;
     const environment=reflectionScene.environment ?? scene.environment;
     if(environment instanceof CubeTexture)material.uniforms.uEnvironment.value=environment;

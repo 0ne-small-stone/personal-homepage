@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { MeshTransmissionMaterial } from '@react-three/drei';
-import { ExtrudeGeometry, Shape, Path, Vector2, Euler, Quaternion, MathUtils, Scene, type Mesh } from 'three';
+import { ExtrudeGeometry, Shape, Path, Vector2, Vector3, Euler, Quaternion, MathUtils, Scene, type Mesh } from 'three';
 import type { JourneyModel } from './scene-state';
 import { chapterPose } from './scene-state';
 import GlassOptics from './GlassOptics';
@@ -29,6 +29,12 @@ export function makeTriangleGeometry() {
   const geometry = new ExtrudeGeometry(shape, { depth: .18, bevelEnabled: true, bevelThickness: .025, bevelSize: .025, bevelSegments: 4, curveSegments: 16, steps: 1 });
   geometry.translate(0, -.16, -.09);
   geometry.computeVertexNormals();
+  // One local calibration: the outline bounds and rotation anchor share the origin.
+  // This translation preserves the shape/material and never cancels pointer feedback.
+  geometry.computeBoundingBox();
+  const center = geometry.boundingBox!.getCenter(new Vector3());
+  geometry.translate(-center.x, -center.y, -center.z);
+  geometry.computeBoundingBox();
   return geometry;
 }
 
@@ -47,7 +53,7 @@ export default function GlassTriangle({ model, paused, mobile, low, detailed }: 
   const reflectionScene = useMemo(() => new Scene(), []);
   const rotation = useMemo(() => new Quaternion(), []);
   const spin = useRef(0);
-  const { viewport } = useThree();
+  const { viewport, camera, size } = useThree();
   useEffect(() => () => geometry.dispose(), [geometry]);
   useFrame((_, rawDt) => {
     if (!mesh.current) return;
@@ -59,15 +65,32 @@ export default function GlassTriangle({ model, paused, mobile, low, detailed }: 
     if (!paused && !mobile) spin.current += .05 * dt;
     const px = paused || mobile ? 0 : model.pointer.x * .14 + model.pointer.vx;
     const py = paused || mobile ? 0 : model.pointer.y * .14 + model.pointer.vy;
-    const x = mobile ? (index === 0 ? 0 : p[0] * viewport.width * .22) : p[0] * viewport.width / 2;
-    const y = mobile ? (index === 0 ? viewport.height * .19 : viewport.height * .26) : p[1] * viewport.height / 2;
-    mesh.current.position.set(x, y, p[2]);
-    mesh.current.scale.setScalar(p[3] * (mobile ? .74 : 1));
+    // Latest user correction: one central anchor, no chapter-driven side placement.
+    mesh.current.position.set(0, 0, 0);
+    const currentView=viewport.getCurrentViewport(camera,new Vector3(0,0,0));
+    const box = geometry.boundingBox!;
+    const mobileScale = Math.min(currentView.height * .44 / (box.max.y - box.min.y), currentView.width * .84 / (box.max.x - box.min.x));
+    mesh.current.scale.setScalar(mobile ? mobileScale : 1.14);
     rotation.setFromEuler(new Euler(p[4] + py, p[5] + px + Math.sin(spin.current) * .22, p[6]));
     mesh.current.quaternion.slerp(rotation, paused ? 1 : damping);
     mesh.current.visible = model.progress < 4.95;
     model.pointer.vx *= Math.exp(-8 * dt);
     model.pointer.vy *= Math.exp(-8 * dt);
+    if (document.documentElement.dataset.motionDiagnostics === 'true') {
+      mesh.current.updateMatrixWorld();
+      const anchor = new Vector3().applyMatrix4(mesh.current.matrixWorld).project(camera);
+      const positions = geometry.getAttribute('position'), point = new Vector3();
+      let left = Infinity, top = Infinity, right = -Infinity, bottom = -Infinity;
+      for (let i = 0; i < positions.count; i++) {
+        point.fromBufferAttribute(positions, i).applyMatrix4(mesh.current.matrixWorld).project(camera);
+        const x = (point.x + 1) * size.width / 2, y = (1 - point.y) * size.height / 2;
+        left = Math.min(left, x); right = Math.max(right, x); top = Math.min(top, y); bottom = Math.max(bottom, y);
+      }
+      const box = geometry.boundingBox!;
+      model.motion.glass = { anchor: mesh.current.position.toArray(), quaternion: mesh.current.quaternion.toArray(), scale: mesh.current.scale.x,
+        projectedAnchor: [(anchor.x + 1) * size.width / 2, (1 - anchor.y) * size.height / 2], bounds: [left, top, right, bottom],
+        centeredLocalBounds: [...box.min.toArray(), ...box.max.toArray()] };
+    }
   },-1);
   return <>
     {detailed && <GlassReflectionEnvironment scene={reflectionScene} />}
