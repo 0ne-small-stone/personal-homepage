@@ -1,4 +1,18 @@
-# T13.01: one existing article draft; native Pages CMS hosted UI.
+# T13.02: one existing article draft and native Markdown image uploads.
+media:
+  - name: article-images
+    label: 文章图片（公开仓库）
+    input: src/assets/article-images
+    # Relative to this fixed draft's src/content/docs/knowledge/blog/ folder.
+    output: ../../../../assets/article-images
+    extensions: [png, jpg, jpeg, webp, avif]
+    rename: random
+    commit:
+      templates:
+        create: 'content(media): 上传文章图片 {filename}'
+        update: 'content(media): 更新文章图片 {filename}'
+        delete: 'content(media): 删除文章图片 {filename}'
+        rename: 'content(media): 重命名文章图片 {oldFilename} -> {newFilename}'
 content:
   - name: article-draft
     label: 文章草稿验证
@@ -53,13 +67,13 @@ content:
         readonly: true
       - name: body
         label: 正文
-        description: 可切换 Editor 与 Source 编辑；使用 Markdown 保存。本轮先验证文字、章节、链接和代码。
+        description: 可切换 Editor 与 Source。插入一张 PNG/JPG/WebP/AVIF 后填写图片替代文本，并在下方写说明；建议小于 1 MiB。上传立即写入公开仓库，保存正文后重新打开核对图片，仍不会发布草稿。
         type: rich-text
         required: true
         options:
           format: markdown
           switcher: true
-          media: false
+          media: article-images
 settings:
   content:
     merge: true
