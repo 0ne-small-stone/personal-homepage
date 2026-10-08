@@ -1,5 +1,12 @@
 # 个人主页技术调研来源和候选方案
 
+## T07.02 原生主题选择与 URL（2026-10-08）
+
+- [Astro 内容集合](https://docs.astro.build/en/guides/content-collections/)：继续使用现有 getCollection/docs loader 和 publishedKnowledge，主题来自同一公开查询，不新建索引集合或迁移内容字段。
+- [原生 select](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/select)：可见 label 和 option/value 提供单主题选择；没有自定义下拉、React 或新控件依赖。实际 Edge 键盘/触摸目标、手机与文字放大分别验证。
+- [URLSearchParams.set](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams/set)：原生编码中文、空格、& 和引号，保留其他参数；沿用 history/popstate 并补 pageshow 恢复。主题值精确匹配实际成员，不拼接选择器或作为 HTML 输出。
+- [本轮记录](iterations/t07-02-2026-10-08.md)含 76 种独立内容对照、19 组浏览器结果和可复现隔离样稿；现有依赖/许可沿用，新增依赖为 0。
+
 ## T02.01 公共目录与前缀（2026-10-08）
 
 - [Starlight 组件扩展](https://starlight.astro.build/reference/overrides/)：只覆盖 SiteTitle，在组合层复用原生 SiteTitle；已实查 0.42.5 的 `dist/components/SiteTitle.astro`、Header、Sidebar、PageFrame 和 MIT 许可，保留原生搜索、主题与移动学习导航。适配 title-wrapper 的局部裁切，不替换整个 Header。

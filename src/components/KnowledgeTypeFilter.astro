@@ -8,6 +8,8 @@ const types = [
   { value: 'all', label: '全部' },
   ...Object.entries(kindLabels).map(([value, label]) => ({ value, label })),
 ];
+const topics = [...new Set(entries.flatMap((entry) => entry.data.topics).filter(Boolean))]
+  .sort((a, b) => a.localeCompare(b, 'zh-CN', { numeric: true }));
 ---
 <knowledge-type-filter>
   <fieldset class="knowledge-type-controls" hidden data-pagefind-ignore>
@@ -19,10 +21,18 @@ const types = [
       </label>)}
     </div>
   </fieldset>
-  <p class="knowledge-result-status" role="status" aria-live="polite" aria-atomic="true" data-pagefind-ignore>全部：{entries.length} 条内容。</p>
-  <p class="knowledge-empty" hidden data-pagefind-ignore>当前类型暂无已发布内容。选择“全部”查看其他内容。</p>
+  <div class="knowledge-topic-controls" hidden data-pagefind-ignore>
+    <label for="knowledge-topic">主题</label>
+    <select id="knowledge-topic" name="knowledge-topic">
+      <option value="">全部主题</option>
+      {topics.map((topic) => <option value={topic}>{topic}</option>)}
+    </select>
+    <button type="button" data-clear-filters hidden>清空筛选</button>
+  </div>
+  <p class="knowledge-result-status" role="status" aria-live="polite" aria-atomic="true" data-pagefind-ignore>全部主题 · 全部：{entries.length} 条内容。</p>
+  <p class="knowledge-empty" hidden data-pagefind-ignore>当前筛选暂无已发布内容。可调整主题或类型，也可“清空筛选”查看全部内容。</p>
   <ul class="knowledge-list">
-    {entries.map((entry) => <li data-knowledge-kind={entry.data.kind}>
+    {entries.map((entry) => <li data-knowledge-kind={entry.data.kind} data-knowledge-topics={JSON.stringify(entry.data.topics)}>
       <div class="knowledge-meta">{kindLabels[entry.data.kind]} · {entry.data.topics.join(' / ')}{entry.data.example ? ' · 演示内容' : ''}
         {entry.data.source?.format === 'pdf' && ` · PDF · ${((entry.data.source.bytes ?? 0) / 1024 / 1024).toFixed(2)} MiB · ${entry.data.source.pages} 页`}
         {entry.data.source?.format === 'link' && ` · 外部笔记 · ${entry.data.source.author}`}
@@ -31,7 +41,7 @@ const types = [
       <p>{entry.data.description}</p>
     </li>)}
   </ul>
-  <p class="knowledge-filter-fallback" data-pagefind-ignore>类型筛选暂不可用，当前仍可浏览全部内容。</p>
+  <p class="knowledge-filter-fallback" data-pagefind-ignore>类型与主题筛选暂不可用，当前仍可浏览全部内容。</p>
 </knowledge-type-filter>
 
 <script>
@@ -41,28 +51,45 @@ const types = [
     connectedCallback() {
       if (this.controller && !this.controller.signal.aborted) return;
       const fieldset = this.querySelector<HTMLFieldSetElement>('.knowledge-type-controls');
+      const topicControls = this.querySelector<HTMLElement>('.knowledge-topic-controls');
+      const topicSelect = this.querySelector<HTMLSelectElement>('#knowledge-topic');
+      const clear = this.querySelector<HTMLButtonElement>('[data-clear-filters]');
       const status = this.querySelector<HTMLElement>('.knowledge-result-status');
       const empty = this.querySelector<HTMLElement>('.knowledge-empty');
       const fallback = this.querySelector<HTMLElement>('.knowledge-filter-fallback');
-      if (!fieldset || !status || !empty) return;
+      if (!fieldset || !topicControls || !topicSelect || !clear || !status || !empty) return;
 
       const controls = [...fieldset.querySelectorAll<HTMLInputElement>('input[type="radio"]')];
       const items = [...this.querySelectorAll<HTMLLIElement>('.knowledge-list > li[data-knowledge-kind]')];
       const allowedTypes = new Set(controls.map((control) => control.value));
+      const allowedTopics = new Set([...topicSelect.options].map((option) => option.value));
+      const itemTopics = new Map(items.map((item) => [item, JSON.parse(item.dataset.knowledgeTopics ?? '[]') as string[]]));
 
       const update = () => {
-        const requested = new URL(window.location.href).searchParams.get('type');
+        const params = new URL(window.location.href).searchParams;
+        const requested = params.get('type');
+        const requestedTopic = params.get('topic');
         const invalid = requested !== null && !allowedTypes.has(requested);
+        const invalidTopic = requestedTopic !== null && !allowedTopics.has(requestedTopic);
         const type = requested && allowedTypes.has(requested) ? requested : 'all';
+        const topic = requestedTopic && allowedTopics.has(requestedTopic) ? requestedTopic : '';
         let count = 0;
         for (const item of items) {
-          item.hidden = type !== 'all' && item.dataset.knowledgeKind !== type;
+          item.hidden = (type !== 'all' && item.dataset.knowledgeKind !== type) ||
+            (topic !== '' && !itemTopics.get(item)?.includes(topic));
           if (!item.hidden) count++;
         }
         for (const control of controls) control.checked = control.value === type;
+        topicSelect.value = topic;
         const label = controls.find((control) => control.checked)?.dataset.label ?? '全部';
-        status.textContent = `${invalid ? '未识别此类型，已显示全部内容。' : ''}${label}：${count} 条内容。`;
+        status.textContent = `${invalid ? '未识别此类型，已显示全部类型。' : ''}${invalidTopic ? '未识别此主题，已显示全部主题。' : ''}${topic || '全部主题'} · ${label}：${count} 条内容。`;
         empty.hidden = count !== 0;
+        clear.hidden = requested === null && requestedTopic === null;
+      };
+
+      const navigate = (url: URL) => {
+        if (url.href !== window.location.href) window.history.pushState(window.history.state, '', url);
+        update();
       };
 
       this.controller = new AbortController();
@@ -73,12 +100,27 @@ const types = [
         const url = new URL(window.location.href);
         if (control.value === 'all') url.searchParams.delete('type');
         else url.searchParams.set('type', control.value);
-        if (url.href !== window.location.href) window.history.pushState(window.history.state, '', url);
-        update();
+        navigate(url);
+      }, { signal });
+      topicSelect.addEventListener('change', () => {
+        const url = new URL(window.location.href);
+        if (topicSelect.value === '') url.searchParams.delete('topic');
+        else url.searchParams.set('topic', topicSelect.value);
+        navigate(url);
+      }, { signal });
+      clear.addEventListener('click', () => {
+        const url = new URL(window.location.href);
+        url.searchParams.delete('type');
+        url.searchParams.delete('topic');
+        navigate(url);
+        // The clear control is now hidden; keep keyboard focus on a visible filter.
+        controls.find((control) => control.value === 'all')?.focus();
       }, { signal });
       window.addEventListener('popstate', update, { signal });
+      window.addEventListener('pageshow', update, { signal });
       update();
       fieldset.hidden = false;
+      topicControls.hidden = false;
       if (fallback) fallback.hidden = true;
     }
 
