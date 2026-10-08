@@ -1,5 +1,5 @@
 import { getCollection } from 'astro:content';
-import { knowledgeIndex, resolveRelated } from './knowledge-links';
+import { knowledgeIndex, resolveBacklinks, resolveRelated } from './knowledge-links';
 
 export const kindLabels = {
   resource: '资料',
@@ -20,9 +20,15 @@ export async function publishedKnowledge() {
     a.data.title.localeCompare(b.data.title, 'zh-CN', { numeric: true }));
 }
 
-export async function relatedKnowledge(entryId: string | undefined) {
-  if (!entryId) return [];
+export async function knowledgeRelations(entryId: string | undefined) {
+  if (!entryId) return { related: [], backlinks: [] };
   const documents = await getCollection('docs', ({ id }) => id.startsWith('knowledge/'));
   const index = knowledgeIndex(documents);
-  return resolveRelated(index.get(entryId), index);
+  const entry = index.get(entryId);
+  return {
+    related: resolveRelated(entry, index),
+    backlinks: resolveBacklinks(entry, index).sort((a, b) =>
+      a.data.title.localeCompare(b.data.title, 'zh-CN', { numeric: true }) ||
+      a.data.entryId!.localeCompare(b.data.entryId!)),
+  };
 }
