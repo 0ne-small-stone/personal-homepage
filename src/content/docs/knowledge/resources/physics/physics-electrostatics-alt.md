@@ -1,13 +1,13 @@
 ---
-title: "大学物理Ⅱ · 第 9 章 真空中的静电场（另一版本）"
-description: "真空中的静电场复习资料，共 5 页；与第 9 章的 4 页版本分别保留。"
+title: "大学物理Ⅱ · 第 9 章（上）真空中的静电场"
+description: "第 9 章（上）复习资料，内容涉及真空中的静电场，共 5 页。"
 entryId: resource-physics-electrostatics-alt
 kind: resource
 topics: ["大学物理Ⅱ"]
 related: ["resource-physics-chapter-9","resource-physics-chapter-10","resource-physics-chapter-11","resource-physics-chapter-12","resource-physics-chapter-13","resource-physics-chapter-14","resource-physics-chapter-15","resource-physics-chapter-16","resource-physics-chapter-17","resource-physics-chapter-18","resource-physics-chapter-19","resource-physics-chapter-20","resource-physics-chapter-21","resource-physics-chapter-22","resource-physics-chapter-23","resource-engineering-physics-third-edition"]
 tableOfContents: false
 sidebar:
-  order: 100
+  order: 9
 source:
   id: source-physics-electrostatics-alt
   format: pdf
@@ -17,7 +17,7 @@ source:
 
 ## 内容说明
 
-真空中的静电场复习资料，共 5 页；与第 9 章的 4 页版本分别保留。
+第 9 章（上）复习资料，内容涉及真空中的静电场，共 5 页。
 
 ## 来源与文件信息
 
@@ -36,7 +36,7 @@ source:
 
 ## 同科目内容
 
-- [大学物理Ⅱ · 第 9 章](../physics-chapter-9/)
+- [大学物理Ⅱ · 第 9 章（下）真空中的静电场](../physics-chapter-9/)
 - [大学物理Ⅱ · 第 10 章](../physics-chapter-10/)
 - [大学物理Ⅱ · 第 11 章](../physics-chapter-11/)
 - [大学物理Ⅱ · 第 12 章](../physics-chapter-12/)

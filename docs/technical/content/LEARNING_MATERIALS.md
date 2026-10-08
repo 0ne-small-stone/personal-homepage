@@ -21,8 +21,8 @@ T06.02 / T08.01 · 2026-10-07。此清单由 `tools/content/import-learning.mjs`
 | --- | --- | --- | --- | --- |
 | 资料 | 大学物理实验 | [大学物理实验 · 历年回忆卷合集](../../../src/content/docs/knowledge/resources/physics-lab/physics-lab-recalled-exams.md) | 大学物理实验历年回忆卷合集.pdf | 2.00 MiB / 23 页 |
 | 资料 | 大学物理实验 | [大学物理实验 · 知识点盘点](../../../src/content/docs/knowledge/resources/physics-lab/physics-lab-review.md) | 大物实验知识点盘点.pdf | 2.52 MiB / 17 页 |
-| 资料 | 大学物理Ⅱ | [大学物理Ⅱ · 第 9 章](../../../src/content/docs/knowledge/resources/physics/physics-chapter-9.md) | 大物2/大学物理 第 9 章.pdf | 0.42 MiB / 4 页 |
-| 资料 | 大学物理Ⅱ | [大学物理Ⅱ · 第 9 章 真空中的静电场（另一版本）](../../../src/content/docs/knowledge/resources/physics/physics-electrostatics-alt.md) | 大物2/第 9 章 真空中的静电场.pdf | 0.84 MiB / 5 页 |
+| 资料 | 大学物理Ⅱ | [大学物理Ⅱ · 第 9 章（下）真空中的静电场](../../../src/content/docs/knowledge/resources/physics/physics-chapter-9.md) | 大物2/大学物理 第 9 章.pdf | 0.42 MiB / 4 页 |
+| 资料 | 大学物理Ⅱ | [大学物理Ⅱ · 第 9 章（上）真空中的静电场](../../../src/content/docs/knowledge/resources/physics/physics-electrostatics-alt.md) | 大物2/第 9 章 真空中的静电场.pdf | 0.84 MiB / 5 页 |
 | 资料 | 大学物理Ⅱ | [大学物理Ⅱ · 第 10 章](../../../src/content/docs/knowledge/resources/physics/physics-chapter-10.md) | 大物2/大学物理 第 10 章.pdf | 0.56 MiB / 8 页 |
 | 资料 | 大学物理Ⅱ | [大学物理Ⅱ · 第 11 章](../../../src/content/docs/knowledge/resources/physics/physics-chapter-11.md) | 大物2/大学物理 第 11 章.pdf | 0.16 MiB / 1 页 |
 | 资料 | 大学物理Ⅱ | [大学物理Ⅱ · 第 12 章](../../../src/content/docs/knowledge/resources/physics/physics-chapter-12.md) | 大物2/大学物理 第 12 章.pdf | 0.60 MiB / 10 页 |
@@ -63,7 +63,7 @@ T06.02 / T08.01 · 2026-10-07。此清单由 `tools/content/import-learning.mjs`
 
 - 36 PDF 原件未进入 Git；完整副本放在被忽略的 public/local-materials，构建后用于本地阅读。默认发布检查拒绝该目录，本地检查需显式使用 --local-preview。PDF.js 搜索仅支持原文件已有文字层。
 - ADSNotes_Algorithms.pdf 为 50.18 MiB，工程物理学为 177.67 MiB，计算机组成与设计为 206.36 MiB，超过仓库 50 MiB 约定。其余文件亦需核对公开授权后决定附件位置。
-- 第 9 章两个版本、概统合并讲义及分讲文件内容不同，保留独立条目，不按近似标题删除。
+- 第 9 章分为上、下两份：5 页为（上），4 页为（下），依据 2026-10-08 用户纠正；保留原文件名与稳定地址。概统合并讲义及分讲文件亦保留独立条目。
 - 外部笔记保留原作者与 HTTPS 原站入口；仅去除无关的 `_refluxos` 查询参数，不转载正文。
 - 每个来源的字节数、页数、SHA-256 与稳定 ID 保存在 [结构化清单](learning-materials.json)。
 

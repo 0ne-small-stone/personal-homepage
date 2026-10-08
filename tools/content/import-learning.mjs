@@ -42,7 +42,7 @@ for (const entry of catalog.entries) {
     `entryId: ${entry.entryId}`, `kind: ${entry.kind}`, `topics: [${quote(entry.topic)}]`,
     `related: ${quote(related.map((other) => other.entryId))}`,
     'tableOfContents: false',
-    'sidebar:', `  order: ${numbered ? Number(numbered[1]) : 100}`, 'source:', `  id: ${entry.sourceId}`,
+    'sidebar:', `  order: ${entry.sidebarOrder ?? (numbered ? Number(numbered[1]) : 100)}`, 'source:', `  id: ${entry.sourceId}`,
     `  format: ${entry.url ? 'link' : 'pdf'}`,
   ];
   if (entry.author) lines.push(`  author: ${quote(entry.author)}`);
@@ -81,6 +81,6 @@ for (const entry of catalog.entries) {
   const source = sources.get(entry.sourceId);
   report.push(`| ${entry.kind === 'resource' ? '资料' : '笔记'} | ${entry.topic} | [${entry.title}](../../../src/content/docs/${route(entry)}.md) | ${source.path} | ${entry.url ? '外部链接' : `${(source.bytes / 1024 / 1024).toFixed(2)} MiB / ${source.pages} 页`} |`);
 }
-report.push('', '## 原件与公开边界', '', '- 36 PDF 原件未进入 Git；完整副本放在被忽略的 public/local-materials，构建后用于本地阅读。默认发布检查拒绝该目录，本地检查需显式使用 --local-preview。PDF.js 搜索仅支持原文件已有文字层。', '- ADSNotes_Algorithms.pdf 为 50.18 MiB，工程物理学为 177.67 MiB，计算机组成与设计为 206.36 MiB，超过仓库 50 MiB 约定。其余文件亦需核对公开授权后决定附件位置。', '- 第 9 章两个版本、概统合并讲义及分讲文件内容不同，保留独立条目，不按近似标题删除。', '- 外部笔记保留原作者与 HTTPS 原站入口；仅去除无关的 `_refluxos` 查询参数，不转载正文。', '- 每个来源的字节数、页数、SHA-256 与稳定 ID 保存在 [结构化清单](learning-materials.json)。', '', '## 重新导入', '', '在项目根目录运行 `npm run content:import`。核对原件时追加 `-- --source <原始资料目录>`，只读取和校验，不移动、改名或复制附件。', '');
+report.push('', '## 原件与公开边界', '', '- 36 PDF 原件未进入 Git；完整副本放在被忽略的 public/local-materials，构建后用于本地阅读。默认发布检查拒绝该目录，本地检查需显式使用 --local-preview。PDF.js 搜索仅支持原文件已有文字层。', '- ADSNotes_Algorithms.pdf 为 50.18 MiB，工程物理学为 177.67 MiB，计算机组成与设计为 206.36 MiB，超过仓库 50 MiB 约定。其余文件亦需核对公开授权后决定附件位置。', '- 第 9 章分为上、下两份：5 页为（上），4 页为（下），依据 2026-10-08 用户纠正；保留原文件名与稳定地址。概统合并讲义及分讲文件亦保留独立条目。', '- 外部笔记保留原作者与 HTTPS 原站入口；仅去除无关的 `_refluxos` 查询参数，不转载正文。', '- 每个来源的字节数、页数、SHA-256 与稳定 ID 保存在 [结构化清单](learning-materials.json)。', '', '## 重新导入', '', '在项目根目录运行 `npm run content:import`。核对原件时追加 `-- --source <原始资料目录>`，只读取和校验，不移动、改名或复制附件。', '');
 writeFileSync(join(root, 'docs/technical/content/LEARNING_MATERIALS.md'), report.join('\n'));
 console.log(`资料分类导入完成：${catalog.sources.length} 个来源，${catalog.entries.filter((entry) => entry.kind === 'resource').length} 条资料、${catalog.entries.filter((entry) => entry.kind === 'note').length} 条笔记。${sourceRoot ? '原件大小与 SHA-256 全部一致。' : ''}`);

@@ -36,8 +36,8 @@ source:
 
 ## 同科目内容
 
-- [大学物理Ⅱ · 第 9 章](../physics-chapter-9/)
-- [大学物理Ⅱ · 第 9 章 真空中的静电场（另一版本）](../physics-electrostatics-alt/)
+- [大学物理Ⅱ · 第 9 章（下）真空中的静电场](../physics-chapter-9/)
+- [大学物理Ⅱ · 第 9 章（上）真空中的静电场](../physics-electrostatics-alt/)
 - [大学物理Ⅱ · 第 10 章](../physics-chapter-10/)
 - [大学物理Ⅱ · 第 11 章](../physics-chapter-11/)
 - [大学物理Ⅱ · 第 13 章](../physics-chapter-13/)
