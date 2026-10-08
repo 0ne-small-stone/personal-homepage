@@ -129,3 +129,10 @@ Waline 曾作为匿名留言候选。当前用户已接受 Giscus，Waline 不�
 - [固定官方源码](https://github.com/hunvreus/pagescms/tree/6f4e860a35d934406580287e7042e5e111e207a1)：`lib/config-schema.ts`、`lib/github-image.ts`、`fields/core/rich-text/edit-component.tsx`、`components/ui/editor/index.tsx`。核对相对路径往返和原生 alt 控件；来源 MIT，本轮不复制组件到产品代码。托管部署版本未读回。
 - [Astro 原生 Markdown 图片](https://docs.astro.build/en/guides/images/#images-in-markdown-files)：使用 src 中的相对路径，处理尺寸和构建资源；public 原样复制。当前 7.3.6 实测草稿引用的图片仍会被输出，页面排除不代表图片二进制私密。
 - [Starlight-blog 草稿](https://starlight-blog-docs.vercel.app/guides/frontmatter/#draft)：原生开发模式预览、生产排除，本机 0.30.0 已用 Edge 核验。
+
+## T13.03 发布状态与构建来源（2026-10-08）
+
+- [Pages CMS 原生 boolean](https://pagescms.org/docs/configuration/fields/boolean/)：复用 `draft` 开关，默认开启；实际字段/保存规则沿用现有固定文件与 merge 配置。
+- [GitHub 工作流分支过滤](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onpushbranchesbranches-ignore)：当前新增 `codex/t13-03-*` 的 push 构建验证。部署条件继续读取默认分支，工作分支只能生成候选产物。
+- [原生 CMS actions](https://pagescms.org/docs/configuration/actions/)需要 workflow_dispatch payload；已有 push 工作流覆盖当前保存后构建目标，因此本轮不新增后台 action、workflow 或额外授权。
+- [Starlight-blog draft](https://starlight-blog-docs.vercel.app/guides/frontmatter/#draft)及已安装 0.30.0：三份原生生产构建实际验证关闭草稿、修改内容、再次开启的各视图结果。

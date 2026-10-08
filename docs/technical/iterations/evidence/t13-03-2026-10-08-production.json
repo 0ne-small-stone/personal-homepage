@@ -1,0 +1,103 @@
+{
+  "browser": "Microsoft Edge",
+  "scope": "three local isolated production snapshots; not hosted CMS saves or live deployment",
+  "fixtures": {
+    "sourceDraftSha256": "12043820f89db84ee343a87e9f5088a1828dbfd3837d16b4633baf363e0cba77",
+    "originalUnchanged": true,
+    "records": [
+      {
+        "stage": "published",
+        "outDir": ".ci-tmp/t13-03-fixture/dist-published",
+        "pages": "53",
+        "success": true
+      },
+      {
+        "stage": "updated",
+        "outDir": ".ci-tmp/t13-03-fixture/dist-updated",
+        "pages": "53",
+        "success": true
+      },
+      {
+        "stage": "draft",
+        "outDir": ".ci-tmp/t13-03-fixture/dist-draft",
+        "pages": "51",
+        "success": true
+      }
+    ]
+  },
+  "records": [
+    {
+      "stage": "published",
+      "check": "overview-published-count-and-title",
+      "result": "passed",
+      "total": 41,
+      "articles": 2
+    },
+    {
+      "stage": "published",
+      "check": "same-article-route-image-base-and-return",
+      "result": "passed",
+      "stablePath": "knowledge/blog/editor-draft-check/"
+    },
+    {
+      "stage": "published",
+      "check": "native-blog-tag-and-search-sync",
+      "result": "passed",
+      "tag": "发布首版",
+      "searches": [
+        {
+          "url": "/personal-homepage/knowledge/blog/editor-draft-check/",
+          "title": "网页文章发布验证（功能验证样稿）"
+        }
+      ]
+    },
+    {
+      "stage": "updated",
+      "check": "overview-published-count-and-title",
+      "result": "passed",
+      "total": 41,
+      "articles": 2
+    },
+    {
+      "stage": "updated",
+      "check": "same-article-route-image-base-and-return",
+      "result": "passed",
+      "stablePath": "knowledge/blog/editor-draft-check/"
+    },
+    {
+      "stage": "updated",
+      "check": "native-blog-tag-and-search-sync",
+      "result": "passed",
+      "tag": "修改验证",
+      "searches": [
+        {
+          "url": "/personal-homepage/knowledge/blog/editor-draft-check/",
+          "title": "网页文章发布验证（修改后）"
+        }
+      ]
+    },
+    {
+      "check": "updated-production-mobile-image",
+      "result": "passed",
+      "viewport": "390x844"
+    },
+    {
+      "check": "updated-production-without-JavaScript",
+      "result": "passed"
+    },
+    {
+      "check": "back-to-draft-excludes-all-production-views",
+      "result": "passed",
+      "total": 40,
+      "articles": 1,
+      "directStatus": 404,
+      "tagStatus": 404,
+      "searches": []
+    },
+    {
+      "check": "browser-page-errors",
+      "result": "passed",
+      "errors": []
+    }
+  ]
+}
