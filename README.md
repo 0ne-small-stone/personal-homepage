@@ -8,6 +8,8 @@
 
 ## 文档入口
 
+本轮 **T07.04 学习总览标题排序**：可按主题（默认）、标题升序、标题降序浏览，与类型/主题组合；刷新、前进后退与阅读返回保持，清空筛选保留排序。204 种组合与当前/隔离 Edge 16/17 组通过。[物理资料排序体验](http://127.0.0.1:4322/personal-homepage/knowledge/?type=resource&topic=%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%E2%85%A1&sort=title-asc)、[复现与证据](docs/technical/iterations/t07-04-2026-10-08.md)。总览一并正确统计公开 PDF；内容与原件未改，CMS 真实上传及正式部署继续待验。
+
 本轮 **T06.01 单个公开 PDF**：新增《PDF 阅读验证说明》四页功能样本，随静态产物发布，可直接阅读和下载；不依赖本机附件目录。[干净构建体验](http://127.0.0.1:4366/personal-homepage/knowledge/resources/reading-guide/)、[筛选入口](http://127.0.0.1:4366/personal-homepage/knowledge/?type=resource&topic=%E9%98%85%E8%AF%BB%E4%B8%8E%E6%95%B4%E7%90%86)、[复现与证据](docs/technical/iterations/t06-01-2026-10-08.md)。52 页构建、Edge 17 组、7 种坏附件拒绝已通过；原有 44 个内容文件保持原状。此为公开通路功能样本，网站正式部署仍待 T16。
 
 本轮 **T26.01 三类阅读返回**已接入资料、文章和笔记：返回保留类型/主题、位置及原链接焦点，直达详情有明确栏目入口；PDF 页码和缩放复用原生持久历史，刷新和阅读往返已验。类型检查、51 页构建、29 组 Edge 行为/状态及 37 个站内详情静态核对通过。[概率资料体验](http://127.0.0.1:4322/personal-homepage/knowledge/?type=resource&topic=%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1)、[笔记体验](http://127.0.0.1:4322/personal-homepage/knowledge/?type=note&topic=%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90)、[复现与证据](docs/technical/iterations/t26-01-2026-10-08.md)。外部笔记仍直达作者原站；用户体验、公开附件与正式部署另验。

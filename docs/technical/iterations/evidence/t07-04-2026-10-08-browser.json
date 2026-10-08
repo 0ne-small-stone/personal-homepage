@@ -1,0 +1,79 @@
+{
+  "result": "passed",
+  "base": "http://127.0.0.1:4322/personal-homepage",
+  "browser": "Edge headless",
+  "combinations": 96,
+  "groups": 16,
+  "checks": [
+    {
+      "name": "overview reports public and local PDF availability truthfully",
+      "result": "passed",
+      "availablePdfs": 37,
+      "totalPdfs": 37
+    },
+    {
+      "name": "type/topic/sort combinations match independent YAML",
+      "result": "passed",
+      "combinations": 96,
+      "published": 41
+    },
+    {
+      "name": "real chapter 9 precedes 10 in numeric title order",
+      "result": "passed"
+    },
+    {
+      "name": "copy/reload preserves sorting, filters and unrelated URL state",
+      "result": "passed"
+    },
+    {
+      "name": "native back and forward restore each order",
+      "result": "passed"
+    },
+    {
+      "name": "clear filters keeps sort and returns focus to all",
+      "result": "passed"
+    },
+    {
+      "name": "default restores original topic order and removes sort parameter",
+      "result": "passed"
+    },
+    {
+      "name": "unknown sort falls back without discarding valid filters",
+      "result": "passed"
+    },
+    {
+      "name": "PDF return preserves sorted list, URL, scroll and actual link focus",
+      "result": "passed",
+      "before": 5904,
+      "after": 5904
+    },
+    {
+      "name": "article return retains combined filter and sorting",
+      "result": "passed"
+    },
+    {
+      "name": "reconnect restores SSR order and adds one history entry",
+      "result": "passed"
+    },
+    {
+      "name": "native keyboard sorting retains visible 44px focus target",
+      "result": "passed"
+    },
+    {
+      "name": "320/390px controls reflow without outer overflow",
+      "result": "passed"
+    },
+    {
+      "name": "200% text reflows without outer overflow",
+      "result": "passed"
+    },
+    {
+      "name": "normal interaction has no uncaught page errors",
+      "result": "passed"
+    },
+    {
+      "name": "no JavaScript preserves full readable SSR topic order",
+      "result": "passed"
+    }
+  ]
+}
