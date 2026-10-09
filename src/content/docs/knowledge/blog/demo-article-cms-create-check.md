@@ -1,5 +1,5 @@
 ---
-title: 网页新建文章验证（测试草稿）
+title: 网页新建文章验证（测试草稿 · 已重开）
 description: 用于验证文章列表、新建草稿及重新打开，不是正式文章。
 entryId: demo-article-cms-create-check
 date: 2026-10-09
@@ -21,3 +21,4 @@ example: false
 ```js
 const draft = true;
 ```
+
