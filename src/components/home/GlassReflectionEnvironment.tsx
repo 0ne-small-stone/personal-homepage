@@ -35,9 +35,9 @@ export default function GlassReflectionEnvironment({ scene }: { scene: Scene }) 
   useEffect(() => () => { maps.front.dispose(); maps.side.dispose(); }, [maps]);
   return <Environment scene={scene} resolution={128} frames={1} background={false}>
     <color attach="background" args={['#080808']} />
-    <Lightformer form="rect" color="#ffffff" intensity={.78} position={[-3, 1, 4]} scale={[4.5, 5.5, 1]} target={[0, 0, 0]} map={maps.front} />
-    <Lightformer form="rect" color="#ffffff" intensity={.72} position={[3, 1, -4]} scale={[3.2, 5.5, 1]} target={[0, 0, 0]} map={maps.side} />
-    <Lightformer form="rect" color="#ffffff" intensity={.18} position={[3, -2, 3]} scale={[2.5, 3.5, 1]} target={[0, 0, 0]} map={maps.front} />
-    <Lightformer form="rect" color="#ffffff" intensity={.12} position={[-2, -3, -2]} scale={[6, 1.2, 1]} target={[0, 0, 0]} map={maps.front} />
+    <Lightformer form="rect" color="#ffffff" intensity={.78} position={[1.8, -.8, 5]} scale={[10, 8, 1]} target={[0, 0, 0]} map={maps.front} />
+    <Lightformer form="rect" color="#ffffff" intensity={.26} position={[-4, 2, 3]} scale={[3, 4, 1]} target={[0, 0, 0]} map={maps.front} />
+    <Lightformer form="rect" color="#ffffff" intensity={.3} position={[3, -1, -4]} scale={[3.2, 5.5, 1]} target={[0, 0, 0]} map={maps.side} />
+    <Lightformer form="rect" color="#ffffff" intensity={.06} position={[-2, -3, -2]} scale={[6, 1.2, 1]} target={[0, 0, 0]} map={maps.front} />
   </Environment>;
 }

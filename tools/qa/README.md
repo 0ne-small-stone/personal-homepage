@@ -1,5 +1,7 @@
 # 首页行为采集
 
+`node tools/qa/p01-edge-light.cjs` 为33B实际33A/候选构建五组光域对照和短程输入/停手GPU读回。旧dist预存 `.ci-tmp/p01-33b-baseline/dist`；背景探针限定Plane、CanvasTexture、local z=-2，避免误抓标题纹理。桌面中性首屏在当前flow GPU帧读到非黑背景后才采图。`LSSH_QA_PHASE=confirm`复用初批旧构建，仅采候选及环境/透射诊断图；`LSSH_QA_READY_TOP=1 LSSH_QA_PHASE=top-ready`只补旧/新首屏就绪。原始失败与黑图保留。资源稳定在停手固定S0窗口判断，滚动触发懒加载的11→14不当成泄漏。没有新增应用诊断界面或依赖，通道图仅在测试页修改输出，不能当生产效果图。
+
 33A首批原始无WebGL建图错误判据保留。`LSSH_QA_FALLBACK_ONLY=1 LSSH_QA_PHASE=confirm node tools/qa/p01-width.cjs` 仅确认故意禁WebGL的预期context错误分类及真实Becoming进入/后退；非预期错误要求0。证据目录已存在时脚本拒绝覆盖，不为此项重跑已通过的静态/输入批次。
 
 `node tools/qa/p01-width.cjs` 为33A一批旧/新实际构建对照；旧32 dist预存 `.ci-tmp/p01-33a-baseline/dist`。五个同视口/DPR/相机/姿态/进度状态覆盖桌面和390px首屏/intro及一次桌面35°斜转，固定时钟/四元数仅在测试页面。记录实际形状与孔的点界、倒角/厚度、投影宽高与手机缩放，桌面中性图比较轮廓之外像素。另以原生时钟对两构建发送相同指针/滚轮，检查停手、反向与轮廓；候选真实暂停/项目后退、减少动画/无WebGL抽查。需已有Playwright、PNGJS和Chrome，不重跑全套流体或性能测试。
