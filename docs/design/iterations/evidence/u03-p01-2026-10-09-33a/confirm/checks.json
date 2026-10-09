@@ -1,0 +1,170 @@
+{
+  "date": "2026-10-09T15:48:01.128Z",
+  "cases": {
+    "new-no-webgl": {
+      "errors": [
+        "THREE.WebGLRenderer: THREE.WebGLRenderer: Error creating WebGL context.",
+        "Error: THREE.WebGLRenderer: Error creating WebGL context.\n    at new rg (http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.B8n3ALC0.js:4220:24385)\n    at z_ (http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.B8n3ALC0.js:4220:78248)\n    at l (http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.B8n3ALC0.js:4231:11260)\n    at Object.configure (http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.B8n3ALC0.js:4231:11374)\n    at http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.B8n3ALC0.js:4231:20908\n    at Dl (http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js:8:94954)\n    at yu (http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js:8:104419)\n    at Ru (http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js:8:115641)\n    at yu (http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js:8:105471)\n    at Ru (http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js:8:115641)",
+        "THREE.WebGLRenderer: THREE.WebGLRenderer: Error creating WebGL context.",
+        "Error: THREE.WebGLRenderer: Error creating WebGL context.\n    at new rg (http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.B8n3ALC0.js:4220:24385)\n    at z_ (http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.B8n3ALC0.js:4220:78248)\n    at l (http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.B8n3ALC0.js:4231:11260)\n    at Object.configure (http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.B8n3ALC0.js:4231:11374)\n    at http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.B8n3ALC0.js:4231:20908\n    at Dl (http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js:8:94954)\n    at yu (http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js:8:104419)\n    at Ru (http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js:8:115641)\n    at yu (http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js:8:105471)\n    at Ru (http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js:8:115641)"
+      ],
+      "failed": [],
+      "images": [
+        {
+          "file": "new-no-webgl.png",
+          "before": {
+            "time": 776.6999999880791,
+            "logical": null,
+            "y": 0,
+            "width": 390,
+            "height": 844,
+            "dpr": 1,
+            "canvasCount": 0,
+            "overflow": false,
+            "quiet": false,
+            "motion": null,
+            "geometry": null,
+            "cta": {
+              "inert": false,
+              "parentInert": false,
+              "opacity": "1"
+            }
+          },
+          "after": {
+            "time": 819.9000000357628,
+            "logical": null,
+            "y": 0,
+            "width": 390,
+            "height": 844,
+            "dpr": 1,
+            "canvasCount": 0,
+            "overflow": false,
+            "quiet": false,
+            "motion": null,
+            "geometry": null,
+            "cta": {
+              "inert": false,
+              "parentInert": false,
+              "opacity": "1"
+            }
+          }
+        }
+      ],
+      "spec": {
+        "mobile": true,
+        "noGL": true
+      },
+      "bundle": {
+        "file": "HomeJourney.B8n3ALC0.js",
+        "bytes": 1162783,
+        "sha256": "dcb1edd17633b8f7150ddd0bd14b53069fa096296e1d0dc3b779d9d49060008c"
+      },
+      "testBundleSHA": "1b6f15b1dc77f6da7401f77e2298b70c6540f8210af894b5a138aefd0edb985b",
+      "state": {
+        "time": 776.6999999880791,
+        "logical": null,
+        "y": 0,
+        "width": 390,
+        "height": 844,
+        "dpr": 1,
+        "canvasCount": 0,
+        "overflow": false,
+        "quiet": false,
+        "motion": null,
+        "geometry": null,
+        "cta": {
+          "inert": false,
+          "parentInert": false,
+          "opacity": "1"
+        }
+      },
+      "realRoute": "http://127.0.0.1:4321/personal-homepage/knowledge/",
+      "back": {
+        "time": 312.10000002384186,
+        "logical": null,
+        "y": 0,
+        "width": 390,
+        "height": 844,
+        "dpr": 1,
+        "canvasCount": 0,
+        "overflow": false,
+        "quiet": false,
+        "motion": null,
+        "geometry": null,
+        "cta": {
+          "inert": false,
+          "parentInert": false,
+          "opacity": "1"
+        }
+      }
+    }
+  },
+  "checks": [
+    {
+      "name": "no-webgl: ordinary identity/navigation and no overflow",
+      "pass": true,
+      "evidence": {
+        "time": 776.6999999880791,
+        "logical": null,
+        "y": 0,
+        "width": 390,
+        "height": 844,
+        "dpr": 1,
+        "canvasCount": 0,
+        "overflow": false,
+        "quiet": false,
+        "motion": null,
+        "geometry": null,
+        "cta": {
+          "inert": false,
+          "parentInert": false,
+          "opacity": "1"
+        }
+      }
+    },
+    {
+      "name": "no-WebGL real navigation/back preserves ordinary page",
+      "pass": true,
+      "evidence": {
+        "route": "http://127.0.0.1:4321/personal-homepage/knowledge/",
+        "back": {
+          "time": 312.10000002384186,
+          "logical": null,
+          "y": 0,
+          "width": 390,
+          "height": 844,
+          "dpr": 1,
+          "canvasCount": 0,
+          "overflow": false,
+          "quiet": false,
+          "motion": null,
+          "geometry": null,
+          "cta": {
+            "inert": false,
+            "parentInert": false,
+            "opacity": "1"
+          }
+        }
+      }
+    },
+    {
+      "name": "new-no-webgl: unexpected local script errors absent",
+      "pass": true,
+      "evidence": {
+        "expectedContextFailure": [
+          "THREE.WebGLRenderer: THREE.WebGLRenderer: Error creating WebGL context.",
+          "Error: THREE.WebGLRenderer: Error creating WebGL context.\n    at new rg (http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.B8n3ALC0.js:4220:24385)\n    at z_ (http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.B8n3ALC0.js:4220:78248)\n    at l (http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.B8n3ALC0.js:4231:11260)\n    at Object.configure (http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.B8n3ALC0.js:4231:11374)\n    at http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.B8n3ALC0.js:4231:20908\n    at Dl (http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js:8:94954)\n    at yu (http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js:8:104419)\n    at Ru (http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js:8:115641)\n    at yu (http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js:8:105471)\n    at Ru (http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js:8:115641)",
+          "THREE.WebGLRenderer: THREE.WebGLRenderer: Error creating WebGL context.",
+          "Error: THREE.WebGLRenderer: Error creating WebGL context.\n    at new rg (http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.B8n3ALC0.js:4220:24385)\n    at z_ (http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.B8n3ALC0.js:4220:78248)\n    at l (http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.B8n3ALC0.js:4231:11260)\n    at Object.configure (http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.B8n3ALC0.js:4231:11374)\n    at http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.B8n3ALC0.js:4231:20908\n    at Dl (http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js:8:94954)\n    at yu (http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js:8:104419)\n    at Ru (http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js:8:115641)\n    at yu (http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js:8:105471)\n    at Ru (http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js:8:115641)"
+        ],
+        "unexpected": [],
+        "failed": []
+      }
+    }
+  ],
+  "limitations": [
+    "Static views use the same test-only quaternion and logical clock; native input cases do not override them. Screenshots and surrounding reads have separate actual times. SwiftShader/emulated touch are not hardware performance evidence."
+  ],
+  "browser": "154.0.8037.98",
+  "pass": true
+}
