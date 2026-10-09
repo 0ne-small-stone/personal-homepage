@@ -1,5 +1,11 @@
 # 个人主页技术调研来源和候选方案
 
+## T13.04 原生文章集合来源（2026-10-09）
+
+复用 Pages CMS 官方的 [content/collection](https://pagescms.org/docs/configuration/content/)、[filename 模板](https://pagescms.org/docs/configuration/content/filename/)、[列表 view](https://pagescms.org/docs/configuration/content/view/)、[operations](https://pagescms.org/docs/configuration/content/operations/) 和 [字段 pattern](https://pagescms.org/docs/configuration/content/fields/)。原生集合覆盖同目录的列表、新建、搜索与再编辑；采用 `{fields.entryId}.md`、默认草稿及现有图片配置，无额外后台、依赖或路由主题。
+
+源代码核对固定在官方 `hunvreus/pagescms` 的 `6f4e860a35d934406580287e7042e5e111e207a1`（仓库声明 2.1.8、MIT）；托管部署版本未读回，不把源码版本称为线上版本。[UUID 字段源码](https://github.com/hunvreus/pagescms/blob/6f4e860a35d934406580287e7042e5e111e207a1/fields/core/uuid/index.tsx)要求合法 UUID，会拒绝当前文章的语义 ID；本轮采用必填字符串与小写英文/数字/短横线校验，避免迁移原条目。[配置 schema 与原生初始化](https://github.com/hunvreus/pagescms/blob/6f4e860a35d934406580287e7042e5e111e207a1/lib/schema.ts)用于本机隔离校验，未复制进应用源码。实际托管新建、重开和提交/CI 结果见[本轮记录](iterations/t13-04-2026-10-09.md)。
+
 ## T08.02 PDF 侧栏收起（2026-10-08）
 
 已安装 PDF.js 6.4.299 的 Sidebar/ViewsManager 与 viewer.html 实读：关闭由外部 viewsManagerToggleButton 管理，标题内 viewsManagerSelectorButton 只切换视图，没有关闭入口。本轮以独立 lssh-controls.mjs 调用原生开关，不编辑发行版 viewer.mjs/viewer.css、不自管状态；关闭历史和aria继续由原生实现维护。具体改造及Apache-2.0声明见[资源登记](../../public/pdfjs/README.md)，行为和尺寸见[本轮证据](iterations/t08-02-2026-10-08.md)。
