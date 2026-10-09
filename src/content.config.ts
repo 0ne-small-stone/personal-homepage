@@ -4,12 +4,24 @@ import { docsLoader, i18nLoader } from '@astrojs/starlight/loaders';
 import { docsSchema, i18nSchema } from '@astrojs/starlight/schema';
 import { blogSchema } from 'starlight-blog/schema';
 import { articleDateSchema } from './lib/article-date';
+import { blogSettings } from './lib/blog-settings';
+
+const nativeDocsLoader = docsLoader();
 
 export const collections = {
   i18n: defineCollection({ loader: i18nLoader(), schema: i18nSchema() }),
   docs: defineCollection({
-    loader: docsLoader(),
-    schema: docsSchema({
+    loader: {
+      ...nativeDocsLoader,
+      // Astro otherwise reuses parsed data when only the imported JSON changes.
+      load: (context) => nativeDocsLoader.load({
+        ...context,
+        generateDigest: (data) => context.generateDigest({
+          data, tagBrowsingEnabled: blogSettings.tagBrowsingEnabled,
+        }),
+      }),
+    },
+    schema: (context) => docsSchema({
       extend: (context) => blogSchema(context).extend({
         date: articleDateSchema,
         // Virtual blog lists and custom Starlight pages also use this schema.
@@ -40,6 +52,9 @@ export const collections = {
           }),
         ]).optional(),
       }),
-    }),
+    })(context).transform((entry) =>
+      !blogSettings.tagBrowsingEnabled && entry.kind === 'article'
+        ? { ...entry, tags: [] } : entry,
+    ),
   }),
 };

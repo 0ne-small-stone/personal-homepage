@@ -14,6 +14,21 @@ media:
         delete: 'content(media): 删除文章图片 {filename}'
         rename: 'content(media): 重命名文章图片 {oldFilename} -> {newFilename}'
 content:
+  - name: blog-settings
+    label: 博客设置
+    type: file
+    path: src/data/blog-settings.json
+    format: json
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields:
+      - name: tagBrowsingEnabled
+        label: 启用标签浏览
+        type: boolean
+        default: true
+        description: '开启显示文章标签和标签页；关闭隐藏标签浏览入口，保留原始标签。Save 后需构建发布才能更新正式网站。'
   - name: articles
     label: 文章
     type: collection

@@ -1,5 +1,16 @@
 # 网页编辑与草稿验证
 
+## T07.05 博客设置与标签浏览
+
+[打开博客设置](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft07-05-blog-tags/file/blog-settings)，使用 `codex/t07-05-blog-tags` 分支。
+
+1. 在左侧“博客设置”找到“启用标签浏览”，默认开启。
+2. 关闭并点击 Save；保存完成、重新打开后应保持关闭。此设置不删除文章原始标签。
+3. 同步保存提交并构建：文章列表、正文和博客侧栏不显示标签入口，旧标签网址返回 404；已有标签来源返回回退文章列表。
+4. 重新开启、Save 并构建后，标签页、匹配文章及返回标签结果恢复。
+
+设置属于站主全站配置。保存到工作分支不等于正式发布；正式站需按 PR/CI/部署流程更新。当前两态体验与真实证据在本轮技术记录中维护。
+
 ## T13.10 正文链接编辑与保存
 
 [打开验证稿](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-10-body-links/file/article-draft)，分支 `codex/t13-10-body-links`。测试原稿已恢复，已有“已发布的阅读功能样稿”链接可用于操作体验。
