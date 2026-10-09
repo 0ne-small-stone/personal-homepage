@@ -1,9 +1,9 @@
-# T13.03: one existing article, native draft state and Markdown image uploads.
+# T13.04: native article collection plus the existing fixed validation entry.
 media:
   - name: article-images
     label: 文章图片（公开仓库）
     input: src/assets/article-images
-    # Relative to this fixed draft's src/content/docs/knowledge/blog/ folder.
+    # Articles remain directly in src/content/docs/knowledge/blog/ (no subfolders).
     output: ../../../../assets/article-images
     extensions: [png, jpg, jpeg, webp, avif]
     rename: random
@@ -14,6 +14,83 @@ media:
         delete: 'content(media): 删除文章图片 {filename}'
         rename: 'content(media): 重命名文章图片 {oldFilename} -> {newFilename}'
 content:
+  - name: articles
+    label: 文章
+    type: collection
+    path: src/content/docs/knowledge/blog
+    format: yaml-frontmatter
+    subfolders: false
+    filename:
+      template: '{fields.entryId}.md'
+      field: false
+    operations:
+      create: true
+      rename: false
+      delete: false
+    view:
+      fields: [title, draft, date]
+      primary: title
+      sort: [date, title]
+      search: [title, description]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: 标题
+        type: string
+        required: true
+      - name: description
+        label: 摘要
+        type: text
+        required: true
+      - name: entryId
+        label: 地址标识
+        description: 新建时填写唯一的小写英文、数字或短横线，例如 article-reading-notes。保存后请保持此值；修改标题不会改变文章地址。
+        type: string
+        required: true
+        pattern:
+          regex: '^[a-z0-9]+(?:-[a-z0-9]+)*$'
+          message: 使用小写英文、数字和单个短横线，不能含空格或中文。
+      - name: date
+        label: 文章日期
+        type: date
+        required: true
+        options:
+          time: false
+          format: yyyy-MM-dd
+      - name: topics
+        label: 主题
+        type: string
+        list: true
+      - name: tags
+        label: 标签
+        type: string
+        list: true
+      - name: draft
+        label: 草稿
+        description: 新文章默认草稿。关闭后保存表示发布候选，需构建通过、PR 合并及部署成功才正式上线。
+        type: boolean
+        default: true
+      - name: kind
+        type: string
+        default: article
+        hidden: true
+        readonly: true
+      - name: example
+        type: boolean
+        default: false
+        hidden: true
+        readonly: true
+      - name: body
+        label: 正文
+        description: 可切换 Editor 与 Source。图片上传后填写替代文本和图下说明；上传与保存分别进行，保存草稿不会发布。
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          switcher: true
+          media: article-images
   - name: article-draft
     label: 文章编辑与发布验证
     type: file
@@ -79,4 +156,5 @@ settings:
   commit:
     identity: app
     templates:
+      create: 'content(article): 新建文章 {path}'
       update: 'content(article): 保存文章 {path}'
