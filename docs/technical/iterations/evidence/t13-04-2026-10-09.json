@@ -1,0 +1,167 @@
+{
+  "date": "2026-10-09",
+  "task": "T13.04",
+  "pages": [
+    "P17",
+    "P06"
+  ],
+  "requirements": [
+    "R10",
+    "R13"
+  ],
+  "designTask": "U13",
+  "branch": "codex/t13-04-article-collection",
+  "baseline": "499c2036fe658f3d4b0aa4731449b573c052e7c3",
+  "implementationCommit": "cb7c9ca",
+  "scope": "native article collection, create draft, reopen and title edit",
+  "config": {
+    "upstreamSha": "6f4e860a35d934406580287e7042e5e111e207a1",
+    "officialSchema": "passed",
+    "existingContentFilesUnchanged": 47,
+    "existingArticles": 4,
+    "officialSerialization": "passed",
+    "mediaDepth": "passed"
+  },
+  "production": {
+    "sha": "b5ad7f712c110c183234ccabcef81843b032bbe1",
+    "checkFiles": 26,
+    "typeErrors": 0,
+    "typeWarnings": 0,
+    "typeHints": 0,
+    "pages": 52,
+    "htmlFiles": 53,
+    "publishedCount": 41,
+    "draftRoute": false,
+    "allHtmlExcludesDraft": true,
+    "originalMaterialCopiesExcluded": true,
+    "secondSavePreservesContentExceptTitleAndTrailingWhitespace": true,
+    "trailingBlankLineNormalized": true,
+    "fileSha256": "11c0e2065b08a9446709dc16bb4b88382d48a2cb06d11da7f30a4e4ec206235f",
+    "output": ".ci-tmp/t13-04-production-fixture/dist"
+  },
+  "browser": {
+    "defaultDraft": true,
+    "defaultDate": "2026-10-09",
+    "emptyFormErrors": 4,
+    "invalidIdBlocked": true,
+    "newTitle": "网页新建文章验证（测试草稿）",
+    "initialReloadBodyRetained": true,
+    "listRows": [
+      "标题草稿文章日期Actions",
+      "网页新建文章验证（测试草稿）TrueOct 9, 2026Edit",
+      "博客阅读验证（功能验证样稿）FalseOct 8, 2026Edit",
+      "网页编辑草稿验证（测试草稿）吃吃吃TrueOct 8, 2026Edit",
+      "从资料到笔记的一次整理（演示）TrueOct 7, 2026Edit"
+    ],
+    "editUrl": "https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-04-article-collection/collection/articles/edit/src%2Fcontent%2Fdocs%2Fknowledge%2Fblog%2Fdemo-article-cms-create-check.md",
+    "updated": {
+      "title": "网页新建文章验证（测试草稿 · 已重开）",
+      "entryId": "demo-article-cms-create-check",
+      "draft": "true",
+      "url": "https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-04-article-collection/collection/articles/edit/src%2Fcontent%2Fdocs%2Fknowledge%2Fblog%2Fdemo-article-cms-create-check.md",
+      "bodyRetained": true,
+      "samePath": true
+    },
+    "filteredRows": [
+      "标题草稿文章日期Actions",
+      "网页新建文章验证（测试草稿 · 已重开）TrueOct 9, 2026Edit"
+    ],
+    "finalRows": [
+      "标题草稿文章日期Actions",
+      "网页新建文章验证（测试草稿 · 已重开）TrueOct 9, 2026Edit",
+      "博客阅读验证（功能验证样稿）FalseOct 8, 2026Edit",
+      "网页编辑草稿验证（测试草稿）吃吃吃TrueOct 8, 2026Edit",
+      "从资料到笔记的一次整理（演示）TrueOct 7, 2026Edit"
+    ],
+    "production": {
+      "missingHeading": "页面未找到",
+      "searchQuery": "T13CREATEDRAFT20261009",
+      "searchMessage": "没有找到“T13CREATEDRAFT20261009”",
+      "searchResultLinks": 0
+    }
+  },
+  "cmsRuns": [
+    {
+      "id": 37878717560,
+      "event": "push",
+      "sha": "c2e738042d19c504a2f7d796065887694b08509a",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/37878717560",
+      "jobs": [
+        {
+          "name": "Workflow syntax",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Repository checks",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Astro build",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Deploy to GitHub Pages",
+          "status": "completed",
+          "conclusion": "skipped"
+        }
+      ]
+    },
+    {
+      "id": 37879085668,
+      "event": "push",
+      "sha": "b5ad7f712c110c183234ccabcef81843b032bbe1",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/37879085668",
+      "jobs": [
+        {
+          "name": "Workflow syntax",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Repository checks",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Astro build",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Deploy to GitHub Pages",
+          "status": "completed",
+          "conclusion": "skipped"
+        }
+      ]
+    }
+  ],
+  "screenshots": {
+    "productionDraft": "docs/design/iterations/evidence/u13-p17-t13-04-2026-10-09-draft.png",
+    "productionSearch": "docs/design/iterations/evidence/u13-p17-t13-04-2026-10-09-search.png",
+    "cmsFinalListLocalOnly": "t13-04-cms-list-final-2026-10-09.png",
+    "cmsReloadLocalOnly": "t13-04-cms-restored-2026-10-09.png",
+    "inspected": [
+      "productionDraft",
+      "productionSearch",
+      "cmsFinalListLocalOnly",
+      "cmsReloadLocalOnly"
+    ]
+  },
+  "formalDeployment": false,
+  "userConfirmed": false,
+  "limitations": [
+    "address ID remains editable",
+    "duplicate ID hosted behavior not tested",
+    "cancel and network failure recovery not tested",
+    "CMS mobile not tested",
+    "new-draft image upload not tested",
+    "formal deployment not performed"
+  ]
+}

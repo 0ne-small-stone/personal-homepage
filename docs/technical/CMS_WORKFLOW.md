@@ -1,5 +1,20 @@
 # 网页编辑与草稿验证
 
+## T13.04 文章列表与新建草稿
+
+当前入口为[文章列表](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-04-article-collection/collection/articles)，分支 `codex/t13-04-article-collection`。本轮配置与测试稿已在工作分支；继续使用已有 GitHub 登录和授权。列表显示标题、草稿状态及日期，搜索读取标题与摘要，默认日期降序。固定“文章编辑与发布验证”入口保留。
+
+1. 点击原生 **Add an entry**。填写标题、摘要、正文和文章日期；新文章“草稿”默认开启。
+2. “地址标识”填一个唯一的小写英文、数字或短横线组合，例如 `article-reading-notes`。不能含中文、空格、连续短横线；新文件名取该值。保存后保持标识不变，修改标题无需修改它。已有文章编辑沿用实际文件路径。格式提示不能保证业务 ID 永远不被修改或重复，内容检查仍需核对唯一性和关联。
+3. 保持草稿开启，Save。成功后进入编辑页，刷新并检查标题、摘要、日期、草稿、地址标识与正文；切换 Source/Editor 核对 Markdown。点击左侧“文章”回列表，可用 **Search entries...** 查找，再点击标题重新打开。
+4. 重开后修改标题并保存，再刷新核对新标题和原地址。保存自动触发本轮工作分支的三项检查；本机预览需要开发者拉取后重建，CMS 保存不会自动更新冻结快照。
+
+2026-10-09 已通过真实托管操作：新建 `c2e7380`，重开改标题 `b5ad7f7`，两笔 CI 三项成功、Deploy 跳过。测试稿为“网页新建文章验证（测试草稿 · 已重开）”，路径 `src/content/docs/knowledge/blog/demo-article-cms-create-check.md`，始终 `draft: true`。空表单有四项必填错误，非法标识被中文格式提示拦截；四行列表搜索“网页新建”仅返回该稿。原生二次保存规范化了文件末尾空行，正文实质内容保留。[完整记录](iterations/t13-04-2026-10-09.md)。
+
+[本轮生产总览](http://127.0.0.1:4374/personal-homepage/knowledge/)来自真实保存 `b5ad7f7` 的冻结生产快照，仍为 41 条内容；[草稿直达](http://127.0.0.1:4374/personal-homepage/knowledge/blog/demo-article-cms-create-check/)显示“页面未找到”，搜索 `T13CREATEDRAFT20261009` 无结果。快照不随网页保存改变，当前没有合并或正式部署。
+
+设计资源新增 0，继续复用原生后台和已有 Markdown 图片能力。本轮只验一篇新稿的创建与再编辑；新稿图片上传、其他内容类型、关联选择、取消/网络失败、手机后台及正式部署分别后续验证。
+
 ## T13.03 文章发布状态与修改
 
 当前真实验证分支为 `codex/t13-03-hosted-publication`，打开[文章编辑与发布验证](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-03-hosted-publication/file/article-draft)。原生“草稿”字段可编辑，当前原文已恢复并开启。关闭后保存表示提交发布候选，保存工作分支自动运行现有三项检查；正式站需 PR 合并并部署成功。再次开启也需正常部署才会从正式站撤下，不将保存或 CI 成功称为上线。
