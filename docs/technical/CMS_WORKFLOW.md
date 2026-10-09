@@ -1,5 +1,16 @@
 # 网页编辑与草稿验证
 
+## T13.10 正文链接编辑与保存
+
+[打开验证稿](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-10-body-links/file/article-draft)，分支 `codex/t13-10-body-links`。测试原稿已恢复，已有“已发布的阅读功能样稿”链接可用于操作体验。
+
+1. 切 Editor，选中正文文字，点浮动工具条的链接图标（Link）。输入地址后 Enter 或 ✓ 应用；同目录文章可用 `../article-reading-check/`，外部文档用完整 HTTPS 地址。
+2. 再选已有链接点图标，输入应预填原地址，可修改后 Enter 应用。修改显示文字可在正文选中文字后重输；Source 中 `[文字](地址)` 可分别核对和修改文字、地址。
+3. 点右上角 Save，等待保存完成再刷新；再次打开 Link 输入应保留地址，Source 的文字和地址也应一致。工具条的 Enter/✓ 只应用到编辑器，仍需表单 Save。
+4. 网站预览需要开发者先拉取实际提交，托管后台不会自动拉到本机。站内相对地址在网站文章目录下解析；后台 Editor 用于编辑，实际跳转请到网站原生草稿预览核对。
+
+执行者已验证两个原生新链接、地址与文字修改、模式往返和保存/重开；保存 `15a5d3b` 后本机 4324 原生草稿实际点击到阅读样稿和官方富文本文档。恢复 `c219ebb` 后两端原稿一致、测试段消失，48 内容及 src 树回到基线。[记录](iterations/t13-10-2026-10-09.md)保存提交和三项 CI；设计资源新增 0，空/非法地址、取消/移除及手机另验，没有合并或部署。
+
 ## T13.09 正文图片替代文本
 
 [打开验证稿](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-09-image-alt/file/article-draft)，分支 `codex/t13-09-image-alt`。本轮已恢复原稿，原图可直接用于操作体验。
