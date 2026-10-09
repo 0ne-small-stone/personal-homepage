@@ -1,0 +1,193 @@
+{
+  "date": "2026-10-09",
+  "ids": [
+    "P17",
+    "P06",
+    "R13",
+    "U13",
+    "T13.09"
+  ],
+  "branch": "codex/t13-09-image-alt",
+  "baseline": "cabb6bba0f7771e2f84b2d1a1d075cf4c2841e81",
+  "configCommit": "b8ee7cdcee84fa8348ff00bee277c64ca605a998",
+  "testedFile": "src/content/docs/knowledge/blog/editor-draft-check.md",
+  "scope": "native nonempty image alt edit, mode roundtrip, real save/reopen and full original restore",
+  "saved": {
+    "branch": "codex/t13-09-image-alt",
+    "head": "c85f37cf042387bd5e0f9f98bf6db383a635cf68",
+    "target": "src/content/docs/knowledge/blog/editor-draft-check.md",
+    "blob": "fe0bc6b3c8a59a5f334a93aac9b3f441bd654369",
+    "title": "网页编辑草稿验证（测试草稿）吃吃吃",
+    "draft": "true",
+    "entryId": "demo-article-editor-draft",
+    "kind": "article",
+    "hasSidebar": true,
+    "hasRelated": true,
+    "hasTestMarker": true,
+    "hasFinalAlt": true,
+    "originalImagePreserved": true,
+    "captionPreserved": true,
+    "imageCount": 2,
+    "latestFileCommit": "c85f37cf042387bd5e0f9f98bf6db383a635cf68",
+    "message": "content(article): 保存文章 src/content/docs/knowledge/blog/editor-draft-check.md",
+    "author": "0ne-small-stone",
+    "committer": "0ne-small-stone",
+    "commitFiles": [
+      {
+        "path": "src/content/docs/knowledge/blog/editor-draft-check.md",
+        "status": "modified"
+      }
+    ],
+    "sourceAdded": [],
+    "sourceChanged": [
+      "src/content/docs/knowledge/blog/editor-draft-check.md"
+    ],
+    "sourceRemoved": [],
+    "contentFileCount": 48,
+    "baselineFileRestored": false
+  },
+  "restored": {
+    "branch": "codex/t13-09-image-alt",
+    "head": "05e9e89afe3bc75f943bf07a8f3aade0eb33297f",
+    "target": "src/content/docs/knowledge/blog/editor-draft-check.md",
+    "blob": "eb551d0abb63e7ce110b016a9dc16555fbcf5842",
+    "title": "网页编辑草稿验证（测试草稿）吃吃吃",
+    "draft": "true",
+    "entryId": "demo-article-editor-draft",
+    "kind": "article",
+    "hasSidebar": true,
+    "hasRelated": true,
+    "hasTestMarker": false,
+    "hasFinalAlt": false,
+    "originalImagePreserved": true,
+    "captionPreserved": true,
+    "imageCount": 1,
+    "latestFileCommit": "05e9e89afe3bc75f943bf07a8f3aade0eb33297f",
+    "message": "content(article): 保存文章 src/content/docs/knowledge/blog/editor-draft-check.md",
+    "author": "0ne-small-stone",
+    "committer": "0ne-small-stone",
+    "commitFiles": [
+      {
+        "path": "src/content/docs/knowledge/blog/editor-draft-check.md",
+        "status": "modified"
+      }
+    ],
+    "sourceAdded": [],
+    "sourceChanged": [],
+    "sourceRemoved": [],
+    "contentFileCount": 48,
+    "baselineFileRestored": true
+  },
+  "sourceAfterRestore": {
+    "branch": "codex/t13-09-image-alt",
+    "baseline": "cabb6bba0f7771e2f84b2d1a1d075cf4c2841e81",
+    "head": "b8ee7cdcee84fa8348ff00bee277c64ca605a998",
+    "sourceTreeSha": "8200a15a4ceca7357191a0f585ec1f5ca95f8fa7",
+    "sourceTreeUnchanged": true,
+    "contentFileCount": 48,
+    "contentBlobsUnchanged": true
+  },
+  "ui": {
+    "inserted": [
+      {
+        "alt": "灰色方块与 T13.02 字样组成的网页上传验证样本。",
+        "rendered": true
+      },
+      {
+        "alt": null,
+        "rendered": true
+      }
+    ],
+    "applied": [
+      {
+        "alt": "灰色方块与 T13.02 字样组成的网页上传验证样本。",
+        "rendered": true
+      },
+      {
+        "alt": "深灰色圆角方块中写着 T13.02，用于图片替代文本验证。",
+        "rendered": true
+      }
+    ],
+    "source": {
+      "newImageMarkdown": true,
+      "originalImageMarkdown": true,
+      "captionPreserved": true
+    },
+    "prefillAfterModeSwitch": true,
+    "enterApplied": true,
+    "savedReload": {
+      "altValue": "深灰色圆角方块中写着 T13.02，用于替代文本保存后重开验证。",
+      "matches": true
+    },
+    "restored": {
+      "titleMatches": true,
+      "bodyMatches": true,
+      "saveDisabled": true
+    },
+    "fixedHintVisible": true,
+    "collectionHintVisible": true
+  },
+  "officialConfig": {
+    "upstreamSha": "6f4e860a35d934406580287e7042e5e111e207a1",
+    "officialSchema": "passed",
+    "existingContentFilesUnchanged": 48,
+    "existingArticles": 4,
+    "officialSerialization": "passed",
+    "mediaDepth": "passed"
+  },
+  "saveCI": {
+    "id": 37953692813,
+    "sha": "c85f37cf042387bd5e0f9f98bf6db383a635cf68",
+    "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/37953692813",
+    "conclusion": "success",
+    "successfulJobs": [
+      "Workflow syntax",
+      "Repository checks",
+      "Astro build"
+    ],
+    "deploy": "skipped"
+  },
+  "restoreCI": {
+    "id": 37954131478,
+    "sha": "05e9e89afe3bc75f943bf07a8f3aade0eb33297f",
+    "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/37954131478",
+    "conclusion": "success",
+    "successfulJobs": [
+      "Workflow syntax",
+      "Repository checks",
+      "Astro build"
+    ],
+    "deploy": "skipped"
+  },
+  "configCI": {
+    "id": 37954310555,
+    "sha": "b8ee7cdcee84fa8348ff00bee277c64ca605a998",
+    "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/37954310555",
+    "conclusion": "success",
+    "successfulJobs": [
+      "Workflow syntax",
+      "Repository checks",
+      "Astro build"
+    ],
+    "deploy": "skipped"
+  },
+  "screenshots": [
+    "t13-09-native-alt-control-2026-10-09.png",
+    "t13-09-reopened-alt-2026-10-09.png",
+    "t13-09-fixed-hint-2026-10-09.png",
+    "t13-09-collection-hint-2026-10-09.png"
+  ],
+  "screenshotStorage": "local chat visualization directory, not public repo",
+  "screenshotNote": "ALT input shows only a prefix due to width; full value verified from DOM and repository",
+  "designResourcesAdded": 0,
+  "newMediaUploads": 0,
+  "limits": [
+    "empty/remove alt unverified",
+    "mobile/screen reader unverified",
+    "Close/Escape focus restoration still missing",
+    "network/API upload failure and abort unverified",
+    "hosted version unknown",
+    "user feedback pending",
+    "no merge or deployment"
+  ]
+}

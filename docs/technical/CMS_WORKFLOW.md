@@ -1,5 +1,16 @@
 # 网页编辑与草稿验证
 
+## T13.09 正文图片替代文本
+
+[打开验证稿](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-09-image-alt/file/article-draft)，分支 `codex/t13-09-image-alt`。本轮已恢复原稿，原图可直接用于操作体验。
+
+1. 切到 Editor，点击正文图片，再点浮动工具条的 ALT。
+2. 填写描述图片内容的短句，按 Enter 或点击 ✓ 应用。图下说明另写；替代文本不会作为可见图注显示。
+3. 切 Source，可在 `![替代文本](图片地址)` 的方括号内核对。切回 Editor，重新选图点 ALT，应预填刚才的描述。
+4. 点表单右上角 Save，等保存完成再刷新；图片应正常呈现，重新点 ALT 后描述仍在。ALT 中的 ✓/Enter 只应用到编辑器，仍需表单 Save 写入仓库。
+
+2026-10-09 执行者用已有公开功能样本验证按钮、Enter、真实保存 `c85f37c` 和刷新重开；恢复 `05e9e89` 后 48 内容及 src 树完全回到基线。两次原生提交三项 CI 成功，部署跳过，[实际记录](iterations/t13-09-2026-10-09.md)。设计资源新增 0，删除/空描述、手机及读屏效果另验。
+
 ## T13.08 上传格式拦截与恢复
 
 [打开验证稿](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-08-media-validation/file/article-draft)，分支 `codex/t13-08-media-validation`。固定稿和集合新建表单均显示支持格式及换图重试说明。
