@@ -12,8 +12,11 @@ P01 / T03.02 的人工验收辅助，不纳入 CI。需自行提供 Playwright �
 - `node tools/qa/p01-return-state.cjs`：第 27 轮最早可见场景与布局门禁，覆盖无 hash 实际滚轮、目录 hash、连续返回、reload、手机/改变视口、直接 hash；并抽查普通追随、CTA、吸附中断、减少动画/无 JS/素材失败。逐帧诊断和独立 RAF 的 DOM 可见性读取均保存，不以延长等待截图掩盖首帧问题。截图工具执行时间单独记录，不叫 GPU 第一帧。
 - `node tools/qa/p01-glass-color.cjs`：第28轮 `LSSH_QA_PHASE=before/after` 在对应实际构建采集同姿态两桌面视图；after另采原生时钟/姿态的手机页面。只读probe与唯一四元数锚点匹配失败即停止。随后运行 `p01-glass-color-compare.cjs`，`LSSH_QA_PNGJS` 指向可加载PNG模块，读取原PNG比较玻璃外全部像素、指定面内区域及材质/renderer实际状态；不新增应用依赖。比对两份主包分别记录哈希，其他实际非HTML资源须相同。
 - `node tools/qa/p01-glass-rotation.cjs`：第29轮真实指针、滚轮、触摸、暂停/继续和相册返回；原站插只读旋转探针并核对固定SHA。两站在每个原生浏览器RAF时间戳上统一推进1000/60ms测试时钟（RAF/performance/Date），用于约60Hz行为对照；保留实际墙钟与收到的事件，不冒充真实60FPS。顶部/区域/阶段/滚速/生命周期连续记录写入第29轮`initial`，唯一修复确认设`LSSH_QA_PHASE=confirm`。原站GL返回值是delta数值，确认轮直接读回；源Date整数精度差异保留。确认轮增加纵移叠加阶段切换的判别，核验先注入、读旧w、再衰减；首轮错误顺序不视为允许偏差。隐藏/显示是document.hidden模拟，暂停和导航为真实控件操作。减少动画另用原生时钟检查。原站外部网络错误原样保留并分类，本站脚本错误要求0。
+- `node tools/qa/p01-black-flow.cjs`：第30轮五组黑场流体检查，初批与`LSSH_QA_PHASE=confirm`唯一确认分别保存。先将实际29 `dist`复制到被忽略的`.ci-tmp/p01-30-baseline/dist`，脚本为它启动临时只读静态服务器，不能用新管线bypass冒充旧构建。原生快100ms/慢1000ms路径使用排队CDP事件，保留真正收到的耗时；停手0/250/1000/2000ms为实际定时请求，每份PNG与GPU读回记录当帧收到时间。软件GPU可能跨帧延后，不改时间标签冒充精确毫秒。另有逐原生RAF推进1000/60ms的受控输入比较，逻辑时间与物理耗时分列。零场固定姿态/时钟仍走完整复制合成；半透明layer1另隔离于黑底判形状，实际CTA导航单验。隐藏与浮点能力为故意模拟，手机为CDP触摸；真机另验。需要`LSSH_QA_PNGJS`，没有新增应用依赖。
 
 结果写入设计迭代 evidence 对应目录。原站读取主包并核对固定 SHA-256；只插入状态读回，不改变其渲染。原站版本改变需重新研究并修探针，不能忽略校验。正面测试控制仅作用于独立测试页面，不进入产品。
+
+第30轮经设计侧明确授权，只补验未通过的颜色、前景、返回和能力后备：`LSSH_QA_TARGETED=1 LSSH_QA_PHASE=targeted`，不重跑已通过的原生快慢路径。`LSSH_QA_CLOSURE=1 LSSH_QA_PHASE=resource-closure` 仅采预热基线和三次真实音乐栏目返回，每处至少六个不同帧、跨度900ms以上、四张卡片图均已解码；记录所有原始计数，不以固定等待代替窗口。`node tools/qa/p01-black-flow-closure.cjs` 只读 retained PNG/窗口，归因首屏独立SVG箭头差异与非持续资源增长，单独输出 `closure-analysis.json`；不得重写原fail结果。原站受控60Hz检查及原生输入检查分开查阅，不是软件GPU实际60FPS。
 
 CDP 请求表、浏览器收到的输入、逐帧状态与画面帧分别保存。SwiftShader 和模拟布局不能证明真机流畅度。画面帧收到后的读回不视为 GPU 同时刻；保留原始时间。第 19 轮精选可体验证据见 [交付记录](../../docs/design/iterations/u03-p01-2026-10-08-19.md)。
 
