@@ -43,11 +43,3 @@ console.log('仍是草稿', draft);
 T13.01-DRAFT-ONLY-20261008
 
 这个标记用于确认草稿正文没有进入公开页面和搜索索引，不代表用户个人资料。
-
-## 正文链接验证
-
-T13LINK20261009
-
-[阅读功能样稿（链接测试）](../article-reading-check/)
-
-[Pages CMS 富文本说明（链接测试）](https://pagescms.org/docs/configuration/fields/rich-text/)
