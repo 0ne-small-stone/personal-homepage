@@ -1,0 +1,125 @@
+{
+  "date": "2026-10-09",
+  "ids": [
+    "P17",
+    "R13",
+    "U13",
+    "T13.06"
+  ],
+  "branch": "codex/t13-06-save-recovery",
+  "baseline": "19ccf0a830e4c5f6bb19b09238e09f64971ca788",
+  "configCommit": "9e41528dfea880c8734dbe6b15784a31448e3ba7",
+  "scope": "real stale-file save conflict; manual backup and compare/reload/retry; not automatic recovery",
+  "serverAdvance": {
+    "commit": "c9c65a540473beadd203e044d3374d78a64aab08",
+    "blob": "ff5d0d81dc08bdec4ddaf3325188c450109eb57b",
+    "method": "GitHub Contents API, same test-only draft on this work branch"
+  },
+  "failedSaves": {
+    "count": 2,
+    "message": "File has changed since you last loaded it. Please refresh the page and try again.",
+    "inputsRetained": true,
+    "saveEnabled": true,
+    "unchangedRemoteHead": "c9c65a540473beadd203e044d3374d78a64aab08",
+    "noFailureCommit": true
+  },
+  "reload": {
+    "latestTitleLoaded": true,
+    "unsavedBodyDiscarded": true,
+    "backupPerformedBy": "developer, visible form/Source saved to local test JSON, not CMS autosave"
+  },
+  "retry": {
+    "head": "e2a3b9421a971ce785213294bcaba558f3958fc7",
+    "latestFileCommit": "e2a3b9421a971ce785213294bcaba558f3958fc7",
+    "author": "0ne-small-stone",
+    "committer": "0ne-small-stone",
+    "blob": "0912e0f6e2b1eab53688779c50d2a27d381a0fde",
+    "title": "网页新建文章验证（测试草稿 · 已验重试）",
+    "draft": "true",
+    "hasRecoveryMarker": true,
+    "reopenedTitle": true,
+    "reopenedSummary": true,
+    "bodyExactString": false,
+    "bodyAfterBlankLineNormalization": true,
+    "markerPresent": true,
+    "ci": {
+      "id": 37938630576,
+      "sha": "e2a3b9421a971ce785213294bcaba558f3958fc7",
+      "event": "push",
+      "conclusion": "success",
+      "checks": {
+        "Workflow syntax": "success",
+        "Repository checks": "success",
+        "Astro build": "success"
+      },
+      "deployment": "skipped",
+      "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/37938630576"
+    }
+  },
+  "restored": {
+    "head": "ea77f28cf69a5c550fcb78fafae038657c37a504",
+    "latestFileCommit": "ea77f28cf69a5c550fcb78fafae038657c37a504",
+    "author": "0ne-small-stone",
+    "committer": "0ne-small-stone",
+    "blob": "889cbdef6775990adcbef093191e26c514163e0d",
+    "title": "网页新建文章验证（测试草稿 · 已重开）",
+    "draft": "true",
+    "hasRecoveryMarker": false,
+    "ci": {
+      "id": 37938748747,
+      "sha": "ea77f28cf69a5c550fcb78fafae038657c37a504",
+      "event": "push",
+      "conclusion": "success",
+      "checks": {
+        "Workflow syntax": "success",
+        "Repository checks": "success",
+        "Astro build": "success"
+      },
+      "deployment": "skipped",
+      "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/37938748747"
+    }
+  },
+  "source": {
+    "branch": "codex/t13-06-save-recovery",
+    "baseline": "19ccf0a830e4c5f6bb19b09238e09f64971ca788",
+    "head": "9e41528dfea880c8734dbe6b15784a31448e3ba7",
+    "sourceTreeSha": "ce517c995c9205204ccfeebc31492bea124589bf",
+    "sourceTreeUnchanged": true,
+    "contentFileCount": 48,
+    "contentBlobsUnchanged": true,
+    "discardedNewFilePresent": false,
+    "originalDraftBlob": "889cbdef6775990adcbef093191e26c514163e0d"
+  },
+  "officialConfig": {
+    "upstreamSha": "6f4e860a35d934406580287e7042e5e111e207a1",
+    "officialSchema": "passed",
+    "existingContentFilesUnchanged": 48,
+    "existingArticles": 4,
+    "officialSerialization": "passed",
+    "mediaDepth": "passed"
+  },
+  "hints": {
+    "edit": true,
+    "new": true,
+    "fixed": true,
+    "describedBy": "_r_1_-form-item-description",
+    "text": "先 Save 成功再离开。保存失败时先备份已改字段与 Source 正文；如提示版本冲突，再刷新、对照最新内容恢复修改并重试。返回列表会放弃未保存内容。"
+  },
+  "screenshots": [
+    "t13-06-cms-conflict-2026-10-09.png",
+    "t13-06-cms-retry-success-2026-10-09.png",
+    "t13-06-cms-edit-recovery-hint-2026-10-09.png",
+    "t13-06-cms-new-recovery-hint-2026-10-09.png"
+  ],
+  "screenshotStorage": "local chat visualization directory; not in public repo",
+  "designResourcesAdded": 0,
+  "limits": [
+    "no automatic backup or merge",
+    "unsaved-exit confirmation still missing",
+    "network/timeout/403/upload failures not tested",
+    "mobile and screen reader not tested",
+    "hosted CMS version unknown",
+    "no merge or deployment",
+    "user feedback pending"
+  ]
+}

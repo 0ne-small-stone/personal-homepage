@@ -1,5 +1,20 @@
 # 网页编辑与草稿验证
 
+## T13.06 保存冲突后的输入保留与重试
+
+当前验证入口为[新建表单](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-06-save-recovery/collection/articles/new)与[文章列表](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-06-save-recovery/collection/articles)，分支 `codex/t13-06-save-recovery`。标题旁的恢复说明在新建、编辑及固定验证稿都可见；仅增加操作指引，后台没有自动备份或自动合并。
+
+遇到 **File has changed since you last loaded it**（文件版本冲突）时：
+
+1. 留在表单，先把所有已改字段复制到本机文本文件；正文切到 **Source**，复制完整 Markdown。标题、摘要、日期、主题、标签、草稿状态及其他改动一起记录。
+2. 完成备份后再刷新。重新加载的是服务器最新版本，未保存输入会被放弃。
+3. 对照最新内容与备份，保留需要的双方修改，再填回表单。不要直接把他人的新版本覆盖为旧全文。
+4. **Save**，看到成功后重新打开核对标题、正文、草稿状态与分支提交；在 Actions 检查该笔提交。保存成功、构建通过和正式部署分别判断。
+
+2026-10-09 实测：两次真实版本冲突都保留标题/摘要/正文，直接重试仍失败且未误写；先备份再重载并填回后真实保存 `e2a3b94` 成功。重开正文标记保留，连续空行会被原生富文本规范化。测试后恢复 `ea77f28`，48 个内容文件与原文完全一致；两次成功提交各自三项 CI 通过，Deploy 跳过。[完整证据](iterations/t13-06-2026-10-09.md)。
+
+本轮未核验断网/超时、授权失败、上传失败或手机后台，不能套用“所有失败都未写入、都能直接重试”的结论。若结果不明确，先备份，再核对实际分支内容与提交。离开确认仍未实现；这份说明不能替代自动恢复。设计资源新增 0，没有合并或部署。
+
 ## T13.05 未保存离开验证与提示
 
 本轮[文章列表](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-05-unsaved-exit/collection/articles)及[新建入口](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-05-unsaved-exit/collection/articles/new)使用 `codex/t13-05-unsaved-exit`。新建、已有文章及固定验证稿的标题旁都提示：“需要保留修改时先点击 Save，再离开。返回列表会放弃未保存内容。”

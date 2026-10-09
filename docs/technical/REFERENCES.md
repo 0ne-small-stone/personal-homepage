@@ -1,5 +1,13 @@
 # 个人主页技术调研来源和候选方案
 
+## T13.06 保存冲突与恢复来源（2026-10-09）
+
+[GitHub Contents API](https://docs.github.com/en/rest/repos/contents#create-or-update-file-contents)要求更新时提供当前 blob SHA，并列出 409 Conflict。本轮只推进工作分支已有测试草稿的服务器版本，真实旧 SHA Save 失败后未产生提交；没有更改主分支保护或权限。
+
+固定官方源码 [Entry](https://github.com/hunvreus/pagescms/blob/6f4e860a35d934406580287e7042e5e111e207a1/components/entry/entry.tsx)的 POST 传递 sha，显示保存中/成功/错误，并在 finally 恢复保存状态；[官方固定版本源码](https://github.com/hunvreus/pagescms/tree/6f4e860a35d934406580287e7042e5e111e207a1)的 files/[path]/route.ts 对旧 SHA 返回文件已改变的错误，新建重名则可能自动改名。仅用于选取可控失败场景，不复制组件或将源码版本称为线上版本。托管部署版本仍未知，最终结论取自实际 UI 与仓库读回。
+
+[原生字段 description](https://pagescms.org/docs/configuration/content/fields/)覆盖本轮恢复说明需求；Source/Editor 已有，本轮不另建导出、自动备份或合并器。[实际验证](iterations/t13-06-2026-10-09.md)只覆盖旧版本冲突，不能推断断网、超时、403 或上传错误同样保留输入。
+
 ## T13.05 未保存说明与原生边界（2026-10-09）
 
 [官方字段配置](https://pagescms.org/docs/configuration/content/fields/)提供 `description` 作为字段下方说明，覆盖本轮两个 title 字段的最小提示需求。[官方 settings](https://pagescms.org/docs/configuration/settings/)及已缓存的固定版本 [ConfigSchema](https://github.com/hunvreus/pagescms/blob/6f4e860a35d934406580287e7042e5e111e207a1/lib/config-schema.ts)中没有找到未保存导航拦截开关；这是当前公开配置核对结果，不是对所有内部能力的断言。托管部署版本仍未知。缓存的 [EntryForm](https://github.com/hunvreus/pagescms/blob/6f4e860a35d934406580287e7042e5e111e207a1/components/entry/entry-form.tsx)可读 dirty 状态，但不以源码推断线上已保护导航。
