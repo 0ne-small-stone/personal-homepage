@@ -1,0 +1,404 @@
+{
+  "date": "2026-10-09T16:48:21.740Z",
+  "errors": [],
+  "failed": [],
+  "inputs": [
+    {
+      "time": 2593.800000011921,
+      "delta": 650,
+      "trusted": true
+    },
+    {
+      "time": 3525.600000023842,
+      "delta": -650,
+      "trusted": true
+    }
+  ],
+  "frames": [
+    {
+      "time": 2470.100000023842,
+      "y": 0,
+      "phase": "kv",
+      "rawIntro": 0,
+      "intro": 0
+    },
+    {
+      "time": 2524.5,
+      "y": 0,
+      "phase": "kv",
+      "rawIntro": 0,
+      "intro": 0
+    },
+    {
+      "time": 2598.600000023842,
+      "y": 226,
+      "phase": "works_intro",
+      "rawIntro": 0.14,
+      "intro": 0
+    },
+    {
+      "time": 2643,
+      "y": 329,
+      "phase": "works_intro",
+      "rawIntro": 0.2544444444444444,
+      "intro": 0.029946000005006794
+    },
+    {
+      "time": 2694,
+      "y": 412,
+      "phase": "works_intro",
+      "rawIntro": 0.3466666666666667,
+      "intro": 0.061128833945673366
+    },
+    {
+      "time": 2743,
+      "y": 475,
+      "phase": "works_intro",
+      "rawIntro": 0.4166666666666667,
+      "intro": 0.10395950885382235
+    },
+    {
+      "time": 2794.400000035763,
+      "y": 521,
+      "phase": "works_intro",
+      "rawIntro": 0.4677777777777778,
+      "intro": 0.15180370399918752
+    },
+    {
+      "time": 2855.699999988079,
+      "y": 560,
+      "phase": "works_intro",
+      "rawIntro": 0.5111111111111111,
+      "intro": 0.19976856836487716
+    },
+    {
+      "time": 2908.300000011921,
+      "y": 584,
+      "phase": "works_intro",
+      "rawIntro": 0.5377777777777778,
+      "intro": 0.2563706426584115
+    },
+    {
+      "time": 2956.300000011921,
+      "y": 601,
+      "phase": "works_intro",
+      "rawIntro": 0.5566666666666666,
+      "intro": 0.3007766885500558
+    },
+    {
+      "time": 3007.400000035763,
+      "y": 614,
+      "phase": "works_intro",
+      "rawIntro": 0.5711111111111111,
+      "intro": 0.33846928234493523
+    },
+    {
+      "time": 3057.5,
+      "y": 623,
+      "phase": "works_intro",
+      "rawIntro": 0.5811111111111111,
+      "intro": 0.3741332747114298
+    },
+    {
+      "time": 3108.699999988079,
+      "y": 630,
+      "phase": "works_intro",
+      "rawIntro": 0.5888888888888889,
+      "intro": 0.4040622698474216
+    },
+    {
+      "time": 3111.100000023842,
+      "y": 631,
+      "phase": "works_intro",
+      "rawIntro": 0.59,
+      "intro": 0.43367149420464485
+    },
+    {
+      "time": 3164,
+      "y": 636,
+      "phase": "works_intro",
+      "rawIntro": 0.5955555555555555,
+      "intro": 0.43507845075680307
+    },
+    {
+      "time": 3166.900000035763,
+      "y": 636,
+      "phase": "works_intro",
+      "rawIntro": 0.5955555555555555,
+      "intro": 0.45977587719107016
+    },
+    {
+      "time": 3319.199999988079,
+      "y": 644,
+      "phase": "works_intro",
+      "rawIntro": 0.6044444444444445,
+      "intro": 0.461405233331444
+    },
+    {
+      "time": 3375.199999988079,
+      "y": 646,
+      "phase": "works_intro",
+      "rawIntro": 0.6066666666666667,
+      "intro": 0.5264165547823028
+    },
+    {
+      "time": 3428.300000011921,
+      "y": 647,
+      "phase": "works_intro",
+      "rawIntro": 0.6077777777777778,
+      "intro": 0.5396818982825281
+    },
+    {
+      "time": 3476.800000011921,
+      "y": 648,
+      "phase": "works_intro",
+      "rawIntro": 0.6088888888888889,
+      "intro": 0.5505295718788155
+    },
+    {
+      "time": 3529,
+      "y": 476,
+      "phase": "works_intro",
+      "rawIntro": 0.4177777777777778,
+      "intro": 0.5592309460429303
+    },
+    {
+      "time": 3577.800000011921,
+      "y": 352,
+      "phase": "works_intro",
+      "rawIntro": 0.28,
+      "intro": 0.5374613034418646
+    },
+    {
+      "time": 3629.400000035763,
+      "y": 260,
+      "phase": "works_intro",
+      "rawIntro": 0.17777777777777778,
+      "intro": 0.49868763115272735
+    },
+    {
+      "time": 3676.900000035763,
+      "y": 196,
+      "phase": "works_intro",
+      "rawIntro": 0.10666666666666667,
+      "intro": 0.45016606128800507
+    },
+    {
+      "time": 3731.900000035763,
+      "y": 140,
+      "phase": "works_intro",
+      "rawIntro": 0.044444444444444446,
+      "intro": 0.4011143477729314
+    },
+    {
+      "time": 3780.800000011921,
+      "y": 105,
+      "phase": "works_intro",
+      "rawIntro": 0.005555555555555556,
+      "intro": 0.3418358098014704
+    },
+    {
+      "time": 3828.800000011921,
+      "y": 79,
+      "phase": "kv",
+      "rawIntro": 0,
+      "intro": 0.2923017283871261
+    },
+    {
+      "time": 3885.600000023842,
+      "y": 56,
+      "phase": "kv",
+      "rawIntro": 0,
+      "intro": 0.25082411311853936
+    },
+    {
+      "time": 3939.600000023842,
+      "y": 40,
+      "phase": "kv",
+      "rawIntro": 0,
+      "intro": 0.2088361565735257
+    },
+    {
+      "time": 4015.300000011921,
+      "y": 26,
+      "phase": "kv",
+      "rawIntro": 0,
+      "intro": 0.1742528890524184
+    },
+    {
+      "time": 4070.400000035763,
+      "y": 18,
+      "phase": "kv",
+      "rawIntro": 0,
+      "intro": 0.13436640274208805
+    },
+    {
+      "time": 4122.900000035763,
+      "y": 13,
+      "phase": "kv",
+      "rawIntro": 0,
+      "intro": 0.11235718596332339
+    },
+    {
+      "time": 4181,
+      "y": 9,
+      "phase": "kv",
+      "rawIntro": 0,
+      "intro": 0.09479575780931057
+    },
+    {
+      "time": 4231.400000035763,
+      "y": 7,
+      "phase": "kv",
+      "rawIntro": 0,
+      "intro": 0.07804534739423491
+    },
+    {
+      "time": 4285.699999988079,
+      "y": 5,
+      "phase": "kv",
+      "rawIntro": 0,
+      "intro": 0.0661746500583629
+    },
+    {
+      "time": 4338.900000035763,
+      "y": 4,
+      "phase": "kv",
+      "rawIntro": 0,
+      "intro": 0.05543450436099037
+    },
+    {
+      "time": 4391.600000023842,
+      "y": 3,
+      "phase": "kv",
+      "rawIntro": 0,
+      "intro": 0.04678672168067587
+    },
+    {
+      "time": 4447.900000035763,
+      "y": 2,
+      "phase": "kv",
+      "rawIntro": 0,
+      "intro": 0.039277452850927395
+    },
+    {
+      "time": 4504.5,
+      "y": 1,
+      "phase": "kv",
+      "rawIntro": 0,
+      "intro": 0.03276132342155387
+    },
+    {
+      "time": 4560.400000035763,
+      "y": 1,
+      "phase": "kv",
+      "rawIntro": 0,
+      "intro": 0.027119823524847386
+    },
+    {
+      "time": 4618.400000035763,
+      "y": 1,
+      "phase": "kv",
+      "rawIntro": 0,
+      "intro": 0.02251487749323794
+    },
+    {
+      "time": 4678.100000023842,
+      "y": 0,
+      "phase": "kv",
+      "rawIntro": 0,
+      "intro": 0.018664833441894253
+    },
+    {
+      "time": 4724.100000023842,
+      "y": 0,
+      "phase": "kv",
+      "rawIntro": 0,
+      "intro": 0.015400354072239442
+    },
+    {
+      "time": 4781.600000023842,
+      "y": 0,
+      "phase": "kv",
+      "rawIntro": 0,
+      "intro": 0.013159602554728603
+    },
+    {
+      "time": 4839.199999988079,
+      "y": 0,
+      "phase": "kv",
+      "rawIntro": 0,
+      "intro": 0.010952737207241863
+    },
+    {
+      "time": 4893.900000035763,
+      "y": 0,
+      "phase": "kv",
+      "rawIntro": 0,
+      "intro": 0.009014102721560054
+    },
+    {
+      "time": 4943.100000023842,
+      "y": 0,
+      "phase": "kv",
+      "rawIntro": 0,
+      "intro": 0.007553818080667326
+    },
+    {
+      "time": 4996.900000035763,
+      "y": 0,
+      "phase": "kv",
+      "rawIntro": 0,
+      "intro": 0.006425277659145481
+    },
+    {
+      "time": 5058.699999988079,
+      "y": 0,
+      "phase": "kv",
+      "rawIntro": 0,
+      "intro": 0.005388237844729615
+    },
+    {
+      "time": 5113,
+      "y": 0,
+      "phase": "kv",
+      "rawIntro": 0,
+      "intro": 0.0044054232616582345
+    }
+  ],
+  "browser": "154.0.8037.98",
+  "bundle": {
+    "file": "HomeJourney.BD6UEV05.js",
+    "bytes": 1162084,
+    "sha": "75f95f15d4a59ede68e0302fcf59673218f45da8600d929eee1a3f36562f05ee"
+  },
+  "forward": {
+    "time": 3077.699999988079,
+    "y": 623,
+    "h1": "Little Stone Still Here",
+    "h1Count": 1,
+    "copyCount": 0,
+    "titleEvents": 0,
+    "heroInert": true,
+    "focusSafe": true,
+    "canvas": 1,
+    "phase": "works_intro",
+    "rawIntro": 0.5811111111111111,
+    "intro": 0.3741332747114298
+  },
+  "reverse": {
+    "time": 4867.100000023842,
+    "y": 0,
+    "h1": "Little Stone Still Here",
+    "h1Count": 1,
+    "copyCount": 0,
+    "titleEvents": 0,
+    "heroInert": false,
+    "focusSafe": true,
+    "canvas": 1,
+    "phase": "kv",
+    "rawIntro": 0,
+    "intro": 0.010952737207241863
+  },
+  "pass": true
+}
