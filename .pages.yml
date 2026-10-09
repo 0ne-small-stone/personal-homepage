@@ -38,7 +38,7 @@ content:
     fields:
       - name: title
         label: 标题
-        description: 需要保留修改时先点击 Save，再离开。返回列表会放弃未保存内容。
+        description: '先 Save 成功再离开。保存失败时先备份已改字段与 Source 正文；如提示版本冲突，再刷新、对照最新内容恢复修改并重试。返回列表会放弃未保存内容。'
         type: string
         required: true
       - name: description
@@ -104,7 +104,7 @@ content:
     fields:
       - name: title
         label: 标题
-        description: 需要保留修改时先点击 Save，再离开。返回列表会放弃未保存内容。
+        description: '先 Save 成功再离开。保存失败时先备份已改字段与 Source 正文；如提示版本冲突，再刷新、对照最新内容恢复修改并重试。返回列表会放弃未保存内容。'
         type: string
         required: true
       - name: description

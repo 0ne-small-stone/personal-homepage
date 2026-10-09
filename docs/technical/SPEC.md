@@ -124,6 +124,8 @@ Starlight 已提供导航、搜索等基础能力；默认搜索由 Pagefind 实
 
 ## 统一知识库实现
 
+2026-10-09 T13.06：继续复用原生保存、错误提示及 Source/Editor；两处 title description 补“失败先备份、冲突再重载并对照恢复后重试”。真实旧 SHA 冲突两次未写入、输入保留，人工备份后重试成功；恢复原文后 48 个内容 blob 与基线相同。只核验此冲突，不提供自动备份/合并或所有错误的输入保障。现有 push 检查范围加入 `codex/t13-06-*`，部署条件不变，[实际记录](iterations/t13-06-2026-10-09.md)。
+
 2026-10-09 T13.05：真实托管未保存输入在原生侧栏/面包屑离开时直接放弃；当前官方配置未找到导航拦截开关，先以两处 title 的原生 description 说明保留/放弃流程。仅配置文案，不注入托管页面脚本、不自托管或更换 CMS；不把提示记为二次确认能力。后续修复导航保护需独立评估官方支持和维护成本。
 
 2026-10-09 T13.04：Pages CMS 原生 `articles` collection 读取既有 `src/content/docs/knowledge/blog` 平级 Markdown；保留固定验证文件入口，不新建 Astro 内容集合。新建必填 `entryId`（沿用小写英文/数字/短横线），原生文件模板 `{fields.entryId}.md`，关闭 rename/delete 和 subfolders；已有文章编辑沿用实际路径。默认 `kind: article`、`draft: true`，未建模字段继续 merge 保留。原生 UUID 会校验 UUID 格式，不能直接替换既有语义 ID，本轮不迁移旧标识；地址标识保存后保持的要求由字段说明和内容检查承接，非只读权限保证。媒体相对路径只覆盖本平级目录。现有 CI 增加 `codex/t13-04-*` push 检查范围，部署条件不变。
