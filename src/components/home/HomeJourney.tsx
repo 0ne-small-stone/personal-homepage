@@ -40,6 +40,7 @@ export default function HomeJourney({wordmarkUrl,albumUrl,projectUrl,neighborUrl
   const [paused,setPaused] = useState(false);
   const [reduced,setReduced] = useState(false);
   const [mobile,setMobile] = useState(false);
+  const [hover,setHover] = useState(false);
   const [visible,setVisible] = useState(true);
   const [detailed,setDetailed] = useState(true);
   const [attempt,setAttempt] = useState(0);
@@ -71,34 +72,32 @@ export default function HomeJourney({wordmarkUrl,albumUrl,projectUrl,neighborUrl
   useEffect(() => {
     const media = matchMedia('(prefers-reduced-motion: reduce)');
     const touch = matchMedia('(pointer: coarse)');
-    setReduced(media.matches); setMobile(touch.matches || innerWidth < 768);
+    const hoverMedia = matchMedia('(hover: hover) and (pointer: fine)');
+    setReduced(media.matches); setMobile(touch.matches || innerWidth < 768); setHover(hoverMedia.matches);
     try { setPaused(sessionStorage.getItem('lssh.home.paused') === 'true'); } catch { /* Optional. */ }
     const preference = () => {setReduced(media.matches); model.invalidate();};
-    const resize = () => {setMobile(touch.matches || innerWidth < 768); model.invalidate();};
+    const resize = () => {setMobile(touch.matches || innerWidth < 768); setHover(hoverMedia.matches); model.invalidate();};
     const visibility = () => setVisible(!document.hidden);
     const pageHide = () => setVisible(false);
     const pageShow = () => {setVisible(true); model.invalidate();};
-    media.addEventListener('change',preference); window.addEventListener('resize',resize); document.addEventListener('visibilitychange',visibility); window.addEventListener('pagehide',pageHide); window.addEventListener('pageshow',pageShow);
-    return () => {media.removeEventListener('change',preference); window.removeEventListener('resize',resize); document.removeEventListener('visibilitychange',visibility); window.removeEventListener('pagehide',pageHide); window.removeEventListener('pageshow',pageShow); gsap.killTweensOf(loader.current); document.body.classList.remove('home-enhanced','home-static','home-on-wall');};
+    media.addEventListener('change',preference); hoverMedia.addEventListener('change',resize); window.addEventListener('resize',resize); document.addEventListener('visibilitychange',visibility); window.addEventListener('pagehide',pageHide); window.addEventListener('pageshow',pageShow);
+    return () => {media.removeEventListener('change',preference); hoverMedia.removeEventListener('change',resize); window.removeEventListener('resize',resize); document.removeEventListener('visibilitychange',visibility); window.removeEventListener('pagehide',pageHide); window.removeEventListener('pageshow',pageShow); gsap.killTweensOf(loader.current); document.body.classList.remove('home-enhanced','home-static','home-on-wall');};
   }, [model]);
   useEffect(installHomeReturn,[]);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    let previous = {x:0,y:0,time:0};
     const pointer = (event: PointerEvent) => {
       if (event.pointerType !== 'mouse') return;
-      const x = event.clientX / innerWidth * 2 - 1, y = -(event.clientY / innerHeight * 2 - 1), time = performance.now();
-      const dt = Math.max(.016,(time-previous.time)/1000);
+      const x = event.clientX / innerWidth * 2 - 1, y = -(event.clientY / innerHeight * 2 - 1);
       model.pointer.x = x; model.pointer.y = y;
-      model.pointer.vx = gsap.utils.clamp(-.21,.21,(x-previous.x)/dt*.02);
-      model.pointer.vy = gsap.utils.clamp(-.21,.21,(y-previous.y)/dt*.02);
-      previous = {x,y,time}; model.invalidate();
+      if (!model.pointer.active) { model.pointer.active = true; model.pointer.revision++; }
+      model.invalidate();
     };
-    const leave = () => {model.pointer.x=0;model.pointer.y=0;};
-    window.addEventListener('pointermove',pointer,{passive:true}); document.documentElement.addEventListener('pointerleave',leave);
+    const leave = () => {model.pointer.active=false; model.invalidate();};
+    window.addEventListener('pointermove',pointer,{passive:true}); document.documentElement.addEventListener('pointerleave',leave); window.addEventListener('blur',leave);
     const timeout = window.setTimeout(()=>{if(!ready.current) fallback(true);},8000);
-    return () => {clearTimeout(timeout);window.removeEventListener('pointermove',pointer);document.documentElement.removeEventListener('pointerleave',leave);};
+    return () => {clearTimeout(timeout);window.removeEventListener('pointermove',pointer);document.documentElement.removeEventListener('pointerleave',leave);window.removeEventListener('blur',leave);};
   }, [model,attempt]);
 
   useEffect(() => {
@@ -121,7 +120,7 @@ export default function HomeJourney({wordmarkUrl,albumUrl,projectUrl,neighborUrl
       const lost=(event:Event)=>{event.preventDefault();fallback(true);};
       gl.domElement.addEventListener('webglcontextlost',lost,{once:true});
     }} fallback={<span>图形不可用</span>}>
-      <Suspense fallback={null}><WorksMotionDriver model={model} /><CameraRig model={model} mobile={mobile} quiet={paused||reduced} /><SceneLighting /><SceneBackdrop model={model} mobile={mobile} /><GlassTriangle model={model} paused={paused||reduced} mobile={mobile} low={mobile} detailed={detailed} />{!paused&&!reduced&&<><WorksIntroTitle model={model} /><WorksScene model={model} projectUrl={projectUrl} neighborUrl={neighborUrl} albumUrl={albumUrl} /></>}<RisingWall model={model} /><FirstFrame model={model} onReady={onReady} /></Suspense>
+      <Suspense fallback={null}><WorksMotionDriver model={model} /><CameraRig model={model} mobile={mobile} quiet={paused||reduced} /><SceneLighting /><SceneBackdrop model={model} mobile={mobile} /><GlassTriangle model={model} paused={paused||reduced||!visible} mobile={mobile} hover={hover} low={mobile} detailed={detailed} />{!paused&&!reduced&&<><WorksIntroTitle model={model} /><WorksScene model={model} projectUrl={projectUrl} neighborUrl={neighborUrl} albumUrl={albumUrl} /></>}<RisingWall model={model} /><FirstFrame model={model} onReady={onReady} /></Suspense>
     </Canvas></SceneBoundary></div>}
     {status === 'loading' && <div ref={loader} className="home-loader" role="status"><img className="home-loader-logo" src={wordmarkUrl} width="768" height="512" alt="Little Stone Still Here" /><p>正在准备光与玻璃</p><button onClick={()=>fallback()}>普通浏览</button></div>}
     <div className="home-scene-controls"><button className="home-sound" disabled aria-label="环境音尚未配置">声音未配置</button>{canRender&&<button className="home-quality" onClick={()=>{setDetailed(value=>!value);model.invalidate();}} aria-pressed={detailed}>光影细节</button>}<button onClick={togglePaused} disabled={reduced} aria-pressed={paused||reduced}>{reduced ? '减少动画已启用' : paused ? '继续动态' : '暂停动态'}</button>{status === 'error' && attempt < 1 && <button onClick={()=>{document.body.classList.remove('home-static');ready.current=false;stopped.current=false;setStatus('loading');setMessage('');setAttempt(value=>value+1);}}>重试场景</button>}</div>

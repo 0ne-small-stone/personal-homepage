@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { MeshTransmissionMaterial } from '@react-three/drei';
-import { ExtrudeGeometry, Shape, Path, Vector2, Vector3, Euler, Quaternion, MathUtils, Scene, type Mesh } from 'three';
+import { ExtrudeGeometry, Shape, Path, Vector2, Vector3, Scene, type Mesh } from 'three';
 import type { JourneyModel } from './scene-state';
-import { chapterPose } from './scene-state';
+import { GlassRotation } from './glass-rotation';
 import GlassOptics from './GlassOptics';
 import GlassReflectionEnvironment from './GlassReflectionEnvironment';
 
@@ -38,45 +38,26 @@ export function makeTriangleGeometry() {
   return geometry;
 }
 
-const poses = [
-  [.42, .03, 0, 1.14, .12, -.38, -.08],
-  [.58, .48, .25, .56, .16, -.7, .18],
-  [-.34, .34, -1.2, .58, -.12, .6, -.3],
-  [.69, -.08, -1.7, .5, .22, -.7, .36],
-  [-.45, .23, -1.6, .52, -.1, .5, -.23],
-  [.9, .7, -3, .25, .25, -.7, .5],
-];
-
-export default function GlassTriangle({ model, paused, mobile, low, detailed }: { model: JourneyModel; paused: boolean; mobile: boolean; low: boolean; detailed:boolean }) {
+export default function GlassTriangle({ model, paused, mobile, hover, low, detailed }: { model: JourneyModel; paused: boolean; mobile: boolean; hover: boolean; low: boolean; detailed:boolean }) {
   const mesh = useRef<Mesh>(null);
   const geometry = useMemo(makeTriangleGeometry, []);
   const reflectionScene = useMemo(() => new Scene(), []);
-  const rotation = useMemo(() => new Quaternion(), []);
-  const spin = useRef(0);
+  const rotation = useMemo(() => new GlassRotation(), []);
   const { viewport, camera, size } = useThree();
   useEffect(() => () => geometry.dispose(), [geometry]);
   useFrame((_, rawDt) => {
     if (!mesh.current) return;
-    const dt = Math.min(rawDt, .05);
-    const damping = 1 - Math.exp(-6 * dt);
-    const { index, next, blend } = chapterPose(model.progress);
-    const a = poses[index], b = poses[next];
-    const p = a.map((v, i) => MathUtils.lerp(v, b[i], blend));
-    if (!paused && !mobile) spin.current += .05 * dt;
-    const px = paused || mobile ? 0 : model.pointer.x * .14 + model.pointer.vx;
-    const py = paused || mobile ? 0 : model.pointer.y * .14 + model.pointer.vy;
+    const diagnostics = rotation.step(model, rawDt, paused, hover);
     // Latest user correction: one central anchor, no chapter-driven side placement.
     mesh.current.position.set(0, 0, 0);
     const currentView=viewport.getCurrentViewport(camera,new Vector3(0,0,0));
     const box = geometry.boundingBox!;
     const mobileScale = Math.min(currentView.height * .44 / (box.max.y - box.min.y), currentView.width * .84 / (box.max.x - box.min.x));
     mesh.current.scale.setScalar(mobile ? mobileScale : 1.14);
-    rotation.setFromEuler(new Euler(p[4] + py, p[5] + px + Math.sin(spin.current) * .22, p[6]));
-    mesh.current.quaternion.slerp(rotation, paused ? 1 : damping);
+    mesh.current.quaternion.copy(rotation.quaternion);
     mesh.current.visible = model.progress < 4.95;
-    model.pointer.vx *= Math.exp(-8 * dt);
-    model.pointer.vy *= Math.exp(-8 * dt);
     if (document.documentElement.dataset.motionDiagnostics === 'true') {
+      model.motion.glassRotation = diagnostics;
       mesh.current.updateMatrixWorld();
       const anchor = new Vector3().applyMatrix4(mesh.current.matrixWorld).project(camera);
       const positions = geometry.getAttribute('position'), point = new Vector3();
@@ -90,6 +71,11 @@ export default function GlassTriangle({ model, paused, mobile, low, detailed }: 
       model.motion.glass = { anchor: mesh.current.position.toArray(), quaternion: mesh.current.quaternion.toArray(), scale: mesh.current.scale.x,
         projectedAnchor: [(anchor.x + 1) * size.width / 2, (1 - anchor.y) * size.height / 2], bounds: [left, top, right, bottom],
         centeredLocalBounds: [...box.min.toArray(), ...box.max.toArray()] };
+      // A paused demand frame has no motion driver; expose the same read-only sample.
+      document.dispatchEvent(new CustomEvent('lssh:glass-rotation', { detail: {
+        time: performance.now(), y: scrollY, rotation: diagnostics, glass: model.motion.glass,
+        initialization: model.motion.initialization, camera: model.motion.camera,
+      } }));
     }
   },-1);
   return <>

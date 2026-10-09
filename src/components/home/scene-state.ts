@@ -1,7 +1,7 @@
 import { createMotionState, type MotionState } from './works-motion';
 export interface JourneyModel {
   progress: number;
-  pointer: { x: number; y: number; vx: number; vy: number };
+  pointer: { x: number; y: number; active: boolean; revision: number };
   invalidate: () => void;
   lastFrame: number;
   motion: MotionState;
@@ -9,7 +9,7 @@ export interface JourneyModel {
   afterFrame?: (dt: number) => void;
 }
 export function createJourneyModel(): JourneyModel {
-  return { progress: 0, pointer: { x: 0, y: 0, vx: 0, vy: 0 }, invalidate: () => {}, lastFrame: 0, motion: createMotionState() };
+  return { progress: 0, pointer: { x: 0, y: 0, active: false, revision: 0 }, invalidate: () => {}, lastFrame: 0, motion: createMotionState() };
 }
 
 export function chapterPose(progress: number) {
