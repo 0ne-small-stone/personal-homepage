@@ -1,5 +1,7 @@
 # 首页行为采集
 
+`node tools/qa/p01-grid.cjs` 为33C一批实际33B/候选桌面与390px首屏、intro、首卡的同条件对照。旧dist预存 `.ci-tmp/p01-33c-baseline/dist`。只检查背景局部网格、采样与既有输入；记录同姿态/时钟、真实CanvasTexture原PNG的变化范围、原生扫过/停手/正反短滚动、暂停及减少动画，不重测旧求解器。背景用GPU画面就绪后采集。需Playwright、PNGJS与Chrome，无新增应用依赖。`LSSH_QA_PHASE=confirm`保留初批失败，只重采修正后候选，旧对照沿用初批。
+
 `node tools/qa/p01-edge-light.cjs` 为33B实际33A/候选构建五组光域对照和短程输入/停手GPU读回。旧dist预存 `.ci-tmp/p01-33b-baseline/dist`；背景探针限定Plane、CanvasTexture、local z=-2，避免误抓标题纹理。桌面中性首屏在当前flow GPU帧读到非黑背景后才采图。`LSSH_QA_PHASE=confirm`复用初批旧构建，仅采候选及环境/透射诊断图；`LSSH_QA_READY_TOP=1 LSSH_QA_PHASE=top-ready`只补旧/新首屏就绪。原始失败与黑图保留。资源稳定在停手固定S0窗口判断，滚动触发懒加载的11→14不当成泄漏。没有新增应用诊断界面或依赖，通道图仅在测试页修改输出，不能当生产效果图。
 
 33A首批原始无WebGL建图错误判据保留。`LSSH_QA_FALLBACK_ONLY=1 LSSH_QA_PHASE=confirm node tools/qa/p01-width.cjs` 仅确认故意禁WebGL的预期context错误分类及真实Becoming进入/后退；非预期错误要求0。证据目录已存在时脚本拒绝覆盖，不为此项重跑已通过的静态/输入批次。
