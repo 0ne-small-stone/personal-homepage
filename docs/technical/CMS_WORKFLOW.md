@@ -1,5 +1,18 @@
 # 网页编辑与草稿验证
 
+## T13.07 图片选择取消与正文保留
+
+[打开验证稿](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-07-media-cancel/file/article-draft)，工作分支 `codex/t13-07-media-cancel`。正文旁已说明原生入口、取消路径和上传边界。
+
+1. 正文切到 **Editor**，末尾另起空行输入 `/`，选 **Image**，打开 **Select images**。
+2. 可选中已有功能样本，不点 **Select**。点击右上角 **Close** 或按 **Esc** 取消，等待关闭动画结束。
+3. 重新点击正文继续编辑；本次原生取消后焦点没有自动回正文。核对之前的未保存标题、文字及原图都在；再次开弹窗，前次选择应清空，Select 不可用。
+4. 要保留修改就 Save 成功后再离开；只体验取消则不 Save，重载恢复原稿。不要用 Upload 提交新文件来验证取消。
+
+**取消选图不等于撤回上传。** Upload 选中文件会立即写入公开仓库，关闭选图弹窗不会删除已经上传的文件；正文还需另点 Save。[T13.02 真实上传记录](iterations/t13-02-hosted-2026-10-08.md)与本轮取消分别验收。
+
+2026-10-09 已实测未选 Close、已选 Esc、重开选择清空、继续编辑及重载原文，取消前后没有仓库写入。工具控制的文件选择打开后没有提交文件，但不具备取消按钮操作，系统文件选择器 Cancel 未记为通过；上传中止、回滚与失败另验。[实际记录](iterations/t13-07-2026-10-09.md)。设计资源新增 0，没有合并或部署。
+
 ## T13.06 保存冲突后的输入保留与重试
 
 当前验证入口为[新建表单](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-06-save-recovery/collection/articles/new)与[文章列表](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-06-save-recovery/collection/articles)，分支 `codex/t13-06-save-recovery`。标题旁的恢复说明在新建、编辑及固定验证稿都可见；仅增加操作指引，后台没有自动备份或自动合并。
