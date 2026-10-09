@@ -1,5 +1,13 @@
 # 个人主页技术调研来源和候选方案
 
+## T13.07 图片选择取消来源（2026-10-09）
+
+复用 [Pages CMS rich-text](https://pagescms.org/docs/configuration/fields/rich-text/) 的 Markdown、Editor/Source 和命名媒体源。[固定官方 MediaDialog](https://github.com/hunvreus/pagescms/blob/6f4e860a35d934406580287e7042e5e111e207a1/components/media/media-dialog.tsx)的关闭会清空 selectedImages，只有 Select 才调用正文插入；[rich-text 接入](https://github.com/hunvreus/pagescms/blob/6f4e860a35d934406580287e7042e5e111e207a1/fields/core/rich-text/edit-component.tsx)在关闭时取消待选择结果。本机缓存已读，MIT；不复制到应用源码，托管部署版本未知。
+
+[固定官方 MediaUpload](https://github.com/hunvreus/pagescms/blob/6f4e860a35d934406580287e7042e5e111e207a1/components/media/media-upload.tsx)在选中文件后发起媒体 POST；关闭选择弹窗不构成该写入的撤回。本轮没有新上传，不以源码推断已验中止或回滚；[T13.02](iterations/t13-02-hosted-2026-10-08.md)已有单张真实上传证据。
+
+[字段 description](https://pagescms.org/docs/configuration/content/fields/)承接入口与取消边界的最小说明。当前 rich-text 公开配置未找到关闭后恢复正文焦点的开关；实测焦点是 BODY，因此保留该缺口，不另建上传器或在托管后台注入脚本。[真实记录](iterations/t13-07-2026-10-09.md)区分 Close/Esc、工具控制的文件选择打开和未验的系统取消按钮。
+
 ## T13.06 保存冲突与恢复来源（2026-10-09）
 
 [GitHub Contents API](https://docs.github.com/en/rest/repos/contents#create-or-update-file-contents)要求更新时提供当前 blob SHA，并列出 409 Conflict。本轮只推进工作分支已有测试草稿的服务器版本，真实旧 SHA Save 失败后未产生提交；没有更改主分支保护或权限。
