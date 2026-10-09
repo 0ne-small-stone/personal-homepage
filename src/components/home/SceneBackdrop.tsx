@@ -24,21 +24,6 @@ export default function SceneBackdrop({ model, mobile }: { model: JourneyModel; 
     // SYSTEM 9.3.1 coordinates describe the visible frame, within the overscan.
     const frameX = (x: number) => width * (.5 + (x - .5) / overscan);
     const frameY = (y: number) => height * (.5 + (y - .5) / overscan);
-    const edgeLight = (x: number, y: number, rx: number, ry: number, color: string) => {
-      ctx.save();
-      ctx.translate(frameX(x), frameY(y)); ctx.scale(width * rx / overscan, height * ry / overscan);
-      const gradient = ctx.createRadialGradient(0, 0, 0, 0, 0, 1);
-      const value = parseInt(color.slice(1, 3), 16);
-      gradient.addColorStop(0, color);
-      gradient.addColorStop(.25, `rgba(${value},${value},${value},.55)`);
-      gradient.addColorStop(.5, `rgba(${value},${value},${value},.16)`);
-      gradient.addColorStop(.8, `rgba(${value},${value},${value},.025)`);
-      gradient.addColorStop(1, 'rgba(0,0,0,0)');
-      ctx.globalCompositeOperation = 'screen'; ctx.fillStyle = gradient; ctx.fillRect(-1, -1, 2, 2);
-      ctx.restore();
-    };
-    edgeLight(1.04, .64, .26, .48, '#484848');
-    edgeLight(-.08, .22, .22, .35, '#282828');
     // A sparse curved surface in the right light field, measured in CSS pixels.
     // It shares this texture's sampling, flow, fade and disposal with the bricks.
     const spacing = mobile ? 72 : 80;

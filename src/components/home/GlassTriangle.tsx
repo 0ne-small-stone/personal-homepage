@@ -6,6 +6,7 @@ import type { JourneyModel } from './scene-state';
 import { GlassRotation } from './glass-rotation';
 import GlassOptics from './GlassOptics';
 import GlassReflectionEnvironment from './GlassReflectionEnvironment';
+import GlassEdgeLight from './GlassEdgeLight';
 
 function roundedTriangle(points: Vector2[], radius: number, target: Shape | Path) {
   const entries = points.map((v, i) => v.clone().lerp(points[(i + points.length - 1) % points.length], radius));
@@ -84,6 +85,7 @@ export default function GlassTriangle({ model, paused, mobile, hover, low, detai
     {detailed && <GlassReflectionEnvironment scene={reflectionScene} />}
     <mesh ref={mesh} geometry={geometry}>
       {detailed ? <GlassOptics mesh={mesh} low={low} reflectionScene={reflectionScene} /> : <MeshTransmissionMaterial samples={low ? 2 : 4} resolution={low ? 256 : 512} transmission={1} roughness={.08} thickness={.25} ior={1.45} chromaticAberration={.015} anisotropicBlur={0} distortion={0} temporalDistortion={0} backside={false} color="#ffffff" envMapIntensity={.8} specularIntensity={.35} />}
+      <GlassEdgeLight mesh={mesh} geometry={geometry} model={model} mobile={mobile} />
     </mesh>
   </>;
 }
