@@ -1,5 +1,17 @@
 # 网页编辑与草稿验证
 
+## T13.05 未保存离开验证与提示
+
+本轮[文章列表](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-05-unsaved-exit/collection/articles)及[新建入口](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-05-unsaved-exit/collection/articles/new)使用 `codex/t13-05-unsaved-exit`。新建、已有文章及固定验证稿的标题旁都提示：“需要保留修改时先点击 Save，再离开。返回列表会放弃未保存内容。”
+
+- **保留修改**：先 Save，刷新核对值仍在，再离开。保存会写入工作分支并触发既有三项检查；正式网站仍需 PR 合并和成功部署。
+- **放弃修改/取消新建**：不 Save，点击左侧或面包屑“文章”回列表。当前托管界面直接放弃，没有二次确认；重开已有文章读取已存原文，再点 Add an entry 是空的新建表单。需要保留但尚未保存时，留在当前表单继续编辑。
+- **验证本轮**：打开新建入口，在标题旁核对提示；填一段明确的测试文字，不 Save，再回“文章”。列表应仍为四篇，重新新建标题/地址应为空。也可只在“网页新建文章验证（测试草稿 · 已重开）”上改标题后不 Save，返回并重开，标题应恢复。别用尚未保存的正式正文做这项测试。
+
+2026-10-09 已实测侧栏返回、面包屑返回及重新打开；本轮没有点击 Save，测试前后远程 head `682b994`、原稿 blob `889cbde` 不变。配置推送后远程 src 树与基线相同，48 个内容文件均未变，`demo-article-unsaved-exit-check.md` 没有创建。CUA 的 reload 后恢复原标题，未观察到提示；没有因此验证所有浏览器的刷新、关闭手势。[实际记录](iterations/t13-05-2026-10-09.md)。
+
+二次离开确认、自动保存和失败恢复未实现；本轮说明只让保留/放弃结果明确。使用官方托管版和原生字段，不在网页注入拦截脚本，也不新增自托管后台。设计资源新增 0。[草稿 PR #23](https://github.com/0ne-small-stone/personal-homepage/pull/23)保留实际缺口，正式部署另验。
+
 ## T13.04 文章列表与新建草稿
 
 当前入口为[文章列表](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-04-article-collection/collection/articles)，分支 `codex/t13-04-article-collection`。本轮配置与测试稿已在工作分支；继续使用已有 GitHub 登录和授权。列表显示标题、草稿状态及日期，搜索读取标题与摘要，默认日期降序。固定“文章编辑与发布验证”入口保留。

@@ -1,5 +1,11 @@
 # 个人主页技术调研来源和候选方案
 
+## T13.05 未保存说明与原生边界（2026-10-09）
+
+[官方字段配置](https://pagescms.org/docs/configuration/content/fields/)提供 `description` 作为字段下方说明，覆盖本轮两个 title 字段的最小提示需求。[官方 settings](https://pagescms.org/docs/configuration/settings/)及已缓存的固定版本 [ConfigSchema](https://github.com/hunvreus/pagescms/blob/6f4e860a35d934406580287e7042e5e111e207a1/lib/config-schema.ts)中没有找到未保存导航拦截开关；这是当前公开配置核对结果，不是对所有内部能力的断言。托管部署版本仍未知。缓存的 [EntryForm](https://github.com/hunvreus/pagescms/blob/6f4e860a35d934406580287e7042e5e111e207a1/components/entry/entry-form.tsx)可读 dirty 状态，但不以源码推断线上已保护导航。
+
+真实托管侧栏/面包屑返回直接放弃输入，原文未误写；工具 reload 也恢复已存标题，所有刷新/关闭手势未验。配置只能承接清楚说明，本轮不新建后台或注入脚本，留在编辑/继续离开的二次确认继续列为缺口。[实际记录](iterations/t13-05-2026-10-09.md)。
+
 ## T13.04 原生文章集合来源（2026-10-09）
 
 复用 Pages CMS 官方的 [content/collection](https://pagescms.org/docs/configuration/content/)、[filename 模板](https://pagescms.org/docs/configuration/content/filename/)、[列表 view](https://pagescms.org/docs/configuration/content/view/)、[operations](https://pagescms.org/docs/configuration/content/operations/) 和 [字段 pattern](https://pagescms.org/docs/configuration/content/fields/)。原生集合覆盖同目录的列表、新建、搜索与再编辑；采用 `{fields.entryId}.md`、默认草稿及现有图片配置，无额外后台、依赖或路由主题。

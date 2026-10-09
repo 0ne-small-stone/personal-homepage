@@ -2,7 +2,7 @@ name: Site CI and Pages
 
 on:
   push:
-    branches: [main, 'codex/t13-03-*', 'codex/t13-04-*']
+    branches: [main, 'codex/t13-03-*', 'codex/t13-04-*', 'codex/t13-05-*']
   pull_request:
     branches: [main]
   workflow_dispatch:
