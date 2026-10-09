@@ -200,6 +200,11 @@ Waline 曾作为匿名留言候选。当前用户已接受 Giscus，Waline 不�
 
 2026-10-07 用户已选择 GitHub Pages；EdgeOne 保留为历史候选。不要把免费额度写成永久承诺，也不要把外部服务对大陆访客的可用性写成已验证结论。
 
+## T13.10 原生正文链接来源（2026-10-09）
+
+- [Pages CMS 富文本配置](https://pagescms.org/docs/configuration/fields/rich-text/)和[固定官方编辑器](https://github.com/hunvreus/pagescms/blob/6f4e860a35d934406580287e7042e5e111e207a1/components/ui/editor/index.tsx)：MIT；原生 Link `openOnClick: false`、已有地址预填、`Set link`/Enter 应用、`extendMarkRange` 更新链接；[富文本适配](https://github.com/hunvreus/pagescms/blob/6f4e860a35d934406580287e7042e5e111e207a1/fields/core/rich-text/edit-component.tsx)承接 Markdown，不复制代码或换编辑器。
+- 托管版本未读回，实际选择/插入/修改、原生 GitHub 保存/刷新、网站草稿点击到正确文章和官方文档构成验收；只验证本轮有效相对地址和 HTTPS 地址，不扩大为所有协议、空/非法地址、移除/取消或手机已验。[实际记录](iterations/t13-10-2026-10-09.md)。
+
 ## T13.09 原生图片替代文本来源（2026-10-09）
 
 - [Pages CMS 原生富文本配置](https://pagescms.org/docs/configuration/fields/rich-text/)：继续使用既有 Markdown、Editor/Source 与命名媒体源，只补操作说明。
