@@ -1,0 +1,626 @@
+{
+  "initial": {
+    "total": 31,
+    "passed": 30,
+    "failed": [
+      "source: no unexpected script errors"
+    ]
+  },
+  "confirm": {
+    "total": 33,
+    "passed": 33,
+    "pass": true
+  },
+  "sites": {
+    "source": {
+      "bundle": {
+        "url": "https://alche.studio/_astro/index.astro_astro_type_script_index_0_lang.Cn_goiN_.js",
+        "sha256": "b2bd0d964416bd3db61b1392d2b645314e50ea79cadb09f69755d5f4c3791853",
+        "bytes": 1831372
+      },
+      "stage": [
+        {
+          "requestedMs": 0,
+          "time": 18702.933333357105,
+          "w": 0.0005606267882427574
+        },
+        {
+          "requestedMs": 250,
+          "time": 18952.933333357123,
+          "w": 0.055341767002066444
+        },
+        {
+          "requestedMs": 500,
+          "time": 19202.93333335714,
+          "w": 0.5510764505962611
+        },
+        {
+          "requestedMs": 750,
+          "time": 19452.93333335716,
+          "w": 0.9632755387675969
+        },
+        {
+          "requestedMs": 1000,
+          "time": 19702.933333357178,
+          "w": 1
+        }
+      ],
+      "timings": [
+        {
+          "name": "top-still-5s",
+          "frames": 300,
+          "glSeconds": 5.000000000000004,
+          "clockSeconds": 4.983333333333363,
+          "wallSeconds": 32.38389999997616
+        },
+        {
+          "name": "pointer-region-stop-leave",
+          "frames": 470,
+          "glSeconds": 7.833000000000045,
+          "clockSeconds": 7.8166666666664755,
+          "wallSeconds": 48.889
+        },
+        {
+          "name": "G-and-H-plus-G",
+          "frames": 86,
+          "glSeconds": 1.433999999999999,
+          "clockSeconds": 1.4166666666667698,
+          "wallSeconds": 9.046
+        },
+        {
+          "name": "quick-stage-reversal",
+          "frames": 78,
+          "glSeconds": 1.2999999999999996,
+          "clockSeconds": 1.2833333333334267,
+          "wallSeconds": 8.004600000023842
+        },
+        {
+          "name": "wheel-forward-stop-reverse",
+          "frames": 213,
+          "glSeconds": 3.549999999999992,
+          "clockSeconds": 3.5333333333335903,
+          "wallSeconds": 24.458
+        }
+      ],
+      "neutral": {
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "errors": [
+        "Network request failed"
+      ],
+      "failed": [
+        {
+          "url": "https://www.googletagmanager.com/gtag/js?id=G-R00M7W3JTS",
+          "error": "net::ERR_CONNECTION_CLOSED"
+        },
+        {
+          "url": "https://alche.studio/top/service/ue.mp4",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://alche.studio/top/service/uefn.mp4",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://alche.studio/top/service/stellla.mp4",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://p.typekit.net/p.gif?s=1&k=ukr2yqt&ht=tk&h=alche.studio&f=6771.21540.21545.26053.26055.26058.26062.26065.26072.26086.26141.29403.35819.35820.47290.47292&a=25319415&js=1.12.0&app=typekit&e=js&_=1791517369635.3333",
+          "error": "net::ERR_CONNECTION_CLOSED"
+        }
+      ]
+    },
+    "local": {
+      "bundle": {
+        "url": "http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.DskuO2n8.js",
+        "sha256": "e6dc0658bc7ed9c063b59420937e026096c40282eb9c144d19155ced73ac4586",
+        "bytes": 1147171
+      },
+      "stage": [
+        {
+          "requestedMs": 0,
+          "time": 15583.866666654536,
+          "w": 0.0005485056636847705
+        },
+        {
+          "requestedMs": 250,
+          "time": 15833.866666654527,
+          "w": 0.05512415526783802
+        },
+        {
+          "requestedMs": 500,
+          "time": 16083.866666654518,
+          "w": 0.5500816634740792
+        },
+        {
+          "requestedMs": 750,
+          "time": 16333.866666654509,
+          "w": 0.9631245421378146
+        },
+        {
+          "requestedMs": 1000,
+          "time": 16583.86666665452,
+          "w": 1
+        }
+      ],
+      "timings": [
+        {
+          "name": "top-still-5s",
+          "frames": 300,
+          "glSeconds": 5.0000000000000115,
+          "clockSeconds": 4.983333333333352,
+          "wallSeconds": 9.237399999976159
+        },
+        {
+          "name": "pointer-region-stop-leave",
+          "frames": 471,
+          "glSeconds": 7.849999999999763,
+          "clockSeconds": 7.833333333333159,
+          "wallSeconds": 12.501600000023842
+        },
+        {
+          "name": "G-and-H-plus-G",
+          "frames": 88,
+          "glSeconds": 1.466666666666685,
+          "clockSeconds": 1.4500000000000182,
+          "wallSeconds": 2.232800000011921
+        },
+        {
+          "name": "quick-stage-reversal",
+          "frames": 78,
+          "glSeconds": 1.3000000000000942,
+          "clockSeconds": 1.2833333333334267,
+          "wallSeconds": 2.0567999999523163
+        },
+        {
+          "name": "wheel-forward-stop-reverse",
+          "frames": 213,
+          "glSeconds": 3.550000000000266,
+          "clockSeconds": 3.5333333333335903,
+          "wallSeconds": 4.347600000023842
+        },
+        {
+          "name": "pause-move-resume",
+          "frames": 28,
+          "glSeconds": 0.4833333333333662,
+          "clockSeconds": 1.0000000000000728,
+          "wallSeconds": 0.7748999999761581
+        },
+        {
+          "name": "simulated-document-hidden-visible",
+          "frames": 27,
+          "glSeconds": 0.4666666666666983,
+          "clockSeconds": 0.6166666666667115,
+          "wallSeconds": 0.541
+        }
+      ],
+      "neutral": {
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "projectedAnchor": [
+          720,
+          450
+        ],
+        "bounds": [
+          429.000707993086,
+          195.80618563952575,
+          1010.9992920069141,
+          704.1964492871641
+        ]
+      },
+      "errors": [],
+      "failed": []
+    },
+    "mobile": {
+      "bundle": {
+        "url": "http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.DskuO2n8.js",
+        "sha256": "e6dc0658bc7ed9c063b59420937e026096c40282eb9c144d19155ced73ac4586",
+        "bytes": 1147171
+      },
+      "timings": [
+        {
+          "name": "top-still-5s",
+          "frames": 300,
+          "glSeconds": 5.000000000000013,
+          "clockSeconds": 4.983333333333354,
+          "wallSeconds": 2.674800000011921
+        },
+        {
+          "name": "native-touch-swipes",
+          "frames": 276,
+          "glSeconds": 4.599999999999941,
+          "clockSeconds": 4.58333333333327,
+          "wallSeconds": 3.589699999988079
+        },
+        {
+          "name": "works-without-hover",
+          "frames": 37,
+          "glSeconds": 0.616666666666644,
+          "clockSeconds": 0.5999999999999782,
+          "wallSeconds": 0.23019999998807908
+        }
+      ],
+      "neutral": {
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "projectedAnchor": [
+          195,
+          422
+        ],
+        "bounds": [
+          27.7674127552005,
+          275.918925561797,
+          362.2325872447995,
+          568.0825886879611
+        ]
+      },
+      "errors": [],
+      "failed": []
+    },
+    "narrow-desktop": {
+      "bundle": {
+        "url": "http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.DskuO2n8.js",
+        "sha256": "e6dc0658bc7ed9c063b59420937e026096c40282eb9c144d19155ced73ac4586",
+        "bytes": 1147171
+      },
+      "timings": [
+        {
+          "name": "fine-pointer-at-narrow-width",
+          "frames": 13,
+          "glSeconds": 0.21666666666666767,
+          "clockSeconds": 0.2000000000000009,
+          "wallSeconds": 0.1254000000357628
+        }
+      ],
+      "neutral": null,
+      "errors": [],
+      "failed": []
+    }
+  },
+  "selectedChecks": [
+    {
+      "name": "source: stopped input decays and returns",
+      "pass": true,
+      "evidence": {
+        "peak": 0.7466456842339264,
+        "lastAngle": 0.002090475056419178,
+        "residual": [
+          1.3372575621636919e-25,
+          9.486996547146966e-23
+        ]
+      }
+    },
+    {
+      "name": "source: source order distinguished during vertical transition",
+      "pass": true,
+      "evidence": {
+        "frames": 22,
+        "maxCorrectError": 0,
+        "maxWrongOrderError": 0.000002617110344630411
+      }
+    },
+    {
+      "name": "source: actual Lenis positive and negative speed",
+      "pass": true,
+      "evidence": {
+        "min": -44.57700030320484,
+        "max": 44.57700030320484,
+        "trustedWheel": 4
+      }
+    },
+    {
+      "name": "local: stopped input decays and returns",
+      "pass": true,
+      "evidence": {
+        "peak": 0.10409779926850325,
+        "lastAngle": 0.0020517192366208037,
+        "residual": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "name": "local: source order distinguished during vertical transition",
+      "pass": true,
+      "evidence": {
+        "frames": 20,
+        "maxCorrectError": 0,
+        "maxWrongOrderError": 0.0000021594944323427285
+      }
+    },
+    {
+      "name": "local: actual Lenis positive and negative speed",
+      "pass": true,
+      "evidence": {
+        "min": -44.57700030320484,
+        "max": 44.57700030320484,
+        "trustedWheel": 4
+      }
+    },
+    {
+      "name": "local: gallery back consumes existing initialization",
+      "pass": true,
+      "evidence": {
+        "focus": "entry-album",
+        "y": 3700,
+        "quaternion": [
+          0,
+          -0.008329070860048048,
+          0,
+          0.9999653126876994
+        ],
+        "initialization": {
+          "revision": 2,
+          "y": 3700,
+          "zoom": 0,
+          "reason": "back-forward"
+        }
+      }
+    },
+    {
+      "name": "mobile: actual touch scroll reaches works",
+      "pass": true,
+      "evidence": {
+        "maxY": 2897,
+        "trustedTouch": 29
+      }
+    },
+    {
+      "name": "mobile: base rotation and speed remain without hover",
+      "pass": true,
+      "evidence": {
+        "first": {
+          "time": 12393.533333321318,
+          "y": 1794,
+          "rotation": {
+            "dt": 0.01666666666666606,
+            "rawDt": 0.01666666666666606,
+            "paused": false,
+            "hover": false,
+            "reset": "",
+            "initialization": 1,
+            "phase": "works",
+            "pointer": {
+              "target": [
+                0,
+                0
+              ],
+              "current": [
+                0,
+                0
+              ],
+              "residual": [
+                0,
+                0
+              ],
+              "active": false,
+              "revision": 0,
+              "weight": 0
+            },
+            "worksRotate": {
+              "value": 1,
+              "from": 0,
+              "target": 1,
+              "elapsed": 1,
+              "revision": 1
+            },
+            "wBefore": 1,
+            "eulerBefore": [
+              0,
+              0,
+              0
+            ],
+            "euler": [
+              0,
+              0,
+              0
+            ],
+            "velocity": {
+              "raw": -1,
+              "clamped": -1,
+              "current": -1.5966508805947033
+            },
+            "yIncrement": -0.006736682452738327,
+            "returnFactor": 0.0003333333333333211,
+            "before": [
+              0,
+              0.9841964588251524,
+              0,
+              0.1770800113960827
+            ],
+            "quaternion": [
+              0,
+              0.9835107582812131,
+              0,
+              0.18084962909865157
+            ]
+          },
+          "glass": {
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "quaternion": [
+              0,
+              0.9835107582812131,
+              0,
+              0.18084962909865157
+            ],
+            "scale": 1.4299175543771505,
+            "projectedAnchor": [
+              195,
+              422
+            ],
+            "bounds": [
+              49.27803985274047,
+              275.89979019600594,
+              366.7768856335055,
+              584.3348282179064
+            ],
+            "centeredLocalBounds": [
+              -1.2262870073318481,
+              -1.071435570716858,
+              -0.11499999463558197,
+              1.2262870073318481,
+              1.071435570716858,
+              0.11499999463558197
+            ]
+          },
+          "initialization": {
+            "revision": 1,
+            "y": 0,
+            "zoom": 1,
+            "reason": "layout"
+          },
+          "camera": {
+            "position": [
+              0,
+              0,
+              6
+            ],
+            "fov": 73.95384615384616
+          },
+          "wallTime": 8184.899999976158
+        },
+        "last": {
+          "time": 12993.533333321297,
+          "y": 1788,
+          "rotation": {
+            "dt": 0.01666666666666606,
+            "rawDt": 0.01666666666666606,
+            "paused": false,
+            "hover": false,
+            "reset": "",
+            "initialization": 1,
+            "phase": "works",
+            "pointer": {
+              "target": [
+                0,
+                0
+              ],
+              "current": [
+                0,
+                0
+              ],
+              "residual": [
+                0,
+                0
+              ],
+              "active": false,
+              "revision": 0,
+              "weight": 0
+            },
+            "worksRotate": {
+              "value": 1,
+              "from": 0,
+              "target": 1,
+              "elapsed": 1,
+              "revision": 1
+            },
+            "wBefore": 1,
+            "eulerBefore": [
+              0,
+              0,
+              0
+            ],
+            "euler": [
+              0,
+              0,
+              0
+            ],
+            "velocity": {
+              "raw": -1,
+              "clamped": -1,
+              "current": -1.0260214859926409
+            },
+            "yIncrement": -0.007307311847340389,
+            "returnFactor": 0.0003333333333333211,
+            "before": [
+              0,
+              0.9484680215699066,
+              0,
+              0.316872864188894
+            ],
+            "quaternion": [
+              0,
+              0.9471709588155586,
+              0,
+              0.32072912991560604
+            ]
+          },
+          "glass": {
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "quaternion": [
+              0,
+              0.9471709588155586,
+              0,
+              0.32072912991560604
+            ],
+            "scale": 1.4299175543771505,
+            "projectedAnchor": [
+              195,
+              422
+            ],
+            "bounds": [
+              75.58202310534017,
+              276.3263321805146,
+              358.95578374582914,
+              597.6848796714764
+            ],
+            "centeredLocalBounds": [
+              -1.2262870073318481,
+              -1.071435570716858,
+              -0.11499999463558197,
+              1.2262870073318481,
+              1.071435570716858,
+              0.11499999463558197
+            ]
+          },
+          "initialization": {
+            "revision": 1,
+            "y": 0,
+            "zoom": 1,
+            "reason": "layout"
+          },
+          "camera": {
+            "position": [
+              0,
+              0,
+              6
+            ],
+            "fov": 73.95384615384616
+          },
+          "wallTime": 8415.099999964237
+        }
+      }
+    },
+    {
+      "name": "reduced: native content and gallery link",
+      "pass": true,
+      "evidence": {
+        "quiet": true,
+        "links": 5
+      }
+    }
+  ]
+}
