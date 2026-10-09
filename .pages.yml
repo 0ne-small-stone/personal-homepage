@@ -19,6 +19,9 @@ content:
     type: file
     path: src/data/blog-settings.json
     format: json
+    commit:
+      templates:
+        update: 'config(blog): 更新博客标签浏览设置'
     operations:
       create: false
       rename: false
