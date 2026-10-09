@@ -52,9 +52,6 @@
 .home-enhanced:not(.home-quiet) .home-hero .home-chapter-viewport { position: fixed; inset: 0; height: var(--journey-height, 100svh); min-height: 0; }
 .home-enhanced:not(.home-quiet) .home-hero .home-chapter-viewport[inert] { pointer-events: none; }
 .home-enhanced:not(.home-quiet) .home-works-intro { display: block; height: var(--journey-height, 100svh); pointer-events: none; }
-.home-works-intro-title { position: fixed; inset: 48% 0 auto; transform: translateY(-50%); margin: 0; text-align: center; font: 500 clamp(3.25rem, 9vw, 9rem)/.98 var(--font-home-display); letter-spacing: -.025em; color: #a1a1a1; opacity: 0; z-index: 1; pointer-events: none; }
-.home-works-intro-title [data-intro-line] { display: block; }
-.home-enhanced:not(.home-quiet) .home-works-intro-title { visibility: hidden; }
 .home-enhanced:not(.home-quiet) .home-work-chapter { min-height: 0; height: var(--journey-height, 100svh); }
 .home-enhanced:not(.home-quiet) .home-work-chapter .home-chapter-viewport { position: fixed; inset: 0; height: var(--journey-height, 100svh); min-height: 0; opacity: 0; visibility: hidden; pointer-events: none; }
 .home-enhanced:not(.home-quiet) .home-work-chapter[data-work-visible="true"] .home-chapter-viewport { visibility: visible; }

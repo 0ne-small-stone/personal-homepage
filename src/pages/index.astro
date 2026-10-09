@@ -25,7 +25,7 @@ const neighborImage = await getImage({src:neighborCover,width:1000,format:'webp'
       <a class="home-scroll" href="#projects"><svg width="16" height="20" viewBox="0 0 16 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v14M3 11l5 5 5-5" /></svg>向下探索</a>
     </div></div>
   </section>
-  <section class="home-works-intro" aria-hidden="true"><p class="home-works-intro-title" aria-hidden="true"><span data-intro-line>Little Stone</span><span data-intro-line>Still Here</span></p></section>
+  <section class="home-works-intro" aria-hidden="true"></section>
   <div class="home-works" data-work-count="4">
   {homeChapters.slice(1,5).map((chapter,index) => 'path' in chapter && <section id={chapter.id} class:list={['home-chapter','home-work-chapter',`home-work-${chapter.id}`]} aria-labelledby={`title-${chapter.id}`} data-chapter={chapter.id} data-work-item={index}>
     <div class="home-chapter-viewport">

@@ -10,7 +10,6 @@ export function installWorksMotion(model: JourneyModel) {
   const sections = [...document.querySelectorAll<HTMLElement>('[data-work-item]')];
   const hero = document.querySelector<HTMLElement>('#intro .home-chapter-viewport')!;
   const identityFallback = document.querySelector<HTMLAnchorElement>('.home-chapter-index a[href="#intro"]')!;
-  const introTitle = document.querySelector<HTMLElement>('.home-works-intro-title')!;
   const controller = new AbortController();
   const timelines = new Map<number, gsap.core.Timeline>();
   const headings = sections.map(section => section.querySelector<HTMLHeadingElement>('h2')!);
@@ -224,6 +223,6 @@ export function installWorksMotion(model: JourneyModel) {
       headings[index].textContent = originals[index]; headings[index].removeAttribute('aria-label');
     });
     hero.inert = false; hero.removeAttribute('aria-hidden');
-    hero.style.removeProperty('opacity'); hero.style.removeProperty('visibility'); introTitle.removeAttribute('style');
+    hero.style.removeProperty('opacity'); hero.style.removeProperty('visibility');
   };
 }
