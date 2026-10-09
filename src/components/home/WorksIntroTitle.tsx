@@ -18,9 +18,26 @@ export default function WorksIntroTitle({ model }: { model: JourneyModel }) {
       if (disposed) return;
       const context = canvas.getContext('2d')!;
       context.clearRect(0, 0, canvas.width, canvas.height);
-      context.font = `${style.fontWeight} ${parseFloat(style.fontSize) * ratio}px ${style.fontFamily}`;
-      context.textAlign = 'center'; context.textBaseline = 'top'; context.fillStyle = style.color;
-      context.fillText(element.textContent || '', canvas.width / 2, canvas.height * .35);
+      const lines = [...element.querySelectorAll<HTMLElement>('[data-intro-line]')].map(line => line.textContent || '');
+      const baseSize = parseFloat(style.fontSize) * ratio, spacing = (parseFloat(style.letterSpacing) || 0) * ratio;
+      const font = (factor: number) => {
+        context.font = `${style.fontWeight} ${baseSize * factor}px ${style.fontFamily}`;
+        if ('letterSpacing' in context) context.letterSpacing = `${spacing * factor}px`;
+      };
+      context.textAlign = 'center'; context.textBaseline = 'alphabetic'; context.fillStyle = style.color;
+      font(1);
+      const safeWidth = canvas.width * .82;
+      const factor = Math.min(1, safeWidth / Math.max(1, ...lines.map(line => context.measureText(line).width)));
+      font(factor);
+      const metrics = lines.map(line => context.measureText(line));
+      const lineHeight = (parseFloat(style.lineHeight) || parseFloat(style.fontSize) * .98) * ratio * factor;
+      const first = metrics[0], last = metrics.at(-1);
+      const firstBaseline = canvas.height * .48 - ((lines.length - 1) * lineHeight + (last?.actualBoundingBoxDescent || 0) - (first?.actualBoundingBoxAscent || 0)) / 2;
+      lines.forEach((line, index) => context.fillText(line, canvas.width / 2, firstBaseline + index * lineHeight));
+      if (document.documentElement.dataset.motionDiagnostics === 'true') document.dispatchEvent(new CustomEvent('lssh:intro-title', { detail: {
+        lines, canvas: [canvas.width, canvas.height], ratio, factor, fontSize: baseSize * factor / ratio, safeWidth: safeWidth / ratio,
+        widths: metrics.map(m => m.width / ratio), bounds: metrics.map((m, i) => [(canvas.width / 2 - m.actualBoundingBoxLeft) / ratio, (firstBaseline + i * lineHeight - m.actualBoundingBoxAscent) / ratio, (canvas.width / 2 + m.actualBoundingBoxRight) / ratio, (firstBaseline + i * lineHeight + m.actualBoundingBoxDescent) / ratio]),
+      } }));
       texture.needsUpdate = true; model.invalidate();
     };
     draw(); void document.fonts.load(`${style.fontWeight} ${style.fontSize} ${style.fontFamily}`).then(draw);

@@ -24,7 +24,7 @@ const { title = 'Little Stone Still Here', description = '小石的学习、作�
         }
       } catch { /* Storage or navigation timing is optional. */ }
     </script>}
-    <a class="home-skip" href="#main-content">跳到正文</a><HomeHeader />
+    <a class="home-skip" href="#main-content">跳到正文</a><HomeHeader journey={journey} />
     <main id="main-content" tabindex="-1"><slot /></main>
     {!journey && <footer class="home-page-footer"><a href={sitePath()}>回到 Little Stone Still Here</a><span>LSSH</span></footer>}
   </body>

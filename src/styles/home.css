@@ -15,6 +15,9 @@
 .home-header a { display: inline-flex; min-height: 2.75rem; align-items: center; }
 .home-brand { font-family: var(--font-home-display); font-size: 1.875rem; font-weight: 500; letter-spacing: -.04em; line-height: 1; }
 .home-header nav { display: flex; gap: clamp(1rem, 2.8vw, 2.5rem); }
+.has-journey .home-header { display: grid; grid-template-columns: 1fr auto 1fr; gap: 0; }
+.has-journey .home-header nav { grid-column: 2; justify-self: center; }
+.has-journey .home-header-wall { grid-column: 3; justify-self: end; }
 .home-header nav a { font-family: var(--font-home-nav); font-size: .875rem; letter-spacing: .08em; }
 .home-header nav a:hover { text-decoration: underline; text-underline-offset: .5rem; }
 .home-header-wall { border: 1px solid #777; border-radius: 999px; padding: 0 1.1rem; gap: .6rem; font-family: var(--font-home-nav); font-size: .75rem; }
@@ -49,7 +52,8 @@
 .home-enhanced:not(.home-quiet) .home-hero .home-chapter-viewport { position: fixed; inset: 0; height: var(--journey-height, 100svh); min-height: 0; }
 .home-enhanced:not(.home-quiet) .home-hero .home-chapter-viewport[inert] { pointer-events: none; }
 .home-enhanced:not(.home-quiet) .home-works-intro { display: block; height: var(--journey-height, 100svh); pointer-events: none; }
-.home-works-intro-title { position: fixed; inset: 35% 0 auto; margin: 0; text-align: center; font: 500 clamp(5rem, 17vw, 16rem)/1 var(--font-home-display); letter-spacing: -.025em; color: #a1a1a1; opacity: 0; z-index: 1; pointer-events: none; }
+.home-works-intro-title { position: fixed; inset: 48% 0 auto; transform: translateY(-50%); margin: 0; text-align: center; font: 500 clamp(3.25rem, 9vw, 9rem)/.98 var(--font-home-display); letter-spacing: -.025em; color: #a1a1a1; opacity: 0; z-index: 1; pointer-events: none; }
+.home-works-intro-title [data-intro-line] { display: block; }
 .home-enhanced:not(.home-quiet) .home-works-intro-title { visibility: hidden; }
 .home-enhanced:not(.home-quiet) .home-work-chapter { min-height: 0; height: var(--journey-height, 100svh); }
 .home-enhanced:not(.home-quiet) .home-work-chapter .home-chapter-viewport { position: fixed; inset: 0; height: var(--journey-height, 100svh); min-height: 0; opacity: 0; visibility: hidden; pointer-events: none; }

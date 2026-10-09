@@ -1,5 +1,7 @@
 # 首页行为采集
 
+`node tools/qa/p01-identity.cjs` 为第32轮一次桌面/390px、正常/减少动画身份检查。保存首屏、intro中点和首卡共12张图，实际measureText安全宽度、首页品牌节点/空命中、三入口居中与44px目标、语义h1、项目Afterimage、真实项目返回与00焦点交接分别记录。正常模式不覆盖姿态、时钟或相机；减少动画使用普通阅读，不虚构动画峰值。输出位于第32轮evidence的initial；不要为本轮重跑全部流体求解。
+
 P01 / T03.02 的人工验收辅助，不纳入 CI。需自行提供 Playwright 模块与 Chrome 路径；应用没有新增浏览器测试依赖。
 
 在项目根目录运行已构建的 `/personal-homepage/` 预览（4321），设置 `LSSH_QA_PLAYWRIGHT` 为可加载的 Playwright 模块路径、`LSSH_QA_BROWSER` 为 Chrome 可执行文件。未设置时使用 Node 原生模块查找和 Playwright 浏览器。

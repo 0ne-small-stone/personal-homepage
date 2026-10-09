@@ -9,7 +9,7 @@ export function installWorksMotion(model: JourneyModel) {
   const body = document.body;
   const sections = [...document.querySelectorAll<HTMLElement>('[data-work-item]')];
   const hero = document.querySelector<HTMLElement>('#intro .home-chapter-viewport')!;
-  const brand = document.querySelector<HTMLAnchorElement>('.home-brand')!;
+  const identityFallback = document.querySelector<HTMLAnchorElement>('.home-chapter-index a[href="#intro"]')!;
   const introTitle = document.querySelector<HTMLElement>('.home-works-intro-title')!;
   const controller = new AbortController();
   const timelines = new Map<number, gsap.core.Timeline>();
@@ -156,7 +156,7 @@ export function installWorksMotion(model: JourneyModel) {
     const identityHidden = s >= introGap;
     hero.style.opacity = String(1 - identityProgress ** 2 * (3 - 2 * identityProgress));
     // Move only focus that would otherwise remain inside the hidden identity layer.
-    if (identityHidden && hero.contains(document.activeElement)) brand.focus({ preventScroll: true });
+    if (identityHidden && hero.contains(document.activeElement)) identityFallback.focus({ preventScroll: true });
     hero.style.visibility = identityHidden ? 'hidden' : 'visible';
     hero.inert = identityHidden;
     if (identityHidden) hero.setAttribute('aria-hidden', 'true');

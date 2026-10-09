@@ -1,9 +1,11 @@
 ---
 import { sitePath } from '../../lib/paths';
+interface Props { journey?: boolean; }
+const { journey = false } = Astro.props;
 const links = [{ name: 'Becoming', cn: '学习', path: 'knowledge' }, { name: 'Elsewhere', cn: '常用网站', path: 'links' }, { name: 'Someone', cn: '关于小石', path: 'about' }];
 ---
 <header class="home-header">
-  <a class="home-brand" href={sitePath()} aria-label="Little Stone Still Here · 首页">LSSH</a>
+  {!journey && <a class="home-brand" href={sitePath()} aria-label="Little Stone Still Here · 首页">LSSH</a>}
   <nav aria-label="主要导航">
     {links.map(({ name, cn, path }) => <a id={`nav-${path}`} href={sitePath(path)} data-home-link aria-label={`${name} · ${cn}`}><span data-scramble={name} aria-hidden="true">{name}</span></a>)}
   </nav>
