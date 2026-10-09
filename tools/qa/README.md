@@ -1,5 +1,9 @@
 # 首页行为采集
 
+33A首批原始无WebGL建图错误判据保留。`LSSH_QA_FALLBACK_ONLY=1 LSSH_QA_PHASE=confirm node tools/qa/p01-width.cjs` 仅确认故意禁WebGL的预期context错误分类及真实Becoming进入/后退；非预期错误要求0。证据目录已存在时脚本拒绝覆盖，不为此项重跑已通过的静态/输入批次。
+
+`node tools/qa/p01-width.cjs` 为33A一批旧/新实际构建对照；旧32 dist预存 `.ci-tmp/p01-33a-baseline/dist`。五个同视口/DPR/相机/姿态/进度状态覆盖桌面和390px首屏/intro及一次桌面35°斜转，固定时钟/四元数仅在测试页面。记录实际形状与孔的点界、倒角/厚度、投影宽高与手机缩放，桌面中性图比较轮廓之外像素。另以原生时钟对两构建发送相同指针/滚轮，检查停手、反向与轮廓；候选真实暂停/项目后退、减少动画/无WebGL抽查。需已有Playwright、PNGJS和Chrome，不重跑全套流体或性能测试。
+
 `node tools/qa/p01-identity.cjs` 为第32轮一次桌面/390px、正常/减少动画身份检查。保存首屏、intro中点和首卡共12张图，实际measureText安全宽度、首页品牌节点/空命中、三入口居中与44px目标、语义h1、项目Afterimage、真实项目返回与00焦点交接分别记录。正常模式不覆盖姿态、时钟或相机；减少动画使用普通阅读，不虚构动画峰值。输出位于第32轮evidence的initial；不要为本轮重跑全部流体求解。
 
 P01 / T03.02 的人工验收辅助，不纳入 CI。需自行提供 Playwright 模块与 Chrome 路径；应用没有新增浏览器测试依赖。

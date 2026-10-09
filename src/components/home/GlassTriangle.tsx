@@ -20,7 +20,8 @@ function roundedTriangle(points: Vector2[], radius: number, target: Shape | Path
 }
 
 export function makeTriangleGeometry() {
-  const vertices = [new Vector2(0, 1.42), new Vector2(-1.23, -.71), new Vector2(1.23, -.71)];
+  // SYSTEM 9.3.1 / 33A: widen the construction, including its hole, before extrusion.
+  const vertices = [new Vector2(0, 1.42), new Vector2(-1.23 * 1.14, -.71), new Vector2(1.23 * 1.14, -.71)];
   const shape = new Shape();
   roundedTriangle(vertices, .035, shape);
   const hole = new Path();
