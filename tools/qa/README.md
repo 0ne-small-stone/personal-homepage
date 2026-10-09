@@ -18,6 +18,8 @@ P01 / T03.02 的人工验收辅助，不纳入 CI。需自行提供 Playwright �
 
 第30轮经设计侧明确授权，只补验未通过的颜色、前景、返回和能力后备：`LSSH_QA_TARGETED=1 LSSH_QA_PHASE=targeted`，不重跑已通过的原生快慢路径。`LSSH_QA_CLOSURE=1 LSSH_QA_PHASE=resource-closure` 仅采预热基线和三次真实音乐栏目返回，每处至少六个不同帧、跨度900ms以上、四张卡片图均已解码；记录所有原始计数，不以固定等待代替窗口。`node tools/qa/p01-black-flow-closure.cjs` 只读 retained PNG/窗口，归因首屏独立SVG箭头差异与非持续资源增长，单独输出 `closure-analysis.json`；不得重写原fail结果。原站受控60Hz检查及原生输入检查分开查阅，不是软件GPU实际60FPS。
 
+`node tools/qa/p01-outro.cjs` 为第31轮单批末卡退场检查，旧构建来自归档30的dist，预先复制到 `.ci-tmp/p01-31-baseline/dist`。两构建真实目录进入links后收到相同8个trusted wheel delta，连续正反向跨5500/5950/6010；原生时间和实际镜头/墙/玻璃状态分别保存。另读outro0/.5/1的实际投影矩阵与逆、视差和锚点，以及真实留言锚点、Becoming后退、刷新、resize。设置 `LSSH_QA_CONFIRM=1 LSSH_QA_PHASE=confirm` 只确认首批失败的末点完全收敛/返回渲染探针，不重跑已通过的滚轮。采样必须等新的renderer引用有效；严格目标0判据等追随器自身snap，不能在1e-6尾差时声称已到0。原始失败与截图请求前后状态保留。
+
 CDP 请求表、浏览器收到的输入、逐帧状态与画面帧分别保存。SwiftShader 和模拟布局不能证明真机流畅度。画面帧收到后的读回不视为 GPU 同时刻；保留原始时间。第 19 轮精选可体验证据见 [交付记录](../../docs/design/iterations/u03-p01-2026-10-08-19.md)。
 
 第 22 轮原始 before 采集保留了一条负的 RAF 相对时间（RAF 时戳早于当帧变更微任务）；其 `time` 是实际读取时间。修复后与确认脚本统一用 `performance.now()` 计算 elapsed。前后只对照状态与实际滚动点，不宣称毫秒对齐。

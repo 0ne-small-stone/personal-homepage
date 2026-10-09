@@ -4,7 +4,7 @@ import { Color, MathUtils, Matrix4, type Group, type InstancedMesh } from 'three
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
 import type { JourneyModel } from './scene-state';
 const columns=23,rows=19,count=columns*rows;
-export default function RisingWall({model}:{model:JourneyModel}){
+export default function RisingWall({model,quiet}:{model:JourneyModel;quiet:boolean}){
   const group=useRef<Group>(null),bricks=useRef<InstancedMesh>(null);
   const geometry=useMemo(()=>new RoundedBoxGeometry(1.12,.48,.16,2,.012),[]);
   useEffect(()=>{
@@ -19,8 +19,9 @@ export default function RisingWall({model}:{model:JourneyModel}){
     return ()=>geometry.dispose();
   },[geometry]);
   useFrame(()=>{
-    if(!group.current)return;const rise=MathUtils.smoothstep(model.progress,4.65,4.98);
+    if(!group.current)return;const rise=quiet?0:MathUtils.smoothstep(4.65+.35*model.motion.raw.wall,4.65,4.98);
     group.current.visible=rise>0;group.current.position.set(0,MathUtils.lerp(-11,0,rise),-1);
+    if(document.documentElement.dataset.motionDiagnostics==='true')model.motion.wall={raw:model.motion.raw.wall,rise,position:group.current.position.toArray(),visible:group.current.visible};
   },-1);
   return <group ref={group}>
     <mesh position={[0,0,-.1]}><planeGeometry args={[28,10]} /><meshStandardMaterial color="#bcb9b3" roughness={1} /></mesh>

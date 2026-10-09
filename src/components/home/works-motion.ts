@@ -17,8 +17,9 @@ export interface MotionState {
   time: number;
   initialization: { revision: number; y: number; zoom: number; reason: string };
   cards: { index: number; position: number[]; rotationY: number; scale: number; alpha: number; visible: boolean }[];
-  camera: { position: number[]; fov: number } | null;
-  glass: { anchor: number[]; quaternion: number[]; scale: number; projectedAnchor: number[]; bounds: number[]; centeredLocalBounds: number[] } | null;
+  camera: { position: number[]; fov: number; outro?: { raw: number; parallax: number; projection: number }; offset?: number[]; offsetTarget?: number[]; projection?: number[]; inverse?: number[]; perspective?: number[]; orthographic?: number[] } | null;
+  glass: { anchor: number[]; quaternion: number[]; scale: number; visible?: boolean; projectedAnchor: number[]; bounds: number[]; centeredLocalBounds: number[] } | null;
+  wall: { raw: number; rise: number; position: number[]; visible: boolean } | null;
   glassRotation: {
     dt: number; rawDt: number; paused: boolean; hover: boolean; reset: string; initialization: number; phase: string;
     pointer: { target: number[]; current: number[]; residual: number[]; active: boolean; revision: number; weight: number };
@@ -44,7 +45,7 @@ export function createMotionState(): MotionState {
     raw: { kv: 0, intro: 0, works: 0, event: 0, snap: 0, outro: 0, wall: 0 },
     rendered: { progress: 0, index: 0, background: 0, intro: 0 },
     activeItem: -1, snapActive: false, frame: 0, time: 0,
-    initialization: { revision: 0, y: 0, zoom: 1, reason: 'pending' }, cards: [], camera: null, glass: null, glassRotation: null,
+    initialization: { revision: 0, y: 0, zoom: 1, reason: 'pending' }, cards: [], camera: null, glass: null, wall: null, glassRotation: null,
   };
 }
 

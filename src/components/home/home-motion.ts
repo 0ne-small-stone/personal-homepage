@@ -150,8 +150,8 @@ export function installWorksMotion(model: JourneyModel) {
     // ScrollTrigger uses numeric 0 after completion/interruption, not only undefined.
     const snapTween = triggers[4].getTween(true);
     model.motion.snapActive = Boolean(snapTween && snapTween.isActive());
-    // Existing glass/wall poses are retained until their separate interaction slices.
-    model.progress = s < h + introGap ? model.motion.raw.intro : model.motion.raw.wall > 0 ? 4.65 + .35 * model.motion.raw.wall : 1 + Math.max(0, model.motion.rendered.index - 1);
+    // Legacy progress now only fades the intro backdrop; wall/glass use raw.wall.
+    model.progress = s < h + introGap ? model.motion.raw.intro : 1;
     const identityProgress = Math.max(0, Math.min(1, s / introGap));
     const identityHidden = s >= introGap;
     hero.style.opacity = String(1 - identityProgress ** 2 * (3 - 2 * identityProgress));

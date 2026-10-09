@@ -55,7 +55,8 @@ export default function GlassTriangle({ model, paused, mobile, hover, low, detai
     const mobileScale = Math.min(currentView.height * .44 / (box.max.y - box.min.y), currentView.width * .84 / (box.max.x - box.min.x));
     mesh.current.scale.setScalar(mobile ? mobileScale : 1.14);
     mesh.current.quaternion.copy(rotation.quaternion);
-    mesh.current.visible = model.progress < 4.95;
+    // Temporary old wall handoff, independent of the four-card index.
+    mesh.current.visible = paused || model.motion.raw.wall < (.3 / .35);
     if (document.documentElement.dataset.motionDiagnostics === 'true') {
       model.motion.glassRotation = diagnostics;
       mesh.current.updateMatrixWorld();
@@ -68,7 +69,7 @@ export default function GlassTriangle({ model, paused, mobile, hover, low, detai
         left = Math.min(left, x); right = Math.max(right, x); top = Math.min(top, y); bottom = Math.max(bottom, y);
       }
       const box = geometry.boundingBox!;
-      model.motion.glass = { anchor: mesh.current.position.toArray(), quaternion: mesh.current.quaternion.toArray(), scale: mesh.current.scale.x,
+      model.motion.glass = { anchor: mesh.current.position.toArray(), quaternion: mesh.current.quaternion.toArray(), scale: mesh.current.scale.x, visible: mesh.current.visible,
         projectedAnchor: [(anchor.x + 1) * size.width / 2, (1 - anchor.y) * size.height / 2], bounds: [left, top, right, bottom],
         centeredLocalBounds: [...box.min.toArray(), ...box.max.toArray()] };
       // A paused demand frame has no motion driver; expose the same read-only sample.
