@@ -200,6 +200,12 @@ Waline 曾作为匿名留言候选。当前用户已接受 Giscus，Waline 不�
 
 2026-10-07 用户已选择 GitHub Pages；EdgeOne 保留为历史候选。不要把免费额度写成永久承诺，也不要把外部服务对大陆访客的可用性写成已验证结论。
 
+## T13.08 上传格式拦截来源（2026-10-09）
+
+- [Pages CMS 媒体配置](https://pagescms.org/docs/configuration/media/)与[原生富文本](https://pagescms.org/docs/configuration/fields/rich-text/)：继续使用同一命名媒体源和已配置五种图片扩展名，不新建上传器、后端或依赖。
+- [固定官方 MediaUpload 源码](https://github.com/hunvreus/pagescms/blob/6f4e860a35d934406580287e7042e5e111e207a1/components/media/media-upload.tsx)：MIT；`filterAcceptedFiles` 在 `handleFiles`/媒体 POST 前按扩展名拦截，toast 列出允许格式；合规文件使用原生上传路径。[MediaDialog](https://github.com/hunvreus/pagescms/blob/6f4e860a35d934406580287e7042e5e111e207a1/components/media/media-dialog.tsx)负责成功后选择，Select 才插入正文。只研究和复用配置，没有复制源码到产品。
+- 托管版版本未读回，因此以本轮真实 TXT 提示、同一弹窗 PNG 恢复、GitHub 文件提交和未保存内容保护作为验收。只验扩展名，不将图片真实编码校验、网络/API 错误或上传中止称为已验。[记录](iterations/t13-08-2026-10-09.md)。
+
 ## T13.02 原生图片接入来源（2026-10-08）
 
 - [Pages CMS 媒体源](https://pagescms.org/docs/configuration/media/)：仓库存储 input、正文 output、格式过滤、随机重命名与媒体提交模板。

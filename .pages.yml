@@ -85,7 +85,7 @@ content:
         readonly: true
       - name: body
         label: 正文
-        description: 'Editor 中另起空行输入 /，选择 Image。选图可用 Close 或 Esc 取消，关闭后点击正文继续；取消不撤回已上传图片。Upload 选中文件即写入公开仓库，正文需另点 Save；图片填写替代文本和图下说明。'
+        description: 'Editor 空行输入 / → Image；仅支持 PNG、JPG、JPEG、WebP、AVIF。格式错误请换图重试，勿刷新未保存正文。Close/Esc 取消后点击正文继续；取消不撤回已上传图片。Upload 选图即写入公开仓库，正文另点 Save；图片填写替代文本和图下说明。'
         type: rich-text
         required: true
         options:
@@ -145,7 +145,7 @@ content:
         readonly: true
       - name: body
         label: 正文
-        description: 'Editor 中另起空行输入 /，选择 Image。选图可用 Close 或 Esc 取消，关闭后点击正文继续；取消不撤回已上传图片。Upload 选中文件即写入公开仓库，建议小于 1 MiB；正文需另点 Save，图片填写替代文本和图下说明。保存工作分支触发构建，正式更新以部署结果为准。'
+        description: 'Editor 空行输入 / → Image；仅支持 PNG、JPG、JPEG、WebP、AVIF，建议小于 1 MiB。格式错误请换图重试，勿刷新未保存正文。Close/Esc 取消后点击正文继续；取消不撤回已上传图片。Upload 选图即写入公开仓库，正文另点 Save；图片填写替代文本和图下说明。'
         type: rich-text
         required: true
         options:

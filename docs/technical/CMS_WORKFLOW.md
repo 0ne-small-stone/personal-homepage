@@ -1,5 +1,16 @@
 # 网页编辑与草稿验证
 
+## T13.08 上传格式拦截与恢复
+
+[打开验证稿](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-08-media-validation/file/article-draft)，分支 `codex/t13-08-media-validation`。固定稿和集合新建表单均显示支持格式及换图重试说明。
+
+1. 在测试稿修改少量标题/正文但不 Save。Editor 另起空行 `/` → Image → Upload；文件选择器若仅显示图片，可切换到所有文件，选择一份不含私人内容的测试 TXT。
+2. 应看到 `Invalid file type. Allowed: .jpg,.jpeg,.png,.avif,.webp`。选图弹窗仍在、Select 不可用，之前输入保留。不要为这个格式错误刷新页面，否则会放弃未保存正文。
+3. 需要验证真实恢复时，再点 Upload 选择允许公开的 PNG/JPG/JPEG/WebP/AVIF。合规文件会立即上传到公开仓库；成功后新增缩略图自动选中，Select 可用。只想体验取消可以 Close/Esc，无需上传。
+4. 上传图片还未写入正文：需 Select 插入，再补 alt/图下说明、Save 保存正文。若不打算保存测试输入，可 Close 后核对正文原图/文字，再重载原稿；已经上传的文件会保留。
+
+2026-10-09 已真实验证 TXT 拦截后原生 PNG 重试，图片提交 `f6128ac`；本轮未点 Select 或正文 Save，48 内容及既有源文件不变。新增 `mv13hoo5-et09s1p1.png` 是同一自制功能样本，保留作恢复证据。新图片提交三项 CI 成功、Deploy 跳过，[实际记录](iterations/t13-08-2026-10-09.md)。不支持格式是在客户端被拦截，断网、权限/API 错误及上传中止未因此通过。新增设计资源 0，没有合并或部署。
+
 ## T13.07 图片选择取消与正文保留
 
 [打开验证稿](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-07-media-cancel/file/article-draft)，工作分支 `codex/t13-07-media-cancel`。正文旁已说明原生入口、取消路径和上传边界。
