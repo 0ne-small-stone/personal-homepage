@@ -78,7 +78,7 @@ content:
     label: 收藏笔记（说明编辑）
     type: collection
     path: src/content/docs/knowledge/notes
-    exclude: [writing/**]
+    exclude: [writing, writing/**]
     format: yaml-frontmatter
     subfolders: true
     operations:
