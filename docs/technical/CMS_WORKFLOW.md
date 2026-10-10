@@ -1,5 +1,13 @@
 # 网页编辑与草稿验证
 
+## T13.13 已有笔记说明编辑
+
+[打开笔记后台](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-13-note-editor/collection/notes)，使用codex/t13-13-note-editor。ads目录为高级数据结构与算法分析，computer-systems为计算机系统；根演示条目仍为草稿。选择已有收藏后编辑标题、摘要和主题，Save成功后独立重开核对。当前表单Save可能仍可点，以成功反馈、远程提交及重开值为准。
+
+此片只编辑本站收藏说明，原站/PDF正文继续通过原阅读入口，本站说明正文、作者、原网址、文件、关联及发布状态不在此修改。标题/主题改变需开发者拉取分支、运行 `npm run cms:sync-related` 并提交配置、检查CI；正式网站需构建发布后更新，正文手写说明不自动改写。
+
+真实保存/恢复、前台单条新主题、原站直达和返回已验，验证收藏已完全恢复原值。[步骤与证据](iterations/t13-13-2026-10-10.md)、[保存后的冻结快照](http://127.0.0.1:4385/personal-homepage/knowledge/?type=note&topic=%E7%AC%94%E8%AE%B0%E7%BC%96%E8%BE%91%E9%AA%8C%E8%AF%81)。快照不随新Save更新；笔记新建/正文编辑和自动候选同步另片。
+
 ## T13.12 已有资料说明编辑
 
 [打开资料后台](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-12-resource-editor/collection/resources)，使用 `codex/t13-12-resource-editor` 分支。根目录有PDF功能样本；课程资料按原有 ads、computer-systems、physics、physics-lab、pre-qin-philosophy、probability 科目目录进入。仅编辑标题、摘要和主题，正文、来源、PDF及发布状态保留；此入口无新建、改名、删除。
