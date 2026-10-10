@@ -86,6 +86,11 @@ jobs:
       - name: Install website dependencies from lockfile
         run: npm ci --no-audit --no-fund
 
+      - name: Refresh derived CMS candidates for validation
+        # CMS writes content but does not regenerate this native select list.
+        # Derive it only in this read-only checkout; no token writes back.
+        run: npm run cms:sync-related
+
       - name: Check Astro and TypeScript
         run: npm run check
 
