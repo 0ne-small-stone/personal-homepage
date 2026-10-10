@@ -13,6 +13,12 @@ media:
         update: 'content(media): 更新文章图片 {filename}'
         delete: 'content(media): 删除文章图片 {filename}'
         rename: 'content(media): 重命名文章图片 {oldFilename} -> {newFilename}'
+  - name: note-images
+    label: 笔记图片（公开仓库）
+    input: src/assets/note-images
+    output: ../../../../../assets/note-images
+    extensions: [png, jpg, jpeg, webp, avif]
+    rename: random
 content:
   - name: blog-settings
     label: 博客设置
@@ -69,9 +75,10 @@ content:
         list: true
         description: '用于学习总览分类。更改标题或主题后，关联候选需由开发者同步。'
   - name: notes
-    label: 笔记（说明编辑）
+    label: 收藏笔记（说明编辑）
     type: collection
     path: src/content/docs/knowledge/notes
+    exclude: [writing/**]
     format: yaml-frontmatter
     subfolders: true
     operations:
@@ -274,6 +281,85 @@ content:
           format: markdown
           switcher: true
           media: article-images
+  - name: writing-notes
+    label: 我的笔记
+    type: collection
+    path: src/content/docs/knowledge/notes/writing
+    format: yaml-frontmatter
+    subfolders: false
+    filename:
+      template: '{fields.entryId}.md'
+      field: false
+    operations:
+      create: true
+      rename: false
+      delete: false
+    commit:
+      templates:
+        create: 'content(note): 新建笔记 {path}'
+        update: 'content(note): 保存笔记 {path}'
+    view:
+      fields: [title, draft, topics]
+      primary: title
+      sort: [title]
+      search: [title, description]
+      default:
+        sort: title
+        order: asc
+    fields:
+      - name: title
+        label: 标题
+        type: string
+        required: true
+        description: '编辑本站自写笔记。先 Save 成功再离开；保存失败先备份字段与 Source 正文，版本冲突时刷新、对照恢复并重试。正式网站需构建发布才能更新。'
+      - name: description
+        label: 摘要
+        type: text
+        required: true
+      - name: entryId
+        label: 地址标识
+        type: string
+        required: true
+        description: '填写唯一的小写英文、数字或短横线，例如 note-reading-notes。保存后保持此值；修改标题不会改变地址。'
+        pattern:
+          regex: '^[a-z0-9]+(?:-[a-z0-9]+)*$'
+          message: 使用小写英文、数字和单个短横线，不能含空格或中文。
+      - name: topics
+        label: 主题
+        type: string
+        list: true
+      - name: related
+        label: 关联内容
+        type: select
+        description: '搜索并选择已有资料、文章或笔记。不要选择当前笔记；× 移除，Esc 关闭候选。Save 后需构建发布才能更新网站。'
+        options:
+          multiple: true
+          placeholder: 搜索资料、文章或笔记
+          values: *knowledgeRelatedOptions
+      - name: draft
+        label: 草稿
+        type: boolean
+        default: true
+        description: '新笔记默认草稿。关闭后保存表示发布候选，构建、PR 合并和部署成功后才正式上线。'
+      - name: kind
+        type: string
+        default: note
+        hidden: true
+        readonly: true
+      - name: example
+        type: boolean
+        default: false
+        hidden: true
+        readonly: true
+      - name: body
+        label: 正文
+        type: rich-text
+        required: true
+        description: 'Editor 写正文，Source 编辑 Markdown。空行 / → Image；上传图片即写入公开仓库，保存正文是另一步。图片需填写 ALT；选中文字可插入链接。返回列表会放弃未保存输入。'
+        options:
+          format: markdown
+          switcher: true
+          media: note-images
   - name: article-draft
     label: 文章编辑与发布验证
     type: file
