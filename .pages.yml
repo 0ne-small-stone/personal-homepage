@@ -86,6 +86,98 @@ content:
         label: 标签
         type: string
         list: true
+      - name: related
+        label: 关联内容
+        description: '搜索标题或主题，选择已发布的资料、文章或笔记；× 移除。键盘：↓/↑、Enter 选择，Esc 关闭；搜索框为空时 ← 聚焦已选项、Backspace 移除。不要选择当前文章。Save 后需构建发布才生效；新增、改名或发布内容后由开发者同步候选。'
+        type: select
+        options:
+          multiple: true
+          placeholder: 搜索资料、文章或笔记
+          values: &knowledgeRelatedOptions
+          # BEGIN GENERATED KNOWLEDGE OPTIONS
+          - value: "demo-article-reading-check"
+            label: "文章 · 博客阅读验证（功能验证样稿） · 阅读与整理"
+          - value: "note-ads-algorithms-notes"
+            label: "笔记 · 高级数据结构与算法分析 · 算法笔记（PDF） · 高级数据结构与算法分析"
+          - value: "note-ads-noughtq-notebook"
+            label: "笔记 · 高级数据结构与算法分析 · NoughtQ 的笔记本 · 高级数据结构与算法分析"
+          - value: "note-computer-organization-lihuamao-chapter5"
+            label: "笔记 · 计算机组成 · lihuamao0810 的第五章笔记 · 计算机系统"
+          - value: "note-computer-system-review"
+            label: "笔记 · 计算机系统原理 · 复习笔记（RandomStar） · 计算机系统"
+          - value: "note-computer-system-zhang-each-notebook"
+            label: "笔记 · 计算机系统 · 小角龙的学习记录 · 计算机系统"
+          - value: "resource-ads-2024-handout"
+            label: "资料 · 高级数据结构与算法分析 · 2024 春夏讲义（wyy） · 高级数据结构与算法分析"
+          - value: "resource-computer-organization-risc-v-fifth-edition"
+            label: "资料 · 计算机组成与设计：硬件软件接口（第 5 版 · RISC-V 版） · 计算机系统"
+          - value: "resource-engineering-physics-third-edition"
+            label: "资料 · 工程物理学（第三版） · 大学物理Ⅱ"
+          - value: "resource-lssh-pdf-reading-check"
+            label: "资料 · PDF 阅读验证说明（功能样本） · 阅读与整理"
+          - value: "resource-physics-chapter-10"
+            label: "资料 · 大学物理Ⅱ · 第 10 章 · 大学物理Ⅱ"
+          - value: "resource-physics-chapter-11"
+            label: "资料 · 大学物理Ⅱ · 第 11 章 · 大学物理Ⅱ"
+          - value: "resource-physics-chapter-12"
+            label: "资料 · 大学物理Ⅱ · 第 12 章 · 大学物理Ⅱ"
+          - value: "resource-physics-chapter-13"
+            label: "资料 · 大学物理Ⅱ · 第 13 章 · 大学物理Ⅱ"
+          - value: "resource-physics-chapter-14"
+            label: "资料 · 大学物理Ⅱ · 第 14 章 · 大学物理Ⅱ"
+          - value: "resource-physics-chapter-15"
+            label: "资料 · 大学物理Ⅱ · 第 15 章 · 大学物理Ⅱ"
+          - value: "resource-physics-chapter-16"
+            label: "资料 · 大学物理Ⅱ · 第 16 章 · 大学物理Ⅱ"
+          - value: "resource-physics-chapter-17"
+            label: "资料 · 大学物理Ⅱ · 第 17 章 · 大学物理Ⅱ"
+          - value: "resource-physics-chapter-18"
+            label: "资料 · 大学物理Ⅱ · 第 18 章 · 大学物理Ⅱ"
+          - value: "resource-physics-chapter-19"
+            label: "资料 · 大学物理Ⅱ · 第 19 章 · 大学物理Ⅱ"
+          - value: "resource-physics-chapter-20"
+            label: "资料 · 大学物理Ⅱ · 第 20 章 · 大学物理Ⅱ"
+          - value: "resource-physics-chapter-21"
+            label: "资料 · 大学物理Ⅱ · 第 21 章 · 大学物理Ⅱ"
+          - value: "resource-physics-chapter-22"
+            label: "资料 · 大学物理Ⅱ · 第 22 章 · 大学物理Ⅱ"
+          - value: "resource-physics-chapter-23"
+            label: "资料 · 大学物理Ⅱ · 第 23 章 · 大学物理Ⅱ"
+          - value: "resource-physics-chapter-9"
+            label: "资料 · 大学物理Ⅱ · 第 9 章（下）真空中的静电场 · 大学物理Ⅱ"
+          - value: "resource-physics-electrostatics-alt"
+            label: "资料 · 大学物理Ⅱ · 第 9 章（上）真空中的静电场 · 大学物理Ⅱ"
+          - value: "resource-physics-lab-recalled-exams"
+            label: "资料 · 大学物理实验 · 历年回忆卷合集 · 大学物理实验"
+          - value: "resource-physics-lab-review"
+            label: "资料 · 大学物理实验 · 知识点盘点 · 大学物理实验"
+          - value: "resource-pre-qin-philosophers-reader"
+            label: "资料 · 先秦诸子导读 · 先秦哲学"
+          - value: "resource-probability-forliage"
+            label: "资料 · 概率论讲义（Forliage） · 概率论与数理统计"
+          - value: "resource-probability-lecture-0"
+            label: "资料 · 概率论与数理统计 · 第 0 讲 概统基本概念一览 · 概率论与数理统计"
+          - value: "resource-probability-lecture-1"
+            label: "资料 · 概率论与数理统计 · 第 1 讲 随机事件与概率 · 概率论与数理统计"
+          - value: "resource-probability-lecture-2"
+            label: "资料 · 概率论与数理统计 · 第 2 讲 一维随机变量的概率分布 · 概率论与数理统计"
+          - value: "resource-probability-lecture-3"
+            label: "资料 · 概率论与数理统计 · 第 3 讲 二维随机变量的概率分布 · 概率论与数理统计"
+          - value: "resource-probability-lecture-4"
+            label: "资料 · 概率论与数理统计 · 第 4 讲 常见随机变量的概率分布 · 概率论与数理统计"
+          - value: "resource-probability-lecture-5"
+            label: "资料 · 概率论与数理统计 · 第 5 讲 随机变量函数的概率分布 · 概率论与数理统计"
+          - value: "resource-probability-lecture-6"
+            label: "资料 · 概率论与数理统计 · 第 6 讲 大数定律与中心极限定理 · 概率论与数理统计"
+          - value: "resource-probability-lecture-7"
+            label: "资料 · 概率论与数理统计 · 第 7 讲 统计量与抽样分布 · 概率论与数理统计"
+          - value: "resource-probability-lecture-8"
+            label: "资料 · 概率论与数理统计 · 第 8 讲 点估计 · 概率论与数理统计"
+          - value: "resource-probability-lecture-9"
+            label: "资料 · 概率论与数理统计 · 第 9 讲 区间估计与假设检验 · 概率论与数理统计"
+          - value: "resource-probability-tutorial-v1"
+            label: "资料 · 概率论与数理统计 · 辅导讲义 v1.0 · 概率论与数理统计"
+          # END GENERATED KNOWLEDGE OPTIONS
       - name: draft
         label: 草稿
         description: 新文章默认草稿。关闭后保存表示发布候选，需构建通过、PR 合并及部署成功才正式上线。
@@ -144,6 +236,14 @@ content:
         label: 标签
         type: string
         list: true
+      - name: related
+        label: 关联内容
+        description: '搜索标题或主题，选择已发布的资料、文章或笔记；× 移除。键盘：↓/↑、Enter 选择，Esc 关闭；搜索框为空时 ← 聚焦已选项、Backspace 移除。不要选择当前文章。Save 后需构建发布才生效；新增、改名或发布内容后由开发者同步候选。'
+        type: select
+        options:
+          multiple: true
+          placeholder: 搜索资料、文章或笔记
+          values: *knowledgeRelatedOptions
       - name: draft
         label: 草稿
         description: 开启时不生成生产文章页面；关闭表示提交发布。保存后先构建，通过 PR 合并并部署成功后才正式上线。重新开启需再次合并部署才能下线。

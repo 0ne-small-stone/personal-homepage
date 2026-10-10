@@ -1,5 +1,11 @@
 # 个人主页技术调研来源和候选方案
 
+## T13.11 原生关联选择来源（2026-10-10）
+
+已读 [Pages CMS reference](https://pagescms.org/docs/configuration/fields/reference/) 与 [select](https://pagescms.org/docs/configuration/fields/select/)。托管 reference 根目录只有三个文件夹、候选为空；固定官方 6f4e860a35d934406580287e7042e5e111e207a1（MIT）的 [getCollectionCache](https://github.com/hunvreus/pagescms/blob/6f4e860a35d934406580287e7042e5e111e207a1/lib/github-cache-file.ts) 按 parentPath 等值读取，subfolders 不会递归聚合 reference。原先根目录查询方案已撤回。
+
+采用官方 [Select EditComponent](https://github.com/hunvreus/pagescms/blob/6f4e860a35d934406580287e7042e5e111e207a1/fields/core/select/edit-component.tsx)：multiple 映射字符串 value 数组，label 搜索、选中 chip 与移除由原生 Combobox 承担。少量适配仅递归读取既有内容、生成原生 values 参数与检查过期；复用已安装 @astrojs/markdown-remark 的 parseFrontmatter，不另增 YAML 库。新内容进入候选需同步配置，后台托管版本未知，实际 Save 独立验收。
+
 ## T07.05 标签浏览开关来源（2026-10-10）
 
 已读本机锁定 starlight-blog 0.30.0（MIT）的 `libs/config.ts`、`libs/tags.ts`、`components/PostTags.astro`、`middleware.ts` 和 `routes/Tags.astro`。无标签禁用配置；标签列表、侧栏和静态路径均读取原生有效 tags，因此仅在 article schema 读取时按开关清空 tags，保留源文件，不复制插件或新建路由。Astro 7.3.6 的 `content/loaders/glob.js` 按 digest 复用已解析数据，`content/utils.js` 仅计算内容配置文件摘要；将设置值纳入原生 loader 的 generateDigest，保证仅改变 JSON 时缓存也更新。相同输出目录与已有缓存的开/关/再开构建独立验收。
