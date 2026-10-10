@@ -1,5 +1,11 @@
 # 个人主页技术调研来源和候选方案
 
+## T07.05 标签浏览开关来源（2026-10-10）
+
+已读本机锁定 starlight-blog 0.30.0（MIT）的 `libs/config.ts`、`libs/tags.ts`、`components/PostTags.astro`、`middleware.ts` 和 `routes/Tags.astro`。无标签禁用配置；标签列表、侧栏和静态路径均读取原生有效 tags，因此仅在 article schema 读取时按开关清空 tags，保留源文件，不复制插件或新建路由。Astro 7.3.6 的 `content/loaders/glob.js` 按 digest 复用已解析数据，`content/utils.js` 仅计算内容配置文件摘要；将设置值纳入原生 loader 的 generateDigest，保证仅改变 JSON 时缓存也更新。相同输出目录与已有缓存的开/关/再开构建独立验收。
+
+Pages CMS 复用既有固定官方源码 `6f4e860a35d934406580287e7042e5e111e207a1` 的 ConfigSchema、boolean 注册和 JSON 序列化（MIT，缓存已读）；本机校验后再验证托管实际 Save。托管版本未知，不将源码能力当成真实网页证据。
+
 ## T13.07 图片选择取消来源（2026-10-09）
 
 复用 [Pages CMS rich-text](https://pagescms.org/docs/configuration/fields/rich-text/) 的 Markdown、Editor/Source 和命名媒体源。[固定官方 MediaDialog](https://github.com/hunvreus/pagescms/blob/6f4e860a35d934406580287e7042e5e111e207a1/components/media/media-dialog.tsx)的关闭会清空 selectedImages，只有 Select 才调用正文插入；[rich-text 接入](https://github.com/hunvreus/pagescms/blob/6f4e860a35d934406580287e7042e5e111e207a1/fields/core/rich-text/edit-component.tsx)在关闭时取消待选择结果。本机缓存已读，MIT；不复制到应用源码，托管部署版本未知。

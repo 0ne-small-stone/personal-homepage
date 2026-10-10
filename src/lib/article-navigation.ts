@@ -1,4 +1,6 @@
 // Native navigation/Pagefind/PDF.js stay in charge. Reuse the article return adapter for all reading.
+import { sitePath } from './paths';
+
 interface ReadingVisit {
   id: string;
   from: string;
@@ -21,6 +23,7 @@ const storageKey = 'lssh:article-visits:v1';
 const pendingKey = 'lssh:article-pending:v1';
 const sourceKey = 'lsshArticleSource';
 const returnKey = 'lsshArticleReturn';
+const tagRoot = sitePath('knowledge/blog/tags');
 const readingPaths = new Set<string>(JSON.parse(
   document.querySelector<HTMLMetaElement>('meta[name="lssh-reading-paths"]')?.content || '[]',
 ));
@@ -37,13 +40,18 @@ function localUrl(value: string): URL | null {
   } catch { return null; }
 }
 
+function disabledTagSource(value: string): boolean {
+  return document.querySelector<HTMLMetaElement>('meta[name="lssh-tag-browsing"]')?.content === 'false' &&
+    Boolean(localUrl(value)?.pathname.startsWith(tagRoot));
+}
+
 function visits(): ReadingVisit[] {
   try {
     const value: unknown = JSON.parse(sessionStorage.getItem(storageKey) || '[]');
     if (!Array.isArray(value)) return [];
     return value.filter((item): item is ReadingVisit =>
       typeof item?.id === 'string' && typeof item.from === 'string' && typeof item.to === 'string' &&
-      Boolean(localUrl(item.from)) && readingTarget(item.to) &&
+      Boolean(localUrl(item.from)) && !disabledTagSource(item.from) && readingTarget(item.to) &&
       Number.isFinite(item.scrollY) && item.scrollY >= 0 &&
       (item.search === null || typeof item.search === 'string') && typeof item.label === 'string' &&
       (item.focusScope === undefined || (typeof item.focusScope === 'string' && Object.hasOwn(focusScopes, item.focusScope))),
@@ -64,7 +72,8 @@ function plainClick(event: MouseEvent, anchor: HTMLAnchorElement): boolean {
 
 function remember(event: MouseEvent) {
   const anchor = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>('a[href]') : null;
-  if (!anchor || !plainClick(event, anchor) || anchor.hasAttribute('data-article-return')) return;
+  if (!anchor || !plainClick(event, anchor) || anchor.hasAttribute('data-article-return') ||
+    disabledTagSource(location.href)) return;
   const destination = new URL(anchor.href);
   if (!readingTarget(destination.href) ||
     (destination.origin === location.origin && destination.pathname === location.pathname)) return;
