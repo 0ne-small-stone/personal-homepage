@@ -8,6 +8,8 @@
 
 ## 文档入口
 
+本轮 **T13.12 已有资料说明网页编辑**：原生后台可按科目编辑标题、摘要和主题，真实保存/重开与前台一致；侧栏名称读内容标题，原四页PDF及正文/来源保留。验证样本已恢复，素材/依赖新增0。[后台](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-12-resource-editor/collection/resources)、[冻结验收页](http://127.0.0.1:4384/personal-homepage/knowledge/?type=resource&topic=%E7%BD%91%E9%A1%B5%E7%BC%96%E8%BE%91%E9%AA%8C%E8%AF%81)、[证据与限制](docs/technical/iterations/t13-12-2026-10-10.md)。标题/主题变动需开发者同步候选，未合并或上线。
+
 本轮 **T13.11 网页关联内容选择**：文章后台可搜索并多选已有资料、文章和笔记，保存稳定ID后复用关联与反向引用。真实保存、重开及移除恢复通过；41个候选，新增设计素材/依赖0。[后台验证](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-11-related-picker/collection/articles)、[前台三类关联候选](http://127.0.0.1:4382/personal-homepage/knowledge/blog/editor-draft-check/#related-knowledge-title)、[本轮证据与限制](docs/technical/iterations/t13-11-2026-10-10.md)。新内容/标题/主题变化后需 npm run cms:sync-related；测试稿仍为草稿，未正式部署。
 
 本轮 **T08.02 PDF 侧栏收起**：侧栏右上新增“收起”，支持鼠标、Enter/Space及Esc，关闭后可从原生工具栏再打开，保持页码和缩放。刷新[当前资料](http://127.0.0.1:4322/personal-homepage/knowledge/resources/computer-systems/computer-organization-risc-v-fifth-edition/)即可体验。11组独立Edge、26文件类型检查和52页构建通过，[复现与实际截图](docs/technical/iterations/t08-02-2026-10-08.md)。

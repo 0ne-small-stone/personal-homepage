@@ -34,7 +34,7 @@ export default defineConfig({
       sidebar: [
         { label: '学习总览', link: '/knowledge/' },
         { label: '学习资料', items: [
-          { label: 'PDF 阅读验证说明（功能样本）', link: '/knowledge/resources/reading-guide/' },
+          { slug: 'knowledge/resources/reading-guide' },
           { label: '大学物理Ⅱ', collapsed: true, items: [{ autogenerate: { directory: 'knowledge/resources/physics' } }] },
           { label: '大学物理实验', collapsed: true, items: [{ autogenerate: { directory: 'knowledge/resources/physics-lab' } }] },
           { label: '概率论与数理统计', collapsed: true, items: [{ autogenerate: { directory: 'knowledge/resources/probability' } }] },
