@@ -8,6 +8,8 @@
 
 ## 文档入口
 
+本轮 **T13.13 已有笔记说明网页编辑**：原生后台按科目编辑标题、摘要和主题；真实保存/重开/恢复、前台筛选与目录标题同步通过，实际点击仍直达作者原站。全部48内容与公开PDF恢复基线，素材/依赖新增0。[后台入口](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-13-note-editor/collection/notes)、[冻结验收快照](http://127.0.0.1:4385/personal-homepage/knowledge/?type=note&topic=%E7%AC%94%E8%AE%B0%E7%BC%96%E8%BE%91%E9%AA%8C%E8%AF%81)、[记录与限制](docs/technical/iterations/t13-13-2026-10-10.md)。笔记新建/正文编辑、候选自动同步及部署另片。
+
 本轮 **T13.12 已有资料说明网页编辑**：原生后台可按科目编辑标题、摘要和主题，真实保存/重开与前台一致；侧栏名称读内容标题，原四页PDF及正文/来源保留。验证样本已恢复，素材/依赖新增0。[后台](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-12-resource-editor/collection/resources)、[冻结验收页](http://127.0.0.1:4384/personal-homepage/knowledge/?type=resource&topic=%E7%BD%91%E9%A1%B5%E7%BC%96%E8%BE%91%E9%AA%8C%E8%AF%81)、[证据与限制](docs/technical/iterations/t13-12-2026-10-10.md)。标题/主题变动需开发者同步候选，未合并或上线。
 
 本轮 **T13.11 网页关联内容选择**：文章后台可搜索并多选已有资料、文章和笔记，保存稳定ID后复用关联与反向引用。真实保存、重开及移除恢复通过；41个候选，新增设计素材/依赖0。[后台验证](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-11-related-picker/collection/articles)、[前台三类关联候选](http://127.0.0.1:4382/personal-homepage/knowledge/blog/editor-draft-check/#related-knowledge-title)、[本轮证据与限制](docs/technical/iterations/t13-11-2026-10-10.md)。新内容/标题/主题变化后需 npm run cms:sync-related；测试稿仍为草稿，未正式部署。

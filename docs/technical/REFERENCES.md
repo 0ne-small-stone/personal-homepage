@@ -1,5 +1,9 @@
 # 个人主页技术调研来源和候选方案
 
+## T13.13 笔记说明编辑来源（2026-10-10）
+
+复用[Pages CMS collection](https://pagescms.org/docs/configuration/content/)的subfolders/operations与[原生字段](https://pagescms.org/docs/configuration/content/fields/)的string/text/list/description；沿用T13.12固定官方6f4e860a35d934406580287e7042e5e111e207a1的merge与序列化来源（MIT，本机缓存已读）。只增加配置，不复制后台代码。托管版本未知，source作者/URL/PDF信息及Markdown文字通过实际Save读回；原生YAML/首空行规范化与最终字节恢复分别记录。前台沿用已接入的查询、自动侧栏与外部笔记直达，不新增阅读器或抓取外站正文。
+
 ## T13.12 资料说明编辑来源（2026-10-10）
 
 资料样本侧栏复用 [Starlight sidebar](https://starlight.astro.build/guides/sidebar/) 的原生 slug 配置，从条目标题生成名称；取消该样本固定 label，其他科目仍采用原生 autogenerate。真实构建及浏览器验证标题同步，不复制导航组件。Pages CMS 原生序列化会展开 YAML 列表并去掉正文前一个空行；真实 Save 后正文文字与未开放字段保留，最终原样恢复功能样本，不能声称每次 Save 都字节不变。
