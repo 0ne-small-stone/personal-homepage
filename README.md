@@ -8,6 +8,8 @@
 
 ## 文档入口
 
+本轮 **T13.11 网页关联内容选择**：文章后台可搜索并多选已有资料、文章和笔记，保存稳定ID后复用关联与反向引用。真实保存、重开及移除恢复通过；41个候选，新增设计素材/依赖0。[后台验证](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-11-related-picker/collection/articles)、[前台三类关联候选](http://127.0.0.1:4382/personal-homepage/knowledge/blog/editor-draft-check/#related-knowledge-title)、[本轮证据与限制](docs/technical/iterations/t13-11-2026-10-10.md)。新内容/标题/主题变化后需 npm run cms:sync-related；测试稿仍为草稿，未正式部署。
+
 本轮 **T08.02 PDF 侧栏收起**：侧栏右上新增“收起”，支持鼠标、Enter/Space及Esc，关闭后可从原生工具栏再打开，保持页码和缩放。刷新[当前资料](http://127.0.0.1:4322/personal-homepage/knowledge/resources/computer-systems/computer-organization-risc-v-fifth-edition/)即可体验。11组独立Edge、26文件类型检查和52页构建通过，[复现与实际截图](docs/technical/iterations/t08-02-2026-10-08.md)。
 
 本轮 **T07.04 学习总览标题排序**：可按主题（默认）、标题升序、标题降序浏览，与类型/主题组合；刷新、前进后退与阅读返回保持，清空筛选保留排序。204 种组合与当前/隔离 Edge 16/17 组通过。[物理资料排序体验](http://127.0.0.1:4322/personal-homepage/knowledge/?type=resource&topic=%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%E2%85%A1&sort=title-asc)、[复现与证据](docs/technical/iterations/t07-04-2026-10-08.md)。总览一并正确统计公开 PDF；内容与原件未改，CMS 真实上传及正式部署继续待验。

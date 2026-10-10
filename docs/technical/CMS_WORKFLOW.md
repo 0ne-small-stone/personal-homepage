@@ -1,5 +1,14 @@
 # 网页编辑与草稿验证
 
+## T13.11 选择关联内容
+
+在[本轮文章后台](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-11-related-picker/collection/articles)打开文章，在“关联内容”搜索标题或主题，选择资料、文章或笔记，×可移除。Save后重开核对；保存工作分支不会直接更新正式网站。候选仅包含已发布内容，不选当前文章。
+
+开发者在新内容发布/下线、标题或主题改变后拉取分支，运行 npm run cms:sync-related 并提交 .pages.yml；npm run check 会提示过期候选。当前候选为41条，尚非后台保存后自动实时刷新。原有 related 继续保存稳定ID，前台解析生成两端普通链接。
+
+真实三类保存和移除恢复已验，测试稿与原文完全一致。[本轮步骤、候选预览与证据](iterations/t13-11-2026-10-10.md)。最后后台出现额外未保存输入，已保留，Esc/组合键、手机和读屏仍待独立验证。
+
+
 ## T07.05 博客设置与标签浏览
 
 [打开博客设置](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft07-05-blog-tags/file/blog-settings)，使用 `codex/t07-05-blog-tags` 分支。
