@@ -1,10 +1,10 @@
 ---
-title: PDF 阅读验证说明（网页编辑验证）
-description: 公开功能样本，用于验证资料标题、摘要和主题的网页保存；PDF 仍为原四页附件。
+title: PDF 阅读验证说明（功能样本）
+description: 本站生成的四页公开功能样本，用于验证 PDF 阅读、缩放、返回与下载。
 entryId: resource-lssh-pdf-reading-check
 kind: resource
 topics:
-  - 网页编辑验证
+  - 阅读与整理
 example: true
 draft: false
 related:
