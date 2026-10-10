@@ -3,12 +3,10 @@ title: PDF 阅读验证说明（功能样本）
 description: 本站生成的四页公开功能样本，用于验证 PDF 阅读、缩放、返回与下载。
 entryId: resource-lssh-pdf-reading-check
 kind: resource
-topics:
-  - 阅读与整理
+topics: [阅读与整理]
 example: true
 draft: false
-related:
-  - demo-article-reading-check
+related: [demo-article-reading-check]
 tableOfContents: false
 source:
   id: source-lssh-pdf-reading-check
@@ -19,6 +17,7 @@ source:
   pages: 4
   sha256: 9e2aac37f32cc56aff3a15434a525659c95096d4481c8739c7ee9471fca953be
 ---
+
 ## 内容说明
 
 这是本站生成的**功能样本**，用于验证公开附件的直接阅读、翻页、缩放、刷新恢复与下载。它不是课程讲义或个人学习成果。

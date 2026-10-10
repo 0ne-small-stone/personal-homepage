@@ -101,7 +101,7 @@ Starlight 已提供导航、搜索等基础能力；默认搜索由 Pagefind 实
 
 ## 页面组织建议
 
-2026-10-10 T13.12：原生 resources collection 指向既有 src/content/docs/knowledge/resources，subfolders:true；仅开放标题、摘要和主题字段，禁用 create/rename/delete。settings.content.merge:true 合并既有文件，保留稳定标识、source及正文；不新增集合模型、上传目录或服务。原生目录导航不能当作递归聚合列表；标题/主题改变沿用 cms:sync-related 与候选过期检查。真实 Save 后按元数据、正文和附件指纹分别验收。
+2026-10-10 T13.12：原生 resources collection 指向既有 src/content/docs/knowledge/resources，subfolders:true；仅开放标题、摘要和主题字段，禁用 create/rename/delete。settings.content.merge:true 合并既有文件，保留稳定标识、source及正文文字；原生 YAML 序列化可能展开列表并删除 frontmatter 后首个空行，不能声称逐字节不变。本机发现 PDF 样本侧栏使用固定 label/link，改为 Starlight 原生 slug 条目自动取标题；其余科目已自动生成。不新增集合模型、上传目录或服务。原生目录导航不能当作递归聚合列表；标题/主题改变沿用 cms:sync-related 与候选过期检查。真实 Save 后按元数据、正文和附件指纹分别验收。
 
 2026-10-10 T13.11：托管实测与官方源码确认原生 reference 只读取目录当前层，不适配既有多层知识目录。改用原生 select multiple；仅生成 .pages.yml 的候选参数，以稳定 ID 保存，标签显示类型、真实标题与主题。tools/content/cms-related-options.mjs 递归读取同一批 Markdown、排除草稿、检查重复 ID；npm run cms:sync-related 更新参数，npm run check 检查过期并提示同步。内容新增/改名/上下线后需开发者同步候选；不新增内容集合、服务或依赖，正向/反向解析和路由沿用。原生控件不能按当前文章动态排除自指，现有前台继续过滤。
 

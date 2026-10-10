@@ -2,6 +2,8 @@
 
 ## T13.12 资料说明编辑来源（2026-10-10）
 
+资料样本侧栏复用 [Starlight sidebar](https://starlight.astro.build/guides/sidebar/) 的原生 slug 配置，从条目标题生成名称；取消该样本固定 label，其他科目仍采用原生 autogenerate。真实构建及浏览器验证标题同步，不复制导航组件。Pages CMS 原生序列化会展开 YAML 列表并去掉正文前一个空行；真实 Save 后正文文字与未开放字段保留，最终原样恢复功能样本，不能声称每次 Save 都字节不变。
+
 已读 [Pages CMS content](https://pagescms.org/docs/configuration/content/) 与[fields](https://pagescms.org/docs/configuration/content/fields/)的 collection、subfolders、operations、string/text/list、description 配置。复用原生目录和三个元数据字段，不复制后台代码。固定官方 6f4e860a35d934406580287e7042e5e111e207a1（MIT，本机缓存已读）的 files POST 在 settings.content.merge:true 时先 parse 既有文件，再 mergeWith 合并；传入数组整体替换，未配置 source 和 body 保留。托管版本未知，实际 Save 后的字段、正文与PDF指纹分别核对，源码能力不代替真实证据。
 
 ## T13.11 原生关联选择来源（2026-10-10）
