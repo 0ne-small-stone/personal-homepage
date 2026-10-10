@@ -6,7 +6,8 @@ topics:
   - 阅读与整理
 related:
   - resource-lssh-pdf-reading-check
-draft: true
+  - demo-article-reading-check
+draft: false
 kind: note
 example: false
 ---
@@ -17,7 +18,14 @@ example: false
 记录一个阅读问题，并链接到关联资料。
 
 ```js
-const note = { reviewed: false };
+const note = { reviewed: true };
 ```
 
 [阅读 PDF 验证资料](../../../resources/reading-guide/)
+
+![黑灰阅读界面的功能测试插图](../../../../../assets/article-images/t13-02-image-check.png)
+
+
+## 再次整理
+
+这段正文已通过网页编辑更新。
