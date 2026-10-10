@@ -88,7 +88,7 @@ content:
         list: true
       - name: related
         label: 关联内容
-        description: '搜索标题或主题，选择已发布的资料、文章或笔记；× 移除。不要选择当前文章。Save 后需构建发布才生效；新增、改名或发布内容后由开发者同步候选。'
+        description: '搜索标题或主题，选择已发布的资料、文章或笔记；× 移除。键盘：↓/↑、Enter 选择，Esc 关闭；搜索框为空时 ← 聚焦已选项、Backspace 移除。不要选择当前文章。Save 后需构建发布才生效；新增、改名或发布内容后由开发者同步候选。'
         type: select
         options:
           multiple: true
@@ -238,7 +238,7 @@ content:
         list: true
       - name: related
         label: 关联内容
-        description: '搜索标题或主题，选择已发布的资料、文章或笔记；× 移除。不要选择当前文章。Save 后需构建发布才生效；新增、改名或发布内容后由开发者同步候选。'
+        description: '搜索标题或主题，选择已发布的资料、文章或笔记；× 移除。键盘：↓/↑、Enter 选择，Esc 关闭；搜索框为空时 ← 聚焦已选项、Backspace 移除。不要选择当前文章。Save 后需构建发布才生效；新增、改名或发布内容后由开发者同步候选。'
         type: select
         options:
           multiple: true
