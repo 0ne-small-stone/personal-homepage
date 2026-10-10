@@ -7,7 +7,7 @@ topics:
 related:
   - resource-lssh-pdf-reading-check
   - demo-article-reading-check
-draft: false
+draft: true
 kind: note
 example: false
 ---
