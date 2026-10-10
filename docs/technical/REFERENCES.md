@@ -2,9 +2,9 @@
 
 ## T13.11 原生关联选择来源（2026-10-10）
 
-已读 [Pages CMS reference](https://pagescms.org/docs/configuration/fields/reference/)、[content](https://pagescms.org/docs/configuration/content/) 与 [view](https://pagescms.org/docs/configuration/content/view/)：引用读取已有 CMS 集合，multiple 保存多值，value/label 模板分别承接稳定 ID/真实标题；查询字段 readonly 与关闭新增/重命名/删除用于本轮操作边界，不构成 GitHub 权限控制。
+已读 [Pages CMS reference](https://pagescms.org/docs/configuration/fields/reference/) 与 [select](https://pagescms.org/docs/configuration/fields/select/)。托管 reference 根目录只有三个文件夹、候选为空；固定官方 6f4e860a35d934406580287e7042e5e111e207a1（MIT）的 [getCollectionCache](https://github.com/hunvreus/pagescms/blob/6f4e860a35d934406580287e7042e5e111e207a1/lib/github-cache-file.ts) 按 parentPath 等值读取，subfolders 不会递归聚合 reference。原先根目录查询方案已撤回。
 
-固定官方 `6f4e860a35d934406580287e7042e5e111e207a1`（MIT）的 [Reference EditComponent](https://github.com/hunvreus/pagescms/blob/6f4e860a35d934406580287e7042e5e111e207a1/fields/core/reference/edit-component.tsx) 和 [references GET](https://github.com/hunvreus/pagescms/blob/6f4e860a35d934406580287e7042e5e111e207a1/app/api/%5Bowner%5D/%5Brepo%5D/%5Bbranch%5D/references/%5Bname%5D/route.ts) 已缓存并读取。原生 handleValueChange 将选项映射为字符串 value 数组，已选 ID 单独解析标签，search 支持定义过的字段。没有 draft/当前来源动态过滤参数；继续由本站既有关系解析隐藏草稿、排除自指/重复，界面提示承接此边界。后台托管版本未知，实际 UI 与 Save 独立验收，不复制上述代码或更改框架依赖。
+采用官方 [Select EditComponent](https://github.com/hunvreus/pagescms/blob/6f4e860a35d934406580287e7042e5e111e207a1/fields/core/select/edit-component.tsx)：multiple 映射字符串 value 数组，label 搜索、选中 chip 与移除由原生 Combobox 承担。少量适配仅递归读取既有内容、生成原生 values 参数与检查过期；复用已安装 @astrojs/markdown-remark 的 parseFrontmatter，不另增 YAML 库。新内容进入候选需同步配置，后台托管版本未知，实际 Save 独立验收。
 
 ## T07.05 标签浏览开关来源（2026-10-10）
 

@@ -3,14 +3,17 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "engines": { "node": ">=24 <25" },
+  "engines": {
+    "node": ">=24 <25"
+  },
   "scripts": {
     "content:import": "node tools/content/import-learning.mjs",
     "materials:prepare": "node tools/content/prepare-local-materials.mjs",
     "dev": "astro dev",
-    "check": "astro check",
+    "check": "node tools/content/cms-related-options.mjs --check && astro check",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "cms:sync-related": "node tools/content/cms-related-options.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "7.3.2",
