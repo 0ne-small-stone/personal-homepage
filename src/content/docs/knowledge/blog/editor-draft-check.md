@@ -14,6 +14,8 @@ sidebar:
   hidden: true
 related:
   - demo-article-reading-check
+  - resource-lssh-pdf-reading-check
+  - note-ads-algorithms-notes
 ---
 这是一篇用于网页编辑验证的测试草稿，不是正式文章。保存草稿后，它仍不会出现在公开网站的文章列表、学习总览或搜索中。
 
