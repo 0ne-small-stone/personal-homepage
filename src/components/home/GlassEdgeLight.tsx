@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useRef, type RefObject } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
-import { Box2, BufferGeometry, DoubleSide, Float32BufferAttribute, MathUtils, MeshPhysicalMaterial, ShaderMaterial, Vector2, Vector3, type ExtrudeGeometry, type Group, type Mesh } from 'three';
+import { Box2, MathUtils, MeshPhysicalMaterial, ShaderMaterial, Vector2, Vector3, type ExtrudeGeometry, type Group, type Mesh } from 'three';
 import type { JourneyModel } from './scene-state';
+import GlassGlow from './GlassGlow';
 
 const coreVertex = /* glsl */`
   varying vec3 localPosition;
@@ -28,32 +29,6 @@ const coreFragment = /* glsl */`
     float t = (abs(localPosition.z) - sideZ) / bevelWidth;
     float feather = sin(3.14159265 * clamp(t, 0.0, 1.0));
     float alpha = band * feather * .06 * lit * mix(.85, 1.0, outer) * face * lightIntensity;
-    if (alpha < .0005) discard;
-    gl_FragColor = vec4(vec3(1.0), min(alpha, .94));
-    #include <colorspace_fragment>
-  }
-`;
-const haloVertex = /* glsl */`
-  uniform float haloWidth;
-  attribute vec2 outward;
-  attribute float bandOffset;
-  attribute float strength;
-  varying float vOffset;
-  varying float vStrength;
-  void main() {
-    vec3 p = position; p.xy += outward * bandOffset * haloWidth;
-    vOffset = bandOffset; vStrength = strength;
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0);
-  }
-`;
-const haloFragment = /* glsl */`
-  uniform float lightIntensity;
-  varying float vOffset;
-  varying float vStrength;
-  void main() {
-    float spread = exp(-pow(vOffset / .46, 2.0));
-    float fade = 1.0 - smoothstep(.75, 1.0, vOffset);
-    float alpha = vStrength * .26 * spread * fade * lightIntensity;
     if (alpha < .0005) discard;
     gl_FragColor = vec4(vec3(1.0), min(alpha, .94));
     #include <colorspace_fragment>
@@ -93,7 +68,7 @@ function edgePlanes(points: { p: Vector2 }[]) {
 }
 
 // Extract the existing bevel/side junction. No second outline or hole model.
-function makeHalo(geometry: ExtrudeGeometry) {
+function getLightContours(geometry: ExtrudeGeometry) {
   const positions = geometry.getAttribute('position'), normals = geometry.getAttribute('normal');
   const sideZ = geometry.boundingBox!.max.z - (geometry.parameters.options.bevelThickness ?? .025);
   const shape = Array.isArray(geometry.parameters.shapes) ? geometry.parameters.shapes[0] : geometry.parameters.shapes;
@@ -122,58 +97,45 @@ function makeHalo(geometry: ExtrudeGeometry) {
     const item = loop.get(key);
     if (item) item.n.add(n); else loop.set(key, { p, n });
   }
-  const xyz: number[] = [], outward: number[] = [], offsets: number[] = [], strengths: number[] = [], indices: number[] = [];
-  const light = new Vector2(-.85, .25).normalize();
-  const planes: Vector3[][] = [];
-  loops.forEach((loop, kind) => {
+  const planes = loops.map(loop => {
     const points = [...loop.values()].sort((a, b) => Math.atan2(a.p.y, a.p.x) - Math.atan2(b.p.y, b.p.x));
-    planes.push(edgePlanes(points));
-    for (const face of [1, -1]) {
-      const start = offsets.length;
-      points.forEach(({ p, n }) => {
-        n.normalize();
-        const facing = n.dot(light) * (kind === 0 ? 1 : -1);
-        const alpha = (kind === 0 ? 1 : .85) * (.60 + .40 * MathUtils.smoothstep(facing, -.1, .8)) * (face === 1 ? 1 : .55);
-        for (const offset of [0, 1]) {
-          const widthScale = kind === 0 ? 1 : .72;
-          xyz.push(p.x, p.y, sideZ * face); outward.push(n.x * widthScale, n.y * widthScale); offsets.push(offset); strengths.push(alpha);
-        }
-      });
-      for (let i = 0; i < points.length; i++) {
-        const a = start + i * 2, b = start + ((i + 1) % points.length) * 2;
-        // Double-sided strips are depth-tested against the original solid glass.
-        indices.push(a, b, a + 1, b, b + 1, a + 1);
-      }
-    }
+    return edgePlanes(points);
   });
-  const halo = new BufferGeometry();
-  halo.setAttribute('position', new Float32BufferAttribute(xyz, 3));
-  halo.setAttribute('outward', new Float32BufferAttribute(outward, 2));
-  halo.setAttribute('bandOffset', new Float32BufferAttribute(offsets, 1));
-  halo.setAttribute('strength', new Float32BufferAttribute(strengths, 1));
-  halo.setIndex(indices); halo.computeBoundingSphere();
-  return { halo, sideZ, planes };
+  return { sideZ, planes };
 }
 
 export default function GlassEdgeLight({ mesh, geometry, model, mobile }: { mesh: RefObject<Mesh | null>; geometry: ExtrudeGeometry; model: JourneyModel; mobile: boolean }) {
-  const group = useRef<Group>(null), center = useMemo(() => new Vector3(), []);
-  const { viewport, camera, size } = useThree();
+  const group = useRef<Group>(null);
+  const { scene } = useThree();
   const owned = useMemo(() => {
-    const { halo, sideZ, planes } = makeHalo(geometry);
+    const { sideZ, planes } = getLightContours(geometry);
     const core = new ShaderMaterial({ transparent: true, depthWrite: false, toneMapped: false,
       polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1,
       vertexShader: coreVertex, fragmentShader: coreFragment,
       uniforms: { sideZ: { value: sideZ }, bevelWidth: { value: geometry.parameters.options.bevelThickness ?? .025 }, lightIntensity: { value: 1 } } });
-    const soft = new ShaderMaterial({ transparent: true, depthWrite: false, toneMapped: false, side: DoubleSide,
-      vertexShader: haloVertex, fragmentShader: haloFragment, uniforms: { haloWidth: { value: .04 }, lightIntensity: { value: 1 } } });
     // This shared-geometry light layer works with both custom and ordinary glass.
     const surface = new ShaderMaterial({ transparent: true, depthWrite: false, toneMapped: false,
       polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1,
       vertexShader: coreVertex, fragmentShader: surfaceFragment,
       uniforms: { outerPlanes: { value: planes[0] }, innerPlanes: { value: planes[1] }, sideZ: { value: sideZ }, lightIntensity: { value: 1 } } });
-    return { halo, core, soft, surface };
+    return { core, surface, glow: new GlassGlow(geometry, planes) };
   }, [geometry]);
-  useEffect(() => () => { owned.halo.dispose(); owned.core.dispose(); owned.soft.dispose(); owned.surface.dispose(); }, [owned]);
+  useEffect(() => {
+    scene.userData.lsshGlassGlow = owned.glow;
+    const pageHide = (event: PageTransitionEvent) => {
+      if (event.persisted) owned.glow.suspend();
+      else owned.glow.dispose();
+    };
+    const beforeSwap = () => owned.glow.dispose();
+    window.addEventListener('pagehide', pageHide);
+    document.addEventListener('astro:before-swap', beforeSwap);
+    return () => {
+      window.removeEventListener('pagehide', pageHide);
+      document.removeEventListener('astro:before-swap', beforeSwap);
+      if (scene.userData.lsshGlassGlow === owned.glow) delete scene.userData.lsshGlassGlow;
+      owned.core.dispose(); owned.surface.dispose(); owned.glow.dispose();
+    };
+  }, [owned, scene]);
   useFrame(() => {
     const parent = mesh.current;
     if (!parent || !group.current) return;
@@ -183,11 +145,11 @@ export default function GlassEdgeLight({ mesh, geometry, model, mobile }: { mesh
     // Reuse WorkCard's incoming 0..0.5 index interval; reverse scroll restores it.
     const lightIntensity = 1 - MathUtils.smoothstep(model.motion.rendered.index, 0, .5);
     owned.core.uniforms.lightIntensity.value = lightIntensity;
-    owned.soft.uniforms.lightIntensity.value = lightIntensity;
+    owned.glow.source = parent;
+    owned.glow.mobile = mobile;
+    owned.glow.intensity = parent.visible && model.motion.raw.wall < (.3 / .35) ? lightIntensity : 0;
     owned.surface.uniforms.lightIntensity.value = lightIntensity;
-    const view = viewport.getCurrentViewport(camera, parent.getWorldPosition(center));
-    const haloPixels = mobile ? 32 : 56;
-    owned.soft.uniforms.haloWidth.value = view.width / size.width * haloPixels / parent.scale.x;
+
   }, -.7);
   useFrame(() => {
     // Restore after ordinary capture, before the existing main compositor(priority1).
@@ -196,7 +158,6 @@ export default function GlassEdgeLight({ mesh, geometry, model, mobile }: { mesh
   // GlassOptics hides this parent mesh during capture, excluding the light assembly.
   return <group ref={group} userData={{ lsshGlassLight: 'assembly' }}>
     <mesh geometry={geometry} material={owned.surface} dispose={null} renderOrder={20} userData={{ lsshGlassLight: 'surface' }} raycast={() => {}} />
-    <mesh geometry={owned.halo} material={owned.soft} dispose={null} frustumCulled={false} renderOrder={21} userData={{ lsshGlassLight: 'halo' }} raycast={() => {}} />
     <mesh geometry={geometry} material={owned.core} dispose={null} renderOrder={22} userData={{ lsshGlassLight: 'core' }} raycast={() => {}} />
   </group>;
 }

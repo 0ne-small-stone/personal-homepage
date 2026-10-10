@@ -4,6 +4,7 @@ import { FramebufferTexture, LinearFilter, NoColorSpace, ShaderMaterial, Vector2
 import { FullScreenQuad } from 'three/addons/postprocessing/Pass.js';
 import { BlackFlow, flowPassOrder } from './black-flow';
 import type { JourneyModel } from './scene-state';
+import type GlassGlow from './GlassGlow';
 
 interface Resources { flow: BlackFlow; color: FramebufferTexture; material: ShaderMaterial; quad: FullScreenQuad; disposed: boolean; }
 function dispose(owned: Resources) { if (owned.disposed) return; owned.disposed = true; owned.flow.dispose(); owned.color.dispose(); owned.material.dispose(); owned.quad.dispose(); }
@@ -63,17 +64,18 @@ export default function BlackFlowLayer({ model, hover, detailed, quiet, visible 
         if (diagnostics && debug.current.read) { probe = owned.flow.readback(); debug.current.read = false; }
       }
       gl.autoClear = true;
-      if (!owned || !running || debug.current.bypass) { gl.setRenderTarget(old.target); gl.render(scene, camera); }
-      else {
-        camera.layers.set(0); gl.setRenderTarget(old.target); gl.render(scene, camera);
+      // Local glass diffusion belongs below the foreground and in the same warp.
+      camera.layers.set(0); gl.setRenderTarget(old.target); gl.render(scene, camera);
+      if (!debug.current.foregroundOnly) (scene.userData.lsshGlassGlow as GlassGlow | undefined)?.render(gl, camera);
+      if (owned && running && !debug.current.bypass) {
         gl.copyFramebufferToTexture(owned.color);
         gl.setRenderTarget(old.target);
         owned.material.uniforms.flow.value = owned.flow.texture;
         owned.material.uniforms.amount.value = debug.current.forceZero ? 0 : 1;
         if (debug.current.foregroundOnly) gl.clear(); else owned.quad.render(gl);
-        // Foreground cards share the camera but are composited after the warp.
-        camera.layers.set(1); gl.autoClear = false; gl.clearDepth(); gl.render(scene, camera);
       }
+      // Foreground cards are always last, including ordinary/paused rendering.
+      camera.layers.set(1); gl.autoClear = false; gl.clearDepth(); gl.render(scene, camera);
     } catch (error) {
       // A broken optional flow layer must leave the existing scene usable.
       reason.current = error instanceof Error ? error.message : 'flow-render-failed';
