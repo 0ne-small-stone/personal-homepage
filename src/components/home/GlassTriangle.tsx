@@ -21,15 +21,19 @@ function roundedTriangle(points: Vector2[], radius: number, target: Shape | Path
 }
 
 export function makeTriangleGeometry() {
-  // SYSTEM 9.3.1 / 33A: widen the construction, including its hole, before extrusion.
-  const vertices = [new Vector2(0, 1.42), new Vector2(-1.23 * 1.14, -.71), new Vector2(1.23 * 1.14, -.71)];
+  // SYSTEM 9.3.7: construction dimensions include rounding/bevel compensation.
+  // Final W/H/D = 3.353368 / 2.913569 / .820492; front hole = 1.465180 / 1.269134.
+  const vertices = (width: number, height: number, y = 0) => [
+    new Vector2(0, height * 2 / 3 + y),
+    new Vector2(-width / 2, -height / 3 + y),
+    new Vector2(width / 2, -height / 3 + y),
+  ];
   const shape = new Shape();
-  roundedTriangle(vertices, .035, shape);
+  roundedTriangle(vertices(3.382356834, 2.914426843), .035, shape);
   const hole = new Path();
-  roundedTriangle(vertices.map(v => v.clone().multiplyScalar(.65)).reverse(), .05, hole);
+  roundedTriangle(vertices(1.515805018, 1.301675404, -.024042664).reverse(), .05, hole);
   shape.holes.push(hole);
-  const geometry = new ExtrudeGeometry(shape, { depth: .90, bevelEnabled: true, bevelThickness: .025, bevelSize: .025, bevelSegments: 4, curveSegments: 16, steps: 1 });
-  geometry.translate(0, -.16, -.09);
+  const geometry = new ExtrudeGeometry(shape, { depth: .770491776, bevelEnabled: true, bevelThickness: .025, bevelSize: .025, bevelSegments: 4, curveSegments: 16, steps: 1 });
   geometry.computeVertexNormals();
   // One local calibration: the outline bounds and rotation anchor share the origin.
   // This translation preserves the shape/material and never cancels pointer feedback.
@@ -45,17 +49,15 @@ export default function GlassTriangle({ model, paused, mobile, hover, low, detai
   const geometry = useMemo(makeTriangleGeometry, []);
   const reflectionScene = useMemo(() => new Scene(), []);
   const rotation = useMemo(() => new GlassRotation(), []);
-  const { viewport, camera, size } = useThree();
+  const { camera, size } = useThree();
   useEffect(() => () => geometry.dispose(), [geometry]);
   useFrame((_, rawDt) => {
     if (!mesh.current) return;
     const diagnostics = rotation.step(model, rawDt, paused, hover);
     // Latest user correction: one central anchor, no chapter-driven side placement.
     mesh.current.position.set(0, 0, 0);
-    const currentView=viewport.getCurrentViewport(camera,new Vector3(0,0,0));
-    const box = geometry.boundingBox!;
-    const mobileScale = Math.min(currentView.height * .44 / (box.max.y - box.min.y), currentView.width * .84 / (box.max.x - box.min.x));
-    mesh.current.scale.setScalar(mobile ? mobileScale * .575 : .6555);
+    // One scene-unit model on every device; CameraRig owns the aspect adaptation.
+    mesh.current.scale.setScalar(1);
     mesh.current.quaternion.copy(rotation.quaternion);
     // Temporary old wall handoff, independent of the four-card index.
     mesh.current.visible = paused || model.motion.raw.wall < (.3 / .35);

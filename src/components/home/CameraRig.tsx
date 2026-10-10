@@ -14,7 +14,14 @@ export default function CameraRig({model,mobile:_mobile,quiet}: {model:JourneyMo
   useEffect(()=>{camera.layers.enable(1);return()=>camera.layers.disable(1);},[camera]);
   useFrame((_,rawDt)=>{
     if(!(camera instanceof PerspectiveCamera))return;
-    if(quiet){camera.position.set(0,0,6);camera.fov=40;camera.updateProjectionMatrix();camera.lookAt(0,0,0);return;}
+    if(quiet){
+      // Freeze input, preserving the same responsive first-screen projection.
+      camera.aspect=size.width/size.height;
+      camera.position.set(0,0,9.5*sceneUnitScale);camera.fov=31+18/camera.aspect;
+      camera.updateProjectionMatrix();camera.lookAt(0,0,0);
+      model.motion.camera={position:camera.position.toArray(),fov:camera.fov,outro:{raw:0,parallax:0,projection:0},offset:[0,0],offsetTarget:[0,0]};
+      return;
+    }
     const zoom=transition.current,target=model.motion.phase==='kv'?1:0,time=performance.now();
     const resized=dimensions.current!==`${size.width}:${size.height}`;
     if(initialized.current!==model.motion.initialization.revision||resized){
