@@ -14,8 +14,6 @@ const coreVertex = /* glsl */`
 const coreFragment = /* glsl */`
   uniform float sideZ;
   uniform float bevelWidth;
-  uniform float pixelRatio;
-  uniform float corePixels;
   uniform float lightIntensity;
   varying vec3 localPosition;
   varying vec3 localNormal;
@@ -28,11 +26,8 @@ const coreFragment = /* glsl */`
     float face = mix(.55, 1.0, step(0.0, localPosition.z));
     float band = smoothstep(.01, .06, abs(n.z)) * (1.0 - smoothstep(.98, .9998, abs(n.z)));
     float t = (abs(localPosition.z) - sideZ) / bevelWidth;
-    float pixel = max(fwidth(t) * pixelRatio, .002);
-    float halfWidth = min(.35, corePixels * .5 * pixel);
-    float core = 1.0 - smoothstep(max(0.0, halfWidth - pixel * .6), halfWidth + pixel * .6, abs(t - .52));
     float feather = sin(3.14159265 * clamp(t, 0.0, 1.0));
-    float alpha = band * (core * .82 + feather * .10) * lit * mix(.85, 1.0, outer) * face * lightIntensity;
+    float alpha = band * feather * .06 * lit * mix(.85, 1.0, outer) * face * lightIntensity;
     if (alpha < .0005) discard;
     gl_FragColor = vec4(vec3(1.0), min(alpha, .94));
     #include <colorspace_fragment>
@@ -53,13 +48,12 @@ const haloVertex = /* glsl */`
 `;
 const haloFragment = /* glsl */`
   uniform float lightIntensity;
-  uniform float coreRatio;
   varying float vOffset;
   varying float vStrength;
   void main() {
-    float fade = 1.0 - smoothstep(0.0, 1.0, vOffset);
-    float core = exp(-pow(vOffset / coreRatio, 2.0));
-    float alpha = vStrength * (.78 * core + .24 * fade * fade * fade) * lightIntensity;
+    float spread = exp(-pow(vOffset / .46, 2.0));
+    float fade = 1.0 - smoothstep(.75, 1.0, vOffset);
+    float alpha = vStrength * .26 * spread * fade * lightIntensity;
     if (alpha < .0005) discard;
     gl_FragColor = vec4(vec3(1.0), min(alpha, .94));
     #include <colorspace_fragment>
@@ -78,9 +72,9 @@ const surfaceFragment = /* glsl */`
       innerDistance = max(innerDistance, dot(innerPlanes[i].xy, localPosition.xy) - innerPlanes[i].z);
     }
     float distance = min(max(outerDistance, 0.0), max(innerDistance, 0.0));
-    float nearEdge = exp(-pow(distance / .20, 2.0));
+    float nearEdge = exp(-pow(distance / .27, 2.0));
     float rear = mix(.65, 1.0, smoothstep(-sideZ, sideZ, localPosition.z));
-    float alpha = (.035 + .20 * nearEdge) * rear * lightIntensity;
+    float alpha = (.020 + .14 * nearEdge) * rear * lightIntensity;
     if (alpha < .0005) discard;
     gl_FragColor = vec4(vec3(1.0), alpha);
     #include <colorspace_fragment>
@@ -123,7 +117,8 @@ function makeHalo(geometry: ExtrudeGeometry) {
         const facing = n.dot(light) * (kind === 0 ? 1 : -1);
         const alpha = (kind === 0 ? 1 : .85) * (.60 + .40 * MathUtils.smoothstep(facing, -.1, .8)) * (face === 1 ? 1 : .55);
         for (const offset of [0, 1]) {
-          xyz.push(p.x, p.y, sideZ * face); outward.push(n.x, n.y); offsets.push(offset); strengths.push(alpha);
+          const widthScale = kind === 0 ? 1 : .72;
+          xyz.push(p.x, p.y, sideZ * face); outward.push(n.x * widthScale, n.y * widthScale); offsets.push(offset); strengths.push(alpha);
         }
       });
       for (let i = 0; i < points.length; i++) {
@@ -144,15 +139,15 @@ function makeHalo(geometry: ExtrudeGeometry) {
 
 export default function GlassEdgeLight({ mesh, geometry, model, mobile }: { mesh: RefObject<Mesh | null>; geometry: ExtrudeGeometry; model: JourneyModel; mobile: boolean }) {
   const group = useRef<Group>(null), center = useMemo(() => new Vector3(), []);
-  const { viewport, camera, size, gl } = useThree();
+  const { viewport, camera, size } = useThree();
   const owned = useMemo(() => {
     const { halo, sideZ, planes } = makeHalo(geometry);
     const core = new ShaderMaterial({ transparent: true, depthWrite: false, toneMapped: false,
       polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1,
       vertexShader: coreVertex, fragmentShader: coreFragment,
-      uniforms: { sideZ: { value: sideZ }, bevelWidth: { value: geometry.parameters.options.bevelThickness ?? .025 }, pixelRatio: { value: 1 }, corePixels: { value: 1.8 }, lightIntensity: { value: 1 } } });
+      uniforms: { sideZ: { value: sideZ }, bevelWidth: { value: geometry.parameters.options.bevelThickness ?? .025 }, lightIntensity: { value: 1 } } });
     const soft = new ShaderMaterial({ transparent: true, depthWrite: false, toneMapped: false, side: DoubleSide,
-      vertexShader: haloVertex, fragmentShader: haloFragment, uniforms: { haloWidth: { value: .04 }, coreRatio: { value: 2.4 / 36 }, lightIntensity: { value: 1 } } });
+      vertexShader: haloVertex, fragmentShader: haloFragment, uniforms: { haloWidth: { value: .04 }, lightIntensity: { value: 1 } } });
     // This shared-geometry light layer works with both custom and ordinary glass.
     const surface = new ShaderMaterial({ transparent: true, depthWrite: false, toneMapped: false,
       polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1,
@@ -173,10 +168,7 @@ export default function GlassEdgeLight({ mesh, geometry, model, mobile }: { mesh
     owned.soft.uniforms.lightIntensity.value = lightIntensity;
     owned.surface.uniforms.lightIntensity.value = lightIntensity;
     const view = viewport.getCurrentViewport(camera, parent.getWorldPosition(center));
-    owned.core.uniforms.pixelRatio.value = gl.getPixelRatio();
-    const corePixels = mobile ? 1.75 : 2.4, haloPixels = mobile ? 21 : 36;
-    owned.core.uniforms.corePixels.value = corePixels;
-    owned.soft.uniforms.coreRatio.value = corePixels / haloPixels;
+    const haloPixels = mobile ? 32 : 56;
     owned.soft.uniforms.haloWidth.value = view.width / size.width * haloPixels / parent.scale.x;
   }, -.7);
   useFrame(() => {
