@@ -1,4 +1,4 @@
-# T13.04: native article collection plus the existing fixed validation entry.
+# Native article and resource metadata editors, plus the fixed article validation entry.
 media:
   - name: article-images
     label: 文章图片（公开仓库）
@@ -32,6 +32,42 @@ content:
         type: boolean
         default: true
         description: '开启显示文章标签和标签页；关闭隐藏标签浏览入口，保留原始标签。Save 后需构建发布才能更新正式网站。'
+  - name: resources
+    label: 学习资料（说明编辑）
+    type: collection
+    path: src/content/docs/knowledge/resources
+    format: yaml-frontmatter
+    subfolders: true
+    operations:
+      create: false
+      rename: false
+      delete: false
+    commit:
+      templates:
+        update: 'content(resource): 保存资料说明 {path}'
+    view:
+      fields: [title, topics]
+      primary: title
+      sort: [title]
+      search: [title, description]
+      default:
+        sort: title
+        order: asc
+    fields:
+      - name: title
+        label: 标题
+        type: string
+        required: true
+        description: '编辑已有资料的说明。先 Save 成功再离开；正式网站需构建发布才能更新。'
+      - name: description
+        label: 摘要
+        type: text
+        required: true
+      - name: topics
+        label: 主题
+        type: string
+        list: true
+        description: '用于学习总览分类。更改标题或主题后，关联候选需由开发者同步。'
   - name: articles
     label: 文章
     type: collection
