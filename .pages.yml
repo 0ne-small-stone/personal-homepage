@@ -14,9 +14,9 @@ media:
         delete: 'content(media): 删除文章图片 {filename}'
         rename: 'content(media): 重命名文章图片 {oldFilename} -> {newFilename}'
   - name: note-images
-    label: 笔记图片（公开仓库）
-    input: src/assets/note-images
-    output: ../../../../../assets/note-images
+    label: 笔记图片（共用公开图库）
+    input: src/assets/article-images
+    output: ../../../../../assets/article-images
     extensions: [png, jpg, jpeg, webp, avif]
     rename: random
 content:
