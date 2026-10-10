@@ -26,9 +26,9 @@ export function makeTriangleGeometry() {
   const shape = new Shape();
   roundedTriangle(vertices, .035, shape);
   const hole = new Path();
-  roundedTriangle(vertices.map(v => v.clone().multiplyScalar(.55)).reverse(), .05, hole);
+  roundedTriangle(vertices.map(v => v.clone().multiplyScalar(.65)).reverse(), .05, hole);
   shape.holes.push(hole);
-  const geometry = new ExtrudeGeometry(shape, { depth: .55, bevelEnabled: true, bevelThickness: .025, bevelSize: .025, bevelSegments: 4, curveSegments: 16, steps: 1 });
+  const geometry = new ExtrudeGeometry(shape, { depth: .90, bevelEnabled: true, bevelThickness: .025, bevelSize: .025, bevelSegments: 4, curveSegments: 16, steps: 1 });
   geometry.translate(0, -.16, -.09);
   geometry.computeVertexNormals();
   // One local calibration: the outline bounds and rotation anchor share the origin.
