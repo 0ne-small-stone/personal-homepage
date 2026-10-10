@@ -12,7 +12,7 @@ const externalNotes = entries.flatMap((entry) => entry.data.source?.format === '
 <DefaultHead />
 {current && <meta data-pagefind-filter="类型[content]" content={kindLabels[current.data.kind]} />}
 {current && [...new Set(current.data.topics)].map((topic) => <meta data-pagefind-filter="主题[content]" content={topic} />)}
-{current?.data.kind === 'article' && blogSettings.tagBrowsingEnabled && current.data.tags.map((tag) => <meta data-pagefind-filter="标签[content]" content={tag} />)}
+{current?.data.kind === 'article' && blogSettings.tagBrowsingEnabled && (current.data.tags ?? []).map((tag) => <meta data-pagefind-filter="标签[content]" content={tag} />)}
 <meta name="lssh-reading-paths" content={JSON.stringify(readingPaths)} />
 <meta name="lssh-external-notes" content={JSON.stringify(externalNotes)} />
 <meta name="lssh-tag-browsing" content={String(blogSettings.tagBrowsingEnabled)} />
