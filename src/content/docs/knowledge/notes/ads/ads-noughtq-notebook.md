@@ -1,20 +1,22 @@
 ---
-title: "高级数据结构与算法分析 · NoughtQ 的笔记本"
-description: "收藏的 ADS 外部笔记入口，在 NoughtQ 的笔记本阅读原文。"
+title: 高级数据结构与算法分析 · NoughtQ 的笔记本（网页编辑验证）
+description: 外部笔记收藏的网页编辑验证：说明已更新，原文仍在 NoughtQ 的笔记本阅读。
 entryId: note-ads-noughtq-notebook
 kind: note
-topics: ["高级数据结构与算法分析"]
-related: ["resource-ads-2024-handout","note-ads-algorithms-notes"]
+topics:
+  - 笔记编辑验证
+related:
+  - resource-ads-2024-handout
+  - note-ads-algorithms-notes
 tableOfContents: false
 sidebar:
   order: 100
 source:
   id: source-ads-note-links
   format: link
-  author: "NoughtQ"
-  url: "https://note.noughtq.top/algo/ads/"
+  author: NoughtQ
+  url: https://note.noughtq.top/algo/ads/
 ---
-
 ## 笔记入口
 
 收藏的 ADS 外部笔记入口，在 NoughtQ 的笔记本阅读原文。
