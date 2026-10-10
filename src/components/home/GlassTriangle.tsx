@@ -55,7 +55,7 @@ export default function GlassTriangle({ model, paused, mobile, hover, low, detai
     const currentView=viewport.getCurrentViewport(camera,new Vector3(0,0,0));
     const box = geometry.boundingBox!;
     const mobileScale = Math.min(currentView.height * .44 / (box.max.y - box.min.y), currentView.width * .84 / (box.max.x - box.min.x));
-    mesh.current.scale.setScalar(mobile ? mobileScale * .5 : .57);
+    mesh.current.scale.setScalar(mobile ? mobileScale * .575 : .6555);
     mesh.current.quaternion.copy(rotation.quaternion);
     // Temporary old wall handoff, independent of the four-card index.
     mesh.current.visible = paused || model.motion.raw.wall < (.3 / .35);
