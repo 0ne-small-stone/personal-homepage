@@ -28,7 +28,7 @@ export function makeTriangleGeometry() {
   const hole = new Path();
   roundedTriangle(vertices.map(v => v.clone().multiplyScalar(.55)).reverse(), .05, hole);
   shape.holes.push(hole);
-  const geometry = new ExtrudeGeometry(shape, { depth: .30, bevelEnabled: true, bevelThickness: .025, bevelSize: .025, bevelSegments: 4, curveSegments: 16, steps: 1 });
+  const geometry = new ExtrudeGeometry(shape, { depth: .90, bevelEnabled: true, bevelThickness: .025, bevelSize: .025, bevelSegments: 4, curveSegments: 16, steps: 1 });
   geometry.translate(0, -.16, -.09);
   geometry.computeVertexNormals();
   // One local calibration: the outline bounds and rotation anchor share the origin.
@@ -55,7 +55,7 @@ export default function GlassTriangle({ model, paused, mobile, hover, low, detai
     const currentView=viewport.getCurrentViewport(camera,new Vector3(0,0,0));
     const box = geometry.boundingBox!;
     const mobileScale = Math.min(currentView.height * .44 / (box.max.y - box.min.y), currentView.width * .84 / (box.max.x - box.min.x));
-    mesh.current.scale.setScalar(mobile ? mobileScale : 1.14);
+    mesh.current.scale.setScalar(mobile ? mobileScale * .5 : .57);
     mesh.current.quaternion.copy(rotation.quaternion);
     // Temporary old wall handoff, independent of the four-card index.
     mesh.current.visible = paused || model.motion.raw.wall < (.3 / .35);
