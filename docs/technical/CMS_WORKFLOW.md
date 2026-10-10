@@ -1,5 +1,13 @@
 # 网页编辑与草稿验证
 
+## T13.12 已有资料说明编辑
+
+[打开资料后台](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-12-resource-editor/collection/resources)，使用 `codex/t13-12-resource-editor` 分支。根目录有PDF功能样本；课程资料按原有 ads、computer-systems、physics、physics-lab、pre-qin-philosophy、probability 科目目录进入。仅编辑标题、摘要和主题，正文、来源、PDF及发布状态保留；此入口无新建、改名、删除。
+
+更改后点Save，成功后独立重开核对。当前按钮可能仍可点，不以即时禁用判断保存；远程提交及重开值才是依据。标题/主题变化后开发者拉取分支，运行 `npm run cms:sync-related`、提交配置并检查CI；正式网站需构建发布。正文手写说明不会随元数据自动改写。
+
+真实三字段保存/恢复、前台筛选及四页PDF已验，验证稿恢复原值。[步骤与证据](iterations/t13-12-2026-10-10.md)、[保存后的冻结页面](http://127.0.0.1:4384/personal-homepage/knowledge/?type=resource&topic=%E7%BD%91%E9%A1%B5%E7%BC%96%E8%BE%91%E9%AA%8C%E8%AF%81)供本机验收，不随新Save实时更新。自动同步、笔记编辑及部署另片。
+
 ## T13.11 选择关联内容
 
 在[本轮文章后台](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-11-related-picker/collection/articles)打开文章，在“关联内容”搜索标题或主题，选择资料、文章或笔记，×可移除。Save后重开核对；保存工作分支不会直接更新正式网站。候选仅包含已发布内容，不选当前文章。
