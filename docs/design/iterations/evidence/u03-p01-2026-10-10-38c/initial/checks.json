@@ -1,0 +1,5220 @@
+{
+  "date": "2026-10-10T07:50:13.227Z",
+  "cases": {
+    "new-desktop-front": {
+      "errors": [],
+      "failed": [],
+      "images": [
+        {
+          "file": "new-desktop-front.png",
+          "before": {
+            "scene": {
+              "lights": [
+                {
+                  "kind": "assembly",
+                  "uuid": "138dd760-d436-4459-8c6b-298327945fc5",
+                  "parent": "12ac5678-3af1-48c8-aa2c-1c5744d474a4",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.6555,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6555,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6555,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "kind": "surface",
+                  "uuid": "57268a53-7dfe-4156-a7ac-929710add383",
+                  "parent": "138dd760-d436-4459-8c6b-298327945fc5",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.6555,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6555,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6555,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "sideZ": 0.27499998211860655
+                },
+                {
+                  "kind": "halo",
+                  "uuid": "a5973df5-c1a2-4d7a-b306-0baa3ed98ea2",
+                  "parent": "138dd760-d436-4459-8c6b-298327945fc5",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.6555,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6555,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6555,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "haloWidth": 0.4181000795369253,
+                  "haloZ": [
+                    -0.2749999761581421,
+                    0.2749999761581421
+                  ]
+                },
+                {
+                  "kind": "core",
+                  "uuid": "f02a64a4-eac6-46d6-868e-14ab4ca82e66",
+                  "parent": "138dd760-d436-4459-8c6b-298327945fc5",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.6555,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6555,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6555,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "sideZ": 0.27499998211860655
+                }
+              ],
+              "visibleLights": [
+                "assembly",
+                "surface",
+                "halo",
+                "core"
+              ],
+              "capture": {
+                "time": 8000,
+                "glassHidden": true,
+                "visibleLightObjects": 0
+              },
+              "rootUUID": "12ac5678-3af1-48c8-aa2c-1c5744d474a4",
+              "backdrop": {
+                "bounds": [
+                  -86.39999999999992,
+                  -54.00000000000005,
+                  1526.4,
+                  954
+                ],
+                "scale": [
+                  10.662555468382484,
+                  6.664097167739053,
+                  1
+                ],
+                "texture": "f74bae46-2d57-4286-b139-924396ac869e",
+                "canvas": [
+                  1536,
+                  960
+                ],
+                "center": [
+                  10,
+                  10,
+                  10,
+                  255
+                ],
+                "right": [
+                  9,
+                  9,
+                  9,
+                  255
+                ],
+                "left": [
+                  6,
+                  6,
+                  6,
+                  255
+                ]
+              },
+              "material": {
+                "type": "ShaderMaterial",
+                "toneMapped": false,
+                "shader": "\n  uniform sampler2D uScene;\n  uniform samplerCube uEnvironment;\n  uniform vec2 uResolution;\n  varying vec3 vNormal;\n  varying vec3 vView;\n  varying vec3 vWorldNormal;\n  varying vec3 vWorldPosition;\n  void main() {\n    vec3 n = normalize(vNormal);\n    vec3 view = normalize(vView);\n    vec2 uv = gl_FragCoord.xy / uResolution;\n    vec3 ray = refract(-view, n, 1.0 / 1.45);\n    vec2 displacement = (ray.xy + n.xy * 0.45) * 0.075;\n    vec3 transmitted;\n    transmitted.r = texture2D(uScene, clamp(uv + displacement * 1.025, 0.001, 0.999)).r;\n    transmitted.g = texture2D(uScene, clamp(uv + displacement, 0.001, 0.999)).g;\n    transmitted.b = texture2D(uScene, clamp(uv + displacement * 0.975, 0.001, 0.999)).b;\n    float edge = pow(1.0 - abs(dot(n,view)), 4.0);\n    vec3 worldView = normalize(vWorldPosition - cameraPosition);\n    vec3 reflected = reflect(worldView, normalize(vWorldNormal));\n    vec3 light = min(textureCube(uEnvironment, reflected).rgb, vec3(0.85));\n    vec3 color = mix(transmitted, light, 0.015 + edge * 0.82);\n    gl_FragColor = vec4(color, 1.0);\n    #include <tonemapping_fragment>\n    #include <colorspace_fragment>\n  }\n",
+                "environment": "acec9943-09c0-439a-babf-62096472b671"
+              },
+              "renderer": {
+                "error": 0,
+                "textures": 11,
+                "programs": 16
+              },
+              "flow": {
+                "time": 8000,
+                "running": true,
+                "input": {
+                  "reset": "",
+                  "position": [
+                    0,
+                    0
+                  ],
+                  "residual": [
+                    0,
+                    0
+                  ],
+                  "velocity": [
+                    0,
+                    0
+                  ],
+                  "buffer": [
+                    0,
+                    0
+                  ],
+                  "source": [
+                    0,
+                    0
+                  ],
+                  "radius": 0.01,
+                  "passes": 9
+                }
+              }
+            },
+            "time": 8000,
+            "logical": 8000,
+            "y": 0,
+            "width": 1440,
+            "height": 900,
+            "dpr": 1,
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": false,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.9,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "rendered": {
+                "progress": 0,
+                "index": 0,
+                "background": 0,
+                "intro": 0
+              },
+              "camera": {
+                "position": [
+                  0,
+                  0,
+                  5.7
+                ],
+                "fov": 42.25,
+                "outro": {
+                  "raw": 0,
+                  "parallax": 0,
+                  "projection": 0
+                },
+                "offset": [
+                  0,
+                  0
+                ],
+                "offsetTarget": [
+                  0,
+                  0
+                ],
+                "projection": [
+                  1.617623472266591,
+                  0,
+                  0,
+                  0,
+                  0,
+                  2.5881975556265457,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  -1,
+                  0,
+                  0,
+                  -0.20040080160320642,
+                  0
+                ],
+                "inverse": [
+                  0.6181908318867396,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.3863692699292123,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -4.99,
+                  0,
+                  0,
+                  -1,
+                  5.010000000000001
+                ],
+                "perspective": [
+                  1.617623472266591,
+                  0,
+                  0,
+                  0,
+                  0,
+                  2.5881975556265457,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  -1,
+                  0,
+                  0,
+                  -0.20040080160320642,
+                  0
+                ],
+                "orthographic": [
+                  0.2604166666666667,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.4166666666666667,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.04008016032064128,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  1
+                ]
+              },
+              "glass": {
+                "anchor": [
+                  0,
+                  0,
+                  0
+                ],
+                "quaternion": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": 0.6555,
+                "visible": true,
+                "projectedAnchor": [
+                  720,
+                  450
+                ],
+                "bounds": [
+                  527.1255940331283,
+                  301.80844491146973,
+                  912.8744059668717,
+                  598.1915550885302
+                ],
+                "centeredLocalBounds": [
+                  -1.394473910331726,
+                  -1.0714187622070312,
+                  -0.29999998211860657,
+                  1.394473910331726,
+                  1.0714187622070312,
+                  0.29999998211860657
+                ]
+              }
+            },
+            "geometry": {
+              "outer": [
+                -1.3694780061035157,
+                -0.71,
+                1.3694780061035154,
+                1.3827249999999998
+              ],
+              "hole": [
+                -0.7454998619384765,
+                -0.3905,
+                0.7454998619384765,
+                0.7517125
+              ],
+              "local": [
+                -1.394473910331726,
+                -1.0714187622070312,
+                -0.29999998211860657,
+                1.394473910331726,
+                1.0714187622070312,
+                0.29999998211860657
+              ],
+              "depth": 0.55,
+              "bevel": 0.025,
+              "bevelThickness": 0.025
+            },
+            "cta": {
+              "inert": true,
+              "parentInert": true,
+              "opacity": "0"
+            }
+          },
+          "after": {
+            "scene": {
+              "lights": [
+                {
+                  "kind": "assembly",
+                  "uuid": "138dd760-d436-4459-8c6b-298327945fc5",
+                  "parent": "12ac5678-3af1-48c8-aa2c-1c5744d474a4",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.6555,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6555,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6555,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "kind": "surface",
+                  "uuid": "57268a53-7dfe-4156-a7ac-929710add383",
+                  "parent": "138dd760-d436-4459-8c6b-298327945fc5",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.6555,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6555,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6555,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "sideZ": 0.27499998211860655
+                },
+                {
+                  "kind": "halo",
+                  "uuid": "a5973df5-c1a2-4d7a-b306-0baa3ed98ea2",
+                  "parent": "138dd760-d436-4459-8c6b-298327945fc5",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.6555,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6555,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6555,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "haloWidth": 0.4181000795369253,
+                  "haloZ": [
+                    -0.2749999761581421,
+                    0.2749999761581421
+                  ]
+                },
+                {
+                  "kind": "core",
+                  "uuid": "f02a64a4-eac6-46d6-868e-14ab4ca82e66",
+                  "parent": "138dd760-d436-4459-8c6b-298327945fc5",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.6555,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6555,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6555,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "sideZ": 0.27499998211860655
+                }
+              ],
+              "visibleLights": [
+                "assembly",
+                "surface",
+                "halo",
+                "core"
+              ],
+              "capture": {
+                "time": 8000,
+                "glassHidden": true,
+                "visibleLightObjects": 0
+              },
+              "rootUUID": "12ac5678-3af1-48c8-aa2c-1c5744d474a4",
+              "backdrop": {
+                "bounds": [
+                  -86.39999999999992,
+                  -54.00000000000005,
+                  1526.4,
+                  954
+                ],
+                "scale": [
+                  10.662555468382484,
+                  6.664097167739053,
+                  1
+                ],
+                "texture": "f74bae46-2d57-4286-b139-924396ac869e",
+                "canvas": [
+                  1536,
+                  960
+                ],
+                "center": [
+                  10,
+                  10,
+                  10,
+                  255
+                ],
+                "right": [
+                  9,
+                  9,
+                  9,
+                  255
+                ],
+                "left": [
+                  6,
+                  6,
+                  6,
+                  255
+                ]
+              },
+              "material": {
+                "type": "ShaderMaterial",
+                "toneMapped": false,
+                "shader": "\n  uniform sampler2D uScene;\n  uniform samplerCube uEnvironment;\n  uniform vec2 uResolution;\n  varying vec3 vNormal;\n  varying vec3 vView;\n  varying vec3 vWorldNormal;\n  varying vec3 vWorldPosition;\n  void main() {\n    vec3 n = normalize(vNormal);\n    vec3 view = normalize(vView);\n    vec2 uv = gl_FragCoord.xy / uResolution;\n    vec3 ray = refract(-view, n, 1.0 / 1.45);\n    vec2 displacement = (ray.xy + n.xy * 0.45) * 0.075;\n    vec3 transmitted;\n    transmitted.r = texture2D(uScene, clamp(uv + displacement * 1.025, 0.001, 0.999)).r;\n    transmitted.g = texture2D(uScene, clamp(uv + displacement, 0.001, 0.999)).g;\n    transmitted.b = texture2D(uScene, clamp(uv + displacement * 0.975, 0.001, 0.999)).b;\n    float edge = pow(1.0 - abs(dot(n,view)), 4.0);\n    vec3 worldView = normalize(vWorldPosition - cameraPosition);\n    vec3 reflected = reflect(worldView, normalize(vWorldNormal));\n    vec3 light = min(textureCube(uEnvironment, reflected).rgb, vec3(0.85));\n    vec3 color = mix(transmitted, light, 0.015 + edge * 0.82);\n    gl_FragColor = vec4(color, 1.0);\n    #include <tonemapping_fragment>\n    #include <colorspace_fragment>\n  }\n",
+                "environment": "acec9943-09c0-439a-babf-62096472b671"
+              },
+              "renderer": {
+                "error": 0,
+                "textures": 11,
+                "programs": 16
+              },
+              "flow": {
+                "time": 8000,
+                "running": true,
+                "input": {
+                  "reset": "",
+                  "position": [
+                    0,
+                    0
+                  ],
+                  "residual": [
+                    0,
+                    0
+                  ],
+                  "velocity": [
+                    0,
+                    0
+                  ],
+                  "buffer": [
+                    0,
+                    0
+                  ],
+                  "source": [
+                    0,
+                    0
+                  ],
+                  "radius": 0.01,
+                  "passes": 9
+                }
+              }
+            },
+            "time": 8000,
+            "logical": 8000,
+            "y": 0,
+            "width": 1440,
+            "height": 900,
+            "dpr": 1,
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": false,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.9,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "rendered": {
+                "progress": 0,
+                "index": 0,
+                "background": 0,
+                "intro": 0
+              },
+              "camera": {
+                "position": [
+                  0,
+                  0,
+                  5.7
+                ],
+                "fov": 42.25,
+                "outro": {
+                  "raw": 0,
+                  "parallax": 0,
+                  "projection": 0
+                },
+                "offset": [
+                  0,
+                  0
+                ],
+                "offsetTarget": [
+                  0,
+                  0
+                ],
+                "projection": [
+                  1.617623472266591,
+                  0,
+                  0,
+                  0,
+                  0,
+                  2.5881975556265457,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  -1,
+                  0,
+                  0,
+                  -0.20040080160320642,
+                  0
+                ],
+                "inverse": [
+                  0.6181908318867396,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.3863692699292123,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -4.99,
+                  0,
+                  0,
+                  -1,
+                  5.010000000000001
+                ],
+                "perspective": [
+                  1.617623472266591,
+                  0,
+                  0,
+                  0,
+                  0,
+                  2.5881975556265457,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  -1,
+                  0,
+                  0,
+                  -0.20040080160320642,
+                  0
+                ],
+                "orthographic": [
+                  0.2604166666666667,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.4166666666666667,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.04008016032064128,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  1
+                ]
+              },
+              "glass": {
+                "anchor": [
+                  0,
+                  0,
+                  0
+                ],
+                "quaternion": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": 0.6555,
+                "visible": true,
+                "projectedAnchor": [
+                  720,
+                  450
+                ],
+                "bounds": [
+                  527.1255940331283,
+                  301.80844491146973,
+                  912.8744059668717,
+                  598.1915550885302
+                ],
+                "centeredLocalBounds": [
+                  -1.394473910331726,
+                  -1.0714187622070312,
+                  -0.29999998211860657,
+                  1.394473910331726,
+                  1.0714187622070312,
+                  0.29999998211860657
+                ]
+              }
+            },
+            "geometry": {
+              "outer": [
+                -1.3694780061035157,
+                -0.71,
+                1.3694780061035154,
+                1.3827249999999998
+              ],
+              "hole": [
+                -0.7454998619384765,
+                -0.3905,
+                0.7454998619384765,
+                0.7517125
+              ],
+              "local": [
+                -1.394473910331726,
+                -1.0714187622070312,
+                -0.29999998211860657,
+                1.394473910331726,
+                1.0714187622070312,
+                0.29999998211860657
+              ],
+              "depth": 0.55,
+              "bevel": 0.025,
+              "bevelThickness": 0.025
+            },
+            "cta": {
+              "inert": true,
+              "parentInert": true,
+              "opacity": "0"
+            }
+          }
+        }
+      ],
+      "spec": {
+        "name": "desktop-front",
+        "y": 0,
+        "fixed": true
+      },
+      "bundle": {
+        "file": "HomeJourney.C91twVjR.js",
+        "bytes": 1167956,
+        "sha256": "de284a8d81701d4e02d869e8f13432d593de0ac737d29e23995558c74f0e06f5"
+      },
+      "testBundleSHA": "5a60ab0b0f7aa831ac9cb069651afe22263962be12ce11f7416fbe641acabe35",
+      "state": {
+        "scene": {
+          "lights": [
+            {
+              "kind": "assembly",
+              "uuid": "138dd760-d436-4459-8c6b-298327945fc5",
+              "parent": "12ac5678-3af1-48c8-aa2c-1c5744d474a4",
+              "visible": true,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "quaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "world": [
+                0.6555,
+                0,
+                0,
+                0,
+                0,
+                0.6555,
+                0,
+                0,
+                0,
+                0,
+                0.6555,
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "kind": "surface",
+              "uuid": "57268a53-7dfe-4156-a7ac-929710add383",
+              "parent": "138dd760-d436-4459-8c6b-298327945fc5",
+              "visible": true,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "quaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "world": [
+                0.6555,
+                0,
+                0,
+                0,
+                0,
+                0.6555,
+                0,
+                0,
+                0,
+                0,
+                0.6555,
+                0,
+                0,
+                0,
+                0,
+                1
+              ],
+              "sideZ": 0.27499998211860655
+            },
+            {
+              "kind": "halo",
+              "uuid": "a5973df5-c1a2-4d7a-b306-0baa3ed98ea2",
+              "parent": "138dd760-d436-4459-8c6b-298327945fc5",
+              "visible": true,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "quaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "world": [
+                0.6555,
+                0,
+                0,
+                0,
+                0,
+                0.6555,
+                0,
+                0,
+                0,
+                0,
+                0.6555,
+                0,
+                0,
+                0,
+                0,
+                1
+              ],
+              "haloWidth": 0.4181000795369253,
+              "haloZ": [
+                -0.2749999761581421,
+                0.2749999761581421
+              ]
+            },
+            {
+              "kind": "core",
+              "uuid": "f02a64a4-eac6-46d6-868e-14ab4ca82e66",
+              "parent": "138dd760-d436-4459-8c6b-298327945fc5",
+              "visible": true,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "quaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "world": [
+                0.6555,
+                0,
+                0,
+                0,
+                0,
+                0.6555,
+                0,
+                0,
+                0,
+                0,
+                0.6555,
+                0,
+                0,
+                0,
+                0,
+                1
+              ],
+              "sideZ": 0.27499998211860655
+            }
+          ],
+          "visibleLights": [
+            "assembly",
+            "surface",
+            "halo",
+            "core"
+          ],
+          "capture": {
+            "time": 8000,
+            "glassHidden": true,
+            "visibleLightObjects": 0
+          },
+          "rootUUID": "12ac5678-3af1-48c8-aa2c-1c5744d474a4",
+          "backdrop": {
+            "bounds": [
+              -86.39999999999992,
+              -54.00000000000005,
+              1526.4,
+              954
+            ],
+            "scale": [
+              10.662555468382484,
+              6.664097167739053,
+              1
+            ],
+            "texture": "f74bae46-2d57-4286-b139-924396ac869e",
+            "canvas": [
+              1536,
+              960
+            ],
+            "center": [
+              10,
+              10,
+              10,
+              255
+            ],
+            "right": [
+              9,
+              9,
+              9,
+              255
+            ],
+            "left": [
+              6,
+              6,
+              6,
+              255
+            ]
+          },
+          "material": {
+            "type": "ShaderMaterial",
+            "toneMapped": false,
+            "shader": "\n  uniform sampler2D uScene;\n  uniform samplerCube uEnvironment;\n  uniform vec2 uResolution;\n  varying vec3 vNormal;\n  varying vec3 vView;\n  varying vec3 vWorldNormal;\n  varying vec3 vWorldPosition;\n  void main() {\n    vec3 n = normalize(vNormal);\n    vec3 view = normalize(vView);\n    vec2 uv = gl_FragCoord.xy / uResolution;\n    vec3 ray = refract(-view, n, 1.0 / 1.45);\n    vec2 displacement = (ray.xy + n.xy * 0.45) * 0.075;\n    vec3 transmitted;\n    transmitted.r = texture2D(uScene, clamp(uv + displacement * 1.025, 0.001, 0.999)).r;\n    transmitted.g = texture2D(uScene, clamp(uv + displacement, 0.001, 0.999)).g;\n    transmitted.b = texture2D(uScene, clamp(uv + displacement * 0.975, 0.001, 0.999)).b;\n    float edge = pow(1.0 - abs(dot(n,view)), 4.0);\n    vec3 worldView = normalize(vWorldPosition - cameraPosition);\n    vec3 reflected = reflect(worldView, normalize(vWorldNormal));\n    vec3 light = min(textureCube(uEnvironment, reflected).rgb, vec3(0.85));\n    vec3 color = mix(transmitted, light, 0.015 + edge * 0.82);\n    gl_FragColor = vec4(color, 1.0);\n    #include <tonemapping_fragment>\n    #include <colorspace_fragment>\n  }\n",
+            "environment": "acec9943-09c0-439a-babf-62096472b671"
+          },
+          "renderer": {
+            "error": 0,
+            "textures": 11,
+            "programs": 16
+          },
+          "flow": {
+            "time": 8000,
+            "running": true,
+            "input": {
+              "reset": "",
+              "position": [
+                0,
+                0
+              ],
+              "residual": [
+                0,
+                0
+              ],
+              "velocity": [
+                0,
+                0
+              ],
+              "buffer": [
+                0,
+                0
+              ],
+              "source": [
+                0,
+                0
+              ],
+              "radius": 0.01,
+              "passes": 9
+            }
+          }
+        },
+        "time": 8000,
+        "logical": 8000,
+        "y": 0,
+        "width": 1440,
+        "height": 900,
+        "dpr": 1,
+        "canvasCount": 1,
+        "overflow": false,
+        "quiet": false,
+        "motion": {
+          "phase": "kv",
+          "raw": {
+            "kv": 0.9,
+            "intro": 0,
+            "works": 0,
+            "event": 0,
+            "snap": 0,
+            "outro": 0,
+            "wall": 0
+          },
+          "rendered": {
+            "progress": 0,
+            "index": 0,
+            "background": 0,
+            "intro": 0
+          },
+          "camera": {
+            "position": [
+              0,
+              0,
+              5.7
+            ],
+            "fov": 42.25,
+            "outro": {
+              "raw": 0,
+              "parallax": 0,
+              "projection": 0
+            },
+            "offset": [
+              0,
+              0
+            ],
+            "offsetTarget": [
+              0,
+              0
+            ],
+            "projection": [
+              1.617623472266591,
+              0,
+              0,
+              0,
+              0,
+              2.5881975556265457,
+              0,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              -1,
+              0,
+              0,
+              -0.20040080160320642,
+              0
+            ],
+            "inverse": [
+              0.6181908318867396,
+              0,
+              0,
+              0,
+              0,
+              0.3863692699292123,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -4.99,
+              0,
+              0,
+              -1,
+              5.010000000000001
+            ],
+            "perspective": [
+              1.617623472266591,
+              0,
+              0,
+              0,
+              0,
+              2.5881975556265457,
+              0,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              -1,
+              0,
+              0,
+              -0.20040080160320642,
+              0
+            ],
+            "orthographic": [
+              0.2604166666666667,
+              0,
+              0,
+              0,
+              0,
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ]
+          },
+          "glass": {
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "quaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "scale": 0.6555,
+            "visible": true,
+            "projectedAnchor": [
+              720,
+              450
+            ],
+            "bounds": [
+              527.1255940331283,
+              301.80844491146973,
+              912.8744059668717,
+              598.1915550885302
+            ],
+            "centeredLocalBounds": [
+              -1.394473910331726,
+              -1.0714187622070312,
+              -0.29999998211860657,
+              1.394473910331726,
+              1.0714187622070312,
+              0.29999998211860657
+            ]
+          }
+        },
+        "geometry": {
+          "outer": [
+            -1.3694780061035157,
+            -0.71,
+            1.3694780061035154,
+            1.3827249999999998
+          ],
+          "hole": [
+            -0.7454998619384765,
+            -0.3905,
+            0.7454998619384765,
+            0.7517125
+          ],
+          "local": [
+            -1.394473910331726,
+            -1.0714187622070312,
+            -0.29999998211860657,
+            1.394473910331726,
+            1.0714187622070312,
+            0.29999998211860657
+          ],
+          "depth": 0.55,
+          "bevel": 0.025,
+          "bevelThickness": 0.025
+        },
+        "cta": {
+          "inert": true,
+          "parentInert": true,
+          "opacity": "0"
+        }
+      }
+    },
+    "new-desktop-35": {
+      "errors": [],
+      "failed": [],
+      "images": [
+        {
+          "file": "new-desktop-35.png",
+          "before": {
+            "scene": {
+              "lights": [
+                {
+                  "kind": "assembly",
+                  "uuid": "11a0b031-0568-4b77-9c42-824e83198fd8",
+                  "parent": "d512b821-7641-49b3-9954-5cb8fc01d9b8",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.5369541650314341,
+                    0,
+                    -0.37597935402811067,
+                    0,
+                    0,
+                    0.6555,
+                    0,
+                    0,
+                    0.37597935402811067,
+                    0,
+                    0.5369541650314341,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "kind": "surface",
+                  "uuid": "0c958ee5-df09-442f-aa8b-64c084afbe20",
+                  "parent": "11a0b031-0568-4b77-9c42-824e83198fd8",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.5369541650314341,
+                    0,
+                    -0.37597935402811067,
+                    0,
+                    0,
+                    0.6555,
+                    0,
+                    0,
+                    0.37597935402811067,
+                    0,
+                    0.5369541650314341,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "sideZ": 0.27499998211860655
+                },
+                {
+                  "kind": "halo",
+                  "uuid": "312b42a9-e493-4177-862a-cc252a6cd05f",
+                  "parent": "11a0b031-0568-4b77-9c42-824e83198fd8",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.5369541650314341,
+                    0,
+                    -0.37597935402811067,
+                    0,
+                    0,
+                    0.6555,
+                    0,
+                    0,
+                    0.37597935402811067,
+                    0,
+                    0.5369541650314341,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "haloWidth": 0.4181000795369253,
+                  "haloZ": [
+                    -0.2749999761581421,
+                    0.2749999761581421
+                  ]
+                },
+                {
+                  "kind": "core",
+                  "uuid": "3af539d6-c6a4-47b4-9539-3a79e2fd3420",
+                  "parent": "11a0b031-0568-4b77-9c42-824e83198fd8",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.5369541650314341,
+                    0,
+                    -0.37597935402811067,
+                    0,
+                    0,
+                    0.6555,
+                    0,
+                    0,
+                    0.37597935402811067,
+                    0,
+                    0.5369541650314341,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "sideZ": 0.27499998211860655
+                }
+              ],
+              "visibleLights": [
+                "assembly",
+                "surface",
+                "halo",
+                "core"
+              ],
+              "capture": {
+                "time": 8000,
+                "glassHidden": true,
+                "visibleLightObjects": 0
+              },
+              "rootUUID": "d512b821-7641-49b3-9954-5cb8fc01d9b8",
+              "backdrop": {
+                "bounds": [
+                  -86.39999999999992,
+                  -54.00000000000005,
+                  1526.4,
+                  954
+                ],
+                "scale": [
+                  10.662555468382484,
+                  6.664097167739053,
+                  1
+                ],
+                "texture": "02a55f39-d0c2-4329-adb7-d26fd08acfbd",
+                "canvas": [
+                  1536,
+                  960
+                ],
+                "center": [
+                  10,
+                  10,
+                  10,
+                  255
+                ],
+                "right": [
+                  9,
+                  9,
+                  9,
+                  255
+                ],
+                "left": [
+                  6,
+                  6,
+                  6,
+                  255
+                ]
+              },
+              "material": {
+                "type": "ShaderMaterial",
+                "toneMapped": false,
+                "shader": "\n  uniform sampler2D uScene;\n  uniform samplerCube uEnvironment;\n  uniform vec2 uResolution;\n  varying vec3 vNormal;\n  varying vec3 vView;\n  varying vec3 vWorldNormal;\n  varying vec3 vWorldPosition;\n  void main() {\n    vec3 n = normalize(vNormal);\n    vec3 view = normalize(vView);\n    vec2 uv = gl_FragCoord.xy / uResolution;\n    vec3 ray = refract(-view, n, 1.0 / 1.45);\n    vec2 displacement = (ray.xy + n.xy * 0.45) * 0.075;\n    vec3 transmitted;\n    transmitted.r = texture2D(uScene, clamp(uv + displacement * 1.025, 0.001, 0.999)).r;\n    transmitted.g = texture2D(uScene, clamp(uv + displacement, 0.001, 0.999)).g;\n    transmitted.b = texture2D(uScene, clamp(uv + displacement * 0.975, 0.001, 0.999)).b;\n    float edge = pow(1.0 - abs(dot(n,view)), 4.0);\n    vec3 worldView = normalize(vWorldPosition - cameraPosition);\n    vec3 reflected = reflect(worldView, normalize(vWorldNormal));\n    vec3 light = min(textureCube(uEnvironment, reflected).rgb, vec3(0.85));\n    vec3 color = mix(transmitted, light, 0.015 + edge * 0.82);\n    gl_FragColor = vec4(color, 1.0);\n    #include <tonemapping_fragment>\n    #include <colorspace_fragment>\n  }\n",
+                "environment": "40ca3340-50ab-4ebb-943e-f39b7ce85547"
+              },
+              "renderer": {
+                "error": 0,
+                "textures": 11,
+                "programs": 16
+              },
+              "flow": {
+                "time": 8000,
+                "running": true,
+                "input": {
+                  "reset": "",
+                  "position": [
+                    0,
+                    0
+                  ],
+                  "residual": [
+                    0,
+                    0
+                  ],
+                  "velocity": [
+                    0,
+                    0
+                  ],
+                  "buffer": [
+                    0,
+                    0
+                  ],
+                  "source": [
+                    0,
+                    0
+                  ],
+                  "radius": 0.01,
+                  "passes": 9
+                }
+              }
+            },
+            "time": 8000,
+            "logical": 8000,
+            "y": 0,
+            "width": 1440,
+            "height": 900,
+            "dpr": 1,
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": false,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.9,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "rendered": {
+                "progress": 0,
+                "index": 0,
+                "background": 0,
+                "intro": 0
+              },
+              "camera": {
+                "position": [
+                  0,
+                  0,
+                  5.7
+                ],
+                "fov": 42.25,
+                "outro": {
+                  "raw": 0,
+                  "parallax": 0,
+                  "projection": 0
+                },
+                "offset": [
+                  0,
+                  0
+                ],
+                "offsetTarget": [
+                  0,
+                  0
+                ],
+                "projection": [
+                  1.617623472266591,
+                  0,
+                  0,
+                  0,
+                  0,
+                  2.5881975556265457,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  -1,
+                  0,
+                  0,
+                  -0.20040080160320642,
+                  0
+                ],
+                "inverse": [
+                  0.6181908318867396,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.3863692699292123,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -4.99,
+                  0,
+                  0,
+                  -1,
+                  5.010000000000001
+                ],
+                "perspective": [
+                  1.617623472266591,
+                  0,
+                  0,
+                  0,
+                  0,
+                  2.5881975556265457,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  -1,
+                  0,
+                  0,
+                  -0.20040080160320642,
+                  0
+                ],
+                "orthographic": [
+                  0.2604166666666667,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.4166666666666667,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.04008016032064128,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  1
+                ]
+              },
+              "glass": {
+                "anchor": [
+                  0,
+                  0,
+                  0
+                ],
+                "quaternion": [
+                  0,
+                  0.3007057995042731,
+                  0,
+                  0.9537169507482269
+                ],
+                "scale": 0.6555,
+                "visible": true,
+                "projectedAnchor": [
+                  720,
+                  450
+                ],
+                "bounds": [
+                  533.1995409892739,
+                  302.6785397527174,
+                  884.1810492266669,
+                  611.6993643583123
+                ],
+                "centeredLocalBounds": [
+                  -1.394473910331726,
+                  -1.0714187622070312,
+                  -0.29999998211860657,
+                  1.394473910331726,
+                  1.0714187622070312,
+                  0.29999998211860657
+                ]
+              }
+            },
+            "geometry": {
+              "outer": [
+                -1.3694780061035157,
+                -0.71,
+                1.3694780061035154,
+                1.3827249999999998
+              ],
+              "hole": [
+                -0.7454998619384765,
+                -0.3905,
+                0.7454998619384765,
+                0.7517125
+              ],
+              "local": [
+                -1.394473910331726,
+                -1.0714187622070312,
+                -0.29999998211860657,
+                1.394473910331726,
+                1.0714187622070312,
+                0.29999998211860657
+              ],
+              "depth": 0.55,
+              "bevel": 0.025,
+              "bevelThickness": 0.025
+            },
+            "cta": {
+              "inert": true,
+              "parentInert": true,
+              "opacity": "0"
+            }
+          },
+          "after": {
+            "scene": {
+              "lights": [
+                {
+                  "kind": "assembly",
+                  "uuid": "11a0b031-0568-4b77-9c42-824e83198fd8",
+                  "parent": "d512b821-7641-49b3-9954-5cb8fc01d9b8",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.5369541650314341,
+                    0,
+                    -0.37597935402811067,
+                    0,
+                    0,
+                    0.6555,
+                    0,
+                    0,
+                    0.37597935402811067,
+                    0,
+                    0.5369541650314341,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "kind": "surface",
+                  "uuid": "0c958ee5-df09-442f-aa8b-64c084afbe20",
+                  "parent": "11a0b031-0568-4b77-9c42-824e83198fd8",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.5369541650314341,
+                    0,
+                    -0.37597935402811067,
+                    0,
+                    0,
+                    0.6555,
+                    0,
+                    0,
+                    0.37597935402811067,
+                    0,
+                    0.5369541650314341,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "sideZ": 0.27499998211860655
+                },
+                {
+                  "kind": "halo",
+                  "uuid": "312b42a9-e493-4177-862a-cc252a6cd05f",
+                  "parent": "11a0b031-0568-4b77-9c42-824e83198fd8",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.5369541650314341,
+                    0,
+                    -0.37597935402811067,
+                    0,
+                    0,
+                    0.6555,
+                    0,
+                    0,
+                    0.37597935402811067,
+                    0,
+                    0.5369541650314341,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "haloWidth": 0.4181000795369253,
+                  "haloZ": [
+                    -0.2749999761581421,
+                    0.2749999761581421
+                  ]
+                },
+                {
+                  "kind": "core",
+                  "uuid": "3af539d6-c6a4-47b4-9539-3a79e2fd3420",
+                  "parent": "11a0b031-0568-4b77-9c42-824e83198fd8",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.5369541650314341,
+                    0,
+                    -0.37597935402811067,
+                    0,
+                    0,
+                    0.6555,
+                    0,
+                    0,
+                    0.37597935402811067,
+                    0,
+                    0.5369541650314341,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "sideZ": 0.27499998211860655
+                }
+              ],
+              "visibleLights": [
+                "assembly",
+                "surface",
+                "halo",
+                "core"
+              ],
+              "capture": {
+                "time": 8000,
+                "glassHidden": true,
+                "visibleLightObjects": 0
+              },
+              "rootUUID": "d512b821-7641-49b3-9954-5cb8fc01d9b8",
+              "backdrop": {
+                "bounds": [
+                  -86.39999999999992,
+                  -54.00000000000005,
+                  1526.4,
+                  954
+                ],
+                "scale": [
+                  10.662555468382484,
+                  6.664097167739053,
+                  1
+                ],
+                "texture": "02a55f39-d0c2-4329-adb7-d26fd08acfbd",
+                "canvas": [
+                  1536,
+                  960
+                ],
+                "center": [
+                  10,
+                  10,
+                  10,
+                  255
+                ],
+                "right": [
+                  9,
+                  9,
+                  9,
+                  255
+                ],
+                "left": [
+                  6,
+                  6,
+                  6,
+                  255
+                ]
+              },
+              "material": {
+                "type": "ShaderMaterial",
+                "toneMapped": false,
+                "shader": "\n  uniform sampler2D uScene;\n  uniform samplerCube uEnvironment;\n  uniform vec2 uResolution;\n  varying vec3 vNormal;\n  varying vec3 vView;\n  varying vec3 vWorldNormal;\n  varying vec3 vWorldPosition;\n  void main() {\n    vec3 n = normalize(vNormal);\n    vec3 view = normalize(vView);\n    vec2 uv = gl_FragCoord.xy / uResolution;\n    vec3 ray = refract(-view, n, 1.0 / 1.45);\n    vec2 displacement = (ray.xy + n.xy * 0.45) * 0.075;\n    vec3 transmitted;\n    transmitted.r = texture2D(uScene, clamp(uv + displacement * 1.025, 0.001, 0.999)).r;\n    transmitted.g = texture2D(uScene, clamp(uv + displacement, 0.001, 0.999)).g;\n    transmitted.b = texture2D(uScene, clamp(uv + displacement * 0.975, 0.001, 0.999)).b;\n    float edge = pow(1.0 - abs(dot(n,view)), 4.0);\n    vec3 worldView = normalize(vWorldPosition - cameraPosition);\n    vec3 reflected = reflect(worldView, normalize(vWorldNormal));\n    vec3 light = min(textureCube(uEnvironment, reflected).rgb, vec3(0.85));\n    vec3 color = mix(transmitted, light, 0.015 + edge * 0.82);\n    gl_FragColor = vec4(color, 1.0);\n    #include <tonemapping_fragment>\n    #include <colorspace_fragment>\n  }\n",
+                "environment": "40ca3340-50ab-4ebb-943e-f39b7ce85547"
+              },
+              "renderer": {
+                "error": 0,
+                "textures": 11,
+                "programs": 16
+              },
+              "flow": {
+                "time": 8000,
+                "running": true,
+                "input": {
+                  "reset": "",
+                  "position": [
+                    0,
+                    0
+                  ],
+                  "residual": [
+                    0,
+                    0
+                  ],
+                  "velocity": [
+                    0,
+                    0
+                  ],
+                  "buffer": [
+                    0,
+                    0
+                  ],
+                  "source": [
+                    0,
+                    0
+                  ],
+                  "radius": 0.01,
+                  "passes": 9
+                }
+              }
+            },
+            "time": 8000,
+            "logical": 8000,
+            "y": 0,
+            "width": 1440,
+            "height": 900,
+            "dpr": 1,
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": false,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.9,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "rendered": {
+                "progress": 0,
+                "index": 0,
+                "background": 0,
+                "intro": 0
+              },
+              "camera": {
+                "position": [
+                  0,
+                  0,
+                  5.7
+                ],
+                "fov": 42.25,
+                "outro": {
+                  "raw": 0,
+                  "parallax": 0,
+                  "projection": 0
+                },
+                "offset": [
+                  0,
+                  0
+                ],
+                "offsetTarget": [
+                  0,
+                  0
+                ],
+                "projection": [
+                  1.617623472266591,
+                  0,
+                  0,
+                  0,
+                  0,
+                  2.5881975556265457,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  -1,
+                  0,
+                  0,
+                  -0.20040080160320642,
+                  0
+                ],
+                "inverse": [
+                  0.6181908318867396,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.3863692699292123,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -4.99,
+                  0,
+                  0,
+                  -1,
+                  5.010000000000001
+                ],
+                "perspective": [
+                  1.617623472266591,
+                  0,
+                  0,
+                  0,
+                  0,
+                  2.5881975556265457,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  -1,
+                  0,
+                  0,
+                  -0.20040080160320642,
+                  0
+                ],
+                "orthographic": [
+                  0.2604166666666667,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.4166666666666667,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.04008016032064128,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  1
+                ]
+              },
+              "glass": {
+                "anchor": [
+                  0,
+                  0,
+                  0
+                ],
+                "quaternion": [
+                  0,
+                  0.3007057995042731,
+                  0,
+                  0.9537169507482269
+                ],
+                "scale": 0.6555,
+                "visible": true,
+                "projectedAnchor": [
+                  720,
+                  450
+                ],
+                "bounds": [
+                  533.1995409892739,
+                  302.6785397527174,
+                  884.1810492266669,
+                  611.6993643583123
+                ],
+                "centeredLocalBounds": [
+                  -1.394473910331726,
+                  -1.0714187622070312,
+                  -0.29999998211860657,
+                  1.394473910331726,
+                  1.0714187622070312,
+                  0.29999998211860657
+                ]
+              }
+            },
+            "geometry": {
+              "outer": [
+                -1.3694780061035157,
+                -0.71,
+                1.3694780061035154,
+                1.3827249999999998
+              ],
+              "hole": [
+                -0.7454998619384765,
+                -0.3905,
+                0.7454998619384765,
+                0.7517125
+              ],
+              "local": [
+                -1.394473910331726,
+                -1.0714187622070312,
+                -0.29999998211860657,
+                1.394473910331726,
+                1.0714187622070312,
+                0.29999998211860657
+              ],
+              "depth": 0.55,
+              "bevel": 0.025,
+              "bevelThickness": 0.025
+            },
+            "cta": {
+              "inert": true,
+              "parentInert": true,
+              "opacity": "0"
+            }
+          }
+        }
+      ],
+      "spec": {
+        "name": "desktop-35",
+        "y": 0,
+        "yaw": 35,
+        "fixed": true
+      },
+      "bundle": {
+        "file": "HomeJourney.C91twVjR.js",
+        "bytes": 1167956,
+        "sha256": "de284a8d81701d4e02d869e8f13432d593de0ac737d29e23995558c74f0e06f5"
+      },
+      "testBundleSHA": "eee1cb3f288dd048eae469153016811459851c28c5ba8837ef1e9cd953381af7",
+      "state": {
+        "scene": {
+          "lights": [
+            {
+              "kind": "assembly",
+              "uuid": "11a0b031-0568-4b77-9c42-824e83198fd8",
+              "parent": "d512b821-7641-49b3-9954-5cb8fc01d9b8",
+              "visible": true,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "quaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "world": [
+                0.5369541650314341,
+                0,
+                -0.37597935402811067,
+                0,
+                0,
+                0.6555,
+                0,
+                0,
+                0.37597935402811067,
+                0,
+                0.5369541650314341,
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "kind": "surface",
+              "uuid": "0c958ee5-df09-442f-aa8b-64c084afbe20",
+              "parent": "11a0b031-0568-4b77-9c42-824e83198fd8",
+              "visible": true,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "quaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "world": [
+                0.5369541650314341,
+                0,
+                -0.37597935402811067,
+                0,
+                0,
+                0.6555,
+                0,
+                0,
+                0.37597935402811067,
+                0,
+                0.5369541650314341,
+                0,
+                0,
+                0,
+                0,
+                1
+              ],
+              "sideZ": 0.27499998211860655
+            },
+            {
+              "kind": "halo",
+              "uuid": "312b42a9-e493-4177-862a-cc252a6cd05f",
+              "parent": "11a0b031-0568-4b77-9c42-824e83198fd8",
+              "visible": true,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "quaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "world": [
+                0.5369541650314341,
+                0,
+                -0.37597935402811067,
+                0,
+                0,
+                0.6555,
+                0,
+                0,
+                0.37597935402811067,
+                0,
+                0.5369541650314341,
+                0,
+                0,
+                0,
+                0,
+                1
+              ],
+              "haloWidth": 0.4181000795369253,
+              "haloZ": [
+                -0.2749999761581421,
+                0.2749999761581421
+              ]
+            },
+            {
+              "kind": "core",
+              "uuid": "3af539d6-c6a4-47b4-9539-3a79e2fd3420",
+              "parent": "11a0b031-0568-4b77-9c42-824e83198fd8",
+              "visible": true,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "quaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "world": [
+                0.5369541650314341,
+                0,
+                -0.37597935402811067,
+                0,
+                0,
+                0.6555,
+                0,
+                0,
+                0.37597935402811067,
+                0,
+                0.5369541650314341,
+                0,
+                0,
+                0,
+                0,
+                1
+              ],
+              "sideZ": 0.27499998211860655
+            }
+          ],
+          "visibleLights": [
+            "assembly",
+            "surface",
+            "halo",
+            "core"
+          ],
+          "capture": {
+            "time": 8000,
+            "glassHidden": true,
+            "visibleLightObjects": 0
+          },
+          "rootUUID": "d512b821-7641-49b3-9954-5cb8fc01d9b8",
+          "backdrop": {
+            "bounds": [
+              -86.39999999999992,
+              -54.00000000000005,
+              1526.4,
+              954
+            ],
+            "scale": [
+              10.662555468382484,
+              6.664097167739053,
+              1
+            ],
+            "texture": "02a55f39-d0c2-4329-adb7-d26fd08acfbd",
+            "canvas": [
+              1536,
+              960
+            ],
+            "center": [
+              10,
+              10,
+              10,
+              255
+            ],
+            "right": [
+              9,
+              9,
+              9,
+              255
+            ],
+            "left": [
+              6,
+              6,
+              6,
+              255
+            ]
+          },
+          "material": {
+            "type": "ShaderMaterial",
+            "toneMapped": false,
+            "shader": "\n  uniform sampler2D uScene;\n  uniform samplerCube uEnvironment;\n  uniform vec2 uResolution;\n  varying vec3 vNormal;\n  varying vec3 vView;\n  varying vec3 vWorldNormal;\n  varying vec3 vWorldPosition;\n  void main() {\n    vec3 n = normalize(vNormal);\n    vec3 view = normalize(vView);\n    vec2 uv = gl_FragCoord.xy / uResolution;\n    vec3 ray = refract(-view, n, 1.0 / 1.45);\n    vec2 displacement = (ray.xy + n.xy * 0.45) * 0.075;\n    vec3 transmitted;\n    transmitted.r = texture2D(uScene, clamp(uv + displacement * 1.025, 0.001, 0.999)).r;\n    transmitted.g = texture2D(uScene, clamp(uv + displacement, 0.001, 0.999)).g;\n    transmitted.b = texture2D(uScene, clamp(uv + displacement * 0.975, 0.001, 0.999)).b;\n    float edge = pow(1.0 - abs(dot(n,view)), 4.0);\n    vec3 worldView = normalize(vWorldPosition - cameraPosition);\n    vec3 reflected = reflect(worldView, normalize(vWorldNormal));\n    vec3 light = min(textureCube(uEnvironment, reflected).rgb, vec3(0.85));\n    vec3 color = mix(transmitted, light, 0.015 + edge * 0.82);\n    gl_FragColor = vec4(color, 1.0);\n    #include <tonemapping_fragment>\n    #include <colorspace_fragment>\n  }\n",
+            "environment": "40ca3340-50ab-4ebb-943e-f39b7ce85547"
+          },
+          "renderer": {
+            "error": 0,
+            "textures": 11,
+            "programs": 16
+          },
+          "flow": {
+            "time": 8000,
+            "running": true,
+            "input": {
+              "reset": "",
+              "position": [
+                0,
+                0
+              ],
+              "residual": [
+                0,
+                0
+              ],
+              "velocity": [
+                0,
+                0
+              ],
+              "buffer": [
+                0,
+                0
+              ],
+              "source": [
+                0,
+                0
+              ],
+              "radius": 0.01,
+              "passes": 9
+            }
+          }
+        },
+        "time": 8000,
+        "logical": 8000,
+        "y": 0,
+        "width": 1440,
+        "height": 900,
+        "dpr": 1,
+        "canvasCount": 1,
+        "overflow": false,
+        "quiet": false,
+        "motion": {
+          "phase": "kv",
+          "raw": {
+            "kv": 0.9,
+            "intro": 0,
+            "works": 0,
+            "event": 0,
+            "snap": 0,
+            "outro": 0,
+            "wall": 0
+          },
+          "rendered": {
+            "progress": 0,
+            "index": 0,
+            "background": 0,
+            "intro": 0
+          },
+          "camera": {
+            "position": [
+              0,
+              0,
+              5.7
+            ],
+            "fov": 42.25,
+            "outro": {
+              "raw": 0,
+              "parallax": 0,
+              "projection": 0
+            },
+            "offset": [
+              0,
+              0
+            ],
+            "offsetTarget": [
+              0,
+              0
+            ],
+            "projection": [
+              1.617623472266591,
+              0,
+              0,
+              0,
+              0,
+              2.5881975556265457,
+              0,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              -1,
+              0,
+              0,
+              -0.20040080160320642,
+              0
+            ],
+            "inverse": [
+              0.6181908318867396,
+              0,
+              0,
+              0,
+              0,
+              0.3863692699292123,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -4.99,
+              0,
+              0,
+              -1,
+              5.010000000000001
+            ],
+            "perspective": [
+              1.617623472266591,
+              0,
+              0,
+              0,
+              0,
+              2.5881975556265457,
+              0,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              -1,
+              0,
+              0,
+              -0.20040080160320642,
+              0
+            ],
+            "orthographic": [
+              0.2604166666666667,
+              0,
+              0,
+              0,
+              0,
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ]
+          },
+          "glass": {
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "quaternion": [
+              0,
+              0.3007057995042731,
+              0,
+              0.9537169507482269
+            ],
+            "scale": 0.6555,
+            "visible": true,
+            "projectedAnchor": [
+              720,
+              450
+            ],
+            "bounds": [
+              533.1995409892739,
+              302.6785397527174,
+              884.1810492266669,
+              611.6993643583123
+            ],
+            "centeredLocalBounds": [
+              -1.394473910331726,
+              -1.0714187622070312,
+              -0.29999998211860657,
+              1.394473910331726,
+              1.0714187622070312,
+              0.29999998211860657
+            ]
+          }
+        },
+        "geometry": {
+          "outer": [
+            -1.3694780061035157,
+            -0.71,
+            1.3694780061035154,
+            1.3827249999999998
+          ],
+          "hole": [
+            -0.7454998619384765,
+            -0.3905,
+            0.7454998619384765,
+            0.7517125
+          ],
+          "local": [
+            -1.394473910331726,
+            -1.0714187622070312,
+            -0.29999998211860657,
+            1.394473910331726,
+            1.0714187622070312,
+            0.29999998211860657
+          ],
+          "depth": 0.55,
+          "bevel": 0.025,
+          "bevelThickness": 0.025
+        },
+        "cta": {
+          "inert": true,
+          "parentInert": true,
+          "opacity": "0"
+        }
+      }
+    },
+    "new-mobile-front": {
+      "errors": [],
+      "failed": [],
+      "images": [
+        {
+          "file": "new-mobile-front.png",
+          "before": {
+            "scene": {
+              "lights": [
+                {
+                  "kind": "assembly",
+                  "uuid": "987d39ff-96d5-4079-b4d3-34bf2efdf9ff",
+                  "parent": "58d6de9f-d5b8-4fe1-9be0-9091c9349d22",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "kind": "surface",
+                  "uuid": "1f1563c2-a7fd-438a-8355-4f3897d8df88",
+                  "parent": "987d39ff-96d5-4079-b4d3-34bf2efdf9ff",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "sideZ": 0.27499998211860655
+                },
+                {
+                  "kind": "halo",
+                  "uuid": "4fee8894-ee49-493f-86df-4f03913ed4b6",
+                  "parent": "987d39ff-96d5-4079-b4d3-34bf2efdf9ff",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "haloWidth": 0.4737820792123506,
+                  "haloZ": [
+                    -0.2749999761581421,
+                    0.2749999761581421
+                  ]
+                },
+                {
+                  "kind": "core",
+                  "uuid": "45b050c0-1676-47ab-83e2-4550d8cff197",
+                  "parent": "987d39ff-96d5-4079-b4d3-34bf2efdf9ff",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "sideZ": 0.27499998211860655
+                }
+              ],
+              "visibleLights": [
+                "assembly",
+                "surface",
+                "halo",
+                "core"
+              ],
+              "capture": {
+                "time": 8000,
+                "glassHidden": true,
+                "visibleLightObjects": 0
+              },
+              "rootUUID": "58d6de9f-d5b8-4fe1-9be0-9091c9349d22",
+              "backdrop": {
+                "bounds": [
+                  -23.399999999999977,
+                  -50.63999999999995,
+                  413.40000000000003,
+                  894.6400000000001
+                ],
+                "scale": [
+                  5.575904657719372,
+                  12.066829566961921,
+                  1
+                ],
+                "texture": "8b50c019-4733-41b4-b587-ffe4afac3e54",
+                "canvas": [
+                  768,
+                  1662
+                ],
+                "center": [
+                  0,
+                  0,
+                  0,
+                  255
+                ],
+                "right": [
+                  11,
+                  11,
+                  11,
+                  255
+                ],
+                "left": [
+                  11,
+                  11,
+                  11,
+                  255
+                ]
+              },
+              "material": {
+                "type": "ShaderMaterial",
+                "toneMapped": false,
+                "shader": "\n  uniform sampler2D uScene;\n  uniform samplerCube uEnvironment;\n  uniform vec2 uResolution;\n  varying vec3 vNormal;\n  varying vec3 vView;\n  varying vec3 vWorldNormal;\n  varying vec3 vWorldPosition;\n  void main() {\n    vec3 n = normalize(vNormal);\n    vec3 view = normalize(vView);\n    vec2 uv = gl_FragCoord.xy / uResolution;\n    vec3 ray = refract(-view, n, 1.0 / 1.45);\n    vec2 displacement = (ray.xy + n.xy * 0.45) * 0.075;\n    vec3 transmitted;\n    transmitted.r = texture2D(uScene, clamp(uv + displacement * 1.025, 0.001, 0.999)).r;\n    transmitted.g = texture2D(uScene, clamp(uv + displacement, 0.001, 0.999)).g;\n    transmitted.b = texture2D(uScene, clamp(uv + displacement * 0.975, 0.001, 0.999)).b;\n    float edge = pow(1.0 - abs(dot(n,view)), 4.0);\n    vec3 worldView = normalize(vWorldPosition - cameraPosition);\n    vec3 reflected = reflect(worldView, normalize(vWorldNormal));\n    vec3 light = min(textureCube(uEnvironment, reflected).rgb, vec3(0.85));\n    vec3 color = mix(transmitted, light, 0.015 + edge * 0.82);\n    gl_FragColor = vec4(color, 1.0);\n    #include <tonemapping_fragment>\n    #include <colorspace_fragment>\n  }\n",
+                "environment": "056a5766-dc2b-4280-8a89-bc1d461c37ab"
+              },
+              "renderer": {
+                "error": 0,
+                "textures": 6,
+                "programs": 8
+              },
+              "flow": {
+                "time": 8000,
+                "running": false,
+                "input": null
+              }
+            },
+            "time": 8000,
+            "logical": 8000,
+            "y": 0,
+            "width": 390,
+            "height": 844,
+            "dpr": 1,
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": false,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.8940677966101694,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "rendered": {
+                "progress": 0,
+                "index": 0,
+                "background": 0,
+                "intro": 0
+              },
+              "camera": {
+                "position": [
+                  0,
+                  0,
+                  5.7
+                ],
+                "fov": 69.95384615384616,
+                "outro": {
+                  "raw": 0,
+                  "parallax": 0,
+                  "projection": 0
+                },
+                "offset": [
+                  0,
+                  0
+                ],
+                "offsetTarget": [
+                  0,
+                  0
+                ],
+                "projection": [
+                  3.0933097064566186,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1.4293729686233192,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  -1,
+                  0,
+                  0,
+                  -0.20040080160320642,
+                  0
+                ],
+                "inverse": [
+                  0.3232783312685164,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.6996074656169944,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -4.99,
+                  0,
+                  0,
+                  -1,
+                  5.01
+                ],
+                "perspective": [
+                  3.0933097064566186,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1.4293729686233192,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  -1,
+                  0,
+                  0,
+                  -0.20040080160320642,
+                  0
+                ],
+                "orthographic": [
+                  0.4166666666666667,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.1925355450236967,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.04008016032064128,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  1
+                ]
+              },
+              "glass": {
+                "anchor": [
+                  0,
+                  0,
+                  0
+                ],
+                "quaternion": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": 0.6382461279635051,
+                "visible": true,
+                "projectedAnchor": [
+                  195,
+                  422
+                ],
+                "bounds": [
+                  97.82265925071636,
+                  347.33555101407364,
+                  292.17734074928364,
+                  496.66444898592636
+                ],
+                "centeredLocalBounds": [
+                  -1.394473910331726,
+                  -1.0714187622070312,
+                  -0.29999998211860657,
+                  1.394473910331726,
+                  1.0714187622070312,
+                  0.29999998211860657
+                ]
+              }
+            },
+            "geometry": {
+              "outer": [
+                -1.3694780061035157,
+                -0.71,
+                1.3694780061035154,
+                1.3827249999999998
+              ],
+              "hole": [
+                -0.7454998619384765,
+                -0.3905,
+                0.7454998619384765,
+                0.7517125
+              ],
+              "local": [
+                -1.394473910331726,
+                -1.0714187622070312,
+                -0.29999998211860657,
+                1.394473910331726,
+                1.0714187622070312,
+                0.29999998211860657
+              ],
+              "depth": 0.55,
+              "bevel": 0.025,
+              "bevelThickness": 0.025
+            },
+            "cta": {
+              "inert": true,
+              "parentInert": true,
+              "opacity": "0"
+            }
+          },
+          "after": {
+            "scene": {
+              "lights": [
+                {
+                  "kind": "assembly",
+                  "uuid": "987d39ff-96d5-4079-b4d3-34bf2efdf9ff",
+                  "parent": "58d6de9f-d5b8-4fe1-9be0-9091c9349d22",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "kind": "surface",
+                  "uuid": "1f1563c2-a7fd-438a-8355-4f3897d8df88",
+                  "parent": "987d39ff-96d5-4079-b4d3-34bf2efdf9ff",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "sideZ": 0.27499998211860655
+                },
+                {
+                  "kind": "halo",
+                  "uuid": "4fee8894-ee49-493f-86df-4f03913ed4b6",
+                  "parent": "987d39ff-96d5-4079-b4d3-34bf2efdf9ff",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "haloWidth": 0.4737820792123506,
+                  "haloZ": [
+                    -0.2749999761581421,
+                    0.2749999761581421
+                  ]
+                },
+                {
+                  "kind": "core",
+                  "uuid": "45b050c0-1676-47ab-83e2-4550d8cff197",
+                  "parent": "987d39ff-96d5-4079-b4d3-34bf2efdf9ff",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "sideZ": 0.27499998211860655
+                }
+              ],
+              "visibleLights": [
+                "assembly",
+                "surface",
+                "halo",
+                "core"
+              ],
+              "capture": {
+                "time": 8000,
+                "glassHidden": true,
+                "visibleLightObjects": 0
+              },
+              "rootUUID": "58d6de9f-d5b8-4fe1-9be0-9091c9349d22",
+              "backdrop": {
+                "bounds": [
+                  -23.399999999999977,
+                  -50.63999999999995,
+                  413.40000000000003,
+                  894.6400000000001
+                ],
+                "scale": [
+                  5.575904657719372,
+                  12.066829566961921,
+                  1
+                ],
+                "texture": "8b50c019-4733-41b4-b587-ffe4afac3e54",
+                "canvas": [
+                  768,
+                  1662
+                ],
+                "center": [
+                  0,
+                  0,
+                  0,
+                  255
+                ],
+                "right": [
+                  11,
+                  11,
+                  11,
+                  255
+                ],
+                "left": [
+                  11,
+                  11,
+                  11,
+                  255
+                ]
+              },
+              "material": {
+                "type": "ShaderMaterial",
+                "toneMapped": false,
+                "shader": "\n  uniform sampler2D uScene;\n  uniform samplerCube uEnvironment;\n  uniform vec2 uResolution;\n  varying vec3 vNormal;\n  varying vec3 vView;\n  varying vec3 vWorldNormal;\n  varying vec3 vWorldPosition;\n  void main() {\n    vec3 n = normalize(vNormal);\n    vec3 view = normalize(vView);\n    vec2 uv = gl_FragCoord.xy / uResolution;\n    vec3 ray = refract(-view, n, 1.0 / 1.45);\n    vec2 displacement = (ray.xy + n.xy * 0.45) * 0.075;\n    vec3 transmitted;\n    transmitted.r = texture2D(uScene, clamp(uv + displacement * 1.025, 0.001, 0.999)).r;\n    transmitted.g = texture2D(uScene, clamp(uv + displacement, 0.001, 0.999)).g;\n    transmitted.b = texture2D(uScene, clamp(uv + displacement * 0.975, 0.001, 0.999)).b;\n    float edge = pow(1.0 - abs(dot(n,view)), 4.0);\n    vec3 worldView = normalize(vWorldPosition - cameraPosition);\n    vec3 reflected = reflect(worldView, normalize(vWorldNormal));\n    vec3 light = min(textureCube(uEnvironment, reflected).rgb, vec3(0.85));\n    vec3 color = mix(transmitted, light, 0.015 + edge * 0.82);\n    gl_FragColor = vec4(color, 1.0);\n    #include <tonemapping_fragment>\n    #include <colorspace_fragment>\n  }\n",
+                "environment": "056a5766-dc2b-4280-8a89-bc1d461c37ab"
+              },
+              "renderer": {
+                "error": 0,
+                "textures": 6,
+                "programs": 8
+              },
+              "flow": {
+                "time": 8000,
+                "running": false,
+                "input": null
+              }
+            },
+            "time": 8000,
+            "logical": 8000,
+            "y": 0,
+            "width": 390,
+            "height": 844,
+            "dpr": 1,
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": false,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.8940677966101694,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "rendered": {
+                "progress": 0,
+                "index": 0,
+                "background": 0,
+                "intro": 0
+              },
+              "camera": {
+                "position": [
+                  0,
+                  0,
+                  5.7
+                ],
+                "fov": 69.95384615384616,
+                "outro": {
+                  "raw": 0,
+                  "parallax": 0,
+                  "projection": 0
+                },
+                "offset": [
+                  0,
+                  0
+                ],
+                "offsetTarget": [
+                  0,
+                  0
+                ],
+                "projection": [
+                  3.0933097064566186,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1.4293729686233192,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  -1,
+                  0,
+                  0,
+                  -0.20040080160320642,
+                  0
+                ],
+                "inverse": [
+                  0.3232783312685164,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.6996074656169944,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -4.99,
+                  0,
+                  0,
+                  -1,
+                  5.01
+                ],
+                "perspective": [
+                  3.0933097064566186,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1.4293729686233192,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  -1,
+                  0,
+                  0,
+                  -0.20040080160320642,
+                  0
+                ],
+                "orthographic": [
+                  0.4166666666666667,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.1925355450236967,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.04008016032064128,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  1
+                ]
+              },
+              "glass": {
+                "anchor": [
+                  0,
+                  0,
+                  0
+                ],
+                "quaternion": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": 0.6382461279635051,
+                "visible": true,
+                "projectedAnchor": [
+                  195,
+                  422
+                ],
+                "bounds": [
+                  97.82265925071636,
+                  347.33555101407364,
+                  292.17734074928364,
+                  496.66444898592636
+                ],
+                "centeredLocalBounds": [
+                  -1.394473910331726,
+                  -1.0714187622070312,
+                  -0.29999998211860657,
+                  1.394473910331726,
+                  1.0714187622070312,
+                  0.29999998211860657
+                ]
+              }
+            },
+            "geometry": {
+              "outer": [
+                -1.3694780061035157,
+                -0.71,
+                1.3694780061035154,
+                1.3827249999999998
+              ],
+              "hole": [
+                -0.7454998619384765,
+                -0.3905,
+                0.7454998619384765,
+                0.7517125
+              ],
+              "local": [
+                -1.394473910331726,
+                -1.0714187622070312,
+                -0.29999998211860657,
+                1.394473910331726,
+                1.0714187622070312,
+                0.29999998211860657
+              ],
+              "depth": 0.55,
+              "bevel": 0.025,
+              "bevelThickness": 0.025
+            },
+            "cta": {
+              "inert": true,
+              "parentInert": true,
+              "opacity": "0"
+            }
+          }
+        }
+      ],
+      "spec": {
+        "name": "mobile-front",
+        "y": 0,
+        "mobile": true,
+        "fixed": true
+      },
+      "bundle": {
+        "file": "HomeJourney.C91twVjR.js",
+        "bytes": 1167956,
+        "sha256": "de284a8d81701d4e02d869e8f13432d593de0ac737d29e23995558c74f0e06f5"
+      },
+      "testBundleSHA": "5a60ab0b0f7aa831ac9cb069651afe22263962be12ce11f7416fbe641acabe35",
+      "state": {
+        "scene": {
+          "lights": [
+            {
+              "kind": "assembly",
+              "uuid": "987d39ff-96d5-4079-b4d3-34bf2efdf9ff",
+              "parent": "58d6de9f-d5b8-4fe1-9be0-9091c9349d22",
+              "visible": true,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "quaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "world": [
+                0.6382461279635051,
+                0,
+                0,
+                0,
+                0,
+                0.6382461279635051,
+                0,
+                0,
+                0,
+                0,
+                0.6382461279635051,
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "kind": "surface",
+              "uuid": "1f1563c2-a7fd-438a-8355-4f3897d8df88",
+              "parent": "987d39ff-96d5-4079-b4d3-34bf2efdf9ff",
+              "visible": true,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "quaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "world": [
+                0.6382461279635051,
+                0,
+                0,
+                0,
+                0,
+                0.6382461279635051,
+                0,
+                0,
+                0,
+                0,
+                0.6382461279635051,
+                0,
+                0,
+                0,
+                0,
+                1
+              ],
+              "sideZ": 0.27499998211860655
+            },
+            {
+              "kind": "halo",
+              "uuid": "4fee8894-ee49-493f-86df-4f03913ed4b6",
+              "parent": "987d39ff-96d5-4079-b4d3-34bf2efdf9ff",
+              "visible": true,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "quaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "world": [
+                0.6382461279635051,
+                0,
+                0,
+                0,
+                0,
+                0.6382461279635051,
+                0,
+                0,
+                0,
+                0,
+                0.6382461279635051,
+                0,
+                0,
+                0,
+                0,
+                1
+              ],
+              "haloWidth": 0.4737820792123506,
+              "haloZ": [
+                -0.2749999761581421,
+                0.2749999761581421
+              ]
+            },
+            {
+              "kind": "core",
+              "uuid": "45b050c0-1676-47ab-83e2-4550d8cff197",
+              "parent": "987d39ff-96d5-4079-b4d3-34bf2efdf9ff",
+              "visible": true,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "quaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "world": [
+                0.6382461279635051,
+                0,
+                0,
+                0,
+                0,
+                0.6382461279635051,
+                0,
+                0,
+                0,
+                0,
+                0.6382461279635051,
+                0,
+                0,
+                0,
+                0,
+                1
+              ],
+              "sideZ": 0.27499998211860655
+            }
+          ],
+          "visibleLights": [
+            "assembly",
+            "surface",
+            "halo",
+            "core"
+          ],
+          "capture": {
+            "time": 8000,
+            "glassHidden": true,
+            "visibleLightObjects": 0
+          },
+          "rootUUID": "58d6de9f-d5b8-4fe1-9be0-9091c9349d22",
+          "backdrop": {
+            "bounds": [
+              -23.399999999999977,
+              -50.63999999999995,
+              413.40000000000003,
+              894.6400000000001
+            ],
+            "scale": [
+              5.575904657719372,
+              12.066829566961921,
+              1
+            ],
+            "texture": "8b50c019-4733-41b4-b587-ffe4afac3e54",
+            "canvas": [
+              768,
+              1662
+            ],
+            "center": [
+              0,
+              0,
+              0,
+              255
+            ],
+            "right": [
+              11,
+              11,
+              11,
+              255
+            ],
+            "left": [
+              11,
+              11,
+              11,
+              255
+            ]
+          },
+          "material": {
+            "type": "ShaderMaterial",
+            "toneMapped": false,
+            "shader": "\n  uniform sampler2D uScene;\n  uniform samplerCube uEnvironment;\n  uniform vec2 uResolution;\n  varying vec3 vNormal;\n  varying vec3 vView;\n  varying vec3 vWorldNormal;\n  varying vec3 vWorldPosition;\n  void main() {\n    vec3 n = normalize(vNormal);\n    vec3 view = normalize(vView);\n    vec2 uv = gl_FragCoord.xy / uResolution;\n    vec3 ray = refract(-view, n, 1.0 / 1.45);\n    vec2 displacement = (ray.xy + n.xy * 0.45) * 0.075;\n    vec3 transmitted;\n    transmitted.r = texture2D(uScene, clamp(uv + displacement * 1.025, 0.001, 0.999)).r;\n    transmitted.g = texture2D(uScene, clamp(uv + displacement, 0.001, 0.999)).g;\n    transmitted.b = texture2D(uScene, clamp(uv + displacement * 0.975, 0.001, 0.999)).b;\n    float edge = pow(1.0 - abs(dot(n,view)), 4.0);\n    vec3 worldView = normalize(vWorldPosition - cameraPosition);\n    vec3 reflected = reflect(worldView, normalize(vWorldNormal));\n    vec3 light = min(textureCube(uEnvironment, reflected).rgb, vec3(0.85));\n    vec3 color = mix(transmitted, light, 0.015 + edge * 0.82);\n    gl_FragColor = vec4(color, 1.0);\n    #include <tonemapping_fragment>\n    #include <colorspace_fragment>\n  }\n",
+            "environment": "056a5766-dc2b-4280-8a89-bc1d461c37ab"
+          },
+          "renderer": {
+            "error": 0,
+            "textures": 6,
+            "programs": 8
+          },
+          "flow": {
+            "time": 8000,
+            "running": false,
+            "input": null
+          }
+        },
+        "time": 8000,
+        "logical": 8000,
+        "y": 0,
+        "width": 390,
+        "height": 844,
+        "dpr": 1,
+        "canvasCount": 1,
+        "overflow": false,
+        "quiet": false,
+        "motion": {
+          "phase": "kv",
+          "raw": {
+            "kv": 0.8940677966101694,
+            "intro": 0,
+            "works": 0,
+            "event": 0,
+            "snap": 0,
+            "outro": 0,
+            "wall": 0
+          },
+          "rendered": {
+            "progress": 0,
+            "index": 0,
+            "background": 0,
+            "intro": 0
+          },
+          "camera": {
+            "position": [
+              0,
+              0,
+              5.7
+            ],
+            "fov": 69.95384615384616,
+            "outro": {
+              "raw": 0,
+              "parallax": 0,
+              "projection": 0
+            },
+            "offset": [
+              0,
+              0
+            ],
+            "offsetTarget": [
+              0,
+              0
+            ],
+            "projection": [
+              3.0933097064566186,
+              0,
+              0,
+              0,
+              0,
+              1.4293729686233192,
+              0,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              -1,
+              0,
+              0,
+              -0.20040080160320642,
+              0
+            ],
+            "inverse": [
+              0.3232783312685164,
+              0,
+              0,
+              0,
+              0,
+              0.6996074656169944,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -4.99,
+              0,
+              0,
+              -1,
+              5.01
+            ],
+            "perspective": [
+              3.0933097064566186,
+              0,
+              0,
+              0,
+              0,
+              1.4293729686233192,
+              0,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              -1,
+              0,
+              0,
+              -0.20040080160320642,
+              0
+            ],
+            "orthographic": [
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              0.1925355450236967,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ]
+          },
+          "glass": {
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "quaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "scale": 0.6382461279635051,
+            "visible": true,
+            "projectedAnchor": [
+              195,
+              422
+            ],
+            "bounds": [
+              97.82265925071636,
+              347.33555101407364,
+              292.17734074928364,
+              496.66444898592636
+            ],
+            "centeredLocalBounds": [
+              -1.394473910331726,
+              -1.0714187622070312,
+              -0.29999998211860657,
+              1.394473910331726,
+              1.0714187622070312,
+              0.29999998211860657
+            ]
+          }
+        },
+        "geometry": {
+          "outer": [
+            -1.3694780061035157,
+            -0.71,
+            1.3694780061035154,
+            1.3827249999999998
+          ],
+          "hole": [
+            -0.7454998619384765,
+            -0.3905,
+            0.7454998619384765,
+            0.7517125
+          ],
+          "local": [
+            -1.394473910331726,
+            -1.0714187622070312,
+            -0.29999998211860657,
+            1.394473910331726,
+            1.0714187622070312,
+            0.29999998211860657
+          ],
+          "depth": 0.55,
+          "bevel": 0.025,
+          "bevelThickness": 0.025
+        },
+        "cta": {
+          "inert": true,
+          "parentInert": true,
+          "opacity": "0"
+        }
+      }
+    },
+    "new-mobile-35": {
+      "errors": [],
+      "failed": [],
+      "images": [
+        {
+          "file": "new-mobile-35.png",
+          "before": {
+            "scene": {
+              "lights": [
+                {
+                  "kind": "assembly",
+                  "uuid": "1d24bbc2-52eb-4278-86e0-b0c4620ada1c",
+                  "parent": "a5a25cda-002e-4204-aeb2-eed6fac819d3",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.5228206204808387,
+                    0,
+                    -0.366082939592161,
+                    0,
+                    0,
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0.366082939592161,
+                    0,
+                    0.5228206204808387,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "kind": "surface",
+                  "uuid": "b5706ea2-c205-41f1-9b7b-24ecd9748618",
+                  "parent": "1d24bbc2-52eb-4278-86e0-b0c4620ada1c",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.5228206204808387,
+                    0,
+                    -0.366082939592161,
+                    0,
+                    0,
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0.366082939592161,
+                    0,
+                    0.5228206204808387,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "sideZ": 0.27499998211860655
+                },
+                {
+                  "kind": "halo",
+                  "uuid": "5a439fe9-4b95-41bc-849c-9fa4e4031701",
+                  "parent": "1d24bbc2-52eb-4278-86e0-b0c4620ada1c",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.5228206204808387,
+                    0,
+                    -0.366082939592161,
+                    0,
+                    0,
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0.366082939592161,
+                    0,
+                    0.5228206204808387,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "haloWidth": 0.4737820792123506,
+                  "haloZ": [
+                    -0.2749999761581421,
+                    0.2749999761581421
+                  ]
+                },
+                {
+                  "kind": "core",
+                  "uuid": "185d346f-33e7-49e5-aced-52fba998907b",
+                  "parent": "1d24bbc2-52eb-4278-86e0-b0c4620ada1c",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.5228206204808387,
+                    0,
+                    -0.366082939592161,
+                    0,
+                    0,
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0.366082939592161,
+                    0,
+                    0.5228206204808387,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "sideZ": 0.27499998211860655
+                }
+              ],
+              "visibleLights": [
+                "assembly",
+                "surface",
+                "halo",
+                "core"
+              ],
+              "capture": {
+                "time": 8000,
+                "glassHidden": true,
+                "visibleLightObjects": 0
+              },
+              "rootUUID": "a5a25cda-002e-4204-aeb2-eed6fac819d3",
+              "backdrop": {
+                "bounds": [
+                  -23.399999999999977,
+                  -50.63999999999995,
+                  413.40000000000003,
+                  894.6400000000001
+                ],
+                "scale": [
+                  5.575904657719372,
+                  12.066829566961921,
+                  1
+                ],
+                "texture": "14122fe2-2ed7-4a26-a737-d94af2b7e1aa",
+                "canvas": [
+                  768,
+                  1662
+                ],
+                "center": [
+                  0,
+                  0,
+                  0,
+                  255
+                ],
+                "right": [
+                  11,
+                  11,
+                  11,
+                  255
+                ],
+                "left": [
+                  11,
+                  11,
+                  11,
+                  255
+                ]
+              },
+              "material": {
+                "type": "ShaderMaterial",
+                "toneMapped": false,
+                "shader": "\n  uniform sampler2D uScene;\n  uniform samplerCube uEnvironment;\n  uniform vec2 uResolution;\n  varying vec3 vNormal;\n  varying vec3 vView;\n  varying vec3 vWorldNormal;\n  varying vec3 vWorldPosition;\n  void main() {\n    vec3 n = normalize(vNormal);\n    vec3 view = normalize(vView);\n    vec2 uv = gl_FragCoord.xy / uResolution;\n    vec3 ray = refract(-view, n, 1.0 / 1.45);\n    vec2 displacement = (ray.xy + n.xy * 0.45) * 0.075;\n    vec3 transmitted;\n    transmitted.r = texture2D(uScene, clamp(uv + displacement * 1.025, 0.001, 0.999)).r;\n    transmitted.g = texture2D(uScene, clamp(uv + displacement, 0.001, 0.999)).g;\n    transmitted.b = texture2D(uScene, clamp(uv + displacement * 0.975, 0.001, 0.999)).b;\n    float edge = pow(1.0 - abs(dot(n,view)), 4.0);\n    vec3 worldView = normalize(vWorldPosition - cameraPosition);\n    vec3 reflected = reflect(worldView, normalize(vWorldNormal));\n    vec3 light = min(textureCube(uEnvironment, reflected).rgb, vec3(0.85));\n    vec3 color = mix(transmitted, light, 0.015 + edge * 0.82);\n    gl_FragColor = vec4(color, 1.0);\n    #include <tonemapping_fragment>\n    #include <colorspace_fragment>\n  }\n",
+                "environment": "539aff56-ad3d-4507-afb4-af962d8e1daa"
+              },
+              "renderer": {
+                "error": 0,
+                "textures": 6,
+                "programs": 8
+              },
+              "flow": {
+                "time": 8000,
+                "running": false,
+                "input": null
+              }
+            },
+            "time": 8000,
+            "logical": 8000,
+            "y": 0,
+            "width": 390,
+            "height": 844,
+            "dpr": 1,
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": false,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.8940677966101694,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "rendered": {
+                "progress": 0,
+                "index": 0,
+                "background": 0,
+                "intro": 0
+              },
+              "camera": {
+                "position": [
+                  0,
+                  0,
+                  5.7
+                ],
+                "fov": 69.95384615384616,
+                "outro": {
+                  "raw": 0,
+                  "parallax": 0,
+                  "projection": 0
+                },
+                "offset": [
+                  0,
+                  0
+                ],
+                "offsetTarget": [
+                  0,
+                  0
+                ],
+                "projection": [
+                  3.0933097064566186,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1.4293729686233192,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  -1,
+                  0,
+                  0,
+                  -0.20040080160320642,
+                  0
+                ],
+                "inverse": [
+                  0.3232783312685164,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.6996074656169944,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -4.99,
+                  0,
+                  0,
+                  -1,
+                  5.01
+                ],
+                "perspective": [
+                  3.0933097064566186,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1.4293729686233192,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  -1,
+                  0,
+                  0,
+                  -0.20040080160320642,
+                  0
+                ],
+                "orthographic": [
+                  0.4166666666666667,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.1925355450236967,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.04008016032064128,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  1
+                ]
+              },
+              "glass": {
+                "anchor": [
+                  0,
+                  0,
+                  0
+                ],
+                "quaternion": [
+                  0,
+                  0.3007057995042731,
+                  0,
+                  0.9537169507482269
+                ],
+                "scale": 0.6382461279635051,
+                "visible": true,
+                "projectedAnchor": [
+                  195,
+                  422
+                ],
+                "bounds": [
+                  100.97422770316976,
+                  347.7620996807334,
+                  277.9228077771341,
+                  503.2682982337315
+                ],
+                "centeredLocalBounds": [
+                  -1.394473910331726,
+                  -1.0714187622070312,
+                  -0.29999998211860657,
+                  1.394473910331726,
+                  1.0714187622070312,
+                  0.29999998211860657
+                ]
+              }
+            },
+            "geometry": {
+              "outer": [
+                -1.3694780061035157,
+                -0.71,
+                1.3694780061035154,
+                1.3827249999999998
+              ],
+              "hole": [
+                -0.7454998619384765,
+                -0.3905,
+                0.7454998619384765,
+                0.7517125
+              ],
+              "local": [
+                -1.394473910331726,
+                -1.0714187622070312,
+                -0.29999998211860657,
+                1.394473910331726,
+                1.0714187622070312,
+                0.29999998211860657
+              ],
+              "depth": 0.55,
+              "bevel": 0.025,
+              "bevelThickness": 0.025
+            },
+            "cta": {
+              "inert": true,
+              "parentInert": true,
+              "opacity": "0"
+            }
+          },
+          "after": {
+            "scene": {
+              "lights": [
+                {
+                  "kind": "assembly",
+                  "uuid": "1d24bbc2-52eb-4278-86e0-b0c4620ada1c",
+                  "parent": "a5a25cda-002e-4204-aeb2-eed6fac819d3",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.5228206204808387,
+                    0,
+                    -0.366082939592161,
+                    0,
+                    0,
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0.366082939592161,
+                    0,
+                    0.5228206204808387,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "kind": "surface",
+                  "uuid": "b5706ea2-c205-41f1-9b7b-24ecd9748618",
+                  "parent": "1d24bbc2-52eb-4278-86e0-b0c4620ada1c",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.5228206204808387,
+                    0,
+                    -0.366082939592161,
+                    0,
+                    0,
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0.366082939592161,
+                    0,
+                    0.5228206204808387,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "sideZ": 0.27499998211860655
+                },
+                {
+                  "kind": "halo",
+                  "uuid": "5a439fe9-4b95-41bc-849c-9fa4e4031701",
+                  "parent": "1d24bbc2-52eb-4278-86e0-b0c4620ada1c",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.5228206204808387,
+                    0,
+                    -0.366082939592161,
+                    0,
+                    0,
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0.366082939592161,
+                    0,
+                    0.5228206204808387,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "haloWidth": 0.4737820792123506,
+                  "haloZ": [
+                    -0.2749999761581421,
+                    0.2749999761581421
+                  ]
+                },
+                {
+                  "kind": "core",
+                  "uuid": "185d346f-33e7-49e5-aced-52fba998907b",
+                  "parent": "1d24bbc2-52eb-4278-86e0-b0c4620ada1c",
+                  "visible": true,
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "quaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "world": [
+                    0.5228206204808387,
+                    0,
+                    -0.366082939592161,
+                    0,
+                    0,
+                    0.6382461279635051,
+                    0,
+                    0,
+                    0.366082939592161,
+                    0,
+                    0.5228206204808387,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "sideZ": 0.27499998211860655
+                }
+              ],
+              "visibleLights": [
+                "assembly",
+                "surface",
+                "halo",
+                "core"
+              ],
+              "capture": {
+                "time": 8000,
+                "glassHidden": true,
+                "visibleLightObjects": 0
+              },
+              "rootUUID": "a5a25cda-002e-4204-aeb2-eed6fac819d3",
+              "backdrop": {
+                "bounds": [
+                  -23.399999999999977,
+                  -50.63999999999995,
+                  413.40000000000003,
+                  894.6400000000001
+                ],
+                "scale": [
+                  5.575904657719372,
+                  12.066829566961921,
+                  1
+                ],
+                "texture": "14122fe2-2ed7-4a26-a737-d94af2b7e1aa",
+                "canvas": [
+                  768,
+                  1662
+                ],
+                "center": [
+                  0,
+                  0,
+                  0,
+                  255
+                ],
+                "right": [
+                  11,
+                  11,
+                  11,
+                  255
+                ],
+                "left": [
+                  11,
+                  11,
+                  11,
+                  255
+                ]
+              },
+              "material": {
+                "type": "ShaderMaterial",
+                "toneMapped": false,
+                "shader": "\n  uniform sampler2D uScene;\n  uniform samplerCube uEnvironment;\n  uniform vec2 uResolution;\n  varying vec3 vNormal;\n  varying vec3 vView;\n  varying vec3 vWorldNormal;\n  varying vec3 vWorldPosition;\n  void main() {\n    vec3 n = normalize(vNormal);\n    vec3 view = normalize(vView);\n    vec2 uv = gl_FragCoord.xy / uResolution;\n    vec3 ray = refract(-view, n, 1.0 / 1.45);\n    vec2 displacement = (ray.xy + n.xy * 0.45) * 0.075;\n    vec3 transmitted;\n    transmitted.r = texture2D(uScene, clamp(uv + displacement * 1.025, 0.001, 0.999)).r;\n    transmitted.g = texture2D(uScene, clamp(uv + displacement, 0.001, 0.999)).g;\n    transmitted.b = texture2D(uScene, clamp(uv + displacement * 0.975, 0.001, 0.999)).b;\n    float edge = pow(1.0 - abs(dot(n,view)), 4.0);\n    vec3 worldView = normalize(vWorldPosition - cameraPosition);\n    vec3 reflected = reflect(worldView, normalize(vWorldNormal));\n    vec3 light = min(textureCube(uEnvironment, reflected).rgb, vec3(0.85));\n    vec3 color = mix(transmitted, light, 0.015 + edge * 0.82);\n    gl_FragColor = vec4(color, 1.0);\n    #include <tonemapping_fragment>\n    #include <colorspace_fragment>\n  }\n",
+                "environment": "539aff56-ad3d-4507-afb4-af962d8e1daa"
+              },
+              "renderer": {
+                "error": 0,
+                "textures": 6,
+                "programs": 8
+              },
+              "flow": {
+                "time": 8000,
+                "running": false,
+                "input": null
+              }
+            },
+            "time": 8000,
+            "logical": 8000,
+            "y": 0,
+            "width": 390,
+            "height": 844,
+            "dpr": 1,
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": false,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.8940677966101694,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "rendered": {
+                "progress": 0,
+                "index": 0,
+                "background": 0,
+                "intro": 0
+              },
+              "camera": {
+                "position": [
+                  0,
+                  0,
+                  5.7
+                ],
+                "fov": 69.95384615384616,
+                "outro": {
+                  "raw": 0,
+                  "parallax": 0,
+                  "projection": 0
+                },
+                "offset": [
+                  0,
+                  0
+                ],
+                "offsetTarget": [
+                  0,
+                  0
+                ],
+                "projection": [
+                  3.0933097064566186,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1.4293729686233192,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  -1,
+                  0,
+                  0,
+                  -0.20040080160320642,
+                  0
+                ],
+                "inverse": [
+                  0.3232783312685164,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.6996074656169944,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -4.99,
+                  0,
+                  0,
+                  -1,
+                  5.01
+                ],
+                "perspective": [
+                  3.0933097064566186,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1.4293729686233192,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  -1,
+                  0,
+                  0,
+                  -0.20040080160320642,
+                  0
+                ],
+                "orthographic": [
+                  0.4166666666666667,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.1925355450236967,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.04008016032064128,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  1
+                ]
+              },
+              "glass": {
+                "anchor": [
+                  0,
+                  0,
+                  0
+                ],
+                "quaternion": [
+                  0,
+                  0.3007057995042731,
+                  0,
+                  0.9537169507482269
+                ],
+                "scale": 0.6382461279635051,
+                "visible": true,
+                "projectedAnchor": [
+                  195,
+                  422
+                ],
+                "bounds": [
+                  100.97422770316976,
+                  347.7620996807334,
+                  277.9228077771341,
+                  503.2682982337315
+                ],
+                "centeredLocalBounds": [
+                  -1.394473910331726,
+                  -1.0714187622070312,
+                  -0.29999998211860657,
+                  1.394473910331726,
+                  1.0714187622070312,
+                  0.29999998211860657
+                ]
+              }
+            },
+            "geometry": {
+              "outer": [
+                -1.3694780061035157,
+                -0.71,
+                1.3694780061035154,
+                1.3827249999999998
+              ],
+              "hole": [
+                -0.7454998619384765,
+                -0.3905,
+                0.7454998619384765,
+                0.7517125
+              ],
+              "local": [
+                -1.394473910331726,
+                -1.0714187622070312,
+                -0.29999998211860657,
+                1.394473910331726,
+                1.0714187622070312,
+                0.29999998211860657
+              ],
+              "depth": 0.55,
+              "bevel": 0.025,
+              "bevelThickness": 0.025
+            },
+            "cta": {
+              "inert": true,
+              "parentInert": true,
+              "opacity": "0"
+            }
+          }
+        }
+      ],
+      "spec": {
+        "name": "mobile-35",
+        "y": 0,
+        "mobile": true,
+        "yaw": 35,
+        "fixed": true
+      },
+      "bundle": {
+        "file": "HomeJourney.C91twVjR.js",
+        "bytes": 1167956,
+        "sha256": "de284a8d81701d4e02d869e8f13432d593de0ac737d29e23995558c74f0e06f5"
+      },
+      "testBundleSHA": "eee1cb3f288dd048eae469153016811459851c28c5ba8837ef1e9cd953381af7",
+      "state": {
+        "scene": {
+          "lights": [
+            {
+              "kind": "assembly",
+              "uuid": "1d24bbc2-52eb-4278-86e0-b0c4620ada1c",
+              "parent": "a5a25cda-002e-4204-aeb2-eed6fac819d3",
+              "visible": true,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "quaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "world": [
+                0.5228206204808387,
+                0,
+                -0.366082939592161,
+                0,
+                0,
+                0.6382461279635051,
+                0,
+                0,
+                0.366082939592161,
+                0,
+                0.5228206204808387,
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "kind": "surface",
+              "uuid": "b5706ea2-c205-41f1-9b7b-24ecd9748618",
+              "parent": "1d24bbc2-52eb-4278-86e0-b0c4620ada1c",
+              "visible": true,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "quaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "world": [
+                0.5228206204808387,
+                0,
+                -0.366082939592161,
+                0,
+                0,
+                0.6382461279635051,
+                0,
+                0,
+                0.366082939592161,
+                0,
+                0.5228206204808387,
+                0,
+                0,
+                0,
+                0,
+                1
+              ],
+              "sideZ": 0.27499998211860655
+            },
+            {
+              "kind": "halo",
+              "uuid": "5a439fe9-4b95-41bc-849c-9fa4e4031701",
+              "parent": "1d24bbc2-52eb-4278-86e0-b0c4620ada1c",
+              "visible": true,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "quaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "world": [
+                0.5228206204808387,
+                0,
+                -0.366082939592161,
+                0,
+                0,
+                0.6382461279635051,
+                0,
+                0,
+                0.366082939592161,
+                0,
+                0.5228206204808387,
+                0,
+                0,
+                0,
+                0,
+                1
+              ],
+              "haloWidth": 0.4737820792123506,
+              "haloZ": [
+                -0.2749999761581421,
+                0.2749999761581421
+              ]
+            },
+            {
+              "kind": "core",
+              "uuid": "185d346f-33e7-49e5-aced-52fba998907b",
+              "parent": "1d24bbc2-52eb-4278-86e0-b0c4620ada1c",
+              "visible": true,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "quaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "world": [
+                0.5228206204808387,
+                0,
+                -0.366082939592161,
+                0,
+                0,
+                0.6382461279635051,
+                0,
+                0,
+                0.366082939592161,
+                0,
+                0.5228206204808387,
+                0,
+                0,
+                0,
+                0,
+                1
+              ],
+              "sideZ": 0.27499998211860655
+            }
+          ],
+          "visibleLights": [
+            "assembly",
+            "surface",
+            "halo",
+            "core"
+          ],
+          "capture": {
+            "time": 8000,
+            "glassHidden": true,
+            "visibleLightObjects": 0
+          },
+          "rootUUID": "a5a25cda-002e-4204-aeb2-eed6fac819d3",
+          "backdrop": {
+            "bounds": [
+              -23.399999999999977,
+              -50.63999999999995,
+              413.40000000000003,
+              894.6400000000001
+            ],
+            "scale": [
+              5.575904657719372,
+              12.066829566961921,
+              1
+            ],
+            "texture": "14122fe2-2ed7-4a26-a737-d94af2b7e1aa",
+            "canvas": [
+              768,
+              1662
+            ],
+            "center": [
+              0,
+              0,
+              0,
+              255
+            ],
+            "right": [
+              11,
+              11,
+              11,
+              255
+            ],
+            "left": [
+              11,
+              11,
+              11,
+              255
+            ]
+          },
+          "material": {
+            "type": "ShaderMaterial",
+            "toneMapped": false,
+            "shader": "\n  uniform sampler2D uScene;\n  uniform samplerCube uEnvironment;\n  uniform vec2 uResolution;\n  varying vec3 vNormal;\n  varying vec3 vView;\n  varying vec3 vWorldNormal;\n  varying vec3 vWorldPosition;\n  void main() {\n    vec3 n = normalize(vNormal);\n    vec3 view = normalize(vView);\n    vec2 uv = gl_FragCoord.xy / uResolution;\n    vec3 ray = refract(-view, n, 1.0 / 1.45);\n    vec2 displacement = (ray.xy + n.xy * 0.45) * 0.075;\n    vec3 transmitted;\n    transmitted.r = texture2D(uScene, clamp(uv + displacement * 1.025, 0.001, 0.999)).r;\n    transmitted.g = texture2D(uScene, clamp(uv + displacement, 0.001, 0.999)).g;\n    transmitted.b = texture2D(uScene, clamp(uv + displacement * 0.975, 0.001, 0.999)).b;\n    float edge = pow(1.0 - abs(dot(n,view)), 4.0);\n    vec3 worldView = normalize(vWorldPosition - cameraPosition);\n    vec3 reflected = reflect(worldView, normalize(vWorldNormal));\n    vec3 light = min(textureCube(uEnvironment, reflected).rgb, vec3(0.85));\n    vec3 color = mix(transmitted, light, 0.015 + edge * 0.82);\n    gl_FragColor = vec4(color, 1.0);\n    #include <tonemapping_fragment>\n    #include <colorspace_fragment>\n  }\n",
+            "environment": "539aff56-ad3d-4507-afb4-af962d8e1daa"
+          },
+          "renderer": {
+            "error": 0,
+            "textures": 6,
+            "programs": 8
+          },
+          "flow": {
+            "time": 8000,
+            "running": false,
+            "input": null
+          }
+        },
+        "time": 8000,
+        "logical": 8000,
+        "y": 0,
+        "width": 390,
+        "height": 844,
+        "dpr": 1,
+        "canvasCount": 1,
+        "overflow": false,
+        "quiet": false,
+        "motion": {
+          "phase": "kv",
+          "raw": {
+            "kv": 0.8940677966101694,
+            "intro": 0,
+            "works": 0,
+            "event": 0,
+            "snap": 0,
+            "outro": 0,
+            "wall": 0
+          },
+          "rendered": {
+            "progress": 0,
+            "index": 0,
+            "background": 0,
+            "intro": 0
+          },
+          "camera": {
+            "position": [
+              0,
+              0,
+              5.7
+            ],
+            "fov": 69.95384615384616,
+            "outro": {
+              "raw": 0,
+              "parallax": 0,
+              "projection": 0
+            },
+            "offset": [
+              0,
+              0
+            ],
+            "offsetTarget": [
+              0,
+              0
+            ],
+            "projection": [
+              3.0933097064566186,
+              0,
+              0,
+              0,
+              0,
+              1.4293729686233192,
+              0,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              -1,
+              0,
+              0,
+              -0.20040080160320642,
+              0
+            ],
+            "inverse": [
+              0.3232783312685164,
+              0,
+              0,
+              0,
+              0,
+              0.6996074656169944,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -4.99,
+              0,
+              0,
+              -1,
+              5.01
+            ],
+            "perspective": [
+              3.0933097064566186,
+              0,
+              0,
+              0,
+              0,
+              1.4293729686233192,
+              0,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              -1,
+              0,
+              0,
+              -0.20040080160320642,
+              0
+            ],
+            "orthographic": [
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              0.1925355450236967,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ]
+          },
+          "glass": {
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "quaternion": [
+              0,
+              0.3007057995042731,
+              0,
+              0.9537169507482269
+            ],
+            "scale": 0.6382461279635051,
+            "visible": true,
+            "projectedAnchor": [
+              195,
+              422
+            ],
+            "bounds": [
+              100.97422770316976,
+              347.7620996807334,
+              277.9228077771341,
+              503.2682982337315
+            ],
+            "centeredLocalBounds": [
+              -1.394473910331726,
+              -1.0714187622070312,
+              -0.29999998211860657,
+              1.394473910331726,
+              1.0714187622070312,
+              0.29999998211860657
+            ]
+          }
+        },
+        "geometry": {
+          "outer": [
+            -1.3694780061035157,
+            -0.71,
+            1.3694780061035154,
+            1.3827249999999998
+          ],
+          "hole": [
+            -0.7454998619384765,
+            -0.3905,
+            0.7454998619384765,
+            0.7517125
+          ],
+          "local": [
+            -1.394473910331726,
+            -1.0714187622070312,
+            -0.29999998211860657,
+            1.394473910331726,
+            1.0714187622070312,
+            0.29999998211860657
+          ],
+          "depth": 0.55,
+          "bevel": 0.025,
+          "bevelThickness": 0.025
+        },
+        "cta": {
+          "inert": true,
+          "parentInert": true,
+          "opacity": "0"
+        }
+      }
+    }
+  },
+  "checks": [
+    {
+      "name": "desktop-front: thinner side retains scale, XY, center and connected light planes",
+      "pass": true,
+      "evidence": {
+        "oldDepth": 0.7500000596046448,
+        "depth": 0.5999999642372131,
+        "depthRatio": 0.7999998887380053,
+        "oldScale": 0.6555,
+        "scale": 0.6555,
+        "oldLocalBounds": [
+          -1.394473910331726,
+          -1.0714187622070312,
+          -0.3750000298023224,
+          1.394473910331726,
+          1.0714187622070312,
+          0.3750000298023224
+        ],
+        "localBounds": [
+          -1.394473910331726,
+          -1.0714187622070312,
+          -0.29999998211860657,
+          1.394473910331726,
+          1.0714187622070312,
+          0.29999998211860657
+        ],
+        "projectedAnchor": [
+          720,
+          450
+        ],
+        "bounds": [
+          527.1255940331283,
+          301.80844491146973,
+          912.8744059668717,
+          598.1915550885302
+        ],
+        "corePlane": 0.27499998211860655,
+        "surfacePlane": 0.27499998211860655,
+        "haloPlanes": [
+          -0.2749999761581421,
+          0.2749999761581421
+        ],
+        "errors": [],
+        "failed": []
+      }
+    },
+    {
+      "name": "desktop-35: thinner side retains scale, XY, center and connected light planes",
+      "pass": true,
+      "evidence": {
+        "oldDepth": 0.7500000596046448,
+        "depth": 0.5999999642372131,
+        "depthRatio": 0.7999998887380053,
+        "oldScale": 0.6555,
+        "scale": 0.6555,
+        "oldLocalBounds": [
+          -1.394473910331726,
+          -1.0714187622070312,
+          -0.3750000298023224,
+          1.394473910331726,
+          1.0714187622070312,
+          0.3750000298023224
+        ],
+        "localBounds": [
+          -1.394473910331726,
+          -1.0714187622070312,
+          -0.29999998211860657,
+          1.394473910331726,
+          1.0714187622070312,
+          0.29999998211860657
+        ],
+        "projectedAnchor": [
+          720,
+          450
+        ],
+        "bounds": [
+          533.1995409892739,
+          302.6785397527174,
+          884.1810492266669,
+          611.6993643583123
+        ],
+        "corePlane": 0.27499998211860655,
+        "surfacePlane": 0.27499998211860655,
+        "haloPlanes": [
+          -0.2749999761581421,
+          0.2749999761581421
+        ],
+        "errors": [],
+        "failed": []
+      }
+    },
+    {
+      "name": "mobile-front: thinner side retains scale, XY, center and connected light planes",
+      "pass": true,
+      "evidence": {
+        "oldDepth": 0.7500000596046448,
+        "depth": 0.5999999642372131,
+        "depthRatio": 0.7999998887380053,
+        "oldScale": 0.6382461279635051,
+        "scale": 0.6382461279635051,
+        "oldLocalBounds": [
+          -1.394473910331726,
+          -1.0714187622070312,
+          -0.3750000298023224,
+          1.394473910331726,
+          1.0714187622070312,
+          0.3750000298023224
+        ],
+        "localBounds": [
+          -1.394473910331726,
+          -1.0714187622070312,
+          -0.29999998211860657,
+          1.394473910331726,
+          1.0714187622070312,
+          0.29999998211860657
+        ],
+        "projectedAnchor": [
+          195,
+          422
+        ],
+        "bounds": [
+          97.82265925071636,
+          347.33555101407364,
+          292.17734074928364,
+          496.66444898592636
+        ],
+        "corePlane": 0.27499998211860655,
+        "surfacePlane": 0.27499998211860655,
+        "haloPlanes": [
+          -0.2749999761581421,
+          0.2749999761581421
+        ],
+        "errors": [],
+        "failed": []
+      }
+    },
+    {
+      "name": "mobile-35: thinner side retains scale, XY, center and connected light planes",
+      "pass": true,
+      "evidence": {
+        "oldDepth": 0.7500000596046448,
+        "depth": 0.5999999642372131,
+        "depthRatio": 0.7999998887380053,
+        "oldScale": 0.6382461279635051,
+        "scale": 0.6382461279635051,
+        "oldLocalBounds": [
+          -1.394473910331726,
+          -1.0714187622070312,
+          -0.3750000298023224,
+          1.394473910331726,
+          1.0714187622070312,
+          0.3750000298023224
+        ],
+        "localBounds": [
+          -1.394473910331726,
+          -1.0714187622070312,
+          -0.29999998211860657,
+          1.394473910331726,
+          1.0714187622070312,
+          0.29999998211860657
+        ],
+        "projectedAnchor": [
+          195,
+          422
+        ],
+        "bounds": [
+          100.97422770316976,
+          347.7620996807334,
+          277.9228077771341,
+          503.2682982337315
+        ],
+        "corePlane": 0.27499998211860655,
+        "surfacePlane": 0.27499998211860655,
+        "haloPlanes": [
+          -0.2749999761581421,
+          0.2749999761581421
+        ],
+        "errors": [],
+        "failed": []
+      }
+    }
+  ],
+  "limitations": [
+    "Static views use the same test-only quaternion and logical clock; native input cases do not override them. Screenshots and surrounding reads have separate actual times. SwiftShader/emulated touch are not hardware performance evidence."
+  ],
+  "browser": "154.0.8037.99",
+  "pass": true
+}
