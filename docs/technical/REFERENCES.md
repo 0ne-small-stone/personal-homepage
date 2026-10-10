@@ -1,5 +1,11 @@
 # 个人主页技术调研来源和候选方案
 
+## T13.11 原生关联选择来源（2026-10-10）
+
+已读 [Pages CMS reference](https://pagescms.org/docs/configuration/fields/reference/)、[content](https://pagescms.org/docs/configuration/content/) 与 [view](https://pagescms.org/docs/configuration/content/view/)：引用读取已有 CMS 集合，multiple 保存多值，value/label 模板分别承接稳定 ID/真实标题；查询字段 readonly 与关闭新增/重命名/删除用于本轮操作边界，不构成 GitHub 权限控制。
+
+固定官方 `6f4e860a35d934406580287e7042e5e111e207a1`（MIT）的 [Reference EditComponent](https://github.com/hunvreus/pagescms/blob/6f4e860a35d934406580287e7042e5e111e207a1/fields/core/reference/edit-component.tsx) 和 [references GET](https://github.com/hunvreus/pagescms/blob/6f4e860a35d934406580287e7042e5e111e207a1/app/api/%5Bowner%5D/%5Brepo%5D/%5Bbranch%5D/references/%5Bname%5D/route.ts) 已缓存并读取。原生 handleValueChange 将选项映射为字符串 value 数组，已选 ID 单独解析标签，search 支持定义过的字段。没有 draft/当前来源动态过滤参数；继续由本站既有关系解析隐藏草稿、排除自指/重复，界面提示承接此边界。后台托管版本未知，实际 UI 与 Save 独立验收，不复制上述代码或更改框架依赖。
+
 ## T07.05 标签浏览开关来源（2026-10-10）
 
 已读本机锁定 starlight-blog 0.30.0（MIT）的 `libs/config.ts`、`libs/tags.ts`、`components/PostTags.astro`、`middleware.ts` 和 `routes/Tags.astro`。无标签禁用配置；标签列表、侧栏和静态路径均读取原生有效 tags，因此仅在 article schema 读取时按开关清空 tags，保留源文件，不复制插件或新建路由。Astro 7.3.6 的 `content/loaders/glob.js` 按 digest 复用已解析数据，`content/utils.js` 仅计算内容配置文件摘要；将设置值纳入原生 loader 的 generateDigest，保证仅改变 JSON 时缓存也更新。相同输出目录与已有缓存的开/关/再开构建独立验收。

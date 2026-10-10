@@ -14,6 +14,54 @@ media:
         delete: 'content(media): 删除文章图片 {filename}'
         rename: 'content(media): 重命名文章图片 {oldFilename} -> {newFilename}'
 content:
+  - name: knowledge-reference
+    label: 关联候选（只读）
+    type: collection
+    path: src/content/docs/knowledge
+    format: yaml-frontmatter
+    subfolders: true
+    operations:
+      create: false
+      rename: false
+      delete: false
+    view:
+      fields: [title, kind, draft]
+      primary: title
+      search: [title, entryId, topics]
+      sort: [title]
+      default:
+        sort: title
+        order: asc
+    fields:
+      - name: title
+        label: 标题
+        type: string
+        readonly: true
+      - name: entryId
+        label: 内容标识
+        type: string
+        readonly: true
+      - name: kind
+        label: 类型
+        type: select
+        readonly: true
+        options:
+          values:
+            - value: resource
+              label: 资料
+            - value: article
+              label: 文章
+            - value: note
+              label: 笔记
+      - name: topics
+        label: 主题
+        type: string
+        list: true
+        readonly: true
+      - name: draft
+        label: 草稿
+        type: boolean
+        readonly: true
   - name: blog-settings
     label: 博客设置
     type: file
@@ -86,6 +134,17 @@ content:
         label: 标签
         type: string
         list: true
+      - name: related
+        label: 关联内容
+        description: '输入标题或主题搜索，可选择多条资料、文章或笔记；点选中条目的 × 可移除。不要选择当前文章，草稿目标不会在前台显示。Save 后需构建发布才能更新网站关联。'
+        type: reference
+        options:
+          collection: knowledge-reference
+          multiple: true
+          search: 'title,topics,entryId'
+          value: '{fields.entryId}'
+          label: '{fields.title}'
+          placeholder: 搜索资料、文章或笔记
       - name: draft
         label: 草稿
         description: 新文章默认草稿。关闭后保存表示发布候选，需构建通过、PR 合并及部署成功才正式上线。
@@ -144,6 +203,17 @@ content:
         label: 标签
         type: string
         list: true
+      - name: related
+        label: 关联内容
+        description: '输入标题或主题搜索，可选择多条资料、文章或笔记；点选中条目的 × 可移除。不要选择当前文章，草稿目标不会在前台显示。Save 后需构建发布才能更新网站关联。'
+        type: reference
+        options:
+          collection: knowledge-reference
+          multiple: true
+          search: 'title,topics,entryId'
+          value: '{fields.entryId}'
+          label: '{fields.title}'
+          placeholder: 搜索资料、文章或笔记
       - name: draft
         label: 草稿
         description: 开启时不生成生产文章页面；关闭表示提交发布。保存后先构建，通过 PR 合并并部署成功后才正式上线。重新开启需再次合并部署才能下线。

@@ -101,6 +101,8 @@ Starlight 已提供导航、搜索等基础能力；默认搜索由 Pagefind 实
 
 ## 页面组织建议
 
+2026-10-10 T13.11：Pages CMS 原生 reference 的 multiple、search、value 和 label 管理文章 `related`；value 使用 `{fields.entryId}`，避免写入文件路径或展示标题。候选读取既有 `src/content/docs/knowledge` Markdown，通过 CMS 查询集合承接，所有查询字段 readonly，create/rename/delete 关闭；不是新的 Astro 集合，也不是权限边界。原生查询未提供按 draft/当前文章动态排除选项时，沿用工程的草稿隐藏、自指/重复排除及未知 ID 检查，界面说明清楚。实际托管显示/保存和两端渲染分别验收。
+
 2026-10-10 T07.05：Pages CMS 原生 JSON 文件表单管理 `src/data/blog-settings.json` 的布尔值 `tagBrowsingEnabled`，默认 true。starlight-blog 0.30.0 没有标签禁用选项；最小适配在原生内容 schema 读取阶段仅对 article 的有效 tags 清空，复用插件的标签计算、显示与静态路径生成。Markdown 中的标签、主题、类型和正文保持完整。关闭时旧标签网址返回原生 404，阅读返回适配排除旧标签来源，回退文章列表；重新开启后恢复原生匹配与返回。保存产生当前分支提交，构建后影响网站，正式生效仍需 PR 与部署。不开设访客个人设置或第二套后台。
 
 下表是功能入口建议。具体目录和路径优先沿用框架及插件支持的配置；统一知识库允许内部有资料、文章与笔记等子路径，各路径属于同一模块并参与统一检索和引用。对应页面编号见[整体页面与交互设计](../design/SPEC.md)的现行页面清单。
