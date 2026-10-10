@@ -1,60 +1,8 @@
-import { useEffect, useMemo, useRef, type RefObject } from 'react';
+import { useEffect, useMemo, type RefObject } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
-import { Box2, MathUtils, MeshPhysicalMaterial, ShaderMaterial, Vector2, Vector3, type ExtrudeGeometry, type Group, type Mesh } from 'three';
+import { Box2, MathUtils, Vector2, Vector3, type ExtrudeGeometry, type Mesh } from 'three';
 import type { JourneyModel } from './scene-state';
 import GlassGlow from './GlassGlow';
-
-const coreVertex = /* glsl */`
-  varying vec3 localPosition;
-  varying vec3 localNormal;
-  void main() {
-    localPosition = position; localNormal = normal;
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-  }
-`;
-const coreFragment = /* glsl */`
-  uniform float sideZ;
-  uniform float bevelWidth;
-  uniform float lightIntensity;
-  varying vec3 localPosition;
-  varying vec3 localNormal;
-  void main() {
-    vec3 n = normalize(localNormal);
-    float outer = step(0.0, dot(n.xy, localPosition.xy));
-    vec2 outward = n.xy * mix(-1.0, 1.0, outer);
-    float lit = .60 + .40 * smoothstep(-.1, .8,
-      dot(normalize(outward + vec2(.00001)), normalize(vec2(-.85, .25))));
-    float face = mix(.55, 1.0, step(0.0, localPosition.z));
-    float band = smoothstep(.01, .06, abs(n.z)) * (1.0 - smoothstep(.98, .9998, abs(n.z)));
-    float t = (abs(localPosition.z) - sideZ) / bevelWidth;
-    float feather = sin(3.14159265 * clamp(t, 0.0, 1.0));
-    float alpha = band * feather * .06 * lit * mix(.85, 1.0, outer) * face * lightIntensity;
-    if (alpha < .0005) discard;
-    gl_FragColor = vec4(vec3(1.0), min(alpha, .94));
-    #include <colorspace_fragment>
-  }
-`;
-const surfaceFragment = /* glsl */`
-  uniform vec3 outerPlanes[3];
-  uniform vec3 innerPlanes[3];
-  uniform float sideZ;
-  uniform float lightIntensity;
-  varying vec3 localPosition;
-  void main() {
-    float outerDistance = 100.0, innerDistance = -100.0;
-    for (int i = 0; i < 3; i++) {
-      outerDistance = min(outerDistance, outerPlanes[i].z - dot(outerPlanes[i].xy, localPosition.xy));
-      innerDistance = max(innerDistance, dot(innerPlanes[i].xy, localPosition.xy) - innerPlanes[i].z);
-    }
-    float distance = min(max(outerDistance, 0.0), max(innerDistance, 0.0));
-    float nearEdge = exp(-pow(distance / .27, 2.0));
-    float rear = mix(.65, 1.0, smoothstep(-sideZ, sideZ, localPosition.z));
-    float alpha = (.020 + .14 * nearEdge) * rear * lightIntensity;
-    if (alpha < .0005) discard;
-    gl_FragColor = vec4(vec3(1.0), alpha);
-    #include <colorspace_fragment>
-  }
-`;
 
 // The three longest segments are the actual straight sides between rounded corners.
 function edgePlanes(points: { p: Vector2 }[]) {
@@ -105,59 +53,32 @@ function getLightContours(geometry: ExtrudeGeometry) {
 }
 
 export default function GlassEdgeLight({ mesh, geometry, model, mobile }: { mesh: RefObject<Mesh | null>; geometry: ExtrudeGeometry; model: JourneyModel; mobile: boolean }) {
-  const group = useRef<Group>(null);
   const { scene } = useThree();
-  const owned = useMemo(() => {
-    const { sideZ, planes } = getLightContours(geometry);
-    const core = new ShaderMaterial({ transparent: true, depthWrite: false, toneMapped: false,
-      polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1,
-      vertexShader: coreVertex, fragmentShader: coreFragment,
-      uniforms: { sideZ: { value: sideZ }, bevelWidth: { value: geometry.parameters.options.bevelThickness ?? .025 }, lightIntensity: { value: 1 } } });
-    // This shared-geometry light layer works with both custom and ordinary glass.
-    const surface = new ShaderMaterial({ transparent: true, depthWrite: false, toneMapped: false,
-      polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1,
-      vertexShader: coreVertex, fragmentShader: surfaceFragment,
-      uniforms: { outerPlanes: { value: planes[0] }, innerPlanes: { value: planes[1] }, sideZ: { value: sideZ }, lightIntensity: { value: 1 } } });
-    return { core, surface, glow: new GlassGlow(geometry, planes) };
-  }, [geometry]);
+  const glow = useMemo(() => new GlassGlow(geometry, getLightContours(geometry).planes), [geometry]);
   useEffect(() => {
-    scene.userData.lsshGlassGlow = owned.glow;
+    scene.userData.lsshGlassGlow = glow;
     const pageHide = (event: PageTransitionEvent) => {
-      if (event.persisted) owned.glow.suspend();
-      else owned.glow.dispose();
+      if (event.persisted) glow.suspend();
+      else glow.dispose();
     };
-    const beforeSwap = () => owned.glow.dispose();
+    const beforeSwap = () => glow.dispose();
     window.addEventListener('pagehide', pageHide);
     document.addEventListener('astro:before-swap', beforeSwap);
     return () => {
       window.removeEventListener('pagehide', pageHide);
       document.removeEventListener('astro:before-swap', beforeSwap);
-      if (scene.userData.lsshGlassGlow === owned.glow) delete scene.userData.lsshGlassGlow;
-      owned.core.dispose(); owned.surface.dispose(); owned.glow.dispose();
+      if (scene.userData.lsshGlassGlow === glow) delete scene.userData.lsshGlassGlow;
+      glow.dispose();
     };
-  }, [owned, scene]);
+  }, [glow, scene]);
   useFrame(() => {
     const parent = mesh.current;
-    if (!parent || !group.current) return;
-    // Pausing must not make a new light linger in the completed Wall scene.
-    // Drei's ordinary capture (priority0) discards only the parent material.
-    group.current.visible = parent.visible && model.motion.raw.wall < (.3 / .35) && !(parent.material instanceof MeshPhysicalMaterial);
-    // Reuse WorkCard's incoming 0..0.5 index interval; reverse scroll restores it.
-    const lightIntensity = 1 - MathUtils.smoothstep(model.motion.rendered.index, 0, .5);
-    owned.core.uniforms.lightIntensity.value = lightIntensity;
-    owned.glow.source = parent;
-    owned.glow.mobile = mobile;
-    owned.glow.intensity = parent.visible && model.motion.raw.wall < (.3 / .35) ? lightIntensity : 0;
-    owned.surface.uniforms.lightIntensity.value = lightIntensity;
-
+    if (!parent) return;
+    // Only the separate, blurred emitter contributes light. No white face overlays.
+    glow.source = parent;
+    glow.mobile = mobile;
+    glow.intensity = parent.visible && model.motion.raw.wall < (.3 / .35)
+      ? 1 - MathUtils.smoothstep(model.motion.rendered.index, 0, .5) : 0;
   }, -.7);
-  useFrame(() => {
-    // Restore after ordinary capture, before the existing main compositor(priority1).
-    if (group.current) group.current.visible = Boolean(mesh.current?.visible && model.motion.raw.wall < (.3 / .35));
-  }, .1);
-  // GlassOptics hides this parent mesh during capture, excluding the light assembly.
-  return <group ref={group} userData={{ lsshGlassLight: 'assembly' }}>
-    <mesh geometry={geometry} material={owned.surface} dispose={null} renderOrder={20} userData={{ lsshGlassLight: 'surface' }} raycast={() => {}} />
-    <mesh geometry={geometry} material={owned.core} dispose={null} renderOrder={22} userData={{ lsshGlassLight: 'core' }} raycast={() => {}} />
-  </group>;
+  return null;
 }

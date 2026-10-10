@@ -21,12 +21,13 @@ export default class GlassGlow {
   private readonly vertical = new ShaderMaterial({ ...VerticalBlurShader, uniforms: UniformsUtils.clone(VerticalBlurShader.uniforms), depthTest: false, depthWrite: false, toneMapped: false });
   private readonly copy = new ShaderMaterial({ ...CopyShader, uniforms: UniformsUtils.clone(CopyShader.uniforms), depthTest: false, depthWrite: false, toneMapped: false });
   private readonly composite = new ShaderMaterial({ transparent: true, depthTest: false, depthWrite: false, toneMapped: false,
-    uniforms: { glow: { value: this.targets[2].texture }, sourceMask: { value: this.targets[3].texture }, intensity: { value: 0 } },
+    uniforms: { glow: { value: this.targets[2].texture }, intensity: { value: 0 } },
     vertexShader: 'varying vec2 vUv; void main(){vUv=uv;gl_Position=vec4(position.xy,0.,1.);}',
-    fragmentShader: `uniform sampler2D glow; uniform sampler2D sourceMask; uniform float intensity; varying vec2 vUv;
-      void main(){float light=texture2D(glow,vUv).r;float coverage=texture2D(sourceMask,vUv).a;
-        float alpha=(1.-exp(-light*.95))*mix(1.,.06,coverage)*intensity;
-        gl_FragColor=vec4(vec3(1.),min(alpha,.28));
+    fragmentShader: `uniform sampler2D glow; uniform float intensity; varying vec2 vUv;
+      void main(){float light=texture2D(glow,vUv).r;
+        // One continuous field crosses the glass boundary; no sharp coverage cut.
+        float alpha=(1.-exp(-light*.90))*intensity;
+        gl_FragColor=vec4(vec3(1.),min(alpha,.24));
         #include <colorspace_fragment>
       }` });
   private readonly quad = new FullScreenQuad(this.horizontal);
@@ -45,9 +46,9 @@ export default class GlassGlow {
       fragmentShader: `uniform vec3 outerPlanes[3];uniform vec3 innerPlanes[3];varying vec3 p;varying vec3 n;
         void main(){float outside=100.,inside=-100.;
           for(int i=0;i<3;i++){outside=min(outside,outerPlanes[i].z-dot(outerPlanes[i].xy,p.xy));inside=max(inside,dot(innerPlanes[i].xy,p.xy)-innerPlanes[i].z);}
-          float distance=min(max(outside,0.),max(inside,0.));float edge=exp(-pow(distance/.16,2.));
-          float side=1.-abs(normalize(n).z);float direction=.65+.35*max(dot(normalize(n.xy+vec2(.00001)),normalize(vec2(-.85,.25))),0.);
-          float emission=(.12+.48*edge+.18*side)*direction;gl_FragColor=vec4(vec3(emission),1.);
+          float distance=min(max(outside,0.),max(inside,0.));float edge=exp(-pow(distance/.20,2.));
+          float direction=.85+.15*max(dot(normalize(n.xy+vec2(.00001)),normalize(vec2(-.85,.25))),0.);
+          float emission=.40*edge*direction;gl_FragColor=vec4(vec3(emission),1.);
         }` });
     this.mask = new Mesh(geometry, material);
     this.mask.matrixAutoUpdate = false;
@@ -60,8 +61,8 @@ export default class GlassGlow {
     const source = this.source;
     if (this.disposed || this.error || !source?.visible || this.intensity < .0001) return;
     const canvas = gl.domElement;
-    const width = Math.max(64, Math.round(canvas.clientWidth / (this.mobile ? 6 : 8)));
-    const height = Math.max(64, Math.round(canvas.clientHeight / (this.mobile ? 6 : 8)));
+    const width = Math.max(32, Math.round(canvas.clientWidth / (this.mobile ? 10 : 12)));
+    const height = Math.max(32, Math.round(canvas.clientHeight / (this.mobile ? 10 : 12)));
     if (this.targets[0].width !== width || this.targets[0].height !== height) this.targets.slice(0, 3).forEach(target => target.setSize(width, height));
     const coverage = this.targets[3];
     coverage.samples = Math.min(4, gl.capabilities.maxSamples);
