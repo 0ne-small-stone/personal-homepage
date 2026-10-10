@@ -36,7 +36,6 @@
 .home-hero .home-chapter-viewport { grid-template-columns: 1fr; }
 .home-hero .home-chapter-content { align-self: center; padding-top: 5rem; }
 .home-wordmark { width: clamp(19.5rem, 31vw, 32rem); height: auto; margin: -1.5rem -2.3rem 0; }
-.home-hero .home-description { margin-top: 2rem; max-width: 22rem; }
 .home-scroll { display: inline-flex; align-items: center; gap: .7rem; font-size: .875rem; min-height: 2.75rem; }
 .home-scroll svg { animation: scroll-hint 2.8s ease-in-out infinite; }
 @keyframes scroll-hint { 0%, 70%, 100% { transform: translateY(0); } 40% { transform: translateY(4px); } }
@@ -146,7 +145,6 @@
   .home-hero .home-chapter-viewport { grid-template-rows: 1fr auto; }
   .home-hero .home-chapter-content { align-self: end; padding-top: 0; }
   .home-wordmark { width: 19.5rem; margin: -2rem -2.1rem -1rem; }
-  .home-hero .home-description { margin-top: .5rem; margin-bottom: .5rem; }
   .home-chapter-index { gap: 0; bottom: .75rem; }
   .home-chapter-index a { min-width: 2.3rem; min-height: 2.75rem; }
   .home-scene-controls { bottom: .75rem; gap: 0; }
