@@ -1,4 +1,4 @@
-# Native article and resource metadata editors, plus the fixed article validation entry.
+# Native article, resource and note editors, plus the fixed article validation entry.
 media:
   - name: article-images
     label: 文章图片（公开仓库）
@@ -59,6 +59,42 @@ content:
         type: string
         required: true
         description: '编辑已有资料的说明。先 Save 成功再离开；正式网站需构建发布才能更新。'
+      - name: description
+        label: 摘要
+        type: text
+        required: true
+      - name: topics
+        label: 主题
+        type: string
+        list: true
+        description: '用于学习总览分类。更改标题或主题后，关联候选需由开发者同步。'
+  - name: notes
+    label: 笔记（说明编辑）
+    type: collection
+    path: src/content/docs/knowledge/notes
+    format: yaml-frontmatter
+    subfolders: true
+    operations:
+      create: false
+      rename: false
+      delete: false
+    commit:
+      templates:
+        update: 'content(note): 保存笔记说明 {path}'
+    view:
+      fields: [title, topics]
+      primary: title
+      sort: [title]
+      search: [title, description]
+      default:
+        sort: title
+        order: asc
+    fields:
+      - name: title
+        label: 标题
+        type: string
+        required: true
+        description: '编辑本站收藏说明。原站或 PDF 正文使用已有阅读入口，本站说明正文不在此编辑。先 Save 成功再离开；正式网站需构建发布才能更新。'
       - name: description
         label: 摘要
         type: text
