@@ -35,7 +35,7 @@ export class PrismRaySolver {
   status: 'miss' | 'exited' | 'truncated' | 'degenerate' = 'miss';
   rightward = false;
   epsilon = 0;
-  private readonly faces: Face[] = [];
+  private readonly faces: Face[];
   private readonly inverse = new Matrix4();
   private readonly normalMatrix = new Matrix3();
   private readonly ray = new Ray();
@@ -48,7 +48,10 @@ export class PrismRaySolver {
   private readonly next = new Vector3();
   private readonly diameter: number;
 
-  constructor(geometry: BufferGeometry) {
+  constructor(geometry: BufferGeometry, shared?: PrismRaySolver) {
+    // Wavelengths share immutable triangles; trace state remains independent.
+    if (shared) { this.faces = shared.faces; this.diameter = shared.diameter; return; }
+    this.faces = [];
     const positions = geometry.getAttribute('position'), indices = geometry.index;
     const count = indices?.count ?? positions.count;
     for (let i = 0; i < count; i += 3) {

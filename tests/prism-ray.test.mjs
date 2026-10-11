@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { stripTypeScriptTypes } from 'node:module';
 import { BoxGeometry, ExtrudeGeometry, Matrix4, Shape, Vector2, Vector3 } from 'three';
-import { MAX_INTERFACES, PrismRaySolver, snellDirection } from '../src/components/home/prism-ray.ts';
+import { MAX_INTERFACES, PRISM_INCIDENT_SLOPE, PrismRaySolver, snellDirection } from '../src/components/home/prism-ray.ts';
+import { PRISM_WAVELENGTHS, prismIOR, sameInterfaceTopology } from '../src/components/home/prism-spectrum.ts';
 
 // Use the actual established geometry without importing a React/TSX surface into Node.
 const component = readFileSync(new URL('../src/components/home/GlassTriangle.tsx', import.meta.url), 'utf8');
@@ -87,4 +88,53 @@ test('singular transform and zero direction fail without leaving drawable output
   solver.trace(new Matrix4().makeScale(0, 0, 0), start, direction);
   assert.equal(solver.status, 'degenerate'); assert.equal(solver.count, 1); assert.equal(solver.rightward, false);
   solver.trace(matrix, start, new Vector3()); assert.equal(solver.status, 'degenerate'); finite(solver);
+});
+
+const coverOrigin = new Vector3(-12, -12 * PRISM_INCIDENT_SLOPE, 0);
+const coverDirection = new Vector3(1, PRISM_INCIDENT_SLOPE, 0).normalize();
+const channels = PRISM_WAVELENGTHS.map(() => new PrismRaySolver(prism));
+function spectrum(degree) {
+  const transform = new Matrix4().makeRotationY(degree * Math.PI / 180).multiply(matrix);
+  channels.forEach((ray, i) => ray.trace(transform, coverOrigin, coverDirection, prismIOR(PRISM_WAVELENGTHS[i])));
+}
+
+test('Cauchy uses nm-to-µm conversion and independently disperses the cover source', () => {
+  near(prismIOR(550), 1.45); near(prismIOR(486.1) - prismIOR(656.3), 1.52238 - 1.51432);
+  assert.ok(prismIOR(410) > prismIOR(700)); spectrum(0);
+  const angles = channels.map(ray => Math.atan2(ray.outputDirection.y, ray.outputDirection.x) * 180 / Math.PI);
+  near(angles[0], -18.547318, 1e-5); near(angles[3], -19.008540, 1e-5); near(angles[6], -19.984702, 1e-5);
+  assert.ok(angles.every((a, i) => i === 0 || a < angles[i - 1]));
+  for (let i = 1; i < channels.length; i++) assert.ok(sameInterfaceTopology(channels[i - 1], channels[i]));
+});
+
+test('wavelength critical boundary keeps independent output states and rejects mixed ribbons', () => {
+  spectrum(21.5);
+  assert.ok(channels.every(ray => ray.status === 'exited' && ray.events.slice(0, ray.eventCount).map(e => e.kind).join() === 'refract,reflect,refract'));
+  assert.equal(channels[5].rightward, true); assert.equal(channels[6].rightward, false);
+  assert.equal(sameInterfaceTopology(channels[5], channels[6]), false);
+});
+
+test('ribbon topology accepts coplanar triangles and rejects a different exit plane', () => {
+  spectrum(0); const a = channels[0], b = channels[1];
+  const face = b.events[1].face; b.events[1].face = face + 1;
+  assert.equal(sameInterfaceTopology(a, b), true);
+  b.events[1].point.addScaledVector(b.events[1].normal, .1);
+  assert.equal(sameInterfaceTopology(a, b), false);
+  spectrum(0); b.events[1].normal.set(0, 0, 1);
+  assert.equal(sameInterfaceTopology(a, b), false);
+});
+
+test('seven independent wavelengths preserve Snell and finite states across actual rotation', () => {
+  for (let degree = 0; degree <= 360; degree += 5) {
+    spectrum(degree);
+    for (const ray of channels) {
+      finite(ray); assert.equal(ray.rightward, ray.status === 'exited' && ray.outputDirection.x > 1e-6);
+      for (const e of ray.events.slice(0, ray.eventCount)) {
+        if (e.kind === 'refract') near(e.n1 * e.incoming.clone().cross(e.normal).length(), e.n2 * e.outgoing.clone().cross(e.normal).length(), 1e-6);
+        else if (e.kind === 'reflect') near(e.incoming.dot(e.normal), -e.outgoing.dot(e.normal), 1e-6);
+      }
+      ray.trace(matrix, new Vector3(-12, 20, 0), coverDirection, 1.45);
+      assert.equal(ray.status, 'miss'); near(ray.outputDirection.length(), 0); assert.equal(ray.rightward, false);
+    }
+  }
 });
