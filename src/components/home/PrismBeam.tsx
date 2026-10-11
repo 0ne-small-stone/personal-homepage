@@ -2,7 +2,7 @@ import { useEffect, useMemo, type RefObject } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { BufferAttribute, BufferGeometry, DoubleSide, DynamicDrawUsage, MathUtils, Matrix4, Mesh, ShaderMaterial, Vector2, Vector3, type Camera } from 'three';
 import type { JourneyModel } from './scene-state';
-import { MAX_INTERFACES, PRISM_LIGHT_LAYER, PrismRaySolver } from './prism-ray';
+import { MAX_INTERFACES, PRISM_INCIDENT_SLOPE, PRISM_LIGHT_LAYER, PrismRaySolver } from './prism-ray';
 
 class WhiteLight {
   readonly solver: PrismRaySolver;
@@ -27,8 +27,8 @@ class WhiteLight {
   totalCpuMs = 0;
   maxCpuMs = 0;
   private readonly previous = new Matrix4().makeScale(0, 0, 0);
-  private readonly origin = new Vector3(-12, 0, 0);
-  private readonly direction = new Vector3(1, 0, 0);
+  private readonly origin = new Vector3(-12, -12 * PRISM_INCIDENT_SLOPE, 0);
+  private readonly direction = new Vector3(1, PRISM_INCIDENT_SLOPE, 0).normalize();
   private readonly starts = new Float32Array((MAX_INTERFACES + 1) * 6 * 3);
   private readonly ends = new Float32Array(this.starts.length);
   private readonly corners = new Float32Array((MAX_INTERFACES + 1) * 6 * 2);
@@ -91,7 +91,7 @@ class WhiteLight {
   }
 
   diagnostics() {
-    return { ...this.solver.diagnostics(), active: this.active, intensity: this.material.uniforms.intensity.value, segments: this.segments, vertices: this.geometry.drawRange.count, layer: this.mesh.layers.mask, depthTest: this.material.depthTest, disposed: this.disposed, solves: this.solves, cpuMs: { last: this.lastCpuMs, mean: this.solves ? this.totalCpuMs / this.solves : 0, max: this.maxCpuMs }, geometry: this.geometry.uuid, material: this.material.uuid };
+    return { ...this.solver.diagnostics(), incident: { origin: this.origin.toArray(), direction: this.direction.toArray() }, active: this.active, intensity: this.material.uniforms.intensity.value, segments: this.segments, vertices: this.geometry.drawRange.count, layer: this.mesh.layers.mask, depthTest: this.material.depthTest, disposed: this.disposed, solves: this.solves, cpuMs: { last: this.lastCpuMs, mean: this.solves ? this.totalCpuMs / this.solves : 0, max: this.maxCpuMs }, geometry: this.geometry.uuid, material: this.material.uuid };
   }
   suspend() { this.active = false; this.mesh.visible = false; this.material.uniforms.intensity.value = 0; }
   dispose() { if (this.disposed) return; this.disposed = true; this.suspend(); this.geometry.dispose(); this.material.dispose(); }

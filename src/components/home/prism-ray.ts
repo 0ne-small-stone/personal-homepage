@@ -2,6 +2,8 @@ import { Matrix3, Matrix4, Ray, Triangle, Vector3, type BufferGeometry } from 't
 
 export const PRISM_LIGHT_LAYER = 2;
 export const MAX_INTERFACES = 8;
+// SYSTEM9.3.15: measured centreline of the official Dark Side cover, up/right.
+export const PRISM_INCIDENT_SLOPE = .2532532084998948;
 export type InterfaceKind = 'refract' | 'reflect' | 'degenerate';
 
 // The normal faces the incoming medium. n1/n2 changes at every transmitted interface.
