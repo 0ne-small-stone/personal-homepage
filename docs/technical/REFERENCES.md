@@ -23,6 +23,13 @@
 
 架构边界见技术 SPEC，施工队列见 PLAN 和 [任务单](HOMEPAGE_ALCHE_HANDOFF.md)。React/Three/GSAP 与最小透射已有局部结果，Lenis、精确时间编排及其完整验收尚未完成；最新原站源码/动态证据见 [17 轮研究](../design/iterations/u03-p01-2026-10-08-17.md)，不得沿用初轮“全部未安装”的快照。
 
+## GitHub #34 光路依据（2026-10-11）
+
+- [Three Raycaster](https://threejs.org/docs/pages/Raycaster.html)：复用实际三角面求交；注意背面检测、归一化方向和共享边重复交点。45单色与46七波长已复用Three Ray及三角面求交，无新增依赖。
+- [OpenStax Snell与全反射](https://openstax.org/books/university-physics-volume-3/pages/1-4-total-internal-reflection)：每个界面使用n1/n2，全反射后光仍在介质中传播，不能在第一个全反射点直接宣称整条光消失。
+- [OpenStax色散](https://openstax.org/books/university-physics-volume-3/pages/1-5-dispersion)：波长决定折射率，普通玻璃中紫光偏折更大；连续光谱不能等同七根固定方向装饰条。
+- [SCHOTT N-BK7官方数据表](https://media.schott.com/api/public/content/41e799d0bf874807a0bb8e702fbb75b5?v=54856406)：46采用的色散斜率参考，nF约1.52238（486.1nm）、nC约1.51432（656.3nm）。实际Cauchy斜率据F/C计算，再平移至既有绿色IOR；这是虚拟材质近似，不是N-BK7全谱实测。采用参数只在SYSTEM9.3.13维护，验证见[46工程记录](../design/iterations/u03-p01-2026-10-11-46-implementation.md)。
+
 ## Astro 官方能力
 
 ### T01 工程采用记录（2026-10-07）
@@ -142,10 +149,3 @@ Waline 曾作为匿名留言候选。当前用户已接受 Giscus，Waline 不�
 | [EdgeOne 定价](https://pages.edgeone.ai/pricing) | 部署前重新核对免费额度、收费和区域条件 |
 
 2026-10-07 用户已选择 GitHub Pages；EdgeOne 保留为历史候选。不要把免费额度写成永久承诺，也不要把外部服务对大陆访客的可用性写成已验证结论。
-
-## GitHub #34 光路依据（2026-10-11）
-
-- [Three Raycaster](https://threejs.org/docs/pages/Raycaster.html)：复用实际三角面求交；注意背面检测、归一化方向和共享边重复交点。用于45单色与后续色散，无新增依赖。
-- [OpenStax Snell与全反射](https://openstax.org/books/university-physics-volume-3/pages/1-4-total-internal-reflection)：每个界面使用n1/n2，全反射后光仍在介质中传播，不能在第一个全反射点直接宣称整条光消失。
-- [OpenStax色散](https://openstax.org/books/university-physics-volume-3/pages/1-5-dispersion)：波长决定折射率，普通玻璃中紫光偏折更大；连续光谱不能等同七根固定方向装饰条。
-- [SCHOTT N-BK7官方数据表](https://media.schott.com/api/public/content/41e799d0bf874807a0bb8e702fbb75b5?v=54856406)：后续色散斜率的参考，nF约1.52238（486.1nm）、nC约1.51432（656.3nm）。本项目当前n=1.45不是N-BK7的实测值；若采用偏移到现有参考折射率的近似，必须标明为场景模型，不能冒称具体玻璃牌号的科学测量。色散参数只在SYSTEM维护，采用与实际验证随后记录。

@@ -153,7 +153,7 @@ Starlight 是当前优先验证的知识库基础方案。若某个插件不兼�
 
 2026-10-11最新光质纠正（47轮）：只改既有GlassGlow发光mask与Gaussian合成，复用Three shader/FullScreenQuad，无新依赖。近/远target按设备分别定尺寸，共5targets/6passes，移除CopyShader；全部target沿用统一离页销毁。桌面与手机纹理存储有所增加，计数、存储与硬件性能分别记录。45求解器、固定光路、采样隔离与前景顺序保持；实际证据见[47工程记录](../design/iterations/u03-p01-2026-10-11-47-implementation.md)，参数仍由设计SYSTEM9.3.14维护。
 
-2026-10-11继续GitHub #34（45轮）：在现有单Canvas/R3F帧循环内增加纯光路求解与局部光束几何，复用Three Ray、Vector3与BufferGeometry，无新依赖。读取实际mesh.matrixWorld，追踪真实三角面、进出介质及有限次全反射；直接更新复用的顶点缓冲，不逐帧React setState或重建材质。光路排除透射快照，最终绘制在玻璃之后和前景卡之前；离页释放、暂停、返回和普通模式分别验证。参数唯一来源设计SYSTEM9.3.12，色散另片。
+2026-10-11 GitHub #34光路已本地接入：在现有单Canvas/R3F循环复用Three Ray、Vector3、Matrix及BufferGeometry，补足现成透射材质不产生外部传播光束的缺口，无新依赖。45建立逐界面Snell/TIR，48更新固定世界入射源，46共享真实三角面缓存但保留七波长各自的路径与状态。读取旋转后的mesh.matrixWorld，求解后更新预分配缓冲；同矩阵不重复求交，不逐帧React setState或重建几何/材质。Cauchy输入由nm转μm，数值唯一来源SYSTEM9.3.13，入射源见9.3.15；相邻通道只有实际界面族、平面和有效状态相符时才连接色带。专属绘制层排除普通/增强透射快照，内部可见、前景卡最后。显示长度及有限线宽独立于物理角度，颜色与材质属场景近似；未引入全局光追、体积散射或焦散框架。非缓存离页销毁与返回恢复有实际证据，BFCache和真机性能边界见技术PLAN及46工程记录；47柔光保持。
 
 2026-10-11用户更新（GitHub #34前置、43轮）：首页几何改为实心透明三棱镜。复用现有Shape/ExtrudeGeometry，仅移除中央hole与依赖它的发光距离场；保留外包络、深度、统一scale=.5及既有React/Three渲染和生命周期，无新增依赖。规格和验收见设计SYSTEM9.3.10与[43轮任务](../design/iterations/u03-p01-2026-10-11-43.md)。本片不包含光路求解器，不能将填孔记为真实分光完成。
 
