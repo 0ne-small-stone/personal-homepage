@@ -100,6 +100,7 @@ Astro 的交互组件可用于静态主站，但服务端动作和延迟服务�
 | [GitHub Actions 事件](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#discussion_comment) | 评论创建、编辑、删除可触发工作流；文件需位于默认分支，相关讨论事件处于公开预览 |
 | [网易云第三方 API 候选](https://github.com/NeteaseCloudMusicApiEnhanced/api-enhanced) | 候选服务端接口，尚未完成本项目账号与运行时验证 |
 | [歌单添加接口源码](https://github.com/NeteaseCloudMusicApiEnhanced/api-enhanced/blob/main/module/playlist_tracks.js) | 可研究歌曲加入歌单的实现；代码存在不代表真实授权和写入一定成功 |
+| [考拉云盘](https://pan.koala-studio.org.cn/) | 用户账号下的音乐文件托管位置；电台音频按需读取，音频文件不进入代码仓库；直链可用性尚未验证 |
 
 Waline 曾作为匿名留言候选。当前用户已接受 Giscus，Waline 不再是默认留言方案。
 
