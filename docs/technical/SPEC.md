@@ -151,6 +151,8 @@ Starlight 是当前优先验证的知识库基础方案。若某个插件不兼�
 
 ### P01 首页的 ALCHE 方向（2026-10-08）
 
+2026-10-11用户更新（GitHub #34前置、43轮）：首页几何改为实心透明三棱镜。复用现有Shape/ExtrudeGeometry，仅移除中央hole与依赖它的发光距离场；保留外包络、深度、统一scale=.5及既有React/Three渲染和生命周期，无新增依赖。规格和验收见设计SYSTEM9.3.10与[43轮任务](../design/iterations/u03-p01-2026-10-11-43.md)。本片不包含光路求解器，不能将填孔记为真实分光完成。
+
 用户确定以 ALCHE 为标杆，随后明确要求复刻其交互与动画。首页仍属于 Astro 静态主站：服务端生成导航、章节、标题、图片及真实链接；一个 React island 与一个 Canvas 负责连续场景。现有 React/Three/GSAP 已有工程样本；新增或调整依赖仍需核对兼容性并锁定，不把研究完成当接入完成。
 
 - 优先组合：官方 Astro React 集成、React/ReactDOM、Three、R3F、按需 Drei 透射材质、GSAP ScrollTrigger。React 与 R3F 主版本配对；不因参考站使用 Swup 而更换现有路由。

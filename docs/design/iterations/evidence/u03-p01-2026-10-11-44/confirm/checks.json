@@ -1,0 +1,4168 @@
+{
+  "date": "2026-10-11",
+  "method": "Chrome actual rendering. Comparison poses use an explicitly test-only quaternion override; the subsequent interaction checks use native input and no override. Original before bundle SHA retained.",
+  "cases": {
+    "desktop-before": {
+      "errors": [],
+      "failed": [],
+      "images": [
+        {
+          "name": "desktop-before-0",
+          "before": {
+            "y": 0,
+            "viewport": [
+              1440,
+              900
+            ],
+            "canvas": [
+              1440,
+              900
+            ],
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": true,
+            "holes": 0,
+            "localBounds": [
+              -1.6766839027404785,
+              -1.4567844867706299,
+              -0.4102458655834198,
+              1.6766839027404785,
+              1.4567844867706299,
+              0.4102458655834198
+            ],
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "visible": true,
+            "material": "ShaderMaterial",
+            "glow": {
+              "mechanism": "real-geometry-screen-blur",
+              "intensity": 1,
+              "active": true,
+              "draws": 11,
+              "passes": 7,
+              "size": [
+                120,
+                75
+              ],
+              "coverageSize": [
+                1440,
+                900
+              ],
+              "coverageSamples": 4,
+              "targets": [
+                "86546fcc-c883-4107-b9c2-db06389d3b2b",
+                "6df86a45-baf0-4128-a4c9-41b976d6f86b",
+                "56efaf03-4d08-424a-99e4-24ffbbeca790",
+                "a72e4d23-98fc-4bb7-bf57-2371cf4c420a"
+              ],
+              "disposed": false,
+              "error": null
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 42.25
+            },
+            "GLerror": 0,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.9,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "index": 0
+            }
+          },
+          "after": {
+            "y": 0,
+            "viewport": [
+              1440,
+              900
+            ],
+            "canvas": [
+              1440,
+              900
+            ],
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": true,
+            "holes": 0,
+            "localBounds": [
+              -1.6766839027404785,
+              -1.4567844867706299,
+              -0.4102458655834198,
+              1.6766839027404785,
+              1.4567844867706299,
+              0.4102458655834198
+            ],
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "visible": true,
+            "material": "ShaderMaterial",
+            "glow": {
+              "mechanism": "real-geometry-screen-blur",
+              "intensity": 1,
+              "active": true,
+              "draws": 11,
+              "passes": 7,
+              "size": [
+                120,
+                75
+              ],
+              "coverageSize": [
+                1440,
+                900
+              ],
+              "coverageSamples": 4,
+              "targets": [
+                "86546fcc-c883-4107-b9c2-db06389d3b2b",
+                "6df86a45-baf0-4128-a4c9-41b976d6f86b",
+                "56efaf03-4d08-424a-99e4-24ffbbeca790",
+                "a72e4d23-98fc-4bb7-bf57-2371cf4c420a"
+              ],
+              "disposed": false,
+              "error": null
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 42.25
+            },
+            "GLerror": 0,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.9,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "index": 0
+            }
+          }
+        },
+        {
+          "name": "desktop-before-60",
+          "before": {
+            "y": 0,
+            "viewport": [
+              1440,
+              900
+            ],
+            "canvas": [
+              1440,
+              900
+            ],
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": true,
+            "holes": 0,
+            "localBounds": [
+              -1.6766839027404785,
+              -1.4567844867706299,
+              -0.4102458655834198,
+              1.6766839027404785,
+              1.4567844867706299,
+              0.4102458655834198
+            ],
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quaternion": [
+              0,
+              0.49999999999999994,
+              0,
+              0.8660254037844387
+            ],
+            "visible": true,
+            "material": "ShaderMaterial",
+            "glow": {
+              "mechanism": "real-geometry-screen-blur",
+              "intensity": 1,
+              "active": true,
+              "draws": 17,
+              "passes": 7,
+              "size": [
+                120,
+                75
+              ],
+              "coverageSize": [
+                1440,
+                900
+              ],
+              "coverageSamples": 4,
+              "targets": [
+                "86546fcc-c883-4107-b9c2-db06389d3b2b",
+                "6df86a45-baf0-4128-a4c9-41b976d6f86b",
+                "56efaf03-4d08-424a-99e4-24ffbbeca790",
+                "a72e4d23-98fc-4bb7-bf57-2371cf4c420a"
+              ],
+              "disposed": false,
+              "error": null
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 42.25
+            },
+            "GLerror": 0,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.9,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "index": 0
+            }
+          },
+          "after": {
+            "y": 0,
+            "viewport": [
+              1440,
+              900
+            ],
+            "canvas": [
+              1440,
+              900
+            ],
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": true,
+            "holes": 0,
+            "localBounds": [
+              -1.6766839027404785,
+              -1.4567844867706299,
+              -0.4102458655834198,
+              1.6766839027404785,
+              1.4567844867706299,
+              0.4102458655834198
+            ],
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quaternion": [
+              0,
+              0.49999999999999994,
+              0,
+              0.8660254037844387
+            ],
+            "visible": true,
+            "material": "ShaderMaterial",
+            "glow": {
+              "mechanism": "real-geometry-screen-blur",
+              "intensity": 1,
+              "active": true,
+              "draws": 17,
+              "passes": 7,
+              "size": [
+                120,
+                75
+              ],
+              "coverageSize": [
+                1440,
+                900
+              ],
+              "coverageSamples": 4,
+              "targets": [
+                "86546fcc-c883-4107-b9c2-db06389d3b2b",
+                "6df86a45-baf0-4128-a4c9-41b976d6f86b",
+                "56efaf03-4d08-424a-99e4-24ffbbeca790",
+                "a72e4d23-98fc-4bb7-bf57-2371cf4c420a"
+              ],
+              "disposed": false,
+              "error": null
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 42.25
+            },
+            "GLerror": 0,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.9,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "index": 0
+            }
+          }
+        },
+        {
+          "name": "desktop-before-85",
+          "before": {
+            "y": 0,
+            "viewport": [
+              1440,
+              900
+            ],
+            "canvas": [
+              1440,
+              900
+            ],
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": true,
+            "holes": 0,
+            "localBounds": [
+              -1.6766839027404785,
+              -1.4567844867706299,
+              -0.4102458655834198,
+              1.6766839027404785,
+              1.4567844867706299,
+              0.4102458655834198
+            ],
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quaternion": [
+              0,
+              0.6755902076156602,
+              0,
+              0.7372773368101241
+            ],
+            "visible": true,
+            "material": "ShaderMaterial",
+            "glow": {
+              "mechanism": "real-geometry-screen-blur",
+              "intensity": 1,
+              "active": true,
+              "draws": 24,
+              "passes": 7,
+              "size": [
+                120,
+                75
+              ],
+              "coverageSize": [
+                1440,
+                900
+              ],
+              "coverageSamples": 4,
+              "targets": [
+                "86546fcc-c883-4107-b9c2-db06389d3b2b",
+                "6df86a45-baf0-4128-a4c9-41b976d6f86b",
+                "56efaf03-4d08-424a-99e4-24ffbbeca790",
+                "a72e4d23-98fc-4bb7-bf57-2371cf4c420a"
+              ],
+              "disposed": false,
+              "error": null
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 42.25
+            },
+            "GLerror": 0,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.9,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "index": 0
+            }
+          },
+          "after": {
+            "y": 0,
+            "viewport": [
+              1440,
+              900
+            ],
+            "canvas": [
+              1440,
+              900
+            ],
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": true,
+            "holes": 0,
+            "localBounds": [
+              -1.6766839027404785,
+              -1.4567844867706299,
+              -0.4102458655834198,
+              1.6766839027404785,
+              1.4567844867706299,
+              0.4102458655834198
+            ],
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quaternion": [
+              0,
+              0.6755902076156602,
+              0,
+              0.7372773368101241
+            ],
+            "visible": true,
+            "material": "ShaderMaterial",
+            "glow": {
+              "mechanism": "real-geometry-screen-blur",
+              "intensity": 1,
+              "active": true,
+              "draws": 24,
+              "passes": 7,
+              "size": [
+                120,
+                75
+              ],
+              "coverageSize": [
+                1440,
+                900
+              ],
+              "coverageSamples": 4,
+              "targets": [
+                "86546fcc-c883-4107-b9c2-db06389d3b2b",
+                "6df86a45-baf0-4128-a4c9-41b976d6f86b",
+                "56efaf03-4d08-424a-99e4-24ffbbeca790",
+                "a72e4d23-98fc-4bb7-bf57-2371cf4c420a"
+              ],
+              "disposed": false,
+              "error": null
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 42.25
+            },
+            "GLerror": 0,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.9,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "index": 0
+            }
+          }
+        }
+      ],
+      "bundle": {
+        "file": "HomeJourney.CyR-aDa7.js",
+        "bytes": 1170031,
+        "sha256": "18ab05090730c9882ae15704b6e684fce20e13830990b18b314d3b35bded6aff"
+      },
+      "probedSHA256": "cfbd95b78c2fe8fc9db58c563e1c5f9839bc7fadcddf24d7a983ad9b3945506d"
+    },
+    "desktop-after": {
+      "errors": [],
+      "failed": [],
+      "images": [
+        {
+          "name": "desktop-after-0",
+          "before": {
+            "y": 0,
+            "viewport": [
+              1440,
+              900
+            ],
+            "canvas": [
+              1440,
+              900
+            ],
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": true,
+            "holes": 0,
+            "localBounds": [
+              -1.6766839027404785,
+              -1.4567844867706299,
+              -0.4102458655834198,
+              1.6766839027404785,
+              1.4567844867706299,
+              0.4102458655834198
+            ],
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "visible": true,
+            "material": "ShaderMaterial",
+            "glow": {
+              "mechanism": "3d-perimeter-dual-gaussian",
+              "intensity": 1,
+              "active": true,
+              "draws": 14,
+              "passes": 7,
+              "size": [
+                120,
+                75
+              ],
+              "coverageSize": [
+                1440,
+                900
+              ],
+              "coverageSamples": 4,
+              "targets": [
+                "c3d89ca0-91b5-41db-92ce-39a06746d2f9",
+                "16c2688b-87fd-49ab-a411-34ea988a3873",
+                "d5b50d21-1b43-44ef-a4dd-dfc3d900eac5",
+                "b0610fdd-669c-4f38-80bf-c0b3b7370740",
+                "8c492bb6-6707-4288-ac38-549b80408bce"
+              ],
+              "disposed": false,
+              "error": null
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 42.25
+            },
+            "GLerror": 0,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.9,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "index": 0
+            }
+          },
+          "after": {
+            "y": 0,
+            "viewport": [
+              1440,
+              900
+            ],
+            "canvas": [
+              1440,
+              900
+            ],
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": true,
+            "holes": 0,
+            "localBounds": [
+              -1.6766839027404785,
+              -1.4567844867706299,
+              -0.4102458655834198,
+              1.6766839027404785,
+              1.4567844867706299,
+              0.4102458655834198
+            ],
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "visible": true,
+            "material": "ShaderMaterial",
+            "glow": {
+              "mechanism": "3d-perimeter-dual-gaussian",
+              "intensity": 1,
+              "active": true,
+              "draws": 14,
+              "passes": 7,
+              "size": [
+                120,
+                75
+              ],
+              "coverageSize": [
+                1440,
+                900
+              ],
+              "coverageSamples": 4,
+              "targets": [
+                "c3d89ca0-91b5-41db-92ce-39a06746d2f9",
+                "16c2688b-87fd-49ab-a411-34ea988a3873",
+                "d5b50d21-1b43-44ef-a4dd-dfc3d900eac5",
+                "b0610fdd-669c-4f38-80bf-c0b3b7370740",
+                "8c492bb6-6707-4288-ac38-549b80408bce"
+              ],
+              "disposed": false,
+              "error": null
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 42.25
+            },
+            "GLerror": 0,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.9,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "index": 0
+            }
+          }
+        },
+        {
+          "name": "desktop-after-60",
+          "before": {
+            "y": 0,
+            "viewport": [
+              1440,
+              900
+            ],
+            "canvas": [
+              1440,
+              900
+            ],
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": true,
+            "holes": 0,
+            "localBounds": [
+              -1.6766839027404785,
+              -1.4567844867706299,
+              -0.4102458655834198,
+              1.6766839027404785,
+              1.4567844867706299,
+              0.4102458655834198
+            ],
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quaternion": [
+              0,
+              0.49999999999999994,
+              0,
+              0.8660254037844387
+            ],
+            "visible": true,
+            "material": "ShaderMaterial",
+            "glow": {
+              "mechanism": "3d-perimeter-dual-gaussian",
+              "intensity": 1,
+              "active": true,
+              "draws": 21,
+              "passes": 7,
+              "size": [
+                120,
+                75
+              ],
+              "coverageSize": [
+                1440,
+                900
+              ],
+              "coverageSamples": 4,
+              "targets": [
+                "c3d89ca0-91b5-41db-92ce-39a06746d2f9",
+                "16c2688b-87fd-49ab-a411-34ea988a3873",
+                "d5b50d21-1b43-44ef-a4dd-dfc3d900eac5",
+                "b0610fdd-669c-4f38-80bf-c0b3b7370740",
+                "8c492bb6-6707-4288-ac38-549b80408bce"
+              ],
+              "disposed": false,
+              "error": null
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 42.25
+            },
+            "GLerror": 0,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.9,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "index": 0
+            }
+          },
+          "after": {
+            "y": 0,
+            "viewport": [
+              1440,
+              900
+            ],
+            "canvas": [
+              1440,
+              900
+            ],
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": true,
+            "holes": 0,
+            "localBounds": [
+              -1.6766839027404785,
+              -1.4567844867706299,
+              -0.4102458655834198,
+              1.6766839027404785,
+              1.4567844867706299,
+              0.4102458655834198
+            ],
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quaternion": [
+              0,
+              0.49999999999999994,
+              0,
+              0.8660254037844387
+            ],
+            "visible": true,
+            "material": "ShaderMaterial",
+            "glow": {
+              "mechanism": "3d-perimeter-dual-gaussian",
+              "intensity": 1,
+              "active": true,
+              "draws": 21,
+              "passes": 7,
+              "size": [
+                120,
+                75
+              ],
+              "coverageSize": [
+                1440,
+                900
+              ],
+              "coverageSamples": 4,
+              "targets": [
+                "c3d89ca0-91b5-41db-92ce-39a06746d2f9",
+                "16c2688b-87fd-49ab-a411-34ea988a3873",
+                "d5b50d21-1b43-44ef-a4dd-dfc3d900eac5",
+                "b0610fdd-669c-4f38-80bf-c0b3b7370740",
+                "8c492bb6-6707-4288-ac38-549b80408bce"
+              ],
+              "disposed": false,
+              "error": null
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 42.25
+            },
+            "GLerror": 0,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.9,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "index": 0
+            }
+          }
+        },
+        {
+          "name": "desktop-after-85",
+          "before": {
+            "y": 0,
+            "viewport": [
+              1440,
+              900
+            ],
+            "canvas": [
+              1440,
+              900
+            ],
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": true,
+            "holes": 0,
+            "localBounds": [
+              -1.6766839027404785,
+              -1.4567844867706299,
+              -0.4102458655834198,
+              1.6766839027404785,
+              1.4567844867706299,
+              0.4102458655834198
+            ],
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quaternion": [
+              0,
+              0.6755902076156602,
+              0,
+              0.7372773368101241
+            ],
+            "visible": true,
+            "material": "ShaderMaterial",
+            "glow": {
+              "mechanism": "3d-perimeter-dual-gaussian",
+              "intensity": 1,
+              "active": true,
+              "draws": 28,
+              "passes": 7,
+              "size": [
+                120,
+                75
+              ],
+              "coverageSize": [
+                1440,
+                900
+              ],
+              "coverageSamples": 4,
+              "targets": [
+                "c3d89ca0-91b5-41db-92ce-39a06746d2f9",
+                "16c2688b-87fd-49ab-a411-34ea988a3873",
+                "d5b50d21-1b43-44ef-a4dd-dfc3d900eac5",
+                "b0610fdd-669c-4f38-80bf-c0b3b7370740",
+                "8c492bb6-6707-4288-ac38-549b80408bce"
+              ],
+              "disposed": false,
+              "error": null
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 42.25
+            },
+            "GLerror": 0,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.9,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "index": 0
+            }
+          },
+          "after": {
+            "y": 0,
+            "viewport": [
+              1440,
+              900
+            ],
+            "canvas": [
+              1440,
+              900
+            ],
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": true,
+            "holes": 0,
+            "localBounds": [
+              -1.6766839027404785,
+              -1.4567844867706299,
+              -0.4102458655834198,
+              1.6766839027404785,
+              1.4567844867706299,
+              0.4102458655834198
+            ],
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quaternion": [
+              0,
+              0.6755902076156602,
+              0,
+              0.7372773368101241
+            ],
+            "visible": true,
+            "material": "ShaderMaterial",
+            "glow": {
+              "mechanism": "3d-perimeter-dual-gaussian",
+              "intensity": 1,
+              "active": true,
+              "draws": 28,
+              "passes": 7,
+              "size": [
+                120,
+                75
+              ],
+              "coverageSize": [
+                1440,
+                900
+              ],
+              "coverageSamples": 4,
+              "targets": [
+                "c3d89ca0-91b5-41db-92ce-39a06746d2f9",
+                "16c2688b-87fd-49ab-a411-34ea988a3873",
+                "d5b50d21-1b43-44ef-a4dd-dfc3d900eac5",
+                "b0610fdd-669c-4f38-80bf-c0b3b7370740",
+                "8c492bb6-6707-4288-ac38-549b80408bce"
+              ],
+              "disposed": false,
+              "error": null
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 42.25
+            },
+            "GLerror": 0,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.9,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "index": 0
+            }
+          }
+        }
+      ],
+      "bundle": {
+        "file": "HomeJourney.CyR-aDa7.js",
+        "bytes": 1170345,
+        "sha256": "9da7f5a42c9d9c77683536b12cf2d4a4f3113a1e42e551998059443738a504c7"
+      },
+      "probedSHA256": "01570353c23e6cd8bdaa82d7358926c3aa0349a39e12f30bf4f8bc726a4c5c72"
+    },
+    "mobile-before": {
+      "errors": [],
+      "failed": [],
+      "images": [
+        {
+          "name": "mobile-before-0",
+          "before": {
+            "y": 0,
+            "viewport": [
+              390,
+              844
+            ],
+            "canvas": [
+              390,
+              844
+            ],
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": true,
+            "holes": 0,
+            "localBounds": [
+              -1.6766839027404785,
+              -1.4567844867706299,
+              -0.4102458655834198,
+              1.6766839027404785,
+              1.4567844867706299,
+              0.4102458655834198
+            ],
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "visible": true,
+            "material": "ShaderMaterial",
+            "glow": {
+              "mechanism": "real-geometry-screen-blur",
+              "intensity": 1,
+              "active": true,
+              "draws": 28,
+              "passes": 7,
+              "size": [
+                39,
+                84
+              ],
+              "coverageSize": [
+                390,
+                844
+              ],
+              "coverageSamples": 4,
+              "targets": [
+                "6aad6b84-2621-4f59-b1eb-f48b88aae0a6",
+                "f605aab5-6c37-46b6-a0c7-cdf3f3439575",
+                "e69c4533-da5f-4b1d-9787-606eb863e47e",
+                "08f5265f-16ab-4c34-aba4-6270a3d2bcd1"
+              ],
+              "disposed": false,
+              "error": null
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 69.95384615384616
+            },
+            "GLerror": 0,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.8940677966101694,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "index": 0
+            }
+          },
+          "after": {
+            "y": 0,
+            "viewport": [
+              390,
+              844
+            ],
+            "canvas": [
+              390,
+              844
+            ],
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": true,
+            "holes": 0,
+            "localBounds": [
+              -1.6766839027404785,
+              -1.4567844867706299,
+              -0.4102458655834198,
+              1.6766839027404785,
+              1.4567844867706299,
+              0.4102458655834198
+            ],
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "visible": true,
+            "material": "ShaderMaterial",
+            "glow": {
+              "mechanism": "real-geometry-screen-blur",
+              "intensity": 1,
+              "active": true,
+              "draws": 28,
+              "passes": 7,
+              "size": [
+                39,
+                84
+              ],
+              "coverageSize": [
+                390,
+                844
+              ],
+              "coverageSamples": 4,
+              "targets": [
+                "6aad6b84-2621-4f59-b1eb-f48b88aae0a6",
+                "f605aab5-6c37-46b6-a0c7-cdf3f3439575",
+                "e69c4533-da5f-4b1d-9787-606eb863e47e",
+                "08f5265f-16ab-4c34-aba4-6270a3d2bcd1"
+              ],
+              "disposed": false,
+              "error": null
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 69.95384615384616
+            },
+            "GLerror": 0,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.8940677966101694,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "index": 0
+            }
+          }
+        },
+        {
+          "name": "mobile-before-60",
+          "before": {
+            "y": 0,
+            "viewport": [
+              390,
+              844
+            ],
+            "canvas": [
+              390,
+              844
+            ],
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": true,
+            "holes": 0,
+            "localBounds": [
+              -1.6766839027404785,
+              -1.4567844867706299,
+              -0.4102458655834198,
+              1.6766839027404785,
+              1.4567844867706299,
+              0.4102458655834198
+            ],
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quaternion": [
+              0,
+              0.49999999999999994,
+              0,
+              0.8660254037844387
+            ],
+            "visible": true,
+            "material": "ShaderMaterial",
+            "glow": {
+              "mechanism": "real-geometry-screen-blur",
+              "intensity": 1,
+              "active": true,
+              "draws": 40,
+              "passes": 7,
+              "size": [
+                39,
+                84
+              ],
+              "coverageSize": [
+                390,
+                844
+              ],
+              "coverageSamples": 4,
+              "targets": [
+                "6aad6b84-2621-4f59-b1eb-f48b88aae0a6",
+                "f605aab5-6c37-46b6-a0c7-cdf3f3439575",
+                "e69c4533-da5f-4b1d-9787-606eb863e47e",
+                "08f5265f-16ab-4c34-aba4-6270a3d2bcd1"
+              ],
+              "disposed": false,
+              "error": null
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 69.95384615384616
+            },
+            "GLerror": 0,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.8940677966101694,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "index": 0
+            }
+          },
+          "after": {
+            "y": 0,
+            "viewport": [
+              390,
+              844
+            ],
+            "canvas": [
+              390,
+              844
+            ],
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": true,
+            "holes": 0,
+            "localBounds": [
+              -1.6766839027404785,
+              -1.4567844867706299,
+              -0.4102458655834198,
+              1.6766839027404785,
+              1.4567844867706299,
+              0.4102458655834198
+            ],
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quaternion": [
+              0,
+              0.49999999999999994,
+              0,
+              0.8660254037844387
+            ],
+            "visible": true,
+            "material": "ShaderMaterial",
+            "glow": {
+              "mechanism": "real-geometry-screen-blur",
+              "intensity": 1,
+              "active": true,
+              "draws": 40,
+              "passes": 7,
+              "size": [
+                39,
+                84
+              ],
+              "coverageSize": [
+                390,
+                844
+              ],
+              "coverageSamples": 4,
+              "targets": [
+                "6aad6b84-2621-4f59-b1eb-f48b88aae0a6",
+                "f605aab5-6c37-46b6-a0c7-cdf3f3439575",
+                "e69c4533-da5f-4b1d-9787-606eb863e47e",
+                "08f5265f-16ab-4c34-aba4-6270a3d2bcd1"
+              ],
+              "disposed": false,
+              "error": null
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 69.95384615384616
+            },
+            "GLerror": 0,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.8940677966101694,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "index": 0
+            }
+          }
+        },
+        {
+          "name": "mobile-before-85",
+          "before": {
+            "y": 0,
+            "viewport": [
+              390,
+              844
+            ],
+            "canvas": [
+              390,
+              844
+            ],
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": true,
+            "holes": 0,
+            "localBounds": [
+              -1.6766839027404785,
+              -1.4567844867706299,
+              -0.4102458655834198,
+              1.6766839027404785,
+              1.4567844867706299,
+              0.4102458655834198
+            ],
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quaternion": [
+              0,
+              0.6755902076156602,
+              0,
+              0.7372773368101241
+            ],
+            "visible": true,
+            "material": "ShaderMaterial",
+            "glow": {
+              "mechanism": "real-geometry-screen-blur",
+              "intensity": 1,
+              "active": true,
+              "draws": 51,
+              "passes": 7,
+              "size": [
+                39,
+                84
+              ],
+              "coverageSize": [
+                390,
+                844
+              ],
+              "coverageSamples": 4,
+              "targets": [
+                "6aad6b84-2621-4f59-b1eb-f48b88aae0a6",
+                "f605aab5-6c37-46b6-a0c7-cdf3f3439575",
+                "e69c4533-da5f-4b1d-9787-606eb863e47e",
+                "08f5265f-16ab-4c34-aba4-6270a3d2bcd1"
+              ],
+              "disposed": false,
+              "error": null
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 69.95384615384616
+            },
+            "GLerror": 0,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.8940677966101694,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "index": 0
+            }
+          },
+          "after": {
+            "y": 0,
+            "viewport": [
+              390,
+              844
+            ],
+            "canvas": [
+              390,
+              844
+            ],
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": true,
+            "holes": 0,
+            "localBounds": [
+              -1.6766839027404785,
+              -1.4567844867706299,
+              -0.4102458655834198,
+              1.6766839027404785,
+              1.4567844867706299,
+              0.4102458655834198
+            ],
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quaternion": [
+              0,
+              0.6755902076156602,
+              0,
+              0.7372773368101241
+            ],
+            "visible": true,
+            "material": "ShaderMaterial",
+            "glow": {
+              "mechanism": "real-geometry-screen-blur",
+              "intensity": 1,
+              "active": true,
+              "draws": 51,
+              "passes": 7,
+              "size": [
+                39,
+                84
+              ],
+              "coverageSize": [
+                390,
+                844
+              ],
+              "coverageSamples": 4,
+              "targets": [
+                "6aad6b84-2621-4f59-b1eb-f48b88aae0a6",
+                "f605aab5-6c37-46b6-a0c7-cdf3f3439575",
+                "e69c4533-da5f-4b1d-9787-606eb863e47e",
+                "08f5265f-16ab-4c34-aba4-6270a3d2bcd1"
+              ],
+              "disposed": false,
+              "error": null
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 69.95384615384616
+            },
+            "GLerror": 0,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.8940677966101694,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "index": 0
+            }
+          }
+        }
+      ],
+      "bundle": {
+        "file": "HomeJourney.CyR-aDa7.js",
+        "bytes": 1170031,
+        "sha256": "18ab05090730c9882ae15704b6e684fce20e13830990b18b314d3b35bded6aff"
+      },
+      "probedSHA256": "cfbd95b78c2fe8fc9db58c563e1c5f9839bc7fadcddf24d7a983ad9b3945506d"
+    },
+    "mobile-after": {
+      "errors": [],
+      "failed": [],
+      "images": [
+        {
+          "name": "mobile-after-0",
+          "before": {
+            "y": 0,
+            "viewport": [
+              390,
+              844
+            ],
+            "canvas": [
+              390,
+              844
+            ],
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": true,
+            "holes": 0,
+            "localBounds": [
+              -1.6766839027404785,
+              -1.4567844867706299,
+              -0.4102458655834198,
+              1.6766839027404785,
+              1.4567844867706299,
+              0.4102458655834198
+            ],
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "visible": true,
+            "material": "ShaderMaterial",
+            "glow": {
+              "mechanism": "3d-perimeter-dual-gaussian",
+              "intensity": 1,
+              "active": true,
+              "draws": 28,
+              "passes": 7,
+              "size": [
+                39,
+                84
+              ],
+              "coverageSize": [
+                390,
+                844
+              ],
+              "coverageSamples": 4,
+              "targets": [
+                "11d7284d-61c0-4364-a8ad-208c67402df6",
+                "154ee0c8-b17d-4e1e-b5e9-3948577a7b82",
+                "dde9e044-0c62-456d-af14-fd957b7ccf2d",
+                "e6fcc155-0a12-4f98-901e-718e1919e5f3",
+                "0af82952-1073-40a9-90b6-3c5ff924282d"
+              ],
+              "disposed": false,
+              "error": null
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 69.95384615384616
+            },
+            "GLerror": 0,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.8940677966101694,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "index": 0
+            }
+          },
+          "after": {
+            "y": 0,
+            "viewport": [
+              390,
+              844
+            ],
+            "canvas": [
+              390,
+              844
+            ],
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": true,
+            "holes": 0,
+            "localBounds": [
+              -1.6766839027404785,
+              -1.4567844867706299,
+              -0.4102458655834198,
+              1.6766839027404785,
+              1.4567844867706299,
+              0.4102458655834198
+            ],
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "visible": true,
+            "material": "ShaderMaterial",
+            "glow": {
+              "mechanism": "3d-perimeter-dual-gaussian",
+              "intensity": 1,
+              "active": true,
+              "draws": 28,
+              "passes": 7,
+              "size": [
+                39,
+                84
+              ],
+              "coverageSize": [
+                390,
+                844
+              ],
+              "coverageSamples": 4,
+              "targets": [
+                "11d7284d-61c0-4364-a8ad-208c67402df6",
+                "154ee0c8-b17d-4e1e-b5e9-3948577a7b82",
+                "dde9e044-0c62-456d-af14-fd957b7ccf2d",
+                "e6fcc155-0a12-4f98-901e-718e1919e5f3",
+                "0af82952-1073-40a9-90b6-3c5ff924282d"
+              ],
+              "disposed": false,
+              "error": null
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 69.95384615384616
+            },
+            "GLerror": 0,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.8940677966101694,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "index": 0
+            }
+          }
+        },
+        {
+          "name": "mobile-after-60",
+          "before": {
+            "y": 0,
+            "viewport": [
+              390,
+              844
+            ],
+            "canvas": [
+              390,
+              844
+            ],
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": true,
+            "holes": 0,
+            "localBounds": [
+              -1.6766839027404785,
+              -1.4567844867706299,
+              -0.4102458655834198,
+              1.6766839027404785,
+              1.4567844867706299,
+              0.4102458655834198
+            ],
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quaternion": [
+              0,
+              0.49999999999999994,
+              0,
+              0.8660254037844387
+            ],
+            "visible": true,
+            "material": "ShaderMaterial",
+            "glow": {
+              "mechanism": "3d-perimeter-dual-gaussian",
+              "intensity": 1,
+              "active": true,
+              "draws": 39,
+              "passes": 7,
+              "size": [
+                39,
+                84
+              ],
+              "coverageSize": [
+                390,
+                844
+              ],
+              "coverageSamples": 4,
+              "targets": [
+                "11d7284d-61c0-4364-a8ad-208c67402df6",
+                "154ee0c8-b17d-4e1e-b5e9-3948577a7b82",
+                "dde9e044-0c62-456d-af14-fd957b7ccf2d",
+                "e6fcc155-0a12-4f98-901e-718e1919e5f3",
+                "0af82952-1073-40a9-90b6-3c5ff924282d"
+              ],
+              "disposed": false,
+              "error": null
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 69.95384615384616
+            },
+            "GLerror": 0,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.8940677966101694,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "index": 0
+            }
+          },
+          "after": {
+            "y": 0,
+            "viewport": [
+              390,
+              844
+            ],
+            "canvas": [
+              390,
+              844
+            ],
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": true,
+            "holes": 0,
+            "localBounds": [
+              -1.6766839027404785,
+              -1.4567844867706299,
+              -0.4102458655834198,
+              1.6766839027404785,
+              1.4567844867706299,
+              0.4102458655834198
+            ],
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quaternion": [
+              0,
+              0.49999999999999994,
+              0,
+              0.8660254037844387
+            ],
+            "visible": true,
+            "material": "ShaderMaterial",
+            "glow": {
+              "mechanism": "3d-perimeter-dual-gaussian",
+              "intensity": 1,
+              "active": true,
+              "draws": 39,
+              "passes": 7,
+              "size": [
+                39,
+                84
+              ],
+              "coverageSize": [
+                390,
+                844
+              ],
+              "coverageSamples": 4,
+              "targets": [
+                "11d7284d-61c0-4364-a8ad-208c67402df6",
+                "154ee0c8-b17d-4e1e-b5e9-3948577a7b82",
+                "dde9e044-0c62-456d-af14-fd957b7ccf2d",
+                "e6fcc155-0a12-4f98-901e-718e1919e5f3",
+                "0af82952-1073-40a9-90b6-3c5ff924282d"
+              ],
+              "disposed": false,
+              "error": null
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 69.95384615384616
+            },
+            "GLerror": 0,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.8940677966101694,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "index": 0
+            }
+          }
+        },
+        {
+          "name": "mobile-after-85",
+          "before": {
+            "y": 0,
+            "viewport": [
+              390,
+              844
+            ],
+            "canvas": [
+              390,
+              844
+            ],
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": true,
+            "holes": 0,
+            "localBounds": [
+              -1.6766839027404785,
+              -1.4567844867706299,
+              -0.4102458655834198,
+              1.6766839027404785,
+              1.4567844867706299,
+              0.4102458655834198
+            ],
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quaternion": [
+              0,
+              0.6755902076156602,
+              0,
+              0.7372773368101241
+            ],
+            "visible": true,
+            "material": "ShaderMaterial",
+            "glow": {
+              "mechanism": "3d-perimeter-dual-gaussian",
+              "intensity": 1,
+              "active": true,
+              "draws": 51,
+              "passes": 7,
+              "size": [
+                39,
+                84
+              ],
+              "coverageSize": [
+                390,
+                844
+              ],
+              "coverageSamples": 4,
+              "targets": [
+                "11d7284d-61c0-4364-a8ad-208c67402df6",
+                "154ee0c8-b17d-4e1e-b5e9-3948577a7b82",
+                "dde9e044-0c62-456d-af14-fd957b7ccf2d",
+                "e6fcc155-0a12-4f98-901e-718e1919e5f3",
+                "0af82952-1073-40a9-90b6-3c5ff924282d"
+              ],
+              "disposed": false,
+              "error": null
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 69.95384615384616
+            },
+            "GLerror": 0,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.8940677966101694,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "index": 0
+            }
+          },
+          "after": {
+            "y": 0,
+            "viewport": [
+              390,
+              844
+            ],
+            "canvas": [
+              390,
+              844
+            ],
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": true,
+            "holes": 0,
+            "localBounds": [
+              -1.6766839027404785,
+              -1.4567844867706299,
+              -0.4102458655834198,
+              1.6766839027404785,
+              1.4567844867706299,
+              0.4102458655834198
+            ],
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quaternion": [
+              0,
+              0.6755902076156602,
+              0,
+              0.7372773368101241
+            ],
+            "visible": true,
+            "material": "ShaderMaterial",
+            "glow": {
+              "mechanism": "3d-perimeter-dual-gaussian",
+              "intensity": 1,
+              "active": true,
+              "draws": 51,
+              "passes": 7,
+              "size": [
+                39,
+                84
+              ],
+              "coverageSize": [
+                390,
+                844
+              ],
+              "coverageSamples": 4,
+              "targets": [
+                "11d7284d-61c0-4364-a8ad-208c67402df6",
+                "154ee0c8-b17d-4e1e-b5e9-3948577a7b82",
+                "dde9e044-0c62-456d-af14-fd957b7ccf2d",
+                "e6fcc155-0a12-4f98-901e-718e1919e5f3",
+                "0af82952-1073-40a9-90b6-3c5ff924282d"
+              ],
+              "disposed": false,
+              "error": null
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 69.95384615384616
+            },
+            "GLerror": 0,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.8940677966101694,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "index": 0
+            }
+          }
+        }
+      ],
+      "bundle": {
+        "file": "HomeJourney.CyR-aDa7.js",
+        "bytes": 1170345,
+        "sha256": "9da7f5a42c9d9c77683536b12cf2d4a4f3113a1e42e551998059443738a504c7"
+      },
+      "probedSHA256": "01570353c23e6cd8bdaa82d7358926c3aa0349a39e12f30bf4f8bc726a4c5c72"
+    },
+    "desktop-frames": {
+      "errors": [],
+      "failed": [],
+      "images": [
+        {
+          "name": "desktop-frames-native-pause",
+          "before": {
+            "y": 603,
+            "viewport": [
+              1440,
+              900
+            ],
+            "canvas": [
+              1440,
+              900
+            ],
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": true,
+            "holes": 0,
+            "localBounds": [
+              -1.6766839027404785,
+              -1.4567844867706299,
+              -0.4102458655834198,
+              1.6766839027404785,
+              1.4567844867706299,
+              0.4102458655834198
+            ],
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quaternion": [
+              0,
+              -0.05104349704536286,
+              0,
+              0.9986964310586979
+            ],
+            "visible": true,
+            "material": "ShaderMaterial",
+            "glow": {
+              "mechanism": "3d-perimeter-dual-gaussian",
+              "intensity": 1,
+              "active": true,
+              "draws": 31,
+              "passes": 7,
+              "size": [
+                120,
+                75
+              ],
+              "coverageSize": [
+                1440,
+                900
+              ],
+              "coverageSamples": 4,
+              "targets": [
+                "1be5fe08-d727-470f-96c7-4a98caf13fdd",
+                "109ef943-150e-4224-b531-b608e141c7bd",
+                "8c2b9ef8-96fc-43a0-bc22-fae0bb0d7f73",
+                "4205d279-6619-4572-a38b-095a51edd677",
+                "ecee00c6-7d90-429c-8397-555cebd44c7e"
+              ],
+              "disposed": false,
+              "error": null
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.785777656003201
+              ],
+              "fov": 43.39370208004267
+            },
+            "GLerror": 0,
+            "motion": {
+              "phase": "works_intro",
+              "raw": {
+                "kv": 1,
+                "intro": 0.5588888888888889,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "index": 0
+            }
+          },
+          "after": {
+            "y": 603,
+            "viewport": [
+              1440,
+              900
+            ],
+            "canvas": [
+              1440,
+              900
+            ],
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": true,
+            "holes": 0,
+            "localBounds": [
+              -1.6766839027404785,
+              -1.4567844867706299,
+              -0.4102458655834198,
+              1.6766839027404785,
+              1.4567844867706299,
+              0.4102458655834198
+            ],
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quaternion": [
+              0,
+              -0.05104349704536286,
+              0,
+              0.9986964310586979
+            ],
+            "visible": true,
+            "material": "ShaderMaterial",
+            "glow": {
+              "mechanism": "3d-perimeter-dual-gaussian",
+              "intensity": 1,
+              "active": true,
+              "draws": 33,
+              "passes": 7,
+              "size": [
+                120,
+                75
+              ],
+              "coverageSize": [
+                1440,
+                900
+              ],
+              "coverageSamples": 4,
+              "targets": [
+                "1be5fe08-d727-470f-96c7-4a98caf13fdd",
+                "109ef943-150e-4224-b531-b608e141c7bd",
+                "8c2b9ef8-96fc-43a0-bc22-fae0bb0d7f73",
+                "4205d279-6619-4572-a38b-095a51edd677",
+                "ecee00c6-7d90-429c-8397-555cebd44c7e"
+              ],
+              "disposed": false,
+              "error": null
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 42.25
+            },
+            "GLerror": 0,
+            "motion": {
+              "phase": "works_intro",
+              "raw": {
+                "kv": 1,
+                "intro": 0.5588888888888889,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "index": 0
+            }
+          }
+        }
+      ],
+      "bundle": {
+        "file": "HomeJourney.CyR-aDa7.js",
+        "bytes": 1170345,
+        "sha256": "9da7f5a42c9d9c77683536b12cf2d4a4f3113a1e42e551998059443738a504c7"
+      },
+      "probedSHA256": "01570353c23e6cd8bdaa82d7358926c3aa0349a39e12f30bf4f8bc726a4c5c72",
+      "frameReadback": [
+        {
+          "sum": 48165079,
+          "lit": 1280982,
+          "error": 0,
+          "time": 1959.7000000029802
+        },
+        {
+          "sum": 48165079,
+          "lit": 1280982,
+          "error": 0,
+          "time": 2046.9000000059605
+        },
+        {
+          "sum": 48165079,
+          "lit": 1280982,
+          "error": 0,
+          "time": 2132.9000000059605
+        },
+        {
+          "sum": 48165079,
+          "lit": 1280982,
+          "error": 0,
+          "time": 2223.9000000059605
+        },
+        {
+          "sum": 48165079,
+          "lit": 1280982,
+          "error": 0,
+          "time": 2303.4000000059605
+        },
+        {
+          "sum": 48165079,
+          "lit": 1280982,
+          "error": 0,
+          "time": 2381.5
+        },
+        {
+          "sum": 48165079,
+          "lit": 1280982,
+          "error": 0,
+          "time": 2452.4000000059605
+        },
+        {
+          "sum": 48165079,
+          "lit": 1280982,
+          "error": 0,
+          "time": 2529.1000000089407
+        },
+        {
+          "sum": 48165079,
+          "lit": 1280982,
+          "error": 0,
+          "time": 2625
+        },
+        {
+          "sum": 48165079,
+          "lit": 1280982,
+          "error": 0,
+          "time": 2703.5
+        },
+        {
+          "sum": 48165079,
+          "lit": 1280982,
+          "error": 0,
+          "time": 2781.1000000089407
+        },
+        {
+          "sum": 48165079,
+          "lit": 1280982,
+          "error": 0,
+          "time": 2865.2999999970198
+        }
+      ]
+    },
+    "mobile-frames": {
+      "errors": [],
+      "failed": [],
+      "images": [
+        {
+          "name": "mobile-frames-native-pause",
+          "before": {
+            "y": 556,
+            "viewport": [
+              390,
+              844
+            ],
+            "canvas": [
+              390,
+              844
+            ],
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": true,
+            "holes": 0,
+            "localBounds": [
+              -1.6766839027404785,
+              -1.4567844867706299,
+              -0.4102458655834198,
+              1.6766839027404785,
+              1.4567844867706299,
+              0.4102458655834198
+            ],
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quaternion": [
+              0,
+              -0.10816010729374297,
+              0,
+              0.9941334876112999
+            ],
+            "visible": true,
+            "material": "ShaderMaterial",
+            "glow": {
+              "mechanism": "3d-perimeter-dual-gaussian",
+              "intensity": 1,
+              "active": true,
+              "draws": 55,
+              "passes": 7,
+              "size": [
+                39,
+                84
+              ],
+              "coverageSize": [
+                390,
+                844
+              ],
+              "coverageSamples": 4,
+              "targets": [
+                "8fd1a250-b081-4fe2-b6fd-02fafa3b983e",
+                "9b1ddf47-208e-44b9-90d4-5bb05b14be86",
+                "688808f4-1508-4e4d-bdfc-449dfa10394a",
+                "917ed849-7fc8-4d5a-98d1-6958b280b63d",
+                "2c671bd1-a05b-4ac4-bd25-fdcb55c786ee"
+              ],
+              "disposed": false,
+              "error": null
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 69.95384615384616
+            },
+            "GLerror": 0,
+            "motion": {
+              "phase": "works_intro",
+              "raw": {
+                "kv": 1,
+                "intro": 0.5402843601895735,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "index": 0
+            }
+          },
+          "after": {
+            "y": 556,
+            "viewport": [
+              390,
+              844
+            ],
+            "canvas": [
+              390,
+              844
+            ],
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": true,
+            "holes": 0,
+            "localBounds": [
+              -1.6766839027404785,
+              -1.4567844867706299,
+              -0.4102458655834198,
+              1.6766839027404785,
+              1.4567844867706299,
+              0.4102458655834198
+            ],
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "quaternion": [
+              0,
+              -0.10816010729374297,
+              0,
+              0.9941334876112999
+            ],
+            "visible": true,
+            "material": "ShaderMaterial",
+            "glow": {
+              "mechanism": "3d-perimeter-dual-gaussian",
+              "intensity": 1,
+              "active": true,
+              "draws": 56,
+              "passes": 7,
+              "size": [
+                39,
+                84
+              ],
+              "coverageSize": [
+                390,
+                844
+              ],
+              "coverageSamples": 4,
+              "targets": [
+                "8fd1a250-b081-4fe2-b6fd-02fafa3b983e",
+                "9b1ddf47-208e-44b9-90d4-5bb05b14be86",
+                "688808f4-1508-4e4d-bdfc-449dfa10394a",
+                "917ed849-7fc8-4d5a-98d1-6958b280b63d",
+                "2c671bd1-a05b-4ac4-bd25-fdcb55c786ee"
+              ],
+              "disposed": false,
+              "error": null
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 69.95384615384616
+            },
+            "GLerror": 0,
+            "motion": {
+              "phase": "works_intro",
+              "raw": {
+                "kv": 1,
+                "intro": 0.5402843601895735,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "index": 0
+            }
+          }
+        }
+      ],
+      "bundle": {
+        "file": "HomeJourney.CyR-aDa7.js",
+        "bytes": 1170345,
+        "sha256": "9da7f5a42c9d9c77683536b12cf2d4a4f3113a1e42e551998059443738a504c7"
+      },
+      "probedSHA256": "01570353c23e6cd8bdaa82d7358926c3aa0349a39e12f30bf4f8bc726a4c5c72",
+      "frameReadback": [
+        {
+          "sum": 12303954,
+          "lit": 329160,
+          "error": 0,
+          "time": 1453.9000000059605
+        },
+        {
+          "sum": 12303954,
+          "lit": 329160,
+          "error": 0,
+          "time": 1477.5
+        },
+        {
+          "sum": 12303954,
+          "lit": 329160,
+          "error": 0,
+          "time": 1500.9000000059605
+        },
+        {
+          "sum": 12303954,
+          "lit": 329160,
+          "error": 0,
+          "time": 1529.2000000029802
+        },
+        {
+          "sum": 12303954,
+          "lit": 329160,
+          "error": 0,
+          "time": 1551.9000000059605
+        },
+        {
+          "sum": 12303954,
+          "lit": 329160,
+          "error": 0,
+          "time": 1571.2000000029802
+        },
+        {
+          "sum": 12303954,
+          "lit": 329160,
+          "error": 0,
+          "time": 1597.1000000089407
+        },
+        {
+          "sum": 12303954,
+          "lit": 329160,
+          "error": 0,
+          "time": 1623.2000000029802
+        },
+        {
+          "sum": 12303954,
+          "lit": 329160,
+          "error": 0,
+          "time": 1646.7000000029802
+        },
+        {
+          "sum": 12303954,
+          "lit": 329160,
+          "error": 0,
+          "time": 1667.2999999970198
+        },
+        {
+          "sum": 12303954,
+          "lit": 329160,
+          "error": 0,
+          "time": 1690.5
+        },
+        {
+          "sum": 12303954,
+          "lit": 329160,
+          "error": 0,
+          "time": 1711
+        }
+      ]
+    }
+  },
+  "checks": [
+    {
+      "name": "desktop-before comparison pose 0",
+      "pass": true,
+      "evidence": {
+        "y": 0,
+        "viewport": [
+          1440,
+          900
+        ],
+        "canvas": [
+          1440,
+          900
+        ],
+        "canvasCount": 1,
+        "overflow": false,
+        "quiet": true,
+        "holes": 0,
+        "localBounds": [
+          -1.6766839027404785,
+          -1.4567844867706299,
+          -0.4102458655834198,
+          1.6766839027404785,
+          1.4567844867706299,
+          0.4102458655834198
+        ],
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "visible": true,
+        "material": "ShaderMaterial",
+        "glow": {
+          "mechanism": "real-geometry-screen-blur",
+          "intensity": 1,
+          "active": true,
+          "draws": 11,
+          "passes": 7,
+          "size": [
+            120,
+            75
+          ],
+          "coverageSize": [
+            1440,
+            900
+          ],
+          "coverageSamples": 4,
+          "targets": [
+            "86546fcc-c883-4107-b9c2-db06389d3b2b",
+            "6df86a45-baf0-4128-a4c9-41b976d6f86b",
+            "56efaf03-4d08-424a-99e4-24ffbbeca790",
+            "a72e4d23-98fc-4bb7-bf57-2371cf4c420a"
+          ],
+          "disposed": false,
+          "error": null
+        },
+        "camera": {
+          "position": [
+            0,
+            0,
+            5.7
+          ],
+          "fov": 42.25
+        },
+        "GLerror": 0,
+        "motion": {
+          "phase": "kv",
+          "raw": {
+            "kv": 0.9,
+            "intro": 0,
+            "works": 0,
+            "event": 0,
+            "snap": 0,
+            "outro": 0,
+            "wall": 0
+          },
+          "index": 0
+        }
+      }
+    },
+    {
+      "name": "desktop-before comparison pose 60",
+      "pass": true,
+      "evidence": {
+        "y": 0,
+        "viewport": [
+          1440,
+          900
+        ],
+        "canvas": [
+          1440,
+          900
+        ],
+        "canvasCount": 1,
+        "overflow": false,
+        "quiet": true,
+        "holes": 0,
+        "localBounds": [
+          -1.6766839027404785,
+          -1.4567844867706299,
+          -0.4102458655834198,
+          1.6766839027404785,
+          1.4567844867706299,
+          0.4102458655834198
+        ],
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "quaternion": [
+          0,
+          0.49999999999999994,
+          0,
+          0.8660254037844387
+        ],
+        "visible": true,
+        "material": "ShaderMaterial",
+        "glow": {
+          "mechanism": "real-geometry-screen-blur",
+          "intensity": 1,
+          "active": true,
+          "draws": 17,
+          "passes": 7,
+          "size": [
+            120,
+            75
+          ],
+          "coverageSize": [
+            1440,
+            900
+          ],
+          "coverageSamples": 4,
+          "targets": [
+            "86546fcc-c883-4107-b9c2-db06389d3b2b",
+            "6df86a45-baf0-4128-a4c9-41b976d6f86b",
+            "56efaf03-4d08-424a-99e4-24ffbbeca790",
+            "a72e4d23-98fc-4bb7-bf57-2371cf4c420a"
+          ],
+          "disposed": false,
+          "error": null
+        },
+        "camera": {
+          "position": [
+            0,
+            0,
+            5.7
+          ],
+          "fov": 42.25
+        },
+        "GLerror": 0,
+        "motion": {
+          "phase": "kv",
+          "raw": {
+            "kv": 0.9,
+            "intro": 0,
+            "works": 0,
+            "event": 0,
+            "snap": 0,
+            "outro": 0,
+            "wall": 0
+          },
+          "index": 0
+        }
+      }
+    },
+    {
+      "name": "desktop-before comparison pose 85",
+      "pass": true,
+      "evidence": {
+        "y": 0,
+        "viewport": [
+          1440,
+          900
+        ],
+        "canvas": [
+          1440,
+          900
+        ],
+        "canvasCount": 1,
+        "overflow": false,
+        "quiet": true,
+        "holes": 0,
+        "localBounds": [
+          -1.6766839027404785,
+          -1.4567844867706299,
+          -0.4102458655834198,
+          1.6766839027404785,
+          1.4567844867706299,
+          0.4102458655834198
+        ],
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "quaternion": [
+          0,
+          0.6755902076156602,
+          0,
+          0.7372773368101241
+        ],
+        "visible": true,
+        "material": "ShaderMaterial",
+        "glow": {
+          "mechanism": "real-geometry-screen-blur",
+          "intensity": 1,
+          "active": true,
+          "draws": 24,
+          "passes": 7,
+          "size": [
+            120,
+            75
+          ],
+          "coverageSize": [
+            1440,
+            900
+          ],
+          "coverageSamples": 4,
+          "targets": [
+            "86546fcc-c883-4107-b9c2-db06389d3b2b",
+            "6df86a45-baf0-4128-a4c9-41b976d6f86b",
+            "56efaf03-4d08-424a-99e4-24ffbbeca790",
+            "a72e4d23-98fc-4bb7-bf57-2371cf4c420a"
+          ],
+          "disposed": false,
+          "error": null
+        },
+        "camera": {
+          "position": [
+            0,
+            0,
+            5.7
+          ],
+          "fov": 42.25
+        },
+        "GLerror": 0,
+        "motion": {
+          "phase": "kv",
+          "raw": {
+            "kv": 0.9,
+            "intro": 0,
+            "works": 0,
+            "event": 0,
+            "snap": 0,
+            "outro": 0,
+            "wall": 0
+          },
+          "index": 0
+        }
+      }
+    },
+    {
+      "name": "desktop-after comparison pose 0",
+      "pass": true,
+      "evidence": {
+        "y": 0,
+        "viewport": [
+          1440,
+          900
+        ],
+        "canvas": [
+          1440,
+          900
+        ],
+        "canvasCount": 1,
+        "overflow": false,
+        "quiet": true,
+        "holes": 0,
+        "localBounds": [
+          -1.6766839027404785,
+          -1.4567844867706299,
+          -0.4102458655834198,
+          1.6766839027404785,
+          1.4567844867706299,
+          0.4102458655834198
+        ],
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "visible": true,
+        "material": "ShaderMaterial",
+        "glow": {
+          "mechanism": "3d-perimeter-dual-gaussian",
+          "intensity": 1,
+          "active": true,
+          "draws": 14,
+          "passes": 7,
+          "size": [
+            120,
+            75
+          ],
+          "coverageSize": [
+            1440,
+            900
+          ],
+          "coverageSamples": 4,
+          "targets": [
+            "c3d89ca0-91b5-41db-92ce-39a06746d2f9",
+            "16c2688b-87fd-49ab-a411-34ea988a3873",
+            "d5b50d21-1b43-44ef-a4dd-dfc3d900eac5",
+            "b0610fdd-669c-4f38-80bf-c0b3b7370740",
+            "8c492bb6-6707-4288-ac38-549b80408bce"
+          ],
+          "disposed": false,
+          "error": null
+        },
+        "camera": {
+          "position": [
+            0,
+            0,
+            5.7
+          ],
+          "fov": 42.25
+        },
+        "GLerror": 0,
+        "motion": {
+          "phase": "kv",
+          "raw": {
+            "kv": 0.9,
+            "intro": 0,
+            "works": 0,
+            "event": 0,
+            "snap": 0,
+            "outro": 0,
+            "wall": 0
+          },
+          "index": 0
+        }
+      }
+    },
+    {
+      "name": "desktop-after comparison pose 60",
+      "pass": true,
+      "evidence": {
+        "y": 0,
+        "viewport": [
+          1440,
+          900
+        ],
+        "canvas": [
+          1440,
+          900
+        ],
+        "canvasCount": 1,
+        "overflow": false,
+        "quiet": true,
+        "holes": 0,
+        "localBounds": [
+          -1.6766839027404785,
+          -1.4567844867706299,
+          -0.4102458655834198,
+          1.6766839027404785,
+          1.4567844867706299,
+          0.4102458655834198
+        ],
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "quaternion": [
+          0,
+          0.49999999999999994,
+          0,
+          0.8660254037844387
+        ],
+        "visible": true,
+        "material": "ShaderMaterial",
+        "glow": {
+          "mechanism": "3d-perimeter-dual-gaussian",
+          "intensity": 1,
+          "active": true,
+          "draws": 21,
+          "passes": 7,
+          "size": [
+            120,
+            75
+          ],
+          "coverageSize": [
+            1440,
+            900
+          ],
+          "coverageSamples": 4,
+          "targets": [
+            "c3d89ca0-91b5-41db-92ce-39a06746d2f9",
+            "16c2688b-87fd-49ab-a411-34ea988a3873",
+            "d5b50d21-1b43-44ef-a4dd-dfc3d900eac5",
+            "b0610fdd-669c-4f38-80bf-c0b3b7370740",
+            "8c492bb6-6707-4288-ac38-549b80408bce"
+          ],
+          "disposed": false,
+          "error": null
+        },
+        "camera": {
+          "position": [
+            0,
+            0,
+            5.7
+          ],
+          "fov": 42.25
+        },
+        "GLerror": 0,
+        "motion": {
+          "phase": "kv",
+          "raw": {
+            "kv": 0.9,
+            "intro": 0,
+            "works": 0,
+            "event": 0,
+            "snap": 0,
+            "outro": 0,
+            "wall": 0
+          },
+          "index": 0
+        }
+      }
+    },
+    {
+      "name": "desktop-after comparison pose 85",
+      "pass": true,
+      "evidence": {
+        "y": 0,
+        "viewport": [
+          1440,
+          900
+        ],
+        "canvas": [
+          1440,
+          900
+        ],
+        "canvasCount": 1,
+        "overflow": false,
+        "quiet": true,
+        "holes": 0,
+        "localBounds": [
+          -1.6766839027404785,
+          -1.4567844867706299,
+          -0.4102458655834198,
+          1.6766839027404785,
+          1.4567844867706299,
+          0.4102458655834198
+        ],
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "quaternion": [
+          0,
+          0.6755902076156602,
+          0,
+          0.7372773368101241
+        ],
+        "visible": true,
+        "material": "ShaderMaterial",
+        "glow": {
+          "mechanism": "3d-perimeter-dual-gaussian",
+          "intensity": 1,
+          "active": true,
+          "draws": 28,
+          "passes": 7,
+          "size": [
+            120,
+            75
+          ],
+          "coverageSize": [
+            1440,
+            900
+          ],
+          "coverageSamples": 4,
+          "targets": [
+            "c3d89ca0-91b5-41db-92ce-39a06746d2f9",
+            "16c2688b-87fd-49ab-a411-34ea988a3873",
+            "d5b50d21-1b43-44ef-a4dd-dfc3d900eac5",
+            "b0610fdd-669c-4f38-80bf-c0b3b7370740",
+            "8c492bb6-6707-4288-ac38-549b80408bce"
+          ],
+          "disposed": false,
+          "error": null
+        },
+        "camera": {
+          "position": [
+            0,
+            0,
+            5.7
+          ],
+          "fov": 42.25
+        },
+        "GLerror": 0,
+        "motion": {
+          "phase": "kv",
+          "raw": {
+            "kv": 0.9,
+            "intro": 0,
+            "works": 0,
+            "event": 0,
+            "snap": 0,
+            "outro": 0,
+            "wall": 0
+          },
+          "index": 0
+        }
+      }
+    },
+    {
+      "name": "mobile-before comparison pose 0",
+      "pass": true,
+      "evidence": {
+        "y": 0,
+        "viewport": [
+          390,
+          844
+        ],
+        "canvas": [
+          390,
+          844
+        ],
+        "canvasCount": 1,
+        "overflow": false,
+        "quiet": true,
+        "holes": 0,
+        "localBounds": [
+          -1.6766839027404785,
+          -1.4567844867706299,
+          -0.4102458655834198,
+          1.6766839027404785,
+          1.4567844867706299,
+          0.4102458655834198
+        ],
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "visible": true,
+        "material": "ShaderMaterial",
+        "glow": {
+          "mechanism": "real-geometry-screen-blur",
+          "intensity": 1,
+          "active": true,
+          "draws": 28,
+          "passes": 7,
+          "size": [
+            39,
+            84
+          ],
+          "coverageSize": [
+            390,
+            844
+          ],
+          "coverageSamples": 4,
+          "targets": [
+            "6aad6b84-2621-4f59-b1eb-f48b88aae0a6",
+            "f605aab5-6c37-46b6-a0c7-cdf3f3439575",
+            "e69c4533-da5f-4b1d-9787-606eb863e47e",
+            "08f5265f-16ab-4c34-aba4-6270a3d2bcd1"
+          ],
+          "disposed": false,
+          "error": null
+        },
+        "camera": {
+          "position": [
+            0,
+            0,
+            5.7
+          ],
+          "fov": 69.95384615384616
+        },
+        "GLerror": 0,
+        "motion": {
+          "phase": "kv",
+          "raw": {
+            "kv": 0.8940677966101694,
+            "intro": 0,
+            "works": 0,
+            "event": 0,
+            "snap": 0,
+            "outro": 0,
+            "wall": 0
+          },
+          "index": 0
+        }
+      }
+    },
+    {
+      "name": "mobile-before comparison pose 60",
+      "pass": true,
+      "evidence": {
+        "y": 0,
+        "viewport": [
+          390,
+          844
+        ],
+        "canvas": [
+          390,
+          844
+        ],
+        "canvasCount": 1,
+        "overflow": false,
+        "quiet": true,
+        "holes": 0,
+        "localBounds": [
+          -1.6766839027404785,
+          -1.4567844867706299,
+          -0.4102458655834198,
+          1.6766839027404785,
+          1.4567844867706299,
+          0.4102458655834198
+        ],
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "quaternion": [
+          0,
+          0.49999999999999994,
+          0,
+          0.8660254037844387
+        ],
+        "visible": true,
+        "material": "ShaderMaterial",
+        "glow": {
+          "mechanism": "real-geometry-screen-blur",
+          "intensity": 1,
+          "active": true,
+          "draws": 40,
+          "passes": 7,
+          "size": [
+            39,
+            84
+          ],
+          "coverageSize": [
+            390,
+            844
+          ],
+          "coverageSamples": 4,
+          "targets": [
+            "6aad6b84-2621-4f59-b1eb-f48b88aae0a6",
+            "f605aab5-6c37-46b6-a0c7-cdf3f3439575",
+            "e69c4533-da5f-4b1d-9787-606eb863e47e",
+            "08f5265f-16ab-4c34-aba4-6270a3d2bcd1"
+          ],
+          "disposed": false,
+          "error": null
+        },
+        "camera": {
+          "position": [
+            0,
+            0,
+            5.7
+          ],
+          "fov": 69.95384615384616
+        },
+        "GLerror": 0,
+        "motion": {
+          "phase": "kv",
+          "raw": {
+            "kv": 0.8940677966101694,
+            "intro": 0,
+            "works": 0,
+            "event": 0,
+            "snap": 0,
+            "outro": 0,
+            "wall": 0
+          },
+          "index": 0
+        }
+      }
+    },
+    {
+      "name": "mobile-before comparison pose 85",
+      "pass": true,
+      "evidence": {
+        "y": 0,
+        "viewport": [
+          390,
+          844
+        ],
+        "canvas": [
+          390,
+          844
+        ],
+        "canvasCount": 1,
+        "overflow": false,
+        "quiet": true,
+        "holes": 0,
+        "localBounds": [
+          -1.6766839027404785,
+          -1.4567844867706299,
+          -0.4102458655834198,
+          1.6766839027404785,
+          1.4567844867706299,
+          0.4102458655834198
+        ],
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "quaternion": [
+          0,
+          0.6755902076156602,
+          0,
+          0.7372773368101241
+        ],
+        "visible": true,
+        "material": "ShaderMaterial",
+        "glow": {
+          "mechanism": "real-geometry-screen-blur",
+          "intensity": 1,
+          "active": true,
+          "draws": 51,
+          "passes": 7,
+          "size": [
+            39,
+            84
+          ],
+          "coverageSize": [
+            390,
+            844
+          ],
+          "coverageSamples": 4,
+          "targets": [
+            "6aad6b84-2621-4f59-b1eb-f48b88aae0a6",
+            "f605aab5-6c37-46b6-a0c7-cdf3f3439575",
+            "e69c4533-da5f-4b1d-9787-606eb863e47e",
+            "08f5265f-16ab-4c34-aba4-6270a3d2bcd1"
+          ],
+          "disposed": false,
+          "error": null
+        },
+        "camera": {
+          "position": [
+            0,
+            0,
+            5.7
+          ],
+          "fov": 69.95384615384616
+        },
+        "GLerror": 0,
+        "motion": {
+          "phase": "kv",
+          "raw": {
+            "kv": 0.8940677966101694,
+            "intro": 0,
+            "works": 0,
+            "event": 0,
+            "snap": 0,
+            "outro": 0,
+            "wall": 0
+          },
+          "index": 0
+        }
+      }
+    },
+    {
+      "name": "mobile-after comparison pose 0",
+      "pass": true,
+      "evidence": {
+        "y": 0,
+        "viewport": [
+          390,
+          844
+        ],
+        "canvas": [
+          390,
+          844
+        ],
+        "canvasCount": 1,
+        "overflow": false,
+        "quiet": true,
+        "holes": 0,
+        "localBounds": [
+          -1.6766839027404785,
+          -1.4567844867706299,
+          -0.4102458655834198,
+          1.6766839027404785,
+          1.4567844867706299,
+          0.4102458655834198
+        ],
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "visible": true,
+        "material": "ShaderMaterial",
+        "glow": {
+          "mechanism": "3d-perimeter-dual-gaussian",
+          "intensity": 1,
+          "active": true,
+          "draws": 28,
+          "passes": 7,
+          "size": [
+            39,
+            84
+          ],
+          "coverageSize": [
+            390,
+            844
+          ],
+          "coverageSamples": 4,
+          "targets": [
+            "11d7284d-61c0-4364-a8ad-208c67402df6",
+            "154ee0c8-b17d-4e1e-b5e9-3948577a7b82",
+            "dde9e044-0c62-456d-af14-fd957b7ccf2d",
+            "e6fcc155-0a12-4f98-901e-718e1919e5f3",
+            "0af82952-1073-40a9-90b6-3c5ff924282d"
+          ],
+          "disposed": false,
+          "error": null
+        },
+        "camera": {
+          "position": [
+            0,
+            0,
+            5.7
+          ],
+          "fov": 69.95384615384616
+        },
+        "GLerror": 0,
+        "motion": {
+          "phase": "kv",
+          "raw": {
+            "kv": 0.8940677966101694,
+            "intro": 0,
+            "works": 0,
+            "event": 0,
+            "snap": 0,
+            "outro": 0,
+            "wall": 0
+          },
+          "index": 0
+        }
+      }
+    },
+    {
+      "name": "mobile-after comparison pose 60",
+      "pass": true,
+      "evidence": {
+        "y": 0,
+        "viewport": [
+          390,
+          844
+        ],
+        "canvas": [
+          390,
+          844
+        ],
+        "canvasCount": 1,
+        "overflow": false,
+        "quiet": true,
+        "holes": 0,
+        "localBounds": [
+          -1.6766839027404785,
+          -1.4567844867706299,
+          -0.4102458655834198,
+          1.6766839027404785,
+          1.4567844867706299,
+          0.4102458655834198
+        ],
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "quaternion": [
+          0,
+          0.49999999999999994,
+          0,
+          0.8660254037844387
+        ],
+        "visible": true,
+        "material": "ShaderMaterial",
+        "glow": {
+          "mechanism": "3d-perimeter-dual-gaussian",
+          "intensity": 1,
+          "active": true,
+          "draws": 39,
+          "passes": 7,
+          "size": [
+            39,
+            84
+          ],
+          "coverageSize": [
+            390,
+            844
+          ],
+          "coverageSamples": 4,
+          "targets": [
+            "11d7284d-61c0-4364-a8ad-208c67402df6",
+            "154ee0c8-b17d-4e1e-b5e9-3948577a7b82",
+            "dde9e044-0c62-456d-af14-fd957b7ccf2d",
+            "e6fcc155-0a12-4f98-901e-718e1919e5f3",
+            "0af82952-1073-40a9-90b6-3c5ff924282d"
+          ],
+          "disposed": false,
+          "error": null
+        },
+        "camera": {
+          "position": [
+            0,
+            0,
+            5.7
+          ],
+          "fov": 69.95384615384616
+        },
+        "GLerror": 0,
+        "motion": {
+          "phase": "kv",
+          "raw": {
+            "kv": 0.8940677966101694,
+            "intro": 0,
+            "works": 0,
+            "event": 0,
+            "snap": 0,
+            "outro": 0,
+            "wall": 0
+          },
+          "index": 0
+        }
+      }
+    },
+    {
+      "name": "mobile-after comparison pose 85",
+      "pass": true,
+      "evidence": {
+        "y": 0,
+        "viewport": [
+          390,
+          844
+        ],
+        "canvas": [
+          390,
+          844
+        ],
+        "canvasCount": 1,
+        "overflow": false,
+        "quiet": true,
+        "holes": 0,
+        "localBounds": [
+          -1.6766839027404785,
+          -1.4567844867706299,
+          -0.4102458655834198,
+          1.6766839027404785,
+          1.4567844867706299,
+          0.4102458655834198
+        ],
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "quaternion": [
+          0,
+          0.6755902076156602,
+          0,
+          0.7372773368101241
+        ],
+        "visible": true,
+        "material": "ShaderMaterial",
+        "glow": {
+          "mechanism": "3d-perimeter-dual-gaussian",
+          "intensity": 1,
+          "active": true,
+          "draws": 51,
+          "passes": 7,
+          "size": [
+            39,
+            84
+          ],
+          "coverageSize": [
+            390,
+            844
+          ],
+          "coverageSamples": 4,
+          "targets": [
+            "11d7284d-61c0-4364-a8ad-208c67402df6",
+            "154ee0c8-b17d-4e1e-b5e9-3948577a7b82",
+            "dde9e044-0c62-456d-af14-fd957b7ccf2d",
+            "e6fcc155-0a12-4f98-901e-718e1919e5f3",
+            "0af82952-1073-40a9-90b6-3c5ff924282d"
+          ],
+          "disposed": false,
+          "error": null
+        },
+        "camera": {
+          "position": [
+            0,
+            0,
+            5.7
+          ],
+          "fov": 69.95384615384616
+        },
+        "GLerror": 0,
+        "motion": {
+          "phase": "kv",
+          "raw": {
+            "kv": 0.8940677966101694,
+            "intro": 0,
+            "works": 0,
+            "event": 0,
+            "snap": 0,
+            "outro": 0,
+            "wall": 0
+          },
+          "index": 0
+        }
+      }
+    },
+    {
+      "name": "desktop-frames actual framebuffer is nonblack",
+      "pass": true,
+      "evidence": [
+        {
+          "sum": 48165079,
+          "lit": 1280982,
+          "error": 0,
+          "time": 1959.7000000029802
+        },
+        {
+          "sum": 48165079,
+          "lit": 1280982,
+          "error": 0,
+          "time": 2046.9000000059605
+        },
+        {
+          "sum": 48165079,
+          "lit": 1280982,
+          "error": 0,
+          "time": 2132.9000000059605
+        },
+        {
+          "sum": 48165079,
+          "lit": 1280982,
+          "error": 0,
+          "time": 2223.9000000059605
+        },
+        {
+          "sum": 48165079,
+          "lit": 1280982,
+          "error": 0,
+          "time": 2303.4000000059605
+        },
+        {
+          "sum": 48165079,
+          "lit": 1280982,
+          "error": 0,
+          "time": 2381.5
+        },
+        {
+          "sum": 48165079,
+          "lit": 1280982,
+          "error": 0,
+          "time": 2452.4000000059605
+        },
+        {
+          "sum": 48165079,
+          "lit": 1280982,
+          "error": 0,
+          "time": 2529.1000000089407
+        },
+        {
+          "sum": 48165079,
+          "lit": 1280982,
+          "error": 0,
+          "time": 2625
+        },
+        {
+          "sum": 48165079,
+          "lit": 1280982,
+          "error": 0,
+          "time": 2703.5
+        },
+        {
+          "sum": 48165079,
+          "lit": 1280982,
+          "error": 0,
+          "time": 2781.1000000089407
+        },
+        {
+          "sum": 48165079,
+          "lit": 1280982,
+          "error": 0,
+          "time": 2865.2999999970198
+        }
+      ]
+    },
+    {
+      "name": "desktop-frames native rotation captured after pause",
+      "pass": true,
+      "evidence": {
+        "y": 603,
+        "viewport": [
+          1440,
+          900
+        ],
+        "canvas": [
+          1440,
+          900
+        ],
+        "canvasCount": 1,
+        "overflow": false,
+        "quiet": true,
+        "holes": 0,
+        "localBounds": [
+          -1.6766839027404785,
+          -1.4567844867706299,
+          -0.4102458655834198,
+          1.6766839027404785,
+          1.4567844867706299,
+          0.4102458655834198
+        ],
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "quaternion": [
+          0,
+          -0.05104349704536286,
+          0,
+          0.9986964310586979
+        ],
+        "visible": true,
+        "material": "ShaderMaterial",
+        "glow": {
+          "mechanism": "3d-perimeter-dual-gaussian",
+          "intensity": 1,
+          "active": true,
+          "draws": 33,
+          "passes": 7,
+          "size": [
+            120,
+            75
+          ],
+          "coverageSize": [
+            1440,
+            900
+          ],
+          "coverageSamples": 4,
+          "targets": [
+            "1be5fe08-d727-470f-96c7-4a98caf13fdd",
+            "109ef943-150e-4224-b531-b608e141c7bd",
+            "8c2b9ef8-96fc-43a0-bc22-fae0bb0d7f73",
+            "4205d279-6619-4572-a38b-095a51edd677",
+            "ecee00c6-7d90-429c-8397-555cebd44c7e"
+          ],
+          "disposed": false,
+          "error": null
+        },
+        "camera": {
+          "position": [
+            0,
+            0,
+            5.7
+          ],
+          "fov": 42.25
+        },
+        "GLerror": 0,
+        "motion": {
+          "phase": "works_intro",
+          "raw": {
+            "kv": 1,
+            "intro": 0.5588888888888889,
+            "works": 0,
+            "event": 0,
+            "snap": 0,
+            "outro": 0,
+            "wall": 0
+          },
+          "index": 0
+        }
+      }
+    },
+    {
+      "name": "mobile-frames actual framebuffer is nonblack",
+      "pass": true,
+      "evidence": [
+        {
+          "sum": 12303954,
+          "lit": 329160,
+          "error": 0,
+          "time": 1453.9000000059605
+        },
+        {
+          "sum": 12303954,
+          "lit": 329160,
+          "error": 0,
+          "time": 1477.5
+        },
+        {
+          "sum": 12303954,
+          "lit": 329160,
+          "error": 0,
+          "time": 1500.9000000059605
+        },
+        {
+          "sum": 12303954,
+          "lit": 329160,
+          "error": 0,
+          "time": 1529.2000000029802
+        },
+        {
+          "sum": 12303954,
+          "lit": 329160,
+          "error": 0,
+          "time": 1551.9000000059605
+        },
+        {
+          "sum": 12303954,
+          "lit": 329160,
+          "error": 0,
+          "time": 1571.2000000029802
+        },
+        {
+          "sum": 12303954,
+          "lit": 329160,
+          "error": 0,
+          "time": 1597.1000000089407
+        },
+        {
+          "sum": 12303954,
+          "lit": 329160,
+          "error": 0,
+          "time": 1623.2000000029802
+        },
+        {
+          "sum": 12303954,
+          "lit": 329160,
+          "error": 0,
+          "time": 1646.7000000029802
+        },
+        {
+          "sum": 12303954,
+          "lit": 329160,
+          "error": 0,
+          "time": 1667.2999999970198
+        },
+        {
+          "sum": 12303954,
+          "lit": 329160,
+          "error": 0,
+          "time": 1690.5
+        },
+        {
+          "sum": 12303954,
+          "lit": 329160,
+          "error": 0,
+          "time": 1711
+        }
+      ]
+    },
+    {
+      "name": "mobile-frames native rotation captured after pause",
+      "pass": true,
+      "evidence": {
+        "y": 556,
+        "viewport": [
+          390,
+          844
+        ],
+        "canvas": [
+          390,
+          844
+        ],
+        "canvasCount": 1,
+        "overflow": false,
+        "quiet": true,
+        "holes": 0,
+        "localBounds": [
+          -1.6766839027404785,
+          -1.4567844867706299,
+          -0.4102458655834198,
+          1.6766839027404785,
+          1.4567844867706299,
+          0.4102458655834198
+        ],
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "quaternion": [
+          0,
+          -0.10816010729374297,
+          0,
+          0.9941334876112999
+        ],
+        "visible": true,
+        "material": "ShaderMaterial",
+        "glow": {
+          "mechanism": "3d-perimeter-dual-gaussian",
+          "intensity": 1,
+          "active": true,
+          "draws": 56,
+          "passes": 7,
+          "size": [
+            39,
+            84
+          ],
+          "coverageSize": [
+            390,
+            844
+          ],
+          "coverageSamples": 4,
+          "targets": [
+            "8fd1a250-b081-4fe2-b6fd-02fafa3b983e",
+            "9b1ddf47-208e-44b9-90d4-5bb05b14be86",
+            "688808f4-1508-4e4d-bdfc-449dfa10394a",
+            "917ed849-7fc8-4d5a-98d1-6958b280b63d",
+            "2c671bd1-a05b-4ac4-bd25-fdcb55c786ee"
+          ],
+          "disposed": false,
+          "error": null
+        },
+        "camera": {
+          "position": [
+            0,
+            0,
+            5.7
+          ],
+          "fov": 69.95384615384616
+        },
+        "GLerror": 0,
+        "motion": {
+          "phase": "works_intro",
+          "raw": {
+            "kv": 1,
+            "intro": 0.5402843601895735,
+            "works": 0,
+            "event": 0,
+            "snap": 0,
+            "outro": 0,
+            "wall": 0
+          },
+          "index": 0
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "IAB control failed twice during initialization; design thread reported the same failure and authorized the existing Playwright fallback.",
+    "DPR1 / SwiftShader / emulated mobile are not real-device performance evidence.",
+    "Reference comparison uses fixed 0/60/85 degree poses solely to compare emission at equal geometry; native behavior tests remain separate."
+  ],
+  "browser": "154.0.8037.99",
+  "captureCorrection": "Initial screenshots intermittently black despite live diagnostics. Confirm comparison uses the native pause to hold a rendered frame; active-frame readback is sampled synchronously after the actual final render.",
+  "pass": true
+}
