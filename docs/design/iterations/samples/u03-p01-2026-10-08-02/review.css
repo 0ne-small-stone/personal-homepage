@@ -1,0 +1,21 @@
+:root{color-scheme:dark;font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;color:#ededed;background:#000}
+*{box-sizing:border-box}body{margin:0}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;color:inherit;cursor:pointer}a{color:inherit;text-underline-offset:5px}button:focus-visible,a:focus-visible{outline:2px solid #ededed;outline-offset:5px}
+main{max-width:1440px;margin:auto;padding:44px 64px 24px}
+header{display:flex;align-items:flex-start;gap:72px;padding-bottom:40px;border-bottom:1px solid #333}
+.identity{font-family:Georgia,serif;font-size:24px;line-height:1.13;letter-spacing:-.7px;text-decoration:none;min-width:156px}.identity span{display:block;font-family:system-ui,sans-serif;letter-spacing:3px;font-size:10px;color:#aaa;margin-top:16px}
+.intro{flex:1}.eyebrow{font-size:10px;letter-spacing:2px;color:#aaa;margin:0 0 16px}h1{font-family:Georgia,serif;font-size:38px;line-height:1.1;letter-spacing:-1px;font-weight:400;margin:0 0 14px}.intro>p:last-child{font-size:13px;color:#aaa;margin:0;line-height:1.6}.edition{font-size:10px;line-height:1.8;letter-spacing:1px;color:#aaa}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:36px}
+article{padding:12px 0 26px;border-bottom:1px solid #292929;min-width:0}
+.art{position:relative;display:block;width:100%;background:#000;border:0;padding:0;border-radius:16px}.art img{display:block;width:100%;height:auto}.expand{position:absolute;right:12px;bottom:12px;color:#777;font-size:20px;transition:color 150ms}.art:hover .expand{color:#ededed}
+.caption{padding:0 10px}.caption h2{display:flex;align-items:center;gap:12px;font-family:Georgia,serif;font-size:24px;font-weight:400;margin:0 0 12px}.caption h2 span{font-family:system-ui,sans-serif;font-size:11px;color:#aaa;width:24px}
+.caption p{font-size:13px;line-height:1.8;color:#d0d0d0;margin:0 0 8px}.relation{font-size:11px;line-height:1.8;color:#999}
+.note{padding:58px 24px 24px;align-self:center}.note h2{font-size:24px;line-height:1.6;font-weight:400;letter-spacing:1px;margin:24px 0}.note p:not(.eyebrow){font-size:13px;line-height:2;color:#aaa;max-width:270px}
+footer{display:flex;justify-content:space-between;gap:24px;padding-top:24px;font-size:10px;letter-spacing:.5px;color:#888}
+dialog{width:min(1100px,calc(100% - 40px));max-height:calc(100dvh - 40px);padding:20px 28px 28px;border:1px solid #444;border-radius:20px;background:#000;color:#ededed}dialog::backdrop{background:#000d;backdrop-filter:blur(8px)}
+.detail-bar{display:flex;justify-content:space-between;align-items:center;gap:24px}.detail-bar h2{font-family:Georgia,serif;font-weight:400;font-size:24px;margin:0}.close,.controls button{min-height:44px;background:transparent;border:1px solid #444;padding:8px 16px;border-radius:24px;font-size:13px}
+.detail-layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(220px,1fr);gap:28px;align-items:center}
+#detail-image{display:block;width:100%;height:auto}.detail-copy{font-size:14px;line-height:1.9}#detail-concept{font-size:20px;line-height:1.8}#detail-judgment{color:#aaa;margin:30px 0}#download{display:inline-block;padding:12px 0;min-height:44px}.controls{display:flex;gap:12px;margin-top:28px}
+@media(max-width:950px){main{padding:30px}.edition{display:none}header{gap:36px}.gallery{gap:24px}.caption h2{font-size:21px}.caption p{font-size:12px}.note{padding:24px 10px}.note h2{font-size:20px}}
+@media(max-width:650px){main{padding:24px}header{display:block;padding-bottom:28px}.identity{display:block;font-size:21px}.identity span{margin-top:10px}.intro{margin-top:36px}h1{font-size:30px}.gallery{grid-template-columns:1fr;gap:0}article{padding:12px 0 28px}.caption h2{font-size:27px}.caption p{font-size:14px}.relation{font-size:12px}.note{padding:40px 10px}.note p:not(.eyebrow){max-width:none}footer{flex-direction:column;gap:12px;line-height:1.8}dialog{width:calc(100% - 24px);padding:16px;max-height:calc(100dvh - 24px)}.detail-layout{grid-template-columns:1fr;gap:0}#detail-concept{font-size:18px}#detail-judgment{margin:20px 0}.detail-bar h2{font-size:22px}.detail-copy{padding:0 8px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+

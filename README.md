@@ -4,7 +4,7 @@
 
 实施策略：优先复用成熟框架、主题、插件和托管服务，配置与集成优先，只补实际缺少的业务能力。知识库优先验证 Starlight 及其博客插件，以学习总览、分类、搜索与普通引用链接浏览，内容结构和路由沿用现成方案的约定。
 
-设计顺序：先分页与功能，再定义各页 UI/UX、页面关系及转场，最后统一主题表达。UI/UX 和素材同样优先复用、配置与改造优质现成资源；确有需求缺口时再二创或原创。当前方向为黑色首页、四组光路入口，以及通过棱镜靠近的白色留痕墙。
+设计顺序：先分页与功能，再定义各页 UI/UX、页面关系及转场，最后统一主题表达。UI/UX 和素材同样优先复用、配置与改造优质现成资源；确有需求缺口时再二创或原创。当前首页按用户要求复刻 ALCHE 的交互与动画：黑色玻璃三角体、四入口连续弧线浏览、末段 The Wall 升起；站名 Little Stone Still Here，简称 LSSH。参数、连续证据及逐片任务见[最新研究](docs/design/iterations/u03-p01-2026-10-08-17.md)。
 
 ## 文档入口
 
@@ -12,7 +12,7 @@
 
 | 层级 | 设计：`docs/design/` | 技术：`docs/technical/` |
 | --- | --- | --- |
-| 规格 `SPEC.md` | [页面与交互](docs/design/SPEC.md)：16 个页面、功能、导航、体验 | [技术方案](docs/technical/SPEC.md)：R01–R13、架构、数据、接口 |
+| 规格 `SPEC.md` | [页面与交互](docs/design/SPEC.md)：16 个页面／界面目标、功能、导航、体验 | [技术方案](docs/technical/SPEC.md)：R01–R13、架构、数据、接口 |
 | 计划 `PLAN.md` | [设计计划与工作流](docs/design/PLAN.md)：U01–U14、小步迭代、体验验收 | [技术实施计划](docs/technical/PLAN.md)：T01–T29、工程依赖、技术验收 |
 | 来源 `REFERENCES.md` | [设计复用与素材](docs/design/REFERENCES.md)：案例、组件、素材与许可 | [技术调研与候选](docs/technical/REFERENCES.md)：官方能力、依赖、平台约束 |
 | 专项依据 | [概念施工](docs/design/CONCEPT.md)与[设计规范](docs/design/SYSTEM.md)：场景、控件、统一参数 | 由技术规格中的组件、运行时与资源约束承接，详见[对应表](docs/README.md) |
@@ -23,28 +23,60 @@ GitHub 的触发方式、各 job 和本地检查命令见[工作流说明](docs/
 
 ## 当前状态
 
+**2026-10-08 首页增量：**静态品牌与六章语义入口已通过无 JS 检查；玻璃透射的桌面/手机、固定背景对照、减少动画与图形失败局部工程证据见 [14 轮交付](docs/design/iterations/u03-p01-2026-10-08-14.md)。其他滚动章节虽有工作代码，完整操作验收尚未完成。设计复核、用户审美确认、Giscus 授权、真机性能和部署分别保持未完成；没有真实音乐播放、推歌或同步能力。实际体验入口：[本机生产预览](http://127.0.0.1:4321/personal-homepage/)。
+
 - 文档目录整理日期：2026-10-07；原规划基线日期：2026-10-03。
 - 已完成 8 份规划文档：页面规格、概念施工说明、小步迭代工作流、设计规范 v0.1、复用与素材来源，以及技术方案、技术实施计划、技术调研来源。已核算规范色值的静态对比度；真实合成画面仍待原型验证。
-- 设计任务的实际进度见[设计计划](docs/design/PLAN.md)；T01 已完成 Git 与 CI 工具准备，T15 已验证仓库 CI，T16 已设置 Pages 来源。网站工程与各功能的后续进度按对应计划记录，文档和 CI 配置完成不代表网站已经实现。
-- 已初始化本地 Git `main` 分支，建立 GitHub 检查、构建和 Pages 发布配置。网站应用代码和根目录 package.json 尚未创建；`tools/ci/package.json` 只管理校验工具。
+- T01 Astro 基础工程已建立，T04 的 Starlight/博客组合与本地生产构建通过。U01 四入口与学习阅读旅程已核验，实际截图与限制见[迭代记录](docs/design/iterations/u01-p01-2026-10-07-01.md)；其余功能和设计进度以两侧计划为准。
+- 根目录 package.json 管理网站命令与锁定依赖，`tools/ci/package.json` 单独管理仓库校验。主站为静态 Astro 页面，知识阅读与搜索沿用 Starlight，当前内容均明确标为演示。
 - 已创建并上传公开仓库 [0ne-small-stone/personal-homepage](https://github.com/0ne-small-stone/personal-homepage)。main 已保护，PR 必须通过仓库与工作流检查后 Squash 合并；Issues/Discussions 已开启，Wiki 已关闭。
-- [首轮 GitHub Actions](https://github.com/0ne-small-stone/personal-homepage/actions/runs/37596208177) 的仓库与语法检查通过；Pages 来源已设为 GitHub Actions。Astro 工程尚未建立，网站构建和部署明确跳过，网站尚未上线。
+- Astro 工程已接入现有 CI，[草稿 PR #2](https://github.com/0ne-small-stone/personal-homepage/pull/2) 的首次 Actions 仓库、语法和 Astro 构建全部通过，main 已要求三项检查。Pages 来源已设为 GitHub Actions，PR 不部署，网站尚未上线。
 - GitHub 登录身份及本机 Git 凭证均核对为 `0ne-small-stone`；可通过 Git/官方 API 管理仓库。GitHub 插件的目标仓库 App 授权仍待补充，不影响本次 Git 接入。
 - 已有本地素材：大二上学习资源目录；本次检查为 38 个文件（36 PDF、2 TXT），共约 507.9 MiB。文件保持原目录，大小与存储边界见技术方案。
-- Astro、CMS、Giscus、音乐同步和 AI 功能均尚未实现或接入。
+- 正式学习资料、作品与个人内容尚未导入；CMS、Giscus、音乐同步、棱镜场景和 AI 功能均未接入。
 - 文档中的技术候选、内容模型和目录结构是拟实施方案。
+
+## 本地预览与验收
+
+使用 Node.js 24，在项目根目录执行：
+
+```powershell
+npm ci --no-audit --no-fund
+npm run dev
+```
+
+打开 `http://localhost:4321/personal-homepage/`。当前提供四组首页入口、学习总览、资料/笔记/文章演示，以及其他页面的待配置状态；没有课程、学习路线或知识关系图。
+
+验收搜索时使用生产预览，Pagefind 由 Starlight 在构建中生成：
+
+```powershell
+npm run check
+npm run build
+npm run preview
+```
+
+需要在关闭临时命令会话后继续访问预览时，使用 Astro 原生后台模式（仅监听本机）：
+
+```powershell
+npm run preview -- --background --host 127.0.0.1 --port 4321
+npm run preview -- status
+```
+
+停止后台预览用 `npm run preview -- stop`。后台预览仍读取 `dist/`；修改页面后重新构建即可查看新产物。
+
+可以先走“首页 → 学习 → 资料 → 笔记 → 文章”，再试搜索“演示”、浏览器返回、深链刷新和手机宽度。按[设计计划](docs/design/PLAN.md)每轮记录一个主要变量，CI 检查与实际体验分别验收。
 
 ## 从哪里开始
 
-后续 AI 先读 AGENTS.md，再读技术方案和技术实施计划。从官方模板开始，验证知识库插件组合、统一搜索及资料、文章、笔记的关联浏览。平台授权、域名和音乐账号配置在对应功能需要时解决。
+后续 AI 先读 AGENTS.md，再读技术方案和技术实施计划。当前工程已初始化；从[单页与跨页开发盘点](docs/technical/PLAN.md#页面与跨页开发盘点2026-10-07)领取一个可独立验收的切片，近期建议从 T07.01 学习类型筛选开始。平台授权、域名和音乐账号配置在对应功能需要时解决。
 
 涉及页面与交互时，按下面的最短路径施工：
 
-1. 从工作流的 U01 或当前未完成任务开始，明确本轮唯一主要变量。
+1. 从当前未完成的 U/T 任务或切片开始，明确本轮唯一主要变量，不重复初始化或把整页塞入一轮。
 2. 在页面规格找到 P 编号及功能，在概念说明找到对应 C 规则、动作和控件。
 3. 取设计规范的参数，从复用清单选择现成组件/素材，制作一个可操作样本。
 4. 留下同条件对照、实际操作结果与下一步；通过后再组合到页面及跨页旅程。
 
-会话试作仅用于设计探索，不能视为正式网站已经实现。后续真实迭代记录按工作流放入 `docs/design/iterations/`；当前尚未创建该证据目录。
+真实迭代记录与证据已放入 `docs/design/iterations/`；基础页面结构通过不代表最终场景视觉或外部服务完成。
 
 设计与技术文档按分类维护；后续提交可通过 GitHub 工作流检查。真实构建、账号接入与发布结果按技术计划的证据记录。

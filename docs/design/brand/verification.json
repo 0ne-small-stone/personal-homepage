@@ -1,0 +1,143 @@
+{
+  "browser": "Chrome",
+  "viewport": [
+    1120,
+    1010
+  ],
+  "deviceScaleFactor": 1,
+  "sizes": [
+    {
+      "alt": "Little Stone Still Here",
+      "loaded": true,
+      "canvasWidth": 413.734375,
+      "inkWidth": 319.9976806640625
+    },
+    {
+      "alt": "Little Stone Still Here",
+      "loaded": true,
+      "canvasWidth": 413.734375,
+      "inkWidth": 319.9976806640625
+    },
+    {
+      "alt": "Little Stone Still Here",
+      "loaded": true,
+      "canvasWidth": 310.296875,
+      "inkWidth": 239.9952392578125
+    },
+    {
+      "alt": "Little Stone Still Here",
+      "loaded": true,
+      "canvasWidth": 310.296875,
+      "inkWidth": 239.9952392578125
+    },
+    {
+      "alt": "Little Stone Still Here",
+      "loaded": true,
+      "canvasWidth": 232.71875,
+      "inkWidth": 179.993408203125
+    },
+    {
+      "alt": "Little Stone Still Here",
+      "loaded": true,
+      "canvasWidth": 232.71875,
+      "inkWidth": 179.993408203125
+    }
+  ],
+  "evidence": "../iterations/evidence/u03-p01-2026-10-08-08-logo-sizes.png",
+  "status": "executor visual checks passed; new application baselines remain subject to real page validation",
+  "pdf": {
+    "file": "lssh-brand-manual-v0.1.pdf",
+    "pageCount": 16,
+    "bookmarks": 16,
+    "bytes": 2569138,
+    "characterBounds": [
+      {
+        "page": 1,
+        "characters": 146,
+        "textInBounds": true
+      },
+      {
+        "page": 2,
+        "characters": 279,
+        "textInBounds": true
+      },
+      {
+        "page": 3,
+        "characters": 362,
+        "textInBounds": true
+      },
+      {
+        "page": 4,
+        "characters": 281,
+        "textInBounds": true
+      },
+      {
+        "page": 5,
+        "characters": 301,
+        "textInBounds": true
+      },
+      {
+        "page": 6,
+        "characters": 296,
+        "textInBounds": true
+      },
+      {
+        "page": 7,
+        "characters": 399,
+        "textInBounds": true
+      },
+      {
+        "page": 8,
+        "characters": 395,
+        "textInBounds": true
+      },
+      {
+        "page": 9,
+        "characters": 314,
+        "textInBounds": true
+      },
+      {
+        "page": 10,
+        "characters": 244,
+        "textInBounds": true
+      },
+      {
+        "page": 11,
+        "characters": 331,
+        "textInBounds": true
+      },
+      {
+        "page": 12,
+        "characters": 308,
+        "textInBounds": true
+      },
+      {
+        "page": 13,
+        "characters": 329,
+        "textInBounds": true
+      },
+      {
+        "page": 14,
+        "characters": 249,
+        "textInBounds": true
+      },
+      {
+        "page": 15,
+        "characters": 348,
+        "textInBounds": true
+      },
+      {
+        "page": 16,
+        "characters": 461,
+        "textInBounds": true
+      }
+    ],
+    "fonts": "Embedded Microsoft YaHei regular/bold and Arial subsets; no PingFang device check"
+  },
+  "visualChecks": [
+    "All 16 PDF pages rendered with Poppler and inspected",
+    "Black/gray composition and 320/240/180 CSS px visible wordmark samples inspected at DPR 1",
+    "240px selected as conservative application baseline; 180px retains words but loses some stroke presence",
+    "Logo source pixels remain unmodified; PDF only positions and scales the existing asset"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-10",
+  "method": "CUA IAB native controls and read-only DOM, natural poses, no forced quaternion",
+  "desktopCanvas": [
+    1425,
+    900
+  ],
+  "mobile": {
+    "bundle": [
+      "/personal-homepage/_astro/HomeJourney.DPTHfJk9.js"
+    ],
+    "canvas": [
+      [
+        375,
+        844
+      ]
+    ],
+    "overflow": false,
+    "viewport": [
+      390,
+      844
+    ],
+    "y": 802
+  },
+  "errors": [],
+  "initialBundle": "UhX5FEN2",
+  "finalBundle": "DPTHfJk9",
+  "limits": [
+    "Native screenshots captured at separate times, not fixed 60/85 degree poses.",
+    "No GPU resource count or real-device performance sampling in this round.",
+    "One concentrated brightness correction: initial mobile diffusion too weak."
+  ]
+}

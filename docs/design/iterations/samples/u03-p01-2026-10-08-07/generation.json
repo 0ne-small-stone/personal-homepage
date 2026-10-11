@@ -1,0 +1,72 @@
+{
+  "iteration": "u03-p01-2026-10-08-07",
+  "date": "2026-10-08",
+  "scope": {
+    "design": "U03",
+    "page": "P01",
+    "requirement": "R01",
+    "futureIntegration": "T02"
+  },
+  "request": "打磨用户指定的两行手写字标做 logo",
+  "mode": "built-in image_gen.imagegen",
+  "type": "raster PNG",
+  "status": {
+    "base": "user selected",
+    "polish": "user approved on 2026-10-08; reply: 欧克",
+    "integration": "not integrated"
+  },
+  "source": {
+    "file": "user-selected-wordmark.png",
+    "providedFilename": "codex-clipboard-40e231f3-6f92-4975-b268-d15c90b806d4.png"
+  },
+  "text": [
+    "little stone",
+    "still here"
+  ],
+  "outputs": {
+    "black": "lssh-wordmark-black.png",
+    "transparent": "lssh-wordmark-white-transparent.png"
+  },
+  "calls": [
+    {
+      "intent": "precise-object-edit",
+      "input": "user-selected-wordmark.png",
+      "output": "lssh-wordmark-black.png",
+      "transparent_background": false,
+      "prompt": "Use case: logo-brand / precise identity-preserving wordmark refinement.\nEdit the attached SELECTED two-line hand-lettered logo for Little Stone Still Here. The user likes this exact direction and asks for polishing it into their logo. Treat this as careful typographic finishing, NOT redesign.\n\nThe final lettering MUST read exactly, in lowercase, on exactly these two lines:\nlittle stone\nstill here\n\nPRESERVE the source's distinctive Pink Floyd The Wall-derived handmade ink character: the tall slender ascenders, lively diagonal t crossbars, the angular expressive s, open e counters, and the light imperfect rhythm of individual hand-drawn strokes. Retain the original overall feel and letter anatomy. The two lines remain one centered, intimate inscription. Do not substitute a computer font, generic cursive, brush-script font, geometric sans or decorative calligraphy. Do not make it look like a typed font.\n\nREFINE only these concrete issues:\n1. In stone, correct the N-like character to a clearly LOWERCASE n: a straight or gently leaning stem followed by one controlled arch/shoulder, coherent with the h and r. No uppercase diagonal N.\n2. Make r in here clearly read as lowercase r with a concise shoulder; do not let it read as v. Keep all letters unmistakable. There are TWO t letters in little, TWO l letters in still.\n3. Optically balance the spacing within words, especially little's tall strokes, the gap between little and stone, and the gap between still and here. Preserve a natural handwritten cadence, not mechanically equal spacing. The second line should be around 88–92% the width of the first, optically centered beneath it.\n4. Open up a distinct breathing band between the lines. No long descender or flourish from line one should nearly touch any ascender of line two. Shorten only the most intrusive endpoints slightly and shift the lines apart modestly. Still keep a compact lockup.\n5. Clean distracting edge burrs, tiny scratches, tiny accidental slivers, overly bulbous pooled-ink terminals and abrupt lumps. Preserve tasteful thick-to-thin variation and graceful slightly softened endings. The ink contours should be clean enough for a real brand mark while still visibly drawn by hand. No brittle hairlines that vanish when moderately reduced.\n6. Match the perceived ink weight of both lines; first-line l and t strokes must not overpower second-line text. Calm, poised, personal, restrained.\n\nRender this ONE polished wordmark in pure flat white ink on pure flat black, no gradients, shadows, texture, bevels or lighting. A clean landscape 3:2 composition is preferred, wordmark occupying about 80% width, centered with generous clear border. No icons, no faces, no extra words, no title, no slogan, no captions, no mockup, no numbered variants or presentation sheet. The output is only the faithfully refined two-line logo."
+    },
+    {
+      "intent": "background-extraction",
+      "input": "lssh-wordmark-black.png",
+      "output": "lssh-wordmark-white-transparent.png",
+      "transparent_background": true,
+      "prompt": "Precise background-extraction edit for the attached FINISHED two-line white logo.\nThe image is an approved-for-this-export visual source: preserve its white hand-lettered logo exactly, every letter contour, spelling, scale, spacing, two-line break, placement and aspect ratio. The exact words are:\nlittle stone\nstill here\nDo not redraw, reinterpret, restyle, reshape, add, remove, move or resize any letter. Do not change the lowercase n. Do not add any marks.\nThe ONLY operation: remove the black background and make all background areas genuinely transparent, including the counters inside o/e and the gaps between strokes. Retain white ink with clean antialiased alpha edges. Remove black matte/halo contamination at the white edges. The canvas must have a REAL transparent alpha channel, not a painted checkerboard, gray pattern, white background or black fill. Preserve the landscape canvas and image margins of the reference. White opaque logo strokes on a completely transparent background, ready to place on the site's black or gray surface. No shadow, glow, texture, outline, new effects or text."
+    }
+  ],
+  "verification": {
+    "executorVisualReview": [
+      "Both lines retain the requested lowercase words and fixed line break",
+      "n in stone and r in here are more legible",
+      "Letter spacing, baseline rhythm and contours reviewed",
+      "Transparent PNG composited normally in Chrome over #000000 and #2a2a2a at 600px and 300px canvas width; no visible glow or rectangular matte"
+    ],
+    "evidence": "alpha-render-check.png",
+    "transparentPng": {
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "zeroAlphaPixelCount": 1267987,
+      "note": "Read-only alpha inspection; residual alpha 1–2 exists outside dense ink. Browser rendering visually checked. Source PNG preserved without programmatic pixel editing."
+    }
+  },
+  "limitations": [
+    "Raster artwork, not a vector master",
+    "Formal minimum size and favicon not specified or verified",
+    "User approved appearance; production integration remains pending"
+  ],
+  "provenance": "User-provided artwork and requested The Wall-derived lettering. Official visual-reference provenance remains in docs/design/REFERENCES.md; no font file downloaded or distributed."
+}

@@ -1,0 +1,318 @@
+{
+  "date": "2026-10-08T12:59:26.687Z",
+  "method": "Actual mouse wheel/click; programmatic midpoint positioning only for same-view composition",
+  "renderer": "headless Chrome / software GPU; not a real-device performance test",
+  "results": [
+    {
+      "label": "desktop-start",
+      "y": 0,
+      "hero": {
+        "opacity": 1,
+        "effectiveOpacity": 1,
+        "visibility": "visible",
+        "inert": false,
+        "ariaHidden": null,
+        "hit": true
+      },
+      "explore": {
+        "opacity": 1,
+        "effectiveOpacity": 1,
+        "visibility": "visible",
+        "inert": false,
+        "ariaHidden": null,
+        "hit": true
+      },
+      "cta": {
+        "opacity": 0,
+        "effectiveOpacity": 0,
+        "visibility": "hidden",
+        "inert": true,
+        "ariaHidden": "true",
+        "hit": false
+      },
+      "focus": "lssh-home has-journey home-enhanced",
+      "status": "ready",
+      "overflow": false
+    },
+    {
+      "label": "desktop-half-exit",
+      "y": 49,
+      "hero": {
+        "opacity": 0.514998,
+        "effectiveOpacity": 0.514998,
+        "visibility": "visible",
+        "inert": false,
+        "ariaHidden": null,
+        "hit": true
+      },
+      "explore": {
+        "opacity": 1,
+        "effectiveOpacity": 0.514998,
+        "visibility": "visible",
+        "inert": false,
+        "ariaHidden": null,
+        "hit": true
+      },
+      "cta": {
+        "opacity": 0,
+        "effectiveOpacity": 0,
+        "visibility": "hidden",
+        "inert": true,
+        "ariaHidden": "true",
+        "hit": false
+      },
+      "focus": "lssh-home has-journey home-enhanced",
+      "status": "ready",
+      "overflow": false
+    },
+    {
+      "label": "explore-click-result",
+      "y": 1900,
+      "hero": {
+        "opacity": 0,
+        "effectiveOpacity": 0,
+        "visibility": "hidden",
+        "inert": true,
+        "ariaHidden": "true",
+        "hit": false
+      },
+      "explore": {
+        "opacity": 1,
+        "effectiveOpacity": 0,
+        "visibility": "hidden",
+        "inert": true,
+        "ariaHidden": null,
+        "hit": false
+      },
+      "cta": {
+        "opacity": 1,
+        "effectiveOpacity": 1,
+        "visibility": "visible",
+        "inert": false,
+        "ariaHidden": null,
+        "hit": true
+      },
+      "focus": "home-brand",
+      "status": "ready",
+      "overflow": false
+    },
+    {
+      "label": "project-route-return",
+      "y": 1900,
+      "hero": {
+        "opacity": 0,
+        "effectiveOpacity": 0,
+        "visibility": "hidden",
+        "inert": true,
+        "ariaHidden": "true",
+        "hit": false
+      },
+      "explore": {
+        "opacity": 1,
+        "effectiveOpacity": 0,
+        "visibility": "hidden",
+        "inert": true,
+        "ariaHidden": null,
+        "hit": false
+      },
+      "cta": {
+        "opacity": 1,
+        "effectiveOpacity": 1,
+        "visibility": "visible",
+        "inert": false,
+        "ariaHidden": null,
+        "hit": true
+      },
+      "focus": "entry-projects",
+      "status": "ready",
+      "overflow": false
+    },
+    {
+      "label": "desktop-intro-midpoint",
+      "y": 550,
+      "hero": {
+        "opacity": 0,
+        "effectiveOpacity": 0,
+        "visibility": "hidden",
+        "inert": true,
+        "ariaHidden": "true",
+        "hit": false
+      },
+      "explore": {
+        "opacity": 1,
+        "effectiveOpacity": 0,
+        "visibility": "hidden",
+        "inert": true,
+        "ariaHidden": null,
+        "hit": false
+      },
+      "cta": {
+        "opacity": 0,
+        "effectiveOpacity": 0,
+        "visibility": "hidden",
+        "inert": true,
+        "ariaHidden": "true",
+        "hit": false
+      },
+      "focus": "lssh-home has-journey home-enhanced",
+      "status": "ready",
+      "overflow": false
+    },
+    {
+      "label": "desktop-reverse-to-hero",
+      "y": 1,
+      "hero": {
+        "opacity": 0.999702,
+        "effectiveOpacity": 0.999702,
+        "visibility": "visible",
+        "inert": false,
+        "ariaHidden": null,
+        "hit": true
+      },
+      "explore": {
+        "opacity": 1,
+        "effectiveOpacity": 0.999702,
+        "visibility": "visible",
+        "inert": false,
+        "ariaHidden": null,
+        "hit": true
+      },
+      "cta": {
+        "opacity": 0,
+        "effectiveOpacity": 0,
+        "visibility": "hidden",
+        "inert": true,
+        "ariaHidden": "true",
+        "hit": false
+      },
+      "focus": "lssh-home has-journey home-enhanced",
+      "status": "ready",
+      "overflow": false
+    },
+    {
+      "label": "mobile-start",
+      "y": 0,
+      "hero": {
+        "opacity": 1,
+        "effectiveOpacity": 1,
+        "visibility": "visible",
+        "inert": false,
+        "ariaHidden": null,
+        "hit": true
+      },
+      "explore": {
+        "opacity": 1,
+        "effectiveOpacity": 1,
+        "visibility": "visible",
+        "inert": false,
+        "ariaHidden": null,
+        "hit": true
+      },
+      "cta": {
+        "opacity": 0,
+        "effectiveOpacity": 0,
+        "visibility": "hidden",
+        "inert": true,
+        "ariaHidden": "true",
+        "hit": false
+      },
+      "focus": "lssh-home has-journey home-enhanced",
+      "status": "ready",
+      "overflow": false
+    },
+    {
+      "label": "mobile-half-exit",
+      "y": 49,
+      "hero": {
+        "opacity": 0.514998,
+        "effectiveOpacity": 0.514998,
+        "visibility": "visible",
+        "inert": false,
+        "ariaHidden": null,
+        "hit": true
+      },
+      "explore": {
+        "opacity": 1,
+        "effectiveOpacity": 0.514998,
+        "visibility": "visible",
+        "inert": false,
+        "ariaHidden": null,
+        "hit": true
+      },
+      "cta": {
+        "opacity": 0,
+        "effectiveOpacity": 0,
+        "visibility": "hidden",
+        "inert": true,
+        "ariaHidden": "true",
+        "hit": false
+      },
+      "focus": "lssh-home has-journey home-enhanced",
+      "status": "ready",
+      "overflow": false
+    },
+    {
+      "label": "mobile-intro-midpoint",
+      "y": 50,
+      "hero": {
+        "opacity": 0.5,
+        "effectiveOpacity": 0.5,
+        "visibility": "visible",
+        "inert": false,
+        "ariaHidden": null,
+        "hit": true
+      },
+      "explore": {
+        "opacity": 1,
+        "effectiveOpacity": 0.5,
+        "visibility": "visible",
+        "inert": false,
+        "ariaHidden": null,
+        "hit": true
+      },
+      "cta": {
+        "opacity": 0,
+        "effectiveOpacity": 0,
+        "visibility": "hidden",
+        "inert": true,
+        "ariaHidden": "true",
+        "hit": false
+      },
+      "focus": "lssh-home has-journey home-enhanced",
+      "status": "ready",
+      "overflow": false
+    },
+    {
+      "label": "mobile-reverse-to-hero",
+      "y": 0,
+      "hero": {
+        "opacity": 1,
+        "effectiveOpacity": 1,
+        "visibility": "visible",
+        "inert": false,
+        "ariaHidden": null,
+        "hit": true
+      },
+      "explore": {
+        "opacity": 1,
+        "effectiveOpacity": 1,
+        "visibility": "visible",
+        "inert": false,
+        "ariaHidden": null,
+        "hit": true
+      },
+      "cta": {
+        "opacity": 0,
+        "effectiveOpacity": 0,
+        "visibility": "hidden",
+        "inert": true,
+        "ariaHidden": "true",
+        "hit": false
+      },
+      "focus": "lssh-home has-journey home-enhanced",
+      "status": "ready",
+      "overflow": false
+    }
+  ],
+  "errors": []
+}

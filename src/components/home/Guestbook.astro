@@ -1,0 +1,30 @@
+---
+import { giscusConfig, isGiscusConfigured } from '../../config/giscus';
+const discussionUrl = `https://github.com/${giscusConfig.repo}/discussions`;
+---
+<div class="home-guestbook" data-giscus-configured={isGiscusConfigured}>
+  {isGiscusConfigured ? <>
+    <p>使用 GitHub 账号留下话语，留言会公开显示。</p>
+    <button class="home-cta" type="button" data-load-giscus data-repo={giscusConfig.repo} data-repo-id={giscusConfig.repoId} data-category={giscusConfig.category} data-category-id={giscusConfig.categoryId} data-term={giscusConfig.term}>打开留言</button>
+    <div class="giscus" aria-live="polite"></div><p data-giscus-status role="status"></p>
+  </> : <><p>留言区暂未开放。</p><p class="home-description">接通后，用 GitHub 账号留下话语，与后来的人相遇。</p></>}
+  <a class="home-discussion-link" href={discussionUrl} target="_blank" rel="noreferrer">查看 GitHub 讨论区<span class="sr-only">（新窗口）</span></a>
+</div>
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-load-giscus]').forEach(button=>{
+    button.addEventListener('click',()=>{
+      const host=button.closest<HTMLElement>('.home-guestbook')!;
+      if(host.querySelector('.giscus iframe'))return;
+      const status=host.querySelector<HTMLElement>('[data-giscus-status]')!;
+      const mount=host.querySelector<HTMLElement>('.giscus')!;
+      status.textContent='正在连接留言区…';button.disabled=true;
+      const script=document.createElement('script');script.src='https://giscus.app/client.js';script.async=true;script.crossOrigin='anonymous';
+      const attrs={'repo':button.dataset.repo!,'repo-id':button.dataset.repoId!,'category':button.dataset.category!,'category-id':button.dataset.categoryId!,'mapping':'specific','term':button.dataset.term!,'strict':'1','reactions-enabled':'1','emit-metadata':'1','input-position':'top','theme':document.body.classList.contains('has-journey')?'light':'dark','lang':'zh-CN','loading':'lazy'};
+      Object.entries(attrs).forEach(([key,value])=>script.setAttribute(`data-${key}`,value));
+      const fail=()=>{status.textContent='留言区未能连接，可以在 GitHub 讨论区继续。';button.disabled=false;script.remove();};
+      const timer=setTimeout(fail,10000);script.onerror=()=>{clearTimeout(timer);fail();};
+      const receive=(event:MessageEvent)=>{if(event.origin!=='https://giscus.app'||event.source!==mount.querySelector<HTMLIFrameElement>('iframe')?.contentWindow||!event.data?.giscus)return;clearTimeout(timer);status.textContent=event.data.giscus.error?'留言区暂不可用，可以在 GitHub 讨论区继续。':'';window.removeEventListener('message',receive);};
+      window.addEventListener('message',receive);window.addEventListener('pagehide',()=>{clearTimeout(timer);window.removeEventListener('message',receive);},{once:true});mount.append(script);
+    });
+  });
+</script>

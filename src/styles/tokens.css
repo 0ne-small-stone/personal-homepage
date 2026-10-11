@@ -1,0 +1,37 @@
+/* Source of design decisions: docs/design/SYSTEM.md v0.1. */
+:root {
+  --palette-ink: #0b0d0f;
+  --palette-dark-surface: #151a1d;
+  --palette-paper: #f0eee8;
+  --palette-dark-muted: #b7bdbf;
+  --palette-dark-accent: #a8c7cc;
+  --palette-dark-border: #70787b;
+  --palette-light-bg: #e8e4dc;
+  --palette-light-surface: #f2efe8;
+  --palette-light-text: #272a2c;
+  --palette-light-muted: #62645d;
+  --palette-light-accent: #345b63;
+  --palette-light-border: #72746e;
+  --color-bg: var(--palette-ink);
+  --color-surface: var(--palette-dark-surface);
+  --color-text: var(--palette-paper);
+  --color-muted: var(--palette-dark-muted);
+  --color-accent: var(--palette-dark-accent);
+  --color-border: var(--palette-dark-border);
+  --font-body: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Songti SC', SimSun, serif;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --layout-max: 1200px;
+  --reading-max: 36em;
+  --target-min: 44px;
+  --motion-feedback: 180ms;
+  --ease-feedback: cubic-bezier(0.2, 0, 0, 1);
+}

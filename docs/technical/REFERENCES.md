@@ -4,13 +4,42 @@
 
 本文件保存 2026-10-02 的基础调研，以及 2026-10-03 对 Starlight、博客和搜索说明的补充核对，供实施时定位官方文档和候选项目。链接存在和文档描述可支持选型，不能代替实际版本兼容、账号权限、网络表现和部署验证。
 
-本项目尚未安装下列依赖。具体插件仍属于实施候选，决策边界见 [技术方案](SPEC.md)；组件与素材的许可、改造范围见[设计复用与素材来源](../design/REFERENCES.md)，接入阶段见[技术实施计划](PLAN.md)。
+2026-10-07 已安装 Astro、Starlight 和博客插件，采用清单见下文。未列为已采用的依赖仍属于实施候选，决策边界见 [技术方案](SPEC.md)；组件与素材的许可、改造范围见[设计复用与素材来源](../design/REFERENCES.md)，接入阶段见[技术实施计划](PLAN.md)。
 
 2026-10-03 方案更新：学习资料、博客和数字花园合并为知识库，现成方案优先。先沿用框架与插件原生集合和路由，再配置统一入口、检索和引用；对实际缺口做最小扩展。
 
 2026-10-07 候选范围调整：按用户最新需求移除知识关系图及其插件、接入文档；学习内容通过总览、搜索和普通引用浏览。原有其余来源与未验证状态沿用。
 
+## ALCHE 首页实现来源（2026-10-08）
+
+| 技术问题 | 主要依据 | 本项目结论及验证状态 |
+| --- | --- | --- |
+| 保留 Astro、单独客户端场景 | [Astro 框架组件](https://docs.astro.build/en/guides/framework-components/)、[React 集成](https://docs.astro.build/en/guides/integrations-guide/react/) | 静态 DOM + 首页单 React island；已有框架不更换，集成待安装验证 |
+| React/Three 配对 | [R3F 官方安装](https://r3f.docs.pmnd.rs/getting-started/installation) | Fiber 9 配 React 19、Fiber 8 配 React 18；实际 peer 与锁文件仍在施工时核对 |
+| 透射与性能 | [Drei MeshTransmissionMaterial](https://drei.docs.pmnd.rs/shaders/mesh-transmission-material) | 支持厚度、折射、色差和独立 buffer；会增加 render pass，需实测 samples/resolution |
+| 分段进度与平滑输入 | [ScrollTrigger](https://gsap.com/docs/v3/Plugins/ScrollTrigger/)、[Lenis 官方仓库](https://github.com/darkroomengineering/lenis) | 2026-10-08 为复刻用户指定的原站行为，采用一个 Lenis 实例与现有 GSAP 协作；官方有 RAF/GSAP 接入说明，MIT。当前包版本与兼容性由开发核对，禁止双时钟和嵌套区抢滚动 |
+| 源站实际实现 | [ALCHE](https://alche.studio/)、[官网依赖许可](https://alche.studio/license/)；具体脚本与哈希见[研究](../design/iterations/u03-p01-2026-10-08-10.md) | 源站也采用 Astro/Three/GSAP；其版本、Swup、定制 shader 为研究证据，不机械复制依赖表 |
+| 字体与代码来源 | [IBM Plex](https://github.com/IBM/plex)、[GSAP 许可](https://gsap.com/community/standard-license/) | 本地部署明确许可的字体；Plex OFL、Three/Drei MIT、GSAP 自身许可分别登记 |
+
+架构边界见技术 SPEC，施工队列见 PLAN 和 [任务单](HOMEPAGE_ALCHE_HANDOFF.md)。React/Three/GSAP 与最小透射已有局部结果，Lenis、精确时间编排及其完整验收尚未完成；最新原站源码/动态证据见 [17 轮研究](../design/iterations/u03-p01-2026-10-08-17.md)，不得沿用初轮“全部未安装”的快照。
+
 ## Astro 官方能力
+
+### T01 工程采用记录（2026-10-07）
+
+从 [Starlight 官方快速开始](https://starlight.astro.build/getting-started/) 的模板初始化，保留原生 docs loader/schema、阅读导航、目录和 Pagefind。自定义主站页面使用 Astro 静态组件，学习总览使用官方 [StarlightPage](https://starlight.astro.build/guides/pages/#starlightpage-component)。博客按插件的 [配置](https://starlight-blog-docs.vercel.app/configuration/) 设置 `knowledge/blog` 前缀；演示阶段关闭 RSS 与结构化个人信息，正式内容接入后再启用。
+
+| 直接依赖 | 锁定版本 | 安装包许可 | 本轮用途 |
+| --- | --- | --- | --- |
+| astro | 7.3.6 | MIT | 静态页面、开发与预览服务 |
+| @astrojs/starlight | 0.42.5 | MIT | 知识阅读与原生搜索 |
+| @astrojs/markdown-remark | 7.3.2 | MIT | Starlight 要求的官方 peer 依赖 |
+| starlight-blog | 0.30.0 | MIT | 原生文章列表和标签 |
+| sharp | 0.35.3 | Apache-2.0 | 官方模板的图片处理依赖 |
+| @astrojs/check | 0.9.10 | MIT | Astro 类型检查 |
+| typescript | 5.9.3 | Apache-2.0 | 严格类型配置 |
+
+版本、peer 范围与许可已通过 npm 官方注册表及已安装包核对，完整依赖树锁定于根 `package-lock.json`。这些许可不扩展到个人正文、照片或本地教材。当前页面没有需要 React 的复杂交互，未提前安装 React、动画、3D、CMS 或播放器候选。兼容与浏览器实际结果另记于 PLAN。
 
 | 来源 | 用于什么 |
 | --- | --- |
@@ -71,6 +100,7 @@ Astro 的交互组件可用于静态主站，但服务端动作和延迟服务�
 | [GitHub Actions 事件](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#discussion_comment) | 评论创建、编辑、删除可触发工作流；文件需位于默认分支，相关讨论事件处于公开预览 |
 | [网易云第三方 API 候选](https://github.com/NeteaseCloudMusicApiEnhanced/api-enhanced) | 候选服务端接口，尚未完成本项目账号与运行时验证 |
 | [歌单添加接口源码](https://github.com/NeteaseCloudMusicApiEnhanced/api-enhanced/blob/main/module/playlist_tracks.js) | 可研究歌曲加入歌单的实现；代码存在不代表真实授权和写入一定成功 |
+| [考拉云盘](https://pan.koala-studio.org.cn/) | 用户账号下的音乐文件托管位置；电台音频按需读取，音频文件不进入代码仓库；直链可用性尚未验证 |
 
 Waline 曾作为匿名留言候选。当前用户已接受 Giscus，Waline 不再是默认留言方案。
 

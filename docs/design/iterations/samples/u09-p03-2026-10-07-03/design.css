@@ -1,0 +1,112 @@
+/* P03 composition candidate. Canonical parameters: SYSTEM §§2,3,5.1,5.2. */
+html.lssh-root { scroll-padding-top: 0; }
+body.lssh-learning {
+  --color-bg: #000; --color-surface: #1f1f1f; --color-surface-active: #2a2a2a;
+  --color-text: #ededed; --color-muted: #a1a1a1; --color-accent: #d4d4d4;
+  --color-border: #777; --color-divider: #242424;
+  --font-reading: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", system-ui, sans-serif;
+  --library-width: 72rem; --library-rail: 12rem; --library-gap: 4rem;
+  --library-gutter: 2.5rem; --library-header: 5.5rem;
+  --sl-color-bg: var(--color-bg); --sl-color-bg-nav: var(--color-bg);
+  --sl-color-white: var(--color-text); --sl-color-black: var(--color-bg);
+  --sl-color-gray-1: var(--color-text); --sl-color-gray-2: var(--color-muted);
+  --sl-color-gray-3: var(--color-border); --sl-color-gray-5: var(--color-divider);
+  --sl-color-gray-6: var(--color-surface); --sl-color-gray-7: var(--color-bg);
+  --sl-color-text: var(--color-text); --sl-color-text-accent: var(--color-text);
+  --sl-color-accent: var(--color-accent); --sl-color-accent-high: var(--color-text);
+  --sl-color-accent-low: var(--color-surface); --sl-font: var(--font-reading);
+  background: var(--color-bg); color: var(--color-text); color-scheme: dark;
+  font-family: var(--font-reading); font-size: 1rem; line-height: 1.7;
+}
+.lssh-shell, .lssh-shell * { box-sizing: border-box; }
+.lssh-shell [hidden] { display: none !important; }
+.lssh-shell a { color: inherit; text-decoration: none; }
+.lssh-shell :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
+.lssh-header, .lssh-main, .lssh-footer { width: min(calc(100% - 2 * var(--library-gutter)), var(--library-width)); margin-inline: auto; }
+.lssh-header { min-height: var(--library-header); display: flex; align-items: center; gap: 3rem; }
+.lssh-header .site-title { color: var(--color-text); font-size: 1.375rem; font-weight: 600; min-height: 44px; min-width: 44px; }
+.lssh-global-nav { display: flex; align-items: center; gap: 1.75rem; margin-inline: auto; }
+.lssh-global-nav a { display: inline-flex; align-items: center; min-height: 44px; color: var(--color-muted); font-size: .875rem; white-space: nowrap; }
+.lssh-global-nav a[aria-current] { color: var(--color-text); font-weight: 600; }
+.lssh-global-nav a:hover { color: var(--color-text); }
+.lssh-header site-search { display: block; }
+.lssh-header site-search > button { width: 13rem; height: 44px; border: 1px solid var(--color-divider); border-radius: 10px; background: var(--color-surface); color: var(--color-muted); font: inherit; font-size: .8125rem; }
+.lssh-header site-search kbd { font-family: inherit; opacity: .7; }
+.lssh-intro { margin: 3.75rem 0 2.75rem calc(var(--library-rail) + var(--library-gap)); }
+.lssh-intro h1 { margin: 0; font-family: var(--font-reading); font-size: clamp(2.5rem, 4.6vw, 3.5rem); line-height: 1.15; font-weight: 500; letter-spacing: -.035em; }
+.lssh-lead { margin: 1.125rem 0 0; max-width: 38rem; color: var(--color-muted); font-size: 1rem; line-height: 1.8; }
+.lssh-browser { display: grid; grid-template-columns: var(--library-rail) minmax(0, 1fr); gap: var(--library-gap); align-items: start; }
+.lssh-index { position: sticky; top: 2rem; }
+.lssh-subjects summary { list-style: none; display: flex; align-items: center; justify-content: space-between; min-height: 44px; font-size: .8125rem; color: var(--color-muted); cursor: pointer; }
+.lssh-subjects summary::-webkit-details-marker { display: none; }
+.lssh-subject-nav { display: grid; gap: .375rem; margin-top: .875rem; }
+.lssh-subject-nav a { display: flex; align-items: center; justify-content: space-between; gap: .75rem; min-height: 44px; padding: .5rem .625rem; margin-inline: -.625rem; border-radius: 10px; font-size: .875rem; line-height: 1.6; }
+.lssh-index-count { color: var(--color-muted); font-size: .75rem; font-variant-numeric: tabular-nums; }
+.lssh-collection-note { margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid var(--color-divider); color: var(--color-muted); font-size: .8125rem; line-height: 1.8; }
+.lssh-collection-note p { margin: 0 0 .75rem; }
+.lssh-collection-note p:first-child { color: var(--color-text); }
+.lssh-collection-note a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline; text-underline-offset: .3em; }
+.lssh-index-empty { color: var(--color-muted); font-size: .8125rem; }
+.lssh-results { min-width: 0; }
+.lssh-results knowledge-type-filter { font-family: var(--font-reading); }
+.lssh-filter-toolbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .875rem; padding-bottom: 1.75rem; border-bottom: 1px solid var(--color-divider); }
+.lssh-filter-toolbar .knowledge-type-controls { margin: 0; padding: 0; border: 0; min-inline-size: 0; }
+.lssh-filter-toolbar legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.lssh-filter-toolbar .knowledge-type-options { display: flex; gap: .25rem; padding: .25rem; border-radius: 16px; background: var(--color-surface); }
+.lssh-filter-toolbar .knowledge-type-options > .knowledge-type-option { position: relative; display: flex; align-items: center; justify-content: center; min-height: 44px; min-width: 3.5rem; margin: 0; padding: .5rem .875rem; border: 1px solid transparent; border-radius: 10px; color: var(--color-muted); font-size: .875rem; line-height: 1.5; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: background-color 180ms ease, color 180ms ease; }
+.lssh-filter-toolbar .knowledge-type-option input { position: absolute; width: 1px; height: 1px; margin: 0; overflow: hidden; clip-path: inset(50%); }
+.lssh-filter-toolbar .knowledge-type-option:has(input:checked) { color: var(--color-text); background: var(--color-surface-active); border-color: var(--color-border); font-weight: 600; }
+.lssh-filter-toolbar .knowledge-type-option:focus-within { outline: none; }
+.lssh-filter-toolbar .knowledge-type-option:has(input:focus-visible) { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.lssh-filter-toolbar .knowledge-result-status { flex-shrink: 0; margin: 0; color: var(--color-muted); font-size: .8125rem; font-variant-numeric: tabular-nums; }
+.lssh-results .knowledge-list { list-style: none; padding: 0; margin: 0; }
+.lssh-results .knowledge-list > li { border: 0; padding: 0; margin: 0; }
+.lssh-subject-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; margin: 2.5rem 0 .75rem; font-family: var(--font-reading); font-size: 1.125rem; font-weight: 500; line-height: 1.6; scroll-margin-top: 2rem; }
+.lssh-subject-count { font-size: .75rem; font-weight: 400; color: var(--color-muted); }
+.lssh-entry { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 11rem; gap: 2rem; align-items: center; padding: 1.125rem 1rem; margin-inline: -1rem; border-radius: 16px; transition: background-color 180ms ease; }
+.lssh-entry::after { content: ''; position: absolute; bottom: 0; inset-inline: 1rem; border-bottom: 1px solid var(--color-divider); pointer-events: none; }
+.lssh-entry-body { min-width: 0; }
+.lssh-results .lssh-entry a { display: flex; align-items: center; min-height: 44px; width: fit-content; color: var(--color-text); font-size: 1.125rem; font-weight: 500; line-height: 1.6; text-decoration: none; overflow-wrap: anywhere; }
+.lssh-results .lssh-entry p { margin: .375rem 0 0; color: var(--color-muted); font-size: .875rem; line-height: 1.8; }
+.lssh-results .knowledge-meta { margin: 0; color: var(--color-muted); font-size: .75rem; line-height: 1.8; text-align: right; overflow-wrap: anywhere; }
+.lssh-results .knowledge-meta > span { display: inline; }
+.lssh-results .knowledge-meta > span + span::before { content: ' · '; }
+.lssh-results .knowledge-empty { margin: 0; padding: 3rem 0; color: var(--color-muted); font-size: .9375rem; line-height: 1.8; }
+.lssh-results .knowledge-filter-fallback { color: var(--color-muted); }
+.lssh-footer { display: flex; justify-content: space-between; gap: 1.5rem; padding-block: 3rem 2rem; margin-top: 3rem; color: var(--color-muted); font-size: .75rem; }
+@media (hover: hover) and (pointer: fine) { .lssh-entry:hover, .lssh-subject-nav a:hover { background: var(--color-surface); } .lssh-entry a:hover { text-decoration: underline; text-underline-offset: .2em; } .lssh-filter-toolbar .knowledge-type-option:hover { color: var(--color-text); } }
+.lssh-filter-toolbar .knowledge-type-option:active { background: var(--color-surface-active); }
+@media (max-width: 1100px) { body.lssh-learning { --library-gap: 2.5rem; --library-rail: 10.5rem; } .lssh-entry { grid-template-columns: minmax(0, 1fr); gap: .625rem; } .lssh-results .knowledge-meta { text-align: left; } }
+@media (max-width: 800px) {
+  body.lssh-learning { --library-gutter: 1.5rem; --library-header: 4.5rem; }
+  .lssh-header { gap: 1.25rem .5rem; flex-wrap: wrap; padding-block: .75rem; }
+  .lssh-header .site-title { margin-right: auto; }
+  .lssh-header site-search { order: 1; }
+  .lssh-header site-search > button { width: 2.75rem; height: 2.75rem; min-width: 2.75rem; padding: .625rem; justify-content: center; }
+  .lssh-header site-search > button > svg { flex-shrink: 0; }
+  .lssh-header site-search > button > span, .lssh-header site-search > button > kbd { display: none; }
+  .lssh-global-nav { order: 2; width: 100%; flex-wrap: wrap; justify-content: space-between; gap: .75rem; margin: 0; }
+  .lssh-intro { margin: 1.75rem 0 1.5rem; }
+  .lssh-intro h1 { font-size: 2.75rem; }
+  .lssh-lead { margin-top: .75rem; font-size: .9375rem; }
+  .lssh-browser { display: flex; flex-direction: column; gap: 1.5rem; }
+  .lssh-index, .lssh-results { width: 100%; position: static; }
+  .lssh-subjects { border: 1px solid var(--color-divider); border-radius: 12px; padding: 0 .875rem; }
+  .lssh-subjects summary { color: var(--color-text); }
+  .lssh-subjects summary::after { content: '+'; margin-left: .75rem; font-size: 1.125rem; }
+  .lssh-subjects[open] summary::after { content: '−'; }
+  .lssh-subjects summary .lssh-index-count { margin-left: auto; }
+  .lssh-subject-nav { padding-bottom: .75rem; margin-top: .375rem; }
+  .lssh-collection-note { margin-top: .875rem; padding-block: .875rem; font-size: .75rem; }
+  .lssh-collection-note p:first-child { display: none; }
+  .lssh-collection-note p { margin: 0; }
+  .lssh-filter-toolbar { padding-bottom: 1.25rem; }
+  .lssh-filter-toolbar .knowledge-type-options { flex-wrap: wrap; }
+  .lssh-subject-heading { margin-top: 2rem; }
+  .lssh-entry { padding: 1rem .625rem; margin-inline: -.625rem; }
+  .lssh-entry::after { inset-inline: .625rem; }
+  .lssh-results .lssh-entry a { font-size: 1.0625rem; }
+  .lssh-footer { flex-direction: column; gap: .5rem; margin-top: 1.5rem; }
+}
+@media (prefers-reduced-motion: reduce) { .lssh-shell * { transition: none !important; scroll-behavior: auto !important; } }
+@media (forced-colors: active) { .lssh-filter-toolbar .knowledge-type-option:has(input:checked) { border-color: Highlight; } .lssh-filter-toolbar .knowledge-type-option:has(input:focus-visible) { outline-color: Highlight; } }

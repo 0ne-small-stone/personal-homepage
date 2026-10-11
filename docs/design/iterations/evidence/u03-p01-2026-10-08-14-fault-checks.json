@@ -1,0 +1,27 @@
+[
+  {
+    "name": "context-lost",
+    "status": "error",
+    "canvas": 0,
+    "wordmark": 1,
+    "mainText": "声音未配置\n暂停动态\n重试场景\n\n场景未能呈现，已切换为普通浏览。\n\nLittle Stone Still Here\n\n留下的东西，仍在这里。\n\n向下探索\nAfterimage\n\n从一个念头，到可以触碰的东西。\n\n浏览项目与作品\n浏览项目与作品\n\n这里的第一个项目，正是这个网站。\n\nLSSH\nLittle Stone\nStill Here\n个人网站 · 建造中\nEchoes\n\n有些声音，会在很久以后再次响起。\n\n进入音乐电台\n进入音乐电台\n\nPink Floyd / Echoes · 播放与共享歌单待接入\n\nPink Floyd\nEchoes\nA moment remains\n\n把目光停留过的地方，慢慢收集起来。\n\n浏览相册\n浏览相册\n选图样本 · Annie Spratt / Unsplash\n（新窗口）\nElsewhere\n\n从这里，走向更辽阔的地方。\n\n打开常用网站\n打开常用网站\nAwwwards\n设计与交互\n（新窗口）\nReact Bits\n动效组件\n（新窗口）\nCS 自学指南\n学习与探索\n（新窗口）\nThe Wall\n\n走到这里，也留下你的回声。\n\n留言区暂未开放。\n\n接通后，用 GitHub 账号留下话语，与后来的人相遇。\n\n查看 GitHub 讨论区\n（新窗口）\n查看留言区\n查看留言区\n回到序章\n认识小石\n00\n01\n02\n03\n04\n05",
+    "retry": 1,
+    "errors": [],
+    "consoleErrors": [],
+    "failed": []
+  },
+  {
+    "name": "no-webgl",
+    "status": "error",
+    "canvas": 0,
+    "wordmark": 1,
+    "mainText": "声音未配置\n暂停动态\n重试场景\n\n场景未能呈现，已切换为普通浏览。\n\nLittle Stone Still Here\n\n留下的东西，仍在这里。\n\n向下探索\nAfterimage\n\n从一个念头，到可以触碰的东西。\n\n浏览项目与作品\n浏览项目与作品\n\n这里的第一个项目，正是这个网站。\n\nLSSH\nLittle Stone\nStill Here\n个人网站 · 建造中\nEchoes\n\n有些声音，会在很久以后再次响起。\n\n进入音乐电台\n进入音乐电台\n\nPink Floyd / Echoes · 播放与共享歌单待接入\n\nPink Floyd\nEchoes\nA moment remains\n\n把目光停留过的地方，慢慢收集起来。\n\n浏览相册\n浏览相册\n选图样本 · Annie Spratt / Unsplash\n（新窗口）\nElsewhere\n\n从这里，走向更辽阔的地方。\n\n打开常用网站\n打开常用网站\nAwwwards\n设计与交互\n（新窗口）\nReact Bits\n动效组件\n（新窗口）\nCS 自学指南\n学习与探索\n（新窗口）\nThe Wall\n\n走到这里，也留下你的回声。\n\n留言区暂未开放。\n\n接通后，用 GitHub 账号留下话语，与后来的人相遇。\n\n查看 GitHub 讨论区\n（新窗口）\n查看留言区\n查看留言区\n回到序章\n认识小石\n00\n01\n02\n03\n04\n05",
+    "retry": 1,
+    "errors": [],
+    "consoleErrors": [
+      "THREE.WebGLRenderer: THREE.WebGLRenderer: Error creating WebGL context.",
+      "Error: THREE.WebGLRenderer: Error creating WebGL context.\n    at new rg (http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.Za_sGnz2.js:4220:24385)\n    at z_ (http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.Za_sGnz2.js:4220:78248)\n    at l (http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.Za_sGnz2.js:4231:11260)\n    at Object.configure (http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.Za_sGnz2.js:4231:11374)\n    at http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.Za_sGnz2.js:4231:20908\n    at Dl (http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js:8:94954)\n    at yu (http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js:8:104419)\n    at Ru (http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js:8:115641)\n    at yu (http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js:8:105471)\n    at Ru (http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js:8:115641)"
+    ],
+    "failed": []
+  }
+]

@@ -1,0 +1,145 @@
+{
+  "date": "2026-10-08",
+  "url": "https://alche.studio/",
+  "method": "Independent headless Chrome / Playwright after in-app browser control failed",
+  "desktop": {
+    "height": 900,
+    "dpr": 1,
+    "width": 1440
+  },
+  "mobile": {
+    "height": 844,
+    "touch": true,
+    "width": 390
+  },
+  "documentHeight": 22780,
+  "headerComputedStyles": [
+    {
+      "text": "",
+      "font": "ibm-plex-sans-jp, sans-serif",
+      "fontSize": "24px",
+      "weight": "700",
+      "lineHeight": "normal",
+      "letterSpacing": "3.2px",
+      "color": "rgb(255, 255, 255)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "border": "0px none rgb(255, 255, 255)",
+      "radius": "0px"
+    },
+    {
+      "text": "News",
+      "font": "\"IBM Plex Mono\", monospace",
+      "fontSize": "14px",
+      "weight": "400",
+      "lineHeight": "normal",
+      "letterSpacing": "1.4px",
+      "color": "rgb(255, 255, 255)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "border": "0px none rgb(255, 255, 255)",
+      "radius": "0px"
+    },
+    {
+      "text": "Works",
+      "font": "\"IBM Plex Mono\", monospace",
+      "fontSize": "14px",
+      "weight": "400",
+      "lineHeight": "normal",
+      "letterSpacing": "1.4px",
+      "color": "rgb(255, 255, 255)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "border": "0px none rgb(255, 255, 255)",
+      "radius": "0px"
+    },
+    {
+      "text": "About",
+      "font": "\"IBM Plex Mono\", monospace",
+      "fontSize": "14px",
+      "weight": "400",
+      "lineHeight": "normal",
+      "letterSpacing": "1.4px",
+      "color": "rgb(255, 255, 255)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "border": "0px none rgb(255, 255, 255)",
+      "radius": "0px"
+    },
+    {
+      "text": "stellla",
+      "font": "\"IBM Plex Mono\", monospace",
+      "fontSize": "14px",
+      "weight": "400",
+      "lineHeight": "normal",
+      "letterSpacing": "1.4px",
+      "color": "rgb(255, 255, 255)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "border": "0px none rgb(255, 255, 255)",
+      "radius": "0px"
+    },
+    {
+      "text": "Contact / Recruit\n \nContact / Recruit",
+      "font": "\"IBM Plex Mono\", monospace",
+      "fontSize": "11px",
+      "weight": "400",
+      "lineHeight": "normal",
+      "letterSpacing": "normal",
+      "color": "rgb(255, 255, 255)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "border": "1px solid rgba(255, 255, 255, 0.5)",
+      "radius": "999px"
+    },
+    {
+      "text": "",
+      "font": "Arial",
+      "fontSize": "13.3333px",
+      "weight": "400",
+      "lineHeight": "normal",
+      "letterSpacing": "normal",
+      "color": "rgb(255, 255, 255)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "border": "0px none rgb(255, 255, 255)",
+      "radius": "999px"
+    }
+  ],
+  "scrollSamples": [
+    {
+      "step": 1,
+      "y": 1798
+    },
+    {
+      "step": 2,
+      "y": 3598
+    },
+    {
+      "step": 3,
+      "y": 5463
+    },
+    {
+      "step": 4,
+      "y": 7293
+    },
+    {
+      "step": 5,
+      "y": 9093
+    },
+    {
+      "step": 6,
+      "y": 10893
+    },
+    {
+      "step": 7,
+      "y": 12693
+    },
+    {
+      "step": 8,
+      "y": 14337
+    }
+  ],
+  "observedPageErrors": [
+    "Network request failed"
+  ],
+  "sourceBundle": {
+    "url": "https://alche.studio/_astro/index.astro_astro_type_script_index_0_lang.Cn_goiN_.js",
+    "bytes": 1831372,
+    "sha256": "b2bd0d964416bd3db61b1392d2b645314e50ea79cadb09f69755d5f4c3791853"
+  },
+  "limitation": "Source-site research only; loading completion timings, full mobile journey, hardware performance and LSSH effects not validated. One mobile reload ERR_ABORTED; a fresh touch viewport subsequently captured successfully. Source debug overlays visible in desktop captures."
+}

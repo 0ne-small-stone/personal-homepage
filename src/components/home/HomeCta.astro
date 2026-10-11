@@ -1,0 +1,8 @@
+---
+interface Props { href: string; label: string; id?: string; }
+const { href, label, id } = Astro.props;
+---
+<a class="home-cta" href={href} id={id} aria-label={label} data-home-link>
+  <span class="home-cta-clip" aria-hidden="true"><span>{label}</span><span>{label}</span></span>
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+</a>

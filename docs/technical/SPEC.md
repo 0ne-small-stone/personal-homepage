@@ -4,7 +4,7 @@
 
 本文件供后续开发者或 AI 实施技术功能，记录架构、依赖、数据模型、接口、构建部署和技术验证边界。项目采用 Astro 静态主站，GitHub 保存内容，Giscus 承担留言，音乐写入和未来 AI 通过按需服务端接入。
 
-整理日期：2026-10-02；更新日期：2026-10-07。业务功能与网站工程尚未实现，已开始 Git 与 CI 配置，尚未部署。最新用户指令优先；实施状态见 [实施计划](PLAN.md)。
+整理日期：2026-10-02；更新日期：2026-10-07。Astro/Starlight 基础工程和示例知识阅读已建立；真实内容、业务服务与部署仍未完成。最新用户指令优先；实施状态见 [实施计划](PLAN.md)。
 
 ## 文档范围
 
@@ -42,7 +42,7 @@
 
 ## 完整功能范围
 
-全部功能当前均未实现。下表定义完整目标，分阶段交付不代表放弃后续需求。R02、R09 和 R10 是同一个知识库的不同能力，共享数据和浏览入口。
+Astro 基础工程、演示知识浏览及原生搜索已有验证，完整业务目标尚未全部实现；实际进度与证据见[技术计划](PLAN.md)。下表定义完整目标，分阶段交付不代表放弃后续需求。R02、R09 和 R10 是同一个知识库的不同能力，共享数据和浏览入口。
 
 | 编号 | 功能 | 实现目标 |
 | --- | --- | --- |
@@ -96,7 +96,7 @@
 
 不以安装全部插件作为实施目标。按完整功能选用必要依赖，保留稳定、可维护的内容和页面结构。
 
-Starlight 已提供导航、搜索等基础能力；默认搜索由 Pagefind 实现。starlight-blog 在 Starlight 中补充博客功能，并通过扩展原生 docs schema 接入文章。以上能力已核对官方说明，插件组合在本项目中尚未安装或验证。[Starlight](https://starlight.astro.build/zh-cn/)、[搜索说明](https://starlight.astro.build/zh-cn/guides/site-search/)、[博客接入说明](https://starlight-blog-docs.vercel.app/getting-started/)。
+Starlight 已提供导航、搜索等基础能力；默认搜索由 Pagefind 实现。starlight-blog 在 Starlight 中补充博客功能，并通过扩展原生 docs schema 接入文章。基础组合已在本项目安装并通过类型检查、生产构建及演示浏览；版本以锁文件为准，完整筛选、引用和正式内容仍待接入。[Starlight](https://starlight.astro.build/zh-cn/)、[搜索说明](https://starlight.astro.build/zh-cn/guides/site-search/)、[博客接入说明](https://starlight-blog-docs.vercel.app/getting-started/)。
 
 ## 页面组织建议
 
@@ -138,6 +138,23 @@ Starlight 已提供导航、搜索等基础能力；默认搜索由 Pagefind 实
 Starlight 是当前优先验证的知识库基础方案。若某个插件不兼容，先检查配置与版本，再评估替代插件和小范围适配；只有现成方案确实无法满足核心需求时才考虑更换基础方案或自研，并记录证据。
 
 ## 前端组件和运行时约束
+
+### P01 首页的 ALCHE 方向（2026-10-08）
+
+用户确定以 ALCHE 为标杆，随后明确要求复刻其交互与动画。首页仍属于 Astro 静态主站：服务端生成导航、章节、标题、图片及真实链接；一个 React island 与一个 Canvas 负责连续场景。现有 React/Three/GSAP 已有工程样本；新增或调整依赖仍需核对兼容性并锁定，不把研究完成当接入完成。
+
+- 优先组合：官方 Astro React 集成、React/ReactDOM、Three、R3F、按需 Drei 透射材质、GSAP ScrollTrigger。React 与 R3F 主版本配对；不因参考站使用 Swup 而更换现有路由。
+- 真实纵向文档位置为章节进度来源。按最新复刻要求接入一个 Lenis 实例处理桌面平滑，ScrollTrigger 产出并行进度与进入事件，对象读取独立追随参数；作品区局部吸附可被新输入中断。移动端保留原生触摸，键盘/表单/留言区域保持可用；不恢复点击棱镜解锁机制。
+- 首页章节状态与真实内容路由分开；项目章首轮链接现有 `/showcase/`，相册必须建立 `/gallery/`，其他目标沿用。路由使用现有 `sitePath`；资产路径不能使用会追加斜杠的路由 helper。
+- Three LoadingManager 管理关键资源，场景首帧就绪后退出 loader；失败和超时转静态浏览，始终保留可用跳过链接。其他章节媒体渐进加载。
+- DOM 不会自动被 WebGL 材质折射。确需进入折射的图像/字标有场景纹理副本，语义文字与按钮保留 DOM，避免重复朗读及透明命中层。
+- WebGL/动画资源离页销毁、隐藏页暂停；使用 pagehide/pageshow 与 BFCache 恢复。仅当日后引入 Astro ClientRouter 时接入 before-swap/page-load 的成对清理与初始化；当前不强制改造为 SPA。
+- Giscus 负责真实身份与提交。砖墙数据若采用公开 Discussions 快照，单独实现 CI 读取、稳定 ID、更新时间与删除同步；不通过跨域 iframe DOM 读取评论，不把浏览器端凭证用于写入。
+- 首页字体经本地许可明确资源部署，不复用 ALCHE 的 Adobe kit；学习区继续苹方优先。所有场景依赖仅由首页加载，知识库不承担 3D 包的运行成本。
+
+页面组成与动作以设计 SPEC/CONCEPT 为准，数值只在设计 SYSTEM 第 9 节维护；工程切片见 [首页施工交接](HOMEPAGE_ALCHE_HANDOFF.md) 与 PLAN。ALCHE 定制模型、声音、图像、Lottie 与成品 shader 不作为本站运行资产。
+
+### 通用运行时
 
 - 内容页面优先生成静态 HTML，React 组件按任务选择 Astro 客户端加载指令。
 - 依赖 window、DOM 或 WebGL 的代码只在浏览器运行，避免在构建阶段访问浏览器对象。
@@ -223,6 +240,8 @@ GitHub Discussions 评论事件可作为可选更新触发器，但相关事件�
 
 访客推歌是否改用 GitHub 身份需要后续确认。不能把未经审核的留言直接写入网易云歌单。
 
+音源托管：电台音频文件不放入代码仓库，通过用户账号保存到考拉云盘（https://pan.koala-studio.org.cn/），播放器按需读取该云盘提供的公开音频地址。音源下载与整理方式记录在仓库根目录的 `洛雪音乐.txt`；采用第三方音源时逐条核对来源与许可。云盘直链的可用性、跨域读取及移动端播放尚未验证，不能假定播放已可用。
+
 ## 静态资源和现有资料
 
 2026-10-02 历史检查：大二上学习资源目录共有 37 个文件，其中 35 个 PDF、2 个 TXT，总大小 316,207,814 字节，约 301.6 MiB。
@@ -252,7 +271,7 @@ Git LFS 或 GitHub Releases 是可研究的分发方式，但不会自动解决�
 
 2026-10-07 已搭建 GitHub Actions，发布目标为 GitHub Pages，公开仓库 `0ne-small-stone/personal-homepage` 已创建并上传，仓库 CI 已通过。使用一个主工作流串联仓库检查、网站构建和 Pages 发布，复用官方 checkout、setup-node、upload-pages-artifact 与 deploy-pages；安装采用 `npm ci` 和已提交的锁文件。文档校验复用 remark、unified-engine 与链接校验插件，工作流语法复用 actionlint。当前无 Astro 工程时明确跳过网站构建与发布；工程完整后才自动启用，缺失锁文件或检查命令视为错误。只有默认分支的成功构建可以发布。
 
-原始学习资料目录保持本地保存并由 `.gitignore` 排除。少量适配代码仅检查本项目的文件纳入边界、工程是否就绪与静态产物，不重写 Markdown 解析、工作流语法分析、框架构建或 Pages 部署。CMS、图片/PDF 派生、知识引用及 Pagefind 的真实集成仍在各自任务完成后接入原生构建流程。
+原始学习资料目录保持本地保存并由 `.gitignore` 排除。少量适配代码仅检查本项目的文件纳入边界、工程是否就绪与静态产物，不重写 Markdown 解析、工作流语法分析、框架构建或 Pages 部署。Pagefind 已由 Starlight 原生构建生成；CMS、图片/PDF 派生及自动知识关联仍待各自任务接入原生流程。
 
 复用取舍：withastro/action 已提供完整的 Astro/Pages 接入，但当前项目需要显式执行 `npm ci`、独立类型检查与产物检查，因此组合 GitHub 官方 Actions。remark CLI 的实装依赖审计发现文件监听依赖链的已知漏洞；本项目不需要监听功能，改为直接调用其底层 unified-engine，以少量入口配置保留跨文档链接与锚点校验。Git 纳入文件与产物规则是现成工具没有表达的项目边界，适配仅覆盖这些规则。
 

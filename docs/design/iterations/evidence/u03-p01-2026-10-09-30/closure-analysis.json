@@ -1,0 +1,213 @@
+{
+  "date": "2026-10-09T13:51:22.449Z",
+  "method": "Read-only attribution using retained targeted pixels and four continuous six-frame resource windows. Original failed reports remain unchanged.",
+  "checks": [
+    {
+      "name": "S0 differences confined to independently animated DOM arrow; all remaining pixels identical",
+      "pass": true,
+      "evidence": {
+        "bounds": [
+          52,
+          643,
+          63,
+          659
+        ],
+        "changed": 46,
+        "max": 7,
+        "outside": 0,
+        "css": "src/styles/home.css:38–39: .home-scroll svg animation scroll-hint 2.8s ease-in-out infinite",
+        "attribution": "Actual old/new crops inspected. Design reviewer independently confirmed all 46 pixels are the downward SVG. Preserve original full-page pixel gate fail; no application change or excluded GPU geometry."
+      }
+    },
+    {
+      "name": "resource budgets remain bounded across stable windows and last two returns agree",
+      "pass": true,
+      "evidence": {
+        "rows": [
+          {
+            "label": "warm baseline",
+            "frames": [
+              13,
+              15,
+              17,
+              19,
+              21,
+              23,
+              25
+            ],
+            "span": 996.1000000238419,
+            "textures": 16,
+            "programs": 15,
+            "gpuPrograms": 7,
+            "canvases": 1,
+            "buffer": [
+              0,
+              0
+            ],
+            "reason": "layout",
+            "images": [
+              {
+                "width": 1100,
+                "height": 990,
+                "uploaded": true
+              },
+              {
+                "width": 1000,
+                "height": 1000,
+                "uploaded": true
+              },
+              {
+                "width": 1100,
+                "height": 994,
+                "uploaded": true
+              },
+              {
+                "width": 2048,
+                "height": 1152,
+                "uploaded": true
+              }
+            ]
+          },
+          {
+            "label": "return 1",
+            "frames": [
+              6,
+              7,
+              9,
+              11,
+              13,
+              15,
+              17
+            ],
+            "span": 1008.2000000476837,
+            "textures": 14,
+            "programs": 13,
+            "gpuPrograms": 7,
+            "canvases": 1,
+            "buffer": [
+              0,
+              0
+            ],
+            "reason": "back-forward",
+            "images": [
+              {
+                "width": 1100,
+                "height": 990,
+                "uploaded": true
+              },
+              {
+                "width": 1000,
+                "height": 1000,
+                "uploaded": true
+              },
+              {
+                "width": 1100,
+                "height": 994,
+                "uploaded": true
+              },
+              {
+                "width": 2048,
+                "height": 1152,
+                "uploaded": true
+              }
+            ]
+          },
+          {
+            "label": "return 2",
+            "frames": [
+              7,
+              12,
+              14,
+              16,
+              18,
+              20,
+              23
+            ],
+            "span": 969.3000000119209,
+            "textures": 15,
+            "programs": 15,
+            "gpuPrograms": 7,
+            "canvases": 1,
+            "buffer": [
+              0,
+              0
+            ],
+            "reason": "back-forward",
+            "images": [
+              {
+                "width": 1100,
+                "height": 990,
+                "uploaded": true
+              },
+              {
+                "width": 1000,
+                "height": 1000,
+                "uploaded": true
+              },
+              {
+                "width": 1100,
+                "height": 994,
+                "uploaded": true
+              },
+              {
+                "width": 2048,
+                "height": 1152,
+                "uploaded": true
+              }
+            ]
+          },
+          {
+            "label": "return 3",
+            "frames": [
+              8,
+              12,
+              15,
+              17,
+              19,
+              21,
+              24
+            ],
+            "span": 972.3000000119209,
+            "textures": 15,
+            "programs": 15,
+            "gpuPrograms": 7,
+            "canvases": 1,
+            "buffer": [
+              0,
+              0
+            ],
+            "reason": "back-forward",
+            "images": [
+              {
+                "width": 1100,
+                "height": 990,
+                "uploaded": true
+              },
+              {
+                "width": 1000,
+                "height": 1000,
+                "uploaded": true
+              },
+              {
+                "width": 1100,
+                "height": 994,
+                "uploaded": true
+              },
+              {
+                "width": 2048,
+                "height": 1152,
+                "uploaded": true
+              }
+            ]
+          }
+        ],
+        "attribution": "Four decoded card maps are uploaded in every window. Seven GPUComputationShader programs are present throughout. First return has six other scene programs; later returns eight, at or below warmed baseline. This is consistent with lazy compilation of other rendered scene branches; their exact owners were not enumerated. No continuous texture/program growth is observed in these three returns; this is bounded evidence, not a long-run memory guarantee."
+      }
+    }
+  ],
+  "pass": true,
+  "remainingTargetedFailures": [
+    "zero field matches round29 at S=0",
+    "real column back initializes one canvas without growth after ready window"
+  ]
+}

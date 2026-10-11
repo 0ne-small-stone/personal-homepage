@@ -1,0 +1,232 @@
+{
+  "schemaVersion": 1,
+  "reviewDate": "2026-10-08",
+  "scope": "Read-only review of round-19 saved capture and cached public source; only this evidence JSON created. No browser recapture, no application or other document edits.",
+  "sourceBundle": {
+    "cachePath": "C:/Users/asus/AppData/Local/Temp/lssh-alche-source-audit/index.astro_astro_type_script_index_0_lang.Cn_goiN_.js",
+    "sha256": "b2bd0d964416bd3db61b1392d2b645314e50ea79cadb09f69755d5f4c3791853",
+    "bytes": 1831372,
+    "offsetConvention": "zero-based UTF-16 code-unit offsets in decoded UTF-8 JavaScript; UTF-8 byte offsets also included"
+  },
+  "cameraEasing": {
+    "status": "Confirmed formula mismatch; defer application correction to separate glass/camera slice.",
+    "original": {
+      "symbol": "Easings.sigmoid(strength = 6)",
+      "offsetUtf16": 562047,
+      "offsetUtf8Bytes": 562047,
+      "lengthUtf16": 108,
+      "excerpt": "function i(T=6){return M=>{const A=Math.exp(-T*(2*M-1)),D=Math.exp(-T);return(1+(1-A)/(1+A)*(1+D)/(1-D))/2}}",
+      "exactFormula": "A = exp(-6 * (2*t - 1)); D = exp(-6); S(t) = (1 + ((1-A)/(1+A)) * ((1+D)/(1-D))) / 2",
+      "equivalentNormalizedLogistic": "f(t) = 1/(1 + exp(-12*(t - 0.5))); S(t) = (f(t)-f(0))/(f(1)-f(0))",
+      "coefficientOfCenteredT": 12,
+      "defaultEasing": {
+        "offsetUtf16": 564617,
+        "offsetUtf8Bytes": 564617,
+        "lengthUtf16": 34,
+        "excerpt": "easing:i.easing||Easings.sigmoid()"
+      },
+      "cameraAdd": {
+        "offsetUtf16": 1040718,
+        "offsetUtf8Bytes": 1040718,
+        "lengthUtf16": 47,
+        "excerpt": "this._animator.add({name:\"kvZoom\",initValue:1})"
+      },
+      "cameraChangeSection": {
+        "offsetUtf16": 1042319,
+        "offsetUtf8Bytes": 1042319,
+        "lengthUtf16": 99,
+        "excerpt": "changeSection(i){i==\"kv\"?this._animator.animate(\"kvZoom\",1,1):this._animator.animate(\"kvZoom\",0,1)}"
+      }
+    },
+    "local": {
+      "path": "src/components/home/CameraRig.tsx",
+      "sha256": "5d2cdcf4f52fe5167e13f369c045d4af3405e4b6db2a64d497b970e82f536a2a",
+      "lines": [
+        {
+          "line": 6,
+          "text": "const sigmoid=(t:number)=>{const f=(x:number)=>1/(1+Math.exp(-6*(x-.5)));return(f(t)-f(0))/(f(1)-f(0));};"
+        },
+        {
+          "line": 14,
+          "text": "    const zoom=transition.current,target=model.motion.phase==='kv'?1:0,time=performance.now();"
+        },
+        {
+          "line": 15,
+          "text": "    if(target!==zoom.target)Object.assign(zoom,{from:zoom.value,target,start:time});"
+        },
+        {
+          "line": 16,
+          "text": "    zoom.value=MathUtils.lerp(zoom.from,zoom.target,sigmoid(MathUtils.clamp((time-zoom.start)/1000,0,1)));"
+        },
+        {
+          "line": 18,
+          "text": "    camera.position.set(offset.current.x*sceneUnitScale,offset.current.y*sceneUnitScale,(10-.5*zoom.value)*sceneUnitScale);"
+        },
+        {
+          "line": 19,
+          "text": "    camera.fov=35+18/(size.width/size.height)-4*zoom.value;camera.updateProjectionMatrix();camera.lookAt(0,0,0);"
+        }
+      ],
+      "formula": "f(t) = 1/(1 + exp(-6*(t - 0.5))); S(t) = (f(t)-f(0))/(f(1)-f(0))",
+      "coefficientOfCenteredT": 6
+    },
+    "samples": [
+      {
+        "normalizedTime": 0.25,
+        "source": 0.04517665973091217,
+        "local": 0.14914645207033284,
+        "localMinusSource": 0.10396979233942066
+      },
+      {
+        "normalizedTime": 0.5,
+        "source": 0.5,
+        "local": 0.4999999999999999,
+        "localMinusSource": -1.1102230246251565e-16
+      },
+      {
+        "normalizedTime": 0.75,
+        "source": 0.9548233402690879,
+        "local": 0.850853547929667,
+        "localMinusSource": -0.10396979233942083
+      }
+    ],
+    "interpretation": "Original strength=6 means exponent -6*(2*t-1), equivalent to a centered-logistic coefficient of 12. Local coefficient 6 is a different, flatter curve. Matching endpoints and midpoint does not establish curve equality. This calculation does not attribute all observed wall-clock camera timing differences to the easing coefficient."
+  },
+  "ctaEntryGate": {
+    "status": "Confirmed source gating gap, supported by recorded hit and captured frame; own CTA computed opacity was not recorded.",
+    "data": {
+      "path": "docs/design/iterations/evidence/u03-p01-2026-10-08-19/delivery/data.json",
+      "sha256": "51dddf40948b0eded66b8c9459016422a930703f87b4956c84b75d544d3658fd",
+      "objectPath": "$.clips[1].local.frames[0]",
+      "frameFilePath": "docs/design/iterations/evidence/u03-p01-2026-10-08-19/delivery/final-local-fast-04.jpg",
+      "frameSha256": "2556b2d8b87af66560caa1bf027a5844639c8a3577e51f29545a589c0c9693ed",
+      "elapsedMs": {
+        "path": "$.clips[1].local.frames[0].elapsedMs",
+        "value": 229
+      },
+      "cdpTimestamp": {
+        "path": "$.clips[1].local.frames[0].cdpTimestamp",
+        "value": 1791461734.539981
+      },
+      "sampleClockMs": {
+        "path": "$.clips[1].local.frames[0].sample.time",
+        "value": 50731.89999997616
+      },
+      "domClockMs": {
+        "path": "$.clips[1].local.frames[0].dom.t",
+        "value": 50742.39999997616
+      },
+      "scrollY": {
+        "path": "$.clips[1].local.frames[0].dom.scrollY",
+        "value": 1604
+      },
+      "titleContainer": {
+        "path": "$.clips[1].local.frames[0].dom.titles[0]",
+        "id": "projects",
+        "inert": false,
+        "ariaHidden": null,
+        "active": "true",
+        "opacity": 0.5254,
+        "visibility": "visible"
+      },
+      "ctaHit": {
+        "path": "$.clips[1].local.frames[0].dom.titles[0].cta.hit",
+        "value": true
+      },
+      "cta": {
+        "href": "http://127.0.0.1:4321/personal-homepage/showcase/",
+        "rect": {
+          "x": 50.390625,
+          "y": 663.609375,
+          "width": 180.390625,
+          "height": 48.59375
+        },
+        "hit": true
+      },
+      "ownCtaComputedOpacity": "Not captured; title-container opacity 0.5254 must not be reported as CTA opacity."
+    },
+    "code": [
+      {
+        "path": "src/components/home/home-motion.ts",
+        "sha256": "d1eb41711c1c2c971929422412588b8b707b3a78d0692eb1af802685cd247783",
+        "lines": [
+          {
+            "line": 25,
+            "text": "  const containers = sections.map(section => section.querySelector<HTMLElement>('.home-chapter-viewport')!);"
+          },
+          {
+            "line": 29,
+            "text": "    timelines.get(index)?.kill();"
+          },
+          {
+            "line": 35,
+            "text": "      gsap.set(containers[index], { autoAlpha: 0 });"
+          },
+          {
+            "line": 37,
+            "text": "      gsap.set(details[index], { opacity: 0 });"
+          },
+          {
+            "line": 47,
+            "text": "  function show(index: number, keyboard = false) {"
+          },
+          {
+            "line": 53,
+            "text": "    sections[index].dataset.workVisible = 'true';"
+          },
+          {
+            "line": 54,
+            "text": "    sections[index].dataset.workActive = 'true';"
+          },
+          {
+            "line": 55,
+            "text": "    sections[index].inert = false; sections[index].removeAttribute('aria-hidden');"
+          },
+          {
+            "line": 57,
+            "text": "    gsap.set(containers[index], { visibility: 'visible' });"
+          },
+          {
+            "line": 64,
+            "text": "    tl.to(containers[index], { opacity: 1, duration: .3, ease: 'power2.out' }, 0)"
+          },
+          {
+            "line": 65,
+            "text": "      .to(characters[index], { y: 0, opacity: 1, duration: .7, ease: 'power4.out', stagger: .01 }, 0)"
+          },
+          {
+            "line": 66,
+            "text": "      .to(details[index], { opacity: 1, duration: .5, ease: 'power2.out' }, .3);"
+          }
+        ]
+      },
+      {
+        "path": "src/styles/home.css",
+        "sha256": "7f54910b479c4ba186cf0344c5a07fa825681b095980c3c94ce59171921d8938",
+        "lines": [
+          {
+            "line": 55,
+            "text": ".home-enhanced:not(.home-quiet) .home-work-chapter .home-chapter-viewport { position: fixed; inset: 0; height: var(--journey-height, 100svh); min-height: 0; opacity: 0; visibility: hidden; pointer-events: none; }"
+          },
+          {
+            "line": 56,
+            "text": ".home-enhanced:not(.home-quiet) .home-work-chapter[data-work-visible=\"true\"] .home-chapter-viewport { visibility: visible; }"
+          },
+          {
+            "line": 57,
+            "text": ".home-enhanced:not(.home-quiet) .home-work-chapter[data-work-active=\"true\"] .home-chapter-content { pointer-events: auto; }"
+          },
+          {
+            "line": 58,
+            "text": ".home-enhanced:not(.home-quiet) .home-work-chapter[inert] .home-chapter-content { pointer-events: none; }"
+          }
+        ]
+      }
+    ],
+    "observed": "In final-local-fast-04.jpg the CTA is not visible, while the subsequent DOM read reports hit=true, inert=false and active=true.",
+    "codeInference": "hide(immediate) sets details including .home-cta opacity to 0. On entry show() immediately removes section inert and sets workActive=true (CSS restores pointer events), while the details tween begins only at timeline +0.3 seconds. Thus the first ordinary entry exposes an invisible CTA to pointer/focus interaction until its own fade starts.",
+    "timingLimit": "A CDP frame and its subsequent DOM/state read are not the same GPU instant. The recording alone does not supply the exact CTA opacity at the screenshot timestamp or the exact show() start time. The zero-opacity entry interval is established by code, not invented as a sampled CSS value.",
+    "nextVerification": "After the current gate fix, record CTA own computed opacity/visibility, inert or tabindex, and hit-test during first entry and interrupted reversal; visible settled CTA must remain reachable."
+  },
+  "acceptanceBoundary": "Round-19 settled first-card trajectory, 1449/1451 final bidirectional gates, and navigation return evidence remain valid within their stated scope. This JSON does not grant dynamic timing equivalence, full homepage acceptance, or art-direction acceptance."
+}

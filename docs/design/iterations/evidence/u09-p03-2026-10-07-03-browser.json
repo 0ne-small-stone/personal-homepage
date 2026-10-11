@@ -1,0 +1,207 @@
+{
+  "date": "2026-10-07T15:42:21.858Z",
+  "browser": "154.0.8037.98",
+  "preview": "http://127.0.0.1:4324",
+  "upstream": "http://127.0.0.1:4322",
+  "checks": [
+    {
+      "name": "全部条目、标题可访问名称、简介与链接保持原始数据",
+      "passed": true
+    },
+    {
+      "name": "全部结果与源站一致",
+      "passed": true
+    },
+    {
+      "name": "页面仅有一个主标题和 main",
+      "passed": true
+    },
+    {
+      "name": "resource 原生筛选数量与 URL",
+      "passed": true
+    },
+    {
+      "name": "resource 科目计数随原生筛选同步",
+      "passed": true
+    },
+    {
+      "name": "article 原生筛选数量与 URL",
+      "passed": true
+    },
+    {
+      "name": "article 科目计数随原生筛选同步",
+      "passed": true
+    },
+    {
+      "name": "note 原生筛选数量与 URL",
+      "passed": true
+    },
+    {
+      "name": "note 科目计数随原生筛选同步",
+      "passed": true
+    },
+    {
+      "name": "刷新保留笔记类型",
+      "passed": true
+    },
+    {
+      "name": "历史后退更新原生结果与分组",
+      "passed": true
+    },
+    {
+      "name": "历史前进恢复资料",
+      "passed": true
+    },
+    {
+      "name": "原生方向键切换并保留焦点",
+      "passed": true
+    },
+    {
+      "name": "焦点外框可见",
+      "passed": true
+    },
+    {
+      "name": "复用 Pagefind 返回真实搜索结果",
+      "passed": true
+    },
+    {
+      "name": "搜索 Esc 关闭恢复触发按钮，类型不变",
+      "passed": true
+    },
+    {
+      "name": "科目索引跳到当前分组",
+      "passed": true
+    },
+    {
+      "name": "原始详情页面可访问",
+      "passed": true
+    },
+    {
+      "name": "详情返回保留列表",
+      "passed": true
+    },
+    {
+      "name": "1440 宽无页面横向溢出",
+      "passed": true
+    },
+    {
+      "name": "1440 类型标签至少 44×44",
+      "passed": true
+    },
+    {
+      "name": "768 宽无页面横向溢出",
+      "passed": true
+    },
+    {
+      "name": "768 类型标签至少 44×44",
+      "passed": true
+    },
+    {
+      "name": "390 宽无页面横向溢出",
+      "passed": true
+    },
+    {
+      "name": "390 类型标签至少 44×44",
+      "passed": true
+    },
+    {
+      "name": "320 宽无页面横向溢出",
+      "passed": true
+    },
+    {
+      "name": "320 类型标签至少 44×44",
+      "passed": true
+    },
+    {
+      "name": "手机科目默认折叠",
+      "passed": true
+    },
+    {
+      "name": "手机科目索引及文章时间入口可展开",
+      "passed": true
+    },
+    {
+      "name": "真实文章空结果有恢复说明",
+      "passed": true
+    },
+    {
+      "name": "空结果恢复全部",
+      "passed": true
+    },
+    {
+      "name": "减少动画关闭行与筛选过渡",
+      "passed": true
+    },
+    {
+      "name": "强制颜色下选中项保留边界",
+      "passed": true
+    },
+    {
+      "name": "320 宽根字号 200% 无横向溢出",
+      "passed": true
+    },
+    {
+      "name": "禁用脚本时原生完整列表可读，控件不误导",
+      "passed": true
+    },
+    {
+      "name": "模拟触控选择笔记",
+      "passed": true
+    },
+    {
+      "name": "无页面脚本错误",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "content": {
+    "total": 39,
+    "counts": {
+      "resource": 34,
+      "article": 0,
+      "note": 5
+    }
+  },
+  "groups": [
+    "大学物理实验2 条",
+    "大学物理Ⅱ17 条",
+    "概率论与数理统计12 条",
+    "高级数据结构与算法分析3 条",
+    "计算机系统4 条",
+    "先秦哲学1 条"
+  ],
+  "searchResults": [
+    "大学物理Ⅱ · 第 13 章",
+    "大学物理Ⅱ · 第 13 章",
+    "来源与文件信息",
+    "同科目内容",
+    "大学物理Ⅱ · 第 14 章",
+    "大学物理Ⅱ · 第 14 章",
+    "来源与文件信息",
+    "同科目内容",
+    "大学物理Ⅱ · 第 19 章",
+    "大学物理Ⅱ · 第 19 章",
+    "来源与文件信息",
+    "同科目内容",
+    "大学物理Ⅱ · 第 21 章",
+    "大学物理Ⅱ · 第 21 章",
+    "来源与文件信息",
+    "同科目内容",
+    "大学物理Ⅱ · 第 22 章",
+    "大学物理Ⅱ · 第 22 章",
+    "来源与文件信息",
+    "同科目内容"
+  ],
+  "textScaleOverflow": {
+    "width": 320,
+    "scroll": 320
+  },
+  "fonts": [
+    {
+      "familyName": "Microsoft YaHei",
+      "postScriptName": "MicrosoftYaHei",
+      "isCustomFont": false,
+      "glyphCount": 29
+    }
+  ]
+}
