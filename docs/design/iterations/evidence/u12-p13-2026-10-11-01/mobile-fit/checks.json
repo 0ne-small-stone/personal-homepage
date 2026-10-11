@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-11T08:48:51.688Z",
+  "checks": [
+    {
+      "name": "cloud320ToolbarAndLibrary",
+      "passed": true,
+      "measured": {
+        "stacked": true,
+        "overflow": false,
+        "songs": 18
+      }
+    },
+    {
+      "name": "cloud390ToolbarAndLibrary",
+      "passed": true,
+      "measured": {
+        "stacked": true,
+        "overflow": false,
+        "songs": 18
+      }
+    },
+    {
+      "name": "netease320FullFrameFits",
+      "passed": true,
+      "fit": {
+        "outerWidth": 288,
+        "frameWidth": 288,
+        "frameHeight": 392.727294921875,
+        "outerHeight": 392.71875,
+        "transform": "matrix(0.872727, 0, 0, 0.872727, 0, 0)",
+        "overflow": false
+      }
+    },
+    {
+      "name": "scaledEmbedUnmounted",
+      "passed": true
+    },
+    {
+      "name": "noLocalErrors",
+      "passed": true,
+      "localErrors": []
+    }
+  ],
+  "errors": []
+}

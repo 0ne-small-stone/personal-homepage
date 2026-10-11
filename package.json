@@ -10,7 +10,10 @@
     "dev": "astro dev",
     "check": "astro check",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "music:index": "node tools/music/index-library.mjs --auto-lx",
+    "music:watch": "node tools/music/index-library.mjs --auto-lx --watch",
+    "music:connect": "node tools/music/connect-cloud.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "7.3.2",
@@ -34,6 +37,7 @@
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@types/three": "0.186.0",
+    "music-metadata": "12.1.0",
     "typescript": "~5.9.3"
   }
 }

@@ -93,6 +93,20 @@ Astro 的交互组件可用于静态主站，但服务端动作和延迟服务�
 
 ## 留言和音乐
 
+### P13 双模式本轮来源（2026-10-11）
+
+| 来源 | 已核对能力与采用范围 |
+| --- | --- |
+| [洛雪 Scheme URL](https://lxmusic.toside.cn/desktop/scheme-url) | 官方 `lxmusic://music/search` 接收编码JSON关键词；用于直接唤起搜索，下载及最高可用档位仍在洛雪选择 |
+| [洛雪开放API](https://lxmusic.toside.cn/desktop/open-api) | 状态、歌词和播放控制，没有下载文件库读取；未为这项缺口搭建另一套音乐服务器 |
+| [music-metadata](https://github.com/Borewit/music-metadata) | 本轮采用12.1.0，MIT；本地parseFile提取真实标签、时长和格式，skipCovers避免把封面写进清单 |
+| [Nextcloud 官方同步客户端](https://docs.nextcloud.com/server/latest/user_manual/en/files/desktop_mobile_sync.html) | 优先复用目录同步；目前尚未配置真实账户同步，不把索引工具当成上传器 |
+| [Nextcloud Login Flow v2](https://docs.nextcloud.com/server/latest/developer_manual/client_apis/LoginFlow/index.html) | 使用官方浏览器授权与轮询返回的一次性内存凭证；实际考拉OCS认证失败，未保存长期凭证 |
+| [WebDAV 基础接口](https://docs.nextcloud.com/server/latest/developer_manual/client_apis/WebDAV/basic.html)与[OCS分享接口](https://docs.nextcloud.com/server/latest/developer_manual/client_apis/OCS/ocs-share-api.html) | MKCOL与只读公开分享permissions=1的最小配置工具；本次身份认证前置失败，创建/读回尚未执行 |
+| [Echoes 网易云官方外链播放器](https://music.163.com/outchain/player?type=0&id=18476425375&auto=0&height=430) | 用户指定18476425375；HTTP200、实际歌单标题/曲目及点击后音频206响应分别验证。全部曲目的权限、完整播放及跨页持续播放另验 |
+
+下载来源沿用用户仓库根`洛雪音乐.txt`中的[音源更新入口](https://github.com/guoyue2010/lxmusic-/releases)，实际应用安装入口采用[洛雪官方发行页](https://github.com/lyswhut/lx-music-desktop/releases)。第三方音源仓库只作为用户提供的跳转链接，未下载、执行其代码或宣称其音源均可用。公开音乐清单不授予音频再分发许可；本轮无音频上传或提交。
+
 | 来源 | 关键事实 |
 | --- | --- |
 | [Giscus 中文说明](https://giscus.app/zh-CN) | 留言存于 GitHub Discussions；需公开仓库、开启 Discussions、安装应用；访客需要 GitHub 登录及授权 |
