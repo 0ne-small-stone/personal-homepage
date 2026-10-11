@@ -151,6 +151,8 @@ Starlight 是当前优先验证的知识库基础方案。若某个插件不兼�
 
 ### P01 首页的 ALCHE 方向（2026-10-08）
 
+2026-10-11最新光质纠正（47轮）：只改既有GlassGlow发光mask与Gaussian合成，复用Three shader/FullScreenQuad，无新依赖。近/远target按设备分别定尺寸，共5targets/6passes，移除CopyShader；全部target沿用统一离页销毁。桌面与手机纹理存储有所增加，计数、存储与硬件性能分别记录。45求解器、固定光路、采样隔离与前景顺序保持；实际证据见[47工程记录](../design/iterations/u03-p01-2026-10-11-47-implementation.md)，参数仍由设计SYSTEM9.3.14维护。
+
 2026-10-11继续GitHub #34（45轮）：在现有单Canvas/R3F帧循环内增加纯光路求解与局部光束几何，复用Three Ray、Vector3与BufferGeometry，无新依赖。读取实际mesh.matrixWorld，追踪真实三角面、进出介质及有限次全反射；直接更新复用的顶点缓冲，不逐帧React setState或重建材质。光路排除透射快照，最终绘制在玻璃之后和前景卡之前；离页释放、暂停、返回和普通模式分别验证。参数唯一来源设计SYSTEM9.3.12，色散另片。
 
 2026-10-11用户更新（GitHub #34前置、43轮）：首页几何改为实心透明三棱镜。复用现有Shape/ExtrudeGeometry，仅移除中央hole与依赖它的发光距离场；保留外包络、深度、统一scale=.5及既有React/Three渲染和生命周期，无新增依赖。规格和验收见设计SYSTEM9.3.10与[43轮任务](../design/iterations/u03-p01-2026-10-11-43.md)。本片不包含光路求解器，不能将填孔记为真实分光完成。

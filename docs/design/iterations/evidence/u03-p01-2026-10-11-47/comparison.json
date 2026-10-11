@@ -1,0 +1,146 @@
+{
+  "file": "HomeJourney.AfVzGTyo.js",
+  "bytes": 1179000,
+  "sha256": "c92225c4eceaecfb2288c9dc64364bd707645871b697562a39033703a9c46b02",
+  "sourceMasks": [
+    {
+      "name": "desktop-final-source-0",
+      "width": 1440,
+      "height": 900,
+      "max": 179,
+      "lit": 10414,
+      "covered": 58066,
+      "GLerror": 0,
+      "litFraction": 0.17934763889367272
+    },
+    {
+      "name": "desktop-final-source-85",
+      "width": 1440,
+      "height": 900,
+      "max": 178,
+      "lit": 8356,
+      "covered": 32239,
+      "GLerror": 0,
+      "litFraction": 0.25918918080585623
+    },
+    {
+      "name": "mobile-final-source-0",
+      "width": 390,
+      "height": 844,
+      "max": 179,
+      "lit": 2820,
+      "covered": 15685,
+      "GLerror": 0,
+      "litFraction": 0.17978960790564233
+    },
+    {
+      "name": "mobile-final-source-85",
+      "width": 390,
+      "height": 844,
+      "max": 179,
+      "lit": 2338,
+      "covered": 8729,
+      "GLerror": 0,
+      "litFraction": 0.2678428227746592
+    }
+  ],
+  "comparisons": [
+    {
+      "device": "desktop",
+      "pose": 0,
+      "sameActualQuaternion": true,
+      "sameSnellNodes": true,
+      "beforeResources": {
+        "geometries": 13,
+        "textures": 16,
+        "programs": 19
+      },
+      "finalResources": {
+        "geometries": 13,
+        "textures": 16,
+        "programs": 18
+      }
+    },
+    {
+      "device": "desktop",
+      "pose": 60,
+      "sameActualQuaternion": true,
+      "sameSnellNodes": true,
+      "beforeResources": {
+        "geometries": 13,
+        "textures": 16,
+        "programs": 19
+      },
+      "finalResources": {
+        "geometries": 13,
+        "textures": 16,
+        "programs": 18
+      }
+    },
+    {
+      "device": "desktop",
+      "pose": 85,
+      "sameActualQuaternion": true,
+      "sameSnellNodes": true,
+      "beforeResources": {
+        "geometries": 13,
+        "textures": 16,
+        "programs": 19
+      },
+      "finalResources": {
+        "geometries": 13,
+        "textures": 16,
+        "programs": 18
+      }
+    },
+    {
+      "device": "mobile",
+      "pose": 0,
+      "sameActualQuaternion": true,
+      "sameSnellNodes": true,
+      "beforeResources": {
+        "geometries": 13,
+        "textures": 11,
+        "programs": 11
+      },
+      "finalResources": {
+        "geometries": 13,
+        "textures": 11,
+        "programs": 10
+      }
+    },
+    {
+      "device": "mobile",
+      "pose": 60,
+      "sameActualQuaternion": true,
+      "sameSnellNodes": true,
+      "beforeResources": {
+        "geometries": 13,
+        "textures": 11,
+        "programs": 11
+      },
+      "finalResources": {
+        "geometries": 13,
+        "textures": 11,
+        "programs": 10
+      }
+    },
+    {
+      "device": "mobile",
+      "pose": 85,
+      "sameActualQuaternion": true,
+      "sameSnellNodes": true,
+      "beforeResources": {
+        "geometries": 13,
+        "textures": 11,
+        "programs": 11
+      },
+      "finalResources": {
+        "geometries": 13,
+        "textures": 11,
+        "programs": 10
+      }
+    }
+  ],
+  "pass": true
+}

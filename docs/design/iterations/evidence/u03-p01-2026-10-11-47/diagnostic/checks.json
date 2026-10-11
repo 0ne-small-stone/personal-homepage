@@ -1,0 +1,320 @@
+{
+  "date": "2026-10-11",
+  "method": "Chrome actual rendering, native mouse/wheel/buttons; test-only read probes in served bundle, no quaternion or clock override.",
+  "cases": {
+    "desktop": {
+      "errors": [],
+      "failed": [],
+      "images": [],
+      "bundle": {
+        "file": "HomeJourney.CDEE4AGw.js",
+        "bytes": 1179034,
+        "sha256": "3f9c79da5c97f6be0909bb0a918e7dbc50629f27eb82988dcd8fad9b30f75d46"
+      },
+      "probedSHA256": "41d563954dd832b2c5eba6a485f639f6c3be7a9187084f0bb0147526fca19ac3",
+      "frames": [
+        {
+          "name": "front-glow-on",
+          "enabled": true,
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "glow": {
+            "mechanism": "3d-perimeter-dual-gaussian",
+            "intensity": 1,
+            "active": true,
+            "draws": 13,
+            "passes": 7,
+            "size": [
+              120,
+              75
+            ],
+            "coverageSize": [
+              1440,
+              900
+            ],
+            "coverageSamples": 4,
+            "targets": [
+              "1f6ee83e-2b6e-4826-bdb8-74f7cb353aaa",
+              "c4e8777e-3112-4d67-8e45-9686eeed45b8",
+              "494855cb-eec5-4479-a80b-a7934beebe01",
+              "b9bd4e4f-87a9-45df-902f-b872f056e746",
+              "a98d06fe-e15a-4a71-813b-fbc6f96ab766"
+            ],
+            "disposed": false,
+            "error": null
+          },
+          "GLerror": 0
+        },
+        {
+          "name": "front-glow-off",
+          "enabled": false,
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "glow": {
+            "mechanism": "3d-perimeter-dual-gaussian",
+            "intensity": 1,
+            "active": true,
+            "draws": 13,
+            "passes": 7,
+            "size": [
+              120,
+              75
+            ],
+            "coverageSize": [
+              1440,
+              900
+            ],
+            "coverageSamples": 4,
+            "targets": [
+              "1f6ee83e-2b6e-4826-bdb8-74f7cb353aaa",
+              "c4e8777e-3112-4d67-8e45-9686eeed45b8",
+              "494855cb-eec5-4479-a80b-a7934beebe01",
+              "b9bd4e4f-87a9-45df-902f-b872f056e746",
+              "a98d06fe-e15a-4a71-813b-fbc6f96ab766"
+            ],
+            "disposed": false,
+            "error": null
+          },
+          "GLerror": 0
+        },
+        {
+          "name": "native-turn-glow-on",
+          "enabled": true,
+          "quaternion": [
+            -0.02360994747252515,
+            -0.4457075598894624,
+            -0.005551141565456802,
+            0.8948500021037297
+          ],
+          "glow": {
+            "mechanism": "3d-perimeter-dual-gaussian",
+            "intensity": 1,
+            "active": true,
+            "draws": 14,
+            "passes": 7,
+            "size": [
+              120,
+              75
+            ],
+            "coverageSize": [
+              1440,
+              900
+            ],
+            "coverageSamples": 4,
+            "targets": [
+              "1f6ee83e-2b6e-4826-bdb8-74f7cb353aaa",
+              "c4e8777e-3112-4d67-8e45-9686eeed45b8",
+              "494855cb-eec5-4479-a80b-a7934beebe01",
+              "b9bd4e4f-87a9-45df-902f-b872f056e746",
+              "a98d06fe-e15a-4a71-813b-fbc6f96ab766"
+            ],
+            "disposed": false,
+            "error": null
+          },
+          "GLerror": 0
+        },
+        {
+          "name": "native-turn-glow-off",
+          "enabled": false,
+          "quaternion": [
+            -0.02398707789079961,
+            -0.4572393994689178,
+            -0.005608163452252926,
+            0.889002418540161
+          ],
+          "glow": {
+            "mechanism": "3d-perimeter-dual-gaussian",
+            "intensity": 1,
+            "active": true,
+            "draws": 16,
+            "passes": 7,
+            "size": [
+              120,
+              75
+            ],
+            "coverageSize": [
+              1440,
+              900
+            ],
+            "coverageSamples": 4,
+            "targets": [
+              "1f6ee83e-2b6e-4826-bdb8-74f7cb353aaa",
+              "c4e8777e-3112-4d67-8e45-9686eeed45b8",
+              "494855cb-eec5-4479-a80b-a7934beebe01",
+              "b9bd4e4f-87a9-45df-902f-b872f056e746",
+              "a98d06fe-e15a-4a71-813b-fbc6f96ab766"
+            ],
+            "disposed": false,
+            "error": null
+          },
+          "GLerror": 0
+        }
+      ]
+    }
+  },
+  "checks": [
+    {
+      "name": "diagnostic captures actual canvas and GL clean",
+      "pass": true,
+      "evidence": [
+        {
+          "name": "front-glow-on",
+          "enabled": true,
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "glow": {
+            "mechanism": "3d-perimeter-dual-gaussian",
+            "intensity": 1,
+            "active": true,
+            "draws": 13,
+            "passes": 7,
+            "size": [
+              120,
+              75
+            ],
+            "coverageSize": [
+              1440,
+              900
+            ],
+            "coverageSamples": 4,
+            "targets": [
+              "1f6ee83e-2b6e-4826-bdb8-74f7cb353aaa",
+              "c4e8777e-3112-4d67-8e45-9686eeed45b8",
+              "494855cb-eec5-4479-a80b-a7934beebe01",
+              "b9bd4e4f-87a9-45df-902f-b872f056e746",
+              "a98d06fe-e15a-4a71-813b-fbc6f96ab766"
+            ],
+            "disposed": false,
+            "error": null
+          },
+          "GLerror": 0
+        },
+        {
+          "name": "front-glow-off",
+          "enabled": false,
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "glow": {
+            "mechanism": "3d-perimeter-dual-gaussian",
+            "intensity": 1,
+            "active": true,
+            "draws": 13,
+            "passes": 7,
+            "size": [
+              120,
+              75
+            ],
+            "coverageSize": [
+              1440,
+              900
+            ],
+            "coverageSamples": 4,
+            "targets": [
+              "1f6ee83e-2b6e-4826-bdb8-74f7cb353aaa",
+              "c4e8777e-3112-4d67-8e45-9686eeed45b8",
+              "494855cb-eec5-4479-a80b-a7934beebe01",
+              "b9bd4e4f-87a9-45df-902f-b872f056e746",
+              "a98d06fe-e15a-4a71-813b-fbc6f96ab766"
+            ],
+            "disposed": false,
+            "error": null
+          },
+          "GLerror": 0
+        },
+        {
+          "name": "native-turn-glow-on",
+          "enabled": true,
+          "quaternion": [
+            -0.02360994747252515,
+            -0.4457075598894624,
+            -0.005551141565456802,
+            0.8948500021037297
+          ],
+          "glow": {
+            "mechanism": "3d-perimeter-dual-gaussian",
+            "intensity": 1,
+            "active": true,
+            "draws": 14,
+            "passes": 7,
+            "size": [
+              120,
+              75
+            ],
+            "coverageSize": [
+              1440,
+              900
+            ],
+            "coverageSamples": 4,
+            "targets": [
+              "1f6ee83e-2b6e-4826-bdb8-74f7cb353aaa",
+              "c4e8777e-3112-4d67-8e45-9686eeed45b8",
+              "494855cb-eec5-4479-a80b-a7934beebe01",
+              "b9bd4e4f-87a9-45df-902f-b872f056e746",
+              "a98d06fe-e15a-4a71-813b-fbc6f96ab766"
+            ],
+            "disposed": false,
+            "error": null
+          },
+          "GLerror": 0
+        },
+        {
+          "name": "native-turn-glow-off",
+          "enabled": false,
+          "quaternion": [
+            -0.02398707789079961,
+            -0.4572393994689178,
+            -0.005608163452252926,
+            0.889002418540161
+          ],
+          "glow": {
+            "mechanism": "3d-perimeter-dual-gaussian",
+            "intensity": 1,
+            "active": true,
+            "draws": 16,
+            "passes": 7,
+            "size": [
+              120,
+              75
+            ],
+            "coverageSize": [
+              1440,
+              900
+            ],
+            "coverageSamples": 4,
+            "targets": [
+              "1f6ee83e-2b6e-4826-bdb8-74f7cb353aaa",
+              "c4e8777e-3112-4d67-8e45-9686eeed45b8",
+              "494855cb-eec5-4479-a80b-a7934beebe01",
+              "b9bd4e4f-87a9-45df-902f-b872f056e746",
+              "a98d06fe-e15a-4a71-813b-fbc6f96ab766"
+            ],
+            "disposed": false,
+            "error": null
+          },
+          "GLerror": 0
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "IAB control failed twice during initialization; design thread reported the same failure and authorized the existing Playwright fallback.",
+    "DPR1 / SwiftShader / emulated mobile are not real-device performance evidence.",
+    "Natural poses at separate actual times; no fixed 60/85 degree claim."
+  ]
+}
