@@ -2,6 +2,7 @@ import { useEffect, useMemo, type RefObject } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { useFBO } from '@react-three/drei';
 import { CubeTexture, DataTexture, RGBAFormat, ShaderMaterial, Vector2, NoToneMapping, type Mesh, type Scene } from 'three';
+import { PRISM_LIGHT_LAYER } from './prism-ray';
 
 const vertexShader = /* glsl */`
   varying vec3 vNormal;
@@ -65,7 +66,7 @@ export default function GlassOptics({mesh,low,reflectionScene}:{mesh:RefObject<M
     object.visible=false;
     const layers=camera.layers.mask;
     // Foreground WORKS cards are composited after glass and never enter its snapshot.
-    try{camera.layers.disable(1);gl.toneMapping=NoToneMapping;gl.setRenderTarget(target);gl.render(scene,camera);}finally{camera.layers.mask=layers;gl.setRenderTarget(oldTarget);gl.toneMapping=oldTone;object.visible=visible;}
+    try{camera.layers.disable(1);camera.layers.disable(PRISM_LIGHT_LAYER);gl.toneMapping=NoToneMapping;gl.setRenderTarget(target);gl.render(scene,camera);}finally{camera.layers.mask=layers;gl.setRenderTarget(oldTarget);gl.toneMapping=oldTone;object.visible=visible;}
     material.uniforms.uScene.value=target.texture;
     const environment=reflectionScene.environment ?? scene.environment;
     if(environment instanceof CubeTexture)material.uniforms.uEnvironment.value=environment;

@@ -5,6 +5,7 @@ import { FullScreenQuad } from 'three/addons/postprocessing/Pass.js';
 import { BlackFlow, flowPassOrder } from './black-flow';
 import type { JourneyModel } from './scene-state';
 import type GlassGlow from './GlassGlow';
+import { PRISM_LIGHT_LAYER } from './prism-ray';
 
 interface Resources { flow: BlackFlow; color: FramebufferTexture; material: ShaderMaterial; quad: FullScreenQuad; disposed: boolean; }
 function dispose(owned: Resources) { if (owned.disposed) return; owned.disposed = true; owned.flow.dispose(); owned.color.dispose(); owned.material.dispose(); owned.quad.dispose(); }
@@ -73,6 +74,10 @@ export default function BlackFlowLayer({ model, hover, detailed, quiet, visible 
         owned.material.uniforms.flow.value = owned.flow.texture;
         owned.material.uniforms.amount.value = debug.current.forceZero ? 0 : 1;
         if (debug.current.foregroundOnly) gl.clear(); else owned.quad.render(gl);
+      }
+      // World-space light is not captured/refracted again, or hidden by glass depth.
+      if (scene.userData.lsshPrismBeam?.active) {
+        camera.layers.set(PRISM_LIGHT_LAYER); gl.autoClear = false; gl.render(scene, camera);
       }
       // Foreground cards are always last, including ordinary/paused rendering.
       camera.layers.set(1); gl.autoClear = false; gl.clearDepth(); gl.render(scene, camera);
