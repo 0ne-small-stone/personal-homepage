@@ -38,15 +38,15 @@ export default class GlassGlow {
   private active = false;
   private error: string | null = null;
 
-  constructor(geometry: ExtrudeGeometry, planes: Vector3[][]) {
+  constructor(geometry: ExtrudeGeometry, planes: Vector3[]) {
     const material = new ShaderMaterial({ toneMapped: false,
-      uniforms: { outerPlanes: { value: planes[0] }, innerPlanes: { value: planes[1] } },
+      uniforms: { outerPlanes: { value: planes } },
       vertexShader: `varying vec3 p; varying vec3 n;
         void main(){p=position;n=normal;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
-      fragmentShader: `uniform vec3 outerPlanes[3];uniform vec3 innerPlanes[3];varying vec3 p;varying vec3 n;
-        void main(){float outside=100.,inside=-100.;
-          for(int i=0;i<3;i++){outside=min(outside,outerPlanes[i].z-dot(outerPlanes[i].xy,p.xy));inside=max(inside,dot(innerPlanes[i].xy,p.xy)-innerPlanes[i].z);}
-          float distance=min(max(outside,0.),max(inside,0.));float edge=exp(-pow(distance/.20,2.));
+      fragmentShader: `uniform vec3 outerPlanes[3];varying vec3 p;varying vec3 n;
+        void main(){float outside=100.;
+          for(int i=0;i<3;i++){outside=min(outside,outerPlanes[i].z-dot(outerPlanes[i].xy,p.xy));}
+          float distance=max(outside,0.);float edge=exp(-pow(distance/.20,2.));
           float direction=.85+.15*max(dot(normalize(n.xy+vec2(.00001)),normalize(vec2(-.85,.25))),0.);
           float emission=.40*edge*direction;gl_FragColor=vec4(vec3(emission),1.);
         }` });

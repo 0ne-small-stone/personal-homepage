@@ -1,14 +1,14 @@
 import { useEffect, useMemo, useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { MeshTransmissionMaterial } from '@react-three/drei';
-import { ExtrudeGeometry, Shape, Path, Vector2, Vector3, Scene, type Mesh } from 'three';
+import { ExtrudeGeometry, Shape, Vector2, Vector3, Scene, type Mesh } from 'three';
 import type { JourneyModel } from './scene-state';
 import { GlassRotation } from './glass-rotation';
 import GlassOptics from './GlassOptics';
 import GlassReflectionEnvironment from './GlassReflectionEnvironment';
 import GlassEdgeLight from './GlassEdgeLight';
 
-function roundedTriangle(points: Vector2[], radius: number, target: Shape | Path) {
+function roundedTriangle(points: Vector2[], radius: number, target: Shape) {
   const entries = points.map((v, i) => v.clone().lerp(points[(i + points.length - 1) % points.length], radius));
   const exits = points.map((v, i) => v.clone().lerp(points[(i + 1) % points.length], radius));
   target.moveTo(entries[0].x, entries[0].y);
@@ -21,8 +21,8 @@ function roundedTriangle(points: Vector2[], radius: number, target: Shape | Path
 }
 
 export function makeTriangleGeometry() {
-  // SYSTEM 9.3.7: construction dimensions include rounding/bevel compensation.
-  // Final W/H/D = 3.353368 / 2.913569 / .820492; front hole = 1.465180 / 1.269134.
+  // SYSTEM 9.3.10: solid prism, retaining the calibrated outer rounding and depth.
+  // Final local W/H/D = 3.353368 / 2.913569 / .820492.
   const vertices = (width: number, height: number, y = 0) => [
     new Vector2(0, height * 2 / 3 + y),
     new Vector2(-width / 2, -height / 3 + y),
@@ -30,9 +30,6 @@ export function makeTriangleGeometry() {
   ];
   const shape = new Shape();
   roundedTriangle(vertices(3.382356834, 2.914426843), .035, shape);
-  const hole = new Path();
-  roundedTriangle(vertices(1.515805018, 1.301675404, -.024042664).reverse(), .05, hole);
-  shape.holes.push(hole);
   const geometry = new ExtrudeGeometry(shape, { depth: .770491776, bevelEnabled: true, bevelThickness: .025, bevelSize: .025, bevelSegments: 4, curveSegments: 16, steps: 1 });
   geometry.computeVertexNormals();
   // One local calibration: the outline bounds and rotation anchor share the origin.
