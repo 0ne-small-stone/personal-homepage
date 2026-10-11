@@ -10,6 +10,19 @@
 
 2026-10-07 候选范围调整：按用户最新需求移除知识关系图及其插件、接入文档；学习内容通过总览、搜索和普通引用浏览。原有其余来源与未验证状态沿用。
 
+## ALCHE 首页实现来源（2026-10-08）
+
+| 技术问题 | 主要依据 | 本项目结论及验证状态 |
+| --- | --- | --- |
+| 保留 Astro、单独客户端场景 | [Astro 框架组件](https://docs.astro.build/en/guides/framework-components/)、[React 集成](https://docs.astro.build/en/guides/integrations-guide/react/) | 静态 DOM + 首页单 React island；已有框架不更换，集成待安装验证 |
+| React/Three 配对 | [R3F 官方安装](https://r3f.docs.pmnd.rs/getting-started/installation) | Fiber 9 配 React 19、Fiber 8 配 React 18；实际 peer 与锁文件仍在施工时核对 |
+| 透射与性能 | [Drei MeshTransmissionMaterial](https://drei.docs.pmnd.rs/shaders/mesh-transmission-material) | 支持厚度、折射、色差和独立 buffer；会增加 render pass，需实测 samples/resolution |
+| 分段进度与平滑输入 | [ScrollTrigger](https://gsap.com/docs/v3/Plugins/ScrollTrigger/)、[Lenis 官方仓库](https://github.com/darkroomengineering/lenis) | 2026-10-08 为复刻用户指定的原站行为，采用一个 Lenis 实例与现有 GSAP 协作；官方有 RAF/GSAP 接入说明，MIT。当前包版本与兼容性由开发核对，禁止双时钟和嵌套区抢滚动 |
+| 源站实际实现 | [ALCHE](https://alche.studio/)、[官网依赖许可](https://alche.studio/license/)；具体脚本与哈希见[研究](../design/iterations/u03-p01-2026-10-08-10.md) | 源站也采用 Astro/Three/GSAP；其版本、Swup、定制 shader 为研究证据，不机械复制依赖表 |
+| 字体与代码来源 | [IBM Plex](https://github.com/IBM/plex)、[GSAP 许可](https://gsap.com/community/standard-license/) | 本地部署明确许可的字体；Plex OFL、Three/Drei MIT、GSAP 自身许可分别登记 |
+
+架构边界见技术 SPEC，施工队列见 PLAN 和 [任务单](HOMEPAGE_ALCHE_HANDOFF.md)。React/Three/GSAP 与最小透射已有局部结果，Lenis、精确时间编排及其完整验收尚未完成；最新原站源码/动态证据见 [17 轮研究](../design/iterations/u03-p01-2026-10-08-17.md)，不得沿用初轮“全部未安装”的快照。
+
 ## Astro 官方能力
 
 ### T01 工程采用记录（2026-10-07）

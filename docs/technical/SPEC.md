@@ -139,6 +139,23 @@ Starlight 是当前优先验证的知识库基础方案。若某个插件不兼�
 
 ## 前端组件和运行时约束
 
+### P01 首页的 ALCHE 方向（2026-10-08）
+
+用户确定以 ALCHE 为标杆，随后明确要求复刻其交互与动画。首页仍属于 Astro 静态主站：服务端生成导航、章节、标题、图片及真实链接；一个 React island 与一个 Canvas 负责连续场景。现有 React/Three/GSAP 已有工程样本；新增或调整依赖仍需核对兼容性并锁定，不把研究完成当接入完成。
+
+- 优先组合：官方 Astro React 集成、React/ReactDOM、Three、R3F、按需 Drei 透射材质、GSAP ScrollTrigger。React 与 R3F 主版本配对；不因参考站使用 Swup 而更换现有路由。
+- 真实纵向文档位置为章节进度来源。按最新复刻要求接入一个 Lenis 实例处理桌面平滑，ScrollTrigger 产出并行进度与进入事件，对象读取独立追随参数；作品区局部吸附可被新输入中断。移动端保留原生触摸，键盘/表单/留言区域保持可用；不恢复点击棱镜解锁机制。
+- 首页章节状态与真实内容路由分开；项目章首轮链接现有 `/showcase/`，相册必须建立 `/gallery/`，其他目标沿用。路由使用现有 `sitePath`；资产路径不能使用会追加斜杠的路由 helper。
+- Three LoadingManager 管理关键资源，场景首帧就绪后退出 loader；失败和超时转静态浏览，始终保留可用跳过链接。其他章节媒体渐进加载。
+- DOM 不会自动被 WebGL 材质折射。确需进入折射的图像/字标有场景纹理副本，语义文字与按钮保留 DOM，避免重复朗读及透明命中层。
+- WebGL/动画资源离页销毁、隐藏页暂停；使用 pagehide/pageshow 与 BFCache 恢复。仅当日后引入 Astro ClientRouter 时接入 before-swap/page-load 的成对清理与初始化；当前不强制改造为 SPA。
+- Giscus 负责真实身份与提交。砖墙数据若采用公开 Discussions 快照，单独实现 CI 读取、稳定 ID、更新时间与删除同步；不通过跨域 iframe DOM 读取评论，不把浏览器端凭证用于写入。
+- 首页字体经本地许可明确资源部署，不复用 ALCHE 的 Adobe kit；学习区继续苹方优先。所有场景依赖仅由首页加载，知识库不承担 3D 包的运行成本。
+
+页面组成与动作以设计 SPEC/CONCEPT 为准，数值只在设计 SYSTEM 第 9 节维护；工程切片见 [首页施工交接](HOMEPAGE_ALCHE_HANDOFF.md) 与 PLAN。ALCHE 定制模型、声音、图像、Lottie 与成品 shader 不作为本站运行资产。
+
+### 通用运行时
+
 - 内容页面优先生成静态 HTML，React 组件按任务选择 Astro 客户端加载指令。
 - 依赖 window、DOM 或 WebGL 的代码只在浏览器运行，避免在构建阶段访问浏览器对象。
 - 筛选、切页和返回保留可恢复状态，URL、深层路由刷新和浏览器返回可正常使用。
