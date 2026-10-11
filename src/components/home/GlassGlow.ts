@@ -11,7 +11,7 @@ export default class GlassGlow {
   mobile = false;
   private readonly scene = new Scene();
   private readonly mask: Mesh;
-  private readonly targets = [0, 1, 2, 3].map(i => {
+  private readonly targets = [0, 1, 2, 3, 4].map(i => {
     const target = new WebGLRenderTarget(1, 1, { depthBuffer: i === 3, stencilBuffer: false, minFilter: LinearFilter, magFilter: LinearFilter });
     target.texture.colorSpace = NoColorSpace;
     target.texture.name = `lssh-glow-${i}`;
@@ -21,10 +21,10 @@ export default class GlassGlow {
   private readonly vertical = new ShaderMaterial({ ...VerticalBlurShader, uniforms: UniformsUtils.clone(VerticalBlurShader.uniforms), depthTest: false, depthWrite: false, toneMapped: false });
   private readonly copy = new ShaderMaterial({ ...CopyShader, uniforms: UniformsUtils.clone(CopyShader.uniforms), depthTest: false, depthWrite: false, toneMapped: false });
   private readonly composite = new ShaderMaterial({ transparent: true, depthTest: false, depthWrite: false, toneMapped: false,
-    uniforms: { glow: { value: this.targets[2].texture }, intensity: { value: 0 } },
+    uniforms: { glow: { value: this.targets[2].texture }, nearGlow: { value: this.targets[4].texture }, intensity: { value: 0 } },
     vertexShader: 'varying vec2 vUv; void main(){vUv=uv;gl_Position=vec4(position.xy,0.,1.);}',
-    fragmentShader: `uniform sampler2D glow; uniform float intensity; varying vec2 vUv;
-      void main(){float light=texture2D(glow,vUv).r;
+    fragmentShader: `uniform sampler2D glow; uniform sampler2D nearGlow; uniform float intensity; varying vec2 vUv;
+      void main(){float light=.25*texture2D(nearGlow,vUv).r+.75*texture2D(glow,vUv).r;
         // One continuous field crosses the glass boundary; no sharp coverage cut.
         float alpha=(1.-exp(-light*.90))*intensity;
         gl_FragColor=vec4(vec3(1.),min(alpha,.24));
@@ -40,13 +40,15 @@ export default class GlassGlow {
 
   constructor(geometry: ExtrudeGeometry, planes: Vector3[]) {
     const material = new ShaderMaterial({ toneMapped: false,
-      uniforms: { outerPlanes: { value: planes } },
+      uniforms: { outerPlanes: { value: planes }, halfDepth: { value: geometry.boundingBox!.max.z } },
       vertexShader: `varying vec3 p; varying vec3 n;
         void main(){p=position;n=normal;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
-      fragmentShader: `uniform vec3 outerPlanes[3];varying vec3 p;varying vec3 n;
+      fragmentShader: `uniform vec3 outerPlanes[3];uniform float halfDepth;varying vec3 p;varying vec3 n;
         void main(){float outside=100.;
           for(int i=0;i<3;i++){outside=min(outside,outerPlanes[i].z-dot(outerPlanes[i].xy,p.xy));}
-          float distance=max(outside,0.);float edge=exp(-pow(distance/.20,2.));
+          // Distance to the front/back perimeter in 3D. A whole side is not an emitter.
+          float distance=length(vec2(max(outside,0.),max(halfDepth-abs(p.z),0.)));
+          float edge=exp(-pow(distance/.20,2.));
           float direction=.85+.15*max(dot(normalize(n.xy+vec2(.00001)),normalize(vec2(-.85,.25))),0.);
           float emission=.40*edge*direction;gl_FragColor=vec4(vec3(emission),1.);
         }` });
@@ -63,7 +65,7 @@ export default class GlassGlow {
     const canvas = gl.domElement;
     const width = Math.max(32, Math.round(canvas.clientWidth / (this.mobile ? 10 : 12)));
     const height = Math.max(32, Math.round(canvas.clientHeight / (this.mobile ? 10 : 12)));
-    if (this.targets[0].width !== width || this.targets[0].height !== height) this.targets.slice(0, 3).forEach(target => target.setSize(width, height));
+    if (this.targets[0].width !== width || this.targets[0].height !== height) this.targets.forEach((target, i) => { if (i !== 3) target.setSize(width, height); });
     const coverage = this.targets[3];
     coverage.samples = Math.min(4, gl.capabilities.maxSamples);
     if (coverage.width !== canvas.clientWidth || coverage.height !== canvas.clientHeight) coverage.setSize(canvas.clientWidth, canvas.clientHeight);
@@ -86,8 +88,9 @@ export default class GlassGlow {
         this.horizontal.uniforms.tDiffuse.value = input;
         this.quad.material = this.horizontal; gl.setRenderTarget(this.targets[1]); this.quad.render(gl);
         this.vertical.uniforms.tDiffuse.value = this.targets[1].texture;
-        this.quad.material = this.vertical; gl.setRenderTarget(this.targets[2]); this.quad.render(gl);
-        input = this.targets[2].texture; this.passes += 2;
+        const output = this.targets[i === 0 ? 4 : 2];
+        this.quad.material = this.vertical; gl.setRenderTarget(output); this.quad.render(gl);
+        input = output.texture; this.passes += 2;
       }
       gl.setRenderTarget(old.target); gl.autoClear = false;
       this.composite.uniforms.intensity.value = this.intensity;
@@ -103,7 +106,7 @@ export default class GlassGlow {
   }
 
   diagnostics() {
-    return { mechanism: 'real-geometry-screen-blur', intensity: this.intensity, active: this.active, draws: this.draws, passes: this.passes, size: [this.targets[0].width, this.targets[0].height], coverageSize: [this.targets[3].width, this.targets[3].height], coverageSamples: this.targets[3].samples, targets: this.targets.map(target => target.texture.uuid), disposed: this.disposed, error: this.error };
+    return { mechanism: '3d-perimeter-dual-gaussian', intensity: this.intensity, active: this.active, draws: this.draws, passes: this.passes, size: [this.targets[0].width, this.targets[0].height], coverageSize: [this.targets[3].width, this.targets[3].height], coverageSamples: this.targets[3].samples, targets: this.targets.map(target => target.texture.uuid), disposed: this.disposed, error: this.error };
   }
 
   suspend() { this.intensity = 0; this.active = false; this.passes = 0; }
