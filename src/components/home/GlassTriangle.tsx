@@ -56,8 +56,8 @@ export default function GlassTriangle({ model, paused, mobile, hover, low, detai
     const diagnostics = rotation.step(model, rawDt, paused, hover);
     // Latest user correction: one central anchor, no chapter-driven side placement.
     mesh.current.position.set(0, 0, 0);
-    // One scene-unit model on every device; CameraRig owns the aspect adaptation.
-    mesh.current.scale.setScalar(1);
+    // Half-size model on every device (SYSTEM 9.3.9); CameraRig owns the aspect adaptation.
+    mesh.current.scale.setScalar(.5);
     mesh.current.quaternion.copy(rotation.quaternion);
     // Temporary old wall handoff, independent of the four-card index.
     mesh.current.visible = paused || model.motion.raw.wall < (.3 / .35);
