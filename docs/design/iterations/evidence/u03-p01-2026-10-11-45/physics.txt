@@ -1,0 +1,16 @@
+2026-10-11
+Command: node --test tests/prism-ray.test.mjs
+Node.js 24.16.0. Actual source solver and established GlassTriangle geometry.
+ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+PASS normal incidence retains direction for entry and exit
+PASS entry and exit satisfy Snell angle independently
+PASS total internal reflection keeps the reflected ray and unit length
+PASS real solid prism has entry, internal segment and rightward exit at scale .5
+PASS miss resets old output and leaves only straight white incident light
+PASS a TIR hit continues to another interface and can exit
+PASS eight-interface cutoff is explicit and clears previous outgoing light
+PASS rotation sweep stays finite and never forces a stale rightward output
+PASS singular transform and zero direction fail without leaving drawable output
+tests 9 / pass 9 / fail 0 / cancelled 0 / skipped 0 / todo 0
+duration_ms 163.2471
+The rotation sweep is a separate solver fixture, not a natural browser input claim.

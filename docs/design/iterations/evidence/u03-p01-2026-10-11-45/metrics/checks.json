@@ -1,0 +1,1895 @@
+{
+  "date": "2026-10-11",
+  "method": "Required render/resource delta only: same desktop native resting pose before44/new45, synchronous read-only renderer counters across5 final frames; no visual iteration or source change.",
+  "cases": {
+    "before": {
+      "errors": [],
+      "failed": [],
+      "images": [],
+      "bundle": {
+        "file": "HomeJourney.CDEE4AGw.js",
+        "bytes": 1170345,
+        "sha256": "9da7f5a42c9d9c77683536b12cf2d4a4f3113a1e42e551998059443738a504c7"
+      },
+      "probedSHA256": "d9d645922fda727fd2ba8ee02d056f7476453615563e7f280f430d02ffca2a9e",
+      "measured": [
+        {
+          "renders": [
+            {
+              "target": "5ee4173c-6e57-4744-9499-8438680146ab",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 2
+            },
+            {
+              "target": "b0bee922-3812-4991-8f5b-114fcf2850df",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "07414309-796a-4f5a-9acd-cbd11dff2fa4",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b7edadd9-b10f-4f0a-9aaa-1a4d6e4166db",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "07414309-796a-4f5a-9acd-cbd11dff2fa4",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b7edadd9-b10f-4f0a-9aaa-1a4d6e4166db",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "07414309-796a-4f5a-9acd-cbd11dff2fa4",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b7edadd9-b10f-4f0a-9aaa-1a4d6e4166db",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "07414309-796a-4f5a-9acd-cbd11dff2fa4",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b7edadd9-b10f-4f0a-9aaa-1a4d6e4166db",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 2,
+              "triangles": 1018
+            },
+            {
+              "target": "9d16b58a-0a10-4ac8-860b-be7063a0ebc1",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1016
+            },
+            {
+              "target": "52c20d33-5331-4f19-a2f6-5e3d77747af5",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "81fb110d-fc49-4ad1-a5bb-ca04957fbb32",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "ab43bd7f-9842-4589-aa41-b553bf8434f6",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "81fb110d-fc49-4ad1-a5bb-ca04957fbb32",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "fa87431f-ccea-4e2f-b377-050d1f4d3a37",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 2,
+              "calls": 0,
+              "triangles": 0
+            }
+          ],
+          "resources": {
+            "geometries": 12,
+            "textures": 16,
+            "programs": 18
+          }
+        },
+        {
+          "renders": [
+            {
+              "target": "5ee4173c-6e57-4744-9499-8438680146ab",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 2
+            },
+            {
+              "target": "b0bee922-3812-4991-8f5b-114fcf2850df",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "07414309-796a-4f5a-9acd-cbd11dff2fa4",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b7edadd9-b10f-4f0a-9aaa-1a4d6e4166db",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "07414309-796a-4f5a-9acd-cbd11dff2fa4",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b7edadd9-b10f-4f0a-9aaa-1a4d6e4166db",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "07414309-796a-4f5a-9acd-cbd11dff2fa4",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b7edadd9-b10f-4f0a-9aaa-1a4d6e4166db",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "07414309-796a-4f5a-9acd-cbd11dff2fa4",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b7edadd9-b10f-4f0a-9aaa-1a4d6e4166db",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 2,
+              "triangles": 1018
+            },
+            {
+              "target": "9d16b58a-0a10-4ac8-860b-be7063a0ebc1",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1016
+            },
+            {
+              "target": "52c20d33-5331-4f19-a2f6-5e3d77747af5",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "81fb110d-fc49-4ad1-a5bb-ca04957fbb32",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "ab43bd7f-9842-4589-aa41-b553bf8434f6",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "81fb110d-fc49-4ad1-a5bb-ca04957fbb32",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "fa87431f-ccea-4e2f-b377-050d1f4d3a37",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 2,
+              "calls": 0,
+              "triangles": 0
+            }
+          ],
+          "resources": {
+            "geometries": 12,
+            "textures": 16,
+            "programs": 18
+          }
+        },
+        {
+          "renders": [
+            {
+              "target": "5ee4173c-6e57-4744-9499-8438680146ab",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 2
+            },
+            {
+              "target": "b0bee922-3812-4991-8f5b-114fcf2850df",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "07414309-796a-4f5a-9acd-cbd11dff2fa4",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b7edadd9-b10f-4f0a-9aaa-1a4d6e4166db",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "07414309-796a-4f5a-9acd-cbd11dff2fa4",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b7edadd9-b10f-4f0a-9aaa-1a4d6e4166db",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "07414309-796a-4f5a-9acd-cbd11dff2fa4",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b7edadd9-b10f-4f0a-9aaa-1a4d6e4166db",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "07414309-796a-4f5a-9acd-cbd11dff2fa4",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b7edadd9-b10f-4f0a-9aaa-1a4d6e4166db",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 2,
+              "triangles": 1018
+            },
+            {
+              "target": "9d16b58a-0a10-4ac8-860b-be7063a0ebc1",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1016
+            },
+            {
+              "target": "52c20d33-5331-4f19-a2f6-5e3d77747af5",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "81fb110d-fc49-4ad1-a5bb-ca04957fbb32",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "ab43bd7f-9842-4589-aa41-b553bf8434f6",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "81fb110d-fc49-4ad1-a5bb-ca04957fbb32",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "fa87431f-ccea-4e2f-b377-050d1f4d3a37",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 2,
+              "calls": 0,
+              "triangles": 0
+            }
+          ],
+          "resources": {
+            "geometries": 12,
+            "textures": 16,
+            "programs": 18
+          }
+        },
+        {
+          "renders": [
+            {
+              "target": "5ee4173c-6e57-4744-9499-8438680146ab",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 2
+            },
+            {
+              "target": "b0bee922-3812-4991-8f5b-114fcf2850df",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "07414309-796a-4f5a-9acd-cbd11dff2fa4",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b7edadd9-b10f-4f0a-9aaa-1a4d6e4166db",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "07414309-796a-4f5a-9acd-cbd11dff2fa4",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b7edadd9-b10f-4f0a-9aaa-1a4d6e4166db",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "07414309-796a-4f5a-9acd-cbd11dff2fa4",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b7edadd9-b10f-4f0a-9aaa-1a4d6e4166db",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "07414309-796a-4f5a-9acd-cbd11dff2fa4",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b7edadd9-b10f-4f0a-9aaa-1a4d6e4166db",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 2,
+              "triangles": 1018
+            },
+            {
+              "target": "9d16b58a-0a10-4ac8-860b-be7063a0ebc1",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1016
+            },
+            {
+              "target": "52c20d33-5331-4f19-a2f6-5e3d77747af5",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "81fb110d-fc49-4ad1-a5bb-ca04957fbb32",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "ab43bd7f-9842-4589-aa41-b553bf8434f6",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "81fb110d-fc49-4ad1-a5bb-ca04957fbb32",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "fa87431f-ccea-4e2f-b377-050d1f4d3a37",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 2,
+              "calls": 0,
+              "triangles": 0
+            }
+          ],
+          "resources": {
+            "geometries": 12,
+            "textures": 16,
+            "programs": 18
+          }
+        },
+        {
+          "renders": [
+            {
+              "target": "5ee4173c-6e57-4744-9499-8438680146ab",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 2
+            },
+            {
+              "target": "b0bee922-3812-4991-8f5b-114fcf2850df",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "07414309-796a-4f5a-9acd-cbd11dff2fa4",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b7edadd9-b10f-4f0a-9aaa-1a4d6e4166db",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "07414309-796a-4f5a-9acd-cbd11dff2fa4",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b7edadd9-b10f-4f0a-9aaa-1a4d6e4166db",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "07414309-796a-4f5a-9acd-cbd11dff2fa4",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b7edadd9-b10f-4f0a-9aaa-1a4d6e4166db",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "07414309-796a-4f5a-9acd-cbd11dff2fa4",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b7edadd9-b10f-4f0a-9aaa-1a4d6e4166db",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 2,
+              "triangles": 1018
+            },
+            {
+              "target": "9d16b58a-0a10-4ac8-860b-be7063a0ebc1",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1016
+            },
+            {
+              "target": "52c20d33-5331-4f19-a2f6-5e3d77747af5",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "81fb110d-fc49-4ad1-a5bb-ca04957fbb32",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "ab43bd7f-9842-4589-aa41-b553bf8434f6",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "81fb110d-fc49-4ad1-a5bb-ca04957fbb32",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "fa87431f-ccea-4e2f-b377-050d1f4d3a37",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 2,
+              "calls": 0,
+              "triangles": 0
+            }
+          ],
+          "resources": {
+            "geometries": 12,
+            "textures": 16,
+            "programs": 18
+          }
+        }
+      ]
+    },
+    "after": {
+      "errors": [],
+      "failed": [],
+      "images": [],
+      "bundle": {
+        "file": "HomeJourney.CDEE4AGw.js",
+        "bytes": 1179034,
+        "sha256": "3f9c79da5c97f6be0909bb0a918e7dbc50629f27eb82988dcd8fad9b30f75d46"
+      },
+      "probedSHA256": "41d563954dd832b2c5eba6a485f639f6c3be7a9187084f0bb0147526fca19ac3",
+      "measured": [
+        {
+          "renders": [
+            {
+              "target": "a43081f5-7a80-4329-8847-d56508103cfa",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 2
+            },
+            {
+              "target": "c3941259-aaec-4325-8482-ebb640358467",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "6170230a-644b-413d-8653-630434ed9775",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "84c7d31c-8bf8-4c9a-976f-3bc884410377",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "6170230a-644b-413d-8653-630434ed9775",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "84c7d31c-8bf8-4c9a-976f-3bc884410377",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "6170230a-644b-413d-8653-630434ed9775",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "84c7d31c-8bf8-4c9a-976f-3bc884410377",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "6170230a-644b-413d-8653-630434ed9775",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "84c7d31c-8bf8-4c9a-976f-3bc884410377",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 2,
+              "triangles": 1018
+            },
+            {
+              "target": "0944e738-5205-4944-897e-28ff8417aa15",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1016
+            },
+            {
+              "target": "2e0301e8-56ca-41b5-a9ed-dd25bd5b6557",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b742bcae-0826-42e2-b8db-281896e2aa30",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "05b8b1b0-8e9a-4ae4-9199-883701b79efa",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b742bcae-0826-42e2-b8db-281896e2aa30",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "fa1cd7d7-0e6d-46a3-ae8c-2c46c16bdd8e",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 4,
+              "calls": 1,
+              "triangles": 6
+            },
+            {
+              "target": null,
+              "layers": 2,
+              "calls": 0,
+              "triangles": 0
+            }
+          ],
+          "resources": {
+            "geometries": 13,
+            "textures": 16,
+            "programs": 19
+          },
+          "beam": {
+            "status": "exited",
+            "rightward": true,
+            "epsilon": 0.000022587145948155778,
+            "points": [
+              [
+                -12,
+                0,
+                0
+              ],
+              [
+                -0.444624619214979,
+                0,
+                0
+              ],
+              [
+                0.5445382624104174,
+                -0.172182301367271,
+                0
+              ],
+              [
+                19.293155162344174,
+                -15.155151444348189,
+                0
+              ]
+            ],
+            "outputDirection": [
+              0.7811923708305732,
+              -0.6242903809575382,
+              0
+            ],
+            "events": [
+              {
+                "point": [
+                  -0.444624619214979,
+                  0,
+                  0
+                ],
+                "normal": [
+                  -0.8649267239857688,
+                  0.5018981591271738,
+                  0
+                ],
+                "incoming": [
+                  1,
+                  0,
+                  0
+                ],
+                "outgoing": [
+                  0.9851858561150999,
+                  -0.17149002568883676,
+                  0
+                ],
+                "n1": 1,
+                "n2": 1.45,
+                "kind": "refract",
+                "face": 395
+              },
+              {
+                "point": [
+                  0.5445382624104174,
+                  -0.172182301367271,
+                  0
+                ],
+                "normal": [
+                  -0.8649267239857688,
+                  -0.5018981591271738,
+                  0
+                ],
+                "incoming": [
+                  0.9851858561150999,
+                  -0.17149002568883676,
+                  0
+                ],
+                "outgoing": [
+                  0.7811923708305732,
+                  -0.6242903809575382,
+                  0
+                ],
+                "n1": 1.45,
+                "n2": 1,
+                "kind": "refract",
+                "face": 1006
+              }
+            ],
+            "triangles": 1016,
+            "active": true,
+            "intensity": 1,
+            "segments": 3,
+            "vertices": 18,
+            "layer": 4,
+            "depthTest": false,
+            "disposed": false,
+            "solves": 1,
+            "cpuMs": {
+              "last": 0.7000000029802322,
+              "mean": 0.7000000029802322,
+              "max": 0.7000000029802322
+            },
+            "geometry": "26e2c140-8888-4277-838c-6b127d31a4ef",
+            "material": "d10540bb-d818-4a8e-8f58-e2c9570d2bbf"
+          }
+        },
+        {
+          "renders": [
+            {
+              "target": "a43081f5-7a80-4329-8847-d56508103cfa",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 2
+            },
+            {
+              "target": "c3941259-aaec-4325-8482-ebb640358467",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "6170230a-644b-413d-8653-630434ed9775",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "84c7d31c-8bf8-4c9a-976f-3bc884410377",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "6170230a-644b-413d-8653-630434ed9775",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "84c7d31c-8bf8-4c9a-976f-3bc884410377",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "6170230a-644b-413d-8653-630434ed9775",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "84c7d31c-8bf8-4c9a-976f-3bc884410377",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "6170230a-644b-413d-8653-630434ed9775",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "84c7d31c-8bf8-4c9a-976f-3bc884410377",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 2,
+              "triangles": 1018
+            },
+            {
+              "target": "0944e738-5205-4944-897e-28ff8417aa15",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1016
+            },
+            {
+              "target": "2e0301e8-56ca-41b5-a9ed-dd25bd5b6557",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b742bcae-0826-42e2-b8db-281896e2aa30",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "05b8b1b0-8e9a-4ae4-9199-883701b79efa",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b742bcae-0826-42e2-b8db-281896e2aa30",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "fa1cd7d7-0e6d-46a3-ae8c-2c46c16bdd8e",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 4,
+              "calls": 1,
+              "triangles": 6
+            },
+            {
+              "target": null,
+              "layers": 2,
+              "calls": 0,
+              "triangles": 0
+            }
+          ],
+          "resources": {
+            "geometries": 13,
+            "textures": 16,
+            "programs": 19
+          },
+          "beam": {
+            "status": "exited",
+            "rightward": true,
+            "epsilon": 0.000022587145948155778,
+            "points": [
+              [
+                -12,
+                0,
+                0
+              ],
+              [
+                -0.444624619214979,
+                0,
+                0
+              ],
+              [
+                0.5445382624104174,
+                -0.172182301367271,
+                0
+              ],
+              [
+                19.293155162344174,
+                -15.155151444348189,
+                0
+              ]
+            ],
+            "outputDirection": [
+              0.7811923708305732,
+              -0.6242903809575382,
+              0
+            ],
+            "events": [
+              {
+                "point": [
+                  -0.444624619214979,
+                  0,
+                  0
+                ],
+                "normal": [
+                  -0.8649267239857688,
+                  0.5018981591271738,
+                  0
+                ],
+                "incoming": [
+                  1,
+                  0,
+                  0
+                ],
+                "outgoing": [
+                  0.9851858561150999,
+                  -0.17149002568883676,
+                  0
+                ],
+                "n1": 1,
+                "n2": 1.45,
+                "kind": "refract",
+                "face": 395
+              },
+              {
+                "point": [
+                  0.5445382624104174,
+                  -0.172182301367271,
+                  0
+                ],
+                "normal": [
+                  -0.8649267239857688,
+                  -0.5018981591271738,
+                  0
+                ],
+                "incoming": [
+                  0.9851858561150999,
+                  -0.17149002568883676,
+                  0
+                ],
+                "outgoing": [
+                  0.7811923708305732,
+                  -0.6242903809575382,
+                  0
+                ],
+                "n1": 1.45,
+                "n2": 1,
+                "kind": "refract",
+                "face": 1006
+              }
+            ],
+            "triangles": 1016,
+            "active": true,
+            "intensity": 1,
+            "segments": 3,
+            "vertices": 18,
+            "layer": 4,
+            "depthTest": false,
+            "disposed": false,
+            "solves": 1,
+            "cpuMs": {
+              "last": 0.7000000029802322,
+              "mean": 0.7000000029802322,
+              "max": 0.7000000029802322
+            },
+            "geometry": "26e2c140-8888-4277-838c-6b127d31a4ef",
+            "material": "d10540bb-d818-4a8e-8f58-e2c9570d2bbf"
+          }
+        },
+        {
+          "renders": [
+            {
+              "target": "a43081f5-7a80-4329-8847-d56508103cfa",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 2
+            },
+            {
+              "target": "c3941259-aaec-4325-8482-ebb640358467",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "6170230a-644b-413d-8653-630434ed9775",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "84c7d31c-8bf8-4c9a-976f-3bc884410377",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "6170230a-644b-413d-8653-630434ed9775",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "84c7d31c-8bf8-4c9a-976f-3bc884410377",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "6170230a-644b-413d-8653-630434ed9775",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "84c7d31c-8bf8-4c9a-976f-3bc884410377",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "6170230a-644b-413d-8653-630434ed9775",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "84c7d31c-8bf8-4c9a-976f-3bc884410377",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 2,
+              "triangles": 1018
+            },
+            {
+              "target": "0944e738-5205-4944-897e-28ff8417aa15",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1016
+            },
+            {
+              "target": "2e0301e8-56ca-41b5-a9ed-dd25bd5b6557",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b742bcae-0826-42e2-b8db-281896e2aa30",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "05b8b1b0-8e9a-4ae4-9199-883701b79efa",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b742bcae-0826-42e2-b8db-281896e2aa30",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "fa1cd7d7-0e6d-46a3-ae8c-2c46c16bdd8e",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 4,
+              "calls": 1,
+              "triangles": 6
+            },
+            {
+              "target": null,
+              "layers": 2,
+              "calls": 0,
+              "triangles": 0
+            }
+          ],
+          "resources": {
+            "geometries": 13,
+            "textures": 16,
+            "programs": 19
+          },
+          "beam": {
+            "status": "exited",
+            "rightward": true,
+            "epsilon": 0.000022587145948155778,
+            "points": [
+              [
+                -12,
+                0,
+                0
+              ],
+              [
+                -0.444624619214979,
+                0,
+                0
+              ],
+              [
+                0.5445382624104174,
+                -0.172182301367271,
+                0
+              ],
+              [
+                19.293155162344174,
+                -15.155151444348189,
+                0
+              ]
+            ],
+            "outputDirection": [
+              0.7811923708305732,
+              -0.6242903809575382,
+              0
+            ],
+            "events": [
+              {
+                "point": [
+                  -0.444624619214979,
+                  0,
+                  0
+                ],
+                "normal": [
+                  -0.8649267239857688,
+                  0.5018981591271738,
+                  0
+                ],
+                "incoming": [
+                  1,
+                  0,
+                  0
+                ],
+                "outgoing": [
+                  0.9851858561150999,
+                  -0.17149002568883676,
+                  0
+                ],
+                "n1": 1,
+                "n2": 1.45,
+                "kind": "refract",
+                "face": 395
+              },
+              {
+                "point": [
+                  0.5445382624104174,
+                  -0.172182301367271,
+                  0
+                ],
+                "normal": [
+                  -0.8649267239857688,
+                  -0.5018981591271738,
+                  0
+                ],
+                "incoming": [
+                  0.9851858561150999,
+                  -0.17149002568883676,
+                  0
+                ],
+                "outgoing": [
+                  0.7811923708305732,
+                  -0.6242903809575382,
+                  0
+                ],
+                "n1": 1.45,
+                "n2": 1,
+                "kind": "refract",
+                "face": 1006
+              }
+            ],
+            "triangles": 1016,
+            "active": true,
+            "intensity": 1,
+            "segments": 3,
+            "vertices": 18,
+            "layer": 4,
+            "depthTest": false,
+            "disposed": false,
+            "solves": 1,
+            "cpuMs": {
+              "last": 0.7000000029802322,
+              "mean": 0.7000000029802322,
+              "max": 0.7000000029802322
+            },
+            "geometry": "26e2c140-8888-4277-838c-6b127d31a4ef",
+            "material": "d10540bb-d818-4a8e-8f58-e2c9570d2bbf"
+          }
+        },
+        {
+          "renders": [
+            {
+              "target": "a43081f5-7a80-4329-8847-d56508103cfa",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 2
+            },
+            {
+              "target": "c3941259-aaec-4325-8482-ebb640358467",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "6170230a-644b-413d-8653-630434ed9775",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "84c7d31c-8bf8-4c9a-976f-3bc884410377",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "6170230a-644b-413d-8653-630434ed9775",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "84c7d31c-8bf8-4c9a-976f-3bc884410377",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "6170230a-644b-413d-8653-630434ed9775",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "84c7d31c-8bf8-4c9a-976f-3bc884410377",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "6170230a-644b-413d-8653-630434ed9775",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "84c7d31c-8bf8-4c9a-976f-3bc884410377",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 2,
+              "triangles": 1018
+            },
+            {
+              "target": "0944e738-5205-4944-897e-28ff8417aa15",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1016
+            },
+            {
+              "target": "2e0301e8-56ca-41b5-a9ed-dd25bd5b6557",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b742bcae-0826-42e2-b8db-281896e2aa30",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "05b8b1b0-8e9a-4ae4-9199-883701b79efa",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b742bcae-0826-42e2-b8db-281896e2aa30",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "fa1cd7d7-0e6d-46a3-ae8c-2c46c16bdd8e",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 4,
+              "calls": 1,
+              "triangles": 6
+            },
+            {
+              "target": null,
+              "layers": 2,
+              "calls": 0,
+              "triangles": 0
+            }
+          ],
+          "resources": {
+            "geometries": 13,
+            "textures": 16,
+            "programs": 19
+          },
+          "beam": {
+            "status": "exited",
+            "rightward": true,
+            "epsilon": 0.000022587145948155778,
+            "points": [
+              [
+                -12,
+                0,
+                0
+              ],
+              [
+                -0.444624619214979,
+                0,
+                0
+              ],
+              [
+                0.5445382624104174,
+                -0.172182301367271,
+                0
+              ],
+              [
+                19.293155162344174,
+                -15.155151444348189,
+                0
+              ]
+            ],
+            "outputDirection": [
+              0.7811923708305732,
+              -0.6242903809575382,
+              0
+            ],
+            "events": [
+              {
+                "point": [
+                  -0.444624619214979,
+                  0,
+                  0
+                ],
+                "normal": [
+                  -0.8649267239857688,
+                  0.5018981591271738,
+                  0
+                ],
+                "incoming": [
+                  1,
+                  0,
+                  0
+                ],
+                "outgoing": [
+                  0.9851858561150999,
+                  -0.17149002568883676,
+                  0
+                ],
+                "n1": 1,
+                "n2": 1.45,
+                "kind": "refract",
+                "face": 395
+              },
+              {
+                "point": [
+                  0.5445382624104174,
+                  -0.172182301367271,
+                  0
+                ],
+                "normal": [
+                  -0.8649267239857688,
+                  -0.5018981591271738,
+                  0
+                ],
+                "incoming": [
+                  0.9851858561150999,
+                  -0.17149002568883676,
+                  0
+                ],
+                "outgoing": [
+                  0.7811923708305732,
+                  -0.6242903809575382,
+                  0
+                ],
+                "n1": 1.45,
+                "n2": 1,
+                "kind": "refract",
+                "face": 1006
+              }
+            ],
+            "triangles": 1016,
+            "active": true,
+            "intensity": 1,
+            "segments": 3,
+            "vertices": 18,
+            "layer": 4,
+            "depthTest": false,
+            "disposed": false,
+            "solves": 1,
+            "cpuMs": {
+              "last": 0.7000000029802322,
+              "mean": 0.7000000029802322,
+              "max": 0.7000000029802322
+            },
+            "geometry": "26e2c140-8888-4277-838c-6b127d31a4ef",
+            "material": "d10540bb-d818-4a8e-8f58-e2c9570d2bbf"
+          }
+        },
+        {
+          "renders": [
+            {
+              "target": "a43081f5-7a80-4329-8847-d56508103cfa",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 2
+            },
+            {
+              "target": "c3941259-aaec-4325-8482-ebb640358467",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "6170230a-644b-413d-8653-630434ed9775",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "84c7d31c-8bf8-4c9a-976f-3bc884410377",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "6170230a-644b-413d-8653-630434ed9775",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "84c7d31c-8bf8-4c9a-976f-3bc884410377",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "6170230a-644b-413d-8653-630434ed9775",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "84c7d31c-8bf8-4c9a-976f-3bc884410377",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "6170230a-644b-413d-8653-630434ed9775",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "84c7d31c-8bf8-4c9a-976f-3bc884410377",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 2,
+              "triangles": 1018
+            },
+            {
+              "target": "0944e738-5205-4944-897e-28ff8417aa15",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1016
+            },
+            {
+              "target": "2e0301e8-56ca-41b5-a9ed-dd25bd5b6557",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b742bcae-0826-42e2-b8db-281896e2aa30",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "05b8b1b0-8e9a-4ae4-9199-883701b79efa",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "b742bcae-0826-42e2-b8db-281896e2aa30",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": "fa1cd7d7-0e6d-46a3-ae8c-2c46c16bdd8e",
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 1,
+              "calls": 1,
+              "triangles": 1
+            },
+            {
+              "target": null,
+              "layers": 4,
+              "calls": 1,
+              "triangles": 6
+            },
+            {
+              "target": null,
+              "layers": 2,
+              "calls": 0,
+              "triangles": 0
+            }
+          ],
+          "resources": {
+            "geometries": 13,
+            "textures": 16,
+            "programs": 19
+          },
+          "beam": {
+            "status": "exited",
+            "rightward": true,
+            "epsilon": 0.000022587145948155778,
+            "points": [
+              [
+                -12,
+                0,
+                0
+              ],
+              [
+                -0.444624619214979,
+                0,
+                0
+              ],
+              [
+                0.5445382624104174,
+                -0.172182301367271,
+                0
+              ],
+              [
+                19.293155162344174,
+                -15.155151444348189,
+                0
+              ]
+            ],
+            "outputDirection": [
+              0.7811923708305732,
+              -0.6242903809575382,
+              0
+            ],
+            "events": [
+              {
+                "point": [
+                  -0.444624619214979,
+                  0,
+                  0
+                ],
+                "normal": [
+                  -0.8649267239857688,
+                  0.5018981591271738,
+                  0
+                ],
+                "incoming": [
+                  1,
+                  0,
+                  0
+                ],
+                "outgoing": [
+                  0.9851858561150999,
+                  -0.17149002568883676,
+                  0
+                ],
+                "n1": 1,
+                "n2": 1.45,
+                "kind": "refract",
+                "face": 395
+              },
+              {
+                "point": [
+                  0.5445382624104174,
+                  -0.172182301367271,
+                  0
+                ],
+                "normal": [
+                  -0.8649267239857688,
+                  -0.5018981591271738,
+                  0
+                ],
+                "incoming": [
+                  0.9851858561150999,
+                  -0.17149002568883676,
+                  0
+                ],
+                "outgoing": [
+                  0.7811923708305732,
+                  -0.6242903809575382,
+                  0
+                ],
+                "n1": 1.45,
+                "n2": 1,
+                "kind": "refract",
+                "face": 1006
+              }
+            ],
+            "triangles": 1016,
+            "active": true,
+            "intensity": 1,
+            "segments": 3,
+            "vertices": 18,
+            "layer": 4,
+            "depthTest": false,
+            "disposed": false,
+            "solves": 1,
+            "cpuMs": {
+              "last": 0.7000000029802322,
+              "mean": 0.7000000029802322,
+              "max": 0.7000000029802322
+            },
+            "geometry": "26e2c140-8888-4277-838c-6b127d31a4ef",
+            "material": "d10540bb-d818-4a8e-8f58-e2c9570d2bbf"
+          }
+        }
+      ]
+    }
+  },
+  "checks": [
+    {
+      "name": "actual beam render and resource increment",
+      "pass": true,
+      "evidence": {
+        "geometries": 1,
+        "textures": 0,
+        "programs": 1,
+        "rendererPasses": 1,
+        "beamPasses": 1,
+        "beamDrawCalls": 1,
+        "beamTriangles": 6,
+        "typedVertexBytes": 2592
+      }
+    }
+  ],
+  "limitations": [
+    "IAB control failed twice during initialization; design thread reported the same failure and authorized the existing Playwright fallback.",
+    "DPR1 / SwiftShader / emulated mobile are not real-device performance evidence.",
+    "Natural poses at separate actual times; no fixed 60/85 degree claim."
+  ],
+  "browser": "154.0.8037.99",
+  "delta": {
+    "geometries": 1,
+    "textures": 0,
+    "programs": 1,
+    "rendererPasses": 1,
+    "beamPasses": 1,
+    "beamDrawCalls": 1,
+    "beamTriangles": 6,
+    "typedVertexBytes": 2592
+  },
+  "pass": true
+}
