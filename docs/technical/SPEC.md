@@ -330,3 +330,5 @@ Giscus 仍依赖外部托管服务。网易云同步和未来 AI 需要服务端
 历史提议的 Next.js、Payload、PostgreSQL、常驻服务器和匿名留言系统不再是当前默认方案。后续若出现具体业务理由，需要说明证据及成本后再调整。
 
 2026-10-11 48源角度切片：只更新PrismBeam/prism-ray固定源方向与只读诊断，复用45求解器与47光层，无新依赖/target。参数由设计SYSTEM9.3.15维护，实际记录见[48](../design/iterations/u03-p01-2026-10-11-48-implementation.md)。后续色散以此固定斜向源重新验证。
+
+2026-10-11 46实际色散：复用45纯Snell求解及ThreeBufferGeometry/ShaderMaterial，在现有R3F循环内共享真实几何的不可变三角缓存，七波长独立状态和有限TIR。matrixWorld不变不重求交；显示近裁面与物理分开。相邻色带核对真实界面族，不用相同事件串当完整拓扑；通道无效即时撤旧输出。层2只在最终default target绘制，普通/增强透射快照排除，前景层仍最后。一个geometry/material/draw，无新依赖/target，离页统一释放。参数归设计SYSTEM9.3.13，具体证据/CPU/缓冲见[46工程记录](../design/iterations/u03-p01-2026-10-11-46-implementation.md)。
