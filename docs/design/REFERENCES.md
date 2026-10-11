@@ -344,3 +344,7 @@ React Bits 当前许可为 [MIT 加 Commons Clause](https://github.com/DavidHDev
 ### P01-GEOMETRY-REF-40 · ALCHE 三角体比例测量
 
 2026-10-10：用户指定复刻大小和比例。来源[ALCHE首页](https://alche.studio/)与其公开common/scene.glb；读取Alche_A geometry边界、前表面轮廓环和原站实例缩放/相机。原件只存Temp；本站使用现有Shape/ExtrudeGeometry重建规则三角环，原站模型、字母底部缺口和纹理不接入。尺寸/哈希/验证边界见[40轮任务](iterations/u03-p01-2026-10-10-40.md)，统一参数在SYSTEM9.3.7。
+
+## 封面入射角测量（48轮）
+
+[Pink Floyd官方专辑页](https://www.pinkfloyd.com/albums/the-dark-side-of-the-moon/)，复用已登记05轮1500px原图，不新增生产素材。97个白光中性像素中心线样本测得向右上14.2115394°、RMS .245px，方法与原始点见[48测量](iterations/evidence/u03-p01-2026-10-11-48/cover-measurement.json)。这是图像读数，不是原作者工程角度，官方艺术参考的许可状态保持。
