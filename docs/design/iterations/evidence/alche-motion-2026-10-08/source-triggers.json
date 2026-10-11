@@ -1,0 +1,192 @@
+[
+  {
+    "name": "\"kv\"",
+    "start": 1413508,
+    "end": 1413728,
+    "byte": 1413532,
+    "byteEnd": 1413752,
+    "size": 220,
+    "sha256": "e46764fdc34caa5fa59101497aa301c7c817ae956f57e3169a86d38c66beac12",
+    "configuration": "{triggerId:\"top_kv\",pathname:\"/\",trigger:i,start:\"top bottom\",end:\"bottom bottom-=100px\",onEnter:()=>this._onSectionEnter(\"kv\",\"enter\"),onEnterBack:()=>this._onSectionEnter(\"kv\",\"enterBack\")}"
+  },
+  {
+    "name": "\"works_intro\"",
+    "start": 1413796,
+    "end": 1414045,
+    "byte": 1413820,
+    "byteEnd": 1414069,
+    "size": 249,
+    "sha256": "4b6644183dbfe7c03dd0977f9cf54870edcca4e00c8ef3f07dae3d1df5b9f738",
+    "configuration": "{triggerId:\"top_works_intro\",pathname:\"/\",trigger:o,start:\"top bottom\",end:\"bottom bottom\",onEnter:()=>this._onSectionEnter(\"works_intro\",\"enter\"),onEnterBack:()=>this._onSectionEnter(\"works_intro\",\"enterBack\")}"
+  },
+  {
+    "name": "\"works\"",
+    "start": 1414153,
+    "end": 1414322,
+    "byte": 1414177,
+    "byteEnd": 1414346,
+    "size": 169,
+    "sha256": "a487f1e9b76a82cc17ed2fefa1a29251cf4df9c661f4fa73e5eeec27f6f150db",
+    "configuration": "{triggerId:\"top_works\",pathname:\"/\",trigger:c,start:\"top top\",end:\"bottom bottom\",snap:{snapTo:1/(u.length-1),duration:1,directional:!1}}"
+  },
+  {
+    "name": "\"works_event\"",
+    "start": 1414323,
+    "end": 1414560,
+    "byte": 1414347,
+    "byteEnd": 1414584,
+    "size": 237,
+    "sha256": "eaf512c76872620edd135c9055539af25d2fbeb899c5f9aa318fbb4e4a4d612f",
+    "configuration": "{triggerId:\"top_works_event\",pathname:\"/\",trigger:c,start:\"top bottom\",end:\"bottom bottom\",onEnter:()=>this._onSectionEnter(\"works\",\"enter\"),onEnterBack:()=>this._onSectionEnter(\"works\",\"enterBack\")}"
+  },
+  {
+    "name": "\"works_progress\"",
+    "start": 1414561,
+    "end": 1414744,
+    "byte": 1414585,
+    "byteEnd": 1414768,
+    "size": 183,
+    "sha256": "d1b94b4238f86d05934627409015ac2a593c35634d17fb3111fd4e8d8cde5a3d",
+    "configuration": "{triggerId:\"top_works_progress\",pathname:\"/\",trigger:c,start:\"top bottom\",end:\"bottom top\",onUpdate:w=>this.emit(\"works/progress\",w.progress)}"
+  },
+  {
+    "name": "`works_item_${T}`",
+    "start": 1414763,
+    "end": 1415084,
+    "byte": 1414787,
+    "byteEnd": 1415108,
+    "size": 321,
+    "sha256": "df3b4f8e39a5b8f2f7e4f7267b6711079a50f808bb96addedae406add30c8abf",
+    "configuration": "{triggerId:`top_works_item_${T}`,pathname:\"/\",trigger:w,start:\"top center\",end:\"bottom center\",onEnter:()=>this.emit(\"works/item_enter\",T),onEnterBack:()=>this.emit(\"works/item_enter\",T),onLeave:()=>this.emit(\"works/item_leave\",T),onLeaveBack:()=>this.emit(\"works/item_leave\",T)}"
+  },
+  {
+    "name": "\"works_outro\"",
+    "start": 1415154,
+    "end": 1415403,
+    "byte": 1415178,
+    "byteEnd": 1415427,
+    "size": 249,
+    "sha256": "b100f7ad6fead43fc9b1bb60b8d30bb637b5d65749357efa2d33c4de19ef3534",
+    "configuration": "{triggerId:\"top_works_outro\",pathname:\"/\",trigger:p,start:\"top bottom\",end:\"bottom bottom\",onEnter:()=>this._onSectionEnter(\"works_outro\",\"enter\"),onEnterBack:()=>this._onSectionEnter(\"works_outro\",\"enterBack\")}"
+  },
+  {
+    "name": "\"mission_in\"",
+    "start": 1415470,
+    "end": 1415765,
+    "byte": 1415494,
+    "byteEnd": 1415789,
+    "size": 295,
+    "sha256": "bd5120de8c00c2fe65478b6723a162d28e8bf46ae542ec2912ebad826df588ea",
+    "configuration": "{triggerId:\"top_mission_in\",pathname:\"/\",trigger:m,start:\"top bottom\",end:\"top top\",onEnter:()=>this._onSectionEnter(\"mission_in\",\"enter\"),onEnterBack:()=>this._onSectionEnter(\"mission_in\",\"enterBack\"),onUpdate:w=>this.emit(\"mission_in/progress\",w.progress)}"
+  },
+  {
+    "name": "\"mission\"",
+    "start": 1415829,
+    "end": 1416062,
+    "byte": 1415853,
+    "byteEnd": 1416086,
+    "size": 233,
+    "sha256": "d7ddd9382bf4f5c8981275f2c2fbfb08962c009062894ed3139f82d76cd191ee",
+    "configuration": "{triggerId:\"top_mission\",pathname:\"/\",trigger:g,start:\"top bottom\",end:\"bottom bottom\",onEnter:()=>this._onSectionEnter(\"mission\",\"enter\"),onEnterBack:()=>this._onSectionEnter(\"mission\",\"enterBack\")}"
+  },
+  {
+    "name": "\"vision\"",
+    "start": 1416125,
+    "end": 1416386,
+    "byte": 1416149,
+    "byteEnd": 1416410,
+    "size": 261,
+    "sha256": "9ef7c2ba10a8e88b15d35286bcd4b2103f36910a8a26f60d477614d38386f80c",
+    "configuration": "{triggerId:\"top_vision\",pathname:\"/\",trigger:_,start:\"top bottom\",end:\"top top\",onEnter:()=>this._onSectionEnter(\"vision\",\"enter\"),onEnterBack:()=>this._onSectionEnter(\"vision\",\"enterBack\"),sp:{start:\"top bottom\",end:\"top 70%\"}}"
+  },
+  {
+    "name": "\"vision_out\"",
+    "start": 1416453,
+    "end": 1416735,
+    "byte": 1416477,
+    "byteEnd": 1416759,
+    "size": 282,
+    "sha256": "4f9ba1e173a20351e39b01b41e4f737644283fffc09f455a372ec4af7d014121",
+    "configuration": "{triggerId:\"top_vision_out\",pathname:\"/\",trigger:v,start:\"top bottom\",end:\"top top\",onEnter:()=>this._onSectionEnter(\"vision_out\",\"enter\"),onEnterBack:()=>this._onSectionEnter(\"vision_out\",\"enterBack\"),sp:{start:\"top bottom-=50%\",end:\"top top\"}}"
+  },
+  {
+    "name": "\"mission_vision_snapper\"",
+    "start": 1416835,
+    "end": 1417078,
+    "byte": 1416859,
+    "byteEnd": 1417102,
+    "size": 243,
+    "sha256": "c37be405106709d12fcf269478063b6c4d2d8b2cc1c72f349f1e422d3c394155",
+    "configuration": "{triggerId:\"top_mission_vision_snapper\",pathname:\"/\",trigger:w,start:\"top top\",end:\"bottom bottom\",snap:{snapTo:T,duration:1,directional:!1},sp:{start:\"top top\",end:\"bottom bottom\",snap:void 0}}"
+  },
+  {
+    "name": "\"vision_service_wrap\"",
+    "start": 1417152,
+    "end": 1417422,
+    "byte": 1417176,
+    "byteEnd": 1417446,
+    "size": 270,
+    "sha256": "dcacf1e0a23827295917c671c8e44edde28062641ea1249c5b110d3ad42721c1",
+    "configuration": "{triggerId:\"top_vision_service_wrap\",pathname:\"/\",trigger:y,start:\"top bottom\",end:\"bottom top\",snap:{snapTo:[0,1],duration:1,directional:!1},sp:{start:\"top 30%\",end:\"bottom top\",snap:{snapTo:[1],duration:1,directional:!1}}}"
+  },
+  {
+    "name": "\"service_in\"",
+    "start": 1417489,
+    "end": 1417737,
+    "byte": 1417513,
+    "byteEnd": 1417761,
+    "size": 248,
+    "sha256": "27052e898f1d1bf5849733f2dabddcc422aa82b94f40940fccb66fe5e8b96338",
+    "configuration": "{triggerId:\"top_service_in\",pathname:\"/\",trigger:b,start:\"top bottom+=150%\",end:\"top center\",onEnter:()=>this._onSectionEnter(\"service_in\",\"enter\"),onEnterBack:()=>this._onSectionEnter(\"service_in\",\"enterBack\")}"
+  },
+  {
+    "name": "\"service_snap\"",
+    "start": 1417852,
+    "end": 1418051,
+    "byte": 1417876,
+    "byteEnd": 1418075,
+    "size": 199,
+    "sha256": "4613f175d57337dafd3f27201c2b6854651bc944df9d7eed7c12f74d978bbada",
+    "configuration": "{triggerId:\"top_service\",pathname:\"/\",trigger:S,start:\"top top\",end:\"bottom bottom\",snap:{snapTo:calculateServiceSnapArray(E.length),duration:1,directional:!1}}"
+  },
+  {
+    "name": "\"service_progress\"",
+    "start": 1418052,
+    "end": 1418188,
+    "byte": 1418076,
+    "byteEnd": 1418212,
+    "size": 136,
+    "sha256": "38b0c42fdad47490dba2caa0d6e1a8454314694d9d107f68beb045d620acfa56",
+    "configuration": "{triggerId:\"top_service_progress\",pathname:\"/\",trigger:S,start:\"top bottom\",end:\"bottom top\"}"
+  },
+  {
+    "name": "`service_scroll_item_${T}`",
+    "start": 1418239,
+    "end": 1418662,
+    "byte": 1418263,
+    "byteEnd": 1418686,
+    "size": 423,
+    "sha256": "db51758fdf893317181b701ce493a7ae869e9742e79906ce77713b9a2501b724",
+    "configuration": "{triggerId:`top_service_scroll_item_${T}`,pathname:\"/\",trigger:w,start:\"top bottom\",end:\"bottom bottom\",onEnter:()=>{this.emit(\"service/item_enter\",T),this._onSectionEnter(M,\"enter\")},onEnterBack:()=>{this.emit(\"service/item_enter\",T),this._onSectionEnter(M,\"enterBack\")},onLeave:()=>{this.emit(\"service/item_leave\",T)},onLeaveBack:()=>{this.emit(\"service/item_leave\",T)}}"
+  },
+  {
+    "name": "\"stellla_in\"",
+    "start": 1418736,
+    "end": 1418863,
+    "byte": 1418760,
+    "byteEnd": 1418887,
+    "size": 127,
+    "sha256": "48e0237283eeffe5f301386e27a48dbb05b1b00a4c1ce4951cbba022c7846cec",
+    "configuration": "{triggerId:\"top_stellla_in\",pathname:\"/\",trigger:C,start:\"top bottom\",end:\"bottom bottom\"}"
+  },
+  {
+    "name": "\"stellla\"",
+    "start": 1418927,
+    "end": 1419204,
+    "byte": 1418951,
+    "byteEnd": 1419228,
+    "size": 277,
+    "sha256": "59ed468a9f8adcb6a58f92ee39e98de3ee36a5ef5a6c5833bf2dfbb5b6919cda",
+    "configuration": "{triggerId:\"top_stellla\",pathname:\"/\",trigger:P,start:\"top bottom\",end:\"bottom bottom\",snap:{snapTo:[.9],duration:1,directional:!1},onEnterBack:()=>this._onSectionEnter(\"stellla\",\"enterBack\"),onLeave:()=>this._onSectionEnter(\"footer\",\"enter\")}"
+  }
+]

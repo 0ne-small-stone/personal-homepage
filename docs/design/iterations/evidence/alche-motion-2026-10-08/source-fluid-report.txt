@@ -1,0 +1,119 @@
+# ALCHE指针流体补充：活跃输入、求解、消散和玻璃采样
+
+2026-10-08。仅追当前公开bundle的活跃首页路径，未修改仓库/应用/项目文档。来源、源码版本与REPORT.md一致；主bundle SHA-256：`b2bd0d964416bd3db61b1392d2b645314e50ea79cadb09f69755d5f4c3791853`。本补充是源码审计，[S]源码确定、[D]数学推导、[V]待浏览实测。新片段原始UTF-8字节范围/hash在`fluid-manifest.json`，可读摘录为`fluid-*.js`；GL/RenderPipeline/BGQuad的范围沿用`manifest.json`。
+
+## 1. 不是任意低分辨率流体：必须保留的参数
+
+| 项 | 当前活跃值/公式 | 对画面的作用 |
+|---|---|---|
+| 求解尺寸 | 长边256，短边floor(256/aspect)或floor(256*aspect) | 1440×900时为256×160；分辨率不是跟DPR增加 |
+| 场数据 | RGBA：xy速度、z压力、w散度；LinearFilter，ClampToEdge | 速度供平流、扭曲、亮度；没有独立“染料颜色”场 |
+| 数据精度 | 常规FloatType；iOS分配分支HalfFloatType | 但手机GL路径不运行流体，不能把这条分配分支说成手机已启用 |
+| 压力求解 | 每帧4次Jacobi | 保留柔和回卷，预算确定 |
+| curl参数 | .02 | 放大局部涡旋导数，后续施加归一化涡度力 |
+| 速度衰减 | 每帧×.99 | 有拖尾；不是每秒.99 |
+| 压力衰减 | 每帧末尾×0 | 压力在当帧用于投影，跨帧不保留 |
+| pointerVec输入buffer | 每轴累加signedPow(input,1.6)，限幅[-1,1]；每帧求解后×.5 | 快移动明显、慢移动抑制；松手后源很快弱化 |
+| pointer注入力 | pointerVec×30，aspect修正后每轴限幅[-2,2]，乘局部权重 | ±2是**新增注入力**上限，不是全场速度最大值 |
+| 注入半径 | r=.01+.1*min(.5,smoothstep(.01,1,length(pointerVec))) | 半径从.01到.06个viewport长边，不是配置的.1 |
+| 时间处理 | solver每主RAF运行一轮，shader不乘deltaTime | 30fps与60fps的每秒消散/传播速度会不同 |
+
+[S] `pointerSize:.1`虽被传uniform，**comShaderVelocity没有读取这个uniform**；实际使用上表硬编码半径。不能把pointerSize=.1写入新实现就认为大小一致。`uElmListPos/Vel/Size[5]`也只声明未用，当前未见DOM控件推动流体的活跃路径。
+
+[D] 1440×900时像素影响半径约14.4px→86.4px；先将(uv-pointerUV)按aspect修正为“以屏幕长边为单位”的圆形距离，所以不会在宽屏变椭圆。速度越大半径越宽，最外边smoothstep软退到0。
+
+## 2. 原始指针如何成为拖尾
+
+[S] GL监听window.pointermove。原始坐标变NDC `raw=(2x/W-1,1-2y/H)`；不要求鼠标hover在玻璃上，也不要求按住。pointerdown/up在该路径只服务raycast点击，不额外产生fluid splat。
+
+沿用REPORT中的Lerper（current+=(target-current)*min(1,dt*10*m)）：
+
+1. `P=(L(raw.x,1),L(raw.y,1))`，指针位置先平滑。
+2. 从位置Lerper取`error=target-current`；`V=(L(error.x,2),L(-error.y,2))`再平滑。这里所谓velocity不是px/s，也不是浏览器movementX/Y。
+3. `pointerUV=.5*P+.5`。
+4. buffer.x加sign(V.x)*abs(V.x)^1.6；buffer.y减sign(V.y)*abs(V.y)^1.6；逐轴clamp[-1,1]。两个y翻转共同把运动映射到UV坐标方向。
+5. buffer进入速度shader，用×30、aspect修正、每轴clamp±2和局部圆形权重生成注入力。
+6. 一轮求解后buffer*=.5。后续帧仍可因两层输入Lerper残差继续有弱注入；之后已写入场中的速度自行传播/衰减。
+
+[S] 主RAF顺序仍是Lenis→GL.update（读Lerper旧current并求解）→Lerper.update；不要把流体循环单独接另一个RAF导致相位变化。GL每帧deltaTime虽上限1/30，StableFluids只把它加到_time；实际shader算式不使用deltaTime。
+
+[D] 快甩指针应形成宽一点、强一些的尾迹；原地悬停后输入源衰减，已有流场留存，而不是每帧重新画一个固定光圈。单纯pointer position跟随的渐变圆形不能覆盖这个行为。
+
+## 3. 每帧的具体求解顺序与公式
+
+[S] 每帧共9个compute pass：curl 1 → 速度注入/涡度力1 → 散度1 → 压力4 → 梯度减法1 → 平流/衰减1。GPUComputationController在可复用临时render target与数据buffer间交换；LinearFilter用于场采样。以下L/R/T/B为相邻一个texel，源代码的T是y-1、B是y+1：
+
+- curl场：`c=.02*(vR.y-vL.y-vB.x+vT.x)`。
+- 涡度力：`f=.5*(abs(cB)-abs(cT),abs(cR)-abs(cL))`，`f/=length(f)+.0001`，`f*=cCenter`，`f.y*=-1`。
+- 指针权重：`W=smoothstep(r,0,length(aspectAdjusted(uv-pointerUV)))`；速度写入`vOld + W*source + f`。
+- 散度：`div=.5*((vR.x-vL.x)+(vB.y-vT.y))`。
+- 每次压力：`p=(pL+pR+pT+pB-div)*.25`，重复4次。
+- 投影：`v-= (pR-pL,pB-pT)`（这里源码没有再乘.5）。
+- 平流：反向采样位置`pixelCoord-v`；下一速度=`sampleVelocity(backtracedUV)*.99`；压力=`samplePressure(currentUV)*0`；散度写0。
+
+[S] 多数邻居采样靠texture ClampToEdge；advect的压力采样额外有越界1texel修正，但因最终乘0，不影响下一帧压力。这里无单独viscosity pass、无pressureAttenuation动态调参、无染料注入。
+
+[D] 若只看.99保留系数且暂不考虑平流/投影/涡度，半衰需约69帧（60fps约1.15s），剩10%约229帧（60fps约3.82s）。真实可见拖尾不能直接以这些时长验收，因为流场扩散、亮度阈值、采样与帧率共同决定；但明显在1帧立即消失不符此机制。
+
+## 4. 它影响什么：分层合成必须精确
+
+[S] Flow=(F.x,F.y)，速度模长m=length(F.xy)。下表是活跃首页采样：
+
+| 图层/阶段 | 位移和亮度公式 | 可见结果 |
+|---|---|---|
+| MainScene（黑背景、背景图块、玻璃体） | topSceneMixer用uv+F*.01；color×(1+.8m) | 图形整体随拖尾轻微弯动，流速强处变亮 |
+| MissionVision亮场（轮廓、网格、侧屏） | 用uv-F*.01；亮度×[1+length(F.xyz)*.1*(.4+10*serviceIn)] | 位移方向与黑场相反；转服务时亮度响应加大 |
+| ServiceScene（曲面grid/服务视频卡） | 用uv+F*.01；color×(1+.8m) | 波面几何运动之外叠加指针扰动 |
+| 以上合成后的scene composite | 再用uv-F*.001读backbuffer及Bloom采样 | 第二次较弱反向采样；不是只做一次+.01 |
+| 黑场grid shader | color.rg减F.xy*.005 | 少量颜色变化；此行本身不是顶点位移 |
+| BGQuadTree tile侧面 | 顶点把m传vEmitSide；侧面emission乘m | 指针经过时图块边侧发亮；图块基础轨迹不靠fluid改顶点 |
+| WORKS前景作品卡片 | finalComposite最后用未fluid扭曲的uv合成ThumbnailScene | 卡片保留自身弧线和固定曲面，**不加入上面的背景fluid warp** |
+| Header、导航、普通标题、描述、按钮 | DOM，不在上述render target中 | 保持锐利、可点击，流体不会扭曲字符或改变点击区域 |
+
+[S] 最终次序是先Main/Mission/Service混合+Bloom+sceneComposite，之后finalComposite才将`ThumbnailScene`按alpha叠上；正常加载完成分支用原vUv。加载环形揭幕阶段会对backbuffer和ThumbnailScene一起使用sceneUv径向变形，那是另一个加载效果，不是fluid。
+
+[S] Mission的DOM遮罩跟mission_in scroll进度运行；它没有读取fluid。亮场shader里算了`missionVisionFluids`阈值变量，但之后未使用它做mask；黑/亮场的曲线wipe依据scroll及其motionBlur，不能声称“用鼠标流体划开Mission”。
+
+[S] topSceneComposite给Bloom三层贡献系数`.075,.15,.225`，最后全色×1.3。fluid先使图形增亮，所以会间接改变超过Bloom threshold=.9的区域；这与画一条独立发光拖尾不同。原站确实创建FXAA pass对象，但活跃postprocess passes数组未包含它，不能加进“已使用fluid平滑”的证据。
+
+## 5. 与玻璃的动作关系：两条路径叠加
+
+[S] 玻璃`mainLogoFrag`本身**没有uFluidsTex采样**；顶点shader也没有fluid位移。玻璃的hover四元数拨动、持续自转、回正，走REPORT第5节的输入/章节公式。流体另对渲染结果实施屏幕采样扰动，因此“鼠标推玻璃”和“画面拖尾折曲”同时出现，但不是同一个物理力。
+
+[S] 玻璃折射背景来自TransparentBufferRenderer：renderOrder100处复制当时MainScene render target到512×512 ProceduralTexture；glass mesh renderOrder101随后读取这张uTrnsTex。这个snapshot包含已渲染的背景图块/grid/字标及其fluid相关颜色/边侧发光，不包含之后才由finalComposite叠上的前景作品卡，也不包含DOM标题。snapshot的纹理尺寸固定512×512，屏幕UV分母uTrnsWinRes跟实际sceneResolution（DPR上限1.5）更新。
+
+[S] 与运动直接相关的折射采样参数（仅列当前shader，不重查完整材质体系）：
+
+- screenUV=gl_FragCoord/uTrnsWinRes；折射方向normal.xy*(1-.7normal.z)。玻璃姿态变动先改变normal，再改变所读背景区域。
+- 8次采样；基础偏移refractPower=.1；每次slide=.005+random(...)*.007，即.005–.012。
+- RGB沿同一法线方向使用`.1+slide*1`、`.1+slide*2`、`.1+slide*4`，使彩色分离随朝向/位置变化。
+- roughness由噪声smoothstep(.3,.8)*uRoughness，当前uRoughness=.1、noiseScale=9；随机roughness采样方向×roughness×.3。
+- 折射颜色每样本×.9，8次平均；之后高光/环境反射与总亮度×1.2。环境纹理本身不是fluid。
+
+[D] 可见链路是“指针→玻璃朝向改变→法线折射背景改变”，再加“指针→流场→背景侧边发光/颜色和整个MainScene的屏幕扰动”。源站不是把fluid texture直接作为玻璃normal map；复刻时若只加材质normal distortion而缺少整个黑场的尾迹，作用范围会不同。
+
+[S] Service侧屏也是另一条明确路径：它读rtServiceScene、按serviceIn减少噪声/色散并铺成全屏；随后Mission/Service compositor才叠加fluid位移。不要将随滚动展开的side-screen噪声误记为指针fluid。
+
+## 6. 手机与暂停边界
+
+[S] GL._isMobile判定为UA包含iPhone/iPad/Android，或platform=iPad，或MacIntel+Safari非Chrome且navigator.standalone已定义（iPad Safari兼容分支）。满足时同时跳过：
+
+- fluids.setPointer
+- fluids.update
+- fluids.resize
+
+场对象仍被构造，但保留初始1×1大小且不产生指针注入/求解。**仅将桌面浏览器窗口缩到390px不会关闭fluid**；width≤768的isSPLayout和aspect连续spWeight是另两条逻辑。手机会保留章节滚动/侧屏曲面/加载动作，不能因为fluid停用而把整站动画禁掉。
+
+[S] document.hidden暂停主RAF，因此也暂停fluid求解；恢复时继续现有场。主场景没有按kv/works/mission分支关闭fluid，所以它可持续影响所有上述canvas scene合成，直到mobile/隐藏页条件停用。
+
+[V] 本补充没有新做真实手机触摸或GPU运行；源码能证明停用分支与常量，不能证明低端真机帧率、视觉尾迹长度或context-loss恢复。
+
+## 7. 这一切片的可操作验收
+
+1. 桌面固定1440×900、同DPR和图像、loading完成后2秒。停滚，按同一时间序列移动指针：中心→右300px/100ms→停0/250/1000/2000ms；反向沿原路径返回。比较拖尾方向、半径随速度变宽、松手源迅速减弱与场继续消散。
+2. 同时保留一组慢移中心→右300px/1000ms；源站输入有1.6次幂，快慢差距不是线性。取实际pointer时间戳和RAF时间，不能仅比较起终坐标。
+3. 在kv、works稳定卡片、mission亮场、service波面各重复一次。确认黑场/服务位移与亮场方向相反；WORKS卡片和DOM文本保持自己的形状，背景仍能扭动/发亮。
+4. 单独看玻璃：拨动时glass法线折射方向变，停住后玻璃回正/章节自转与fluid尾迹各按自身时钟继续。不能让玻璃跟pointer硬绑定角度并立即停止。
+5. 手机用对应UA而非只改viewport，确认不出现指针fluid，其他滚动图形照常；再用窄桌面viewport确认其fluid仍可运行，区分两种测试。
+
+这些为精确源码基线及下一轮验收要求，未把“参数抄入”“shader编译成功”当成可见动作已验收。

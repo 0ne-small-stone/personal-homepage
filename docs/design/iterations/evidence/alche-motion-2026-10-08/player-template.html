@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ALCHE 动作研究 · 原始帧播放器</title>
+  <style>
+    :root{color-scheme:dark;--base:#000;--panel:#121212;--line:#353535;--text:#eee;--muted:#aaa;--focus:#fff;font-family:"PingFang SC","Microsoft YaHei",sans-serif}
+    *{box-sizing:border-box}body{margin:0;background:var(--base);color:var(--text);font-size:15px;line-height:1.65}main{max-width:1160px;margin:auto;padding:28px 24px 44px}h1{font-size:24px;font-weight:500;margin:0 0 4px;letter-spacing:-.03em}h2{font-size:18px;font-weight:500;margin:0}p{margin:0}.intro{color:var(--muted);font-size:13px;max-width:78ch}.clip-list{display:flex;flex-wrap:wrap;gap:8px;margin:23px 0 20px}button,select{font:inherit;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:9px;min-height:42px;padding:7px 13px;cursor:pointer}button[aria-pressed=true]{background:var(--text);color:var(--base);border-color:var(--text)}button:disabled{opacity:.35;cursor:default}button:hover:not(:disabled){border-color:#aaa}button:focus-visible,select:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--focus);outline-offset:4px}.clip-list button{font-size:13px}.heading{display:flex;gap:16px;justify-content:space-between;align-items:baseline;margin-bottom:10px}.summary{font-size:12px;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}figure{margin:0;border:1px solid #222;background:#000;border-radius:12px;overflow:hidden}.stage{display:flex;justify-content:center;align-items:center;min-height:180px}.stage img{display:block;max-width:100%;width:auto;height:auto;max-height:67vh;object-fit:contain}.controls{padding:16px 18px;background:var(--panel);border-top:1px solid #222}.timeline-heading{display:flex;gap:12px;justify-content:space-between;font-size:13px;margin-bottom:3px;font-variant-numeric:tabular-nums}.timeline-heading output{white-space:nowrap}input[type=range]{display:block;width:100%;height:30px;margin:0 0 9px;accent-color:#ddd;cursor:pointer}.transport{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.transport label{display:flex;gap:8px;align-items:center;margin-left:auto;font-size:13px}.transport button{min-width:68px}.readout{display:flex;flex-wrap:wrap;gap:4px 22px;margin-top:12px;color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}.steps{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:30px;margin-top:23px}.steps h3{font-size:14px;font-weight:500;margin:0 0 8px}.steps ol{margin:0;padding-left:1.4em;color:#ccc;font-size:13px}.steps li+li{margin-top:5px}.notes{color:var(--muted);font-size:13px}.notes p+p{margin-top:10px}footer{border-top:1px solid #252525;margin-top:25px;padding-top:16px;font-size:12px;color:var(--muted)}footer p+p{margin-top:5px}a{color:#ddd;text-underline-offset:3px}#error{color:#fff;padding:12px;border:1px solid #777;margin-top:10px}[hidden]{display:none!important}noscript p{padding:16px;border:1px solid #777;margin:20px 0}
+    @media(max-width:600px){main{padding:20px 14px 30px}h1{font-size:21px}.clip-list{gap:6px;margin-top:18px}.clip-list button{padding:7px 10px}.heading{display:block}.summary{text-align:left;margin-top:3px}.controls{padding:13px 12px}.transport{gap:6px}.transport button{min-width:58px;padding:7px 10px}.transport label{margin-left:0}.steps{grid-template-columns:1fr;gap:18px}.stage img{max-height:60vh}.readout{gap:3px 12px}.timeline-heading{font-size:12px}}
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>ALCHE 动作研究</h1>
+    <p class="intro">2026-10-08 · 真实 Chrome 软件 WebGL 采集。七段原始画面按采集时间播放，可暂停、逐帧和拖动查看。</p>
+  </header>
+  <noscript><p>此播放器需要 JavaScript。下面保留首张原始帧；也可直接打开 frames 文件夹查看 JPEG，或打开 manifest.json 阅读采集时间戳。所有帧仅用于研究。</p></noscript>
+  <nav class="clip-list" aria-label="选择研究片段" id="clips"></nav>
+  <section aria-labelledby="clip-title">
+    <div class="heading"><h2 id="clip-title">加载与首屏</h2><p class="summary" id="clip-summary">原始帧研究记录</p></div>
+    <figure>
+      <div class="stage"><img id="frame" src="frames/loading/0000.jpg" alt="ALCHE 加载片段的首张原始采集画面"></div>
+      <figcaption class="controls">
+        <div class="timeline-heading"><label for="timeline">原采集时间线</label><output id="elapsed" for="timeline">0.000 / 0.000 秒</output></div>
+        <input id="timeline" type="range" min="0" max="1" step="any" value="0" aria-label="按原采集时间戳定位">
+        <div class="transport">
+          <button id="play" type="button">播放</button><button id="previous" type="button">上一帧</button><button id="next" type="button">下一帧</button>
+          <label for="speed">速度 <select id="speed"><option value="1">1× 原时间</option><option value="0.5">0.5× 慢放</option></select></label>
+        </div>
+        <div class="readout"><span id="timestamp">采集时间戳 —</span><span id="frame-number">原帧 —</span><span id="scroll-position">scrollY —</span></div>
+      </figcaption>
+    </figure>
+    <p id="error" role="alert" hidden></p>
+    <div class="steps">
+      <section aria-labelledby="steps-title"><h3 id="steps-title">采集操作顺序</h3><ol id="steps"></ol></section>
+      <aside class="notes"><p id="clip-note"></p><p>操作步骤用于复现，没有逐事件时间戳；播放与拖动采用原始帧时间戳。截图不含鼠标光标，记录不含声音。</p></aside>
+    </div>
+  </section>
+  <footer>
+    <p>约每 150ms 选择最近原帧，每段保留首末帧。JPEG 原字节复制，没有重编码、AI 编辑或补帧。<span id="total"></span></p>
+    <p>软件 WebGL 画面与抽帧记录不作为 FPS 或真机性能基准。采集日志有一条 “Network request failed”，未将其隐藏；具体失败资源未在原日志记录。</p>
+    <p>仅用于视觉与交互研究，非本站产品资产。原站品牌与画面归原权利方。<a href="https://alche.studio/" target="_blank" rel="noopener noreferrer">ALCHE 原站</a> · <a href="manifest.json">时间戳与校验清单</a> · <a href="source-input-report.txt">源码动作核验</a> · <a href="capture-original.cjs">原采集脚本</a></p>
+  </footer>
+</main>
+<!-- EMBED_MANIFEST -->
+<script>
+(() => {
+  'use strict';
+  const dataNode = document.getElementById('manifest');
+  if (!dataNode) return;
+  const data = JSON.parse(dataNode.textContent);
+  const byId = id => document.getElementById(id);
+  const image = byId('frame'), slider = byId('timeline'), play = byId('play');
+  let clip, clipIndex = 0, frameIndex = -1, current = 0, playing = false, raf = 0, last = 0;
+  const buttons = data.clips.map((item, index) => {
+    const button = document.createElement('button'); button.type = 'button'; button.textContent = item.title;
+    button.dataset.clip = item.name; button.setAttribute('aria-pressed', 'false');
+    button.addEventListener('click', () => selectClip(index)); byId('clips').append(button); return button;
+  });
+  function pause() { playing = false; cancelAnimationFrame(raf); play.textContent = '播放'; play.setAttribute('aria-label', '播放当前片段'); }
+  function indexAt(time) {
+    let lo = 0, hi = clip.frames.length - 1;
+    while (lo < hi) { const mid = Math.ceil((lo + hi) / 2); if (clip.frames[mid].timestamp <= time) lo = mid; else hi = mid - 1; }
+    return lo;
+  }
+  function render() {
+    const index = indexAt(current), frame = clip.frames[index];
+    if (index !== frameIndex) { frameIndex = index; image.src = frame.file; image.alt = `${clip.title}，原始第 ${frame.sourceIndex + 1} 帧，采集时间 ${frame.timestamp.toFixed(6)}`; }
+    slider.value = String(current - clip.start); slider.setAttribute('aria-valuetext', `${(current - clip.start).toFixed(3)} 秒，采集时间戳 ${current.toFixed(6)}`);
+    byId('elapsed').textContent = `${(current - clip.start).toFixed(3)} / ${clip.duration.toFixed(3)} 秒`;
+    byId('timestamp').textContent = `当前画面时间戳 ${frame.timestamp.toFixed(6)}`;
+    byId('frame-number').textContent = `留存 ${index + 1} / ${clip.frames.length} · 原帧 ${frame.sourceIndex + 1} / ${clip.originalCount}`;
+    byId('scroll-position').textContent = `scrollY ${frame.scrollY}`;
+    byId('previous').disabled = index === 0; byId('next').disabled = index === clip.frames.length - 1;
+  }
+  function selectClip(index) {
+    pause(); clipIndex = index; clip = data.clips[index]; current = clip.start; frameIndex = -1;
+    buttons.forEach((button, i) => button.setAttribute('aria-pressed', String(i === index)));
+    byId('clip-title').textContent = clip.title;
+    byId('clip-summary').textContent = `${clip.duration.toFixed(3)} 秒 · ${clip.frames.length} 张留存原帧`;
+    byId('steps').replaceChildren(...clip.steps.map(text => { const li = document.createElement('li'); li.textContent = text; return li; }));
+    byId('clip-note').textContent = clip.note; byId('error').hidden = true;
+    slider.min = '0'; slider.max = String(clip.duration); render();
+    clip.frames.forEach(frame => { const preload = new Image(); preload.src = frame.file; });
+  }
+  function tick(now) {
+    if (!playing) return;
+    current = Math.min(clip.end, current + (now - last) / 1000 * Number(byId('speed').value)); last = now; render();
+    if (current >= clip.end) pause(); else raf = requestAnimationFrame(tick);
+  }
+  play.addEventListener('click', () => {
+    if (playing) return pause();
+    if (current >= clip.end) { current = clip.start; render(); }
+    playing = true; play.textContent = '暂停'; play.setAttribute('aria-label', '暂停当前片段'); last = performance.now(); raf = requestAnimationFrame(tick);
+  });
+  slider.addEventListener('pointerdown', pause);
+  slider.addEventListener('input', () => { pause(); current = Math.max(clip.start, Math.min(clip.end, clip.start + Number(slider.value))); render(); });
+  byId('previous').addEventListener('click', () => { pause(); current = clip.frames[Math.max(0, frameIndex - 1)].timestamp; render(); });
+  byId('next').addEventListener('click', () => { pause(); current = clip.frames[Math.min(clip.frames.length - 1, frameIndex + 1)].timestamp; render(); });
+  image.addEventListener('error', () => { pause(); byId('error').textContent = '原始帧读取失败。请保持 index.html 与 frames 文件夹在同一目录。'; byId('error').hidden = false; });
+  document.addEventListener('visibilitychange', () => { if (document.hidden) pause(); });
+  byId('total').textContent = `共 ${data.totalFrames} 帧，JPEG ${(data.jpegBytes / 1048576).toFixed(2)} MiB。`;
+  selectClip(0);
+})();
+</script>
+</body>
+</html>

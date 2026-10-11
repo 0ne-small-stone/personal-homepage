@@ -1,0 +1,33 @@
+import {createRequire} from 'node:module';
+import {writeFile} from 'node:fs/promises';
+import {fileURLToPath} from 'node:url';
+const require=createRequire(import.meta.url);
+const {chromium}=require('C:/Users/asus/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const browser=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});
+const page=await browser.newPage({viewport:{width:1440,height:1100}});
+const errors=[];page.on('pageerror',e=>errors.push(e.message));
+const checks=[];
+const check=(name,passed)=>{checks.push({name,passed});if(!passed)throw new Error(name);};
+await page.goto('http://127.0.0.1:4326/');
+await page.locator('.art img').last().waitFor();
+await page.locator('.art img').evaluateAll(items=>Promise.all(items.map(i=>i.decode())));
+check('five original PNG images loaded',await page.locator('.art img').evaluateAll(items=>items.length===5&&items.every(i=>i.naturalWidth>=1000&&i.naturalHeight>=1000)));
+const images=await page.locator('.art img').evaluateAll(items=>items.map(i=>({src:i.getAttribute('src'),width:i.naturalWidth,height:i.naturalHeight})));
+await page.screenshot({path:fileURLToPath(new URL('../../evidence/u03-p01-2026-10-08-02-overview.png',import.meta.url)),fullPage:true});
+await page.locator('.art').first().click();
+check('A opens in native dialog',await page.locator('dialog').evaluate(d=>d.open)&&await page.locator('#detail-title').innerText()==='A / Still');
+await page.locator('#next').click();
+check('next moves to B',await page.locator('#detail-title').innerText()==='B / Echo');
+await page.keyboard.press('Escape');
+check('escape closes and focus returns',await page.locator('dialog').evaluate(d=>!d.open)&&await page.locator('.art').first().evaluate(b=>b===document.activeElement));
+for(const width of [390,320]){await page.setViewportSize({width,height:844});check(width+'px no horizontal overflow',await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));}
+await page.setViewportSize({width:390,height:844});
+await page.screenshot({path:fileURLToPath(new URL('../../evidence/u03-p01-2026-10-08-02-mobile.png',import.meta.url)),fullPage:true});
+await page.locator('.art').last().click();
+check('mobile E opens',await page.locator('#detail-title').innerText()==='E / Signature');
+check('mobile dialog fits width',await page.locator('dialog').evaluate(d=>d.getBoundingClientRect().width<=innerWidth));
+const download=await page.locator('#download').getAttribute('href');check('PNG original can be fetched',(await page.request.get(download)).ok());
+check('no script errors',errors.length===0);
+await writeFile(new URL('../../evidence/u03-p01-2026-10-08-02-browser.json',import.meta.url),JSON.stringify({checks,images,errors,note:'Interaction and image loading checks only. No small-logo, transparency, vector or aesthetic approval.'},null,2));
+await browser.close();console.log(JSON.stringify(checks));
+

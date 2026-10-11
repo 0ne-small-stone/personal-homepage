@@ -1,0 +1,138 @@
+{
+  "method": "Absolute RGB differences of original PNG captures. Outside control is every pixel outside the union of the two projected glass bounds, expanded by 2px; no image alignment or resampling.",
+  "pairs": [
+    {
+      "name": "desktop-hero-identity",
+      "sameBundle": true,
+      "sameResources": true,
+      "sameState": true,
+      "excludedGlassBounds": [
+        427,
+        193,
+        1013,
+        707
+      ],
+      "regions": {
+        "outside": {
+          "pixels": 994796,
+          "changedPixels": 46,
+          "maxAbsoluteChannel": 99,
+          "meanAbsoluteChannel": 0.004348630271935151
+        },
+        "insideBounds": {
+          "pixels": 301204,
+          "changedPixels": 6041,
+          "maxAbsoluteChannel": 24,
+          "meanAbsoluteChannel": 0.07980305706431522
+        }
+      },
+      "pureBackgroundControl": {
+        "rect": [
+          1040,
+          200,
+          1400,
+          700
+        ],
+        "pixels": 180000,
+        "changedPixels": 0,
+        "maxAbsoluteChannel": 0,
+        "meanAbsoluteChannel": 0
+      },
+      "changedOutsideBounds": [
+        52,
+        645,
+        64,
+        662
+      ],
+      "strictAllOutsideEqual": false,
+      "allConditionsAndPixelsEqual": false
+    },
+    {
+      "name": "desktop-550-yaw35",
+      "sameBundle": true,
+      "sameResources": true,
+      "sameState": true,
+      "excludedGlassBounds": [
+        477,
+        230,
+        913,
+        702
+      ],
+      "regions": {
+        "outside": {
+          "pixels": 1090208,
+          "changedPixels": 0,
+          "maxAbsoluteChannel": 0,
+          "meanAbsoluteChannel": 0
+        },
+        "insideBounds": {
+          "pixels": 205792,
+          "changedPixels": 15788,
+          "maxAbsoluteChannel": 11,
+          "meanAbsoluteChannel": 0.1855336132275955
+        }
+      },
+      "pureBackgroundControl": {
+        "rect": [
+          1040,
+          200,
+          1400,
+          700
+        ],
+        "pixels": 180000,
+        "changedPixels": 0,
+        "maxAbsoluteChannel": 0,
+        "meanAbsoluteChannel": 0
+      },
+      "changedOutsideBounds": null,
+      "strictAllOutsideEqual": true,
+      "allConditionsAndPixelsEqual": true
+    },
+    {
+      "name": "mobile-hero-yaw35",
+      "sameBundle": true,
+      "sameResources": true,
+      "sameState": true,
+      "excludedGlassBounds": [
+        28,
+        274,
+        322,
+        596
+      ],
+      "regions": {
+        "outside": {
+          "pixels": 234492,
+          "changedPixels": 46,
+          "maxAbsoluteChannel": 15,
+          "meanAbsoluteChannel": 0.0028060658785800793
+        },
+        "insideBounds": {
+          "pixels": 94668,
+          "changedPixels": 1358,
+          "maxAbsoluteChannel": 6,
+          "meanAbsoluteChannel": 0.01760538583963606
+        }
+      },
+      "pureBackgroundControl": {
+        "rect": [
+          330,
+          245,
+          385,
+          460
+        ],
+        "pixels": 11825,
+        "changedPixels": 0,
+        "maxAbsoluteChannel": 0,
+        "meanAbsoluteChannel": 0
+      },
+      "changedOutsideBounds": [
+        18,
+        709,
+        30,
+        726
+      ],
+      "strictAllOutsideEqual": false,
+      "allConditionsAndPixelsEqual": false
+    }
+  ]
+}

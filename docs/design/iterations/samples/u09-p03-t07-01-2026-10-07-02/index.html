@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>学习类型筛选 · LSSH 设计样本</title>
+  <link rel="stylesheet" href="./sample.css">
+  <script src="./sample.js" defer></script>
+</head>
+<body>
+  <header class="sample-header"><span aria-label="Little Stone Still Here">LSSH</span><span>学习类型筛选 · 设计样本</span></header>
+  <main>
+    <h1>学习总览</h1>
+    <p class="knowledge-summary">资料、文章与笔记共用这里的导航和搜索。当前三条内容均为结构演示，正式学习资料尚未导入。</p>
+    <a class="knowledge-blog-link" href="http://127.0.0.1:4322/personal-homepage/knowledge/blog/">按时间浏览文章 →</a>
+
+    <knowledge-type-filter>
+      <fieldset class="knowledge-type-controls" hidden>
+        <legend>内容类型</legend>
+        <div class="knowledge-type-options">
+          <label class="knowledge-type-option"><input type="radio" name="knowledge-type" value="all" data-label="全部" checked><span>全部</span></label>
+          <label class="knowledge-type-option"><input type="radio" name="knowledge-type" value="resource" data-label="资料"><span>资料</span></label>
+          <label class="knowledge-type-option"><input type="radio" name="knowledge-type" value="article" data-label="文章"><span>文章</span></label>
+          <label class="knowledge-type-option"><input type="radio" name="knowledge-type" value="note" data-label="笔记"><span>笔记</span></label>
+        </div>
+      </fieldset>
+      <p class="knowledge-result-status" role="status" aria-live="polite" aria-atomic="true">全部：3 条内容。</p>
+      <p class="knowledge-empty" hidden>当前类型暂无已发布内容。选择“全部”查看其他内容。</p>
+      <ul class="knowledge-list">
+        <li data-knowledge-kind="article">
+          <div class="knowledge-meta">文章 · 阅读与整理 · 演示内容</div>
+          <a href="http://127.0.0.1:4322/personal-homepage/knowledge/blog/reading-example/">从资料到笔记的一次整理（演示）</a>
+          <p>验证博客的日期、标签、正文与关联阅读。</p>
+        </li>
+        <li data-knowledge-kind="note">
+          <div class="knowledge-meta">笔记 · 阅读与整理 · 演示内容</div>
+          <a href="http://127.0.0.1:4322/personal-homepage/knowledge/notes/reading-example/">一条阅读笔记（演示）</a>
+          <p>验证笔记正文、目录与普通引用链接。</p>
+        </li>
+        <li data-knowledge-kind="resource">
+          <div class="knowledge-meta">资料 · 阅读与整理 · 演示内容</div>
+          <a href="http://127.0.0.1:4322/personal-homepage/knowledge/resources/reading-example/">一份资料的阅读入口（演示）</a>
+          <p>验证资料说明、来源与关联笔记的阅读结构；没有接入 PDF 附件。</p>
+        </li>
+      </ul>
+      <p class="knowledge-filter-fallback">类型筛选暂不可用，当前仍可浏览全部内容。</p>
+    </knowledge-type-filter>
+  </main>
+  <footer class="sample-tools">
+    <p>局部设计样本；标题、说明和内容顺序固定，详情链接通向开发预览。</p>
+    <details>
+      <summary>验证工具（仅用于样本）</summary>
+      <label class="fixture-control"><input id="empty-fixture" type="checkbox" disabled>临时移除演示笔记，检查空结果</label>
+      <p>开启后选择“笔记”；选择“全部”可看到剩余两条内容。取消勾选恢复三条演示内容。</p>
+      <p>Tab 进入单选组，方向键切换；地址、刷新及前进后退跟随类型。灰色为候选值，字体依设备回退。</p>
+    </details>
+    <p class="fixture-note" hidden>当前为空结果验证数据：已临时移除演示笔记。</p>
+  </footer>
+</body>
+</html>

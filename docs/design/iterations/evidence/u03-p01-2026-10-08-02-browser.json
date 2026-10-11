@@ -1,0 +1,73 @@
+{
+  "checks": [
+    {
+      "name": "five original PNG images loaded",
+      "passed": true
+    },
+    {
+      "name": "A opens in native dialog",
+      "passed": true
+    },
+    {
+      "name": "next moves to B",
+      "passed": true
+    },
+    {
+      "name": "escape closes and focus returns",
+      "passed": true
+    },
+    {
+      "name": "390px no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "320px no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "mobile E opens",
+      "passed": true
+    },
+    {
+      "name": "mobile dialog fits width",
+      "passed": true
+    },
+    {
+      "name": "PNG original can be fetched",
+      "passed": true
+    },
+    {
+      "name": "no script errors",
+      "passed": true
+    }
+  ],
+  "images": [
+    {
+      "src": "images/a-still.png",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "images/b-echo.png",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "images/c-refraction.png",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "images/d-interval.png",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "images/e-signature.png",
+      "width": 1254,
+      "height": 1254
+    }
+  ],
+  "errors": [],
+  "note": "Interaction and image loading checks only. No small-logo, transparency, vector or aesthetic approval."
+}
