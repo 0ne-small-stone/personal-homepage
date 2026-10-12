@@ -8,6 +8,8 @@
 
 ## 文档入口
 
+2026-10-12 学习区收尾：自写笔记的原生新建/正文/共用插图/草稿/关联已接入，搜索增加类型、主题和可选文章标签，返回恢复筛选与焦点；网页保存后的 CI 在只读检出中派生候选，不再因候选过期阻断构建。类型检查、干净生产构建、真实 Save/重开和桌面/390px阅读通过；原48内容与公开PDF未改。两个功能笔记保持草稿。[统一验收与剩余项](docs/technical/LEARNING_ACCEPTANCE.md)、[当前学习区](http://127.0.0.1:4386/personal-homepage/knowledge/)、[含功能笔记的冻结验收快照](http://127.0.0.1:4387/personal-homepage/knowledge/?type=note&topic=%E9%98%85%E8%AF%BB%E4%B8%8E%E6%95%B4%E7%90%86)、[后台](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Flearning-wrapup/collection/writing-notes)。快照服务重启后需重新启动，不是正式部署；此分支首页为旧入口占位，最新首页由首页开发聊天独立接入。
+
 本轮 **T13.13 已有笔记说明网页编辑**：原生后台按科目编辑标题、摘要和主题；真实保存/重开/恢复、前台筛选与目录标题同步通过，实际点击仍直达作者原站。全部48内容与公开PDF恢复基线，素材/依赖新增0。[后台入口](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-13-note-editor/collection/notes)、[冻结验收快照](http://127.0.0.1:4385/personal-homepage/knowledge/?type=note&topic=%E7%AC%94%E8%AE%B0%E7%BC%96%E8%BE%91%E9%AA%8C%E8%AF%81)、[记录与限制](docs/technical/iterations/t13-13-2026-10-10.md)。笔记新建/正文编辑、候选自动同步及部署另片。
 
 本轮 **T13.12 已有资料说明网页编辑**：原生后台可按科目编辑标题、摘要和主题，真实保存/重开与前台一致；侧栏名称读内容标题，原四页PDF及正文/来源保留。验证样本已恢复，素材/依赖新增0。[后台](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-12-resource-editor/collection/resources)、[冻结验收页](http://127.0.0.1:4384/personal-homepage/knowledge/?type=resource&topic=%E7%BD%91%E9%A1%B5%E7%BC%96%E8%BE%91%E9%AA%8C%E8%AF%81)、[证据与限制](docs/technical/iterations/t13-12-2026-10-10.md)。标题/主题变动需开发者同步候选，未合并或上线。

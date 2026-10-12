@@ -1,5 +1,11 @@
 # 个人主页技术调研来源和候选方案
 
+## 学习区收尾来源（2026-10-12）
+
+- [Pages CMS 原生集合与目录/排除配置](https://pagescms.org/docs/configuration/content/)、[静态select](https://pagescms.org/docs/configuration/fields/select/)：复用原生笔记新建、正文和关联；沿用此前固定MIT源码及ConfigSchema，未引入新依赖。
+- [Pagefind 过滤元数据](https://pagefind.app/docs/filtering/)、[Starlight搜索配置](https://starlight.astro.build/reference/configuration/#pagefind)：head meta 的属性值支持过滤与多主题；复用安装版本原生Pagefind UI，不另写搜索界面。
+- [GitHub workflow触发规则](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow)：GITHUB_TOKEN写入不会普通push触发，workflow_dispatch是例外。自动回写方案因此需要检查新提交的触发权限，审批拒绝后未接入；当前仅只读派生。
+
 ## T13.13 笔记说明编辑来源（2026-10-10）
 
 复用[Pages CMS collection](https://pagescms.org/docs/configuration/content/)的subfolders/operations与[原生字段](https://pagescms.org/docs/configuration/content/fields/)的string/text/list/description；沿用T13.12固定官方6f4e860a35d934406580287e7042e5e111e207a1的merge与序列化来源（MIT，本机缓存已读）。只增加配置，不复制后台代码。托管版本未知，source作者/URL/PDF信息及Markdown文字通过实际Save读回；原生YAML/首空行规范化与最终字节恢复分别记录。前台沿用已接入的查询、自动侧栏与外部笔记直达，不新增阅读器或抓取外站正文。

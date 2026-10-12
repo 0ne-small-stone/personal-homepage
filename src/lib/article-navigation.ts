@@ -7,6 +7,7 @@ interface ReadingVisit {
   to: string;
   scrollY: number;
   search: string | null;
+  searchFilters?: Array<{ name: string; value: string }>;
   label: string;
   focusScope?: keyof typeof focusScopes;
 }
@@ -54,6 +55,9 @@ function visits(): ReadingVisit[] {
       Boolean(localUrl(item.from)) && !disabledTagSource(item.from) && readingTarget(item.to) &&
       Number.isFinite(item.scrollY) && item.scrollY >= 0 &&
       (item.search === null || typeof item.search === 'string') && typeof item.label === 'string' &&
+      (item.searchFilters === undefined || (Array.isArray(item.searchFilters) && item.searchFilters.length <= 100 &&
+        item.searchFilters.every((filter: unknown) => Boolean(filter && typeof filter === 'object' &&
+          'name' in filter && typeof filter.name === 'string' && 'value' in filter && typeof filter.value === 'string')))) &&
       (item.focusScope === undefined || (typeof item.focusScope === 'string' && Object.hasOwn(focusScopes, item.focusScope))),
     ).slice(-20);
   } catch { return []; }
@@ -77,10 +81,13 @@ function remember(event: MouseEvent) {
   const destination = new URL(anchor.href);
   if (!readingTarget(destination.href) ||
     (destination.origin === location.origin && destination.pathname === location.pathname)) return;
-  const searchInput = anchor.closest('#starlight__search')?.querySelector<HTMLInputElement>('input');
+  const searchRoot = anchor.closest('#starlight__search');
+  const searchInput = searchRoot?.querySelector<HTMLInputElement>('.pagefind-ui__search-input');
   const visit: ReadingVisit = {
     id: crypto.randomUUID(), from: location.href, to: destination.href,
     scrollY: window.scrollY, search: searchInput?.value || null,
+    searchFilters: searchRoot ? Array.from(searchRoot.querySelectorAll<HTMLInputElement>('input[type="checkbox"]:checked'))
+      .map(({ name, value }) => ({ name, value })) : undefined,
     focusScope: (Object.keys(focusScopes) as (keyof typeof focusScopes)[])
       .find((scope) => anchor.matches(focusScopes[scope])),
     label: searchInput ? '← 返回搜索结果' :
@@ -118,9 +125,26 @@ function restoreSource(visit: ReadingVisit, signal: AbortSignal) {
       if (!dialog.open) open.click();
       input.value = visit.search!;
       input.dispatchEvent(new Event('input', { bubbles: true }));
+      let filtersApplied = false;
       whenAvailable(search.querySelector('#starlight__search')!, () => {
         // A new query or closing the dialog cancels the pending focus restoration.
         if (!dialog.open || input.value !== visit.search) return true;
+        if (!filtersApplied) {
+          const controls = Array.from(search.querySelectorAll<HTMLInputElement>('.pagefind-ui__filter-checkbox'));
+          if (visit.searchFilters?.length && !controls.length) return false;
+          filtersApplied = true;
+          let changed = false;
+          for (const control of controls) {
+            const selected = visit.searchFilters?.some(({ name, value }) => name === control.name && value === control.value) ?? false;
+            if (control.checked !== selected) { control.click(); changed = true; }
+            if (selected) {
+              const details = control.closest('details');
+              if (details) details.open = true;
+            }
+          }
+          // Let Pagefind render the filtered result list before restoring focus.
+          if (changed) return false;
+        }
         const links = Array.from(search.querySelectorAll<HTMLAnchorElement>('#starlight__search a[href]'));
         const result = links.find((link) => link.href === visit.to) ||
           links.find((link) => localUrl(link.href)?.pathname === localUrl(visit.to)?.pathname);

@@ -1,5 +1,15 @@
 # 网页编辑与草稿验证
 
+## 学习区收尾：自写笔记与当前保存流程
+
+[我的笔记](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Flearning-wrapup/collection/writing-notes)可新建标题、摘要、唯一英文地址标识、主题、正文与关联；新建默认草稿。`收藏笔记（说明编辑）`仍只修改本站三个说明字段，原站/PDF正文通过原阅读入口。writing目录已排除，避免出现两个编辑入口。
+
+正文 Editor/Source 互切，空行 `/ → Image`复用共用公开图库。笔记嵌套比文章多一层，选择器已实测生成 `../../../../../assets/article-images/…`。替代文本可在原生ALT或Source填写；上传立即进入公开仓库、保存正文另一步。此轮复用已有图片，没有新增上传。
+
+Save 的成功以提示、远程提交和独立重开值为准；自写笔记重开时 Save 仍可点，不宣称未保存状态提示可靠。先保存成功再离开，冲突先备份字段/Source、刷新对照再恢复。正式上线仍需构建、PR合并和部署。新建/候选/恢复三笔提交分别在收尾记录。
+
+学习/内容编辑分支 `codex/learning-*`、`codex/content-*`的CI已先派生候选再构建，仅写临时检出。后台候选表目前仍由开发者拉取、`npm run cms:sync-related`并提交配置；生成不会自动回写仓库。[自动回写待确认方案](CMS_AUTO_SYNC_PROPOSAL.md)。
+
 ## T13.13 已有笔记说明编辑
 
 [打开笔记后台](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-13-note-editor/collection/notes)，使用codex/t13-13-note-editor。ads目录为高级数据结构与算法分析，computer-systems为计算机系统；根演示条目仍为草稿。选择已有收藏后编辑标题、摘要和主题，Save成功后独立重开核对。当前表单Save可能仍可点，以成功反馈、远程提交及重开值为准。

@@ -43,6 +43,7 @@ export default defineConfig({
           { label: '先秦哲学', collapsed: true, items: [{ autogenerate: { directory: 'knowledge/resources/pre-qin-philosophy' } }] },
         ] },
         { label: '笔记', items: [
+          { label: '我的笔记', collapsed: true, items: [{ autogenerate: { directory: 'knowledge/notes/writing' } }] },
           { label: '高级数据结构与算法分析', collapsed: true, items: [{ autogenerate: { directory: 'knowledge/notes/ads' } }] },
           { label: '计算机系统', collapsed: true, items: [{ autogenerate: { directory: 'knowledge/notes/computer-systems' } }] },
         ] },
