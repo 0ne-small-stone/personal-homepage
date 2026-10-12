@@ -1,5 +1,5 @@
 ---
-title: 关联候选自动回写验证资料
+title: PDF 阅读验证说明（功能样本）
 description: 本站生成的四页公开功能样本，用于验证 PDF 阅读、缩放、返回与下载。
 entryId: resource-lssh-pdf-reading-check
 kind: resource
