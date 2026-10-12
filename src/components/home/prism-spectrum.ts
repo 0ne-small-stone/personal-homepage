@@ -1,10 +1,12 @@
 import type { PrismRaySolver } from './prism-ray';
 
-// SYSTEM9.3.13: nm input, Cauchy uses µm. Virtual glass with the measured
-// N-BK7 dispersion slope, offset to the existing green n=1.45 (not full BK7).
+// SYSTEM9.3.17: nm input, Cauchy uses µm. Enhanced virtual scene glass;
+// the reference N-BK7 slope is scaled for the visual, not a measured BK7 IOR.
 export const PRISM_WAVELENGTHS = [700, 620, 580, 550, 490, 450, 410] as const;
-export const CAUCHY_A = 1.4360527699838093;
-export const CAUCHY_B = .004219037079897656;
+export const CAUCHY_REFERENCE_B = .004219037079897656;
+export const PRISM_DISPERSION = 6;
+export const CAUCHY_B = CAUCHY_REFERENCE_B * PRISM_DISPERSION;
+export const CAUCHY_A = 1.45 - CAUCHY_B / .55 ** 2;
 export function prismIOR(nm: number) {
   if (!Number.isFinite(nm) || nm <= 0) return NaN;
   return CAUCHY_A + CAUCHY_B / (nm / 1000) ** 2;
