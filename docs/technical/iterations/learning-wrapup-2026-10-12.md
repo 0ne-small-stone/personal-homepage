@@ -2,6 +2,8 @@
 
 分支codex/learning-wrapup，基线710b054（T13.13）。对应P03/P05/P06/P15/P17，R02/R09/R10/R12/R13，U09/U13/U14；T13.14、T13.15局部、T10.01、T26.02。10月10日实现与真实保存，12日交付记录及Pages实读；[统一验收](../LEARNING_ACCEPTANCE.md)和[原始摘要](evidence/learning-wrapup-2026-10-12.json)。
 
+交付[草稿PR #35](https://github.com/0ne-small-stone/personal-homepage/pull/35)基于T13.13 / PR #32，已附加本聊天，未合并或部署。交付检查head `9bb9b5c4a894f983a4538e76b44e9a71fe405bf1`的[38250487652](https://github.com/0ne-small-stone/personal-homepage/actions/runs/38250487652)三项成功、Deploy跳过；后续只追加本PR归档，最终head检查以PR描述/Checks读回。
+
 ## 小片提交与保存
 
 - 12db6ca：原生自写笔记；432946f：只读CI派生；1fb2a82：共用图库的五层路径。
