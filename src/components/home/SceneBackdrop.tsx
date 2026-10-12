@@ -67,10 +67,6 @@ export default function SceneBackdrop({ model, mobile }: { model: JourneyModel; 
       });
     }
     ctx.restore();
-    const beam=ctx.createLinearGradient(0,height*.390625,width,height*.56);
-    beam.addColorStop(0,'#000');beam.addColorStop(.4,'#222');beam.addColorStop(.7,'#b2b2b2');beam.addColorStop(1,'#444');
-    ctx.strokeStyle=beam;ctx.lineWidth=3;
-    ctx.beginPath();ctx.moveTo(frameX(.09765625),frameY(.677083));ctx.bezierCurveTo(frameX(.345052),frameY(.638021),frameX(.651042),frameY(.234375),frameX(1),frameY(.351563));ctx.stroke();
     const texture = new CanvasTexture(canvas); texture.colorSpace = SRGBColorSpace;
     return texture;
   }, [width, height, mobile, size.width, size.height]);
