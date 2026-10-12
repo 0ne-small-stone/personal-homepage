@@ -1,0 +1,60 @@
+{
+  "upstream": {
+    "repo": "hunvreus/pagescms",
+    "sha": "6f4e860a35d934406580287e7042e5e111e207a1",
+    "declaredVersion": "2.1.8",
+    "scope": "T13.02 official media config schema and YAML serialization; real hosted image upload not yet tested"
+  },
+  "records": [
+    {
+      "check": "official-config-schema",
+      "result": "passed",
+      "upstreamSha": "6f4e860a35d934406580287e7042e5e111e207a1",
+      "fieldTypes": [
+        "boolean",
+        "code",
+        "date",
+        "file",
+        "image",
+        "number",
+        "reference",
+        "rich-text",
+        "select",
+        "string",
+        "text",
+        "uuid"
+      ]
+    },
+    {
+      "check": "one-draft-editor-and-staged-scope",
+      "result": "passed",
+      "path": "src/content/docs/knowledge/blog/editor-draft-check.md"
+    },
+    {
+      "check": "markdown-media-storage-reference",
+      "result": "passed",
+      "relativeOutput": "../../../../assets/article-images",
+      "bytes": 17954
+    },
+    {
+      "check": "official-frontmatter-round-trip",
+      "result": "passed",
+      "unicode": true,
+      "date": "2026-10-08",
+      "code": true
+    },
+    {
+      "check": "edited-fields-and-unmanaged-metadata-preserved",
+      "result": "passed",
+      "draft": true,
+      "unmanagedKeys": [
+        "sidebar",
+        "related"
+      ]
+    },
+    {
+      "check": "official-schema-rejects-unknown-editor-type",
+      "result": "passed"
+    }
+  ]
+}

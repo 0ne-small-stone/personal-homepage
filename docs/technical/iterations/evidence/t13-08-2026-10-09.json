@@ -1,0 +1,121 @@
+{
+  "date": "2026-10-09",
+  "ids": [
+    "P17",
+    "R13",
+    "U13",
+    "T13.08"
+  ],
+  "branch": "codex/t13-08-media-validation",
+  "baseline": "76352f346c42da0bbd88e0fd3955344aed988166",
+  "configCommit": "d84cfdaf40a9b1fadff6bd1e6c7b5d86666159fb",
+  "testedFile": "src/content/docs/knowledge/blog/editor-draft-check.md",
+  "scope": "client extension rejection and real PNG retry; not network/API failure",
+  "formatRejection": {
+    "beforeHead": "83acb54e28530d17db189b943f28437e114aee00",
+    "afterHead": "83acb54e28530d17db189b943f28437e114aee00",
+    "headUnchanged": true,
+    "sourceTreeSha": "ce517c995c9205204ccfeebc31492bea124589bf",
+    "sourceTreeUnchanged": true,
+    "contentFileCount": 48,
+    "contentBlobsUnchanged": true,
+    "invalidFileWritten": false
+  },
+  "upload": {
+    "branch": "codex/t13-08-media-validation",
+    "baseline": "76352f346c42da0bbd88e0fd3955344aed988166",
+    "head": "f6128ac85f93437055374cf17fc8a5ccc228a4df",
+    "newImage": {
+      "path": "src/assets/article-images/mv13hoo5-et09s1p1.png",
+      "blob": "eefb981d0ff62a9c4a85bab9ea289b530aa48c5d",
+      "bytes": 17954,
+      "sha256": "fcc5c058bfd3e99ad16b2862647974956ed51ca7a7af9d0b354e8ad7bde9b1fd",
+      "sameBytesAsExistingSample": true
+    },
+    "sourceAdded": [
+      "src/assets/article-images/mv13hoo5-et09s1p1.png"
+    ],
+    "sourceChanged": [],
+    "sourceRemoved": [],
+    "existingSourceBlobsUnchanged": true,
+    "contentFileCount": 48,
+    "fixedDraftBlob": "eb551d0abb63e7ce110b016a9dc16555fbcf5842",
+    "fixedDraftUnchanged": true,
+    "uploadCommit": "f6128ac85f93437055374cf17fc8a5ccc228a4df",
+    "uploadCommitMessage": "content(media): 上传文章图片 mv13hoo5-et09s1p1.png",
+    "uploadAuthor": "0ne-small-stone",
+    "uploadCommitter": "0ne-small-stone",
+    "uploadCommitFiles": [
+      {
+        "path": "src/assets/article-images/mv13hoo5-et09s1p1.png",
+        "status": "added"
+      }
+    ]
+  },
+  "ui": {
+    "invalidMessage": [
+      "Invalid file type. Allowed: .jpg,.jpeg,.png,.avif,.webp"
+    ],
+    "titleAfterInvalidPreserved": true,
+    "bodyAfterInvalidPreserved": true,
+    "titleAfterRetryPreserved": true,
+    "bodyAfterRetryPreserved": true,
+    "newImage": {
+      "name": "mv13hoo5-et09s1p1.png",
+      "selected": true,
+      "selectEnabled": true
+    },
+    "titleAfterClosePreserved": true,
+    "bodyAfterClosePreserved": true,
+    "imageCountBefore": 1,
+    "imageCountAfter": 1,
+    "originalTitleRestored": true,
+    "originalBodyRestored": true,
+    "saveDisabled": true,
+    "selectClicked": false,
+    "articleSaved": false,
+    "fixedHintVisible": true,
+    "collectionHintVisible": true
+  },
+  "officialConfig": {
+    "upstreamSha": "6f4e860a35d934406580287e7042e5e111e207a1",
+    "officialSchema": "passed",
+    "existingContentFilesUnchanged": 48,
+    "existingArticles": 4,
+    "officialSerialization": "passed",
+    "mediaDepth": "passed"
+  },
+  "uploadCI": {
+    "id": 37948811291,
+    "sha": "f6128ac85f93437055374cf17fc8a5ccc228a4df",
+    "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/37948811291",
+    "conclusion": "success",
+    "successfulJobs": [
+      "Workflow syntax",
+      "Repository checks",
+      "Astro build"
+    ],
+    "deploy": "skipped"
+  },
+  "screenshots": [
+    "t13-08-invalid-format-2026-10-09.png",
+    "t13-08-retry-upload-2026-10-09.png",
+    "t13-08-body-preserved-2026-10-09.png",
+    "t13-08-fixed-hint-2026-10-09.png",
+    "t13-08-collection-hint-2026-10-09.png"
+  ],
+  "screenshotStorage": "local chat visualization directory, not public repo",
+  "screenshotNote": "error toast partially clipped; complete message recorded from live AX/DOM",
+  "designResourcesAdded": 0,
+  "limits": [
+    "extension check only, not file encoding validation",
+    "other valid formats and size ceiling unverified",
+    "network/API upload failure unverified",
+    "upload abort/rollback unverified",
+    "Close/Escape focus restoration still missing",
+    "mobile/screen reader unverified",
+    "hosted version unknown",
+    "user feedback pending",
+    "no merge or deployment"
+  ]
+}

@@ -1,0 +1,438 @@
+# Native article, resource and note editors, plus the fixed article validation entry.
+media:
+  - name: article-images
+    label: 文章图片（公开仓库）
+    input: src/assets/article-images
+    # Articles remain directly in src/content/docs/knowledge/blog/ (no subfolders).
+    output: ../../../../assets/article-images
+    extensions: [png, jpg, jpeg, webp, avif]
+    rename: random
+    commit:
+      templates:
+        create: 'content(media): 上传文章图片 {filename}'
+        update: 'content(media): 更新文章图片 {filename}'
+        delete: 'content(media): 删除文章图片 {filename}'
+        rename: 'content(media): 重命名文章图片 {oldFilename} -> {newFilename}'
+  - name: note-images
+    label: 笔记图片（共用公开图库）
+    input: src/assets/article-images
+    output: ../../../../../assets/article-images
+    extensions: [png, jpg, jpeg, webp, avif]
+    rename: random
+content:
+  - name: blog-settings
+    label: 博客设置
+    type: file
+    path: src/data/blog-settings.json
+    format: json
+    commit:
+      templates:
+        update: 'config(blog): 更新博客标签浏览设置'
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields:
+      - name: tagBrowsingEnabled
+        label: 启用标签浏览
+        type: boolean
+        default: true
+        description: '开启显示文章标签和标签页；关闭隐藏标签浏览入口，保留原始标签。Save 后需构建发布才能更新正式网站。'
+  - name: resources
+    label: 学习资料（说明编辑）
+    type: collection
+    path: src/content/docs/knowledge/resources
+    format: yaml-frontmatter
+    subfolders: true
+    operations:
+      create: false
+      rename: false
+      delete: false
+    commit:
+      templates:
+        update: 'content(resource): 保存资料说明 {path}'
+    view:
+      fields: [title, topics]
+      primary: title
+      sort: [title]
+      search: [title, description]
+      default:
+        sort: title
+        order: asc
+    fields:
+      - name: title
+        label: 标题
+        type: string
+        required: true
+        description: '编辑已有资料的说明。先 Save 成功再离开；正式网站需构建发布才能更新。'
+      - name: description
+        label: 摘要
+        type: text
+        required: true
+      - name: topics
+        label: 主题
+        type: string
+        list: true
+        description: '用于学习总览分类。更改标题或主题后，关联候选需由开发者同步。'
+  - name: notes
+    label: 收藏笔记（说明编辑）
+    type: collection
+    path: src/content/docs/knowledge/notes
+    exclude: [writing, writing/**]
+    format: yaml-frontmatter
+    subfolders: true
+    operations:
+      create: false
+      rename: false
+      delete: false
+    commit:
+      templates:
+        update: 'content(note): 保存笔记说明 {path}'
+    view:
+      fields: [title, topics]
+      primary: title
+      sort: [title]
+      search: [title, description]
+      default:
+        sort: title
+        order: asc
+    fields:
+      - name: title
+        label: 标题
+        type: string
+        required: true
+        description: '编辑本站收藏说明。原站或 PDF 正文使用已有阅读入口，本站说明正文不在此编辑。先 Save 成功再离开；正式网站需构建发布才能更新。'
+      - name: description
+        label: 摘要
+        type: text
+        required: true
+      - name: topics
+        label: 主题
+        type: string
+        list: true
+        description: '用于学习总览分类。更改标题或主题后，关联候选需由开发者同步。'
+  - name: articles
+    label: 文章
+    type: collection
+    path: src/content/docs/knowledge/blog
+    format: yaml-frontmatter
+    subfolders: false
+    filename:
+      template: '{fields.entryId}.md'
+      field: false
+    operations:
+      create: true
+      rename: false
+      delete: false
+    view:
+      fields: [title, draft, date]
+      primary: title
+      sort: [date, title]
+      search: [title, description]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: 标题
+        description: '先 Save 成功再离开。保存失败时先备份已改字段与 Source 正文；如提示版本冲突，再刷新、对照最新内容恢复修改并重试。返回列表会放弃未保存内容。'
+        type: string
+        required: true
+      - name: description
+        label: 摘要
+        type: text
+        required: true
+      - name: entryId
+        label: 地址标识
+        description: 新建时填写唯一的小写英文、数字或短横线，例如 article-reading-notes。保存后请保持此值；修改标题不会改变文章地址。
+        type: string
+        required: true
+        pattern:
+          regex: '^[a-z0-9]+(?:-[a-z0-9]+)*$'
+          message: 使用小写英文、数字和单个短横线，不能含空格或中文。
+      - name: date
+        label: 文章日期
+        type: date
+        required: true
+        options:
+          time: false
+          format: yyyy-MM-dd
+      - name: topics
+        label: 主题
+        type: string
+        list: true
+      - name: tags
+        label: 标签
+        type: string
+        list: true
+      - name: related
+        label: 关联内容
+        description: '搜索标题或主题，选择已发布的资料、文章或笔记；× 移除。键盘：↓/↑、Enter 选择，Esc 关闭；搜索框为空时 ← 聚焦已选项、Backspace 移除。不要选择当前文章。Save 后需构建发布才生效；新增、改名或发布内容后由开发者同步候选。'
+        type: select
+        options:
+          multiple: true
+          placeholder: 搜索资料、文章或笔记
+          values: &knowledgeRelatedOptions
+          # BEGIN GENERATED KNOWLEDGE OPTIONS
+          - value: "demo-article-reading-check"
+            label: "文章 · 博客阅读验证（功能验证样稿） · 阅读与整理"
+          - value: "note-ads-algorithms-notes"
+            label: "笔记 · 高级数据结构与算法分析 · 算法笔记（PDF） · 高级数据结构与算法分析"
+          - value: "note-ads-noughtq-notebook"
+            label: "笔记 · 高级数据结构与算法分析 · NoughtQ 的笔记本 · 高级数据结构与算法分析"
+          - value: "note-computer-organization-lihuamao-chapter5"
+            label: "笔记 · 计算机组成 · lihuamao0810 的第五章笔记 · 计算机系统"
+          - value: "note-computer-system-review"
+            label: "笔记 · 计算机系统原理 · 复习笔记（RandomStar） · 计算机系统"
+          - value: "note-computer-system-zhang-each-notebook"
+            label: "笔记 · 计算机系统 · 小角龙的学习记录 · 计算机系统"
+          - value: "resource-ads-2024-handout"
+            label: "资料 · 高级数据结构与算法分析 · 2024 春夏讲义（wyy） · 高级数据结构与算法分析"
+          - value: "resource-computer-organization-risc-v-fifth-edition"
+            label: "资料 · 计算机组成与设计：硬件软件接口（第 5 版 · RISC-V 版） · 计算机系统"
+          - value: "resource-engineering-physics-third-edition"
+            label: "资料 · 工程物理学（第三版） · 大学物理Ⅱ"
+          - value: "resource-lssh-pdf-reading-check"
+            label: "资料 · PDF 阅读验证说明（功能样本） · 阅读与整理"
+          - value: "resource-physics-chapter-10"
+            label: "资料 · 大学物理Ⅱ · 第 10 章 · 大学物理Ⅱ"
+          - value: "resource-physics-chapter-11"
+            label: "资料 · 大学物理Ⅱ · 第 11 章 · 大学物理Ⅱ"
+          - value: "resource-physics-chapter-12"
+            label: "资料 · 大学物理Ⅱ · 第 12 章 · 大学物理Ⅱ"
+          - value: "resource-physics-chapter-13"
+            label: "资料 · 大学物理Ⅱ · 第 13 章 · 大学物理Ⅱ"
+          - value: "resource-physics-chapter-14"
+            label: "资料 · 大学物理Ⅱ · 第 14 章 · 大学物理Ⅱ"
+          - value: "resource-physics-chapter-15"
+            label: "资料 · 大学物理Ⅱ · 第 15 章 · 大学物理Ⅱ"
+          - value: "resource-physics-chapter-16"
+            label: "资料 · 大学物理Ⅱ · 第 16 章 · 大学物理Ⅱ"
+          - value: "resource-physics-chapter-17"
+            label: "资料 · 大学物理Ⅱ · 第 17 章 · 大学物理Ⅱ"
+          - value: "resource-physics-chapter-18"
+            label: "资料 · 大学物理Ⅱ · 第 18 章 · 大学物理Ⅱ"
+          - value: "resource-physics-chapter-19"
+            label: "资料 · 大学物理Ⅱ · 第 19 章 · 大学物理Ⅱ"
+          - value: "resource-physics-chapter-20"
+            label: "资料 · 大学物理Ⅱ · 第 20 章 · 大学物理Ⅱ"
+          - value: "resource-physics-chapter-21"
+            label: "资料 · 大学物理Ⅱ · 第 21 章 · 大学物理Ⅱ"
+          - value: "resource-physics-chapter-22"
+            label: "资料 · 大学物理Ⅱ · 第 22 章 · 大学物理Ⅱ"
+          - value: "resource-physics-chapter-23"
+            label: "资料 · 大学物理Ⅱ · 第 23 章 · 大学物理Ⅱ"
+          - value: "resource-physics-chapter-9"
+            label: "资料 · 大学物理Ⅱ · 第 9 章（下）真空中的静电场 · 大学物理Ⅱ"
+          - value: "resource-physics-electrostatics-alt"
+            label: "资料 · 大学物理Ⅱ · 第 9 章（上）真空中的静电场 · 大学物理Ⅱ"
+          - value: "resource-physics-lab-recalled-exams"
+            label: "资料 · 大学物理实验 · 历年回忆卷合集 · 大学物理实验"
+          - value: "resource-physics-lab-review"
+            label: "资料 · 大学物理实验 · 知识点盘点 · 大学物理实验"
+          - value: "resource-pre-qin-philosophers-reader"
+            label: "资料 · 先秦诸子导读 · 先秦哲学"
+          - value: "resource-probability-forliage"
+            label: "资料 · 概率论讲义（Forliage） · 概率论与数理统计"
+          - value: "resource-probability-lecture-0"
+            label: "资料 · 概率论与数理统计 · 第 0 讲 概统基本概念一览 · 概率论与数理统计"
+          - value: "resource-probability-lecture-1"
+            label: "资料 · 概率论与数理统计 · 第 1 讲 随机事件与概率 · 概率论与数理统计"
+          - value: "resource-probability-lecture-2"
+            label: "资料 · 概率论与数理统计 · 第 2 讲 一维随机变量的概率分布 · 概率论与数理统计"
+          - value: "resource-probability-lecture-3"
+            label: "资料 · 概率论与数理统计 · 第 3 讲 二维随机变量的概率分布 · 概率论与数理统计"
+          - value: "resource-probability-lecture-4"
+            label: "资料 · 概率论与数理统计 · 第 4 讲 常见随机变量的概率分布 · 概率论与数理统计"
+          - value: "resource-probability-lecture-5"
+            label: "资料 · 概率论与数理统计 · 第 5 讲 随机变量函数的概率分布 · 概率论与数理统计"
+          - value: "resource-probability-lecture-6"
+            label: "资料 · 概率论与数理统计 · 第 6 讲 大数定律与中心极限定理 · 概率论与数理统计"
+          - value: "resource-probability-lecture-7"
+            label: "资料 · 概率论与数理统计 · 第 7 讲 统计量与抽样分布 · 概率论与数理统计"
+          - value: "resource-probability-lecture-8"
+            label: "资料 · 概率论与数理统计 · 第 8 讲 点估计 · 概率论与数理统计"
+          - value: "resource-probability-lecture-9"
+            label: "资料 · 概率论与数理统计 · 第 9 讲 区间估计与假设检验 · 概率论与数理统计"
+          - value: "resource-probability-tutorial-v1"
+            label: "资料 · 概率论与数理统计 · 辅导讲义 v1.0 · 概率论与数理统计"
+          # END GENERATED KNOWLEDGE OPTIONS
+      - name: draft
+        label: 草稿
+        description: 新文章默认草稿。关闭后保存表示发布候选，需构建通过、PR 合并及部署成功才正式上线。
+        type: boolean
+        default: true
+      - name: kind
+        type: string
+        default: article
+        hidden: true
+        readonly: true
+      - name: example
+        type: boolean
+        default: false
+        hidden: true
+        readonly: true
+      - name: body
+        label: 正文
+        description: 'Editor 空行输入 / → Image；仅支持 PNG、JPG、JPEG、WebP、AVIF。格式错误请换图重试，勿刷新未保存正文。Close/Esc 取消后点击正文继续；取消不撤回已上传图片。Upload 选图即写入公开仓库。选中正文图片点 ALT，填描述后 Enter 应用，再 Save 正文；图下说明另写。链接：选中文字点链接图标，填地址后 Enter，再 Save；Source 可改文字/地址。'
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          switcher: true
+          media: article-images
+  - name: writing-notes
+    label: 我的笔记
+    type: collection
+    path: src/content/docs/knowledge/notes/writing
+    format: yaml-frontmatter
+    subfolders: false
+    filename:
+      template: '{fields.entryId}.md'
+      field: false
+    operations:
+      create: true
+      rename: false
+      delete: false
+    commit:
+      templates:
+        create: 'content(note): 新建笔记 {path}'
+        update: 'content(note): 保存笔记 {path}'
+    view:
+      fields: [title, draft, topics]
+      primary: title
+      sort: [title]
+      search: [title, description]
+      default:
+        sort: title
+        order: asc
+    fields:
+      - name: title
+        label: 标题
+        type: string
+        required: true
+        description: '编辑本站自写笔记。先 Save 成功再离开；保存失败先备份字段与 Source 正文，版本冲突时刷新、对照恢复并重试。正式网站需构建发布才能更新。'
+      - name: description
+        label: 摘要
+        type: text
+        required: true
+      - name: entryId
+        label: 地址标识
+        type: string
+        required: true
+        description: '填写唯一的小写英文、数字或短横线，例如 note-reading-notes。保存后保持此值；修改标题不会改变地址。'
+        pattern:
+          regex: '^[a-z0-9]+(?:-[a-z0-9]+)*$'
+          message: 使用小写英文、数字和单个短横线，不能含空格或中文。
+      - name: topics
+        label: 主题
+        type: string
+        list: true
+      - name: related
+        label: 关联内容
+        type: select
+        description: '搜索并选择已有资料、文章或笔记。不要选择当前笔记；× 移除，Esc 关闭候选。Save 后需构建发布才能更新网站。'
+        options:
+          multiple: true
+          placeholder: 搜索资料、文章或笔记
+          values: *knowledgeRelatedOptions
+      - name: draft
+        label: 草稿
+        type: boolean
+        default: true
+        description: '新笔记默认草稿。关闭后保存表示发布候选，构建、PR 合并和部署成功后才正式上线。'
+      - name: kind
+        type: string
+        default: note
+        hidden: true
+        readonly: true
+      - name: example
+        type: boolean
+        default: false
+        hidden: true
+        readonly: true
+      - name: body
+        label: 正文
+        type: rich-text
+        required: true
+        description: 'Editor 写正文，Source 编辑 Markdown。空行 / → Image；上传图片即写入公开仓库，保存正文是另一步。图片需填写 ALT；选中文字可插入链接。返回列表会放弃未保存输入。'
+        options:
+          format: markdown
+          switcher: true
+          media: note-images
+  - name: article-draft
+    label: 文章编辑与发布验证
+    type: file
+    path: src/content/docs/knowledge/blog/editor-draft-check.md
+    format: yaml-frontmatter
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields:
+      - name: title
+        label: 标题
+        description: '先 Save 成功再离开。保存失败时先备份已改字段与 Source 正文；如提示版本冲突，再刷新、对照最新内容恢复修改并重试。返回列表会放弃未保存内容。'
+        type: string
+        required: true
+      - name: description
+        label: 摘要
+        type: text
+        required: true
+      - name: date
+        label: 文章日期
+        type: date
+        required: true
+        options:
+          time: false
+          format: yyyy-MM-dd
+      - name: topics
+        label: 主题
+        type: string
+        list: true
+      - name: tags
+        label: 标签
+        type: string
+        list: true
+      - name: related
+        label: 关联内容
+        description: '搜索标题或主题，选择已发布的资料、文章或笔记；× 移除。键盘：↓/↑、Enter 选择，Esc 关闭；搜索框为空时 ← 聚焦已选项、Backspace 移除。不要选择当前文章。Save 后需构建发布才生效；新增、改名或发布内容后由开发者同步候选。'
+        type: select
+        options:
+          multiple: true
+          placeholder: 搜索资料、文章或笔记
+          values: *knowledgeRelatedOptions
+      - name: draft
+        label: 草稿
+        description: 开启时不生成生产文章页面；关闭表示提交发布。保存后先构建，通过 PR 合并并部署成功后才正式上线。重新开启需再次合并部署才能下线。
+        type: boolean
+        default: true
+      - name: entryId
+        type: string
+        hidden: true
+        readonly: true
+      - name: kind
+        type: string
+        hidden: true
+        readonly: true
+      - name: example
+        type: boolean
+        hidden: true
+        readonly: true
+      - name: body
+        label: 正文
+        description: 'Editor 空行输入 / → Image；仅支持 PNG、JPG、JPEG、WebP、AVIF，建议小于 1 MiB。格式错误请换图重试，勿刷新未保存正文。Close/Esc 取消后点击正文继续；取消不撤回已上传图片。Upload 选图即写入公开仓库。选中正文图片点 ALT，填描述后 Enter 应用，再 Save 正文；图下说明另写。链接：选中文字点链接图标，填地址后 Enter，再 Save；Source 可改文字/地址。'
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          switcher: true
+          media: article-images
+settings:
+  content:
+    merge: true
+  commit:
+    identity: app
+    templates:
+      create: 'content(article): 新建文章 {path}'
+      update: 'content(article): 保存文章 {path}'

@@ -1,0 +1,62 @@
+{
+  "result": "passed",
+  "browser": "Edge headless",
+  "base": "http://127.0.0.1:4322/personal-homepage",
+  "groups": 11,
+  "checks": [
+    {
+      "name": "pointer close hides panel, updates native aria and restores focus",
+      "result": "passed",
+      "width": 50,
+      "height": 44
+    },
+    {
+      "name": "reopen preserves page 3 and 125% zoom",
+      "result": "passed"
+    },
+    {
+      "name": "Enter, Space and Escape close with focus returned",
+      "result": "passed"
+    },
+    {
+      "name": "nested menu Escape dismisses only that menu before sidebar",
+      "result": "passed"
+    },
+    {
+      "name": "refresh retains native closed sidebar state",
+      "result": "passed"
+    },
+    {
+      "name": "fresh iframe listeners close once and reopen normally",
+      "result": "passed"
+    },
+    {
+      "name": "standalone full-screen reader uses the same native close action",
+      "result": "passed"
+    },
+    {
+      "name": "mobile 390px close stays visible and returns PDF space",
+      "result": "passed",
+      "x": 124.75,
+      "right": 174.75,
+      "innerWidth": 356,
+      "height": 44
+    },
+    {
+      "name": "mobile 320px close stays visible and returns PDF space",
+      "result": "passed",
+      "x": 124.734375,
+      "right": 174.734375,
+      "innerWidth": 286,
+      "height": 44
+    },
+    {
+      "name": "200% text preserves keyboard-reachable close",
+      "result": "passed"
+    },
+    {
+      "name": "no uncaught page errors",
+      "result": "passed"
+    }
+  ]
+}

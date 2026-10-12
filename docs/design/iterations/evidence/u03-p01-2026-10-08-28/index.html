@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LSSH · 28 玻璃颜色路径</title>
+<style>
+:root{color-scheme:dark;font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#000;color:#ededed}*{box-sizing:border-box}body{max-width:1280px;margin:auto;padding:32px 24px 64px}h1{font-size:clamp(24px,4vw,38px);font-weight:500}h2{font-size:20px;font-weight:500;margin-top:40px}p{color:#aaa;line-height:1.8;max-width:880px}a{color:#ddd;text-underline-offset:4px}nav{display:flex;gap:12px;flex-wrap:wrap}button{font:inherit;color:#aaa;background:#191919;border:1px solid #383838;border-radius:20px;padding:9px 18px;cursor:pointer}button[aria-pressed=true]{color:#fff;background:#323232}button:focus-visible,a:focus-visible{outline:2px solid #ccc;outline-offset:4px}.pair{display:grid;grid-template-columns:1fr 1fr;gap:20px}figure{margin:20px 0}img{display:block;width:100%;height:auto;border:1px solid #242424;border-radius:12px}figcaption{margin:10px 0;color:#aaa;font-size:14px}table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:13px 10px;border-bottom:1px solid #282828}th{color:#aaa;font-weight:400}.table-wrap{overflow:auto}.mobile{max-width:300px}code{overflow-wrap:anywhere;color:#ccc}details{margin:24px 0;color:#aaa;line-height:1.8}summary{cursor:pointer}[hidden]{display:none!important}@media(max-width:640px){body{padding:20px 16px 40px}.pair{grid-template-columns:1fr}th,td{white-space:nowrap}}
+</style>
+<body>
+<p>LITTLE STONE STILL HERE / P01 · T03.05</p>
+<h1>玻璃透射的颜色路径</h1>
+<p>第 28 轮只将现有玻璃 ShaderMaterial 设为 <code>toneMapped:false</code>。线性透射合成保留输出色彩转换，全局 ACES 与曝光保持原值。以下是两份实际构建的原始截图；固定视角用于隔离颜色输出，手机样本采用正常姿态与时钟。</p>
+<nav aria-label="对照视角">
+<button id="front-tab" type="button" aria-controls="front" aria-pressed="true">顶部正面</button>
+<button id="yaw-tab" type="button" aria-controls="yaw" aria-pressed="false">550px / Y35°</button>
+<a href="http://127.0.0.1:4321/personal-homepage/">体验实际首页</a>
+</nav>
+<section id="front" aria-labelledby="front-tab" class="pair">
+<figure><a href="before/desktop-hero-front.png"><img src="before/desktop-hero-front.png" alt="修复前顶部正面，玻璃透射灰色区域被压黑" width="1440" height="900"></a><figcaption>修复前 · 第 27 轮实际构建</figcaption></figure>
+<figure><a href="after/desktop-hero-front.png"><img src="after/desktop-hero-front.png" alt="修复后顶部正面，玻璃内部恢复深灰砖纹层次" width="1440" height="900"></a><figcaption>修复后 · 仅玻璃材质跳过额外 ACES</figcaption></figure>
+</section>
+<section id="yaw" aria-labelledby="yaw-tab" class="pair" hidden>
+<figure><a href="before/desktop-550-yaw35.png"><img src="before/desktop-550-yaw35.png" alt="修复前550像素位置及Y35度固定视角" width="1440" height="900"></a><figcaption>修复前 · 相同滚动、姿态、时钟</figcaption></figure>
+<figure><a href="after/desktop-550-yaw35.png"><img src="after/desktop-550-yaw35.png" alt="修复后深灰砖纹及折射文字仍可辨认" width="1440" height="900"></a><figcaption>修复后 · 原孔、边缘和折射保留</figcaption></figure>
+</section>
+<h2>原 PNG 像素比较</h2>
+<p>面内样本是原图指定矩形区域的平均 RGB（0–255）。玻璃外控制区排除玻璃包围盒及 2px 余量；两张图的非 HTML 资源、相机、实际进度和姿态均一致。未编辑或重采样原图。</p>
+<div class="table-wrap"><table><thead><tr><th>固定视角</th><th>上部灰度：前 → 后</th><th>下部灰度：前 → 后</th><th>玻璃外像素</th><th>变化像素</th></tr></thead><tbody>
+<tr><td>顶部正面</td><td>2 → 14.476</td><td>0.999 → 10.359</td><td>994,796</td><td>0</td></tr>
+<tr><td>550px / Y35°</td><td>2 → 14.107</td><td>1.323 → 12.091</td><td>1,090,208</td><td>0</td></tr>
+</tbody></table></div>
+<h2>正常页面 · 手机视口</h2>
+<figure class="mobile"><a href="after/mobile-live-hero.png"><img src="after/mobile-live-hero.png" alt="390乘844手机模拟视口中的正常玻璃首屏" width="390" height="844"></a><figcaption>390 × 844，未固定时钟/姿态</figcaption></figure>
+<p>5 个页面样本无脚本错误或请求失败，WebGL error 为 0。材质运行时开关与编译的 TONE_MAPPING 定义对应；全局 ACES、曝光、环境来源、原反射权重及输出转换保留。宽面高光与最终玻璃美术尚未验收。</p>
+<details><summary>构建与采集范围</summary>
+<p>Chrome 154.0.8037.98 / SwiftShader。桌面 1440 × 900 / DPR1。软件 GPU 与手机模拟不证明真实手机帧率、触摸或不同刷新率表现。</p>
+<p>前：HomeJourney.CXa-QBcJ.js<br><code>70eeb2f833de8ed4821589a75606e6193adcf4fc713aa3c0dce18ea9d988248a</code></p>
+<p>后：HomeJourney.CJZaUZI8.js<br><code>446cfd6609062fec6cf85f8da878d8a36680b62d02244d58ba746b8a67396e3e</code></p>
+</details>
+<nav aria-label="原始记录"><a href="before/capture.json">修复前状态</a><a href="after/capture.json">修复后状态</a><a href="comparison.json">像素比较与通过条件</a></nav>
+<script>
+const views=[['front-tab','front'],['yaw-tab','yaw']];
+for(const [id] of views)document.getElementById(id).addEventListener('click',()=>{for(const [button,panel]of views){document.getElementById(button).setAttribute('aria-pressed',String(button===id));document.getElementById(panel).hidden=button!==id;}});
+</script>
+</body>
+</html>

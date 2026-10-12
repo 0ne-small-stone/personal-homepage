@@ -1,0 +1,438 @@
+{
+  "method": "Original PNG RGB; glass bounds expanded 2px. No image edits/resampling.",
+  "cases": [
+    {
+      "name": "desktop-hero-front",
+      "beforeBundle": {
+        "url": "http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.CXa-QBcJ.js",
+        "sha256": "70eeb2f833de8ed4821589a75606e6193adcf4fc713aa3c0dce18ea9d988248a",
+        "bytes": 1144956
+      },
+      "afterBundle": {
+        "url": "http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.CJZaUZI8.js",
+        "sha256": "446cfd6609062fec6cf85f8da878d8a36680b62d02244d58ba746b8a67396e3e",
+        "bytes": 1144970
+      },
+      "sameState": true,
+      "sameResources": true,
+      "excludedGlassBounds": [
+        427,
+        193,
+        1013,
+        707
+      ],
+      "outside": {
+        "pixels": 994796,
+        "changedPixels": 0,
+        "maxChannelDifference": 0
+      },
+      "samples": {
+        "top": {
+          "rect": [
+            700,
+            250,
+            740,
+            290
+          ],
+          "before": {
+            "meanRGB": 2,
+            "minRGB": 2,
+            "maxRGB": 2
+          },
+          "after": {
+            "meanRGB": 14.475833333333334,
+            "minRGB": 14,
+            "maxRGB": 15
+          }
+        },
+        "lower": {
+          "rect": [
+            680,
+            655,
+            760,
+            680
+          ],
+          "before": {
+            "meanRGB": 0.999,
+            "minRGB": 0,
+            "maxRGB": 1
+          },
+          "after": {
+            "meanRGB": 10.358666666666666,
+            "minRGB": 9,
+            "maxRGB": 12
+          }
+        }
+      },
+      "runtimeValid": true,
+      "pass": true
+    },
+    {
+      "name": "desktop-550-yaw35",
+      "beforeBundle": {
+        "url": "http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.CXa-QBcJ.js",
+        "sha256": "70eeb2f833de8ed4821589a75606e6193adcf4fc713aa3c0dce18ea9d988248a",
+        "bytes": 1144956
+      },
+      "afterBundle": {
+        "url": "http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.CJZaUZI8.js",
+        "sha256": "446cfd6609062fec6cf85f8da878d8a36680b62d02244d58ba746b8a67396e3e",
+        "bytes": 1144970
+      },
+      "sameState": true,
+      "sameResources": true,
+      "excludedGlassBounds": [
+        477,
+        230,
+        913,
+        702
+      ],
+      "outside": {
+        "pixels": 1090208,
+        "changedPixels": 0,
+        "maxChannelDifference": 0
+      },
+      "samples": {
+        "top": {
+          "rect": [
+            720,
+            270,
+            740,
+            295
+          ],
+          "before": {
+            "meanRGB": 2,
+            "minRGB": 2,
+            "maxRGB": 2
+          },
+          "after": {
+            "meanRGB": 14.106666666666667,
+            "minRGB": 14,
+            "maxRGB": 15
+          }
+        },
+        "lower": {
+          "rect": [
+            640,
+            630,
+            700,
+            650
+          ],
+          "before": {
+            "meanRGB": 1.3233333333333335,
+            "minRGB": 1,
+            "maxRGB": 2
+          },
+          "after": {
+            "meanRGB": 12.090555555555556,
+            "minRGB": 11,
+            "maxRGB": 13
+          }
+        }
+      },
+      "runtimeValid": true,
+      "pass": true
+    }
+  ],
+  "pass": true,
+  "live": {
+    "name": "mobile-live-hero",
+    "fixed": false,
+    "spec": {
+      "name": "mobile-live-hero"
+    },
+    "errors": [],
+    "warnings": [
+      "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+    ],
+    "failed": [],
+    "resources": [
+      {
+        "url": "http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js",
+        "sha256": "dfe43bd7b65e65185438a96364abcbedd1fdec52c19bcab0d3fe41864911f631",
+        "bytes": 209417,
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4321/personal-homepage/_astro/echoes-placeholder.CF27I39E_Z1yWTlh.webp",
+        "sha256": "de505f40e91504f033bba32f42f6e2f4bf0b513df53eb0d8c8143bae4821797d",
+        "bytes": 77280,
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4321/personal-homepage/_astro/echoes-placeholder.CF27I39E_Z1yWTlh.webp",
+        "sha256": "de505f40e91504f033bba32f42f6e2f4bf0b513df53eb0d8c8143bae4821797d",
+        "bytes": 77280,
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4321/personal-homepage/_astro/HomeLayout.BVx-2UCu.css",
+        "sha256": "b6b91bd2a2bb29679b4b1dc3c7a5a6bd243539acdb2b6905f2cd9681dea60493",
+        "bytes": 15728,
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4321/personal-homepage/_astro/ibm-plex-mono-latin-400-normal.DMJ8VG8y.woff2",
+        "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7",
+        "bytes": 14708,
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4321/personal-homepage/_astro/ibm-plex-sans-latin-400-normal.CDDApCn2.woff2",
+        "sha256": "3b646991d30055a93a4ecc499713d4347953a74a947ecab435ab72070cbdab0e",
+        "bytes": 22588,
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4321/personal-homepage/_astro/ibm-plex-sans-latin-500-normal.6ng42L7E.woff2",
+        "sha256": "0717336fb31fcdcde4b8deb3675bb4a0f7f6d484864afcd6751ac29975962203",
+        "bytes": 24184,
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4321/personal-homepage/_astro/lssh-wordmark.D_xwlUjr_ygeSe.webp",
+        "sha256": "dc97dca4bc9f7805978fc5119ec90d714840a2ff1cf00ac470115ffea07f9c56",
+        "bytes": 63946,
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4321/personal-homepage/_astro/page.Dwipeu-R.js",
+        "sha256": "c99ac0eaf0068f03b4abe3a28b0a7bf0f28524b9dad3b23d77d54dfd453a62ae",
+        "bytes": 2486,
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4321/personal-homepage/_astro/scheduler.8Htqy825.js",
+        "sha256": "45bc3dd6024d1b09532abb35b04fd7c819456c29631c8db9d4e08d21fd2a72fe",
+        "bytes": 12032,
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4321/personal-homepage/_astro/the-wall-placeholder.DaiTKZr6_ZIlk3C.webp",
+        "sha256": "de8d0aeb1413d3613539d39241d5243b60e6ce326b6bbedfcff42590a842332c",
+        "bytes": 68626,
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4321/personal-homepage/_astro/the-wall-placeholder.DaiTKZr6_ZIlk3C.webp",
+        "sha256": "de8d0aeb1413d3613539d39241d5243b60e6ce326b6bbedfcff42590a842332c",
+        "bytes": 68626,
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4321/personal-homepage/_astro/wish-neighbor-placeholder.C3OY0qeQ_Z1reaH4.webp",
+        "sha256": "9ead1a6138f1da6776f4b69adbc282c1a538b74fecd8c314f00c519077a8d3c8",
+        "bytes": 115694,
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4321/personal-homepage/_astro/wish-neighbor-placeholder.C3OY0qeQ_Z1reaH4.webp",
+        "sha256": "9ead1a6138f1da6776f4b69adbc282c1a538b74fecd8c314f00c519077a8d3c8",
+        "bytes": 115694,
+        "status": 200
+      }
+    ],
+    "http": 200,
+    "bundle": {
+      "url": "http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.CJZaUZI8.js",
+      "sha256": "446cfd6609062fec6cf85f8da878d8a36680b62d02244d58ba746b8a67396e3e",
+      "bytes": 1144970
+    },
+    "overrideSha256": "33f6cc6ca52dae14c9be545a95eac8cb8709967b77c943e61e10aeae0e648693",
+    "state": {
+      "clock": null,
+      "y": 0,
+      "viewport": [
+        390,
+        844
+      ],
+      "dpr": 1,
+      "canvas": [
+        390,
+        844
+      ],
+      "motion": {
+        "height": 844,
+        "scrollY": 0,
+        "velocity": 0,
+        "phase": "kv",
+        "raw": {
+          "kv": 0.8940677966101694,
+          "intro": 0,
+          "works": 0,
+          "event": 0,
+          "snap": 0,
+          "outro": 0,
+          "wall": 0
+        },
+        "rendered": {
+          "progress": 0,
+          "index": 0,
+          "background": 0,
+          "intro": 0
+        },
+        "activeItem": -1,
+        "snapActive": false,
+        "frame": 141,
+        "time": 1972.4000000059605,
+        "initialization": {
+          "revision": 1,
+          "y": 0,
+          "zoom": 1,
+          "reason": "layout"
+        },
+        "cards": [
+          {
+            "index": 0,
+            "position": [
+              3.3322250998392704,
+              0.12000000000000004,
+              -1.1874558494373484
+            ],
+            "rotationY": 0.6,
+            "scale": 0.36,
+            "alpha": 0,
+            "visible": false
+          },
+          {
+            "index": 1,
+            "position": [
+              3.6008178102296995,
+              -0.23999999999999994,
+              -2.9090643057848564
+            ],
+            "rotationY": 1.2,
+            "scale": 0.36,
+            "alpha": 0,
+            "visible": false
+          },
+          {
+            "index": 2,
+            "position": [
+              0.5588352319170742,
+              -0.5999999999999999,
+              -3.941986493880802
+            ],
+            "rotationY": 1.7999999999999998,
+            "scale": 0.36,
+            "alpha": 0,
+            "visible": false
+          },
+          {
+            "index": 3,
+            "position": [
+              -2.9969378814193957,
+              -0.9599999999999999,
+              -3.336558517554501
+            ],
+            "rotationY": 2.4,
+            "scale": 0.36,
+            "alpha": 0,
+            "visible": false
+          }
+        ],
+        "camera": {
+          "position": [
+            0,
+            0,
+            5.7
+          ],
+          "fov": 69.95384615384616
+        },
+        "glass": {
+          "anchor": [
+            0,
+            0,
+            0
+          ],
+          "quaternion": [
+            0.06632116786417307,
+            -0.18585826235927003,
+            -0.05047255501725427,
+            0.9790356123226343
+          ],
+          "scale": 1.2622303268803918,
+          "projectedAnchor": [
+            195,
+            422
+          ],
+          "bounds": [
+            45.04824088512978,
+            274.2843467670864,
+            348.0441675108461,
+            597.0586273579077
+          ],
+          "centeredLocalBounds": [
+            -1.2262870073318481,
+            -1.071435570716858,
+            -0.11499999463558197,
+            1.2262870073318481,
+            1.071435570716858,
+            0.11499999463558197
+          ]
+        },
+        "lerpers": {
+          "progress": {
+            "current": 0,
+            "target": 0
+          },
+          "index": {
+            "current": 0,
+            "target": 0
+          },
+          "background": {
+            "current": 0,
+            "target": 0
+          },
+          "intro": {
+            "current": 0,
+            "target": 0
+          }
+        }
+      },
+      "material": {
+        "toneMapped": false,
+        "colorspaceChunk": true,
+        "toneChunk": true,
+        "compiledToneDefine": false,
+        "mixUnchanged": true,
+        "environmentMatches": true,
+        "cube": true,
+        "cubeDimensions": [
+          [
+            128,
+            128
+          ],
+          [
+            128,
+            128
+          ],
+          [
+            128,
+            128
+          ],
+          [
+            128,
+            128
+          ],
+          [
+            128,
+            128
+          ],
+          [
+            128,
+            128
+          ]
+        ]
+      },
+      "renderer": {
+        "toneMapping": 4,
+        "exposure": 1,
+        "output": "srgb",
+        "error": 0
+      },
+      "overflow": false
+    },
+    "file": "mobile-live-hero.png"
+  }
+}

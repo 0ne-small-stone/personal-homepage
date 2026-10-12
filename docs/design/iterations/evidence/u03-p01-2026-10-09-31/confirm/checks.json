@@ -1,0 +1,3407 @@
+{
+  "phase": "confirm",
+  "date": "2026-10-09T14:11:11.708Z",
+  "checks": [
+    {
+      "name": "confirmed endpoint: settled parallax zero, anchor centered, inverse current",
+      "pass": true,
+      "evidence": {
+        "end": {
+          "received": 5934,
+          "y": 5950,
+          "height": 900,
+          "width": 1440,
+          "frame": 100,
+          "phase": "wall",
+          "raw": {
+            "kv": 1,
+            "intro": 1,
+            "works": 1,
+            "event": 1,
+            "snap": 1,
+            "outro": 1,
+            "wall": 0
+          },
+          "rendered": {
+            "progress": 1,
+            "index": 5,
+            "background": 5,
+            "intro": 1
+          },
+          "initialization": {
+            "revision": 1,
+            "y": 0,
+            "zoom": 1,
+            "reason": "layout"
+          },
+          "camera": {
+            "position": [
+              0.00011259845082420264,
+              0.00003318691182187028,
+              6
+            ],
+            "fov": 46.25,
+            "outro": {
+              "raw": 1,
+              "parallax": 1,
+              "projection": 1
+            },
+            "offset": [
+              0.00018766408470700442,
+              0.00005531151970311713
+            ],
+            "offsetTarget": [
+              0,
+              0
+            ],
+            "projection": [
+              0.2604166666666667,
+              0,
+              0,
+              0,
+              0,
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ],
+            "inverse": [
+              3.84,
+              0,
+              0,
+              0,
+              0,
+              2.4,
+              0,
+              0,
+              0,
+              0,
+              -24.95,
+              0,
+              0,
+              0,
+              -25.05,
+              1
+            ],
+            "perspective": [
+              1.463522151422699,
+              0,
+              0,
+              0,
+              0,
+              2.3416354422763184,
+              0,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              -1,
+              0,
+              0,
+              -0.20040080160320642,
+              0
+            ],
+            "orthographic": [
+              0.2604166666666667,
+              0,
+              0,
+              0,
+              0,
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ]
+          },
+          "projection": [
+            0.2604166666666667,
+            0,
+            0,
+            0,
+            0,
+            0.4166666666666667,
+            0,
+            0,
+            0,
+            0,
+            -0.04008016032064128,
+            0,
+            0,
+            0,
+            -1.0040080160320641,
+            1
+          ],
+          "inverse": [
+            3.84,
+            0,
+            0,
+            0,
+            0,
+            2.4,
+            0,
+            0,
+            0,
+            0,
+            -24.95,
+            0,
+            0,
+            0,
+            -25.05,
+            1
+          ],
+          "near": 0.1,
+          "far": 50,
+          "actualPosition": [
+            0.00011259845082420264,
+            0.00003318691182187028,
+            6
+          ],
+          "glass": {
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "quaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "scale": 1.14,
+            "visible": true,
+            "projectedAnchor": [
+              720,
+              450
+            ],
+            "bounds": [
+              457.8807912101765,
+              220.98054035723464,
+              982.1192087898235,
+              679.0194596681532
+            ],
+            "centeredLocalBounds": [
+              -1.2262870073318481,
+              -1.071435570716858,
+              -0.11499999463558197,
+              1.2262870073318481,
+              1.071435570716858,
+              0.11499999463558197
+            ],
+            "actualVisible": true
+          },
+          "wall": {
+            "raw": 0,
+            "rise": 0,
+            "position": [
+              0,
+              -11,
+              -1
+            ],
+            "visible": false,
+            "actualVisible": false,
+            "actualPosition": [
+              0,
+              -11,
+              -1
+            ]
+          },
+          "cta": {
+            "inert": true,
+            "ancestorInert": true,
+            "opacity": "0"
+          },
+          "canvases": 1,
+          "chapter": "wall"
+        }
+      }
+    },
+    {
+      "name": "real Wall anchor and guestbook content remain accessible",
+      "pass": true,
+      "evidence": {
+        "wall": {
+          "received": 7962.300000011921,
+          "y": 7750,
+          "height": 900,
+          "width": 1440,
+          "frame": 120,
+          "phase": "wall",
+          "raw": {
+            "kv": 1,
+            "intro": 1,
+            "works": 1,
+            "event": 1,
+            "snap": 1,
+            "outro": 1,
+            "wall": 1
+          },
+          "rendered": {
+            "progress": 1,
+            "index": 5,
+            "background": 5,
+            "intro": 1
+          },
+          "initialization": {
+            "revision": 1,
+            "y": 0,
+            "zoom": 1,
+            "reason": "layout"
+          },
+          "camera": {
+            "position": [
+              0.000026547009558852436,
+              0.000007824381764714405,
+              6
+            ],
+            "fov": 46.25,
+            "outro": {
+              "raw": 1,
+              "parallax": 1,
+              "projection": 1
+            },
+            "offset": [
+              0.00004424501593142073,
+              0.000013040636274524009
+            ],
+            "offsetTarget": [
+              0,
+              0
+            ],
+            "projection": [
+              0.2604166666666667,
+              0,
+              0,
+              0,
+              0,
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ],
+            "inverse": [
+              3.84,
+              0,
+              0,
+              0,
+              0,
+              2.4,
+              0,
+              0,
+              0,
+              0,
+              -24.95,
+              0,
+              0,
+              0,
+              -25.05,
+              1
+            ],
+            "perspective": [
+              1.463522151422699,
+              0,
+              0,
+              0,
+              0,
+              2.3416354422763184,
+              0,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              -1,
+              0,
+              0,
+              -0.20040080160320642,
+              0
+            ],
+            "orthographic": [
+              0.2604166666666667,
+              0,
+              0,
+              0,
+              0,
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ]
+          },
+          "projection": [
+            0.2604166666666667,
+            0,
+            0,
+            0,
+            0,
+            0.4166666666666667,
+            0,
+            0,
+            0,
+            0,
+            -0.04008016032064128,
+            0,
+            0,
+            0,
+            -1.0040080160320641,
+            1
+          ],
+          "inverse": [
+            3.84,
+            0,
+            0,
+            0,
+            0,
+            2.4,
+            0,
+            0,
+            0,
+            0,
+            -24.95,
+            0,
+            0,
+            0,
+            -25.05,
+            1
+          ],
+          "near": 0.1,
+          "far": 50,
+          "actualPosition": [
+            0.000026547009558852436,
+            0.000007824381764714405,
+            6
+          ],
+          "glass": {
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "quaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "scale": 1.14,
+            "visible": false,
+            "projectedAnchor": [
+              720,
+              450
+            ],
+            "bounds": [
+              457.88106706903034,
+              220.98062167254128,
+              982.1189329309695,
+              679.01937832887
+            ],
+            "centeredLocalBounds": [
+              -1.2262870073318481,
+              -1.071435570716858,
+              -0.11499999463558197,
+              1.2262870073318481,
+              1.071435570716858,
+              0.11499999463558197
+            ],
+            "actualVisible": false
+          },
+          "wall": {
+            "raw": 1,
+            "rise": 1,
+            "position": [
+              0,
+              0,
+              -1
+            ],
+            "visible": true,
+            "actualVisible": true,
+            "actualPosition": [
+              0,
+              0,
+              -1
+            ]
+          },
+          "cta": {
+            "inert": true,
+            "ancestorInert": true,
+            "opacity": "0"
+          },
+          "canvases": 1,
+          "chapter": "wall"
+        },
+        "dom": {
+          "top": 7750,
+          "heading": "The Wall",
+          "text": "The Wall走到这里，也留下你的回声。留言区暂未开放。接通后，用 GitHub 账号留下话语，与后来的人相遇。查看 GitHub 讨论区（新窗口）document.querySelectorAll(`[data-load-giscus]`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.closest(`.home-guestbook`);if(t.querySelector(`.giscus iframe`))return;let n=t.querySelector(`[data-giscus-status]`),r=t.querySelector(`.giscus`);n.textContent=`正在连接留言区…`,e.disabled=!0;let i=document.createElement(`script`);i.src=`https://giscus.app/client.js`,i.async=!0,i.crossOrigin=`anonymous`;let a={repo:e.dataset.repo,\"repo-id\":e.dataset.repoId,category:e.dataset.category,\"category-id\":e.dataset.categoryId,mapping:`specific`,term:e.dataset.term,strict:`1`,\"reactions-enabled\":`1`,\"emit-metadata\":`1`,\"input-position\":`top`,theme:document.body.classList.contains(`has-journey`)?`light`:`dark`,lang:`zh-CN`,loading:`lazy`};Object.entries(a).forEach(([e,t])=>i.setAttribute(`data-${e}`,t));let o=()=>{n.textContent=`留言区未能连接，可以在 GitHub 讨论区继续。`,e.disabled=!1,i.remove()},s=setTimeout(o,1e4);i.onerror=()=>{clearTimeout(s),o()};let c=e=>{e.origin===`https://giscus.app`&&e.source===r.querySelector(`iframe`)?.contentWindow&&e.data?.giscus&&(clearTimeout(s),n.textContent=e.data.giscus.error?`留言区暂不可用，可以在 GitHub 讨论区继续。`:``,window.removeEventListener(`message`,c))};window.addEventListener(`message`,c),window.addEventListener(`pagehide`,()=>{clearTimeout(s),window.removeEventListener(`message`,c)},{once:!0}),r.append(i)})});查看留言区查看留言区回到序章认识小石",
+          "visible": true
+        }
+      }
+    },
+    {
+      "name": "quick beyond-wall reverse restores black glass and hides wall",
+      "pass": true,
+      "evidence": {
+        "reverse": {
+          "received": 11752.899999976158,
+          "y": 5500,
+          "height": 900,
+          "width": 1440,
+          "frame": 199,
+          "phase": "works_outro",
+          "raw": {
+            "kv": 1,
+            "intro": 1,
+            "works": 1,
+            "event": 1,
+            "snap": 1,
+            "outro": 0.6666666666666666,
+            "wall": 0
+          },
+          "rendered": {
+            "progress": 1,
+            "index": 5,
+            "background": 5,
+            "intro": 1
+          },
+          "initialization": {
+            "revision": 1,
+            "y": 0,
+            "zoom": 1,
+            "reason": "layout"
+          },
+          "camera": {
+            "position": [
+              0.0829045692040783,
+              0.08640802262203189,
+              6
+            ],
+            "fov": 46.25,
+            "outro": {
+              "raw": 0.6666666666666666,
+              "parallax": 0.6666882727891031,
+              "projection": 0.6666666666666666
+            },
+            "offset": [
+              0.13817428200679716,
+              0.14401337103671982
+            ],
+            "offsetTarget": [
+              0.1407107940842132,
+              0.14665715997279463
+            ],
+            "projection": [
+              0.6614518282520108,
+              0,
+              0,
+              0,
+              0,
+              1.0583229252032174,
+              0,
+              0,
+              0,
+              0,
+              -0.3613894455577823,
+              -0.33333333333333337,
+              0,
+              0,
+              -0.7361389445557782,
+              0.6666666666666666
+            ],
+            "inverse": [
+              1.51182589160371,
+              0,
+              0,
+              0,
+              0,
+              0.9448911822523185,
+              0,
+              0,
+              0,
+              0,
+              -1.3708791208791207,
+              -0.6854395604395604,
+              0,
+              0,
+              -1.5137362637362637,
+              0.7431318681318682
+            ],
+            "perspective": [
+              1.463522151422699,
+              0,
+              0,
+              0,
+              0,
+              2.3416354422763184,
+              0,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              -1,
+              0,
+              0,
+              -0.20040080160320642,
+              0
+            ],
+            "orthographic": [
+              0.2604166666666667,
+              0,
+              0,
+              0,
+              0,
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ]
+          },
+          "projection": [
+            0.6614518282520108,
+            0,
+            0,
+            0,
+            0,
+            1.0583229252032174,
+            0,
+            0,
+            0,
+            0,
+            -0.3613894455577823,
+            -0.33333333333333337,
+            0,
+            0,
+            -0.7361389445557782,
+            0.6666666666666666
+          ],
+          "inverse": [
+            1.51182589160371,
+            0,
+            0,
+            0,
+            0,
+            0.9448911822523185,
+            0,
+            0,
+            0,
+            0,
+            -1.3708791208791207,
+            -0.6854395604395604,
+            0,
+            0,
+            -1.5137362637362637,
+            0.7431318681318682
+          ],
+          "near": 0.1,
+          "far": 50,
+          "actualPosition": [
+            0.0829045692040783,
+            0.08640802262203189,
+            6
+          ],
+          "glass": {
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "quaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "scale": 1.14,
+            "visible": true,
+            "projectedAnchor": [
+              720,
+              450
+            ],
+            "bounds": [
+              468.0422000302917,
+              228.85894320196388,
+              972.6773260518389,
+              671.2421425732088
+            ],
+            "centeredLocalBounds": [
+              -1.2262870073318481,
+              -1.071435570716858,
+              -0.11499999463558197,
+              1.2262870073318481,
+              1.071435570716858,
+              0.11499999463558197
+            ],
+            "actualVisible": true
+          },
+          "wall": {
+            "raw": 0,
+            "rise": 0,
+            "position": [
+              0,
+              -11,
+              -1
+            ],
+            "visible": false,
+            "actualVisible": false,
+            "actualPosition": [
+              0,
+              -11,
+              -1
+            ]
+          },
+          "cta": {
+            "inert": true,
+            "ancestorInert": true,
+            "opacity": "0"
+          },
+          "canvases": 1,
+          "chapter": "links"
+        }
+      }
+    },
+    {
+      "name": "real column back, refresh and resize consume current projection",
+      "pass": true,
+      "evidence": {
+        "back": {
+          "received": 905.1999999880791,
+          "y": 5950,
+          "height": 900,
+          "width": 1440,
+          "frame": 6,
+          "phase": "wall",
+          "raw": {
+            "kv": 1,
+            "intro": 1,
+            "works": 1,
+            "event": 1,
+            "snap": 1,
+            "outro": 1,
+            "wall": 0
+          },
+          "rendered": {
+            "progress": 1,
+            "index": 5,
+            "background": 5,
+            "intro": 1
+          },
+          "initialization": {
+            "revision": 2,
+            "y": 5950,
+            "zoom": 0,
+            "reason": "back-forward"
+          },
+          "camera": {
+            "position": [
+              0,
+              0,
+              6
+            ],
+            "fov": 46.25,
+            "outro": {
+              "raw": 1,
+              "parallax": 1,
+              "projection": 1
+            },
+            "offset": [
+              0,
+              0
+            ],
+            "offsetTarget": [
+              0,
+              0
+            ],
+            "projection": [
+              0.2604166666666667,
+              0,
+              0,
+              0,
+              0,
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ],
+            "inverse": [
+              3.84,
+              0,
+              0,
+              0,
+              0,
+              2.4,
+              0,
+              0,
+              0,
+              0,
+              -24.95,
+              0,
+              0,
+              0,
+              -25.05,
+              1
+            ],
+            "perspective": [
+              1.463522151422699,
+              0,
+              0,
+              0,
+              0,
+              2.3416354422763184,
+              0,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              -1,
+              0,
+              0,
+              -0.20040080160320642,
+              0
+            ],
+            "orthographic": [
+              0.2604166666666667,
+              0,
+              0,
+              0,
+              0,
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ]
+          },
+          "projection": [
+            0.2604166666666667,
+            0,
+            0,
+            0,
+            0,
+            0.4166666666666667,
+            0,
+            0,
+            0,
+            0,
+            -0.04008016032064128,
+            0,
+            0,
+            0,
+            -1.0040080160320641,
+            1
+          ],
+          "inverse": [
+            3.84,
+            0,
+            0,
+            0,
+            0,
+            2.4,
+            0,
+            0,
+            0,
+            0,
+            -24.95,
+            0,
+            0,
+            0,
+            -25.05,
+            1
+          ],
+          "near": 0.1,
+          "far": 50,
+          "actualPosition": [
+            0,
+            0,
+            6
+          ],
+          "glass": {
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "quaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "scale": 1.14,
+            "visible": true,
+            "projectedAnchor": [
+              720,
+              450
+            ],
+            "bounds": [
+              457.88115218281746,
+              220.98064675927162,
+              982.1188478171825,
+              679.0193532407284
+            ],
+            "centeredLocalBounds": [
+              -1.2262870073318481,
+              -1.071435570716858,
+              -0.11499999463558197,
+              1.2262870073318481,
+              1.071435570716858,
+              0.11499999463558197
+            ],
+            "actualVisible": true
+          },
+          "wall": {
+            "raw": 0,
+            "rise": 0,
+            "position": [
+              0,
+              -11,
+              -1
+            ],
+            "visible": false,
+            "actualVisible": false,
+            "actualPosition": [
+              0,
+              -11,
+              -1
+            ]
+          },
+          "cta": {
+            "inert": true,
+            "ancestorInert": true,
+            "opacity": "0"
+          },
+          "canvases": 1,
+          "chapter": "wall"
+        },
+        "reload": {
+          "received": 1217.5,
+          "y": 5950,
+          "height": 900,
+          "width": 1440,
+          "frame": 7,
+          "phase": "wall",
+          "raw": {
+            "kv": 1,
+            "intro": 1,
+            "works": 1,
+            "event": 1,
+            "snap": 1,
+            "outro": 1,
+            "wall": 0
+          },
+          "rendered": {
+            "progress": 1,
+            "index": 5,
+            "background": 5,
+            "intro": 1
+          },
+          "initialization": {
+            "revision": 2,
+            "y": 5950,
+            "zoom": 0,
+            "reason": "reload"
+          },
+          "camera": {
+            "position": [
+              0,
+              0,
+              6
+            ],
+            "fov": 46.25,
+            "outro": {
+              "raw": 1,
+              "parallax": 1,
+              "projection": 1
+            },
+            "offset": [
+              0,
+              0
+            ],
+            "offsetTarget": [
+              0,
+              0
+            ],
+            "projection": [
+              0.2604166666666667,
+              0,
+              0,
+              0,
+              0,
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ],
+            "inverse": [
+              3.84,
+              0,
+              0,
+              0,
+              0,
+              2.4,
+              0,
+              0,
+              0,
+              0,
+              -24.95,
+              0,
+              0,
+              0,
+              -25.05,
+              1
+            ],
+            "perspective": [
+              1.463522151422699,
+              0,
+              0,
+              0,
+              0,
+              2.3416354422763184,
+              0,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              -1,
+              0,
+              0,
+              -0.20040080160320642,
+              0
+            ],
+            "orthographic": [
+              0.2604166666666667,
+              0,
+              0,
+              0,
+              0,
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ]
+          },
+          "projection": [
+            0.2604166666666667,
+            0,
+            0,
+            0,
+            0,
+            0.4166666666666667,
+            0,
+            0,
+            0,
+            0,
+            -0.04008016032064128,
+            0,
+            0,
+            0,
+            -1.0040080160320641,
+            1
+          ],
+          "inverse": [
+            3.84,
+            0,
+            0,
+            0,
+            0,
+            2.4,
+            0,
+            0,
+            0,
+            0,
+            -24.95,
+            0,
+            0,
+            0,
+            -25.05,
+            1
+          ],
+          "near": 0.1,
+          "far": 50,
+          "actualPosition": [
+            0,
+            0,
+            6
+          ],
+          "glass": {
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "quaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "scale": 1.14,
+            "visible": true,
+            "projectedAnchor": [
+              720,
+              450
+            ],
+            "bounds": [
+              457.88115218281746,
+              220.98064675927162,
+              982.1188478171825,
+              679.0193532407284
+            ],
+            "centeredLocalBounds": [
+              -1.2262870073318481,
+              -1.071435570716858,
+              -0.11499999463558197,
+              1.2262870073318481,
+              1.071435570716858,
+              0.11499999463558197
+            ],
+            "actualVisible": true
+          },
+          "wall": {
+            "raw": 0,
+            "rise": 0,
+            "position": [
+              0,
+              -11,
+              -1
+            ],
+            "visible": false,
+            "actualVisible": false,
+            "actualPosition": [
+              0,
+              -11,
+              -1
+            ]
+          },
+          "cta": {
+            "inert": true,
+            "ancestorInert": true,
+            "opacity": "0"
+          },
+          "canvases": 1,
+          "chapter": "wall"
+        },
+        "resized": {
+          "received": 3905.399999976158,
+          "y": 4650,
+          "height": 700,
+          "width": 1000,
+          "frame": 100,
+          "phase": "wall",
+          "raw": {
+            "kv": 1,
+            "intro": 1,
+            "works": 1,
+            "event": 1,
+            "snap": 1,
+            "outro": 1,
+            "wall": 0
+          },
+          "rendered": {
+            "progress": 1,
+            "index": 5,
+            "background": 5,
+            "intro": 1
+          },
+          "initialization": {
+            "revision": 2,
+            "y": 5950,
+            "zoom": 0,
+            "reason": "reload"
+          },
+          "camera": {
+            "position": [
+              0,
+              0,
+              6
+            ],
+            "fov": 47.6,
+            "outro": {
+              "raw": 1,
+              "parallax": 1,
+              "projection": 1
+            },
+            "offset": [
+              0,
+              0
+            ],
+            "offsetTarget": [
+              0,
+              0
+            ],
+            "projection": [
+              0.2916666666666667,
+              0,
+              0,
+              0,
+              0,
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ],
+            "inverse": [
+              3.4285714285714284,
+              0,
+              0,
+              0,
+              0,
+              2.3999999999999995,
+              0,
+              0,
+              0,
+              0,
+              -24.95,
+              0,
+              0,
+              0,
+              -25.049999999999997,
+              1
+            ],
+            "perspective": [
+              1.587112458710446,
+              0,
+              0,
+              0,
+              0,
+              2.2673035124434944,
+              0,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              -1,
+              0,
+              0,
+              -0.20040080160320642,
+              0
+            ],
+            "orthographic": [
+              0.2916666666666667,
+              0,
+              0,
+              0,
+              0,
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ]
+          },
+          "projection": [
+            0.2916666666666667,
+            0,
+            0,
+            0,
+            0,
+            0.4166666666666667,
+            0,
+            0,
+            0,
+            0,
+            -0.04008016032064128,
+            0,
+            0,
+            0,
+            -1.0040080160320641,
+            1
+          ],
+          "inverse": [
+            3.4285714285714284,
+            0,
+            0,
+            0,
+            0,
+            2.3999999999999995,
+            0,
+            0,
+            0,
+            0,
+            -24.95,
+            0,
+            0,
+            0,
+            -25.049999999999997,
+            1
+          ],
+          "near": 0.1,
+          "far": 50,
+          "actualPosition": [
+            0,
+            0,
+            6
+          ],
+          "glass": {
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "quaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "scale": 1.14,
+            "visible": true,
+            "projectedAnchor": [
+              500,
+              350
+            ],
+            "bounds": [
+              296.12978503108025,
+              171.87383636832237,
+              703.8702149689198,
+              528.1261636316776
+            ],
+            "centeredLocalBounds": [
+              -1.2262870073318481,
+              -1.071435570716858,
+              -0.11499999463558197,
+              1.2262870073318481,
+              1.071435570716858,
+              0.11499999463558197
+            ],
+            "actualVisible": true
+          },
+          "wall": {
+            "raw": 0,
+            "rise": 0,
+            "position": [
+              0,
+              -11,
+              -1
+            ],
+            "visible": false,
+            "actualVisible": false,
+            "actualPosition": [
+              0,
+              -11,
+              -1
+            ]
+          },
+          "cta": {
+            "inert": true,
+            "ancestorInert": true,
+            "opacity": "0"
+          },
+          "canvases": 1,
+          "chapter": "wall"
+        }
+      }
+    },
+    {
+      "name": "new: no script/render errors",
+      "pass": true,
+      "evidence": {
+        "errors": [],
+        "failed": []
+      }
+    }
+  ],
+  "sites": {
+    "new": {
+      "errors": [],
+      "failed": [],
+      "traces": [],
+      "images": [
+        {
+          "file": "endpoint.png",
+          "before": {
+            "received": 5944.699999988079,
+            "y": 5950,
+            "height": 900,
+            "width": 1440,
+            "frame": 100,
+            "phase": "wall",
+            "raw": {
+              "kv": 1,
+              "intro": 1,
+              "works": 1,
+              "event": 1,
+              "snap": 1,
+              "outro": 1,
+              "wall": 0
+            },
+            "rendered": {
+              "progress": 1,
+              "index": 5,
+              "background": 5,
+              "intro": 1
+            },
+            "initialization": {
+              "revision": 1,
+              "y": 0,
+              "zoom": 1,
+              "reason": "layout"
+            },
+            "camera": {
+              "position": [
+                0.00011259845082420264,
+                0.00003318691182187028,
+                6
+              ],
+              "fov": 46.25,
+              "outro": {
+                "raw": 1,
+                "parallax": 1,
+                "projection": 1
+              },
+              "offset": [
+                0.00018766408470700442,
+                0.00005531151970311713
+              ],
+              "offsetTarget": [
+                0,
+                0
+              ],
+              "projection": [
+                0.2604166666666667,
+                0,
+                0,
+                0,
+                0,
+                0.4166666666666667,
+                0,
+                0,
+                0,
+                0,
+                -0.04008016032064128,
+                0,
+                0,
+                0,
+                -1.0040080160320641,
+                1
+              ],
+              "inverse": [
+                3.84,
+                0,
+                0,
+                0,
+                0,
+                2.4,
+                0,
+                0,
+                0,
+                0,
+                -24.95,
+                0,
+                0,
+                0,
+                -25.05,
+                1
+              ],
+              "perspective": [
+                1.463522151422699,
+                0,
+                0,
+                0,
+                0,
+                2.3416354422763184,
+                0,
+                0,
+                0,
+                0,
+                -1.0040080160320641,
+                -1,
+                0,
+                0,
+                -0.20040080160320642,
+                0
+              ],
+              "orthographic": [
+                0.2604166666666667,
+                0,
+                0,
+                0,
+                0,
+                0.4166666666666667,
+                0,
+                0,
+                0,
+                0,
+                -0.04008016032064128,
+                0,
+                0,
+                0,
+                -1.0040080160320641,
+                1
+              ]
+            },
+            "projection": [
+              0.2604166666666667,
+              0,
+              0,
+              0,
+              0,
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ],
+            "inverse": [
+              3.84,
+              0,
+              0,
+              0,
+              0,
+              2.4,
+              0,
+              0,
+              0,
+              0,
+              -24.95,
+              0,
+              0,
+              0,
+              -25.05,
+              1
+            ],
+            "near": 0.1,
+            "far": 50,
+            "actualPosition": [
+              0.00011259845082420264,
+              0.00003318691182187028,
+              6
+            ],
+            "glass": {
+              "anchor": [
+                0,
+                0,
+                0
+              ],
+              "quaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": 1.14,
+              "visible": true,
+              "projectedAnchor": [
+                720,
+                450
+              ],
+              "bounds": [
+                457.8807912101765,
+                220.98054035723464,
+                982.1192087898235,
+                679.0194596681532
+              ],
+              "centeredLocalBounds": [
+                -1.2262870073318481,
+                -1.071435570716858,
+                -0.11499999463558197,
+                1.2262870073318481,
+                1.071435570716858,
+                0.11499999463558197
+              ],
+              "actualVisible": true
+            },
+            "wall": {
+              "raw": 0,
+              "rise": 0,
+              "position": [
+                0,
+                -11,
+                -1
+              ],
+              "visible": false,
+              "actualVisible": false,
+              "actualPosition": [
+                0,
+                -11,
+                -1
+              ]
+            },
+            "cta": {
+              "inert": true,
+              "ancestorInert": true,
+              "opacity": "0"
+            },
+            "canvases": 1,
+            "chapter": "wall"
+          },
+          "requested": 5963.300000011921,
+          "after": {
+            "received": 6147,
+            "y": 5950,
+            "height": 900,
+            "width": 1440,
+            "frame": 109,
+            "phase": "wall",
+            "raw": {
+              "kv": 1,
+              "intro": 1,
+              "works": 1,
+              "event": 1,
+              "snap": 1,
+              "outro": 1,
+              "wall": 0
+            },
+            "rendered": {
+              "progress": 1,
+              "index": 5,
+              "background": 5,
+              "intro": 1
+            },
+            "initialization": {
+              "revision": 1,
+              "y": 0,
+              "zoom": 1,
+              "reason": "layout"
+            },
+            "camera": {
+              "position": [
+                0.00006497368328928793,
+                0.000019150138232632244,
+                6
+              ],
+              "fov": 46.25,
+              "outro": {
+                "raw": 1,
+                "parallax": 1,
+                "projection": 1
+              },
+              "offset": [
+                0.00010828947214881322,
+                0.000031916897054387075
+              ],
+              "offsetTarget": [
+                0,
+                0
+              ],
+              "projection": [
+                0.2604166666666667,
+                0,
+                0,
+                0,
+                0,
+                0.4166666666666667,
+                0,
+                0,
+                0,
+                0,
+                -0.04008016032064128,
+                0,
+                0,
+                0,
+                -1.0040080160320641,
+                1
+              ],
+              "inverse": [
+                3.84,
+                0,
+                0,
+                0,
+                0,
+                2.4,
+                0,
+                0,
+                0,
+                0,
+                -24.95,
+                0,
+                0,
+                0,
+                -25.05,
+                1
+              ],
+              "perspective": [
+                1.463522151422699,
+                0,
+                0,
+                0,
+                0,
+                2.3416354422763184,
+                0,
+                0,
+                0,
+                0,
+                -1.0040080160320641,
+                -1,
+                0,
+                0,
+                -0.20040080160320642,
+                0
+              ],
+              "orthographic": [
+                0.2604166666666667,
+                0,
+                0,
+                0,
+                0,
+                0.4166666666666667,
+                0,
+                0,
+                0,
+                0,
+                -0.04008016032064128,
+                0,
+                0,
+                0,
+                -1.0040080160320641,
+                1
+              ]
+            },
+            "projection": [
+              0.2604166666666667,
+              0,
+              0,
+              0,
+              0,
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ],
+            "inverse": [
+              3.84,
+              0,
+              0,
+              0,
+              0,
+              2.4,
+              0,
+              0,
+              0,
+              0,
+              -24.95,
+              0,
+              0,
+              0,
+              -25.05,
+              1
+            ],
+            "near": 0.1,
+            "far": 50,
+            "actualPosition": [
+              0.00006497368328928793,
+              0.000019150138232632244,
+              6
+            ],
+            "glass": {
+              "anchor": [
+                0,
+                0,
+                0
+              ],
+              "quaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": 1.14,
+              "visible": true,
+              "projectedAnchor": [
+                720,
+                450
+              ],
+              "bounds": [
+                457.8809438763059,
+                220.98058536030493,
+                982.1190561236941,
+                679.0194146481485
+              ],
+              "centeredLocalBounds": [
+                -1.2262870073318481,
+                -1.071435570716858,
+                -0.11499999463558197,
+                1.2262870073318481,
+                1.071435570716858,
+                0.11499999463558197
+              ],
+              "actualVisible": true
+            },
+            "wall": {
+              "raw": 0,
+              "rise": 0,
+              "position": [
+                0,
+                -11,
+                -1
+              ],
+              "visible": false,
+              "actualVisible": false,
+              "actualPosition": [
+                0,
+                -11,
+                -1
+              ]
+            },
+            "cta": {
+              "inert": true,
+              "ancestorInert": true,
+              "opacity": "0"
+            },
+            "canvases": 1,
+            "chapter": "wall"
+          }
+        },
+        {
+          "file": "wall-anchor.png",
+          "before": {
+            "received": 7983.800000011921,
+            "y": 7750,
+            "height": 900,
+            "width": 1440,
+            "frame": 120,
+            "phase": "wall",
+            "raw": {
+              "kv": 1,
+              "intro": 1,
+              "works": 1,
+              "event": 1,
+              "snap": 1,
+              "outro": 1,
+              "wall": 1
+            },
+            "rendered": {
+              "progress": 1,
+              "index": 5,
+              "background": 5,
+              "intro": 1
+            },
+            "initialization": {
+              "revision": 1,
+              "y": 0,
+              "zoom": 1,
+              "reason": "layout"
+            },
+            "camera": {
+              "position": [
+                0.000026547009558852436,
+                0.000007824381764714405,
+                6
+              ],
+              "fov": 46.25,
+              "outro": {
+                "raw": 1,
+                "parallax": 1,
+                "projection": 1
+              },
+              "offset": [
+                0.00004424501593142073,
+                0.000013040636274524009
+              ],
+              "offsetTarget": [
+                0,
+                0
+              ],
+              "projection": [
+                0.2604166666666667,
+                0,
+                0,
+                0,
+                0,
+                0.4166666666666667,
+                0,
+                0,
+                0,
+                0,
+                -0.04008016032064128,
+                0,
+                0,
+                0,
+                -1.0040080160320641,
+                1
+              ],
+              "inverse": [
+                3.84,
+                0,
+                0,
+                0,
+                0,
+                2.4,
+                0,
+                0,
+                0,
+                0,
+                -24.95,
+                0,
+                0,
+                0,
+                -25.05,
+                1
+              ],
+              "perspective": [
+                1.463522151422699,
+                0,
+                0,
+                0,
+                0,
+                2.3416354422763184,
+                0,
+                0,
+                0,
+                0,
+                -1.0040080160320641,
+                -1,
+                0,
+                0,
+                -0.20040080160320642,
+                0
+              ],
+              "orthographic": [
+                0.2604166666666667,
+                0,
+                0,
+                0,
+                0,
+                0.4166666666666667,
+                0,
+                0,
+                0,
+                0,
+                -0.04008016032064128,
+                0,
+                0,
+                0,
+                -1.0040080160320641,
+                1
+              ]
+            },
+            "projection": [
+              0.2604166666666667,
+              0,
+              0,
+              0,
+              0,
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ],
+            "inverse": [
+              3.84,
+              0,
+              0,
+              0,
+              0,
+              2.4,
+              0,
+              0,
+              0,
+              0,
+              -24.95,
+              0,
+              0,
+              0,
+              -25.05,
+              1
+            ],
+            "near": 0.1,
+            "far": 50,
+            "actualPosition": [
+              0.000026547009558852436,
+              0.000007824381764714405,
+              6
+            ],
+            "glass": {
+              "anchor": [
+                0,
+                0,
+                0
+              ],
+              "quaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": 1.14,
+              "visible": false,
+              "projectedAnchor": [
+                720,
+                450
+              ],
+              "bounds": [
+                457.88106706903034,
+                220.98062167254128,
+                982.1189329309695,
+                679.01937832887
+              ],
+              "centeredLocalBounds": [
+                -1.2262870073318481,
+                -1.071435570716858,
+                -0.11499999463558197,
+                1.2262870073318481,
+                1.071435570716858,
+                0.11499999463558197
+              ],
+              "actualVisible": false
+            },
+            "wall": {
+              "raw": 1,
+              "rise": 1,
+              "position": [
+                0,
+                0,
+                -1
+              ],
+              "visible": true,
+              "actualVisible": true,
+              "actualPosition": [
+                0,
+                0,
+                -1
+              ]
+            },
+            "cta": {
+              "inert": true,
+              "ancestorInert": true,
+              "opacity": "0"
+            },
+            "canvases": 1,
+            "chapter": "wall"
+          },
+          "requested": 7989.199999988079,
+          "after": {
+            "received": 8491.899999976158,
+            "y": 7750,
+            "height": 900,
+            "width": 1440,
+            "frame": 124,
+            "phase": "wall",
+            "raw": {
+              "kv": 1,
+              "intro": 1,
+              "works": 1,
+              "event": 1,
+              "snap": 1,
+              "outro": 1,
+              "wall": 1
+            },
+            "rendered": {
+              "progress": 1,
+              "index": 5,
+              "background": 5,
+              "intro": 1
+            },
+            "initialization": {
+              "revision": 1,
+              "y": 0,
+              "zoom": 1,
+              "reason": "layout"
+            },
+            "camera": {
+              "position": [
+                0.00001913214839007152,
+                0.000005638948999178975,
+                6
+              ],
+              "fov": 46.25,
+              "outro": {
+                "raw": 1,
+                "parallax": 1,
+                "projection": 1
+              },
+              "offset": [
+                0.00003188691398345253,
+                0.000009398248331964959
+              ],
+              "offsetTarget": [
+                0,
+                0
+              ],
+              "projection": [
+                0.2604166666666667,
+                0,
+                0,
+                0,
+                0,
+                0.4166666666666667,
+                0,
+                0,
+                0,
+                0,
+                -0.04008016032064128,
+                0,
+                0,
+                0,
+                -1.0040080160320641,
+                1
+              ],
+              "inverse": [
+                3.84,
+                0,
+                0,
+                0,
+                0,
+                2.4,
+                0,
+                0,
+                0,
+                0,
+                -24.95,
+                0,
+                0,
+                0,
+                -25.05,
+                1
+              ],
+              "perspective": [
+                1.463522151422699,
+                0,
+                0,
+                0,
+                0,
+                2.3416354422763184,
+                0,
+                0,
+                0,
+                0,
+                -1.0040080160320641,
+                -1,
+                0,
+                0,
+                -0.20040080160320642,
+                0
+              ],
+              "orthographic": [
+                0.2604166666666667,
+                0,
+                0,
+                0,
+                0,
+                0.4166666666666667,
+                0,
+                0,
+                0,
+                0,
+                -0.04008016032064128,
+                0,
+                0,
+                0,
+                -1.0040080160320641,
+                1
+              ]
+            },
+            "projection": [
+              0.2604166666666667,
+              0,
+              0,
+              0,
+              0,
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ],
+            "inverse": [
+              3.84,
+              0,
+              0,
+              0,
+              0,
+              2.4,
+              0,
+              0,
+              0,
+              0,
+              -24.95,
+              0,
+              0,
+              0,
+              -25.05,
+              1
+            ],
+            "near": 0.1,
+            "far": 50,
+            "actualPosition": [
+              0.00001913214839007152,
+              0.000005638948999178975,
+              6
+            ],
+            "glass": {
+              "anchor": [
+                0,
+                0,
+                0
+              ],
+              "quaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": 1.14,
+              "visible": false,
+              "projectedAnchor": [
+                720,
+                450
+              ],
+              "bounds": [
+                457.8810908416968,
+                220.98062867949176,
+                982.1189091583032,
+                679.0193713212412
+              ],
+              "centeredLocalBounds": [
+                -1.2262870073318481,
+                -1.071435570716858,
+                -0.11499999463558197,
+                1.2262870073318481,
+                1.071435570716858,
+                0.11499999463558197
+              ],
+              "actualVisible": false
+            },
+            "wall": {
+              "raw": 1,
+              "rise": 1,
+              "position": [
+                0,
+                0,
+                -1
+              ],
+              "visible": true,
+              "actualVisible": true,
+              "actualPosition": [
+                0,
+                0,
+                -1
+              ]
+            },
+            "cta": {
+              "inert": true,
+              "ancestorInert": true,
+              "opacity": "0"
+            },
+            "canvases": 1,
+            "chapter": "wall"
+          }
+        },
+        {
+          "file": "resized.png",
+          "before": {
+            "received": 3916.899999976158,
+            "y": 4650,
+            "height": 700,
+            "width": 1000,
+            "frame": 101,
+            "phase": "wall",
+            "raw": {
+              "kv": 1,
+              "intro": 1,
+              "works": 1,
+              "event": 1,
+              "snap": 1,
+              "outro": 1,
+              "wall": 0
+            },
+            "rendered": {
+              "progress": 1,
+              "index": 5,
+              "background": 5,
+              "intro": 1
+            },
+            "initialization": {
+              "revision": 2,
+              "y": 5950,
+              "zoom": 0,
+              "reason": "reload"
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                6
+              ],
+              "fov": 47.6,
+              "outro": {
+                "raw": 1,
+                "parallax": 1,
+                "projection": 1
+              },
+              "offset": [
+                0,
+                0
+              ],
+              "offsetTarget": [
+                0,
+                0
+              ],
+              "projection": [
+                0.2916666666666667,
+                0,
+                0,
+                0,
+                0,
+                0.4166666666666667,
+                0,
+                0,
+                0,
+                0,
+                -0.04008016032064128,
+                0,
+                0,
+                0,
+                -1.0040080160320641,
+                1
+              ],
+              "inverse": [
+                3.4285714285714284,
+                0,
+                0,
+                0,
+                0,
+                2.3999999999999995,
+                0,
+                0,
+                0,
+                0,
+                -24.95,
+                0,
+                0,
+                0,
+                -25.049999999999997,
+                1
+              ],
+              "perspective": [
+                1.587112458710446,
+                0,
+                0,
+                0,
+                0,
+                2.2673035124434944,
+                0,
+                0,
+                0,
+                0,
+                -1.0040080160320641,
+                -1,
+                0,
+                0,
+                -0.20040080160320642,
+                0
+              ],
+              "orthographic": [
+                0.2916666666666667,
+                0,
+                0,
+                0,
+                0,
+                0.4166666666666667,
+                0,
+                0,
+                0,
+                0,
+                -0.04008016032064128,
+                0,
+                0,
+                0,
+                -1.0040080160320641,
+                1
+              ]
+            },
+            "projection": [
+              0.2916666666666667,
+              0,
+              0,
+              0,
+              0,
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ],
+            "inverse": [
+              3.4285714285714284,
+              0,
+              0,
+              0,
+              0,
+              2.3999999999999995,
+              0,
+              0,
+              0,
+              0,
+              -24.95,
+              0,
+              0,
+              0,
+              -25.049999999999997,
+              1
+            ],
+            "near": 0.1,
+            "far": 50,
+            "actualPosition": [
+              0,
+              0,
+              6
+            ],
+            "glass": {
+              "anchor": [
+                0,
+                0,
+                0
+              ],
+              "quaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": 1.14,
+              "visible": true,
+              "projectedAnchor": [
+                500,
+                350
+              ],
+              "bounds": [
+                296.12978503108025,
+                171.87383636832237,
+                703.8702149689198,
+                528.1261636316776
+              ],
+              "centeredLocalBounds": [
+                -1.2262870073318481,
+                -1.071435570716858,
+                -0.11499999463558197,
+                1.2262870073318481,
+                1.071435570716858,
+                0.11499999463558197
+              ],
+              "actualVisible": true
+            },
+            "wall": {
+              "raw": 0,
+              "rise": 0,
+              "position": [
+                0,
+                -11,
+                -1
+              ],
+              "visible": false,
+              "actualVisible": false,
+              "actualPosition": [
+                0,
+                -11,
+                -1
+              ]
+            },
+            "cta": {
+              "inert": true,
+              "ancestorInert": true,
+              "opacity": "0"
+            },
+            "canvases": 1,
+            "chapter": "wall"
+          },
+          "requested": 3925.599999964237,
+          "after": {
+            "received": 4044.399999976158,
+            "y": 4650,
+            "height": 700,
+            "width": 1000,
+            "frame": 110,
+            "phase": "wall",
+            "raw": {
+              "kv": 1,
+              "intro": 1,
+              "works": 1,
+              "event": 1,
+              "snap": 1,
+              "outro": 1,
+              "wall": 0
+            },
+            "rendered": {
+              "progress": 1,
+              "index": 5,
+              "background": 5,
+              "intro": 1
+            },
+            "initialization": {
+              "revision": 2,
+              "y": 5950,
+              "zoom": 0,
+              "reason": "reload"
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                6
+              ],
+              "fov": 47.6,
+              "outro": {
+                "raw": 1,
+                "parallax": 1,
+                "projection": 1
+              },
+              "offset": [
+                0,
+                0
+              ],
+              "offsetTarget": [
+                0,
+                0
+              ],
+              "projection": [
+                0.2916666666666667,
+                0,
+                0,
+                0,
+                0,
+                0.4166666666666667,
+                0,
+                0,
+                0,
+                0,
+                -0.04008016032064128,
+                0,
+                0,
+                0,
+                -1.0040080160320641,
+                1
+              ],
+              "inverse": [
+                3.4285714285714284,
+                0,
+                0,
+                0,
+                0,
+                2.3999999999999995,
+                0,
+                0,
+                0,
+                0,
+                -24.95,
+                0,
+                0,
+                0,
+                -25.049999999999997,
+                1
+              ],
+              "perspective": [
+                1.587112458710446,
+                0,
+                0,
+                0,
+                0,
+                2.2673035124434944,
+                0,
+                0,
+                0,
+                0,
+                -1.0040080160320641,
+                -1,
+                0,
+                0,
+                -0.20040080160320642,
+                0
+              ],
+              "orthographic": [
+                0.2916666666666667,
+                0,
+                0,
+                0,
+                0,
+                0.4166666666666667,
+                0,
+                0,
+                0,
+                0,
+                -0.04008016032064128,
+                0,
+                0,
+                0,
+                -1.0040080160320641,
+                1
+              ]
+            },
+            "projection": [
+              0.2916666666666667,
+              0,
+              0,
+              0,
+              0,
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ],
+            "inverse": [
+              3.4285714285714284,
+              0,
+              0,
+              0,
+              0,
+              2.3999999999999995,
+              0,
+              0,
+              0,
+              0,
+              -24.95,
+              0,
+              0,
+              0,
+              -25.049999999999997,
+              1
+            ],
+            "near": 0.1,
+            "far": 50,
+            "actualPosition": [
+              0,
+              0,
+              6
+            ],
+            "glass": {
+              "anchor": [
+                0,
+                0,
+                0
+              ],
+              "quaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": 1.14,
+              "visible": true,
+              "projectedAnchor": [
+                500,
+                350
+              ],
+              "bounds": [
+                296.12978503108025,
+                171.87383636832237,
+                703.8702149689198,
+                528.1261636316776
+              ],
+              "centeredLocalBounds": [
+                -1.2262870073318481,
+                -1.071435570716858,
+                -0.11499999463558197,
+                1.2262870073318481,
+                1.071435570716858,
+                0.11499999463558197
+              ],
+              "actualVisible": true
+            },
+            "wall": {
+              "raw": 0,
+              "rise": 0,
+              "position": [
+                0,
+                -11,
+                -1
+              ],
+              "visible": false,
+              "actualVisible": false,
+              "actualPosition": [
+                0,
+                -11,
+                -1
+              ]
+            },
+            "cta": {
+              "inert": true,
+              "ancestorInert": true,
+              "opacity": "0"
+            },
+            "canvases": 1,
+            "chapter": "wall"
+          }
+        }
+      ],
+      "bundle": {
+        "bytes": 1161860,
+        "sha256": "1a1cdc7975cf972eef9c632bae77a3f0005dc182716deb934cb3f0774ef73d5b",
+        "url": "http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.DcCTEDwG.js"
+      },
+      "restorations": {
+        "back": {
+          "received": 905.1999999880791,
+          "y": 5950,
+          "height": 900,
+          "width": 1440,
+          "frame": 6,
+          "phase": "wall",
+          "raw": {
+            "kv": 1,
+            "intro": 1,
+            "works": 1,
+            "event": 1,
+            "snap": 1,
+            "outro": 1,
+            "wall": 0
+          },
+          "rendered": {
+            "progress": 1,
+            "index": 5,
+            "background": 5,
+            "intro": 1
+          },
+          "initialization": {
+            "revision": 2,
+            "y": 5950,
+            "zoom": 0,
+            "reason": "back-forward"
+          },
+          "camera": {
+            "position": [
+              0,
+              0,
+              6
+            ],
+            "fov": 46.25,
+            "outro": {
+              "raw": 1,
+              "parallax": 1,
+              "projection": 1
+            },
+            "offset": [
+              0,
+              0
+            ],
+            "offsetTarget": [
+              0,
+              0
+            ],
+            "projection": [
+              0.2604166666666667,
+              0,
+              0,
+              0,
+              0,
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ],
+            "inverse": [
+              3.84,
+              0,
+              0,
+              0,
+              0,
+              2.4,
+              0,
+              0,
+              0,
+              0,
+              -24.95,
+              0,
+              0,
+              0,
+              -25.05,
+              1
+            ],
+            "perspective": [
+              1.463522151422699,
+              0,
+              0,
+              0,
+              0,
+              2.3416354422763184,
+              0,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              -1,
+              0,
+              0,
+              -0.20040080160320642,
+              0
+            ],
+            "orthographic": [
+              0.2604166666666667,
+              0,
+              0,
+              0,
+              0,
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ]
+          },
+          "projection": [
+            0.2604166666666667,
+            0,
+            0,
+            0,
+            0,
+            0.4166666666666667,
+            0,
+            0,
+            0,
+            0,
+            -0.04008016032064128,
+            0,
+            0,
+            0,
+            -1.0040080160320641,
+            1
+          ],
+          "inverse": [
+            3.84,
+            0,
+            0,
+            0,
+            0,
+            2.4,
+            0,
+            0,
+            0,
+            0,
+            -24.95,
+            0,
+            0,
+            0,
+            -25.05,
+            1
+          ],
+          "near": 0.1,
+          "far": 50,
+          "actualPosition": [
+            0,
+            0,
+            6
+          ],
+          "glass": {
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "quaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "scale": 1.14,
+            "visible": true,
+            "projectedAnchor": [
+              720,
+              450
+            ],
+            "bounds": [
+              457.88115218281746,
+              220.98064675927162,
+              982.1188478171825,
+              679.0193532407284
+            ],
+            "centeredLocalBounds": [
+              -1.2262870073318481,
+              -1.071435570716858,
+              -0.11499999463558197,
+              1.2262870073318481,
+              1.071435570716858,
+              0.11499999463558197
+            ],
+            "actualVisible": true
+          },
+          "wall": {
+            "raw": 0,
+            "rise": 0,
+            "position": [
+              0,
+              -11,
+              -1
+            ],
+            "visible": false,
+            "actualVisible": false,
+            "actualPosition": [
+              0,
+              -11,
+              -1
+            ]
+          },
+          "cta": {
+            "inert": true,
+            "ancestorInert": true,
+            "opacity": "0"
+          },
+          "canvases": 1,
+          "chapter": "wall"
+        },
+        "reload": {
+          "received": 1217.5,
+          "y": 5950,
+          "height": 900,
+          "width": 1440,
+          "frame": 7,
+          "phase": "wall",
+          "raw": {
+            "kv": 1,
+            "intro": 1,
+            "works": 1,
+            "event": 1,
+            "snap": 1,
+            "outro": 1,
+            "wall": 0
+          },
+          "rendered": {
+            "progress": 1,
+            "index": 5,
+            "background": 5,
+            "intro": 1
+          },
+          "initialization": {
+            "revision": 2,
+            "y": 5950,
+            "zoom": 0,
+            "reason": "reload"
+          },
+          "camera": {
+            "position": [
+              0,
+              0,
+              6
+            ],
+            "fov": 46.25,
+            "outro": {
+              "raw": 1,
+              "parallax": 1,
+              "projection": 1
+            },
+            "offset": [
+              0,
+              0
+            ],
+            "offsetTarget": [
+              0,
+              0
+            ],
+            "projection": [
+              0.2604166666666667,
+              0,
+              0,
+              0,
+              0,
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ],
+            "inverse": [
+              3.84,
+              0,
+              0,
+              0,
+              0,
+              2.4,
+              0,
+              0,
+              0,
+              0,
+              -24.95,
+              0,
+              0,
+              0,
+              -25.05,
+              1
+            ],
+            "perspective": [
+              1.463522151422699,
+              0,
+              0,
+              0,
+              0,
+              2.3416354422763184,
+              0,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              -1,
+              0,
+              0,
+              -0.20040080160320642,
+              0
+            ],
+            "orthographic": [
+              0.2604166666666667,
+              0,
+              0,
+              0,
+              0,
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ]
+          },
+          "projection": [
+            0.2604166666666667,
+            0,
+            0,
+            0,
+            0,
+            0.4166666666666667,
+            0,
+            0,
+            0,
+            0,
+            -0.04008016032064128,
+            0,
+            0,
+            0,
+            -1.0040080160320641,
+            1
+          ],
+          "inverse": [
+            3.84,
+            0,
+            0,
+            0,
+            0,
+            2.4,
+            0,
+            0,
+            0,
+            0,
+            -24.95,
+            0,
+            0,
+            0,
+            -25.05,
+            1
+          ],
+          "near": 0.1,
+          "far": 50,
+          "actualPosition": [
+            0,
+            0,
+            6
+          ],
+          "glass": {
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "quaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "scale": 1.14,
+            "visible": true,
+            "projectedAnchor": [
+              720,
+              450
+            ],
+            "bounds": [
+              457.88115218281746,
+              220.98064675927162,
+              982.1188478171825,
+              679.0193532407284
+            ],
+            "centeredLocalBounds": [
+              -1.2262870073318481,
+              -1.071435570716858,
+              -0.11499999463558197,
+              1.2262870073318481,
+              1.071435570716858,
+              0.11499999463558197
+            ],
+            "actualVisible": true
+          },
+          "wall": {
+            "raw": 0,
+            "rise": 0,
+            "position": [
+              0,
+              -11,
+              -1
+            ],
+            "visible": false,
+            "actualVisible": false,
+            "actualPosition": [
+              0,
+              -11,
+              -1
+            ]
+          },
+          "cta": {
+            "inert": true,
+            "ancestorInert": true,
+            "opacity": "0"
+          },
+          "canvases": 1,
+          "chapter": "wall"
+        },
+        "resized": {
+          "received": 3905.399999976158,
+          "y": 4650,
+          "height": 700,
+          "width": 1000,
+          "frame": 100,
+          "phase": "wall",
+          "raw": {
+            "kv": 1,
+            "intro": 1,
+            "works": 1,
+            "event": 1,
+            "snap": 1,
+            "outro": 1,
+            "wall": 0
+          },
+          "rendered": {
+            "progress": 1,
+            "index": 5,
+            "background": 5,
+            "intro": 1
+          },
+          "initialization": {
+            "revision": 2,
+            "y": 5950,
+            "zoom": 0,
+            "reason": "reload"
+          },
+          "camera": {
+            "position": [
+              0,
+              0,
+              6
+            ],
+            "fov": 47.6,
+            "outro": {
+              "raw": 1,
+              "parallax": 1,
+              "projection": 1
+            },
+            "offset": [
+              0,
+              0
+            ],
+            "offsetTarget": [
+              0,
+              0
+            ],
+            "projection": [
+              0.2916666666666667,
+              0,
+              0,
+              0,
+              0,
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ],
+            "inverse": [
+              3.4285714285714284,
+              0,
+              0,
+              0,
+              0,
+              2.3999999999999995,
+              0,
+              0,
+              0,
+              0,
+              -24.95,
+              0,
+              0,
+              0,
+              -25.049999999999997,
+              1
+            ],
+            "perspective": [
+              1.587112458710446,
+              0,
+              0,
+              0,
+              0,
+              2.2673035124434944,
+              0,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              -1,
+              0,
+              0,
+              -0.20040080160320642,
+              0
+            ],
+            "orthographic": [
+              0.2916666666666667,
+              0,
+              0,
+              0,
+              0,
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ]
+          },
+          "projection": [
+            0.2916666666666667,
+            0,
+            0,
+            0,
+            0,
+            0.4166666666666667,
+            0,
+            0,
+            0,
+            0,
+            -0.04008016032064128,
+            0,
+            0,
+            0,
+            -1.0040080160320641,
+            1
+          ],
+          "inverse": [
+            3.4285714285714284,
+            0,
+            0,
+            0,
+            0,
+            2.3999999999999995,
+            0,
+            0,
+            0,
+            0,
+            -24.95,
+            0,
+            0,
+            0,
+            -25.049999999999997,
+            1
+          ],
+          "near": 0.1,
+          "far": 50,
+          "actualPosition": [
+            0,
+            0,
+            6
+          ],
+          "glass": {
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "quaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "scale": 1.14,
+            "visible": true,
+            "projectedAnchor": [
+              500,
+              350
+            ],
+            "bounds": [
+              296.12978503108025,
+              171.87383636832237,
+              703.8702149689198,
+              528.1261636316776
+            ],
+            "centeredLocalBounds": [
+              -1.2262870073318481,
+              -1.071435570716858,
+              -0.11499999463558197,
+              1.2262870073318481,
+              1.071435570716858,
+              0.11499999463558197
+            ],
+            "actualVisible": true
+          },
+          "wall": {
+            "raw": 0,
+            "rise": 0,
+            "position": [
+              0,
+              -11,
+              -1
+            ],
+            "visible": false,
+            "actualVisible": false,
+            "actualPosition": [
+              0,
+              -11,
+              -1
+            ]
+          },
+          "cta": {
+            "inert": true,
+            "ancestorInert": true,
+            "opacity": "0"
+          },
+          "canvases": 1,
+          "chapter": "wall"
+        }
+      }
+    }
+  },
+  "limitations": [
+    "Native time and trusted Chrome wheel. SwiftShader, emulated resize: no physical GPU/mobile performance conclusion. Screenshot request and surrounding state times retained; not GPU first-frame evidence. Old/new receive trajectories are measured separately, not claimed pixel/time identical."
+  ],
+  "browser": "154.0.8037.98",
+  "pass": true
+}

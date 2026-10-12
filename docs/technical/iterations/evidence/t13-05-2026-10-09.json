@@ -1,0 +1,157 @@
+{
+  "date": "2026-10-09",
+  "task": "T13.05",
+  "pages": [
+    "P17"
+  ],
+  "requirement": "R13",
+  "designTask": "U13",
+  "branch": "codex/t13-05-unsaved-exit",
+  "baseline": "629e4cab14a6e647586c1304d72e98d755edcda5",
+  "hintCommit": "2f19bab58174dff8ce6bbe8d743e6d91c234a44d",
+  "pr": "https://github.com/0ne-small-stone/personal-homepage/pull/23",
+  "result": "hint_and_discard_verified_confirmation_missing",
+  "config": {
+    "upstreamSha": "6f4e860a35d934406580287e7042e5e111e207a1",
+    "officialSchema": "passed",
+    "existingContentFilesUnchanged": 48,
+    "existingArticles": 4,
+    "officialSerialization": "passed",
+    "mediaDepth": "passed"
+  },
+  "remote": {
+    "cancellation": {
+      "before": {
+        "head": "682b994c871dc17f1ef11e926efd2986b95efb1e",
+        "latestFileCommit": "b5ad7f712c110c183234ccabcef81843b032bbe1",
+        "message": "content(article): 保存文章 src/content/docs/knowledge/blog/demo-article-cms-create-check.md",
+        "author": "0ne-small-stone",
+        "committer": "0ne-small-stone",
+        "contentSha": "889cbdef6775990adcbef093191e26c514163e0d",
+        "title": "网页新建文章验证（测试草稿 · 已重开）",
+        "draft": "true",
+        "entryId": "demo-article-cms-create-check",
+        "kind": "article",
+        "hasSidebar": false,
+        "hasRelated": false,
+        "hasOriginalMarker": false
+      },
+      "after": {
+        "head": "682b994c871dc17f1ef11e926efd2986b95efb1e",
+        "latestFileCommit": "b5ad7f712c110c183234ccabcef81843b032bbe1",
+        "message": "content(article): 保存文章 src/content/docs/knowledge/blog/demo-article-cms-create-check.md",
+        "author": "0ne-small-stone",
+        "committer": "0ne-small-stone",
+        "contentSha": "889cbdef6775990adcbef093191e26c514163e0d",
+        "title": "网页新建文章验证（测试草稿 · 已重开）",
+        "draft": "true",
+        "entryId": "demo-article-cms-create-check",
+        "kind": "article",
+        "hasSidebar": false,
+        "hasRelated": false,
+        "hasOriginalMarker": false
+      },
+      "headUnchanged": true,
+      "draftBlobUnchanged": true
+    },
+    "afterHintConfiguration": {
+      "branch": "codex/t13-05-unsaved-exit",
+      "baseline": "629e4cab14a6e647586c1304d72e98d755edcda5",
+      "head": "2f19bab58174dff8ce6bbe8d743e6d91c234a44d",
+      "sourceTreeSha": "ce517c995c9205204ccfeebc31492bea124589bf",
+      "sourceTreeUnchanged": true,
+      "contentFileCount": 48,
+      "contentBlobsUnchanged": true,
+      "discardedNewFilePresent": false,
+      "originalDraftBlob": "889cbdef6775990adcbef093191e26c514163e0d"
+    }
+  },
+  "browser": {
+    "task": "T13.05",
+    "branch": "codex/t13-05-unsaved-exit",
+    "edit": {
+      "baselineTitle": "网页新建文章验证（测试草稿 · 已重开）",
+      "baselineSummary": "用于验证文章列表、新建草稿及重新打开，不是正式文章。",
+      "cleanSaveDisabled": true,
+      "baselineBody": "这是一篇通过 Pages CMS 新建的功能验证草稿，不代表个人正式创作，保存后不会出现在公开网站。\n\n## 新建与再打开\n\n关闭后台再重新打开，标题、摘要、日期、地址标识和这段正文应保持。\n\n## 保留正文格式\n\n- [阅读功能样稿](../article-reading-check/)\n- 测试标记：T13CREATEDRAFT20261009\n\n```js\nconst draft = true;\n```\n\n",
+      "sidebarExit": {
+        "url": "https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-05-unsaved-exit/collection/articles",
+        "promptShown": false,
+        "rows": [
+          "标题草稿文章日期Actions",
+          "网页新建文章验证（测试草稿 · 已重开）TrueOct 9, 2026Edit",
+          "博客阅读验证（功能验证样稿）FalseOct 8, 2026Edit",
+          "网页编辑草稿验证（测试草稿）吃吃吃TrueOct 8, 2026Edit",
+          "从资料到笔记的一次整理（演示）TrueOct 7, 2026Edit"
+        ]
+      },
+      "afterSidebarExit": {
+        "title": "网页新建文章验证（测试草稿 · 已重开）",
+        "body": "这是一篇通过 Pages CMS 新建的功能验证草稿，不代表个人正式创作，保存后不会出现在公开网站。\n\n## 新建与再打开\n\n关闭后台再重新打开，标题、摘要、日期、地址标识和这段正文应保持。\n\n## 保留正文格式\n\n- [阅读功能样稿](../article-reading-check/)\n- 测试标记：T13CREATEDRAFT20261009\n\n```js\nconst draft = true;\n```\n\n"
+      },
+      "reload": {
+        "promptObserved": false,
+        "title": "网页新建文章验证（测试草稿 · 已重开）",
+        "saveDisabled": true
+      },
+      "discardRestoredOriginal": true,
+      "reloadRestoredOriginal": true
+    },
+    "newEntry": {
+      "url": "https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-05-unsaved-exit/collection/articles/new",
+      "title": "未保存的新文章（取消验证）",
+      "entryId": "demo-article-unsaved-exit-check",
+      "afterExit": {
+        "url": "https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-05-unsaved-exit/collection/articles",
+        "promptObserved": false,
+        "rows": [
+          "标题草稿文章日期Actions",
+          "网页新建文章验证（测试草稿 · 已重开）TrueOct 9, 2026Edit",
+          "博客阅读验证（功能验证样稿）FalseOct 8, 2026Edit",
+          "网页编辑草稿验证（测试草稿）吃吃吃TrueOct 8, 2026Edit",
+          "从资料到笔记的一次整理（演示）TrueOct 7, 2026Edit"
+        ]
+      },
+      "reopened": {
+        "title": "",
+        "entryId": ""
+      },
+      "reopenedBlank": true
+    },
+    "hints": {
+      "newEntry": {
+        "visible": true,
+        "titleDescription": "_R_hklubsnpfl5ubsnpfjb_-form-item-description"
+      },
+      "existingArticle": {
+        "visible": true,
+        "title": "网页新建文章验证（测试草稿 · 已重开）",
+        "saveDisabled": true
+      },
+      "fixedArticle": {
+        "url": "https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-05-unsaved-exit/file/article-draft",
+        "visible": true,
+        "title": "网页编辑草稿验证（测试草稿）吃吃吃"
+      }
+    },
+    "noSaveClicked": true,
+    "confirmationProtectionVerified": false
+  },
+  "screenshotsLocalOnly": [
+    "t13-05-cms-new-hint-2026-10-09.png",
+    "t13-05-cms-edit-hint-2026-10-09.png",
+    "t13-05-cms-fixed-hint-2026-10-09.png"
+  ],
+  "allScreenshotsInspected": true,
+  "applicationCodeChanged": false,
+  "dependencyAdded": false,
+  "formalDeployment": false,
+  "userConfirmed": false,
+  "limitations": [
+    "leave/stay confirmation not implemented",
+    "normal browser reload and close gestures not tested",
+    "network failure recovery not tested",
+    "CMS mobile not tested",
+    "formal deployment not performed"
+  ]
+}

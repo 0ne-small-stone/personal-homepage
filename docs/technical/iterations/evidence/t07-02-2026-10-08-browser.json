@@ -1,0 +1,105 @@
+{
+  "browser": "Microsoft Edge",
+  "scope": "local production and isolated samples; no deployment",
+  "records": [
+    {
+      "check": "same-published-catalog-and-sorted-deduplicated-topic-options",
+      "result": "passed",
+      "published": 40,
+      "topics": 7
+    },
+    {
+      "check": "all-current-topic-and-type-intersections-match-independent-YAML",
+      "result": "passed",
+      "combinations": 32
+    },
+    {
+      "check": "changing-one-filter-keeps-the-other-and-unrelated-query-and-hash",
+      "result": "passed"
+    },
+    {
+      "check": "empty-combination-retains-selection-and-clear-restores-all-and-focus",
+      "result": "passed"
+    },
+    {
+      "check": "direct-Unicode-query-and-reload-restore-both-controls",
+      "result": "passed",
+      "probabilityResources": 12
+    },
+    {
+      "check": "back-forward-and-no-redundant-history-restore-filter-state",
+      "result": "passed"
+    },
+    {
+      "check": "clear-removes-only-filter-parameters",
+      "result": "passed"
+    },
+    {
+      "check": "unknown-parameters-fall-back-independently-with-clear-feedback",
+      "result": "passed"
+    },
+    {
+      "check": "native-radio-and-select-keyboard-selection-and-visible-focus",
+      "result": "passed"
+    },
+    {
+      "check": "fixture-topic-options-exclude-drafts-and-deduplicate-topics",
+      "result": "passed",
+      "published": 44,
+      "draftSamplesExcluded": 2,
+      "topics": 10
+    },
+    {
+      "check": "all-multi-topic-fixture-intersections-match-independent-YAML",
+      "result": "passed",
+      "combinations": 44
+    },
+    {
+      "check": "multi-membership-special-characters-and-unclassified-fallback",
+      "result": "passed"
+    },
+    {
+      "check": "existing-article-return-keeps-topic-type-scroll-and-source-focus",
+      "result": "passed",
+      "scrollBefore": 386,
+      "scrollAfter": 386
+    },
+    {
+      "check": "theme-contrast-reading-font-and-touch-target",
+      "result": "passed",
+      "theme": "light",
+      "color": "rgb(98, 100, 93)",
+      "background": "rgb(242, 239, 232)",
+      "height": 44,
+      "font": "\"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", \"Noto Sans SC\", system-ui, sans-serif, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"Noto Sans\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "contrast": 5.224543600441665
+    },
+    {
+      "check": "theme-contrast-reading-font-and-touch-target",
+      "result": "passed",
+      "theme": "dark",
+      "color": "rgb(183, 189, 191)",
+      "background": "rgb(11, 13, 15)",
+      "height": 44,
+      "font": "\"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", \"Noto Sans SC\", system-ui, sans-serif, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"Noto Sans\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "contrast": 10.239031465892612
+    },
+    {
+      "check": "mobile-widths-and-200-percent-text-have-no-horizontal-overflow",
+      "result": "passed"
+    },
+    {
+      "check": "no-script-shows-truthful-all-content-and-working-links",
+      "result": "passed"
+    },
+    {
+      "check": "reduced-motion-and-native-search-preserve-filter-state",
+      "result": "passed"
+    },
+    {
+      "check": "observed-page-script-errors",
+      "result": "passed",
+      "count": 0
+    }
+  ]
+}

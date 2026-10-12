@@ -1,0 +1,174 @@
+{
+  "task": "T13.03",
+  "date": "2026-10-08",
+  "scope": "Three actual hosted CMS saves with independent production snapshots; no formal deployment",
+  "result": "passed",
+  "branch": "codex/t13-03-hosted-publication",
+  "baseline": "421440897a42f29bcf60b78fa9abad5b34693d85",
+  "cmsUrl": "https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-03-hosted-publication/file/article-draft",
+  "stages": [
+    {
+      "stage": "first",
+      "sha": "a5cc0bb140a7174c33f8905a09e78ad8edacb248",
+      "draft": false,
+      "title": "网页编辑草稿验证（测试草稿）吃吃吃",
+      "pages": 53,
+      "htmlFiles": 54,
+      "sourceSha256": "0562c858f05b09bc0c8d515505648b073dd0948ad4a80ff679e12d3ddbc42485",
+      "baselineRestored": false,
+      "publishedCount": 42,
+      "routeGenerated": true,
+      "listsConsistent": true,
+      "originalMaterialCopiesExcluded": true,
+      "output": ".ci-tmp/t13-03-hosted-fixture/dist-first"
+    },
+    {
+      "stage": "updated",
+      "sha": "1ba65a5a15e4e6874678d932e21c8bc9dcae4a46",
+      "draft": false,
+      "title": "网页编辑草稿验证（测试草稿）吃吃吃 · 修改验证",
+      "pages": 53,
+      "htmlFiles": 54,
+      "sourceSha256": "4814dae9bd939ca810e663f20c15b9b106f8d2d53d0e879f9e90d78026d4b695",
+      "baselineRestored": false,
+      "publishedCount": 42,
+      "routeGenerated": true,
+      "listsConsistent": true,
+      "originalMaterialCopiesExcluded": true,
+      "output": ".ci-tmp/t13-03-hosted-updated-fixture/dist-updated"
+    },
+    {
+      "stage": "draft",
+      "sha": "be0554b3f7296810b277534789c2dc825ac5ef1c",
+      "draft": true,
+      "title": "网页编辑草稿验证（测试草稿）吃吃吃",
+      "pages": 52,
+      "htmlFiles": 53,
+      "sourceSha256": "dbe93d7553cf2dc7291ea3562235f3a2491b692e32987a4ee1b637ad0ef81298",
+      "baselineRestored": true,
+      "publishedCount": 41,
+      "routeGenerated": false,
+      "listsConsistent": true,
+      "originalMaterialCopiesExcluded": true,
+      "output": ".ci-tmp/t13-03-hosted-draft-fixture/dist-draft"
+    }
+  ],
+  "browser": {
+    "tool": "CUA in existing Codex in-app browser",
+    "cms": {
+      "first": {
+        "draft": false,
+        "title": "网页编辑草稿验证（测试草稿）吃吃吃",
+        "reloaded": true
+      },
+      "updated": {
+        "draft": "false",
+        "title": "网页编辑草稿验证（测试草稿）吃吃吃 · 修改验证",
+        "description": "用于验证网页后台保存、分支追溯与草稿排除。 托管修改验证后应在列表与正文保持一致。"
+      },
+      "restored": {
+        "draft": "true",
+        "title": "网页编辑草稿验证（测试草稿）吃吃吃",
+        "description": "用于验证网页后台保存、分支追溯与草稿排除。",
+        "bodyRestored": true
+      }
+    },
+    "first": {
+      "heading": "网页编辑草稿验证（测试草稿）吃吃吃",
+      "image": {
+        "complete": true,
+        "height": 540,
+        "width": 960
+      },
+      "draftWarning": 0,
+      "searchUrls": [
+        "/personal-homepage/knowledge/blog/editor-draft-check/",
+        "/personal-homepage/knowledge/blog/editor-draft-check/#%E9%AA%8C%E8%AF%81%E6%A0%87%E8%AE%B0"
+      ],
+      "pageErrors": []
+    },
+    "updated": {
+      "heading": "网页编辑草稿验证（测试草稿）吃吃吃 · 修改验证",
+      "image": {
+        "complete": true,
+        "height": 540,
+        "width": 960
+      },
+      "mobile": {
+        "documentWidth": 375,
+        "heading": "网页编辑草稿验证（测试草稿）吃吃吃 · 修改验证",
+        "viewportWidth": 390
+      },
+      "searchUrls": [
+        "/personal-homepage/knowledge/blog/editor-draft-check/",
+        "/personal-homepage/knowledge/blog/editor-draft-check/#%E9%AA%8C%E8%AF%81%E6%A0%87%E8%AE%B0"
+      ],
+      "oldSearchResults": 0,
+      "pageErrors": []
+    },
+    "draft": {
+      "searchMessage": "没有找到“T13UPDATEDHOSTED20261008”",
+      "searchUrls": [],
+      "publishedCount": 41,
+      "articleCount": 1,
+      "pageErrors": []
+    },
+    "viewportRestored": true
+  },
+  "ci": [
+    {
+      "sha": "a5cc0bb140a7174c33f8905a09e78ad8edacb248",
+      "conclusion": "success",
+      "checks": [
+        "Repository checks",
+        "Workflow syntax",
+        "Astro build"
+      ],
+      "event": "push",
+      "id": 37788008210,
+      "stage": "first",
+      "deploy": "skipped"
+    },
+    {
+      "sha": "1ba65a5a15e4e6874678d932e21c8bc9dcae4a46",
+      "conclusion": "success",
+      "checks": [
+        "Repository checks",
+        "Workflow syntax",
+        "Astro build"
+      ],
+      "event": "push",
+      "id": 37788524812,
+      "stage": "updated",
+      "deploy": "skipped"
+    },
+    {
+      "sha": "be0554b3f7296810b277534789c2dc825ac5ef1c",
+      "conclusion": "success",
+      "checks": [
+        "Repository checks",
+        "Workflow syntax",
+        "Astro build"
+      ],
+      "event": "push",
+      "id": 37789201168,
+      "stage": "draft",
+      "deploy": "skipped"
+    }
+  ],
+  "finalSourceMatchesBaseline": true,
+  "localTypeCheck": {
+    "errors": 0,
+    "hints": 0,
+    "files": 26,
+    "warnings": 0
+  },
+  "sourceMaterialsExcluded": true,
+  "originalPreviewUnchanged": true,
+  "snapshotAutoSync": false,
+  "remaining": [
+    "Formal deployment and China mainland access under T16",
+    "CMS focus, cancel and failure states",
+    "User review and real-device feedback"
+  ]
+}

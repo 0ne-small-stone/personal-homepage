@@ -1,0 +1,61 @@
+{
+  "browser": "Microsoft Edge",
+  "scope": "developer-provided image fixture, not a hosted CMS upload",
+  "preview": "http://127.0.0.1:4324/personal-homepage/knowledge/blog/editor-draft-check/",
+  "records": [
+    {
+      "check": "production-excludes-draft-page-and-image-references",
+      "result": "passed",
+      "htmlFiles": 52,
+      "unreferencedImageFiles": [
+        "dist\\_astro\\t13-02-image-check.Ep8RT_IY.png"
+      ],
+      "privacy": "image binaries may be emitted; draft is not access control"
+    },
+    {
+      "check": "native-development-draft-and-image-render",
+      "result": "passed",
+      "titlePreserved": true,
+      "dimensions": {
+        "width": 960,
+        "height": 540,
+        "attributeWidth": "960",
+        "attributeHeight": "540",
+        "imageEndpoint": "/personal-homepage/_image/"
+      }
+    },
+    {
+      "check": "mobile-width-and-aspect-ratio",
+      "result": "passed",
+      "viewport": "390x844",
+      "imageBox": {
+        "x": 16,
+        "y": 261.421875,
+        "width": 358,
+        "height": 201.375
+      }
+    },
+    {
+      "check": "image-and-description-without-JavaScript",
+      "result": "passed"
+    },
+    {
+      "check": "blocked-image-retains-text-description",
+      "result": "passed"
+    },
+    {
+      "check": "production-route-overview-and-search",
+      "result": "passed",
+      "draftStatus": 404,
+      "publishedCount": 40,
+      "searchResultUrls": [
+        "/personal-homepage/knowledge/blog/article-reading-check/"
+      ]
+    },
+    {
+      "check": "browser-page-errors",
+      "result": "passed",
+      "errors": []
+    }
+  ]
+}

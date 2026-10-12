@@ -1,0 +1,199 @@
+{
+  "method": "Unmodified screenshots. RGB differences outside 2px-expanded glass bounds; fixed test rectangles entirely within broad glass faces, excluding the aperture, bevel and bright title/beam.",
+  "cases": [
+    {
+      "name": "desktop-hero-front",
+      "sameBundle": true,
+      "sameResources": true,
+      "sameState": true,
+      "excludedGlassBounds": [
+        427,
+        193,
+        1013,
+        707
+      ],
+      "outsideComparisons": [
+        {
+          "against": "transmitted",
+          "outsidePixels": 994796,
+          "changedPixels": 0,
+          "maxChannelDifference": 0,
+          "meanChannelDifference": 0
+        },
+        {
+          "against": "environment",
+          "outsidePixels": 994796,
+          "changedPixels": 0,
+          "maxChannelDifference": 0,
+          "meanChannelDifference": 0
+        },
+        {
+          "against": "final-no-tone",
+          "outsidePixels": 994796,
+          "changedPixels": 0,
+          "maxChannelDifference": 0,
+          "meanChannelDifference": 0
+        }
+      ],
+      "samples": {
+        "top": {
+          "rect": [
+            700,
+            250,
+            740,
+            290
+          ],
+          "channels": {
+            "transmitted": {
+              "meanRGB": 2,
+              "minRGB": 2,
+              "maxRGB": 2
+            },
+            "environment": {
+              "meanRGB": 0,
+              "minRGB": 0,
+              "maxRGB": 0
+            },
+            "final": {
+              "meanRGB": 2,
+              "minRGB": 2,
+              "maxRGB": 2
+            },
+            "final-no-tone": {
+              "meanRGB": 14.475833333333334,
+              "minRGB": 14,
+              "maxRGB": 15
+            }
+          }
+        },
+        "lower": {
+          "rect": [
+            680,
+            655,
+            760,
+            680
+          ],
+          "channels": {
+            "transmitted": {
+              "meanRGB": 0.999,
+              "minRGB": 0,
+              "maxRGB": 1
+            },
+            "environment": {
+              "meanRGB": 0,
+              "minRGB": 0,
+              "maxRGB": 0
+            },
+            "final": {
+              "meanRGB": 0.999,
+              "minRGB": 0,
+              "maxRGB": 1
+            },
+            "final-no-tone": {
+              "meanRGB": 10.358666666666666,
+              "minRGB": 9,
+              "maxRGB": 12
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "desktop-550-yaw35",
+      "sameBundle": true,
+      "sameResources": true,
+      "sameState": true,
+      "excludedGlassBounds": [
+        477,
+        230,
+        913,
+        702
+      ],
+      "outsideComparisons": [
+        {
+          "against": "transmitted",
+          "outsidePixels": 1090208,
+          "changedPixels": 0,
+          "maxChannelDifference": 0,
+          "meanChannelDifference": 0
+        },
+        {
+          "against": "environment",
+          "outsidePixels": 1090208,
+          "changedPixels": 0,
+          "maxChannelDifference": 0,
+          "meanChannelDifference": 0
+        },
+        {
+          "against": "final-no-tone",
+          "outsidePixels": 1090208,
+          "changedPixels": 0,
+          "maxChannelDifference": 0,
+          "meanChannelDifference": 0
+        }
+      ],
+      "samples": {
+        "top": {
+          "rect": [
+            720,
+            270,
+            740,
+            295
+          ],
+          "channels": {
+            "transmitted": {
+              "meanRGB": 2,
+              "minRGB": 2,
+              "maxRGB": 2
+            },
+            "environment": {
+              "meanRGB": 0,
+              "minRGB": 0,
+              "maxRGB": 0
+            },
+            "final": {
+              "meanRGB": 2,
+              "minRGB": 2,
+              "maxRGB": 2
+            },
+            "final-no-tone": {
+              "meanRGB": 14.106666666666667,
+              "minRGB": 14,
+              "maxRGB": 15
+            }
+          }
+        },
+        "lower": {
+          "rect": [
+            640,
+            630,
+            700,
+            650
+          ],
+          "channels": {
+            "transmitted": {
+              "meanRGB": 1.3322222222222222,
+              "minRGB": 1,
+              "maxRGB": 2
+            },
+            "environment": {
+              "meanRGB": 0,
+              "minRGB": 0,
+              "maxRGB": 0
+            },
+            "final": {
+              "meanRGB": 1.3233333333333335,
+              "minRGB": 1,
+              "maxRGB": 2
+            },
+            "final-no-tone": {
+              "meanRGB": 12.090555555555556,
+              "minRGB": 11,
+              "maxRGB": 13
+            }
+          }
+        }
+      }
+    }
+  ]
+}

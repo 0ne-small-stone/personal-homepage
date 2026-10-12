@@ -1,0 +1,168 @@
+{
+  "date": "2026-10-10",
+  "task": "T13.11",
+  "base": "a95090173dda720142dd021d52c16e2f029ecf6e",
+  "implementation": "0af3470",
+  "branch": "codex/t13-11-related-picker",
+  "pr": "https://github.com/0ne-small-stone/personal-homepage/pull/30",
+  "config": {
+    "officialSchema": "passed",
+    "nativeJsonYamlSerialization": "passed",
+    "entryCount": 46,
+    "publishedCount": 41,
+    "kinds": [
+      "resource",
+      "article",
+      "note"
+    ],
+    "stableIdsUnique": true,
+    "selectFields": 2,
+    "draftsExcluded": true,
+    "originalContentFilesUnchanged": 48,
+    "otherFieldsPreserved": true
+  },
+  "saved": {
+    "head": "677beaf7b6f8a2918d712ce69c64ea51a347cc3b",
+    "blob": "b7a97e4720cc38a1ea50678726a170a7ba49b4f9",
+    "baselineBlob": "eb551d0abb63e7ce110b016a9dc16555fbcf5842",
+    "baselineRestored": false,
+    "related": [
+      "demo-article-reading-check",
+      "resource-lssh-pdf-reading-check",
+      "note-ads-algorithms-notes"
+    ],
+    "previousRelated": [
+      "demo-article-reading-check"
+    ],
+    "draft": true,
+    "title": "网页编辑草稿验证（测试草稿）吃吃吃",
+    "otherFieldsPreserved": true,
+    "bodyPreserved": true,
+    "otherContentCount": 47,
+    "otherContentUnchanged": true,
+    "saveSha": "677beaf7b6f8a2918d712ce69c64ea51a347cc3b",
+    "saveFiles": [
+      "src/content/docs/knowledge/blog/editor-draft-check.md"
+    ]
+  },
+  "restored": {
+    "head": "dbbac976c4967fdcc88c68af7ea970080992fe44",
+    "blob": "eb551d0abb63e7ce110b016a9dc16555fbcf5842",
+    "baselineBlob": "eb551d0abb63e7ce110b016a9dc16555fbcf5842",
+    "baselineRestored": true,
+    "related": [
+      "demo-article-reading-check"
+    ],
+    "previousRelated": [
+      "demo-article-reading-check"
+    ],
+    "draft": true,
+    "title": "网页编辑草稿验证（测试草稿）吃吃吃",
+    "otherFieldsPreserved": true,
+    "bodyPreserved": true,
+    "otherContentCount": 47,
+    "otherContentUnchanged": true,
+    "saveSha": "dbbac976c4967fdcc88c68af7ea970080992fe44",
+    "saveFiles": [
+      "src/content/docs/knowledge/blog/editor-draft-check.md"
+    ]
+  },
+  "build": {
+    "saveSha": "677beaf7b6f8a2918d712ce69c64ea51a347cc3b",
+    "productionPublished": 41,
+    "candidatePublished": 42,
+    "productionPages": 52,
+    "candidatePages": 53,
+    "productionDraftExcluded": true,
+    "candidateDraftFalseLocalOnly": true,
+    "forwardTargets": 3,
+    "backlinkTargets": 3,
+    "staleConfigRejected": true,
+    "syncRestored": true,
+    "candidatePublicLocalMaterialsExcluded": true,
+    "productionIgnoredMaterialCopiesRemoved": true
+  },
+  "ciSaved": [
+    {
+      "id": 38015015272,
+      "sha": "677beaf7b6f8a2918d712ce69c64ea51a347cc3b",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38015015272",
+      "jobs": [
+        {
+          "name": "Workflow syntax",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Repository checks",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Astro build",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Deploy to GitHub Pages",
+          "status": "completed",
+          "conclusion": "skipped"
+        }
+      ]
+    }
+  ],
+  "ciRestored": [
+    {
+      "id": 38015173974,
+      "sha": "dbbac976c4967fdcc88c68af7ea970080992fe44",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38015173974",
+      "jobs": [
+        {
+          "name": "Workflow syntax",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Repository checks",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Astro build",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Deploy to GitHub Pages",
+          "status": "completed",
+          "conclusion": "skipped"
+        }
+      ]
+    }
+  ],
+  "browser": {
+    "nativeFixedPickerSavedAndReopened": true,
+    "collectionPickerCandidates": 41,
+    "collectionPickerExistingRelatedPreserved": true,
+    "searchAlgorithmMatched": 3,
+    "multipleKindsSaved": [
+      "article",
+      "resource",
+      "note"
+    ],
+    "removeViaChipsAndSave": true,
+    "forwardNavigationAndBacklinkReturn": true,
+    "pdfSampleLoadedPages": 4,
+    "productionDraftPage404": true,
+    "keyboardEscapeNotPassed": true,
+    "unattributedUnsavedInputPreservedLocally": true
+  },
+  "newAssets": 0,
+  "newDependencies": 0,
+  "merged": false,
+  "deployed": false
+}

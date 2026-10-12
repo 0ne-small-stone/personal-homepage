@@ -1,0 +1,68 @@
+{
+  "schema": "src/lib/article-date.ts",
+  "checks": [
+    {
+      "input": "Thu Oct 08 2026 08:00:00 GMT+0800 (中国标准时间)",
+      "result": "passed",
+      "iso": "2026-10-08T00:00:00.000Z"
+    },
+    {
+      "input": "2026-10-08",
+      "result": "passed",
+      "iso": "2026-10-08T00:00:00.000Z"
+    },
+    {
+      "input": "2024-02-29",
+      "result": "passed",
+      "iso": "2024-02-29T00:00:00.000Z"
+    },
+    {
+      "input": "undefined (native virtual pages)",
+      "result": "passed"
+    },
+    {
+      "input": "2026-02-29",
+      "result": "rejected as expected"
+    },
+    {
+      "input": "2026-02-30",
+      "result": "rejected as expected"
+    },
+    {
+      "input": "2026-13-01",
+      "result": "rejected as expected"
+    },
+    {
+      "input": "2026-00-10",
+      "result": "rejected as expected"
+    },
+    {
+      "input": "2026-10-00",
+      "result": "rejected as expected"
+    },
+    {
+      "input": "2026-10-08T00:00:00Z",
+      "result": "rejected as expected"
+    },
+    {
+      "input": "2026-1-8",
+      "result": "rejected as expected"
+    },
+    {
+      "input": "",
+      "result": "rejected as expected"
+    },
+    {
+      "input": "null",
+      "result": "rejected as expected"
+    },
+    {
+      "input": "0",
+      "result": "rejected as expected"
+    },
+    {
+      "input": "Invalid Date",
+      "result": "rejected as expected"
+    }
+  ]
+}

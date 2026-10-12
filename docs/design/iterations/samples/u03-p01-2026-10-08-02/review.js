@@ -1,0 +1,10 @@
+const candidates=[{"id":"A","name":"Still","file":"a-still","alt":"宽阔的石形由一道弯曲留白穿过，轮廓低伏而安静。","text":"时间从中经过，留下的形体仍然在场。","relation":"Little Stone · Still Here","judgment":"优先方向。重心低，外轮廓与昵称关联直接；内侧曲线还可继续校准。"},{"id":"B","name":"Echo","file":"b-echo","alt":"两片相向的柔软曲面围出一条起伏的黑色间隙。","text":"两种声音相互靠近，在彼此之间形成回响。","relation":"Echoes · 相遇与回应","judgment":"优先方向。曲线与空隙共同成形；后续需拉开与常见双旋图案的距离。"},{"id":"C","name":"Refraction","file":"c-refraction","alt":"两片圆角平面错位，一条转折的空隙从中通过。","text":"同一道光穿过不同的面，改变方向，继续向前。","relation":"The Dark Side of the Moon · 观看的变化","judgment":"方向感最明确。更适合延展到光路与转场，静态气质稍偏理性。"},{"id":"D","name":"Interval","file":"d-interval","alt":"三块圆润体块围绕一个未闭合的空处，相互错开。","text":"边界留出一个空处，让后来的人可以进入。","relation":"The Wall · 边界与开口","judgment":"空间关系最明显。块体的重量与中间开口仍需做光学校准。"},{"id":"E","name":"Signature","file":"e-signature","alt":"LSSH 的字母笔画交织为一个圆润、连续的签名形体。","text":"名字彼此连接，成为作者留在这里的一枚签名。","relation":"LSSH · 身份与留痕","judgment":"个人身份最直接。四个字母的辨识度尚不均衡，需要继续精修。"}];
+const dialog=document.querySelector('dialog');
+let current=0;
+function render(index){current=(index+candidates.length)%candidates.length;const item=candidates[current];document.querySelector('#detail-title').textContent=item.id+' / '+item.name;const img=document.querySelector('#detail-image');img.src='images/'+item.file+'.png';img.alt=item.alt;document.querySelector('#detail-concept').textContent=item.text;document.querySelector('#detail-relation').textContent=item.relation;document.querySelector('#detail-judgment').textContent=item.judgment;document.querySelector('#download').href=img.src;}
+document.querySelectorAll('.art').forEach((button,index)=>button.addEventListener('click',()=>{render(index);dialog.showModal();}));
+document.querySelector('.close').addEventListener('click',()=>dialog.close());
+document.querySelector('#previous').addEventListener('click',()=>render(current-1));
+document.querySelector('#next').addEventListener('click',()=>render(current+1));
+dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();}});
+

@@ -1,0 +1,1642 @@
+{
+  "date": "2026-10-11",
+  "method": "One bounded confirmation after mobile diffusion scale correction only. Explicit Y poses for same-pose comparison, separate native input. Final Canvas and source target read directly, only row-order conversion for PNG, no retouch. Initial30 checks/weak mobile images retained.",
+  "cases": {
+    "desktop-final": {
+      "errors": [],
+      "failed": [],
+      "images": [],
+      "bundle": {
+        "file": "HomeJourney.AfVzGTyo.js",
+        "bytes": 1179000,
+        "sha256": "c92225c4eceaecfb2288c9dc64364bd707645871b697562a39033703a9c46b02"
+      },
+      "probedSHA256": "a9ed854620709431d9542f912c669eea5701bfe70ba21ebf3729e4aca34cf294",
+      "frames": [
+        {
+          "name": "desktop-final-0",
+          "pose": 0,
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "glow": {
+            "mechanism": "narrow-3d-edges-multiscale-gaussian",
+            "intensity": 1,
+            "active": true,
+            "draws": 11,
+            "passes": 6,
+            "size": [
+              120,
+              75
+            ],
+            "nearSize": [
+              360,
+              225
+            ],
+            "coverageSize": [
+              1440,
+              900
+            ],
+            "coverageSamples": 4,
+            "targets": [
+              "a554a2f6-deab-4aac-85f1-bc0ac26d638e",
+              "e66ced27-86fa-4eec-8000-ea49e9c60ab1",
+              "e558c707-299e-47b3-a15a-13152d192197",
+              "17865931-2349-4aa5-bea0-09608dc79168",
+              "783fe0f0-9277-48c2-80fd-718e2b59b0df"
+            ],
+            "disposed": false,
+            "error": null
+          },
+          "beam": {
+            "status": "exited",
+            "rightward": true,
+            "epsilon": 0.000022587145948155778,
+            "points": [
+              [
+                -12,
+                0,
+                0
+              ],
+              [
+                -0.444624619214979,
+                0,
+                0
+              ],
+              [
+                0.5445382624104174,
+                -0.172182301367271,
+                0
+              ],
+              [
+                19.293155162344174,
+                -15.155151444348189,
+                0
+              ]
+            ],
+            "outputDirection": [
+              0.7811923708305732,
+              -0.6242903809575382,
+              0
+            ],
+            "events": [
+              {
+                "point": [
+                  -0.444624619214979,
+                  0,
+                  0
+                ],
+                "normal": [
+                  -0.8649267239857688,
+                  0.5018981591271738,
+                  0
+                ],
+                "incoming": [
+                  1,
+                  0,
+                  0
+                ],
+                "outgoing": [
+                  0.9851858561150999,
+                  -0.17149002568883676,
+                  0
+                ],
+                "n1": 1,
+                "n2": 1.45,
+                "kind": "refract",
+                "face": 395
+              },
+              {
+                "point": [
+                  0.5445382624104174,
+                  -0.172182301367271,
+                  0
+                ],
+                "normal": [
+                  -0.8649267239857688,
+                  -0.5018981591271738,
+                  0
+                ],
+                "incoming": [
+                  0.9851858561150999,
+                  -0.17149002568883676,
+                  0
+                ],
+                "outgoing": [
+                  0.7811923708305732,
+                  -0.6242903809575382,
+                  0
+                ],
+                "n1": 1.45,
+                "n2": 1,
+                "kind": "refract",
+                "face": 1006
+              }
+            ],
+            "triangles": 1016,
+            "active": true,
+            "intensity": 1,
+            "segments": 3,
+            "vertices": 18,
+            "layer": 4,
+            "depthTest": false,
+            "disposed": false,
+            "solves": 1,
+            "cpuMs": {
+              "last": 0.7000000029802322,
+              "mean": 0.7000000029802322,
+              "max": 0.7000000029802322
+            },
+            "geometry": "12332363-cdeb-4d7e-922a-b9a5dde3fe3e",
+            "material": "792fb4ef-9134-4ea1-b0fb-4a75f3ffb09c"
+          },
+          "resources": {
+            "geometries": 13,
+            "textures": 16,
+            "programs": 18
+          },
+          "GLerror": 0
+        },
+        {
+          "name": "desktop-final-60",
+          "pose": 60,
+          "quaternion": [
+            0,
+            0.49999999999999994,
+            0,
+            0.8660254037844387
+          ],
+          "glow": {
+            "mechanism": "narrow-3d-edges-multiscale-gaussian",
+            "intensity": 1,
+            "active": true,
+            "draws": 17,
+            "passes": 6,
+            "size": [
+              120,
+              75
+            ],
+            "nearSize": [
+              360,
+              225
+            ],
+            "coverageSize": [
+              1440,
+              900
+            ],
+            "coverageSamples": 4,
+            "targets": [
+              "a554a2f6-deab-4aac-85f1-bc0ac26d638e",
+              "e66ced27-86fa-4eec-8000-ea49e9c60ab1",
+              "e558c707-299e-47b3-a15a-13152d192197",
+              "17865931-2349-4aa5-bea0-09608dc79168",
+              "783fe0f0-9277-48c2-80fd-718e2b59b0df"
+            ],
+            "disposed": false,
+            "error": null
+          },
+          "beam": {
+            "status": "exited",
+            "rightward": true,
+            "epsilon": 0.000022587145948155778,
+            "points": [
+              [
+                -12,
+                0,
+                0
+              ],
+              [
+                -0.23685556092851684,
+                0,
+                7.077671781985373e-16
+              ],
+              [
+                0.19378157268670756,
+                0,
+                0.07460633611944077
+              ],
+              [
+                24.193781572686706,
+                0,
+                0.0746063361194421
+              ]
+            ],
+            "outputDirection": [
+              1,
+              0,
+              5.55111512312578e-17
+            ],
+            "events": [
+              {
+                "point": [
+                  -0.23685556092851684,
+                  0,
+                  7.077671781985373e-16
+                ],
+                "normal": [
+                  -0.8660254037844386,
+                  0,
+                  -0.5000000000000001
+                ],
+                "incoming": [
+                  1,
+                  0,
+                  0
+                ],
+                "outgoing": [
+                  0.9853224299397438,
+                  0,
+                  0.170703570723166
+                ],
+                "n1": 1,
+                "n2": 1.45,
+                "kind": "refract",
+                "face": 48
+              },
+              {
+                "point": [
+                  0.19378157268670756,
+                  0,
+                  0.07460633611944077
+                ],
+                "normal": [
+                  -0.8660254037844386,
+                  0,
+                  -0.5000000000000001
+                ],
+                "incoming": [
+                  0.9853224299397438,
+                  0,
+                  0.170703570723166
+                ],
+                "outgoing": [
+                  1,
+                  0,
+                  5.55111512312578e-17
+                ],
+                "n1": 1.45,
+                "n2": 1,
+                "kind": "refract",
+                "face": 97
+              }
+            ],
+            "triangles": 1016,
+            "active": true,
+            "intensity": 1,
+            "segments": 3,
+            "vertices": 18,
+            "layer": 4,
+            "depthTest": false,
+            "disposed": false,
+            "solves": 2,
+            "cpuMs": {
+              "last": 0.5,
+              "mean": 0.6000000014901161,
+              "max": 0.7000000029802322
+            },
+            "geometry": "12332363-cdeb-4d7e-922a-b9a5dde3fe3e",
+            "material": "792fb4ef-9134-4ea1-b0fb-4a75f3ffb09c"
+          },
+          "resources": {
+            "geometries": 13,
+            "textures": 16,
+            "programs": 18
+          },
+          "GLerror": 0
+        },
+        {
+          "name": "desktop-final-85",
+          "pose": 85,
+          "quaternion": [
+            0,
+            0.6755902076156602,
+            0,
+            0.737277336810124
+          ],
+          "glow": {
+            "mechanism": "narrow-3d-edges-multiscale-gaussian",
+            "intensity": 1,
+            "active": true,
+            "draws": 19,
+            "passes": 6,
+            "size": [
+              120,
+              75
+            ],
+            "nearSize": [
+              360,
+              225
+            ],
+            "coverageSize": [
+              1440,
+              900
+            ],
+            "coverageSamples": 4,
+            "targets": [
+              "a554a2f6-deab-4aac-85f1-bc0ac26d638e",
+              "e66ced27-86fa-4eec-8000-ea49e9c60ab1",
+              "e558c707-299e-47b3-a15a-13152d192197",
+              "17865931-2349-4aa5-bea0-09608dc79168",
+              "783fe0f0-9277-48c2-80fd-718e2b59b0df"
+            ],
+            "disposed": false,
+            "error": null
+          },
+          "beam": {
+            "status": "exited",
+            "rightward": true,
+            "epsilon": 0.000022587145948155778,
+            "points": [
+              [
+                -12,
+                0,
+                0
+              ],
+              [
+                -0.2059064690713874,
+                0,
+                1.942890293094024e-16
+              ],
+              [
+                0.20493133745379358,
+                0,
+                0.011145805391194181
+              ],
+              [
+                24.204931337453793,
+                0,
+                0.011145805391194847
+              ]
+            ],
+            "outputDirection": [
+              1,
+              0,
+              2.77555756156289e-17
+            ],
+            "events": [
+              {
+                "point": [
+                  -0.2059064690713874,
+                  0,
+                  1.942890293094024e-16
+                ],
+                "normal": [
+                  -0.9961946980917457,
+                  0,
+                  -0.08715574274765815
+                ],
+                "incoming": [
+                  1,
+                  0,
+                  0
+                ],
+                "outgoing": [
+                  0.9996321993771715,
+                  0,
+                  0.027119475812765265
+                ],
+                "n1": 1,
+                "n2": 1.45,
+                "kind": "refract",
+                "face": 48
+              },
+              {
+                "point": [
+                  0.20493133745379358,
+                  0,
+                  0.011145805391194181
+                ],
+                "normal": [
+                  -0.9961946980917457,
+                  0,
+                  -0.08715574274765815
+                ],
+                "incoming": [
+                  0.9996321993771715,
+                  0,
+                  0.027119475812765265
+                ],
+                "outgoing": [
+                  1,
+                  0,
+                  2.77555756156289e-17
+                ],
+                "n1": 1.45,
+                "n2": 1,
+                "kind": "refract",
+                "face": 97
+              }
+            ],
+            "triangles": 1016,
+            "active": true,
+            "intensity": 1,
+            "segments": 3,
+            "vertices": 18,
+            "layer": 4,
+            "depthTest": false,
+            "disposed": false,
+            "solves": 3,
+            "cpuMs": {
+              "last": 0.10000000894069672,
+              "mean": 0.4333333373069763,
+              "max": 0.7000000029802322
+            },
+            "geometry": "12332363-cdeb-4d7e-922a-b9a5dde3fe3e",
+            "material": "792fb4ef-9134-4ea1-b0fb-4a75f3ffb09c"
+          },
+          "resources": {
+            "geometries": 13,
+            "textures": 16,
+            "programs": 18
+          },
+          "GLerror": 0
+        }
+      ],
+      "masks": [
+        {
+          "name": "desktop-final-source-0",
+          "width": 1440,
+          "height": 900,
+          "max": 179,
+          "lit": 10414,
+          "covered": 58066,
+          "GLerror": 0
+        },
+        {
+          "name": "desktop-final-source-85",
+          "width": 1440,
+          "height": 900,
+          "max": 178,
+          "lit": 8356,
+          "covered": 32239,
+          "GLerror": 0
+        }
+      ]
+    },
+    "mobile-final": {
+      "errors": [],
+      "failed": [],
+      "images": [],
+      "bundle": {
+        "file": "HomeJourney.AfVzGTyo.js",
+        "bytes": 1179000,
+        "sha256": "c92225c4eceaecfb2288c9dc64364bd707645871b697562a39033703a9c46b02"
+      },
+      "probedSHA256": "a9ed854620709431d9542f912c669eea5701bfe70ba21ebf3729e4aca34cf294",
+      "frames": [
+        {
+          "name": "mobile-final-0",
+          "pose": 0,
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "glow": {
+            "mechanism": "narrow-3d-edges-multiscale-gaussian",
+            "intensity": 1,
+            "active": true,
+            "draws": 22,
+            "passes": 6,
+            "size": [
+              130,
+              281
+            ],
+            "nearSize": [
+              390,
+              844
+            ],
+            "coverageSize": [
+              390,
+              844
+            ],
+            "coverageSamples": 4,
+            "targets": [
+              "0d07e010-8027-4a94-9f08-b51cddee0dcf",
+              "a7248242-0f96-4c13-8052-be754de18b6a",
+              "7cc8b46b-6810-4b6a-b51c-14c00b637aa1",
+              "44a0689c-6e37-49bf-add5-528168a46109",
+              "b9d46b86-b485-4ec1-a662-26d636ab070b"
+            ],
+            "disposed": false,
+            "error": null
+          },
+          "beam": {
+            "status": "exited",
+            "rightward": true,
+            "epsilon": 0.000022587145948155778,
+            "points": [
+              [
+                -12,
+                0,
+                0
+              ],
+              [
+                -0.444624619214979,
+                0,
+                0
+              ],
+              [
+                0.5445382624104174,
+                -0.172182301367271,
+                0
+              ],
+              [
+                19.293155162344174,
+                -15.155151444348189,
+                0
+              ]
+            ],
+            "outputDirection": [
+              0.7811923708305732,
+              -0.6242903809575382,
+              0
+            ],
+            "events": [
+              {
+                "point": [
+                  -0.444624619214979,
+                  0,
+                  0
+                ],
+                "normal": [
+                  -0.8649267239857688,
+                  0.5018981591271738,
+                  0
+                ],
+                "incoming": [
+                  1,
+                  0,
+                  0
+                ],
+                "outgoing": [
+                  0.9851858561150999,
+                  -0.17149002568883676,
+                  0
+                ],
+                "n1": 1,
+                "n2": 1.45,
+                "kind": "refract",
+                "face": 395
+              },
+              {
+                "point": [
+                  0.5445382624104174,
+                  -0.172182301367271,
+                  0
+                ],
+                "normal": [
+                  -0.8649267239857688,
+                  -0.5018981591271738,
+                  0
+                ],
+                "incoming": [
+                  0.9851858561150999,
+                  -0.17149002568883676,
+                  0
+                ],
+                "outgoing": [
+                  0.7811923708305732,
+                  -0.6242903809575382,
+                  0
+                ],
+                "n1": 1.45,
+                "n2": 1,
+                "kind": "refract",
+                "face": 1006
+              }
+            ],
+            "triangles": 1016,
+            "active": true,
+            "intensity": 1,
+            "segments": 3,
+            "vertices": 18,
+            "layer": 4,
+            "depthTest": false,
+            "disposed": false,
+            "solves": 1,
+            "cpuMs": {
+              "last": 1,
+              "mean": 1,
+              "max": 1
+            },
+            "geometry": "b68c0a19-7eda-42b4-baa2-ebb665a7d540",
+            "material": "f0bb2a28-adf1-4c14-ad2c-9b13c9a78b48"
+          },
+          "resources": {
+            "geometries": 13,
+            "textures": 11,
+            "programs": 10
+          },
+          "GLerror": 0
+        },
+        {
+          "name": "mobile-final-60",
+          "pose": 60,
+          "quaternion": [
+            0,
+            0.49999999999999994,
+            0,
+            0.8660254037844387
+          ],
+          "glow": {
+            "mechanism": "narrow-3d-edges-multiscale-gaussian",
+            "intensity": 1,
+            "active": true,
+            "draws": 26,
+            "passes": 6,
+            "size": [
+              130,
+              281
+            ],
+            "nearSize": [
+              390,
+              844
+            ],
+            "coverageSize": [
+              390,
+              844
+            ],
+            "coverageSamples": 4,
+            "targets": [
+              "0d07e010-8027-4a94-9f08-b51cddee0dcf",
+              "a7248242-0f96-4c13-8052-be754de18b6a",
+              "7cc8b46b-6810-4b6a-b51c-14c00b637aa1",
+              "44a0689c-6e37-49bf-add5-528168a46109",
+              "b9d46b86-b485-4ec1-a662-26d636ab070b"
+            ],
+            "disposed": false,
+            "error": null
+          },
+          "beam": {
+            "status": "exited",
+            "rightward": true,
+            "epsilon": 0.000022587145948155778,
+            "points": [
+              [
+                -12,
+                0,
+                0
+              ],
+              [
+                -0.23685556092851684,
+                0,
+                7.077671781985373e-16
+              ],
+              [
+                0.19378157268670756,
+                0,
+                0.07460633611944077
+              ],
+              [
+                24.193781572686706,
+                0,
+                0.0746063361194421
+              ]
+            ],
+            "outputDirection": [
+              1,
+              0,
+              5.55111512312578e-17
+            ],
+            "events": [
+              {
+                "point": [
+                  -0.23685556092851684,
+                  0,
+                  7.077671781985373e-16
+                ],
+                "normal": [
+                  -0.8660254037844386,
+                  0,
+                  -0.5000000000000001
+                ],
+                "incoming": [
+                  1,
+                  0,
+                  0
+                ],
+                "outgoing": [
+                  0.9853224299397438,
+                  0,
+                  0.170703570723166
+                ],
+                "n1": 1,
+                "n2": 1.45,
+                "kind": "refract",
+                "face": 48
+              },
+              {
+                "point": [
+                  0.19378157268670756,
+                  0,
+                  0.07460633611944077
+                ],
+                "normal": [
+                  -0.8660254037844386,
+                  0,
+                  -0.5000000000000001
+                ],
+                "incoming": [
+                  0.9853224299397438,
+                  0,
+                  0.170703570723166
+                ],
+                "outgoing": [
+                  1,
+                  0,
+                  5.55111512312578e-17
+                ],
+                "n1": 1.45,
+                "n2": 1,
+                "kind": "refract",
+                "face": 97
+              }
+            ],
+            "triangles": 1016,
+            "active": true,
+            "intensity": 1,
+            "segments": 3,
+            "vertices": 18,
+            "layer": 4,
+            "depthTest": false,
+            "disposed": false,
+            "solves": 2,
+            "cpuMs": {
+              "last": 0.5,
+              "mean": 0.75,
+              "max": 1
+            },
+            "geometry": "b68c0a19-7eda-42b4-baa2-ebb665a7d540",
+            "material": "f0bb2a28-adf1-4c14-ad2c-9b13c9a78b48"
+          },
+          "resources": {
+            "geometries": 13,
+            "textures": 11,
+            "programs": 10
+          },
+          "GLerror": 0
+        },
+        {
+          "name": "mobile-final-85",
+          "pose": 85,
+          "quaternion": [
+            0,
+            0.6755902076156602,
+            0,
+            0.737277336810124
+          ],
+          "glow": {
+            "mechanism": "narrow-3d-edges-multiscale-gaussian",
+            "intensity": 1,
+            "active": true,
+            "draws": 29,
+            "passes": 6,
+            "size": [
+              130,
+              281
+            ],
+            "nearSize": [
+              390,
+              844
+            ],
+            "coverageSize": [
+              390,
+              844
+            ],
+            "coverageSamples": 4,
+            "targets": [
+              "0d07e010-8027-4a94-9f08-b51cddee0dcf",
+              "a7248242-0f96-4c13-8052-be754de18b6a",
+              "7cc8b46b-6810-4b6a-b51c-14c00b637aa1",
+              "44a0689c-6e37-49bf-add5-528168a46109",
+              "b9d46b86-b485-4ec1-a662-26d636ab070b"
+            ],
+            "disposed": false,
+            "error": null
+          },
+          "beam": {
+            "status": "exited",
+            "rightward": true,
+            "epsilon": 0.000022587145948155778,
+            "points": [
+              [
+                -12,
+                0,
+                0
+              ],
+              [
+                -0.2059064690713874,
+                0,
+                1.942890293094024e-16
+              ],
+              [
+                0.20493133745379358,
+                0,
+                0.011145805391194181
+              ],
+              [
+                24.204931337453793,
+                0,
+                0.011145805391194847
+              ]
+            ],
+            "outputDirection": [
+              1,
+              0,
+              2.77555756156289e-17
+            ],
+            "events": [
+              {
+                "point": [
+                  -0.2059064690713874,
+                  0,
+                  1.942890293094024e-16
+                ],
+                "normal": [
+                  -0.9961946980917457,
+                  0,
+                  -0.08715574274765815
+                ],
+                "incoming": [
+                  1,
+                  0,
+                  0
+                ],
+                "outgoing": [
+                  0.9996321993771715,
+                  0,
+                  0.027119475812765265
+                ],
+                "n1": 1,
+                "n2": 1.45,
+                "kind": "refract",
+                "face": 48
+              },
+              {
+                "point": [
+                  0.20493133745379358,
+                  0,
+                  0.011145805391194181
+                ],
+                "normal": [
+                  -0.9961946980917457,
+                  0,
+                  -0.08715574274765815
+                ],
+                "incoming": [
+                  0.9996321993771715,
+                  0,
+                  0.027119475812765265
+                ],
+                "outgoing": [
+                  1,
+                  0,
+                  2.77555756156289e-17
+                ],
+                "n1": 1.45,
+                "n2": 1,
+                "kind": "refract",
+                "face": 97
+              }
+            ],
+            "triangles": 1016,
+            "active": true,
+            "intensity": 1,
+            "segments": 3,
+            "vertices": 18,
+            "layer": 4,
+            "depthTest": false,
+            "disposed": false,
+            "solves": 3,
+            "cpuMs": {
+              "last": 0.09999999403953552,
+              "mean": 0.5333333313465118,
+              "max": 1
+            },
+            "geometry": "b68c0a19-7eda-42b4-baa2-ebb665a7d540",
+            "material": "f0bb2a28-adf1-4c14-ad2c-9b13c9a78b48"
+          },
+          "resources": {
+            "geometries": 13,
+            "textures": 11,
+            "programs": 10
+          },
+          "GLerror": 0
+        }
+      ],
+      "masks": [
+        {
+          "name": "mobile-final-source-0",
+          "width": 390,
+          "height": 844,
+          "max": 179,
+          "lit": 2820,
+          "covered": 15685,
+          "GLerror": 0
+        },
+        {
+          "name": "mobile-final-source-85",
+          "width": 390,
+          "height": 844,
+          "max": 179,
+          "lit": 2338,
+          "covered": 8729,
+          "GLerror": 0
+        }
+      ]
+    },
+    "mobile-native-final": {
+      "errors": [],
+      "failed": [],
+      "images": [],
+      "bundle": {
+        "file": "HomeJourney.AfVzGTyo.js",
+        "bytes": 1179000,
+        "sha256": "c92225c4eceaecfb2288c9dc64364bd707645871b697562a39033703a9c46b02"
+      },
+      "probedSHA256": "a9ed854620709431d9542f912c669eea5701bfe70ba21ebf3729e4aca34cf294",
+      "frames": [
+        {
+          "name": "mobile-native-final-turn",
+          "quaternion": [
+            0,
+            -0.3839702105258651,
+            0,
+            0.9233454810788441
+          ],
+          "glow": {
+            "mechanism": "narrow-3d-edges-multiscale-gaussian",
+            "intensity": 1,
+            "active": true,
+            "draws": 136,
+            "passes": 6,
+            "size": [
+              130,
+              281
+            ],
+            "nearSize": [
+              390,
+              844
+            ],
+            "coverageSize": [
+              390,
+              844
+            ],
+            "coverageSamples": 4,
+            "targets": [
+              "d1dccde3-85ec-4d2d-b0b3-eee2dacb21e8",
+              "fda1d7f8-836a-4f9e-9c9b-8aa42e5ab4c9",
+              "26c5df66-e4ce-4a0e-a315-90f8a9c7a378",
+              "21129dcc-c94d-471b-b1c8-b4749c260682",
+              "a1817cdd-39bb-4348-b0bf-49fce7bd8510"
+            ],
+            "disposed": false,
+            "error": null
+          },
+          "beam": {
+            "status": "exited",
+            "rightward": true,
+            "epsilon": 0.000022587145948155778,
+            "points": [
+              [
+                -12,
+                0,
+                0
+              ],
+              [
+                -0.28928269960519376,
+                0,
+                -5.551115123125783e-17
+              ],
+              [
+                0.16260657850081636,
+                0,
+                -0.12738403671485996
+              ],
+              [
+                24.162606578500817,
+                0,
+                -0.12738403671486662
+              ]
+            ],
+            "outputDirection": [
+              1,
+              0,
+              -2.7755575615628904e-16
+            ],
+            "events": [
+              {
+                "point": [
+                  -0.28928269960519376,
+                  0,
+                  -5.551115123125783e-17
+                ],
+                "normal": [
+                  -0.7090743175159001,
+                  0,
+                  0.7051337548574459
+                ],
+                "incoming": [
+                  1,
+                  0,
+                  0
+                ],
+                "outgoing": [
+                  0.9624896838373318,
+                  0,
+                  -0.2713182789763959
+                ],
+                "n1": 1,
+                "n2": 1.45,
+                "kind": "refract",
+                "face": 97
+              },
+              {
+                "point": [
+                  0.16260657850081636,
+                  0,
+                  -0.12738403671485996
+                ],
+                "normal": [
+                  -0.7090743175159001,
+                  0,
+                  0.7051337548574459
+                ],
+                "incoming": [
+                  0.9624896838373318,
+                  0,
+                  -0.2713182789763959
+                ],
+                "outgoing": [
+                  1,
+                  0,
+                  -2.7755575615628904e-16
+                ],
+                "n1": 1.45,
+                "n2": 1,
+                "kind": "refract",
+                "face": 48
+              }
+            ],
+            "triangles": 1016,
+            "active": true,
+            "intensity": 1,
+            "segments": 3,
+            "vertices": 18,
+            "layer": 4,
+            "depthTest": false,
+            "disposed": false,
+            "solves": 77,
+            "cpuMs": {
+              "last": 0.10000000894069672,
+              "mean": 0.09740259720907583,
+              "max": 1.9000000059604645
+            },
+            "geometry": "a031cfda-5c49-4b5f-a739-ceb597ad4da8",
+            "material": "57db9abe-0ef9-4cca-8eb3-0e68dce8ed24"
+          },
+          "resources": {
+            "geometries": 13,
+            "textures": 11,
+            "programs": 10
+          },
+          "GLerror": 0
+        }
+      ],
+      "turn": {
+        "quaternion": [
+          0,
+          -0.3839702105258651,
+          0,
+          0.9233454810788441
+        ],
+        "glow": {
+          "mechanism": "narrow-3d-edges-multiscale-gaussian",
+          "intensity": 1,
+          "active": true,
+          "draws": 136,
+          "passes": 6,
+          "size": [
+            130,
+            281
+          ],
+          "nearSize": [
+            390,
+            844
+          ],
+          "coverageSize": [
+            390,
+            844
+          ],
+          "coverageSamples": 4,
+          "targets": [
+            "d1dccde3-85ec-4d2d-b0b3-eee2dacb21e8",
+            "fda1d7f8-836a-4f9e-9c9b-8aa42e5ab4c9",
+            "26c5df66-e4ce-4a0e-a315-90f8a9c7a378",
+            "21129dcc-c94d-471b-b1c8-b4749c260682",
+            "a1817cdd-39bb-4348-b0bf-49fce7bd8510"
+          ],
+          "disposed": false,
+          "error": null
+        },
+        "beam": {
+          "status": "exited",
+          "rightward": true,
+          "epsilon": 0.000022587145948155778,
+          "points": [
+            [
+              -12,
+              0,
+              0
+            ],
+            [
+              -0.28928269960519376,
+              0,
+              -5.551115123125783e-17
+            ],
+            [
+              0.16260657850081636,
+              0,
+              -0.12738403671485996
+            ],
+            [
+              24.162606578500817,
+              0,
+              -0.12738403671486662
+            ]
+          ],
+          "outputDirection": [
+            1,
+            0,
+            -2.7755575615628904e-16
+          ],
+          "events": [
+            {
+              "point": [
+                -0.28928269960519376,
+                0,
+                -5.551115123125783e-17
+              ],
+              "normal": [
+                -0.7090743175159001,
+                0,
+                0.7051337548574459
+              ],
+              "incoming": [
+                1,
+                0,
+                0
+              ],
+              "outgoing": [
+                0.9624896838373318,
+                0,
+                -0.2713182789763959
+              ],
+              "n1": 1,
+              "n2": 1.45,
+              "kind": "refract",
+              "face": 97
+            },
+            {
+              "point": [
+                0.16260657850081636,
+                0,
+                -0.12738403671485996
+              ],
+              "normal": [
+                -0.7090743175159001,
+                0,
+                0.7051337548574459
+              ],
+              "incoming": [
+                0.9624896838373318,
+                0,
+                -0.2713182789763959
+              ],
+              "outgoing": [
+                1,
+                0,
+                -2.7755575615628904e-16
+              ],
+              "n1": 1.45,
+              "n2": 1,
+              "kind": "refract",
+              "face": 48
+            }
+          ],
+          "triangles": 1016,
+          "active": true,
+          "intensity": 1,
+          "segments": 3,
+          "vertices": 18,
+          "layer": 4,
+          "depthTest": false,
+          "disposed": false,
+          "solves": 77,
+          "cpuMs": {
+            "last": 0.10000000894069672,
+            "mean": 0.09740259720907583,
+            "max": 1.9000000059604645
+          },
+          "geometry": "a031cfda-5c49-4b5f-a739-ceb597ad4da8",
+          "material": "57db9abe-0ef9-4cca-8eb3-0e68dce8ed24"
+        },
+        "resources": {
+          "geometries": 13,
+          "textures": 11,
+          "programs": 10
+        },
+        "GLerror": 0
+      }
+    }
+  },
+  "checks": [
+    {
+      "name": "desktop-final 0 final 6 passes and correct two scales",
+      "pass": true,
+      "evidence": {
+        "glow": {
+          "mechanism": "narrow-3d-edges-multiscale-gaussian",
+          "intensity": 1,
+          "active": true,
+          "draws": 11,
+          "passes": 6,
+          "size": [
+            120,
+            75
+          ],
+          "nearSize": [
+            360,
+            225
+          ],
+          "coverageSize": [
+            1440,
+            900
+          ],
+          "coverageSamples": 4,
+          "targets": [
+            "a554a2f6-deab-4aac-85f1-bc0ac26d638e",
+            "e66ced27-86fa-4eec-8000-ea49e9c60ab1",
+            "e558c707-299e-47b3-a15a-13152d192197",
+            "17865931-2349-4aa5-bea0-09608dc79168",
+            "783fe0f0-9277-48c2-80fd-718e2b59b0df"
+          ],
+          "disposed": false,
+          "error": null
+        },
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "name": "desktop-final 0 actual source occupies edges, not face",
+      "pass": true,
+      "evidence": {
+        "width": 1440,
+        "height": 900,
+        "max": 179,
+        "lit": 10414,
+        "covered": 58066,
+        "GLerror": 0
+      }
+    },
+    {
+      "name": "desktop-final 60 final 6 passes and correct two scales",
+      "pass": true,
+      "evidence": {
+        "glow": {
+          "mechanism": "narrow-3d-edges-multiscale-gaussian",
+          "intensity": 1,
+          "active": true,
+          "draws": 17,
+          "passes": 6,
+          "size": [
+            120,
+            75
+          ],
+          "nearSize": [
+            360,
+            225
+          ],
+          "coverageSize": [
+            1440,
+            900
+          ],
+          "coverageSamples": 4,
+          "targets": [
+            "a554a2f6-deab-4aac-85f1-bc0ac26d638e",
+            "e66ced27-86fa-4eec-8000-ea49e9c60ab1",
+            "e558c707-299e-47b3-a15a-13152d192197",
+            "17865931-2349-4aa5-bea0-09608dc79168",
+            "783fe0f0-9277-48c2-80fd-718e2b59b0df"
+          ],
+          "disposed": false,
+          "error": null
+        },
+        "quaternion": [
+          0,
+          0.49999999999999994,
+          0,
+          0.8660254037844387
+        ]
+      }
+    },
+    {
+      "name": "desktop-final 85 final 6 passes and correct two scales",
+      "pass": true,
+      "evidence": {
+        "glow": {
+          "mechanism": "narrow-3d-edges-multiscale-gaussian",
+          "intensity": 1,
+          "active": true,
+          "draws": 19,
+          "passes": 6,
+          "size": [
+            120,
+            75
+          ],
+          "nearSize": [
+            360,
+            225
+          ],
+          "coverageSize": [
+            1440,
+            900
+          ],
+          "coverageSamples": 4,
+          "targets": [
+            "a554a2f6-deab-4aac-85f1-bc0ac26d638e",
+            "e66ced27-86fa-4eec-8000-ea49e9c60ab1",
+            "e558c707-299e-47b3-a15a-13152d192197",
+            "17865931-2349-4aa5-bea0-09608dc79168",
+            "783fe0f0-9277-48c2-80fd-718e2b59b0df"
+          ],
+          "disposed": false,
+          "error": null
+        },
+        "quaternion": [
+          0,
+          0.6755902076156602,
+          0,
+          0.737277336810124
+        ]
+      }
+    },
+    {
+      "name": "desktop-final 85 actual source occupies edges, not face",
+      "pass": true,
+      "evidence": {
+        "width": 1440,
+        "height": 900,
+        "max": 178,
+        "lit": 8356,
+        "covered": 32239,
+        "GLerror": 0
+      }
+    },
+    {
+      "name": "mobile-final 0 final 6 passes and correct two scales",
+      "pass": true,
+      "evidence": {
+        "glow": {
+          "mechanism": "narrow-3d-edges-multiscale-gaussian",
+          "intensity": 1,
+          "active": true,
+          "draws": 22,
+          "passes": 6,
+          "size": [
+            130,
+            281
+          ],
+          "nearSize": [
+            390,
+            844
+          ],
+          "coverageSize": [
+            390,
+            844
+          ],
+          "coverageSamples": 4,
+          "targets": [
+            "0d07e010-8027-4a94-9f08-b51cddee0dcf",
+            "a7248242-0f96-4c13-8052-be754de18b6a",
+            "7cc8b46b-6810-4b6a-b51c-14c00b637aa1",
+            "44a0689c-6e37-49bf-add5-528168a46109",
+            "b9d46b86-b485-4ec1-a662-26d636ab070b"
+          ],
+          "disposed": false,
+          "error": null
+        },
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "name": "mobile-final 0 actual source occupies edges, not face",
+      "pass": true,
+      "evidence": {
+        "width": 390,
+        "height": 844,
+        "max": 179,
+        "lit": 2820,
+        "covered": 15685,
+        "GLerror": 0
+      }
+    },
+    {
+      "name": "mobile-final 60 final 6 passes and correct two scales",
+      "pass": true,
+      "evidence": {
+        "glow": {
+          "mechanism": "narrow-3d-edges-multiscale-gaussian",
+          "intensity": 1,
+          "active": true,
+          "draws": 26,
+          "passes": 6,
+          "size": [
+            130,
+            281
+          ],
+          "nearSize": [
+            390,
+            844
+          ],
+          "coverageSize": [
+            390,
+            844
+          ],
+          "coverageSamples": 4,
+          "targets": [
+            "0d07e010-8027-4a94-9f08-b51cddee0dcf",
+            "a7248242-0f96-4c13-8052-be754de18b6a",
+            "7cc8b46b-6810-4b6a-b51c-14c00b637aa1",
+            "44a0689c-6e37-49bf-add5-528168a46109",
+            "b9d46b86-b485-4ec1-a662-26d636ab070b"
+          ],
+          "disposed": false,
+          "error": null
+        },
+        "quaternion": [
+          0,
+          0.49999999999999994,
+          0,
+          0.8660254037844387
+        ]
+      }
+    },
+    {
+      "name": "mobile-final 85 final 6 passes and correct two scales",
+      "pass": true,
+      "evidence": {
+        "glow": {
+          "mechanism": "narrow-3d-edges-multiscale-gaussian",
+          "intensity": 1,
+          "active": true,
+          "draws": 29,
+          "passes": 6,
+          "size": [
+            130,
+            281
+          ],
+          "nearSize": [
+            390,
+            844
+          ],
+          "coverageSize": [
+            390,
+            844
+          ],
+          "coverageSamples": 4,
+          "targets": [
+            "0d07e010-8027-4a94-9f08-b51cddee0dcf",
+            "a7248242-0f96-4c13-8052-be754de18b6a",
+            "7cc8b46b-6810-4b6a-b51c-14c00b637aa1",
+            "44a0689c-6e37-49bf-add5-528168a46109",
+            "b9d46b86-b485-4ec1-a662-26d636ab070b"
+          ],
+          "disposed": false,
+          "error": null
+        },
+        "quaternion": [
+          0,
+          0.6755902076156602,
+          0,
+          0.737277336810124
+        ]
+      }
+    },
+    {
+      "name": "mobile-final 85 actual source occupies edges, not face",
+      "pass": true,
+      "evidence": {
+        "width": 390,
+        "height": 844,
+        "max": 179,
+        "lit": 2338,
+        "covered": 8729,
+        "GLerror": 0
+      }
+    },
+    {
+      "name": "mobile final native side has valid light/path",
+      "pass": true,
+      "evidence": {
+        "mechanism": "narrow-3d-edges-multiscale-gaussian",
+        "intensity": 1,
+        "active": true,
+        "draws": 136,
+        "passes": 6,
+        "size": [
+          130,
+          281
+        ],
+        "nearSize": [
+          390,
+          844
+        ],
+        "coverageSize": [
+          390,
+          844
+        ],
+        "coverageSamples": 4,
+        "targets": [
+          "d1dccde3-85ec-4d2d-b0b3-eee2dacb21e8",
+          "fda1d7f8-836a-4f9e-9c9b-8aa42e5ab4c9",
+          "26c5df66-e4ce-4a0e-a315-90f8a9c7a378",
+          "21129dcc-c94d-471b-b1c8-b4749c260682",
+          "a1817cdd-39bb-4348-b0bf-49fce7bd8510"
+        ],
+        "disposed": false,
+        "error": null
+      }
+    },
+    {
+      "name": "mobile final larger targets stay stable",
+      "pass": true,
+      "evidence": [
+        {
+          "geometries": 13,
+          "textures": 11,
+          "programs": 10,
+          "drawCalls": 0,
+          "triangles": 0
+        },
+        {
+          "geometries": 13,
+          "textures": 11,
+          "programs": 10,
+          "drawCalls": 0,
+          "triangles": 0
+        },
+        {
+          "geometries": 13,
+          "textures": 11,
+          "programs": 10,
+          "drawCalls": 0,
+          "triangles": 0
+        },
+        {
+          "geometries": 13,
+          "textures": 11,
+          "programs": 10,
+          "drawCalls": 0,
+          "triangles": 0
+        },
+        {
+          "geometries": 13,
+          "textures": 11,
+          "programs": 10,
+          "drawCalls": 0,
+          "triangles": 0
+        },
+        {
+          "geometries": 13,
+          "textures": 11,
+          "programs": 10,
+          "drawCalls": 0,
+          "triangles": 0
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "IAB control failed twice during initialization; design thread reported the same failure and authorized the existing Playwright fallback.",
+    "DPR1 / SwiftShader / emulated mobile are not real-device performance evidence.",
+    "Natural poses at separate actual times; no fixed 60/85 degree claim."
+  ],
+  "browser": "154.0.8037.99",
+  "pass": true
+}

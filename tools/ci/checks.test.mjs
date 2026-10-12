@@ -65,3 +65,12 @@ test('文档校验能够拒绝其他文件中的失效中文章节锚点', async
   writeFileSync(join(root, 'one.md'), '# 入口\n\n[目标](two.md#不存在)\n');
   assert.equal((await checkDocs(root, ['one.md', 'two.md'])).code, 1);
 });
+
+test('本地阅读附件仅在显式预览检查时允许通过', (t) => {
+  const root = fixture(t);
+  writeFileSync(join(root, 'index.html'), '<!doctype html>');
+  mkdirSync(join(root, 'local-materials'));
+  writeFileSync(join(root, 'local-materials/source.pdf'), '%PDF fixture');
+  assert.throws(() => inspectDist(root), /本地预览附件/u);
+  assert.equal(inspectDist(root, { localPreview: true }).files, 2);
+});

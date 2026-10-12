@@ -1,0 +1,126 @@
+{
+  "date": "2026-10-07",
+  "browser": "Edge",
+  "preview": "http://127.0.0.1:4322/personal-homepage/knowledge/",
+  "findings": [
+    {
+      "check": "真实内容类型、URL、刷新、前进后退及文章空状态",
+      "result": "passed",
+      "counts": {
+        "all": 39,
+        "resource": 34,
+        "note": 5,
+        "article": 0
+      }
+    },
+    {
+      "check": "六科目原生目录与列表标注",
+      "result": "passed",
+      "classification": {
+        "大学物理实验": {
+          "resources": 2,
+          "notes": 0
+        },
+        "大学物理Ⅱ": {
+          "resources": 17,
+          "notes": 0
+        },
+        "概率论与数理统计": {
+          "resources": 12,
+          "notes": 0
+        },
+        "高级数据结构与算法分析": {
+          "resources": 1,
+          "notes": 2
+        },
+        "计算机系统": {
+          "resources": 1,
+          "notes": 3
+        },
+        "先秦哲学": {
+          "resources": 1,
+          "notes": 0
+        }
+      }
+    },
+    {
+      "check": "39 个详情及全部同科目/返回链接",
+      "result": "passed",
+      "details": 39,
+      "uniqueInternalTargets": 156,
+      "externalNoteButtons": 3
+    },
+    {
+      "check": "原生搜索覆盖资料与笔记元信息，演示排除",
+      "result": "passed",
+      "results": [
+        {
+          "query": "工程物理学",
+          "count": 18,
+          "urls": [
+            "/personal-homepage/knowledge/resources/physics/engineering-physics-third-edition/",
+            "/personal-homepage/knowledge/resources/physics/physics-chapter-13/",
+            "/personal-homepage/knowledge/resources/physics/physics-chapter-14/"
+          ]
+        },
+        {
+          "query": "概率论",
+          "count": 13,
+          "urls": [
+            "/personal-homepage/knowledge/resources/probability/probability-forliage/",
+            "/personal-homepage/knowledge/resources/probability/probability-lecture-1/",
+            "/personal-homepage/knowledge/resources/probability/probability-lecture-2/"
+          ]
+        },
+        {
+          "query": "NoughtQ",
+          "count": 4,
+          "urls": [
+            "/personal-homepage/knowledge/notes/ads/ads-noughtq-notebook/",
+            "/personal-homepage/knowledge/resources/ads/ads-2024-handout/",
+            "/personal-homepage/knowledge/notes/ads/ads-algorithms-notes/"
+          ]
+        },
+        {
+          "query": "RandomStar",
+          "count": 5,
+          "urls": [
+            "/personal-homepage/knowledge/notes/computer-systems/computer-system-review/",
+            "/personal-homepage/knowledge/notes/computer-systems/computer-system-zhang-each-notebook/",
+            "/personal-homepage/knowledge/notes/computer-systems/computer-organization-lihuamao-chapter5/"
+          ]
+        },
+        {
+          "query": "先秦诸子导读",
+          "count": 2,
+          "urls": [
+            "/personal-homepage/knowledge/resources/pre-qin-philosophy/pre-qin-philosophers-reader/",
+            "/personal-homepage/knowledge/"
+          ]
+        }
+      ],
+      "demoCandidateUrls": [
+        "/personal-homepage/knowledge/notes/ads/ads-algorithms-notes/",
+        "/personal-homepage/knowledge/notes/computer-systems/computer-system-review/"
+      ]
+    },
+    {
+      "check": "390/320 手机类型筛选、原生目录及最长文件名/PDF笔记详情无横向溢出",
+      "result": "passed"
+    },
+    {
+      "check": "关闭脚本仍可浏览39个真实条目",
+      "result": "passed"
+    },
+    {
+      "check": "无 PDF 原件、本机绝对路径、公开演示路由和浏览器错误",
+      "result": "passed"
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "未接入PDF附件与PDF全文搜索",
+    "外部原站访问质量和移动真机尚未验证",
+    "视觉沿用既有实现，设计聊天新样本尚未接入"
+  ]
+}

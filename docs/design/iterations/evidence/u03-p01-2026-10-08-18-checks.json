@@ -1,0 +1,38 @@
+{
+  "browser": "Chrome / SwiftShader",
+  "results": [
+    {
+      "name": "desktop",
+      "status": "ready",
+      "scrollY": 1335,
+      "canvas": 1,
+      "image": {
+        "src": "http://127.0.0.1:4321/personal-homepage/_astro/the-wall-placeholder.DaiTKZr6_ZIlk3C.webp",
+        "complete": true,
+        "width": 1100,
+        "height": 990,
+        "fit": "contain"
+      },
+      "label": "视觉占位 · Pink Floyd — The Wall",
+      "cta": "/personal-homepage/showcase/",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "name": "mobile-static",
+      "scrollY": 1259,
+      "canvas": 0,
+      "image": {
+        "src": "http://127.0.0.1:4321/personal-homepage/_astro/the-wall-placeholder.DaiTKZr6_ZIlk3C.webp",
+        "complete": true,
+        "width": 1100,
+        "height": 990,
+        "fit": "contain"
+      },
+      "label": "视觉占位 · Pink Floyd — The Wall",
+      "cta": "/personal-homepage/showcase/",
+      "overflow": false,
+      "errors": []
+    }
+  ]
+}

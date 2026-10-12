@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-11",
+  "method": "Chrome actual rendering, native mouse/wheel/buttons; test-only read probes in served bundle, no quaternion or clock override.",
+  "cases": {
+    "desktop": {
+      "errors": [],
+      "failed": [
+        {
+          "url": "http://127.0.0.1:4337/personal-homepage/",
+          "error": "net::ERR_CONNECTION_REFUSED"
+        }
+      ],
+      "images": []
+    }
+  },
+  "checks": [],
+  "limitations": [
+    "IAB control failed twice during initialization; design thread reported the same failure and authorized the existing Playwright fallback.",
+    "DPR1 / SwiftShader / emulated mobile are not real-device performance evidence.",
+    "Natural poses at separate actual times; no fixed 60/85 degree claim."
+  ],
+  "browser": "154.0.8037.99",
+  "fatal": "page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4337/personal-homepage/\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4337/personal-homepage/\", waiting until \"domcontentloaded\"\u001b[22m\n\n    at open (C:\\Users\\asus\\Desktop\\个人主页\\.ci-tmp\\p01-43-production.cjs:13:13)\n    at async C:\\Users\\asus\\Desktop\\个人主页\\.ci-tmp\\p01-43-production.cjs:15:81",
+  "pass": false
+}

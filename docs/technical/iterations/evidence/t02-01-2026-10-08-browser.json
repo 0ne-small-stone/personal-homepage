@@ -1,0 +1,120 @@
+{
+  "browser": "Microsoft Edge",
+  "scope": "local production only; no deployment or new content",
+  "records": [
+    {
+      "check": "every-generated-HTML-shares-six-canonical-links-and-correct-current-state",
+      "result": "passed",
+      "htmlFiles": 51,
+      "currentPages": 6,
+      "currentLocations": 43
+    },
+    {
+      "check": "article-directory-opens-every-section-and-marks-destination-page",
+      "result": "passed",
+      "destinations": [
+        "knowledge/",
+        "showcase/",
+        "links/",
+        "music/",
+        "about/",
+        "guestbook/"
+      ]
+    },
+    {
+      "check": "main-layout-and-all-pending-pages-can-return-to-learning",
+      "result": "passed"
+    },
+    {
+      "check": "keyboard-toggle-Escape-close-button-outside-click-and-focus-exit",
+      "result": "passed"
+    },
+    {
+      "check": "browser-history-refresh-and-reopened-controls-no-stale-state",
+      "result": "passed"
+    },
+    {
+      "check": "three-native-sidebar-links-have-one-base-and-open-correctly",
+      "result": "passed"
+    },
+    {
+      "check": "native-search-and-body-TOC-work-independently-of-site-directory",
+      "result": "passed"
+    },
+    {
+      "check": "actual-six-page-PDF-remains-readable-with-directory",
+      "result": "passed"
+    },
+    {
+      "check": "direct-missing-route-404-has-working-site-directory",
+      "result": "passed"
+    },
+    {
+      "check": "reading-theme-contrast-font-touch-target-and-focus",
+      "result": "passed",
+      "theme": "light",
+      "height": 44.796875,
+      "color": "rgb(98, 100, 93)",
+      "bg": "rgb(242, 239, 232)",
+      "font": "\"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", \"Noto Sans SC\", system-ui, sans-serif, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"Noto Sans\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "contrast": 5.224543600441665
+    },
+    {
+      "check": "reading-theme-contrast-font-touch-target-and-focus",
+      "result": "passed",
+      "theme": "dark",
+      "height": 44.796875,
+      "color": "rgb(183, 189, 191)",
+      "bg": "rgb(11, 13, 15)",
+      "font": "\"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", \"Noto Sans SC\", system-ui, sans-serif, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"Noto Sans\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "contrast": 10.239031465892612
+    },
+    {
+      "check": "desktop-tablet-and-320-390-mobile-menu-stays-in-viewport",
+      "result": "passed"
+    },
+    {
+      "check": "mobile-learning-sidebar-and-site-directory-do-not-conflict",
+      "result": "passed"
+    },
+    {
+      "check": "without-JavaScript-native-disclosure-and-links-remain-usable",
+      "result": "passed"
+    },
+    {
+      "check": "reduced-motion-same-opening-and-closing",
+      "result": "passed"
+    },
+    {
+      "check": "browser-page-errors",
+      "result": "passed",
+      "errors": []
+    }
+  ],
+  "releaseCheck": {
+    "valid": {
+      "websiteHtml": 51,
+      "destinations": 6,
+      "currentPages": 6,
+      "currentLocations": 43,
+      "result": "passed"
+    },
+    "invalid": {
+      "source": "knowledge/blog/article-reading-check/index.html",
+      "target": "/personal-homepage/personal-homepage/knowledge/",
+      "status": 1,
+      "sourceIdentified": true,
+      "canonicalDistUnchanged": true
+    }
+  },
+  "comparison": {
+    "viewport": "1440x900",
+    "before": "T09.01 frozen fixture port 4362",
+    "after": "canonical production port 4322",
+    "scope": "header only; existing functional article; added test note in old snapshot not compared",
+    "mainKeyboardFocus": {
+      "outline": "solid",
+      "height": 44.796875
+    }
+  }
+}

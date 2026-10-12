@@ -1,0 +1,353 @@
+{
+  "task": "T13.12",
+  "date": "2026-10-10",
+  "mapping": {
+    "pages": [
+      "P17",
+      "P03",
+      "P05"
+    ],
+    "requirements": [
+      "R13",
+      "R02"
+    ],
+    "design": [
+      "U13",
+      "U09"
+    ]
+  },
+  "baseline": "bc89bf1549b13285c65c140e751b13ef2ab4492f",
+  "branch": "codex/t13-12-resource-editor",
+  "pr": "https://github.com/0ne-small-stone/personal-homepage/pull/31",
+  "implementation": "eca4befe46f09aea7818ea8ff75beab2b8c79001",
+  "actualSave": {
+    "head": "8118d116a887c675a3b28488caaa3efcf9da61bf",
+    "blob": "32d33edd51a50e53e43da3a8b59ff51eda0434ce",
+    "baselineBlob": "0cbef9f15494981798da0f672cdcbce3c710f710",
+    "baselineRestored": false,
+    "fields": {
+      "title": "PDF 阅读验证说明（网页编辑验证）",
+      "description": "公开功能样本，用于验证资料标题、摘要和主题的网页保存；PDF 仍为原四页附件。",
+      "entryId": "resource-lssh-pdf-reading-check",
+      "kind": "resource",
+      "topics": [
+        "网页编辑验证"
+      ],
+      "example": true,
+      "draft": false,
+      "related": [
+        "demo-article-reading-check"
+      ],
+      "tableOfContents": false,
+      "source": {
+        "id": "source-lssh-pdf-reading-check",
+        "format": "pdf",
+        "author": "Little Stone Still Here project",
+        "file": "materials/lssh-pdf-reading-check.pdf",
+        "bytes": 65959,
+        "pages": 4,
+        "sha256": "9e2aac37f32cc56aff3a15434a525659c95096d4481c8739c7ee9471fca953be"
+      }
+    },
+    "otherFieldsPreserved": true,
+    "bodyPreserved": false,
+    "otherContentCount": 47,
+    "otherContentUnchanged": true,
+    "pdfCount": 1,
+    "pdfsUnchanged": true,
+    "saveSha": "8118d116a887c675a3b28488caaa3efcf9da61bf",
+    "saveFiles": [
+      {
+        "name": "src/content/docs/knowledge/resources/reading-guide.md",
+        "patch": "@@ -1,12 +1,14 @@\n ---\n-title: PDF 阅读验证说明（功能样本）\n-description: 本站生成的四页公开功能样本，用于验证 PDF 阅读、缩放、返回与下载。\n+title: PDF 阅读验证说明（网页编辑验证）\n+description: 公开功能样本，用于验证资料标题、摘要和主题的网页保存；PDF 仍为原四页附件。\n entryId: resource-lssh-pdf-reading-check\n kind: resource\n-topics: [阅读与整理]\n+topics:\n+  - 网页编辑验证\n example: true\n draft: false\n-related: [demo-article-reading-check]\n+related:\n+  - demo-article-reading-check\n tableOfContents: false\n source:\n   id: source-lssh-pdf-reading-check\n@@ -17,7 +19,6 @@ source:\n   pages: 4\n   sha256: 9e2aac37f32cc56aff3a15434a525659c95096d4481c8739c7ee9471fca953be\n ---\n-\n ## 内容说明\n \n 这是本站生成的**功能样本**，用于验证公开附件的直接阅读、翻页、缩放、刷新恢复与下载。它不是课程讲义或个人学习成果。"
+      }
+    ],
+    "bodyTextPreserved": true
+  },
+  "actualUiRestore": {
+    "head": "8263d75ed3d52f8e657f12d31da9e9613e206c08",
+    "blob": "bb1ef9862c66922bebdfa85474fd4676ec10d915",
+    "baselineBlob": "0cbef9f15494981798da0f672cdcbce3c710f710",
+    "baselineRestored": false,
+    "fields": {
+      "title": "PDF 阅读验证说明（功能样本）",
+      "description": "本站生成的四页公开功能样本，用于验证 PDF 阅读、缩放、返回与下载。",
+      "entryId": "resource-lssh-pdf-reading-check",
+      "kind": "resource",
+      "topics": [
+        "阅读与整理"
+      ],
+      "example": true,
+      "draft": false,
+      "related": [
+        "demo-article-reading-check"
+      ],
+      "tableOfContents": false,
+      "source": {
+        "id": "source-lssh-pdf-reading-check",
+        "format": "pdf",
+        "author": "Little Stone Still Here project",
+        "file": "materials/lssh-pdf-reading-check.pdf",
+        "bytes": 65959,
+        "pages": 4,
+        "sha256": "9e2aac37f32cc56aff3a15434a525659c95096d4481c8739c7ee9471fca953be"
+      }
+    },
+    "otherFieldsPreserved": true,
+    "bodyPreserved": false,
+    "bodyTextPreserved": true,
+    "otherContentCount": 47,
+    "otherContentUnchanged": true,
+    "pdfCount": 1,
+    "pdfsUnchanged": true,
+    "saveSha": "8263d75ed3d52f8e657f12d31da9e9613e206c08",
+    "saveFiles": [
+      {
+        "name": "src/content/docs/knowledge/resources/reading-guide.md",
+        "patch": "@@ -1,10 +1,10 @@\n ---\n-title: PDF 阅读验证说明（网页编辑验证）\n-description: 公开功能样本，用于验证资料标题、摘要和主题的网页保存；PDF 仍为原四页附件。\n+title: PDF 阅读验证说明（功能样本）\n+description: 本站生成的四页公开功能样本，用于验证 PDF 阅读、缩放、返回与下载。\n entryId: resource-lssh-pdf-reading-check\n kind: resource\n topics:\n-  - 网页编辑验证\n+  - 阅读与整理\n example: true\n draft: false\n related:"
+      }
+    ]
+  },
+  "exactRestoreAndNavigation": {
+    "head": "73508ed1e00439cb8699880b7c6ed3448683e9ac",
+    "blob": "0cbef9f15494981798da0f672cdcbce3c710f710",
+    "baselineBlob": "0cbef9f15494981798da0f672cdcbce3c710f710",
+    "baselineRestored": true,
+    "fields": {
+      "title": "PDF 阅读验证说明（功能样本）",
+      "description": "本站生成的四页公开功能样本，用于验证 PDF 阅读、缩放、返回与下载。",
+      "entryId": "resource-lssh-pdf-reading-check",
+      "kind": "resource",
+      "topics": [
+        "阅读与整理"
+      ],
+      "example": true,
+      "draft": false,
+      "related": [
+        "demo-article-reading-check"
+      ],
+      "tableOfContents": false,
+      "source": {
+        "id": "source-lssh-pdf-reading-check",
+        "format": "pdf",
+        "author": "Little Stone Still Here project",
+        "file": "materials/lssh-pdf-reading-check.pdf",
+        "bytes": 65959,
+        "pages": 4,
+        "sha256": "9e2aac37f32cc56aff3a15434a525659c95096d4481c8739c7ee9471fca953be"
+      }
+    },
+    "otherFieldsPreserved": true,
+    "bodyPreserved": true,
+    "bodyTextPreserved": true,
+    "otherContentCount": 47,
+    "otherContentUnchanged": true,
+    "pdfCount": 1,
+    "pdfsUnchanged": true,
+    "saveSha": "73508ed1e00439cb8699880b7c6ed3448683e9ac",
+    "saveFiles": [
+      {
+        "name": ".pages.yml",
+        "patch": "@@ -150,7 +150,7 @@ content:\n           - value: \"resource-engineering-physics-third-edition\"\n             label: \"资料 · 工程物理学（第三版） · 大学物理Ⅱ\"\n           - value: \"resource-lssh-pdf-reading-check\"\n-            label: \"资料 · PDF 阅读验证说明（网页编辑验证） · 网页编辑验证\"\n+            label: \"资料 · PDF 阅读验证说明（功能样本） · 阅读与整理\"\n           - value: \"resource-physics-chapter-10\"\n             label: \"资料 · 大学物理Ⅱ · 第 10 章 · 大学物理Ⅱ\"\n           - value: \"resource-physics-chapter-11\""
+      },
+      {
+        "name": "astro.config.mjs",
+        "patch": "@@ -34,7 +34,7 @@ export default defineConfig({\n       sidebar: [\n         { label: '学习总览', link: '/knowledge/' },\n         { label: '学习资料', items: [\n-          { label: 'PDF 阅读验证说明（功能样本）', link: '/knowledge/resources/reading-guide/' },\n+          { slug: 'knowledge/resources/reading-guide' },\n           { label: '大学物理Ⅱ', collapsed: true, items: [{ autogenerate: { directory: 'knowledge/resources/physics' } }] },\n           { label: '大学物理实验', collapsed: true, items: [{ autogenerate: { directory: 'knowledge/resources/physics-lab' } }] },\n           { label: '概率论与数理统计', collapsed: true, items: [{ autogenerate: { directory: 'knowledge/resources/probability' } }] },"
+      },
+      {
+        "name": "docs/design/SPEC.md",
+        "patch": "@@ -231,7 +231,7 @@ PDF 页码/缩放复用阅读器实际持久历史，刷新或离开再回来恢\n \n ### P17–P18 管理页面与未来 AI\n \n-2026-10-10 T13.12：P17 左侧增加“学习资料（说明编辑）”，按既有科目目录进入资料，原生表单依次显示标题、摘要和主题；顶部 Save 使用现成保存状态。标题提示保存成功再离开和构建发布边界，主题说明用于学习总览分类、标题/主题变更需开发者同步关联候选。本片只编辑已有资料说明，正文及附件处理另验；不提供新建、改名、删除或上传入口。新增视觉资源0。\n+2026-10-10 T13.12：P17 左侧增加“学习资料（说明编辑）”，按既有科目目录进入资料，原生表单依次显示标题、摘要和主题；顶部 Save 使用现成保存状态。标题提示保存成功再离开和构建发布边界，主题说明用于学习总览分类、标题/主题变更需开发者同步关联候选。PDF 功能样本的侧栏名称也读取条目标题，保持改名后与详情/总览一致；科目目录仍沿用既有结构。本片只编辑已有资料说明，正文及附件处理另验；不提供新建、改名、删除或上传入口。新增视觉资源0。\n \n 2026-10-10 T13.11：文章表单和固定验证稿增加“关联内容”，复用原生 select 搜索/多选/移除，以“类型 · 真实标题 · 主题”显示已发布候选，保存既有稳定标识。说明不要选择当前文章、Save 后构建生效，以及新内容由开发者同步候选的边界。键盘说明提供 ↓/↑ 和 Enter 选择、Esc 关闭，以及搜索框为空时 ← 聚焦已选项、Backspace 移除。原生 reference 因不递归未采用，不开放资料/笔记编辑；新增视觉素材 0。\n "
+      },
+      {
+        "name": "docs/technical/REFERENCES.md",
+        "patch": "@@ -2,6 +2,8 @@\n \n ## T13.12 资料说明编辑来源（2026-10-10）\n \n+资料样本侧栏复用 [Starlight sidebar](https://starlight.astro.build/guides/sidebar/) 的原生 slug 配置，从条目标题生成名称；取消该样本固定 label，其他科目仍采用原生 autogenerate。真实构建及浏览器验证标题同步，不复制导航组件。Pages CMS 原生序列化会展开 YAML 列表并去掉正文前一个空行；真实 Save 后正文文字与未开放字段保留，最终原样恢复功能样本，不能声称每次 Save 都字节不变。\n+\n 已读 [Pages CMS content](https://pagescms.org/docs/configuration/content/) 与[fields](https://pagescms.org/docs/configuration/content/fields/)的 collection、subfolders、operations、string/text/list、description 配置。复用原生目录和三个元数据字段，不复制后台代码。固定官方 6f4e860a35d934406580287e7042e5e111e207a1（MIT，本机缓存已读）的 files POST 在 settings.content.merge:true 时先 parse 既有文件，再 mergeWith 合并；传入数组整体替换，未配置 source 和 body 保留。托管版本未知，实际 Save 后的字段、正文与PDF指纹分别核对，源码能力不代替真实证据。\n \n ## T13.11 原生关联选择来源（2026-10-10）"
+      },
+      {
+        "name": "docs/technical/SPEC.md",
+        "patch": "@@ -101,7 +101,7 @@ Starlight 已提供导航、搜索等基础能力；默认搜索由 Pagefind 实\n \n ## 页面组织建议\n \n-2026-10-10 T13.12：原生 resources collection 指向既有 src/content/docs/knowledge/resources，subfolders:true；仅开放标题、摘要和主题字段，禁用 create/rename/delete。settings.content.merge:true 合并既有文件，保留稳定标识、source及正文；不新增集合模型、上传目录或服务。原生目录导航不能当作递归聚合列表；标题/主题改变沿用 cms:sync-related 与候选过期检查。真实 Save 后按元数据、正文和附件指纹分别验收。\n+2026-10-10 T13.12：原生 resources collection 指向既有 src/content/docs/knowledge/resources，subfolders:true；仅开放标题、摘要和主题字段，禁用 create/rename/delete。settings.content.merge:true 合并既有文件，保留稳定标识、source及正文文字；原生 YAML 序列化可能展开列表并删除 frontmatter 后首个空行，不能声称逐字节不变。本机发现 PDF 样本侧栏使用固定 label/link，改为 Starlight 原生 slug 条目自动取标题；其余科目已自动生成。不新增集合模型、上传目录或服务。原生目录导航不能当作递归聚合列表；标题/主题改变沿用 cms:sync-related 与候选过期检查。真实 Save 后按元数据、正文和附件指纹分别验收。\n \n 2026-10-10 T13.11：托管实测与官方源码确认原生 reference 只读取目录当前层，不适配既有多层知识目录。改用原生 select multiple；仅生成 .pages.yml 的候选参数，以稳定 ID 保存，标签显示类型、真实标题与主题。tools/content/cms-related-options.mjs 递归读取同一批 Markdown、排除草稿、检查重复 ID；npm run cms:sync-related 更新参数，npm run check 检查过期并提示同步。内容新增/改名/上下线后需开发者同步候选；不新增内容集合、服务或依赖，正向/反向解析和路由沿用。原生控件不能按当前文章动态排除自指，现有前台继续过滤。\n "
+      },
+      {
+        "name": "src/content/docs/knowledge/resources/reading-guide.md",
+        "patch": "@@ -3,12 +3,10 @@ title: PDF 阅读验证说明（功能样本）\n description: 本站生成的四页公开功能样本，用于验证 PDF 阅读、缩放、返回与下载。\n entryId: resource-lssh-pdf-reading-check\n kind: resource\n-topics:\n-  - 阅读与整理\n+topics: [阅读与整理]\n example: true\n draft: false\n-related:\n-  - demo-article-reading-check\n+related: [demo-article-reading-check]\n tableOfContents: false\n source:\n   id: source-lssh-pdf-reading-check\n@@ -19,6 +17,7 @@ source:\n   pages: 4\n   sha256: 9e2aac37f32cc56aff3a15434a525659c95096d4481c8739c7ee9471fca953be\n ---\n+\n ## 内容说明\n \n 这是本站生成的**功能样本**，用于验证公开附件的直接阅读、翻页、缩放、刷新恢复与下载。它不是课程讲义或个人学习成果。"
+      }
+    ]
+  },
+  "candidate": {
+    "sourceCommit": "28fe07a33c75c302cf1293235fe4ac9473c952be",
+    "navigationFixCommit": "73508ed1e00439cb8699880b7c6ed3448683e9ac",
+    "title": "PDF 阅读验证说明（网页编辑验证）",
+    "description": "公开功能样本，用于验证资料标题、摘要和主题的网页保存；PDF 仍为原四页附件。",
+    "topics": [
+      "网页编辑验证"
+    ],
+    "stableId": "resource-lssh-pdf-reading-check",
+    "source": {
+      "id": "source-lssh-pdf-reading-check",
+      "format": "pdf",
+      "author": "Little Stone Still Here project",
+      "file": "materials/lssh-pdf-reading-check.pdf",
+      "bytes": 65959,
+      "pages": 4,
+      "sha256": "9e2aac37f32cc56aff3a15434a525659c95096d4481c8739c7ee9471fca953be"
+    },
+    "detailAndOverviewMatchActualSave": true,
+    "nativeSidebarTitleMatches": true,
+    "pdfSha256": "9e2aac37f32cc56aff3a15434a525659c95096d4481c8739c7ee9471fca953be",
+    "pdfUnchanged": true,
+    "publishedCount": 41,
+    "pageCount": 52,
+    "isolatedTrackedFilesOnly": true
+  },
+  "ci": {
+    "rawSave": [
+      {
+        "id": 38036014230,
+        "sha": "8118d116a887c675a3b28488caaa3efcf9da61bf",
+        "status": "completed",
+        "conclusion": "failure",
+        "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38036014230",
+        "jobs": [
+          {
+            "name": "Workflow syntax",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Repository checks",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Astro build",
+            "status": "completed",
+            "conclusion": "failure"
+          },
+          {
+            "name": "Deploy to GitHub Pages",
+            "status": "completed",
+            "conclusion": "skipped"
+          }
+        ]
+      }
+    ],
+    "manualCandidateSync": [
+      {
+        "id": 38036132281,
+        "sha": "28fe07a33c75c302cf1293235fe4ac9473c952be",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38036132281",
+        "jobs": [
+          {
+            "name": "Workflow syntax",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Repository checks",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Astro build",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Deploy to GitHub Pages",
+            "status": "completed",
+            "conclusion": "skipped"
+          }
+        ]
+      }
+    ],
+    "navigationAndRestore": [
+      {
+        "id": 38036734875,
+        "sha": "73508ed1e00439cb8699880b7c6ed3448683e9ac",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38036734875",
+        "jobs": [
+          {
+            "name": "Repository checks",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Workflow syntax",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Astro build",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Deploy to GitHub Pages",
+            "status": "completed",
+            "conclusion": "skipped"
+          }
+        ]
+      }
+    ]
+  },
+  "localChecks": {
+    "officialConfigSchema": "passed",
+    "serialization": "passed",
+    "relatedCandidates": 41,
+    "originalContentFiles": 48,
+    "astroCheck": {
+      "files": 27,
+      "errors": 0,
+      "warnings": 0,
+      "hints": 0
+    },
+    "restoredBuild": {
+      "pages": 52,
+      "pagefindHtml": 53
+    },
+    "candidateBuild": {
+      "pages": 52,
+      "pagefindHtml": 53
+    }
+  },
+  "browser": {
+    "rootEntries": 2,
+    "subjectDirectories": 6,
+    "physicsEntries": 18,
+    "chapter9UpperAndLowerCorrect": true,
+    "courseSourceNotEdited": true,
+    "threeFieldsSavedAndReopened": true,
+    "freshReopenSaveDisabled": true,
+    "currentFormImmediateDisabledNotClaimed": true,
+    "overview": {
+      "type": "resource",
+      "topic": "网页编辑验证",
+      "matches": 1,
+      "titleAndSummaryCorrect": true
+    },
+    "detail": {
+      "h1AndSidebarMatch": true,
+      "pdfLoadedPages": 4,
+      "originalBodyAndSourceVisible": true
+    },
+    "restoredThreeOriginalValues": true,
+    "previousUnknownUnsavedInputPreserved": true
+  },
+  "designAssetsAdded": 0,
+  "dependenciesAdded": 0,
+  "limitations": [
+    "Native YAML lists and first body blank normalized on Save; body text retained, final file restored exactly.",
+    "Related candidates require developer cms:sync-related after title/topic changes.",
+    "4384 is frozen saved-content preview, not live CMS sync or production.",
+    "Mobile, screen reader, note editor, auto sync and deployment remain separate."
+  ],
+  "status": {
+    "executorVerification": "passed",
+    "userAcceptance": "pending",
+    "merged": false,
+    "deployed": false
+  }
+}

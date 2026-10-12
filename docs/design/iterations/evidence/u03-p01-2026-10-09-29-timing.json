@@ -1,0 +1,134 @@
+{
+  "reviewDate": "2026-10-09",
+  "scope": "worksRotate Animator timing only; read-only cached-source inspection, no browser run.",
+  "conclusion": "Confirmed: worksRotate nominal duration 1 second accumulates GL deltaTime capped at 1/30 second per frame. It does not use an independent wall-clock timer. Sustained frame rates below 30 fps therefore lengthen the transition in wall-clock time.",
+  "source": {
+    "cachePath": "C:/Users/asus/AppData/Local/Temp/lssh-alche-source-audit/index.astro_astro_type_script_index_0_lang.Cn_goiN_.js",
+    "sha256": "b2bd0d964416bd3db61b1392d2b645314e50ea79cadb09f69755d5f4c3791853",
+    "bytes": 1831372,
+    "offsetConvention": "zero-based UTF-16 code units",
+    "excerpts": [
+      {
+        "role": "GL delta cap",
+        "offsetUtf16": 1118223,
+        "excerpt": "update(){const i=new Date().getTime(),o=Math.min((i-this._prevTime)/1e3,1/30);this._prevTime=i"
+      },
+      {
+        "role": "Pass capped delta to scenes",
+        "offsetUtf16": 1119120,
+        "excerpt": "this._scenes.forEach(v=>{const x={deltaTime:o,time:this._commonUniforms.uTime.value,camera:v.camera,spWeight:this.spWeight};v.update(x)})"
+      },
+      {
+        "role": "Main scene forwards update",
+        "offsetUtf16": 1045967,
+        "excerpt": "update(i){this._mainLogo.update(i),this._alcheLogo2D.update(i)"
+      },
+      {
+        "role": "MainLogo advances its Animator",
+        "offsetUtf16": 1014252,
+        "excerpt": "update(i){if(this._animator.update(i.deltaTime),this._logoMesh===null"
+      },
+      {
+        "role": "Animator normalized time accumulation",
+        "offsetUtf16": 566433,
+        "excerpt": "g==0?p.time=1:p.time+=(i||.016)/g,p.time>=1&&(m=!0,p.time=1)"
+      },
+      {
+        "role": "worksRotate duration",
+        "offsetUtf16": 1016113,
+        "excerpt": "this._animator.animate(\"worksRotate\",this._currentSectionConfig.animationIntensity,1)"
+      }
+    ]
+  },
+  "localCorrespondence": {
+    "path": "src/components/home/glass-rotation.ts",
+    "lines": [
+      {
+        "line": 31,
+        "excerpt": "const dt = Math.min(rawDt, 1 / 30), config = settings(model.motion.phase);"
+      },
+      {
+        "line": 61,
+        "excerpt": "transition.elapsed = Math.min(1, transition.elapsed + dt);"
+      }
+    ],
+    "assessment": "These capped-delta timing operations match the original worksRotate clock model. Do not reject this behavior merely because a software-rendered run takes more than one wall-clock second."
+  },
+  "limits": "No conclusion about other animation channels or full source parity is made. Animator has an i || .016 fallback for a zero/falsy input; the positive-delta low-fps conclusion is unaffected.",
+  "hoverEulerOrder": {
+    "status": "Confirmed source order; this is an earlier design-description error, not merely a capture sampling limitation.",
+    "conclusion": "With a cached pointer event and loaded meshes, each GL frame calls MainLogo.hover before MainLogo.update. Pointer residual is added to temporary Euler first; then MainLogo Animator advances; then the resulting Euler is multiplied by 1-dt. The new residual is therefore damped in the same frame.",
+    "orderedSteps": [
+      "GL.update calls all scene.hover(lastPointerEvent).",
+      "MainLogo.hover reads worksRotate from before this frame’s MainLogo Animator update, then adds x/y pointer residual to temporary Euler.",
+      "GL.update calls scene.update with capped GL deltaTime.",
+      "MainLogo.update advances its Animator with that deltaTime.",
+      "MainLogo.update multiplies the already modified Euler x/y by 1-deltaTime, then rebuilds the mouse quaternion.",
+      "Subsequent base/scroll rotation and return-to-origin use the updated Animator value."
+    ],
+    "excerpts": [
+      {
+        "role": "GL calls scene.hover before scene.update",
+        "offsetUtf16": 1118838,
+        "excerpt": "this._lastPointerEvent&&this._scenes.forEach(v=>{v.hover(this._lastPointerEvent)})"
+      },
+      {
+        "role": "Later in the same GL.update, scene.update gets capped dt",
+        "offsetUtf16": 1119120,
+        "excerpt": "this._scenes.forEach(v=>{const x={deltaTime:o,time:this._commonUniforms.uTime.value,camera:v.camera,spWeight:this.spWeight};v.update(x)})"
+      },
+      {
+        "role": "Scene forwards hover to MainLogo",
+        "offsetUtf16": 1046117,
+        "excerpt": "hover(i){this._mainLogo.hover(i)}"
+      },
+      {
+        "role": "MainLogo.hover reads pre-update worksRotate and adds residual",
+        "offsetUtf16": 1014093,
+        "excerpt": "g=this._animator.get(\"worksRotate\")||0;this._tmpEuler.set(this._tmpEuler.x-u*m*(1-g*.7),this._tmpEuler.y+c*m,0),this._mouseRotQua.setFromEuler(this._tmpEuler)"
+      },
+      {
+        "role": "MainLogo.update advances Animator, then decays Euler and rebuilds mouse quaternion",
+        "offsetUtf16": 1014252,
+        "excerpt": "update(i){if(this._animator.update(i.deltaTime),this._logoMesh===null||this._logoOutlineMeshBase===null||this._logoOutlineMeshLine===null)return;const o=1-i.deltaTime;this._tmpEuler.x*=o,this._tmpEuler.y*=o,this._mouseRotQua.setFromEuler(this._tmpEuler)"
+      }
+    ],
+    "recurrence": {
+      "notation": "rx/ry are the residual velocities read by MainLogo.hover; m is its radius/config weight; w_before is worksRotate before MainLogo.update; dt is capped GL delta.",
+      "x": "EulerX_after = (EulerX_before - ry*m*(1 - 0.7*w_before)) * (1-dt)",
+      "y": "EulerY_after = (EulerY_before + rx*m) * (1-dt)"
+    },
+    "localReviewed": {
+      "path": "src/components/home/glass-rotation.ts",
+      "sha256": "1fe946220a1ae4cca174a325582d4a48a13ac9beb3d04d7ba40b31f2f11c99b9",
+      "lines": [
+        {
+          "line": 61,
+          "text": "      transition.elapsed = Math.min(1, transition.elapsed + dt);"
+        },
+        {
+          "line": 62,
+          "text": "      transition.value = transition.from + (transition.target - transition.from) * sigmoid(transition.elapsed);"
+        },
+        {
+          "line": 63,
+          "text": "      const w = transition.value;"
+        },
+        {
+          "line": 65,
+          "text": "      this.euler.x *= 1 - dt; this.euler.y *= 1 - dt;"
+        },
+        {
+          "line": 66,
+          "text": "      this.euler.x -= residual[1] * weight * (1 - .7 * w);"
+        },
+        {
+          "line": 67,
+          "text": "      this.euler.y += residual[0] * weight; this.euler.z = 0;"
+        }
+      ],
+      "assessment": "The reviewed local implementation advances worksRotate and damps old Euler before adding new residual. Its order differs from the cached original. Correcting only the prose limitation would leave a source-parity deviation."
+    },
+    "scope": "Only ordering in this worksRotate/pointer rotation chain is reviewed. No application or SYSTEM edits, no browser capture. Existing timing evidence remains unchanged."
+  }
+}

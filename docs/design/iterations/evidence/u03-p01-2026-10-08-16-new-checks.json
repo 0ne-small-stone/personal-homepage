@@ -1,0 +1,403 @@
+{
+  "variant": "new",
+  "browser": "154.0.8037.98",
+  "gpu": "SwiftShader software rendering",
+  "clock": "Controlled performance.now, 60 steps of 50ms; native RAF stays active; no pause button",
+  "cases": [
+    {
+      "name": "desktop",
+      "http": 200,
+      "static": {
+        "pose": {
+          "time": 3000,
+          "triangle": {
+            "position": [
+              1.4675279845613278,
+              0.06551464216791641,
+              0
+            ],
+            "quaternion": [
+              0.06593178107655362,
+              -0.17064592010306298,
+              -0.04970520069000405,
+              0.9818667746800577
+            ],
+            "scale": [
+              1.14,
+              1.14,
+              1.14
+            ],
+            "progress": 0,
+            "pointer": {
+              "x": 0,
+              "y": 0,
+              "vx": 0,
+              "vy": 0
+            }
+          },
+          "camera": {
+            "position": [
+              0,
+              0,
+              6
+            ],
+            "quaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "fov": 40,
+            "aspect": 1.6
+          }
+        },
+        "time": 3000,
+        "scrollY": 0,
+        "dpr": 1,
+        "canvas": [
+          1440,
+          900
+        ],
+        "status": "ready",
+        "chapter": "intro",
+        "overflow": false
+      },
+      "errors": [],
+      "warnings": [
+        "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+      ],
+      "failed": [],
+      "modules": [
+        {
+          "sourceHash": "eb4cafca298206b8826498217269b0d7e1124a397ab4439f02dc5bd3d1130955",
+          "probe": {
+            "triangle": 1,
+            "camera": 1
+          }
+        }
+      ],
+      "motion": [
+        {
+          "label": "start",
+          "pose": {
+            "time": 3000,
+            "triangle": {
+              "position": [
+                1.4675279845613278,
+                0.06551464216791641,
+                0
+              ],
+              "quaternion": [
+                0.06593178107655362,
+                -0.17064592010306298,
+                -0.04970520069000405,
+                0.9818667746800577
+              ],
+              "scale": [
+                1.14,
+                1.14,
+                1.14
+              ],
+              "progress": 0,
+              "pointer": {
+                "x": 0,
+                "y": 0,
+                "vx": 0,
+                "vy": 0
+              }
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                6
+              ],
+              "quaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "fov": 40,
+              "aspect": 1.6
+            }
+          },
+          "time": 3000,
+          "scrollY": 0,
+          "dpr": 1,
+          "canvas": [
+            1440,
+            900
+          ],
+          "status": "ready",
+          "chapter": "intro",
+          "overflow": false
+        },
+        {
+          "label": "middle",
+          "pose": {
+            "time": 4000,
+            "triangle": {
+              "position": [
+                1.4675279845613278,
+                0.06551464216791641,
+                0
+              ],
+              "quaternion": [
+                0.06645071244074922,
+                -0.18862714019305704,
+                -0.05065139090986364,
+                0.9784878851562762
+              ],
+              "scale": [
+                1.14,
+                1.14,
+                1.14
+              ],
+              "progress": 0,
+              "pointer": {
+                "x": -0.33999998304578993,
+                "y": 0,
+                "vx": -7.603819186623351e-7,
+                "vy": 0
+              }
+            },
+            "camera": {
+              "position": [
+                -0.018699999067518448,
+                0,
+                6
+              ],
+              "quaternion": [
+                0,
+                -0.0015583275792715031,
+                0,
+                0.9999987858068408
+              ],
+              "fov": 40,
+              "aspect": 1.6
+            }
+          },
+          "time": 4000,
+          "scrollY": 0,
+          "dpr": 1,
+          "canvas": [
+            1440,
+            900
+          ],
+          "status": "ready",
+          "chapter": "intro",
+          "overflow": false
+        },
+        {
+          "label": "end",
+          "pose": {
+            "time": 5000,
+            "triangle": {
+              "position": [
+                1.4675279845613278,
+                0.06551464216791641,
+                0
+              ],
+              "quaternion": [
+                0.06489418941485027,
+                -0.13662140710656218,
+                -0.04787764189341854,
+                0.9873353365028208
+              ],
+              "scale": [
+                1.14,
+                1.14,
+                1.14
+              ],
+              "progress": 0,
+              "pointer": {
+                "x": 0.3399999830457898,
+                "y": 0,
+                "vx": 0.00000456229151197401,
+                "vy": 0
+              }
+            },
+            "camera": {
+              "position": [
+                0.01869999906751844,
+                0,
+                6
+              ],
+              "quaternion": [
+                0,
+                0.0015583275792715027,
+                0,
+                0.9999987858068408
+              ],
+              "fov": 40,
+              "aspect": 1.6
+            }
+          },
+          "time": 5000,
+          "scrollY": 0,
+          "dpr": 1,
+          "canvas": [
+            1440,
+            900
+          ],
+          "status": "ready",
+          "chapter": "intro",
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "http": 200,
+      "static": {
+        "pose": {
+          "time": 3000,
+          "triangle": {
+            "position": [
+              0,
+              0.8298521341269414,
+              0
+            ],
+            "quaternion": [
+              0.06637655700325303,
+              -0.18601348473358134,
+              -0.050514707944586554,
+              0.9790002045244612
+            ],
+            "scale": [
+              0.8435999999999999,
+              0.8435999999999999,
+              0.8435999999999999
+            ],
+            "progress": 0,
+            "pointer": {
+              "x": 0,
+              "y": 0,
+              "vx": 0,
+              "vy": 0
+            }
+          },
+          "camera": {
+            "position": [
+              0,
+              0,
+              6
+            ],
+            "quaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "fov": 40,
+            "aspect": 0.46208530805687204
+          }
+        },
+        "time": 3000,
+        "scrollY": 0,
+        "dpr": 1,
+        "canvas": [
+          390,
+          844
+        ],
+        "status": "ready",
+        "chapter": "intro",
+        "overflow": false
+      },
+      "errors": [],
+      "warnings": [
+        "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+      ],
+      "failed": [],
+      "modules": [
+        {
+          "sourceHash": "eb4cafca298206b8826498217269b0d7e1124a397ab4439f02dc5bd3d1130955",
+          "probe": {
+            "triangle": 1,
+            "camera": 1
+          }
+        }
+      ]
+    },
+    {
+      "name": "project",
+      "http": 200,
+      "static": {
+        "pose": {
+          "time": 3000,
+          "triangle": {
+            "position": [
+              2.0265862643942145,
+              1.0482342746866626,
+              0.25
+            ],
+            "quaternion": [
+              0.04578512500052171,
+              -0.3325572702629126,
+              0.058512641120365146,
+              0.9401519319520043
+            ],
+            "scale": [
+              0.56,
+              0.56,
+              0.56
+            ],
+            "progress": 1.0987654320987654,
+            "pointer": {
+              "x": 0,
+              "y": 0,
+              "vx": 0,
+              "vy": 0
+            }
+          },
+          "camera": {
+            "position": [
+              0.12,
+              0.03,
+              6.2
+            ],
+            "quaternion": [
+              -0.00241876734163331,
+              0.00967603190539437,
+              0.000023405234134606543,
+              0.9999502604746439
+            ],
+            "fov": 40,
+            "aspect": 1.6
+          }
+        },
+        "time": 3000,
+        "scrollY": 1335,
+        "dpr": 1,
+        "canvas": [
+          1440,
+          900
+        ],
+        "status": "ready",
+        "chapter": "projects",
+        "overflow": false
+      },
+      "errors": [],
+      "warnings": [
+        "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+      ],
+      "failed": [],
+      "modules": [
+        {
+          "sourceHash": "eb4cafca298206b8826498217269b0d7e1124a397ab4439f02dc5bd3d1130955",
+          "probe": {
+            "triangle": 1,
+            "camera": 1
+          }
+        }
+      ]
+    }
+  ],
+  "fixedSource": {
+    "geometryAndPoses": "8e6a86fb251524e888273e468fea54fee1fa7eab1da57761bffa2f293c1f3eaf",
+    "shader": "512cfb65aedc5dccc2a1a29132593c5c6ea02fb3d7ba4ba3bd847b7df9faa79c",
+    "camera": "53963b0e6e292fde4da920fc1d0d3b9ae5b17a1b5fbf48d35af171672188cea9",
+    "sceneLighting": "691516ed0d1b87b6af84e63c929a373b73c196a78c17e019cc106c746b0ad581"
+  }
+}

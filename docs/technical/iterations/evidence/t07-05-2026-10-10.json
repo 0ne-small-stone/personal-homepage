@@ -1,0 +1,217 @@
+{
+  "task": "T07.05",
+  "date": "2026-10-10",
+  "baseline": "e23ce2cab40bfdb0b491eb23ad3ca5a8a41a62fd",
+  "implementation": "aa7026c8129e53b8a015f0dbfbfa84b42e8564ed",
+  "pr": "https://github.com/0ne-small-stone/personal-homepage/pull/29",
+  "defaultRestored": true,
+  "cmsConfig": {
+    "upstreamSha": "6f4e860a35d934406580287e7042e5e111e207a1",
+    "officialSchema": "passed",
+    "existingContentFilesUnchanged": 48,
+    "existingArticles": 4,
+    "officialSerialization": "passed",
+    "mediaDepth": "passed"
+  },
+  "offSave": {
+    "head": "f19019189ac2c1a62b7575cb5aa9c2c830b10234",
+    "settings": {
+      "tagBrowsingEnabled": false
+    },
+    "settingsBlob": "e619edf71f5aa964ee772dc2dd8e05e21653fa39",
+    "saveSha": "f19019189ac2c1a62b7575cb5aa9c2c830b10234",
+    "saveMessage": "content(article): 保存文章 src/data/blog-settings.json",
+    "saveAuthor": "0ne-small-stone",
+    "saveFiles": [
+      "src/data/blog-settings.json"
+    ],
+    "contentFileCount": 48,
+    "contentUnchanged": true
+  },
+  "onSave": {
+    "head": "ea485abbc80cb156cb1b72b4b70f4dec25627d14",
+    "settings": {
+      "tagBrowsingEnabled": true
+    },
+    "settingsBlob": "664f6e326b6f0b4b8c7bdadae46c71ee695d0ff2",
+    "saveSha": "ea485abbc80cb156cb1b72b4b70f4dec25627d14",
+    "saveMessage": "config(blog): 更新博客标签浏览设置",
+    "saveAuthor": "0ne-small-stone",
+    "saveFiles": [
+      "src/data/blog-settings.json"
+    ],
+    "contentFileCount": 48,
+    "contentUnchanged": true
+  },
+  "builds": {
+    "onHtml": 53,
+    "offHtml": 51,
+    "restoredHtml": 53,
+    "onTagPages": 2,
+    "offTagPages": 0,
+    "restoredTagPages": 2,
+    "otherRoutesUnchanged": true,
+    "offTagLinksAbsentAcrossAllHtml": true,
+    "publishedEntryCount": 41,
+    "readingPathsUnchanged": true,
+    "draftsExcluded": true,
+    "checks": [
+      {
+        "port": 4380,
+        "url": "knowledge/blog/",
+        "status": 200
+      },
+      {
+        "port": 4380,
+        "url": "knowledge/blog/article-reading-check/",
+        "status": 200
+      },
+      {
+        "port": 4380,
+        "url": "knowledge/blog/tags/阅读与整理/",
+        "status": 200
+      },
+      {
+        "port": 4381,
+        "url": "knowledge/blog/",
+        "status": 200
+      },
+      {
+        "port": 4381,
+        "url": "knowledge/blog/article-reading-check/",
+        "status": 200
+      },
+      {
+        "port": 4381,
+        "url": "knowledge/blog/tags/阅读与整理/",
+        "status": 404
+      }
+    ]
+  },
+  "browser": {
+    "onArticle": {
+      "returnHref": "http://127.0.0.1:4380/personal-homepage/knowledge/blog/tags/%E9%98%85%E8%AF%BB%E4%B8%8E%E6%95%B4%E7%90%86/",
+      "returnText": "← 返回标签结果",
+      "tagLinks": 5,
+      "url": "http://127.0.0.1:4380/personal-homepage/knowledge/blog/article-reading-check/"
+    },
+    "cmsOff": "false",
+    "offStaleArticle": {
+      "heading": "博客阅读验证（功能验证样稿）",
+      "returnHref": "/personal-homepage/knowledge/blog/",
+      "returnText": "← 返回文章列表",
+      "tagLinks": 0,
+      "url": "http://127.0.0.1:4380/personal-homepage/knowledge/blog/article-reading-check/"
+    },
+    "offList": {
+      "previews": 1,
+      "tagLinks": 0,
+      "url": "http://127.0.0.1:4380/personal-homepage/knowledge/blog/"
+    },
+    "offSearchArticle": {
+      "returnText": "← 返回搜索结果",
+      "tagLinks": 0,
+      "url": "http://127.0.0.1:4380/personal-homepage/knowledge/blog/article-reading-check/"
+    },
+    "offSearchReturn": {
+      "dialogOpen": true,
+      "query": "博客阅读验证"
+    },
+    "offOldTag": {
+      "heading": "页面未找到",
+      "tagLinks": 0,
+      "title": "页面未找到 | 个人主页"
+    },
+    "cmsOn": "true",
+    "keyboardOff": "false",
+    "keyboardRestored": "true",
+    "restoredTag": {
+      "heading": "阅读与整理",
+      "previews": 1,
+      "scrollY": 0,
+      "url": "http://127.0.0.1:4380/personal-homepage/knowledge/blog/tags/%E9%98%85%E8%AF%BB%E4%B8%8E%E6%95%B4%E7%90%86/"
+    },
+    "restoredArticle": {
+      "returnHref": "http://127.0.0.1:4380/personal-homepage/knowledge/blog/tags/%E9%98%85%E8%AF%BB%E4%B8%8E%E6%95%B4%E7%90%86/",
+      "returnText": "← 返回标签结果",
+      "tagLinks": 5
+    },
+    "restoredReturn": {
+      "focusClass": "sl-blog-preview-link astro-rqjddirt",
+      "focusText": "博客阅读验证（功能验证样稿）",
+      "scrollY": 0,
+      "url": "http://127.0.0.1:4380/personal-homepage/knowledge/blog/tags/%E9%98%85%E8%AF%BB%E4%B8%8E%E6%95%B4%E7%90%86/"
+    }
+  },
+  "offCI": {
+    "id": 37960699562,
+    "sha": "f19019189ac2c1a62b7575cb5aa9c2c830b10234",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/37960699562",
+    "jobs": [
+      {
+        "name": "Workflow syntax",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Repository checks",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Astro build",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Deploy to GitHub Pages",
+        "status": "completed",
+        "conclusion": "skipped"
+      }
+    ]
+  },
+  "onCI": {
+    "id": 37961067348,
+    "sha": "ea485abbc80cb156cb1b72b4b70f4dec25627d14",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/37961067348",
+    "jobs": [
+      {
+        "name": "Repository checks",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Workflow syntax",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Astro build",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Deploy to GitHub Pages",
+        "status": "completed",
+        "conclusion": "skipped"
+      }
+    ]
+  },
+  "check": {
+    "errors": 0,
+    "warnings": 0,
+    "files": 27,
+    "hints": 0
+  },
+  "designResourcesAdded": 0,
+  "dependenciesAdded": 0,
+  "remaining": [
+    "Mobile CMS and screen reader",
+    "User feedback",
+    "Formal deployment T16"
+  ]
+}

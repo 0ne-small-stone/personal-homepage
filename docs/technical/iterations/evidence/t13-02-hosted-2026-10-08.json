@@ -1,0 +1,90 @@
+{
+  "task": "T13.02",
+  "date": "2026-10-08",
+  "result": "passed",
+  "cms": {
+    "branch": "codex/t13-02-image-upload",
+    "url": "https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Ft13-02-image-upload/file/article-draft",
+    "uploadCommit": "a656ce416360c9ac0d59acaf5f95d5521a9c9adb",
+    "saveCommit": "b217cb82f898b95ea294938e0db6d737e3329f6b",
+    "workflow": "Native media Upload/file chooser, then Source Markdown path/alt/caption, Editor preview, Save, Reload",
+    "imageAfterReload": {
+      "width": 960,
+      "height": 540,
+      "complete": true
+    },
+    "draftAfterReload": true,
+    "titlePreserved": true,
+    "originalFieldsPreserved": true,
+    "screenshots": "CMS account screenshot retained locally; only site sample screenshots committed"
+  },
+  "integration": {
+    "branch": "codex/t13-02-hosted-upload",
+    "baseline": "5955d989b988ef45069548ab2382a090aa4ef22f",
+    "uploadCherryPick": "771ecf2",
+    "saveCherryPick": "167ad86",
+    "bodyMatchesCmsCommit": true,
+    "imagePath": "src/assets/article-images/muzkwysr-37s36uzh.png",
+    "imageHash": "fcc5c058bfd3e99ad16b2862647974956ed51ca7a7af9d0b354e8ad7bde9b1fd",
+    "imageBytes": 17954,
+    "check": {
+      "files": 26,
+      "errors": 0,
+      "warnings": 0,
+      "hints": 0
+    },
+    "build": {
+      "pages": 52,
+      "htmlFiles": 53
+    },
+    "production": {
+      "draftStatus": 404,
+      "draftRouteAbsent": true,
+      "htmlMarkersAbsent": true,
+      "publishedCount": 41,
+      "emittedImageFiles": [
+        "dist/_astro/muzkwysr-37s36uzh.Ep8RT_IY.png"
+      ],
+      "draftDoesNotHideImageBinary": true
+    }
+  },
+  "browser": {
+    "tool": "CUA in existing Codex in-app browser",
+    "localImage": {
+      "width": 960,
+      "height": 540,
+      "attributeWidth": 960,
+      "attributeHeight": 540,
+      "complete": true
+    },
+    "mobile": {
+      "viewportWidth": 390,
+      "viewportHeight": 844,
+      "documentWidth": 375,
+      "imageWidth": 343,
+      "imageHeight": 192.9375,
+      "noHorizontalOverflow": true,
+      "captionPresent": true
+    },
+    "viewportRestored": true,
+    "screenshots": [
+      "../../../design/iterations/evidence/u13-p17-t13-02-hosted-2026-10-08-desktop.png",
+      "../../../design/iterations/evidence/u13-p17-t13-02-hosted-2026-10-08-mobile.png"
+    ],
+    "productionSearch": {
+      "query": "网页编辑草稿验证",
+      "resultUrls": [
+        "/personal-homepage/knowledge/blog/article-reading-check/",
+        "/personal-homepage/knowledge/blog/article-reading-check/#_top",
+        "/personal-homepage/knowledge/blog/article-reading-check/#%E6%8A%8A%E9%98%85%E8%AF%BB%E8%BF%87%E7%A8%8B%E5%86%99%E6%B8%85%E6%A5%9A",
+        "/personal-homepage/knowledge/blog/article-reading-check/#%E5%9B%9E%E5%88%B0%E5%88%9A%E6%89%8D%E7%9A%84%E4%BD%8D%E7%BD%AE"
+      ],
+      "draftMatched": false,
+      "localPageErrors": []
+    }
+  },
+  "remaining": [
+    "Native image alt modal and upload cancel/error states not tested this round",
+    "Real publication and deployment remain separate"
+  ]
+}

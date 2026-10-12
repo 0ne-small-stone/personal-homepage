@@ -1,0 +1,98 @@
+{
+  "date": "2026-10-10T01:37:36.682Z",
+  "browser": "154.0.8037.99",
+  "cases": [
+    {
+      "mobile": false,
+      "errors": [],
+      "failed": [],
+      "bundle": {
+        "file": "HomeJourney.BLcIGo_i.js",
+        "bytes": 1166494,
+        "sha256": "2af11879066744014f5b2486d9ef5ae8c9dd6f25fec22623d5954b094fb5f9e3"
+      },
+      "state": {
+        "h1": [
+          "Little Stone Still Here"
+        ],
+        "introParagraphs": 0,
+        "phrase": false,
+        "mark": {
+          "alt": "Little Stone Still Here",
+          "loaded": true,
+          "bounds": [
+            13.59375,
+            287.203125,
+            446.390625,
+            297.59375
+          ]
+        },
+        "hint": {
+          "text": "向下探索",
+          "href": "#projects",
+          "bounds": [
+            50.390625,
+            584.796875,
+            83.1875,
+            44
+          ]
+        },
+        "metadata": "小石的学习、作品、影像与音乐。",
+        "workDescriptions": 4,
+        "canvas": 1,
+        "overflow": false,
+        "y": 0
+      },
+      "image": "desktop.png",
+      "pass": true
+    },
+    {
+      "mobile": true,
+      "errors": [],
+      "failed": [],
+      "bundle": {
+        "file": "HomeJourney.BLcIGo_i.js",
+        "bytes": 1166494,
+        "sha256": "2af11879066744014f5b2486d9ef5ae8c9dd6f25fec22623d5954b094fb5f9e3"
+      },
+      "state": {
+        "h1": [
+          "Little Stone Still Here"
+        ],
+        "introParagraphs": 0,
+        "phrase": false,
+        "mark": {
+          "alt": "Little Stone Still Here",
+          "loaded": true,
+          "bounds": [
+            -17.59375,
+            504,
+            312,
+            208
+          ]
+        },
+        "hint": {
+          "text": "向下探索",
+          "href": "#projects",
+          "bounds": [
+            16,
+            696,
+            83.1875,
+            44
+          ]
+        },
+        "metadata": "小石的学习、作品、影像与音乐。",
+        "workDescriptions": 4,
+        "canvas": 1,
+        "overflow": false,
+        "y": 0
+      },
+      "image": "mobile.png",
+      "pass": true
+    }
+  ],
+  "limitations": [
+    "Composition uses actual natural pose/time. SwiftShader and simulated390px are not hardware-performance evidence. Static HTML verifies the same deleted paragraph in no-JS/failed-GL fallback; no separate legacy motion suite was run."
+  ],
+  "pass": true
+}

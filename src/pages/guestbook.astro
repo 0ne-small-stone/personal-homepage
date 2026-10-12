@@ -1,0 +1,6 @@
+---
+import HomeLayout from '../layouts/HomeLayout.astro';
+import Guestbook from '../components/home/Guestbook.astro';
+import {sitePath} from '../lib/paths';
+---
+<HomeLayout title="The Wall"><section class="home-destination"><a class="home-back" href={`${sitePath()}#wall`}>返回留言墙</a><h1>The Wall</h1><p class="home-description">走到这里，也留下你的回声。</p><Guestbook /></section></HomeLayout>
