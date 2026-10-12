@@ -1,0 +1,411 @@
+{
+  "recordedAt": "2026-10-12",
+  "implementationAndPrimaryBrowserChecks": "2026-10-10",
+  "baseline": "710b05424ba5c9f870fed3e34568544eba9c5ebb",
+  "branch": "codex/learning-wrapup",
+  "snapshots": {
+    "result": "passed",
+    "snapshots": [
+      {
+        "folder": "learning-clean-c",
+        "published": 42,
+        "counts": {
+          "resource": 35,
+          "article": 1,
+          "note": 6
+        },
+        "allPublishedFilterMetadata": true,
+        "draftsExcluded": true,
+        "backlinksFollowDraft": true,
+        "tagsEnabled": true,
+        "localPdfsExcluded": true
+      },
+      {
+        "folder": "learning-clean-final",
+        "published": 41,
+        "counts": {
+          "resource": 35,
+          "article": 1,
+          "note": 5
+        },
+        "allPublishedFilterMetadata": true,
+        "draftsExcluded": true,
+        "backlinksFollowDraft": true,
+        "tagsEnabled": true,
+        "localPdfsExcluded": true
+      },
+      {
+        "folder": "learning-tags-off",
+        "published": 42,
+        "counts": {
+          "resource": 35,
+          "article": 1,
+          "note": 6
+        },
+        "allPublishedFilterMetadata": true,
+        "draftsExcluded": true,
+        "backlinksFollowDraft": true,
+        "tagsEnabled": false,
+        "localPdfsExcluded": true
+      }
+    ]
+  },
+  "created": {
+    "head": "c23b6f8c8fb4a08705bcfa057c80984e50dfdd98",
+    "blob": "02b4054b92b1bb8bc2031007967d7f0c938a4c4d",
+    "content": "---\ntitle: 自写笔记收尾验证（功能样稿）\ndescription: 用于核验新建、正文修改、关联阅读和草稿排除。\nentryId: note-web-writing-check\ntopics:\n  - 阅读与整理\nrelated:\n  - resource-lssh-pdf-reading-check\ndraft: true\nkind: note\nexample: false\n---\n> **功能验证样稿**：这不是正式学习内容。\n\n## 学习收尾验证20261010\n\n记录一个阅读问题，并链接到关联资料。\n\n```js\nconst note = { reviewed: false };\n```\n\n[阅读 PDF 验证资料](../../../resources/reading-guide/)\n",
+    "originalContentCount": 48,
+    "originalContentUnchanged": true,
+    "pdfsUnchanged": true
+  },
+  "candidate": {
+    "head": "99b91315169ba5b3e116cd899543b35d8d39e1dc",
+    "blob": "0e5da0d9e51e22faaf07f81cef219e3d480c5f9d",
+    "content": "---\ntitle: 自写笔记收尾验证（功能样稿）\ndescription: 用于核验新建、正文修改、关联阅读和草稿排除。\nentryId: note-web-writing-check\ntopics:\n  - 阅读与整理\nrelated:\n  - resource-lssh-pdf-reading-check\n  - demo-article-reading-check\ndraft: false\nkind: note\nexample: false\n---\n> **功能验证样稿**：这不是正式学习内容。\n\n## 学习收尾验证20261010\n\n记录一个阅读问题，并链接到关联资料。\n\n```js\nconst note = { reviewed: true };\n```\n\n[阅读 PDF 验证资料](../../../resources/reading-guide/)\n\n![黑灰阅读界面的功能测试插图](../../../../../assets/article-images/t13-02-image-check.png)\n\n\n## 再次整理\n\n这段正文已通过网页编辑更新。\n",
+    "originalContentCount": 48,
+    "originalContentUnchanged": true,
+    "pdfsUnchanged": true
+  },
+  "restored": {
+    "head": "ed91ca83dc6b83d3ffd636246392592779234793",
+    "blob": "bdd9cffb1f18f2da1f79b344773f61446e3f4255",
+    "content": "---\ntitle: 自写笔记收尾验证（功能样稿）\ndescription: 用于核验新建、正文修改、关联阅读和草稿排除。\nentryId: note-web-writing-check\ntopics:\n  - 阅读与整理\nrelated:\n  - resource-lssh-pdf-reading-check\n  - demo-article-reading-check\ndraft: true\nkind: note\nexample: false\n---\n> **功能验证样稿**：这不是正式学习内容。\n\n## 学习收尾验证20261010\n\n记录一个阅读问题，并链接到关联资料。\n\n```js\nconst note = { reviewed: true };\n```\n\n[阅读 PDF 验证资料](../../../resources/reading-guide/)\n\n![黑灰阅读界面的功能测试插图](../../../../../assets/article-images/t13-02-image-check.png)\n\n\n## 再次整理\n\n这段正文已通过网页编辑更新。\n",
+    "originalContentCount": 48,
+    "originalContentUnchanged": true,
+    "pdfsUnchanged": true
+  },
+  "readonlyBuildSource": {
+    "head": "71802a2aad7ef4440e8f5fc40353fbcfc8fec059",
+    "blob": "0e5da0d9e51e22faaf07f81cef219e3d480c5f9d",
+    "content": "---\ntitle: 自写笔记收尾验证（功能样稿）\ndescription: 用于核验新建、正文修改、关联阅读和草稿排除。\nentryId: note-web-writing-check\ntopics:\n  - 阅读与整理\nrelated:\n  - resource-lssh-pdf-reading-check\n  - demo-article-reading-check\ndraft: false\nkind: note\nexample: false\n---\n> **功能验证样稿**：这不是正式学习内容。\n\n## 学习收尾验证20261010\n\n记录一个阅读问题，并链接到关联资料。\n\n```js\nconst note = { reviewed: true };\n```\n\n[阅读 PDF 验证资料](../../../resources/reading-guide/)\n\n![黑灰阅读界面的功能测试插图](../../../../../assets/article-images/t13-02-image-check.png)\n\n\n## 再次整理\n\n这段正文已通过网页编辑更新。\n",
+    "configOptions": 41,
+    "originalContentCount": 48,
+    "originalContentUnchanged": true,
+    "pdfsUnchanged": true
+  },
+  "ci": {
+    "created": [
+      {
+        "id": 38040389623,
+        "sha": "c23b6f8c8fb4a08705bcfa057c80984e50dfdd98",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38040389623",
+        "jobs": [
+          {
+            "name": "Workflow syntax",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Repository checks",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Astro build",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Deploy to GitHub Pages",
+            "status": "completed",
+            "conclusion": "skipped"
+          }
+        ]
+      }
+    ],
+    "initialCandidateFailure": [
+      {
+        "id": 38040640570,
+        "sha": "99b91315169ba5b3e116cd899543b35d8d39e1dc",
+        "status": "completed",
+        "conclusion": "failure",
+        "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38040640570",
+        "jobs": [
+          {
+            "name": "Workflow syntax",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Repository checks",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Astro build",
+            "status": "completed",
+            "conclusion": "failure"
+          },
+          {
+            "name": "Deploy to GitHub Pages",
+            "status": "completed",
+            "conclusion": "skipped"
+          }
+        ]
+      }
+    ],
+    "optionalTagsFix": [
+      {
+        "id": 38040710326,
+        "sha": "71802a2aad7ef4440e8f5fc40353fbcfc8fec059",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38040710326",
+        "jobs": [
+          {
+            "name": "Repository checks",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Workflow syntax",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Astro build",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Deploy to GitHub Pages",
+            "status": "completed",
+            "conclusion": "skipped"
+          }
+        ]
+      }
+    ],
+    "searchReturn": [
+      {
+        "id": 38040987099,
+        "sha": "429e80daaf9afef1b199e4cbd129b700aaf00628",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38040987099",
+        "jobs": [
+          {
+            "name": "Workflow syntax",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Repository checks",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Astro build",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Deploy to GitHub Pages",
+            "status": "completed",
+            "conclusion": "skipped"
+          }
+        ]
+      }
+    ],
+    "draftRestore": [
+      {
+        "id": 38041110697,
+        "sha": "ed91ca83dc6b83d3ffd636246392592779234793",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38041110697",
+        "jobs": [
+          {
+            "name": "Repository checks",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Workflow syntax",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Astro build",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Deploy to GitHub Pages",
+            "status": "completed",
+            "conclusion": "skipped"
+          }
+        ]
+      }
+    ]
+  },
+  "browser": {
+    "requiredFields": 4,
+    "newDraftDefault": true,
+    "independentReopenFieldsAndBody": true,
+    "reopenedSaveMayRemainEnabled": true,
+    "existingImageSelected": "t13-02-image-check.png",
+    "noteImagePath": "../../../../../assets/article-images/t13-02-image-check.png",
+    "alt": "黑灰阅读界面的功能测试插图",
+    "overviewIntersection": 1,
+    "overviewReturnPreserved": [
+      "type",
+      "topic",
+      "sort",
+      "focus"
+    ],
+    "searchIntersection": {
+      "query": "验证",
+      "type": "笔记",
+      "topic": "阅读与整理",
+      "results": 1
+    },
+    "searchReturnPreserved": [
+      "query",
+      "type",
+      "topic",
+      "result focus"
+    ],
+    "mobileCssWidth": 390,
+    "mobileDocumentScrollWidth": 375,
+    "mobileImageWidth": 343,
+    "mobileArticleAndTagSelection": true,
+    "pdf": {
+      "pages": 4,
+      "confirmedPage": 3,
+      "sidebarClosePreservedPage": true,
+      "proof": "learning-pdf-mobile.png"
+    },
+    "restoredDraftSearch": {
+      "query": "验证",
+      "type": "笔记",
+      "resultText": "没有找到“验证”"
+    },
+    "tagsOff": {
+      "oldTagRoute": "404",
+      "filterNames": [
+        "主题",
+        "类型"
+      ],
+      "tagControls": 0
+    },
+    "collectedNotesFolders": [
+      "ads",
+      "computer-systems"
+    ],
+    "writingExcludedFromCollectedNotes": true
+  },
+  "automation": {
+    "newPermissionsInstalled": false,
+    "existingWorkflowPermissions": "contents: read",
+    "approvalRejected": [
+      "contents: write",
+      "actions: write"
+    ],
+    "scope": "read-only candidate generation only; persistent refresh pending user approval"
+  },
+  "pages": {
+    "defaultBranch": "main",
+    "mainSha": "ae3928289da1517151be053dd83d67904821735f",
+    "mainWebsiteFiles": [
+      {
+        "path": "package.json",
+        "exists": false
+      },
+      {
+        "path": "package-lock.json",
+        "exists": false
+      },
+      {
+        "path": "astro.config.mjs",
+        "exists": false
+      },
+      {
+        "path": "src/pages/index.astro",
+        "exists": false
+      }
+    ],
+    "pages": {
+      "status": null,
+      "buildType": "workflow",
+      "url": "https://0ne-small-stone.github.io/personal-homepage/",
+      "source": {
+        "branch": "main",
+        "path": "/"
+      },
+      "httpsEnforced": true
+    },
+    "latest": [
+      {
+        "id": 37597125646,
+        "sha": "ae3928289da1517151be053dd83d67904821735f",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/37597125646",
+        "jobs": [
+          {
+            "name": "Repository checks",
+            "conclusion": "success"
+          },
+          {
+            "name": "Workflow syntax",
+            "conclusion": "success"
+          },
+          {
+            "name": "Astro build",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Deploy to GitHub Pages",
+            "conclusion": "skipped"
+          }
+        ]
+      },
+      {
+        "id": 37596216038,
+        "sha": "839e1954491cd0c949fdaea9981afc3fbac6a0fe",
+        "event": "dynamic",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/37596216038",
+        "jobs": [
+          {
+            "name": "Dependabot",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "id": 37596211617,
+        "sha": "839e1954491cd0c949fdaea9981afc3fbac6a0fe",
+        "event": "dynamic",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/37596211617",
+        "jobs": [
+          {
+            "name": "Dependabot",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  "designResourcesAdded": 0,
+  "dependenciesAdded": 0,
+  "knownLimits": [
+    "hosted CMS unsaved navigation guard",
+    "persistent CMS candidate refresh",
+    "main integration and formal deployment",
+    "real course attachments publication",
+    "screen reader and physical-device performance",
+    "mainland access"
+  ],
+  "notes": [
+    "Initial native page-number fill changed the input without confirmed navigation; genuine key typing and screenshot verified page 3 and closing sidebar.",
+    "Some initial async/strict locator attempts failed; retries used observed summaries and stable result states.",
+    "Preview services stopped across app restart; owned snapshots restored on 2026-10-12."
+  ]
+}

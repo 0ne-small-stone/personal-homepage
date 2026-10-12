@@ -1,5 +1,9 @@
 # GitHub 工作流说明
 
+2026-10-12 实际读回：Pages build_type=workflow、来源main、HTTPS开启；main=`ae3928289da1517151be053dd83d67904821735f`尚无根package.json/锁文件/Astro配置/src首页。最近main运行[37597125646](https://github.com/0ne-small-stone/personal-homepage/actions/runs/37597125646)的仓库/语法检查成功，但网站构建与部署均跳过；配置完成不能表述为网站已上线。整合已验证首页和学习分支，经保护分支PR进入main后，现有部署job才具备执行条件。正式网址为 https://0ne-small-stone.github.io/personal-homepage/ ，当前可访问性和大陆体验未验。
+
+学习收尾分支的构建在 `npm run check`之前运行 `npm run cms:sync-related`；仅派生临时检出内的关联候选，不增写权限、不回写仓库。只读修复已通过“源配置41候选、内容42条”的真实远程构建，运行[38040710326](https://github.com/0ne-small-stone/personal-homepage/actions/runs/38040710326)。默认部署仍限main；候选自动回写待单独授权。
+
 更新：2026-10-07。发布目标已由用户选择为 GitHub Pages；公开仓库 [0ne-small-stone/personal-homepage](https://github.com/0ne-small-stone/personal-homepage) 已创建并上传。仓库与工作流语法检查已在 GitHub 通过，Pages 来源与 main 保护已应用并读回；Astro 基础工程已建立并通过本地类型与生产构建，远程网站检查以技术 PLAN 的证据为准，网站尚未上线。
 
 账号连接已完成：2026-10-07 通过 GitHub 连接读取个人资料与实际登录身份，均核对为 `0ne-small-stone`；本机 Git Credential Manager 凭证也通过官方 API 核对同一身份，可用于 Git 推送与仓库管理。插件的仓库 App 安装列表尚未返回目标账号；仅该插件的仓库能力需补充授权，不阻止本次通过 Git 和官方 API 接入。凭证只在进程内使用，不写入仓库。
