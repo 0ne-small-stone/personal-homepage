@@ -18,7 +18,7 @@ import { installHomeReturn } from './home-return';
 class SceneBoundary extends Component<{children: ReactNode; onError: () => void}, {failed: boolean}> {
   state = { failed: false };
   static getDerivedStateFromError() { return {failed:true}; }
-  componentDidCatch() { this.props.onError(); }
+  componentDidCatch(error: Error) { console.warn('首页场景加载失败：', error.message); this.props.onError(); }
   render() { return this.state.failed ? null : this.props.children; }
 }
 
@@ -29,7 +29,7 @@ function FirstFrame({ model, onReady }: {model: JourneyModel; onReady: () => voi
   useFrame(() => {
     model.lastFrame = performance.now();
     if (frames.current < 3) { frames.current++; invalidate(); }
-    if (frames.current === 3) { frames.current++; requestAnimationFrame(onReady); }
+    if (frames.current === 3) { frames.current++; onReady(); }
   });
   return null;
 }
@@ -41,7 +41,7 @@ export default function HomeJourney({wordmarkUrl,albumUrl,projectUrl,neighborUrl
   const [reduced,setReduced] = useState(false);
   const [mobile,setMobile] = useState(false);
   const [hover,setHover] = useState(false);
-  const [visible,setVisible] = useState(true);
+  const [visible,setVisible] = useState(() => !document.hidden);
   const [detailed,setDetailed] = useState(true);
   const [attempt,setAttempt] = useState(0);
   const ready = useRef(false);
@@ -96,8 +96,20 @@ export default function HomeJourney({wordmarkUrl,albumUrl,projectUrl,neighborUrl
     };
     const leave = () => {model.pointer.active=false; model.invalidate();};
     window.addEventListener('pointermove',pointer,{passive:true}); document.documentElement.addEventListener('pointerleave',leave); window.addEventListener('blur',leave);
-    const timeout = window.setTimeout(()=>{if(!ready.current) fallback(true);},8000);
-    return () => {clearTimeout(timeout);window.removeEventListener('pointermove',pointer);document.documentElement.removeEventListener('pointerleave',leave);window.removeEventListener('blur',leave);};
+    // Public first visits include cold texture/shader loading. Background time
+    // must not consume the startup budget; the native plain-view escape remains.
+    let timer: number | undefined;
+    let remaining = 30000;
+    let started = performance.now();
+    const arm = () => {
+      if (timer !== undefined) { clearTimeout(timer); remaining -= performance.now() - started; timer = undefined; }
+      if (document.hidden || ready.current || stopped.current) return;
+      started = performance.now();
+      timer = window.setTimeout(()=>{if(!ready.current && !stopped.current) { console.warn('首页场景首帧等待超时。'); fallback(true); }},Math.max(0,remaining));
+    };
+    arm();
+    document.addEventListener('visibilitychange',arm);
+    return () => {if(timer !== undefined) clearTimeout(timer);document.removeEventListener('visibilitychange',arm);window.removeEventListener('pointermove',pointer);document.documentElement.removeEventListener('pointerleave',leave);window.removeEventListener('blur',leave);};
   }, [model,attempt]);
 
   useEffect(() => {
@@ -120,7 +132,7 @@ export default function HomeJourney({wordmarkUrl,albumUrl,projectUrl,neighborUrl
       const lost=(event:Event)=>{event.preventDefault();fallback(true);};
       gl.domElement.addEventListener('webglcontextlost',lost,{once:true});
     }} fallback={<span>图形不可用</span>}>
-      <Suspense fallback={null}><WorksMotionDriver model={model} /><CameraRig model={model} mobile={mobile} quiet={paused||reduced} /><SceneLighting /><SceneBackdrop model={model} mobile={mobile} /><GlassTriangle model={model} paused={paused||reduced||!visible} mobile={mobile} hover={hover} low={mobile} detailed={detailed} />{!paused&&!reduced&&<WorksScene model={model} projectUrl={projectUrl} neighborUrl={neighborUrl} albumUrl={albumUrl} />}<RisingWall model={model} quiet={paused||reduced} /><FirstFrame model={model} onReady={onReady} /><BlackFlowLayer model={model} hover={hover} detailed={detailed} quiet={paused||reduced} visible={visible} /></Suspense>
+      <Suspense fallback={null}><WorksMotionDriver model={model} /><CameraRig model={model} mobile={mobile} quiet={paused||reduced} /><SceneLighting /><SceneBackdrop model={model} mobile={mobile} /><GlassTriangle model={model} paused={paused||reduced||!visible} mobile={mobile} hover={hover} low={mobile} detailed={detailed} />{!paused&&!reduced&&<Suspense fallback={null}><WorksScene model={model} projectUrl={projectUrl} neighborUrl={neighborUrl} albumUrl={albumUrl} /></Suspense>}<RisingWall model={model} quiet={paused||reduced} /><FirstFrame model={model} onReady={onReady} /><BlackFlowLayer model={model} hover={hover} detailed={detailed} quiet={paused||reduced} visible={visible} /></Suspense>
     </Canvas></SceneBoundary></div>}
     {status === 'loading' && <div ref={loader} className="home-loader" role="status"><img className="home-loader-logo" src={wordmarkUrl} width="768" height="512" alt="Little Stone Still Here" /><p>正在准备光与玻璃</p><button onClick={()=>fallback()}>普通浏览</button></div>}
     <div className="home-scene-controls"><button className="home-sound" disabled aria-label="环境音尚未配置">声音未配置</button>{canRender&&<button className="home-quality" onClick={()=>{setDetailed(value=>!value);model.invalidate();}} aria-pressed={detailed}>光影细节</button>}<button onClick={togglePaused} disabled={reduced} aria-pressed={paused||reduced}>{reduced ? '减少动画已启用' : paused ? '继续动态' : '暂停动态'}</button>{status === 'error' && attempt < 1 && <button onClick={()=>{document.body.classList.remove('home-static');ready.current=false;stopped.current=false;setStatus('loading');setMessage('');setAttempt(value=>value+1);}}>重试场景</button>}</div>
