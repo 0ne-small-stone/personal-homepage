@@ -1,0 +1,2273 @@
+{
+  "date": "2026-10-09T16:10:55.259Z",
+  "cases": {
+    "old-desktop-top": {
+      "errors": [],
+      "failed": [],
+      "images": [
+        {
+          "file": "old-desktop-top.png",
+          "before": {
+            "scene": {
+              "backdrop": {
+                "bounds": [
+                  -60.70648580561007,
+                  -3.7748961163423744,
+                  1754.3930986597595,
+                  903.7748961163422
+                ],
+                "scale": [
+                  12,
+                  6,
+                  1
+                ],
+                "texture": "8b6963e9-81e0-4c1b-9a31-ef23d47e4f47",
+                "canvas": [
+                  1536,
+                  768
+                ],
+                "center": [
+                  0,
+                  0,
+                  0,
+                  255
+                ],
+                "right": [
+                  14,
+                  14,
+                  14,
+                  255
+                ],
+                "left": [
+                  6,
+                  6,
+                  6,
+                  255
+                ]
+              },
+              "material": {
+                "type": "ShaderMaterial",
+                "toneMapped": false,
+                "shader": "\n  uniform sampler2D uScene;\n  uniform samplerCube uEnvironment;\n  uniform vec2 uResolution;\n  varying vec3 vNormal;\n  varying vec3 vView;\n  varying vec3 vWorldNormal;\n  varying vec3 vWorldPosition;\n  void main() {\n    vec3 n = normalize(vNormal);\n    vec3 view = normalize(vView);\n    vec2 uv = gl_FragCoord.xy / uResolution;\n    vec3 ray = refract(-view, n, 1.0 / 1.45);\n    vec2 displacement = (ray.xy + n.xy * 0.45) * 0.075;\n    vec3 transmitted;\n    transmitted.r = texture2D(uScene, clamp(uv + displacement * 1.025, 0.001, 0.999)).r;\n    transmitted.g = texture2D(uScene, clamp(uv + displacement, 0.001, 0.999)).g;\n    transmitted.b = texture2D(uScene, clamp(uv + displacement * 0.975, 0.001, 0.999)).b;\n    float edge = pow(1.0 - abs(dot(n,view)), 4.0);\n    vec3 worldView = normalize(vWorldPosition - cameraPosition);\n    vec3 reflected = reflect(worldView, normalize(vWorldNormal));\n    vec3 light = min(textureCube(uEnvironment, reflected).rgb, vec3(0.85));\n    vec3 color = mix(transmitted, light, 0.015 + edge * 0.82);\n    gl_FragColor = vec4(color, 1.0);\n    #include <tonemapping_fragment>\n    #include <colorspace_fragment>\n  }\n",
+                "environment": "c94c3e3b-1b2e-4016-a2da-a28044c4205c"
+              },
+              "renderer": {
+                "error": 0,
+                "textures": 11,
+                "programs": 13
+              },
+              "flow": {
+                "time": 8000,
+                "running": true,
+                "input": {
+                  "reset": "",
+                  "position": [
+                    0,
+                    0
+                  ],
+                  "residual": [
+                    0,
+                    0
+                  ],
+                  "velocity": [
+                    0,
+                    0
+                  ],
+                  "buffer": [
+                    0,
+                    0
+                  ],
+                  "source": [
+                    0,
+                    0
+                  ],
+                  "radius": 0.01,
+                  "passes": 9
+                }
+              }
+            },
+            "time": 8000,
+            "logical": 8000,
+            "y": 0,
+            "width": 1440,
+            "height": 900,
+            "dpr": 1,
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": false,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.9,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "rendered": {
+                "progress": 0,
+                "index": 0,
+                "background": 0,
+                "intro": 0
+              },
+              "camera": {
+                "position": [
+                  0,
+                  0,
+                  5.7
+                ],
+                "fov": 42.25,
+                "outro": {
+                  "raw": 0,
+                  "parallax": 0,
+                  "projection": 0
+                },
+                "offset": [
+                  0,
+                  0
+                ],
+                "offsetTarget": [
+                  0,
+                  0
+                ],
+                "projection": [
+                  1.617623472266591,
+                  0,
+                  0,
+                  0,
+                  0,
+                  2.5881975556265457,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  -1,
+                  0,
+                  0,
+                  -0.20040080160320642,
+                  0
+                ],
+                "inverse": [
+                  0.6181908318867396,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.3863692699292123,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -4.99,
+                  0,
+                  0,
+                  -1,
+                  5.010000000000001
+                ],
+                "perspective": [
+                  1.617623472266591,
+                  0,
+                  0,
+                  0,
+                  0,
+                  2.5881975556265457,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  -1,
+                  0,
+                  0,
+                  -0.20040080160320642,
+                  0
+                ],
+                "orthographic": [
+                  0.2604166666666667,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.4166666666666667,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.04008016032064128,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  1
+                ]
+              },
+              "glass": {
+                "anchor": [
+                  0,
+                  0,
+                  0
+                ],
+                "quaternion": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": 1.14,
+                "visible": true,
+                "projectedAnchor": [
+                  720,
+                  450
+                ],
+                "bounds": [
+                  389.02782180518875,
+                  195.80955721238684,
+                  1050.9721781948112,
+                  704.1924543983117
+                ],
+                "centeredLocalBounds": [
+                  -1.394473910331726,
+                  -1.0714187622070312,
+                  -0.11499999463558197,
+                  1.394473910331726,
+                  1.0714187622070312,
+                  0.11499999463558197
+                ]
+              }
+            },
+            "geometry": {
+              "outer": [
+                -1.3694780061035157,
+                -0.71,
+                1.3694780061035154,
+                1.3827249999999998
+              ],
+              "hole": [
+                -0.7454998619384765,
+                -0.3905,
+                0.7454998619384765,
+                0.7517125
+              ],
+              "local": [
+                -1.394473910331726,
+                -1.0714187622070312,
+                -0.11499999463558197,
+                1.394473910331726,
+                1.0714187622070312,
+                0.11499999463558197
+              ],
+              "depth": 0.18,
+              "bevel": 0.025
+            },
+            "cta": {
+              "inert": true,
+              "parentInert": true,
+              "opacity": "0"
+            }
+          },
+          "after": {
+            "scene": {
+              "backdrop": {
+                "bounds": [
+                  -60.70648580561007,
+                  -3.7748961163423744,
+                  1754.3930986597595,
+                  903.7748961163422
+                ],
+                "scale": [
+                  12,
+                  6,
+                  1
+                ],
+                "texture": "8b6963e9-81e0-4c1b-9a31-ef23d47e4f47",
+                "canvas": [
+                  1536,
+                  768
+                ],
+                "center": [
+                  0,
+                  0,
+                  0,
+                  255
+                ],
+                "right": [
+                  14,
+                  14,
+                  14,
+                  255
+                ],
+                "left": [
+                  6,
+                  6,
+                  6,
+                  255
+                ]
+              },
+              "material": {
+                "type": "ShaderMaterial",
+                "toneMapped": false,
+                "shader": "\n  uniform sampler2D uScene;\n  uniform samplerCube uEnvironment;\n  uniform vec2 uResolution;\n  varying vec3 vNormal;\n  varying vec3 vView;\n  varying vec3 vWorldNormal;\n  varying vec3 vWorldPosition;\n  void main() {\n    vec3 n = normalize(vNormal);\n    vec3 view = normalize(vView);\n    vec2 uv = gl_FragCoord.xy / uResolution;\n    vec3 ray = refract(-view, n, 1.0 / 1.45);\n    vec2 displacement = (ray.xy + n.xy * 0.45) * 0.075;\n    vec3 transmitted;\n    transmitted.r = texture2D(uScene, clamp(uv + displacement * 1.025, 0.001, 0.999)).r;\n    transmitted.g = texture2D(uScene, clamp(uv + displacement, 0.001, 0.999)).g;\n    transmitted.b = texture2D(uScene, clamp(uv + displacement * 0.975, 0.001, 0.999)).b;\n    float edge = pow(1.0 - abs(dot(n,view)), 4.0);\n    vec3 worldView = normalize(vWorldPosition - cameraPosition);\n    vec3 reflected = reflect(worldView, normalize(vWorldNormal));\n    vec3 light = min(textureCube(uEnvironment, reflected).rgb, vec3(0.85));\n    vec3 color = mix(transmitted, light, 0.015 + edge * 0.82);\n    gl_FragColor = vec4(color, 1.0);\n    #include <tonemapping_fragment>\n    #include <colorspace_fragment>\n  }\n",
+                "environment": "c94c3e3b-1b2e-4016-a2da-a28044c4205c"
+              },
+              "renderer": {
+                "error": 0,
+                "textures": 11,
+                "programs": 13
+              },
+              "flow": {
+                "time": 8000,
+                "running": true,
+                "input": {
+                  "reset": "",
+                  "position": [
+                    0,
+                    0
+                  ],
+                  "residual": [
+                    0,
+                    0
+                  ],
+                  "velocity": [
+                    0,
+                    0
+                  ],
+                  "buffer": [
+                    0,
+                    0
+                  ],
+                  "source": [
+                    0,
+                    0
+                  ],
+                  "radius": 0.01,
+                  "passes": 9
+                }
+              }
+            },
+            "time": 8000,
+            "logical": 8000,
+            "y": 0,
+            "width": 1440,
+            "height": 900,
+            "dpr": 1,
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": false,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.9,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "rendered": {
+                "progress": 0,
+                "index": 0,
+                "background": 0,
+                "intro": 0
+              },
+              "camera": {
+                "position": [
+                  0,
+                  0,
+                  5.7
+                ],
+                "fov": 42.25,
+                "outro": {
+                  "raw": 0,
+                  "parallax": 0,
+                  "projection": 0
+                },
+                "offset": [
+                  0,
+                  0
+                ],
+                "offsetTarget": [
+                  0,
+                  0
+                ],
+                "projection": [
+                  1.617623472266591,
+                  0,
+                  0,
+                  0,
+                  0,
+                  2.5881975556265457,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  -1,
+                  0,
+                  0,
+                  -0.20040080160320642,
+                  0
+                ],
+                "inverse": [
+                  0.6181908318867396,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.3863692699292123,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -4.99,
+                  0,
+                  0,
+                  -1,
+                  5.010000000000001
+                ],
+                "perspective": [
+                  1.617623472266591,
+                  0,
+                  0,
+                  0,
+                  0,
+                  2.5881975556265457,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  -1,
+                  0,
+                  0,
+                  -0.20040080160320642,
+                  0
+                ],
+                "orthographic": [
+                  0.2604166666666667,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.4166666666666667,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.04008016032064128,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  1
+                ]
+              },
+              "glass": {
+                "anchor": [
+                  0,
+                  0,
+                  0
+                ],
+                "quaternion": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": 1.14,
+                "visible": true,
+                "projectedAnchor": [
+                  720,
+                  450
+                ],
+                "bounds": [
+                  389.02782180518875,
+                  195.80955721238684,
+                  1050.9721781948112,
+                  704.1924543983117
+                ],
+                "centeredLocalBounds": [
+                  -1.394473910331726,
+                  -1.0714187622070312,
+                  -0.11499999463558197,
+                  1.394473910331726,
+                  1.0714187622070312,
+                  0.11499999463558197
+                ]
+              }
+            },
+            "geometry": {
+              "outer": [
+                -1.3694780061035157,
+                -0.71,
+                1.3694780061035154,
+                1.3827249999999998
+              ],
+              "hole": [
+                -0.7454998619384765,
+                -0.3905,
+                0.7454998619384765,
+                0.7517125
+              ],
+              "local": [
+                -1.394473910331726,
+                -1.0714187622070312,
+                -0.11499999463558197,
+                1.394473910331726,
+                1.0714187622070312,
+                0.11499999463558197
+              ],
+              "depth": 0.18,
+              "bevel": 0.025
+            },
+            "cta": {
+              "inert": true,
+              "parentInert": true,
+              "opacity": "0"
+            }
+          }
+        }
+      ],
+      "spec": {
+        "name": "desktop-top",
+        "y": 0,
+        "fixed": true
+      },
+      "bundle": {
+        "file": "HomeJourney.B8n3ALC0.js",
+        "bytes": 1162783,
+        "sha256": "dcb1edd17633b8f7150ddd0bd14b53069fa096296e1d0dc3b779d9d49060008c"
+      },
+      "testBundleSHA": "265ff0f9cbf8396cf3db1413248cde6a3ef4f92563fc90e07f3bdadc257f958c",
+      "pixelGate": {
+        "time": 8000,
+        "frame": 158,
+        "rgba": [
+          13,
+          13,
+          13,
+          255
+        ]
+      },
+      "state": {
+        "scene": {
+          "backdrop": {
+            "bounds": [
+              -60.70648580561007,
+              -3.7748961163423744,
+              1754.3930986597595,
+              903.7748961163422
+            ],
+            "scale": [
+              12,
+              6,
+              1
+            ],
+            "texture": "8b6963e9-81e0-4c1b-9a31-ef23d47e4f47",
+            "canvas": [
+              1536,
+              768
+            ],
+            "center": [
+              0,
+              0,
+              0,
+              255
+            ],
+            "right": [
+              14,
+              14,
+              14,
+              255
+            ],
+            "left": [
+              6,
+              6,
+              6,
+              255
+            ]
+          },
+          "material": {
+            "type": "ShaderMaterial",
+            "toneMapped": false,
+            "shader": "\n  uniform sampler2D uScene;\n  uniform samplerCube uEnvironment;\n  uniform vec2 uResolution;\n  varying vec3 vNormal;\n  varying vec3 vView;\n  varying vec3 vWorldNormal;\n  varying vec3 vWorldPosition;\n  void main() {\n    vec3 n = normalize(vNormal);\n    vec3 view = normalize(vView);\n    vec2 uv = gl_FragCoord.xy / uResolution;\n    vec3 ray = refract(-view, n, 1.0 / 1.45);\n    vec2 displacement = (ray.xy + n.xy * 0.45) * 0.075;\n    vec3 transmitted;\n    transmitted.r = texture2D(uScene, clamp(uv + displacement * 1.025, 0.001, 0.999)).r;\n    transmitted.g = texture2D(uScene, clamp(uv + displacement, 0.001, 0.999)).g;\n    transmitted.b = texture2D(uScene, clamp(uv + displacement * 0.975, 0.001, 0.999)).b;\n    float edge = pow(1.0 - abs(dot(n,view)), 4.0);\n    vec3 worldView = normalize(vWorldPosition - cameraPosition);\n    vec3 reflected = reflect(worldView, normalize(vWorldNormal));\n    vec3 light = min(textureCube(uEnvironment, reflected).rgb, vec3(0.85));\n    vec3 color = mix(transmitted, light, 0.015 + edge * 0.82);\n    gl_FragColor = vec4(color, 1.0);\n    #include <tonemapping_fragment>\n    #include <colorspace_fragment>\n  }\n",
+            "environment": "c94c3e3b-1b2e-4016-a2da-a28044c4205c"
+          },
+          "renderer": {
+            "error": 0,
+            "textures": 11,
+            "programs": 13
+          },
+          "flow": {
+            "time": 8000,
+            "running": true,
+            "input": {
+              "reset": "",
+              "position": [
+                0,
+                0
+              ],
+              "residual": [
+                0,
+                0
+              ],
+              "velocity": [
+                0,
+                0
+              ],
+              "buffer": [
+                0,
+                0
+              ],
+              "source": [
+                0,
+                0
+              ],
+              "radius": 0.01,
+              "passes": 9
+            }
+          }
+        },
+        "time": 8000,
+        "logical": 8000,
+        "y": 0,
+        "width": 1440,
+        "height": 900,
+        "dpr": 1,
+        "canvasCount": 1,
+        "overflow": false,
+        "quiet": false,
+        "motion": {
+          "phase": "kv",
+          "raw": {
+            "kv": 0.9,
+            "intro": 0,
+            "works": 0,
+            "event": 0,
+            "snap": 0,
+            "outro": 0,
+            "wall": 0
+          },
+          "rendered": {
+            "progress": 0,
+            "index": 0,
+            "background": 0,
+            "intro": 0
+          },
+          "camera": {
+            "position": [
+              0,
+              0,
+              5.7
+            ],
+            "fov": 42.25,
+            "outro": {
+              "raw": 0,
+              "parallax": 0,
+              "projection": 0
+            },
+            "offset": [
+              0,
+              0
+            ],
+            "offsetTarget": [
+              0,
+              0
+            ],
+            "projection": [
+              1.617623472266591,
+              0,
+              0,
+              0,
+              0,
+              2.5881975556265457,
+              0,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              -1,
+              0,
+              0,
+              -0.20040080160320642,
+              0
+            ],
+            "inverse": [
+              0.6181908318867396,
+              0,
+              0,
+              0,
+              0,
+              0.3863692699292123,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -4.99,
+              0,
+              0,
+              -1,
+              5.010000000000001
+            ],
+            "perspective": [
+              1.617623472266591,
+              0,
+              0,
+              0,
+              0,
+              2.5881975556265457,
+              0,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              -1,
+              0,
+              0,
+              -0.20040080160320642,
+              0
+            ],
+            "orthographic": [
+              0.2604166666666667,
+              0,
+              0,
+              0,
+              0,
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ]
+          },
+          "glass": {
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "quaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "scale": 1.14,
+            "visible": true,
+            "projectedAnchor": [
+              720,
+              450
+            ],
+            "bounds": [
+              389.02782180518875,
+              195.80955721238684,
+              1050.9721781948112,
+              704.1924543983117
+            ],
+            "centeredLocalBounds": [
+              -1.394473910331726,
+              -1.0714187622070312,
+              -0.11499999463558197,
+              1.394473910331726,
+              1.0714187622070312,
+              0.11499999463558197
+            ]
+          }
+        },
+        "geometry": {
+          "outer": [
+            -1.3694780061035157,
+            -0.71,
+            1.3694780061035154,
+            1.3827249999999998
+          ],
+          "hole": [
+            -0.7454998619384765,
+            -0.3905,
+            0.7454998619384765,
+            0.7517125
+          ],
+          "local": [
+            -1.394473910331726,
+            -1.0714187622070312,
+            -0.11499999463558197,
+            1.394473910331726,
+            1.0714187622070312,
+            0.11499999463558197
+          ],
+          "depth": 0.18,
+          "bevel": 0.025
+        },
+        "cta": {
+          "inert": true,
+          "parentInert": true,
+          "opacity": "0"
+        }
+      }
+    },
+    "new-desktop-top": {
+      "errors": [],
+      "failed": [],
+      "images": [
+        {
+          "file": "new-desktop-top.png",
+          "before": {
+            "scene": {
+              "backdrop": {
+                "bounds": [
+                  -86.39999999999992,
+                  -54.00000000000005,
+                  1526.4,
+                  954
+                ],
+                "scale": [
+                  10.662555468382484,
+                  6.664097167739053,
+                  1
+                ],
+                "texture": "81a0d904-ff41-416c-bc13-22a0fc991624",
+                "canvas": [
+                  1536,
+                  960
+                ],
+                "center": [
+                  10,
+                  10,
+                  10,
+                  255
+                ],
+                "right": [
+                  49,
+                  49,
+                  49,
+                  255
+                ],
+                "left": [
+                  14,
+                  14,
+                  14,
+                  255
+                ]
+              },
+              "material": {
+                "type": "ShaderMaterial",
+                "toneMapped": false,
+                "shader": "\n  uniform sampler2D uScene;\n  uniform samplerCube uEnvironment;\n  uniform vec2 uResolution;\n  varying vec3 vNormal;\n  varying vec3 vView;\n  varying vec3 vWorldNormal;\n  varying vec3 vWorldPosition;\n  void main() {\n    vec3 n = normalize(vNormal);\n    vec3 view = normalize(vView);\n    vec2 uv = gl_FragCoord.xy / uResolution;\n    vec3 ray = refract(-view, n, 1.0 / 1.45);\n    vec2 displacement = (ray.xy + n.xy * 0.45) * 0.075;\n    vec3 transmitted;\n    transmitted.r = texture2D(uScene, clamp(uv + displacement * 1.025, 0.001, 0.999)).r;\n    transmitted.g = texture2D(uScene, clamp(uv + displacement, 0.001, 0.999)).g;\n    transmitted.b = texture2D(uScene, clamp(uv + displacement * 0.975, 0.001, 0.999)).b;\n    float edge = pow(1.0 - abs(dot(n,view)), 4.0);\n    vec3 worldView = normalize(vWorldPosition - cameraPosition);\n    vec3 reflected = reflect(worldView, normalize(vWorldNormal));\n    vec3 light = min(textureCube(uEnvironment, reflected).rgb, vec3(0.85));\n    vec3 color = mix(transmitted, light, 0.015 + edge * 0.82);\n    gl_FragColor = vec4(color, 1.0);\n    #include <tonemapping_fragment>\n    #include <colorspace_fragment>\n  }\n",
+                "environment": "7ec4bcd2-2a1e-40b5-a0ca-bf230099277f"
+              },
+              "renderer": {
+                "error": 0,
+                "textures": 11,
+                "programs": 13
+              },
+              "flow": {
+                "time": 8000,
+                "running": true,
+                "input": {
+                  "reset": "",
+                  "position": [
+                    0,
+                    0
+                  ],
+                  "residual": [
+                    0,
+                    0
+                  ],
+                  "velocity": [
+                    0,
+                    0
+                  ],
+                  "buffer": [
+                    0,
+                    0
+                  ],
+                  "source": [
+                    0,
+                    0
+                  ],
+                  "radius": 0.01,
+                  "passes": 9
+                }
+              }
+            },
+            "time": 8000,
+            "logical": 8000,
+            "y": 0,
+            "width": 1440,
+            "height": 900,
+            "dpr": 1,
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": false,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.9,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "rendered": {
+                "progress": 0,
+                "index": 0,
+                "background": 0,
+                "intro": 0
+              },
+              "camera": {
+                "position": [
+                  0,
+                  0,
+                  5.7
+                ],
+                "fov": 42.25,
+                "outro": {
+                  "raw": 0,
+                  "parallax": 0,
+                  "projection": 0
+                },
+                "offset": [
+                  0,
+                  0
+                ],
+                "offsetTarget": [
+                  0,
+                  0
+                ],
+                "projection": [
+                  1.617623472266591,
+                  0,
+                  0,
+                  0,
+                  0,
+                  2.5881975556265457,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  -1,
+                  0,
+                  0,
+                  -0.20040080160320642,
+                  0
+                ],
+                "inverse": [
+                  0.6181908318867396,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.3863692699292123,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -4.99,
+                  0,
+                  0,
+                  -1,
+                  5.010000000000001
+                ],
+                "perspective": [
+                  1.617623472266591,
+                  0,
+                  0,
+                  0,
+                  0,
+                  2.5881975556265457,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  -1,
+                  0,
+                  0,
+                  -0.20040080160320642,
+                  0
+                ],
+                "orthographic": [
+                  0.2604166666666667,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.4166666666666667,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.04008016032064128,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  1
+                ]
+              },
+              "glass": {
+                "anchor": [
+                  0,
+                  0,
+                  0
+                ],
+                "quaternion": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": 1.14,
+                "visible": true,
+                "projectedAnchor": [
+                  720,
+                  450
+                ],
+                "bounds": [
+                  389.02782180518875,
+                  195.80955721238684,
+                  1050.9721781948112,
+                  704.1924543983117
+                ],
+                "centeredLocalBounds": [
+                  -1.394473910331726,
+                  -1.0714187622070312,
+                  -0.11499999463558197,
+                  1.394473910331726,
+                  1.0714187622070312,
+                  0.11499999463558197
+                ]
+              }
+            },
+            "geometry": {
+              "outer": [
+                -1.3694780061035157,
+                -0.71,
+                1.3694780061035154,
+                1.3827249999999998
+              ],
+              "hole": [
+                -0.7454998619384765,
+                -0.3905,
+                0.7454998619384765,
+                0.7517125
+              ],
+              "local": [
+                -1.394473910331726,
+                -1.0714187622070312,
+                -0.11499999463558197,
+                1.394473910331726,
+                1.0714187622070312,
+                0.11499999463558197
+              ],
+              "depth": 0.18,
+              "bevel": 0.025
+            },
+            "cta": {
+              "inert": true,
+              "parentInert": true,
+              "opacity": "0"
+            }
+          },
+          "after": {
+            "scene": {
+              "backdrop": {
+                "bounds": [
+                  -86.39999999999992,
+                  -54.00000000000005,
+                  1526.4,
+                  954
+                ],
+                "scale": [
+                  10.662555468382484,
+                  6.664097167739053,
+                  1
+                ],
+                "texture": "81a0d904-ff41-416c-bc13-22a0fc991624",
+                "canvas": [
+                  1536,
+                  960
+                ],
+                "center": [
+                  10,
+                  10,
+                  10,
+                  255
+                ],
+                "right": [
+                  49,
+                  49,
+                  49,
+                  255
+                ],
+                "left": [
+                  14,
+                  14,
+                  14,
+                  255
+                ]
+              },
+              "material": {
+                "type": "ShaderMaterial",
+                "toneMapped": false,
+                "shader": "\n  uniform sampler2D uScene;\n  uniform samplerCube uEnvironment;\n  uniform vec2 uResolution;\n  varying vec3 vNormal;\n  varying vec3 vView;\n  varying vec3 vWorldNormal;\n  varying vec3 vWorldPosition;\n  void main() {\n    vec3 n = normalize(vNormal);\n    vec3 view = normalize(vView);\n    vec2 uv = gl_FragCoord.xy / uResolution;\n    vec3 ray = refract(-view, n, 1.0 / 1.45);\n    vec2 displacement = (ray.xy + n.xy * 0.45) * 0.075;\n    vec3 transmitted;\n    transmitted.r = texture2D(uScene, clamp(uv + displacement * 1.025, 0.001, 0.999)).r;\n    transmitted.g = texture2D(uScene, clamp(uv + displacement, 0.001, 0.999)).g;\n    transmitted.b = texture2D(uScene, clamp(uv + displacement * 0.975, 0.001, 0.999)).b;\n    float edge = pow(1.0 - abs(dot(n,view)), 4.0);\n    vec3 worldView = normalize(vWorldPosition - cameraPosition);\n    vec3 reflected = reflect(worldView, normalize(vWorldNormal));\n    vec3 light = min(textureCube(uEnvironment, reflected).rgb, vec3(0.85));\n    vec3 color = mix(transmitted, light, 0.015 + edge * 0.82);\n    gl_FragColor = vec4(color, 1.0);\n    #include <tonemapping_fragment>\n    #include <colorspace_fragment>\n  }\n",
+                "environment": "7ec4bcd2-2a1e-40b5-a0ca-bf230099277f"
+              },
+              "renderer": {
+                "error": 0,
+                "textures": 11,
+                "programs": 13
+              },
+              "flow": {
+                "time": 8000,
+                "running": true,
+                "input": {
+                  "reset": "",
+                  "position": [
+                    0,
+                    0
+                  ],
+                  "residual": [
+                    0,
+                    0
+                  ],
+                  "velocity": [
+                    0,
+                    0
+                  ],
+                  "buffer": [
+                    0,
+                    0
+                  ],
+                  "source": [
+                    0,
+                    0
+                  ],
+                  "radius": 0.01,
+                  "passes": 9
+                }
+              }
+            },
+            "time": 8000,
+            "logical": 8000,
+            "y": 0,
+            "width": 1440,
+            "height": 900,
+            "dpr": 1,
+            "canvasCount": 1,
+            "overflow": false,
+            "quiet": false,
+            "motion": {
+              "phase": "kv",
+              "raw": {
+                "kv": 0.9,
+                "intro": 0,
+                "works": 0,
+                "event": 0,
+                "snap": 0,
+                "outro": 0,
+                "wall": 0
+              },
+              "rendered": {
+                "progress": 0,
+                "index": 0,
+                "background": 0,
+                "intro": 0
+              },
+              "camera": {
+                "position": [
+                  0,
+                  0,
+                  5.7
+                ],
+                "fov": 42.25,
+                "outro": {
+                  "raw": 0,
+                  "parallax": 0,
+                  "projection": 0
+                },
+                "offset": [
+                  0,
+                  0
+                ],
+                "offsetTarget": [
+                  0,
+                  0
+                ],
+                "projection": [
+                  1.617623472266591,
+                  0,
+                  0,
+                  0,
+                  0,
+                  2.5881975556265457,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  -1,
+                  0,
+                  0,
+                  -0.20040080160320642,
+                  0
+                ],
+                "inverse": [
+                  0.6181908318867396,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.3863692699292123,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -4.99,
+                  0,
+                  0,
+                  -1,
+                  5.010000000000001
+                ],
+                "perspective": [
+                  1.617623472266591,
+                  0,
+                  0,
+                  0,
+                  0,
+                  2.5881975556265457,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  -1,
+                  0,
+                  0,
+                  -0.20040080160320642,
+                  0
+                ],
+                "orthographic": [
+                  0.2604166666666667,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.4166666666666667,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.04008016032064128,
+                  0,
+                  0,
+                  0,
+                  -1.0040080160320641,
+                  1
+                ]
+              },
+              "glass": {
+                "anchor": [
+                  0,
+                  0,
+                  0
+                ],
+                "quaternion": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": 1.14,
+                "visible": true,
+                "projectedAnchor": [
+                  720,
+                  450
+                ],
+                "bounds": [
+                  389.02782180518875,
+                  195.80955721238684,
+                  1050.9721781948112,
+                  704.1924543983117
+                ],
+                "centeredLocalBounds": [
+                  -1.394473910331726,
+                  -1.0714187622070312,
+                  -0.11499999463558197,
+                  1.394473910331726,
+                  1.0714187622070312,
+                  0.11499999463558197
+                ]
+              }
+            },
+            "geometry": {
+              "outer": [
+                -1.3694780061035157,
+                -0.71,
+                1.3694780061035154,
+                1.3827249999999998
+              ],
+              "hole": [
+                -0.7454998619384765,
+                -0.3905,
+                0.7454998619384765,
+                0.7517125
+              ],
+              "local": [
+                -1.394473910331726,
+                -1.0714187622070312,
+                -0.11499999463558197,
+                1.394473910331726,
+                1.0714187622070312,
+                0.11499999463558197
+              ],
+              "depth": 0.18,
+              "bevel": 0.025
+            },
+            "cta": {
+              "inert": true,
+              "parentInert": true,
+              "opacity": "0"
+            }
+          }
+        }
+      ],
+      "spec": {
+        "name": "desktop-top",
+        "y": 0,
+        "fixed": true
+      },
+      "bundle": {
+        "file": "HomeJourney.yU0kM-Xt.js",
+        "bytes": 1163523,
+        "sha256": "e863f770985e629353f9bbfc95558b2938d74f48bd9797fa5fcab7d0fb83b3f0"
+      },
+      "testBundleSHA": "9d1d9d6c380f3d3887c563441deb228134df9ae0f754ae2fdaa2426c76dfe912",
+      "pixelGate": {
+        "time": 8000,
+        "frame": 158,
+        "rgba": [
+          7,
+          7,
+          7,
+          255
+        ]
+      },
+      "state": {
+        "scene": {
+          "backdrop": {
+            "bounds": [
+              -86.39999999999992,
+              -54.00000000000005,
+              1526.4,
+              954
+            ],
+            "scale": [
+              10.662555468382484,
+              6.664097167739053,
+              1
+            ],
+            "texture": "81a0d904-ff41-416c-bc13-22a0fc991624",
+            "canvas": [
+              1536,
+              960
+            ],
+            "center": [
+              10,
+              10,
+              10,
+              255
+            ],
+            "right": [
+              49,
+              49,
+              49,
+              255
+            ],
+            "left": [
+              14,
+              14,
+              14,
+              255
+            ]
+          },
+          "material": {
+            "type": "ShaderMaterial",
+            "toneMapped": false,
+            "shader": "\n  uniform sampler2D uScene;\n  uniform samplerCube uEnvironment;\n  uniform vec2 uResolution;\n  varying vec3 vNormal;\n  varying vec3 vView;\n  varying vec3 vWorldNormal;\n  varying vec3 vWorldPosition;\n  void main() {\n    vec3 n = normalize(vNormal);\n    vec3 view = normalize(vView);\n    vec2 uv = gl_FragCoord.xy / uResolution;\n    vec3 ray = refract(-view, n, 1.0 / 1.45);\n    vec2 displacement = (ray.xy + n.xy * 0.45) * 0.075;\n    vec3 transmitted;\n    transmitted.r = texture2D(uScene, clamp(uv + displacement * 1.025, 0.001, 0.999)).r;\n    transmitted.g = texture2D(uScene, clamp(uv + displacement, 0.001, 0.999)).g;\n    transmitted.b = texture2D(uScene, clamp(uv + displacement * 0.975, 0.001, 0.999)).b;\n    float edge = pow(1.0 - abs(dot(n,view)), 4.0);\n    vec3 worldView = normalize(vWorldPosition - cameraPosition);\n    vec3 reflected = reflect(worldView, normalize(vWorldNormal));\n    vec3 light = min(textureCube(uEnvironment, reflected).rgb, vec3(0.85));\n    vec3 color = mix(transmitted, light, 0.015 + edge * 0.82);\n    gl_FragColor = vec4(color, 1.0);\n    #include <tonemapping_fragment>\n    #include <colorspace_fragment>\n  }\n",
+            "environment": "7ec4bcd2-2a1e-40b5-a0ca-bf230099277f"
+          },
+          "renderer": {
+            "error": 0,
+            "textures": 11,
+            "programs": 13
+          },
+          "flow": {
+            "time": 8000,
+            "running": true,
+            "input": {
+              "reset": "",
+              "position": [
+                0,
+                0
+              ],
+              "residual": [
+                0,
+                0
+              ],
+              "velocity": [
+                0,
+                0
+              ],
+              "buffer": [
+                0,
+                0
+              ],
+              "source": [
+                0,
+                0
+              ],
+              "radius": 0.01,
+              "passes": 9
+            }
+          }
+        },
+        "time": 8000,
+        "logical": 8000,
+        "y": 0,
+        "width": 1440,
+        "height": 900,
+        "dpr": 1,
+        "canvasCount": 1,
+        "overflow": false,
+        "quiet": false,
+        "motion": {
+          "phase": "kv",
+          "raw": {
+            "kv": 0.9,
+            "intro": 0,
+            "works": 0,
+            "event": 0,
+            "snap": 0,
+            "outro": 0,
+            "wall": 0
+          },
+          "rendered": {
+            "progress": 0,
+            "index": 0,
+            "background": 0,
+            "intro": 0
+          },
+          "camera": {
+            "position": [
+              0,
+              0,
+              5.7
+            ],
+            "fov": 42.25,
+            "outro": {
+              "raw": 0,
+              "parallax": 0,
+              "projection": 0
+            },
+            "offset": [
+              0,
+              0
+            ],
+            "offsetTarget": [
+              0,
+              0
+            ],
+            "projection": [
+              1.617623472266591,
+              0,
+              0,
+              0,
+              0,
+              2.5881975556265457,
+              0,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              -1,
+              0,
+              0,
+              -0.20040080160320642,
+              0
+            ],
+            "inverse": [
+              0.6181908318867396,
+              0,
+              0,
+              0,
+              0,
+              0.3863692699292123,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -4.99,
+              0,
+              0,
+              -1,
+              5.010000000000001
+            ],
+            "perspective": [
+              1.617623472266591,
+              0,
+              0,
+              0,
+              0,
+              2.5881975556265457,
+              0,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              -1,
+              0,
+              0,
+              -0.20040080160320642,
+              0
+            ],
+            "orthographic": [
+              0.2604166666666667,
+              0,
+              0,
+              0,
+              0,
+              0.4166666666666667,
+              0,
+              0,
+              0,
+              0,
+              -0.04008016032064128,
+              0,
+              0,
+              0,
+              -1.0040080160320641,
+              1
+            ]
+          },
+          "glass": {
+            "anchor": [
+              0,
+              0,
+              0
+            ],
+            "quaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "scale": 1.14,
+            "visible": true,
+            "projectedAnchor": [
+              720,
+              450
+            ],
+            "bounds": [
+              389.02782180518875,
+              195.80955721238684,
+              1050.9721781948112,
+              704.1924543983117
+            ],
+            "centeredLocalBounds": [
+              -1.394473910331726,
+              -1.0714187622070312,
+              -0.11499999463558197,
+              1.394473910331726,
+              1.0714187622070312,
+              0.11499999463558197
+            ]
+          }
+        },
+        "geometry": {
+          "outer": [
+            -1.3694780061035157,
+            -0.71,
+            1.3694780061035154,
+            1.3827249999999998
+          ],
+          "hole": [
+            -0.7454998619384765,
+            -0.3905,
+            0.7454998619384765,
+            0.7517125
+          ],
+          "local": [
+            -1.394473910331726,
+            -1.0714187622070312,
+            -0.11499999463558197,
+            1.394473910331726,
+            1.0714187622070312,
+            0.11499999463558197
+          ],
+          "depth": 0.18,
+          "bevel": 0.025
+        },
+        "cta": {
+          "inert": true,
+          "parentInert": true,
+          "opacity": "0"
+        }
+      }
+    }
+  },
+  "checks": [
+    {
+      "name": "desktop-top: unchanged camera/shape/pose/progress and optical shader",
+      "pass": true,
+      "evidence": {
+        "old": {
+          "scene": {
+            "backdrop": {
+              "bounds": [
+                -60.70648580561007,
+                -3.7748961163423744,
+                1754.3930986597595,
+                903.7748961163422
+              ],
+              "scale": [
+                12,
+                6,
+                1
+              ],
+              "texture": "8b6963e9-81e0-4c1b-9a31-ef23d47e4f47",
+              "canvas": [
+                1536,
+                768
+              ],
+              "center": [
+                0,
+                0,
+                0,
+                255
+              ],
+              "right": [
+                14,
+                14,
+                14,
+                255
+              ],
+              "left": [
+                6,
+                6,
+                6,
+                255
+              ]
+            },
+            "material": {
+              "type": "ShaderMaterial",
+              "toneMapped": false,
+              "shader": "\n  uniform sampler2D uScene;\n  uniform samplerCube uEnvironment;\n  uniform vec2 uResolution;\n  varying vec3 vNormal;\n  varying vec3 vView;\n  varying vec3 vWorldNormal;\n  varying vec3 vWorldPosition;\n  void main() {\n    vec3 n = normalize(vNormal);\n    vec3 view = normalize(vView);\n    vec2 uv = gl_FragCoord.xy / uResolution;\n    vec3 ray = refract(-view, n, 1.0 / 1.45);\n    vec2 displacement = (ray.xy + n.xy * 0.45) * 0.075;\n    vec3 transmitted;\n    transmitted.r = texture2D(uScene, clamp(uv + displacement * 1.025, 0.001, 0.999)).r;\n    transmitted.g = texture2D(uScene, clamp(uv + displacement, 0.001, 0.999)).g;\n    transmitted.b = texture2D(uScene, clamp(uv + displacement * 0.975, 0.001, 0.999)).b;\n    float edge = pow(1.0 - abs(dot(n,view)), 4.0);\n    vec3 worldView = normalize(vWorldPosition - cameraPosition);\n    vec3 reflected = reflect(worldView, normalize(vWorldNormal));\n    vec3 light = min(textureCube(uEnvironment, reflected).rgb, vec3(0.85));\n    vec3 color = mix(transmitted, light, 0.015 + edge * 0.82);\n    gl_FragColor = vec4(color, 1.0);\n    #include <tonemapping_fragment>\n    #include <colorspace_fragment>\n  }\n",
+              "environment": "c94c3e3b-1b2e-4016-a2da-a28044c4205c"
+            },
+            "renderer": {
+              "error": 0,
+              "textures": 11,
+              "programs": 13
+            },
+            "flow": {
+              "time": 8000,
+              "running": true,
+              "input": {
+                "reset": "",
+                "position": [
+                  0,
+                  0
+                ],
+                "residual": [
+                  0,
+                  0
+                ],
+                "velocity": [
+                  0,
+                  0
+                ],
+                "buffer": [
+                  0,
+                  0
+                ],
+                "source": [
+                  0,
+                  0
+                ],
+                "radius": 0.01,
+                "passes": 9
+              }
+            }
+          },
+          "time": 8000,
+          "logical": 8000,
+          "y": 0,
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "canvasCount": 1,
+          "overflow": false,
+          "quiet": false,
+          "motion": {
+            "phase": "kv",
+            "raw": {
+              "kv": 0.9,
+              "intro": 0,
+              "works": 0,
+              "event": 0,
+              "snap": 0,
+              "outro": 0,
+              "wall": 0
+            },
+            "rendered": {
+              "progress": 0,
+              "index": 0,
+              "background": 0,
+              "intro": 0
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 42.25,
+              "outro": {
+                "raw": 0,
+                "parallax": 0,
+                "projection": 0
+              },
+              "offset": [
+                0,
+                0
+              ],
+              "offsetTarget": [
+                0,
+                0
+              ],
+              "projection": [
+                1.617623472266591,
+                0,
+                0,
+                0,
+                0,
+                2.5881975556265457,
+                0,
+                0,
+                0,
+                0,
+                -1.0040080160320641,
+                -1,
+                0,
+                0,
+                -0.20040080160320642,
+                0
+              ],
+              "inverse": [
+                0.6181908318867396,
+                0,
+                0,
+                0,
+                0,
+                0.3863692699292123,
+                0,
+                0,
+                0,
+                0,
+                0,
+                -4.99,
+                0,
+                0,
+                -1,
+                5.010000000000001
+              ],
+              "perspective": [
+                1.617623472266591,
+                0,
+                0,
+                0,
+                0,
+                2.5881975556265457,
+                0,
+                0,
+                0,
+                0,
+                -1.0040080160320641,
+                -1,
+                0,
+                0,
+                -0.20040080160320642,
+                0
+              ],
+              "orthographic": [
+                0.2604166666666667,
+                0,
+                0,
+                0,
+                0,
+                0.4166666666666667,
+                0,
+                0,
+                0,
+                0,
+                -0.04008016032064128,
+                0,
+                0,
+                0,
+                -1.0040080160320641,
+                1
+              ]
+            },
+            "glass": {
+              "anchor": [
+                0,
+                0,
+                0
+              ],
+              "quaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": 1.14,
+              "visible": true,
+              "projectedAnchor": [
+                720,
+                450
+              ],
+              "bounds": [
+                389.02782180518875,
+                195.80955721238684,
+                1050.9721781948112,
+                704.1924543983117
+              ],
+              "centeredLocalBounds": [
+                -1.394473910331726,
+                -1.0714187622070312,
+                -0.11499999463558197,
+                1.394473910331726,
+                1.0714187622070312,
+                0.11499999463558197
+              ]
+            }
+          },
+          "geometry": {
+            "outer": [
+              -1.3694780061035157,
+              -0.71,
+              1.3694780061035154,
+              1.3827249999999998
+            ],
+            "hole": [
+              -0.7454998619384765,
+              -0.3905,
+              0.7454998619384765,
+              0.7517125
+            ],
+            "local": [
+              -1.394473910331726,
+              -1.0714187622070312,
+              -0.11499999463558197,
+              1.394473910331726,
+              1.0714187622070312,
+              0.11499999463558197
+            ],
+            "depth": 0.18,
+            "bevel": 0.025
+          },
+          "cta": {
+            "inert": true,
+            "parentInert": true,
+            "opacity": "0"
+          }
+        },
+        "new": {
+          "scene": {
+            "backdrop": {
+              "bounds": [
+                -86.39999999999992,
+                -54.00000000000005,
+                1526.4,
+                954
+              ],
+              "scale": [
+                10.662555468382484,
+                6.664097167739053,
+                1
+              ],
+              "texture": "81a0d904-ff41-416c-bc13-22a0fc991624",
+              "canvas": [
+                1536,
+                960
+              ],
+              "center": [
+                10,
+                10,
+                10,
+                255
+              ],
+              "right": [
+                49,
+                49,
+                49,
+                255
+              ],
+              "left": [
+                14,
+                14,
+                14,
+                255
+              ]
+            },
+            "material": {
+              "type": "ShaderMaterial",
+              "toneMapped": false,
+              "shader": "\n  uniform sampler2D uScene;\n  uniform samplerCube uEnvironment;\n  uniform vec2 uResolution;\n  varying vec3 vNormal;\n  varying vec3 vView;\n  varying vec3 vWorldNormal;\n  varying vec3 vWorldPosition;\n  void main() {\n    vec3 n = normalize(vNormal);\n    vec3 view = normalize(vView);\n    vec2 uv = gl_FragCoord.xy / uResolution;\n    vec3 ray = refract(-view, n, 1.0 / 1.45);\n    vec2 displacement = (ray.xy + n.xy * 0.45) * 0.075;\n    vec3 transmitted;\n    transmitted.r = texture2D(uScene, clamp(uv + displacement * 1.025, 0.001, 0.999)).r;\n    transmitted.g = texture2D(uScene, clamp(uv + displacement, 0.001, 0.999)).g;\n    transmitted.b = texture2D(uScene, clamp(uv + displacement * 0.975, 0.001, 0.999)).b;\n    float edge = pow(1.0 - abs(dot(n,view)), 4.0);\n    vec3 worldView = normalize(vWorldPosition - cameraPosition);\n    vec3 reflected = reflect(worldView, normalize(vWorldNormal));\n    vec3 light = min(textureCube(uEnvironment, reflected).rgb, vec3(0.85));\n    vec3 color = mix(transmitted, light, 0.015 + edge * 0.82);\n    gl_FragColor = vec4(color, 1.0);\n    #include <tonemapping_fragment>\n    #include <colorspace_fragment>\n  }\n",
+              "environment": "7ec4bcd2-2a1e-40b5-a0ca-bf230099277f"
+            },
+            "renderer": {
+              "error": 0,
+              "textures": 11,
+              "programs": 13
+            },
+            "flow": {
+              "time": 8000,
+              "running": true,
+              "input": {
+                "reset": "",
+                "position": [
+                  0,
+                  0
+                ],
+                "residual": [
+                  0,
+                  0
+                ],
+                "velocity": [
+                  0,
+                  0
+                ],
+                "buffer": [
+                  0,
+                  0
+                ],
+                "source": [
+                  0,
+                  0
+                ],
+                "radius": 0.01,
+                "passes": 9
+              }
+            }
+          },
+          "time": 8000,
+          "logical": 8000,
+          "y": 0,
+          "width": 1440,
+          "height": 900,
+          "dpr": 1,
+          "canvasCount": 1,
+          "overflow": false,
+          "quiet": false,
+          "motion": {
+            "phase": "kv",
+            "raw": {
+              "kv": 0.9,
+              "intro": 0,
+              "works": 0,
+              "event": 0,
+              "snap": 0,
+              "outro": 0,
+              "wall": 0
+            },
+            "rendered": {
+              "progress": 0,
+              "index": 0,
+              "background": 0,
+              "intro": 0
+            },
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 42.25,
+              "outro": {
+                "raw": 0,
+                "parallax": 0,
+                "projection": 0
+              },
+              "offset": [
+                0,
+                0
+              ],
+              "offsetTarget": [
+                0,
+                0
+              ],
+              "projection": [
+                1.617623472266591,
+                0,
+                0,
+                0,
+                0,
+                2.5881975556265457,
+                0,
+                0,
+                0,
+                0,
+                -1.0040080160320641,
+                -1,
+                0,
+                0,
+                -0.20040080160320642,
+                0
+              ],
+              "inverse": [
+                0.6181908318867396,
+                0,
+                0,
+                0,
+                0,
+                0.3863692699292123,
+                0,
+                0,
+                0,
+                0,
+                0,
+                -4.99,
+                0,
+                0,
+                -1,
+                5.010000000000001
+              ],
+              "perspective": [
+                1.617623472266591,
+                0,
+                0,
+                0,
+                0,
+                2.5881975556265457,
+                0,
+                0,
+                0,
+                0,
+                -1.0040080160320641,
+                -1,
+                0,
+                0,
+                -0.20040080160320642,
+                0
+              ],
+              "orthographic": [
+                0.2604166666666667,
+                0,
+                0,
+                0,
+                0,
+                0.4166666666666667,
+                0,
+                0,
+                0,
+                0,
+                -0.04008016032064128,
+                0,
+                0,
+                0,
+                -1.0040080160320641,
+                1
+              ]
+            },
+            "glass": {
+              "anchor": [
+                0,
+                0,
+                0
+              ],
+              "quaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": 1.14,
+              "visible": true,
+              "projectedAnchor": [
+                720,
+                450
+              ],
+              "bounds": [
+                389.02782180518875,
+                195.80955721238684,
+                1050.9721781948112,
+                704.1924543983117
+              ],
+              "centeredLocalBounds": [
+                -1.394473910331726,
+                -1.0714187622070312,
+                -0.11499999463558197,
+                1.394473910331726,
+                1.0714187622070312,
+                0.11499999463558197
+              ]
+            }
+          },
+          "geometry": {
+            "outer": [
+              -1.3694780061035157,
+              -0.71,
+              1.3694780061035154,
+              1.3827249999999998
+            ],
+            "hole": [
+              -0.7454998619384765,
+              -0.3905,
+              0.7454998619384765,
+              0.7517125
+            ],
+            "local": [
+              -1.394473910331726,
+              -1.0714187622070312,
+              -0.11499999463558197,
+              1.394473910331726,
+              1.0714187622070312,
+              0.11499999463558197
+            ],
+            "depth": 0.18,
+            "bevel": 0.025
+          },
+          "cta": {
+            "inert": true,
+            "parentInert": true,
+            "opacity": "0"
+          }
+        }
+      }
+    },
+    {
+      "name": "desktop-top: full frame without stretched bitmap, edge light leaves dark center",
+      "pass": true,
+      "evidence": {
+        "oldBackdrop": {
+          "bounds": [
+            -60.70648580561007,
+            -3.7748961163423744,
+            1754.3930986597595,
+            903.7748961163422
+          ],
+          "scale": [
+            12,
+            6,
+            1
+          ],
+          "texture": "8b6963e9-81e0-4c1b-9a31-ef23d47e4f47",
+          "canvas": [
+            1536,
+            768
+          ],
+          "center": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "right": [
+            14,
+            14,
+            14,
+            255
+          ],
+          "left": [
+            6,
+            6,
+            6,
+            255
+          ]
+        },
+        "newBackdrop": {
+          "bounds": [
+            -86.39999999999992,
+            -54.00000000000005,
+            1526.4,
+            954
+          ],
+          "scale": [
+            10.662555468382484,
+            6.664097167739053,
+            1
+          ],
+          "texture": "81a0d904-ff41-416c-bc13-22a0fc991624",
+          "canvas": [
+            1536,
+            960
+          ],
+          "center": [
+            10,
+            10,
+            10,
+            255
+          ],
+          "right": [
+            49,
+            49,
+            49,
+            255
+          ],
+          "left": [
+            14,
+            14,
+            14,
+            255
+          ]
+        },
+        "renderer": {
+          "error": 0,
+          "textures": 11,
+          "programs": 13
+        }
+      }
+    },
+    {
+      "name": "old-desktop-top: no local script/request/GL errors",
+      "pass": true,
+      "evidence": {
+        "errors": [],
+        "failed": []
+      }
+    },
+    {
+      "name": "new-desktop-top: no local script/request/GL errors",
+      "pass": true,
+      "evidence": {
+        "errors": [],
+        "failed": []
+      }
+    }
+  ],
+  "limitations": [
+    "Static views use the same test-only quaternion and logical clock; native input cases do not override them. Screenshots and surrounding reads have separate actual times. SwiftShader/emulated touch are not hardware performance evidence."
+  ],
+  "browser": "154.0.8037.98",
+  "pass": true
+}

@@ -1,0 +1,1383 @@
+{
+  "date": "2026-10-08T12:59:35.220Z",
+  "method": "Response-only material and common fixed-quaternion overrides; application source/build/server unchanged",
+  "renderer": "Headless installed Chrome / SwiftShader, not a device-performance test",
+  "clock": "performance.now fixed initially; advance 80 steps of 50ms after setting target scroll; two native RAFs per step",
+  "pairs": [
+    {
+      "spec": {
+        "name": "desktop-hero-identity",
+        "width": 1440,
+        "height": 900,
+        "y": 0,
+        "yaw": 0,
+        "mobile": false
+      },
+      "old": {
+        "variant": "old",
+        "reflectionFloor": 0.015,
+        "errors": [],
+        "warnings": [
+          "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+        ],
+        "failed": [],
+        "resources": [
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/",
+            "status": 200,
+            "bytes": 16652,
+            "sha256": "faa90a859d18dc74742ee943e57fcec37c0ffacca3d3e14b4017b37461de1b52"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js",
+            "status": 200,
+            "bytes": 209417,
+            "sha256": "dfe43bd7b65e65185438a96364abcbedd1fdec52c19bcab0d3fe41864911f631"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/coast-sample.LNAAO_5d_ZRSqR3.webp",
+            "status": 200,
+            "bytes": 102328,
+            "sha256": "d24336547fcbdd10ceaa0220069ffd4f8d2fc2445d4719cd073a822aae969844"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/HomeLayout.EiGCMwru.css",
+            "status": 200,
+            "bytes": 15803,
+            "sha256": "dd601b4ce3f5dead4d4dccb3c6f07f8dc9ac49b741bead59e11d908958643d87"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/ibm-plex-mono-latin-400-normal.DMJ8VG8y.woff2",
+            "status": 200,
+            "bytes": 14708,
+            "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/ibm-plex-sans-latin-400-normal.CDDApCn2.woff2",
+            "status": 200,
+            "bytes": 22588,
+            "sha256": "3b646991d30055a93a4ecc499713d4347953a74a947ecab435ab72070cbdab0e"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/ibm-plex-sans-latin-500-normal.6ng42L7E.woff2",
+            "status": 200,
+            "bytes": 24184,
+            "sha256": "0717336fb31fcdcde4b8deb3675bb4a0f7f6d484864afcd6751ac29975962203"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/lssh-wordmark.D_xwlUjr_ygeSe.webp",
+            "status": 200,
+            "bytes": 63946,
+            "sha256": "dc97dca4bc9f7805978fc5119ec90d714840a2ff1cf00ac470115ffea07f9c56"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/page.Dwipeu-R.js",
+            "status": 200,
+            "bytes": 2486,
+            "sha256": "c99ac0eaf0068f03b4abe3a28b0a7bf0f28524b9dad3b23d77d54dfd453a62ae"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/scheduler.8Htqy825.js",
+            "status": 200,
+            "bytes": 12032,
+            "sha256": "45bc3dd6024d1b09532abb35b04fd7c819456c29631c8db9d4e08d21fd2a72fe"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/the-wall-placeholder.DaiTKZr6_ZIlk3C.webp",
+            "status": 200,
+            "bytes": 68626,
+            "sha256": "de8d0aeb1413d3613539d39241d5243b60e6ce326b6bbedfcff42590a842332c"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/the-wall-placeholder.DaiTKZr6_ZIlk3C.webp",
+            "status": 200,
+            "bytes": 68626,
+            "sha256": "de8d0aeb1413d3613539d39241d5243b60e6ce326b6bbedfcff42590a842332c"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/wish-neighbor-placeholder.C3OY0qeQ_Z1reaH4.webp",
+            "status": 200,
+            "bytes": 115694,
+            "sha256": "9ead1a6138f1da6776f4b69adbc282c1a538b74fecd8c314f00c519077a8d3c8"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/wish-neighbor-placeholder.C3OY0qeQ_Z1reaH4.webp",
+            "status": 200,
+            "bytes": 115694,
+            "sha256": "9ead1a6138f1da6776f4b69adbc282c1a538b74fecd8c314f00c519077a8d3c8"
+          }
+        ],
+        "routeErrors": [],
+        "http": 200,
+        "bundle": {
+          "url": "http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.BQGDYnq6.js",
+          "bytes": 1142980,
+          "sourceSHA256": "84cb66cb87b519434377207329fb163b454099a8ab2a69a928ff244266768b70",
+          "overrideSHA256": "09eb2e7420073e9ea8cfc5530a0ad318b8d78f9e84603ab74e9ead2a76b92296"
+        },
+        "anchors": {
+          "shader": 1,
+          "neutral": 1
+        },
+        "fixedQuaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "state": {
+          "clock": 4000,
+          "scrollY": 0,
+          "dpr": 1,
+          "viewport": [
+            1440,
+            900
+          ],
+          "status": "ready",
+          "motionStatus": "ready",
+          "canvasCount": 1,
+          "canvas": [
+            1440,
+            900
+          ],
+          "overflow": false,
+          "motion": {
+            "height": 900,
+            "scrollY": 0,
+            "velocity": 0,
+            "phase": "kv",
+            "raw": {
+              "kv": 0.9,
+              "intro": 0,
+              "works": 0,
+              "event": 0,
+              "snap": 0,
+              "outro": 0,
+              "wall": 0
+            },
+            "rendered": {
+              "progress": 0,
+              "index": 0,
+              "background": 0,
+              "intro": 0
+            },
+            "activeItem": -1,
+            "snapActive": false,
+            "frame": 172,
+            "time": 4000,
+            "cards": [
+              {
+                "index": 0,
+                "position": [
+                  5.228737213804935,
+                  -0.4946742857142858,
+                  -1.8632878643171193
+                ],
+                "rotationY": 0.6,
+                "scale": 0.5166658403265306,
+                "alpha": 0,
+                "visible": false
+              },
+              {
+                "index": 1,
+                "position": [
+                  5.650197546794717,
+                  -1.0595657142857144,
+                  -4.564737476391552
+                ],
+                "rotationY": 1.2,
+                "scale": 0.5166658403265306,
+                "alpha": 0,
+                "visible": false
+              }
+            ],
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 42.25
+            },
+            "glass": {
+              "anchor": [
+                0,
+                0,
+                0
+              ],
+              "quaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": 1.14,
+              "projectedAnchor": [
+                720,
+                450
+              ],
+              "bounds": [
+                429.000707993086,
+                195.80618563952575,
+                1010.9992920069141,
+                704.1964492871641
+              ],
+              "centeredLocalBounds": [
+                -1.2262870073318481,
+                -1.071435570716858,
+                -0.11499999463558197,
+                1.2262870073318481,
+                1.071435570716858,
+                0.11499999463558197
+              ]
+            }
+          }
+        },
+        "file": "desktop-hero-identity-old.png"
+      },
+      "candidate": {
+        "variant": "candidate",
+        "reflectionFloor": 0.06,
+        "errors": [],
+        "warnings": [
+          "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+        ],
+        "failed": [],
+        "resources": [
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/",
+            "status": 200,
+            "bytes": 16652,
+            "sha256": "faa90a859d18dc74742ee943e57fcec37c0ffacca3d3e14b4017b37461de1b52"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js",
+            "status": 200,
+            "bytes": 209417,
+            "sha256": "dfe43bd7b65e65185438a96364abcbedd1fdec52c19bcab0d3fe41864911f631"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/coast-sample.LNAAO_5d_ZRSqR3.webp",
+            "status": 200,
+            "bytes": 102328,
+            "sha256": "d24336547fcbdd10ceaa0220069ffd4f8d2fc2445d4719cd073a822aae969844"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/HomeLayout.EiGCMwru.css",
+            "status": 200,
+            "bytes": 15803,
+            "sha256": "dd601b4ce3f5dead4d4dccb3c6f07f8dc9ac49b741bead59e11d908958643d87"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/ibm-plex-mono-latin-400-normal.DMJ8VG8y.woff2",
+            "status": 200,
+            "bytes": 14708,
+            "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/ibm-plex-sans-latin-400-normal.CDDApCn2.woff2",
+            "status": 200,
+            "bytes": 22588,
+            "sha256": "3b646991d30055a93a4ecc499713d4347953a74a947ecab435ab72070cbdab0e"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/ibm-plex-sans-latin-500-normal.6ng42L7E.woff2",
+            "status": 200,
+            "bytes": 24184,
+            "sha256": "0717336fb31fcdcde4b8deb3675bb4a0f7f6d484864afcd6751ac29975962203"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/lssh-wordmark.D_xwlUjr_ygeSe.webp",
+            "status": 200,
+            "bytes": 63946,
+            "sha256": "dc97dca4bc9f7805978fc5119ec90d714840a2ff1cf00ac470115ffea07f9c56"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/page.Dwipeu-R.js",
+            "status": 200,
+            "bytes": 2486,
+            "sha256": "c99ac0eaf0068f03b4abe3a28b0a7bf0f28524b9dad3b23d77d54dfd453a62ae"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/scheduler.8Htqy825.js",
+            "status": 200,
+            "bytes": 12032,
+            "sha256": "45bc3dd6024d1b09532abb35b04fd7c819456c29631c8db9d4e08d21fd2a72fe"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/the-wall-placeholder.DaiTKZr6_ZIlk3C.webp",
+            "status": 200,
+            "bytes": 68626,
+            "sha256": "de8d0aeb1413d3613539d39241d5243b60e6ce326b6bbedfcff42590a842332c"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/the-wall-placeholder.DaiTKZr6_ZIlk3C.webp",
+            "status": 200,
+            "bytes": 68626,
+            "sha256": "de8d0aeb1413d3613539d39241d5243b60e6ce326b6bbedfcff42590a842332c"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/wish-neighbor-placeholder.C3OY0qeQ_Z1reaH4.webp",
+            "status": 200,
+            "bytes": 115694,
+            "sha256": "9ead1a6138f1da6776f4b69adbc282c1a538b74fecd8c314f00c519077a8d3c8"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/wish-neighbor-placeholder.C3OY0qeQ_Z1reaH4.webp",
+            "status": 200,
+            "bytes": 115694,
+            "sha256": "9ead1a6138f1da6776f4b69adbc282c1a538b74fecd8c314f00c519077a8d3c8"
+          }
+        ],
+        "routeErrors": [],
+        "bundle": {
+          "url": "http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.BQGDYnq6.js",
+          "bytes": 1142980,
+          "sourceSHA256": "84cb66cb87b519434377207329fb163b454099a8ab2a69a928ff244266768b70",
+          "overrideSHA256": "1f3d98514ef9f8de61cd1fd5aafb89637f9276996cf28393291f2529725b4604"
+        },
+        "anchors": {
+          "shader": 1,
+          "neutral": 1
+        },
+        "fixedQuaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "http": 200,
+        "state": {
+          "clock": 4000,
+          "scrollY": 0,
+          "dpr": 1,
+          "viewport": [
+            1440,
+            900
+          ],
+          "status": "ready",
+          "motionStatus": "ready",
+          "canvasCount": 1,
+          "canvas": [
+            1440,
+            900
+          ],
+          "overflow": false,
+          "motion": {
+            "height": 900,
+            "scrollY": 0,
+            "velocity": 0,
+            "phase": "kv",
+            "raw": {
+              "kv": 0.9,
+              "intro": 0,
+              "works": 0,
+              "event": 0,
+              "snap": 0,
+              "outro": 0,
+              "wall": 0
+            },
+            "rendered": {
+              "progress": 0,
+              "index": 0,
+              "background": 0,
+              "intro": 0
+            },
+            "activeItem": -1,
+            "snapActive": false,
+            "frame": 168,
+            "time": 4000,
+            "cards": [
+              {
+                "index": 0,
+                "position": [
+                  5.228737213804935,
+                  -0.4946742857142858,
+                  -1.8632878643171193
+                ],
+                "rotationY": 0.6,
+                "scale": 0.5166658403265306,
+                "alpha": 0,
+                "visible": false
+              },
+              {
+                "index": 1,
+                "position": [
+                  5.650197546794717,
+                  -1.0595657142857144,
+                  -4.564737476391552
+                ],
+                "rotationY": 1.2,
+                "scale": 0.5166658403265306,
+                "alpha": 0,
+                "visible": false
+              }
+            ],
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 42.25
+            },
+            "glass": {
+              "anchor": [
+                0,
+                0,
+                0
+              ],
+              "quaternion": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": 1.14,
+              "projectedAnchor": [
+                720,
+                450
+              ],
+              "bounds": [
+                429.000707993086,
+                195.80618563952575,
+                1010.9992920069141,
+                704.1964492871641
+              ],
+              "centeredLocalBounds": [
+                -1.2262870073318481,
+                -1.071435570716858,
+                -0.11499999463558197,
+                1.2262870073318481,
+                1.071435570716858,
+                0.11499999463558197
+              ]
+            }
+          }
+        },
+        "file": "desktop-hero-identity-candidate.png"
+      },
+      "sameBundle": true,
+      "sameResources": true,
+      "sameState": true,
+      "comparable": true
+    },
+    {
+      "spec": {
+        "name": "desktop-550-yaw35",
+        "width": 1440,
+        "height": 900,
+        "y": 550,
+        "yaw": 35,
+        "mobile": false
+      },
+      "old": {
+        "variant": "old",
+        "reflectionFloor": 0.015,
+        "errors": [],
+        "warnings": [
+          "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+        ],
+        "failed": [],
+        "resources": [
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/",
+            "status": 200,
+            "bytes": 16652,
+            "sha256": "faa90a859d18dc74742ee943e57fcec37c0ffacca3d3e14b4017b37461de1b52"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js",
+            "status": 200,
+            "bytes": 209417,
+            "sha256": "dfe43bd7b65e65185438a96364abcbedd1fdec52c19bcab0d3fe41864911f631"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/coast-sample.LNAAO_5d_ZRSqR3.webp",
+            "status": 200,
+            "bytes": 102328,
+            "sha256": "d24336547fcbdd10ceaa0220069ffd4f8d2fc2445d4719cd073a822aae969844"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/HomeLayout.EiGCMwru.css",
+            "status": 200,
+            "bytes": 15803,
+            "sha256": "dd601b4ce3f5dead4d4dccb3c6f07f8dc9ac49b741bead59e11d908958643d87"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/ibm-plex-mono-latin-400-normal.DMJ8VG8y.woff2",
+            "status": 200,
+            "bytes": 14708,
+            "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/ibm-plex-sans-latin-400-normal.CDDApCn2.woff2",
+            "status": 200,
+            "bytes": 22588,
+            "sha256": "3b646991d30055a93a4ecc499713d4347953a74a947ecab435ab72070cbdab0e"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/ibm-plex-sans-latin-500-normal.6ng42L7E.woff2",
+            "status": 200,
+            "bytes": 24184,
+            "sha256": "0717336fb31fcdcde4b8deb3675bb4a0f7f6d484864afcd6751ac29975962203"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/lssh-wordmark.D_xwlUjr_ygeSe.webp",
+            "status": 200,
+            "bytes": 63946,
+            "sha256": "dc97dca4bc9f7805978fc5119ec90d714840a2ff1cf00ac470115ffea07f9c56"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/page.Dwipeu-R.js",
+            "status": 200,
+            "bytes": 2486,
+            "sha256": "c99ac0eaf0068f03b4abe3a28b0a7bf0f28524b9dad3b23d77d54dfd453a62ae"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/scheduler.8Htqy825.js",
+            "status": 200,
+            "bytes": 12032,
+            "sha256": "45bc3dd6024d1b09532abb35b04fd7c819456c29631c8db9d4e08d21fd2a72fe"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/the-wall-placeholder.DaiTKZr6_ZIlk3C.webp",
+            "status": 200,
+            "bytes": 68626,
+            "sha256": "de8d0aeb1413d3613539d39241d5243b60e6ce326b6bbedfcff42590a842332c"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/the-wall-placeholder.DaiTKZr6_ZIlk3C.webp",
+            "status": 200,
+            "bytes": 68626,
+            "sha256": "de8d0aeb1413d3613539d39241d5243b60e6ce326b6bbedfcff42590a842332c"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/wish-neighbor-placeholder.C3OY0qeQ_Z1reaH4.webp",
+            "status": 200,
+            "bytes": 115694,
+            "sha256": "9ead1a6138f1da6776f4b69adbc282c1a538b74fecd8c314f00c519077a8d3c8"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/wish-neighbor-placeholder.C3OY0qeQ_Z1reaH4.webp",
+            "status": 200,
+            "bytes": 115694,
+            "sha256": "9ead1a6138f1da6776f4b69adbc282c1a538b74fecd8c314f00c519077a8d3c8"
+          }
+        ],
+        "routeErrors": [],
+        "bundle": {
+          "url": "http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.BQGDYnq6.js",
+          "bytes": 1142980,
+          "sourceSHA256": "84cb66cb87b519434377207329fb163b454099a8ab2a69a928ff244266768b70",
+          "overrideSHA256": "a47f996a6b009f2a3234fc142aa36e0d85d8c4a9e456285fffa990c20afffe87"
+        },
+        "anchors": {
+          "shader": 1,
+          "neutral": 1
+        },
+        "fixedQuaternion": [
+          0,
+          0.3007057995042731,
+          0,
+          0.9537169507482269
+        ],
+        "http": 200,
+        "state": {
+          "clock": 4000,
+          "scrollY": 550,
+          "dpr": 1,
+          "viewport": [
+            1440,
+            900
+          ],
+          "status": "ready",
+          "motionStatus": "ready",
+          "canvasCount": 1,
+          "canvas": [
+            1440,
+            900
+          ],
+          "overflow": false,
+          "motion": {
+            "height": 900,
+            "scrollY": 550,
+            "velocity": 0,
+            "phase": "works_intro",
+            "raw": {
+              "kv": 1,
+              "intro": 0.5,
+              "works": 0,
+              "event": 0,
+              "snap": 0,
+              "outro": 0,
+              "wall": 0
+            },
+            "rendered": {
+              "progress": 0,
+              "index": 0,
+              "background": 0,
+              "intro": 0.4999988715454773
+            },
+            "activeItem": -1,
+            "snapActive": false,
+            "frame": 170,
+            "time": 4000,
+            "cards": [
+              {
+                "index": 0,
+                "position": [
+                  5.228737213804935,
+                  -0.4946742857142858,
+                  -1.8632878643171193
+                ],
+                "rotationY": 0.6,
+                "scale": 0.5166658403265306,
+                "alpha": 0,
+                "visible": false
+              },
+              {
+                "index": 1,
+                "position": [
+                  5.650197546794717,
+                  -1.0595657142857144,
+                  -4.564737476391552
+                ],
+                "rotationY": 1.2,
+                "scale": 0.5166658403265306,
+                "alpha": 0,
+                "visible": false
+              }
+            ],
+            "camera": {
+              "position": [
+                0,
+                0,
+                6
+              ],
+              "fov": 46.25
+            },
+            "glass": {
+              "anchor": [
+                0,
+                0,
+                0
+              ],
+              "quaternion": [
+                0,
+                0.3007057995042731,
+                0,
+                0.9537169507482269
+              ],
+              "scale": 1.14,
+              "projectedAnchor": [
+                720,
+                450
+              ],
+              "bounds": [
+                479.38814694363236,
+                232.4185465777637,
+                910.1976458697934,
+                699.4500812928766
+              ],
+              "centeredLocalBounds": [
+                -1.2262870073318481,
+                -1.071435570716858,
+                -0.11499999463558197,
+                1.2262870073318481,
+                1.071435570716858,
+                0.11499999463558197
+              ]
+            }
+          }
+        },
+        "file": "desktop-550-yaw35-old.png"
+      },
+      "candidate": {
+        "variant": "candidate",
+        "reflectionFloor": 0.06,
+        "errors": [],
+        "warnings": [
+          "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+        ],
+        "failed": [],
+        "resources": [
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/",
+            "status": 200,
+            "bytes": 16652,
+            "sha256": "faa90a859d18dc74742ee943e57fcec37c0ffacca3d3e14b4017b37461de1b52"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js",
+            "status": 200,
+            "bytes": 209417,
+            "sha256": "dfe43bd7b65e65185438a96364abcbedd1fdec52c19bcab0d3fe41864911f631"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/coast-sample.LNAAO_5d_ZRSqR3.webp",
+            "status": 200,
+            "bytes": 102328,
+            "sha256": "d24336547fcbdd10ceaa0220069ffd4f8d2fc2445d4719cd073a822aae969844"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/HomeLayout.EiGCMwru.css",
+            "status": 200,
+            "bytes": 15803,
+            "sha256": "dd601b4ce3f5dead4d4dccb3c6f07f8dc9ac49b741bead59e11d908958643d87"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/ibm-plex-mono-latin-400-normal.DMJ8VG8y.woff2",
+            "status": 200,
+            "bytes": 14708,
+            "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/ibm-plex-sans-latin-400-normal.CDDApCn2.woff2",
+            "status": 200,
+            "bytes": 22588,
+            "sha256": "3b646991d30055a93a4ecc499713d4347953a74a947ecab435ab72070cbdab0e"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/ibm-plex-sans-latin-500-normal.6ng42L7E.woff2",
+            "status": 200,
+            "bytes": 24184,
+            "sha256": "0717336fb31fcdcde4b8deb3675bb4a0f7f6d484864afcd6751ac29975962203"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/lssh-wordmark.D_xwlUjr_ygeSe.webp",
+            "status": 200,
+            "bytes": 63946,
+            "sha256": "dc97dca4bc9f7805978fc5119ec90d714840a2ff1cf00ac470115ffea07f9c56"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/page.Dwipeu-R.js",
+            "status": 200,
+            "bytes": 2486,
+            "sha256": "c99ac0eaf0068f03b4abe3a28b0a7bf0f28524b9dad3b23d77d54dfd453a62ae"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/scheduler.8Htqy825.js",
+            "status": 200,
+            "bytes": 12032,
+            "sha256": "45bc3dd6024d1b09532abb35b04fd7c819456c29631c8db9d4e08d21fd2a72fe"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/the-wall-placeholder.DaiTKZr6_ZIlk3C.webp",
+            "status": 200,
+            "bytes": 68626,
+            "sha256": "de8d0aeb1413d3613539d39241d5243b60e6ce326b6bbedfcff42590a842332c"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/the-wall-placeholder.DaiTKZr6_ZIlk3C.webp",
+            "status": 200,
+            "bytes": 68626,
+            "sha256": "de8d0aeb1413d3613539d39241d5243b60e6ce326b6bbedfcff42590a842332c"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/wish-neighbor-placeholder.C3OY0qeQ_Z1reaH4.webp",
+            "status": 200,
+            "bytes": 115694,
+            "sha256": "9ead1a6138f1da6776f4b69adbc282c1a538b74fecd8c314f00c519077a8d3c8"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/wish-neighbor-placeholder.C3OY0qeQ_Z1reaH4.webp",
+            "status": 200,
+            "bytes": 115694,
+            "sha256": "9ead1a6138f1da6776f4b69adbc282c1a538b74fecd8c314f00c519077a8d3c8"
+          }
+        ],
+        "routeErrors": [],
+        "http": 200,
+        "bundle": {
+          "url": "http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.BQGDYnq6.js",
+          "bytes": 1142980,
+          "sourceSHA256": "84cb66cb87b519434377207329fb163b454099a8ab2a69a928ff244266768b70",
+          "overrideSHA256": "869c7ffca74187ed9bc123a05042a1b265114e20d55844057df161df3c9a95cf"
+        },
+        "anchors": {
+          "shader": 1,
+          "neutral": 1
+        },
+        "fixedQuaternion": [
+          0,
+          0.3007057995042731,
+          0,
+          0.9537169507482269
+        ],
+        "state": {
+          "clock": 4000,
+          "scrollY": 550,
+          "dpr": 1,
+          "viewport": [
+            1440,
+            900
+          ],
+          "status": "ready",
+          "motionStatus": "ready",
+          "canvasCount": 1,
+          "canvas": [
+            1440,
+            900
+          ],
+          "overflow": false,
+          "motion": {
+            "height": 900,
+            "scrollY": 550,
+            "velocity": 0,
+            "phase": "works_intro",
+            "raw": {
+              "kv": 1,
+              "intro": 0.5,
+              "works": 0,
+              "event": 0,
+              "snap": 0,
+              "outro": 0,
+              "wall": 0
+            },
+            "rendered": {
+              "progress": 0,
+              "index": 0,
+              "background": 0,
+              "intro": 0.4999988715454773
+            },
+            "activeItem": -1,
+            "snapActive": false,
+            "frame": 169,
+            "time": 4000,
+            "cards": [
+              {
+                "index": 0,
+                "position": [
+                  5.228737213804935,
+                  -0.4946742857142858,
+                  -1.8632878643171193
+                ],
+                "rotationY": 0.6,
+                "scale": 0.5166658403265306,
+                "alpha": 0,
+                "visible": false
+              },
+              {
+                "index": 1,
+                "position": [
+                  5.650197546794717,
+                  -1.0595657142857144,
+                  -4.564737476391552
+                ],
+                "rotationY": 1.2,
+                "scale": 0.5166658403265306,
+                "alpha": 0,
+                "visible": false
+              }
+            ],
+            "camera": {
+              "position": [
+                0,
+                0,
+                6
+              ],
+              "fov": 46.25
+            },
+            "glass": {
+              "anchor": [
+                0,
+                0,
+                0
+              ],
+              "quaternion": [
+                0,
+                0.3007057995042731,
+                0,
+                0.9537169507482269
+              ],
+              "scale": 1.14,
+              "projectedAnchor": [
+                720,
+                450
+              ],
+              "bounds": [
+                479.38814694363236,
+                232.4185465777637,
+                910.1976458697934,
+                699.4500812928766
+              ],
+              "centeredLocalBounds": [
+                -1.2262870073318481,
+                -1.071435570716858,
+                -0.11499999463558197,
+                1.2262870073318481,
+                1.071435570716858,
+                0.11499999463558197
+              ]
+            }
+          }
+        },
+        "file": "desktop-550-yaw35-candidate.png"
+      },
+      "sameBundle": true,
+      "sameResources": true,
+      "sameState": true,
+      "comparable": true
+    },
+    {
+      "spec": {
+        "name": "mobile-hero-yaw35",
+        "width": 390,
+        "height": 844,
+        "y": 0,
+        "yaw": 35,
+        "mobile": true
+      },
+      "old": {
+        "variant": "old",
+        "reflectionFloor": 0.015,
+        "errors": [],
+        "warnings": [
+          "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+        ],
+        "failed": [],
+        "resources": [
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/",
+            "status": 200,
+            "bytes": 16652,
+            "sha256": "faa90a859d18dc74742ee943e57fcec37c0ffacca3d3e14b4017b37461de1b52"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js",
+            "status": 200,
+            "bytes": 209417,
+            "sha256": "dfe43bd7b65e65185438a96364abcbedd1fdec52c19bcab0d3fe41864911f631"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/coast-sample.LNAAO_5d_ZRSqR3.webp",
+            "status": 200,
+            "bytes": 102328,
+            "sha256": "d24336547fcbdd10ceaa0220069ffd4f8d2fc2445d4719cd073a822aae969844"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/HomeLayout.EiGCMwru.css",
+            "status": 200,
+            "bytes": 15803,
+            "sha256": "dd601b4ce3f5dead4d4dccb3c6f07f8dc9ac49b741bead59e11d908958643d87"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/ibm-plex-mono-latin-400-normal.DMJ8VG8y.woff2",
+            "status": 200,
+            "bytes": 14708,
+            "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/ibm-plex-sans-latin-400-normal.CDDApCn2.woff2",
+            "status": 200,
+            "bytes": 22588,
+            "sha256": "3b646991d30055a93a4ecc499713d4347953a74a947ecab435ab72070cbdab0e"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/ibm-plex-sans-latin-500-normal.6ng42L7E.woff2",
+            "status": 200,
+            "bytes": 24184,
+            "sha256": "0717336fb31fcdcde4b8deb3675bb4a0f7f6d484864afcd6751ac29975962203"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/lssh-wordmark.D_xwlUjr_ygeSe.webp",
+            "status": 200,
+            "bytes": 63946,
+            "sha256": "dc97dca4bc9f7805978fc5119ec90d714840a2ff1cf00ac470115ffea07f9c56"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/page.Dwipeu-R.js",
+            "status": 200,
+            "bytes": 2486,
+            "sha256": "c99ac0eaf0068f03b4abe3a28b0a7bf0f28524b9dad3b23d77d54dfd453a62ae"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/scheduler.8Htqy825.js",
+            "status": 200,
+            "bytes": 12032,
+            "sha256": "45bc3dd6024d1b09532abb35b04fd7c819456c29631c8db9d4e08d21fd2a72fe"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/the-wall-placeholder.DaiTKZr6_ZIlk3C.webp",
+            "status": 200,
+            "bytes": 68626,
+            "sha256": "de8d0aeb1413d3613539d39241d5243b60e6ce326b6bbedfcff42590a842332c"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/the-wall-placeholder.DaiTKZr6_ZIlk3C.webp",
+            "status": 200,
+            "bytes": 68626,
+            "sha256": "de8d0aeb1413d3613539d39241d5243b60e6ce326b6bbedfcff42590a842332c"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/wish-neighbor-placeholder.C3OY0qeQ_Z1reaH4.webp",
+            "status": 200,
+            "bytes": 115694,
+            "sha256": "9ead1a6138f1da6776f4b69adbc282c1a538b74fecd8c314f00c519077a8d3c8"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/wish-neighbor-placeholder.C3OY0qeQ_Z1reaH4.webp",
+            "status": 200,
+            "bytes": 115694,
+            "sha256": "9ead1a6138f1da6776f4b69adbc282c1a538b74fecd8c314f00c519077a8d3c8"
+          }
+        ],
+        "routeErrors": [],
+        "http": 200,
+        "bundle": {
+          "url": "http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.BQGDYnq6.js",
+          "bytes": 1142980,
+          "sourceSHA256": "84cb66cb87b519434377207329fb163b454099a8ab2a69a928ff244266768b70",
+          "overrideSHA256": "a47f996a6b009f2a3234fc142aa36e0d85d8c4a9e456285fffa990c20afffe87"
+        },
+        "anchors": {
+          "shader": 1,
+          "neutral": 1
+        },
+        "fixedQuaternion": [
+          0,
+          0.3007057995042731,
+          0,
+          0.9537169507482269
+        ],
+        "state": {
+          "clock": 4000,
+          "scrollY": 0,
+          "dpr": 1,
+          "viewport": [
+            390,
+            844
+          ],
+          "status": "ready",
+          "motionStatus": "ready",
+          "canvasCount": 1,
+          "canvas": [
+            390,
+            844
+          ],
+          "overflow": false,
+          "motion": {
+            "height": 844,
+            "scrollY": 0,
+            "velocity": 0,
+            "phase": "kv",
+            "raw": {
+              "kv": 0.8940677966101694,
+              "intro": 0,
+              "works": 0,
+              "event": 0,
+              "snap": 0,
+              "outro": 0,
+              "wall": 0
+            },
+            "rendered": {
+              "progress": 0,
+              "index": 0,
+              "background": 0,
+              "intro": 0
+            },
+            "activeItem": -1,
+            "snapActive": false,
+            "frame": 169,
+            "time": 4000,
+            "cards": [
+              {
+                "index": 0,
+                "position": [
+                  3.3322250998392704,
+                  0.12000000000000004,
+                  -1.1874558494373484
+                ],
+                "rotationY": 0.6,
+                "scale": 0.36,
+                "alpha": 0,
+                "visible": false
+              },
+              {
+                "index": 1,
+                "position": [
+                  3.6008178102296995,
+                  -0.23999999999999994,
+                  -2.9090643057848564
+                ],
+                "rotationY": 1.2,
+                "scale": 0.36,
+                "alpha": 0,
+                "visible": false
+              }
+            ],
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 69.95384615384616
+            },
+            "glass": {
+              "anchor": [
+                0,
+                0,
+                0
+              ],
+              "quaternion": [
+                0,
+                0.3007057995042731,
+                0,
+                0.9537169507482269
+              ],
+              "scale": 1.2622303268803918,
+              "projectedAnchor": [
+                195,
+                422
+              ],
+              "bounds": [
+                30.838587352777143,
+                276.4652946176968,
+                319.7468792557623,
+                593.1261571956453
+              ],
+              "centeredLocalBounds": [
+                -1.2262870073318481,
+                -1.071435570716858,
+                -0.11499999463558197,
+                1.2262870073318481,
+                1.071435570716858,
+                0.11499999463558197
+              ]
+            }
+          }
+        },
+        "file": "mobile-hero-yaw35-old.png"
+      },
+      "candidate": {
+        "variant": "candidate",
+        "reflectionFloor": 0.06,
+        "errors": [],
+        "warnings": [
+          "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+        ],
+        "failed": [],
+        "resources": [
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/",
+            "status": 200,
+            "bytes": 16652,
+            "sha256": "faa90a859d18dc74742ee943e57fcec37c0ffacca3d3e14b4017b37461de1b52"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/client.DTvMOsOO.js",
+            "status": 200,
+            "bytes": 209417,
+            "sha256": "dfe43bd7b65e65185438a96364abcbedd1fdec52c19bcab0d3fe41864911f631"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/coast-sample.LNAAO_5d_ZRSqR3.webp",
+            "status": 200,
+            "bytes": 102328,
+            "sha256": "d24336547fcbdd10ceaa0220069ffd4f8d2fc2445d4719cd073a822aae969844"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/HomeLayout.EiGCMwru.css",
+            "status": 200,
+            "bytes": 15803,
+            "sha256": "dd601b4ce3f5dead4d4dccb3c6f07f8dc9ac49b741bead59e11d908958643d87"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/ibm-plex-mono-latin-400-normal.DMJ8VG8y.woff2",
+            "status": 200,
+            "bytes": 14708,
+            "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/ibm-plex-sans-latin-400-normal.CDDApCn2.woff2",
+            "status": 200,
+            "bytes": 22588,
+            "sha256": "3b646991d30055a93a4ecc499713d4347953a74a947ecab435ab72070cbdab0e"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/ibm-plex-sans-latin-500-normal.6ng42L7E.woff2",
+            "status": 200,
+            "bytes": 24184,
+            "sha256": "0717336fb31fcdcde4b8deb3675bb4a0f7f6d484864afcd6751ac29975962203"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/lssh-wordmark.D_xwlUjr_ygeSe.webp",
+            "status": 200,
+            "bytes": 63946,
+            "sha256": "dc97dca4bc9f7805978fc5119ec90d714840a2ff1cf00ac470115ffea07f9c56"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/page.Dwipeu-R.js",
+            "status": 200,
+            "bytes": 2486,
+            "sha256": "c99ac0eaf0068f03b4abe3a28b0a7bf0f28524b9dad3b23d77d54dfd453a62ae"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/scheduler.8Htqy825.js",
+            "status": 200,
+            "bytes": 12032,
+            "sha256": "45bc3dd6024d1b09532abb35b04fd7c819456c29631c8db9d4e08d21fd2a72fe"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/the-wall-placeholder.DaiTKZr6_ZIlk3C.webp",
+            "status": 200,
+            "bytes": 68626,
+            "sha256": "de8d0aeb1413d3613539d39241d5243b60e6ce326b6bbedfcff42590a842332c"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/the-wall-placeholder.DaiTKZr6_ZIlk3C.webp",
+            "status": 200,
+            "bytes": 68626,
+            "sha256": "de8d0aeb1413d3613539d39241d5243b60e6ce326b6bbedfcff42590a842332c"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/wish-neighbor-placeholder.C3OY0qeQ_Z1reaH4.webp",
+            "status": 200,
+            "bytes": 115694,
+            "sha256": "9ead1a6138f1da6776f4b69adbc282c1a538b74fecd8c314f00c519077a8d3c8"
+          },
+          {
+            "url": "http://127.0.0.1:4321/personal-homepage/_astro/wish-neighbor-placeholder.C3OY0qeQ_Z1reaH4.webp",
+            "status": 200,
+            "bytes": 115694,
+            "sha256": "9ead1a6138f1da6776f4b69adbc282c1a538b74fecd8c314f00c519077a8d3c8"
+          }
+        ],
+        "routeErrors": [],
+        "bundle": {
+          "url": "http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.BQGDYnq6.js",
+          "bytes": 1142980,
+          "sourceSHA256": "84cb66cb87b519434377207329fb163b454099a8ab2a69a928ff244266768b70",
+          "overrideSHA256": "869c7ffca74187ed9bc123a05042a1b265114e20d55844057df161df3c9a95cf"
+        },
+        "anchors": {
+          "shader": 1,
+          "neutral": 1
+        },
+        "fixedQuaternion": [
+          0,
+          0.3007057995042731,
+          0,
+          0.9537169507482269
+        ],
+        "http": 200,
+        "state": {
+          "clock": 4000,
+          "scrollY": 0,
+          "dpr": 1,
+          "viewport": [
+            390,
+            844
+          ],
+          "status": "ready",
+          "motionStatus": "ready",
+          "canvasCount": 1,
+          "canvas": [
+            390,
+            844
+          ],
+          "overflow": false,
+          "motion": {
+            "height": 844,
+            "scrollY": 0,
+            "velocity": 0,
+            "phase": "kv",
+            "raw": {
+              "kv": 0.8940677966101694,
+              "intro": 0,
+              "works": 0,
+              "event": 0,
+              "snap": 0,
+              "outro": 0,
+              "wall": 0
+            },
+            "rendered": {
+              "progress": 0,
+              "index": 0,
+              "background": 0,
+              "intro": 0
+            },
+            "activeItem": -1,
+            "snapActive": false,
+            "frame": 169,
+            "time": 4000,
+            "cards": [
+              {
+                "index": 0,
+                "position": [
+                  3.3322250998392704,
+                  0.12000000000000004,
+                  -1.1874558494373484
+                ],
+                "rotationY": 0.6,
+                "scale": 0.36,
+                "alpha": 0,
+                "visible": false
+              },
+              {
+                "index": 1,
+                "position": [
+                  3.6008178102296995,
+                  -0.23999999999999994,
+                  -2.9090643057848564
+                ],
+                "rotationY": 1.2,
+                "scale": 0.36,
+                "alpha": 0,
+                "visible": false
+              }
+            ],
+            "camera": {
+              "position": [
+                0,
+                0,
+                5.7
+              ],
+              "fov": 69.95384615384616
+            },
+            "glass": {
+              "anchor": [
+                0,
+                0,
+                0
+              ],
+              "quaternion": [
+                0,
+                0.3007057995042731,
+                0,
+                0.9537169507482269
+              ],
+              "scale": 1.2622303268803918,
+              "projectedAnchor": [
+                195,
+                422
+              ],
+              "bounds": [
+                30.838587352777143,
+                276.4652946176968,
+                319.7468792557623,
+                593.1261571956453
+              ],
+              "centeredLocalBounds": [
+                -1.2262870073318481,
+                -1.071435570716858,
+                -0.11499999463558197,
+                1.2262870073318481,
+                1.071435570716858,
+                0.11499999463558197
+              ]
+            }
+          }
+        },
+        "file": "mobile-hero-yaw35-candidate.png"
+      },
+      "sameBundle": true,
+      "sameResources": true,
+      "sameState": true,
+      "comparable": true
+    }
+  ],
+  "browser": "154.0.8037.98"
+}

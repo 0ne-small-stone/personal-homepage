@@ -1,0 +1,3095 @@
+{
+  "phase": "initial",
+  "date": "2026-10-09T15:09:38.502Z",
+  "checks": [
+    {
+      "name": "desktop-normal: header has no brand node/empty hit, centered real navigation",
+      "pass": true,
+      "evidence": {
+        "time": 1705.6000000238419,
+        "y": 0,
+        "width": 1440,
+        "height": 900,
+        "brandCount": 0,
+        "leftHit": null,
+        "navCenter": 720,
+        "links": [
+          {
+            "href": "/personal-homepage/knowledge/",
+            "label": "Becoming · 学习",
+            "height": 44,
+            "hit": true
+          },
+          {
+            "href": "/personal-homepage/links/",
+            "label": "Elsewhere · 常用网站",
+            "height": 44,
+            "hit": true
+          },
+          {
+            "href": "/personal-homepage/about/",
+            "label": "Someone · 关于小石",
+            "height": 44,
+            "hit": true
+          }
+        ],
+        "h1": [
+          "Little Stone Still Here"
+        ],
+        "lines": [
+          "Little Stone",
+          "Still Here"
+        ],
+        "visualHidden": "true",
+        "titleTexture": {
+          "lines": [
+            "Little Stone",
+            "Still Here"
+          ],
+          "canvas": [
+            2048,
+            1280
+          ],
+          "ratio": 1.4222222222222223,
+          "factor": 1,
+          "fontSize": 129.6,
+          "safeWidth": 1180.8,
+          "widths": [
+            639.187273979187,
+            515.6784582138062
+          ],
+          "bounds": [
+            [
+              410.9532380104065,
+              319.62881250000004,
+              1037.7025294303894,
+              417.3631875
+            ],
+            [
+              467.0826458930969,
+              446.6368125,
+              975.9480786323547,
+              544.3711875
+            ]
+          ]
+        },
+        "hero": {
+          "inert": false,
+          "opacity": "1",
+          "visibility": "visible"
+        },
+        "project": "Afterimage",
+        "motion": {
+          "y": 0,
+          "phase": "kv",
+          "intro": 0,
+          "initialization": {
+            "revision": 1,
+            "y": 0,
+            "zoom": 1,
+            "reason": "layout"
+          }
+        },
+        "focus": null,
+        "quiet": false
+      }
+    },
+    {
+      "name": "desktop-normal: one semantic full name, visual two lines, project name retained",
+      "pass": true,
+      "evidence": {
+        "time": 1705.6000000238419,
+        "y": 0,
+        "width": 1440,
+        "height": 900,
+        "brandCount": 0,
+        "leftHit": null,
+        "navCenter": 720,
+        "links": [
+          {
+            "href": "/personal-homepage/knowledge/",
+            "label": "Becoming · 学习",
+            "height": 44,
+            "hit": true
+          },
+          {
+            "href": "/personal-homepage/links/",
+            "label": "Elsewhere · 常用网站",
+            "height": 44,
+            "hit": true
+          },
+          {
+            "href": "/personal-homepage/about/",
+            "label": "Someone · 关于小石",
+            "height": 44,
+            "hit": true
+          }
+        ],
+        "h1": [
+          "Little Stone Still Here"
+        ],
+        "lines": [
+          "Little Stone",
+          "Still Here"
+        ],
+        "visualHidden": "true",
+        "titleTexture": {
+          "lines": [
+            "Little Stone",
+            "Still Here"
+          ],
+          "canvas": [
+            2048,
+            1280
+          ],
+          "ratio": 1.4222222222222223,
+          "factor": 1,
+          "fontSize": 129.6,
+          "safeWidth": 1180.8,
+          "widths": [
+            639.187273979187,
+            515.6784582138062
+          ],
+          "bounds": [
+            [
+              410.9532380104065,
+              319.62881250000004,
+              1037.7025294303894,
+              417.3631875
+            ],
+            [
+              467.0826458930969,
+              446.6368125,
+              975.9480786323547,
+              544.3711875
+            ]
+          ]
+        },
+        "hero": {
+          "inert": false,
+          "opacity": "1",
+          "visibility": "visible"
+        },
+        "project": "Afterimage",
+        "motion": {
+          "y": 0,
+          "phase": "kv",
+          "intro": 0,
+          "initialization": {
+            "revision": 1,
+            "y": 0,
+            "zoom": 1,
+            "reason": "layout"
+          }
+        },
+        "focus": null,
+        "quiet": false
+      }
+    },
+    {
+      "name": "desktop-normal: measured two-line peak is readable inside viewport",
+      "pass": true,
+      "evidence": {
+        "state": {
+          "time": 4394.800000011921,
+          "y": 550,
+          "width": 1440,
+          "height": 900,
+          "brandCount": 0,
+          "leftHit": null,
+          "navCenter": 720,
+          "links": [
+            {
+              "href": "/personal-homepage/knowledge/",
+              "label": "Becoming · 学习",
+              "height": 44,
+              "hit": true
+            },
+            {
+              "href": "/personal-homepage/links/",
+              "label": "Elsewhere · 常用网站",
+              "height": 44,
+              "hit": true
+            },
+            {
+              "href": "/personal-homepage/about/",
+              "label": "Someone · 关于小石",
+              "height": 44,
+              "hit": true
+            }
+          ],
+          "h1": [
+            "Little Stone Still Here"
+          ],
+          "lines": [
+            "Little Stone",
+            "Still Here"
+          ],
+          "visualHidden": "true",
+          "titleTexture": {
+            "lines": [
+              "Little Stone",
+              "Still Here"
+            ],
+            "canvas": [
+              2048,
+              1280
+            ],
+            "ratio": 1.4222222222222223,
+            "factor": 1,
+            "fontSize": 129.6,
+            "safeWidth": 1180.8,
+            "widths": [
+              639.187273979187,
+              515.6784582138062
+            ],
+            "bounds": [
+              [
+                410.9532380104065,
+                319.62881250000004,
+                1037.7025294303894,
+                417.3631875
+              ],
+              [
+                467.0826458930969,
+                446.6368125,
+                975.9480786323547,
+                544.3711875
+              ]
+            ]
+          },
+          "hero": {
+            "inert": true,
+            "opacity": "0",
+            "visibility": "hidden"
+          },
+          "project": "Afterimage",
+          "motion": {
+            "y": 550,
+            "phase": "works_intro",
+            "intro": 0.4998086887507901,
+            "initialization": {
+              "revision": 1,
+              "y": 0,
+              "zoom": 1,
+              "reason": "layout"
+            }
+          },
+          "focus": null,
+          "quiet": false
+        },
+        "shift": 43.28264645965866
+      }
+    },
+    {
+      "name": "desktop-normal: real project route keeps its home brand",
+      "pass": true,
+      "evidence": {
+        "url": "http://127.0.0.1:4321/personal-homepage/showcase/",
+        "brand": "LSSH"
+      }
+    },
+    {
+      "name": "desktop-normal: project back restores usable page without removed-node errors",
+      "pass": true,
+      "evidence": {
+        "time": 861.1999999880791,
+        "y": 1900,
+        "width": 1440,
+        "height": 900,
+        "brandCount": 0,
+        "leftHit": null,
+        "navCenter": 720,
+        "links": [
+          {
+            "href": "/personal-homepage/knowledge/",
+            "label": "Becoming · 学习",
+            "height": 44,
+            "hit": true
+          },
+          {
+            "href": "/personal-homepage/links/",
+            "label": "Elsewhere · 常用网站",
+            "height": 44,
+            "hit": true
+          },
+          {
+            "href": "/personal-homepage/about/",
+            "label": "Someone · 关于小石",
+            "height": 44,
+            "hit": true
+          }
+        ],
+        "h1": [
+          "Little Stone Still Here"
+        ],
+        "lines": [
+          "Little Stone",
+          "Still Here"
+        ],
+        "visualHidden": "true",
+        "titleTexture": {
+          "lines": [
+            "Little Stone",
+            "Still Here"
+          ],
+          "canvas": [
+            2048,
+            1280
+          ],
+          "ratio": 1.4222222222222223,
+          "factor": 1,
+          "fontSize": 129.6,
+          "safeWidth": 1180.8,
+          "widths": [
+            639.187273979187,
+            515.6784582138062
+          ],
+          "bounds": [
+            [
+              410.9532380104065,
+              319.62881250000004,
+              1037.7025294303894,
+              417.3631875
+            ],
+            [
+              467.0826458930969,
+              446.6368125,
+              975.9480786323547,
+              544.3711875
+            ]
+          ]
+        },
+        "hero": {
+          "inert": true,
+          "opacity": "0",
+          "visibility": "hidden"
+        },
+        "project": "Afterimage",
+        "motion": {
+          "y": 1900,
+          "phase": "works",
+          "intro": 1,
+          "initialization": {
+            "revision": 2,
+            "y": 1900,
+            "zoom": 0,
+            "reason": "back-forward"
+          }
+        },
+        "focus": "/personal-homepage/showcase/",
+        "quiet": false
+      }
+    },
+    {
+      "name": "desktop-normal: identity exit focus lands on real 00 control",
+      "pass": true,
+      "evidence": {
+        "time": 2459.199999988079,
+        "y": 488,
+        "width": 1440,
+        "height": 900,
+        "brandCount": 0,
+        "leftHit": null,
+        "navCenter": 720,
+        "links": [
+          {
+            "href": "/personal-homepage/knowledge/",
+            "label": "Becoming · 学习",
+            "height": 44,
+            "hit": true
+          },
+          {
+            "href": "/personal-homepage/links/",
+            "label": "Elsewhere · 常用网站",
+            "height": 44,
+            "hit": true
+          },
+          {
+            "href": "/personal-homepage/about/",
+            "label": "Someone · 关于小石",
+            "height": 44,
+            "hit": true
+          }
+        ],
+        "h1": [
+          "Little Stone Still Here"
+        ],
+        "lines": [
+          "Little Stone",
+          "Still Here"
+        ],
+        "visualHidden": "true",
+        "titleTexture": {
+          "lines": [
+            "Little Stone",
+            "Still Here"
+          ],
+          "canvas": [
+            2048,
+            1280
+          ],
+          "ratio": 1.4222222222222223,
+          "factor": 1,
+          "fontSize": 129.6,
+          "safeWidth": 1180.8,
+          "widths": [
+            639.187273979187,
+            515.6784582138062
+          ],
+          "bounds": [
+            [
+              410.9532380104065,
+              319.62881250000004,
+              1037.7025294303894,
+              417.3631875
+            ],
+            [
+              467.0826458930969,
+              446.6368125,
+              975.9480786323547,
+              544.3711875
+            ]
+          ]
+        },
+        "hero": {
+          "inert": true,
+          "opacity": "0",
+          "visibility": "hidden"
+        },
+        "project": "Afterimage",
+        "motion": {
+          "y": 488,
+          "phase": "works_intro",
+          "intro": 0.01770207993879379,
+          "initialization": {
+            "revision": 2,
+            "y": 1900,
+            "zoom": 0,
+            "reason": "back-forward"
+          }
+        },
+        "focus": "#intro",
+        "quiet": false
+      }
+    },
+    {
+      "name": "desktop-normal: script/render errors absent",
+      "pass": true,
+      "evidence": {
+        "errors": [],
+        "failed": []
+      }
+    },
+    {
+      "name": "desktop-reduced: header has no brand node/empty hit, centered real navigation",
+      "pass": true,
+      "evidence": {
+        "time": 947.9000000357628,
+        "y": 0,
+        "width": 1440,
+        "height": 900,
+        "brandCount": 0,
+        "leftHit": null,
+        "navCenter": 720,
+        "links": [
+          {
+            "href": "/personal-homepage/knowledge/",
+            "label": "Becoming · 学习",
+            "height": 44,
+            "hit": true
+          },
+          {
+            "href": "/personal-homepage/links/",
+            "label": "Elsewhere · 常用网站",
+            "height": 44,
+            "hit": true
+          },
+          {
+            "href": "/personal-homepage/about/",
+            "label": "Someone · 关于小石",
+            "height": 44,
+            "hit": true
+          }
+        ],
+        "h1": [
+          "Little Stone Still Here"
+        ],
+        "lines": [
+          "Little Stone",
+          "Still Here"
+        ],
+        "visualHidden": "true",
+        "hero": {
+          "inert": false,
+          "opacity": "1",
+          "visibility": "visible"
+        },
+        "project": "Afterimage",
+        "motion": null,
+        "focus": null,
+        "quiet": true
+      }
+    },
+    {
+      "name": "desktop-reduced: one semantic full name, visual two lines, project name retained",
+      "pass": true,
+      "evidence": {
+        "time": 947.9000000357628,
+        "y": 0,
+        "width": 1440,
+        "height": 900,
+        "brandCount": 0,
+        "leftHit": null,
+        "navCenter": 720,
+        "links": [
+          {
+            "href": "/personal-homepage/knowledge/",
+            "label": "Becoming · 学习",
+            "height": 44,
+            "hit": true
+          },
+          {
+            "href": "/personal-homepage/links/",
+            "label": "Elsewhere · 常用网站",
+            "height": 44,
+            "hit": true
+          },
+          {
+            "href": "/personal-homepage/about/",
+            "label": "Someone · 关于小石",
+            "height": 44,
+            "hit": true
+          }
+        ],
+        "h1": [
+          "Little Stone Still Here"
+        ],
+        "lines": [
+          "Little Stone",
+          "Still Here"
+        ],
+        "visualHidden": "true",
+        "hero": {
+          "inert": false,
+          "opacity": "1",
+          "visibility": "visible"
+        },
+        "project": "Afterimage",
+        "motion": null,
+        "focus": null,
+        "quiet": true
+      }
+    },
+    {
+      "name": "desktop-reduced: reduced motion retains ordinary reading identity",
+      "pass": true,
+      "evidence": {
+        "state": {
+          "time": 2147.600000023842,
+          "y": 608,
+          "width": 1440,
+          "height": 900,
+          "brandCount": 0,
+          "leftHit": null,
+          "navCenter": 720,
+          "links": [
+            {
+              "href": "/personal-homepage/knowledge/",
+              "label": "Becoming · 学习",
+              "height": 44,
+              "hit": true
+            },
+            {
+              "href": "/personal-homepage/links/",
+              "label": "Elsewhere · 常用网站",
+              "height": 44,
+              "hit": true
+            },
+            {
+              "href": "/personal-homepage/about/",
+              "label": "Someone · 关于小石",
+              "height": 44,
+              "hit": true
+            }
+          ],
+          "h1": [
+            "Little Stone Still Here"
+          ],
+          "lines": [
+            "Little Stone",
+            "Still Here"
+          ],
+          "visualHidden": "true",
+          "hero": {
+            "inert": false,
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          "project": "Afterimage",
+          "motion": null,
+          "focus": null,
+          "quiet": true
+        }
+      }
+    },
+    {
+      "name": "desktop-reduced: real project route keeps its home brand",
+      "pass": true,
+      "evidence": {
+        "url": "http://127.0.0.1:4321/personal-homepage/showcase/",
+        "brand": "LSSH"
+      }
+    },
+    {
+      "name": "desktop-reduced: project back restores usable page without removed-node errors",
+      "pass": true,
+      "evidence": {
+        "time": 207.10000002384186,
+        "y": 1215,
+        "width": 1440,
+        "height": 900,
+        "brandCount": 0,
+        "leftHit": null,
+        "navCenter": 720,
+        "links": [
+          {
+            "href": "/personal-homepage/knowledge/",
+            "label": "Becoming · 学习",
+            "height": 44,
+            "hit": true
+          },
+          {
+            "href": "/personal-homepage/links/",
+            "label": "Elsewhere · 常用网站",
+            "height": 44,
+            "hit": true
+          },
+          {
+            "href": "/personal-homepage/about/",
+            "label": "Someone · 关于小石",
+            "height": 44,
+            "hit": true
+          }
+        ],
+        "h1": [
+          "Little Stone Still Here"
+        ],
+        "lines": [
+          "Little Stone",
+          "Still Here"
+        ],
+        "visualHidden": "true",
+        "hero": {
+          "inert": false,
+          "opacity": "1",
+          "visibility": "visible"
+        },
+        "project": "Afterimage",
+        "motion": null,
+        "focus": "/personal-homepage/showcase/",
+        "quiet": true
+      }
+    },
+    {
+      "name": "desktop-reduced: script/render errors absent",
+      "pass": true,
+      "evidence": {
+        "errors": [],
+        "failed": []
+      }
+    },
+    {
+      "name": "mobile-normal: header has no brand node/empty hit, centered real navigation",
+      "pass": true,
+      "evidence": {
+        "time": 1115.3999999761581,
+        "y": 0,
+        "width": 390,
+        "height": 844,
+        "brandCount": 0,
+        "leftHit": null,
+        "navCenter": 195,
+        "links": [
+          {
+            "href": "/personal-homepage/knowledge/",
+            "label": "Becoming · 学习",
+            "height": 44,
+            "hit": true
+          },
+          {
+            "href": "/personal-homepage/links/",
+            "label": "Elsewhere · 常用网站",
+            "height": 44,
+            "hit": true
+          },
+          {
+            "href": "/personal-homepage/about/",
+            "label": "Someone · 关于小石",
+            "height": 44,
+            "hit": true
+          }
+        ],
+        "h1": [
+          "Little Stone Still Here"
+        ],
+        "lines": [
+          "Little Stone",
+          "Still Here"
+        ],
+        "visualHidden": "true",
+        "titleTexture": {
+          "lines": [
+            "Little Stone",
+            "Still Here"
+          ],
+          "canvas": [
+            2048,
+            4432
+          ],
+          "ratio": 5.251282051282051,
+          "factor": 1,
+          "fontSize": 52,
+          "safeWidth": 319.79999999999995,
+          "widths": [
+            256.45736932754517,
+            206.90262258052826
+          ],
+          "bounds": [
+            [
+              70.83371847867966,
+              359.7267353531719,
+              322.4812388420105,
+              399.5382646468282
+            ],
+            [
+              93.17365229129791,
+              410.6867353531719,
+              297.70386546850204,
+              450.49826464682826
+            ]
+          ]
+        },
+        "hero": {
+          "inert": false,
+          "opacity": "1",
+          "visibility": "visible"
+        },
+        "project": "Afterimage",
+        "motion": {
+          "y": 0,
+          "phase": "kv",
+          "intro": 0,
+          "initialization": {
+            "revision": 1,
+            "y": 0,
+            "zoom": 1,
+            "reason": "layout"
+          }
+        },
+        "focus": null,
+        "quiet": false
+      }
+    },
+    {
+      "name": "mobile-normal: one semantic full name, visual two lines, project name retained",
+      "pass": true,
+      "evidence": {
+        "time": 1115.3999999761581,
+        "y": 0,
+        "width": 390,
+        "height": 844,
+        "brandCount": 0,
+        "leftHit": null,
+        "navCenter": 195,
+        "links": [
+          {
+            "href": "/personal-homepage/knowledge/",
+            "label": "Becoming · 学习",
+            "height": 44,
+            "hit": true
+          },
+          {
+            "href": "/personal-homepage/links/",
+            "label": "Elsewhere · 常用网站",
+            "height": 44,
+            "hit": true
+          },
+          {
+            "href": "/personal-homepage/about/",
+            "label": "Someone · 关于小石",
+            "height": 44,
+            "hit": true
+          }
+        ],
+        "h1": [
+          "Little Stone Still Here"
+        ],
+        "lines": [
+          "Little Stone",
+          "Still Here"
+        ],
+        "visualHidden": "true",
+        "titleTexture": {
+          "lines": [
+            "Little Stone",
+            "Still Here"
+          ],
+          "canvas": [
+            2048,
+            4432
+          ],
+          "ratio": 5.251282051282051,
+          "factor": 1,
+          "fontSize": 52,
+          "safeWidth": 319.79999999999995,
+          "widths": [
+            256.45736932754517,
+            206.90262258052826
+          ],
+          "bounds": [
+            [
+              70.83371847867966,
+              359.7267353531719,
+              322.4812388420105,
+              399.5382646468282
+            ],
+            [
+              93.17365229129791,
+              410.6867353531719,
+              297.70386546850204,
+              450.49826464682826
+            ]
+          ]
+        },
+        "hero": {
+          "inert": false,
+          "opacity": "1",
+          "visibility": "visible"
+        },
+        "project": "Afterimage",
+        "motion": {
+          "y": 0,
+          "phase": "kv",
+          "intro": 0,
+          "initialization": {
+            "revision": 1,
+            "y": 0,
+            "zoom": 1,
+            "reason": "layout"
+          }
+        },
+        "focus": null,
+        "quiet": false
+      }
+    },
+    {
+      "name": "mobile-normal: measured two-line peak is readable inside viewport",
+      "pass": true,
+      "evidence": {
+        "state": {
+          "time": 3450.5,
+          "y": 522,
+          "width": 390,
+          "height": 844,
+          "brandCount": 0,
+          "leftHit": null,
+          "navCenter": 195,
+          "links": [
+            {
+              "href": "/personal-homepage/knowledge/",
+              "label": "Becoming · 学习",
+              "height": 44,
+              "hit": true
+            },
+            {
+              "href": "/personal-homepage/links/",
+              "label": "Elsewhere · 常用网站",
+              "height": 44,
+              "hit": true
+            },
+            {
+              "href": "/personal-homepage/about/",
+              "label": "Someone · 关于小石",
+              "height": 44,
+              "hit": true
+            }
+          ],
+          "h1": [
+            "Little Stone Still Here"
+          ],
+          "lines": [
+            "Little Stone",
+            "Still Here"
+          ],
+          "visualHidden": "true",
+          "titleTexture": {
+            "lines": [
+              "Little Stone",
+              "Still Here"
+            ],
+            "canvas": [
+              2048,
+              4432
+            ],
+            "ratio": 5.251282051282051,
+            "factor": 1,
+            "fontSize": 52,
+            "safeWidth": 319.79999999999995,
+            "widths": [
+              256.45736932754517,
+              206.90262258052826
+            ],
+            "bounds": [
+              [
+                70.83371847867966,
+                359.7267353531719,
+                322.4812388420105,
+                399.5382646468282
+              ],
+              [
+                93.17365229129791,
+                410.6867353531719,
+                297.70386546850204,
+                450.49826464682826
+              ]
+            ]
+          },
+          "hero": {
+            "inert": true,
+            "opacity": "0",
+            "visibility": "hidden"
+          },
+          "project": "Afterimage",
+          "motion": {
+            "y": 522,
+            "phase": "works_intro",
+            "intro": 0.4998124799941592,
+            "initialization": {
+              "revision": 1,
+              "y": 0,
+              "zoom": 1,
+              "reason": "layout"
+            }
+          },
+          "focus": null,
+          "quiet": false
+        },
+        "shift": 11.721939840683374
+      }
+    },
+    {
+      "name": "mobile-normal: real project route keeps its home brand",
+      "pass": true,
+      "evidence": {
+        "url": "http://127.0.0.1:4321/personal-homepage/showcase/",
+        "brand": "LSSH"
+      }
+    },
+    {
+      "name": "mobile-normal: project back restores usable page without removed-node errors",
+      "pass": true,
+      "evidence": {
+        "time": 663.1999999880791,
+        "y": 1788,
+        "width": 390,
+        "height": 844,
+        "brandCount": 0,
+        "leftHit": null,
+        "navCenter": 195,
+        "links": [
+          {
+            "href": "/personal-homepage/knowledge/",
+            "label": "Becoming · 学习",
+            "height": 44,
+            "hit": true
+          },
+          {
+            "href": "/personal-homepage/links/",
+            "label": "Elsewhere · 常用网站",
+            "height": 44,
+            "hit": true
+          },
+          {
+            "href": "/personal-homepage/about/",
+            "label": "Someone · 关于小石",
+            "height": 44,
+            "hit": true
+          }
+        ],
+        "h1": [
+          "Little Stone Still Here"
+        ],
+        "lines": [
+          "Little Stone",
+          "Still Here"
+        ],
+        "visualHidden": "true",
+        "titleTexture": {
+          "lines": [
+            "Little Stone",
+            "Still Here"
+          ],
+          "canvas": [
+            2048,
+            4432
+          ],
+          "ratio": 5.251282051282051,
+          "factor": 1,
+          "fontSize": 52,
+          "safeWidth": 319.79999999999995,
+          "widths": [
+            256.45736932754517,
+            206.90262258052826
+          ],
+          "bounds": [
+            [
+              70.83371847867966,
+              359.7267353531719,
+              322.4812388420105,
+              399.5382646468282
+            ],
+            [
+              93.17365229129791,
+              410.6867353531719,
+              297.70386546850204,
+              450.49826464682826
+            ]
+          ]
+        },
+        "hero": {
+          "inert": true,
+          "opacity": "0",
+          "visibility": "hidden"
+        },
+        "project": "Afterimage",
+        "motion": {
+          "y": 1788,
+          "phase": "works",
+          "intro": 1,
+          "initialization": {
+            "revision": 2,
+            "y": 1788,
+            "zoom": 0,
+            "reason": "back-forward"
+          }
+        },
+        "focus": "/personal-homepage/showcase/",
+        "quiet": false
+      }
+    },
+    {
+      "name": "mobile-normal: identity exit focus lands on real 00 control",
+      "pass": true,
+      "evidence": {
+        "time": 2052.300000011921,
+        "y": 104,
+        "width": 390,
+        "height": 844,
+        "brandCount": 0,
+        "leftHit": null,
+        "navCenter": 195,
+        "links": [
+          {
+            "href": "/personal-homepage/knowledge/",
+            "label": "Becoming · 学习",
+            "height": 44,
+            "hit": true
+          },
+          {
+            "href": "/personal-homepage/links/",
+            "label": "Elsewhere · 常用网站",
+            "height": 44,
+            "hit": true
+          },
+          {
+            "href": "/personal-homepage/about/",
+            "label": "Someone · 关于小石",
+            "height": 44,
+            "hit": true
+          }
+        ],
+        "h1": [
+          "Little Stone Still Here"
+        ],
+        "lines": [
+          "Little Stone",
+          "Still Here"
+        ],
+        "visualHidden": "true",
+        "titleTexture": {
+          "lines": [
+            "Little Stone",
+            "Still Here"
+          ],
+          "canvas": [
+            2048,
+            4432
+          ],
+          "ratio": 5.251282051282051,
+          "factor": 1,
+          "fontSize": 52,
+          "safeWidth": 319.79999999999995,
+          "widths": [
+            256.45736932754517,
+            206.90262258052826
+          ],
+          "bounds": [
+            [
+              70.83371847867966,
+              359.7267353531719,
+              322.4812388420105,
+              399.5382646468282
+            ],
+            [
+              93.17365229129791,
+              410.6867353531719,
+              297.70386546850204,
+              450.49826464682826
+            ]
+          ]
+        },
+        "hero": {
+          "inert": true,
+          "opacity": "0",
+          "visibility": "hidden"
+        },
+        "project": "Afterimage",
+        "motion": {
+          "y": 104,
+          "phase": "works_intro",
+          "intro": 0.004867368588673733,
+          "initialization": {
+            "revision": 2,
+            "y": 1788,
+            "zoom": 0,
+            "reason": "back-forward"
+          }
+        },
+        "focus": "#intro",
+        "quiet": false
+      }
+    },
+    {
+      "name": "mobile-normal: script/render errors absent",
+      "pass": true,
+      "evidence": {
+        "errors": [],
+        "failed": []
+      }
+    },
+    {
+      "name": "mobile-reduced: header has no brand node/empty hit, centered real navigation",
+      "pass": true,
+      "evidence": {
+        "time": 829,
+        "y": 0,
+        "width": 390,
+        "height": 844,
+        "brandCount": 0,
+        "leftHit": null,
+        "navCenter": 195,
+        "links": [
+          {
+            "href": "/personal-homepage/knowledge/",
+            "label": "Becoming · 学习",
+            "height": 44,
+            "hit": true
+          },
+          {
+            "href": "/personal-homepage/links/",
+            "label": "Elsewhere · 常用网站",
+            "height": 44,
+            "hit": true
+          },
+          {
+            "href": "/personal-homepage/about/",
+            "label": "Someone · 关于小石",
+            "height": 44,
+            "hit": true
+          }
+        ],
+        "h1": [
+          "Little Stone Still Here"
+        ],
+        "lines": [
+          "Little Stone",
+          "Still Here"
+        ],
+        "visualHidden": "true",
+        "hero": {
+          "inert": false,
+          "opacity": "1",
+          "visibility": "visible"
+        },
+        "project": "Afterimage",
+        "motion": null,
+        "focus": null,
+        "quiet": true
+      }
+    },
+    {
+      "name": "mobile-reduced: one semantic full name, visual two lines, project name retained",
+      "pass": true,
+      "evidence": {
+        "time": 829,
+        "y": 0,
+        "width": 390,
+        "height": 844,
+        "brandCount": 0,
+        "leftHit": null,
+        "navCenter": 195,
+        "links": [
+          {
+            "href": "/personal-homepage/knowledge/",
+            "label": "Becoming · 学习",
+            "height": 44,
+            "hit": true
+          },
+          {
+            "href": "/personal-homepage/links/",
+            "label": "Elsewhere · 常用网站",
+            "height": 44,
+            "hit": true
+          },
+          {
+            "href": "/personal-homepage/about/",
+            "label": "Someone · 关于小石",
+            "height": 44,
+            "hit": true
+          }
+        ],
+        "h1": [
+          "Little Stone Still Here"
+        ],
+        "lines": [
+          "Little Stone",
+          "Still Here"
+        ],
+        "visualHidden": "true",
+        "hero": {
+          "inert": false,
+          "opacity": "1",
+          "visibility": "visible"
+        },
+        "project": "Afterimage",
+        "motion": null,
+        "focus": null,
+        "quiet": true
+      }
+    },
+    {
+      "name": "mobile-reduced: reduced motion retains ordinary reading identity",
+      "pass": true,
+      "evidence": {
+        "state": {
+          "time": 1993.300000011921,
+          "y": 570,
+          "width": 390,
+          "height": 844,
+          "brandCount": 0,
+          "leftHit": null,
+          "navCenter": 195,
+          "links": [
+            {
+              "href": "/personal-homepage/knowledge/",
+              "label": "Becoming · 学习",
+              "height": 44,
+              "hit": true
+            },
+            {
+              "href": "/personal-homepage/links/",
+              "label": "Elsewhere · 常用网站",
+              "height": 44,
+              "hit": true
+            },
+            {
+              "href": "/personal-homepage/about/",
+              "label": "Someone · 关于小石",
+              "height": 44,
+              "hit": true
+            }
+          ],
+          "h1": [
+            "Little Stone Still Here"
+          ],
+          "lines": [
+            "Little Stone",
+            "Still Here"
+          ],
+          "visualHidden": "true",
+          "hero": {
+            "inert": false,
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          "project": "Afterimage",
+          "motion": null,
+          "focus": null,
+          "quiet": true
+        }
+      }
+    },
+    {
+      "name": "mobile-reduced: real project route keeps its home brand",
+      "pass": true,
+      "evidence": {
+        "url": "http://127.0.0.1:4321/personal-homepage/showcase/",
+        "brand": "LSSH"
+      }
+    },
+    {
+      "name": "mobile-reduced: project back restores usable page without removed-node errors",
+      "pass": true,
+      "evidence": {
+        "time": 334.69999998807907,
+        "y": 1139,
+        "width": 390,
+        "height": 844,
+        "brandCount": 0,
+        "leftHit": null,
+        "navCenter": 195,
+        "links": [
+          {
+            "href": "/personal-homepage/knowledge/",
+            "label": "Becoming · 学习",
+            "height": 44,
+            "hit": true
+          },
+          {
+            "href": "/personal-homepage/links/",
+            "label": "Elsewhere · 常用网站",
+            "height": 44,
+            "hit": true
+          },
+          {
+            "href": "/personal-homepage/about/",
+            "label": "Someone · 关于小石",
+            "height": 44,
+            "hit": true
+          }
+        ],
+        "h1": [
+          "Little Stone Still Here"
+        ],
+        "lines": [
+          "Little Stone",
+          "Still Here"
+        ],
+        "visualHidden": "true",
+        "hero": {
+          "inert": false,
+          "opacity": "1",
+          "visibility": "visible"
+        },
+        "project": "Afterimage",
+        "motion": null,
+        "focus": "/personal-homepage/showcase/",
+        "quiet": true
+      }
+    },
+    {
+      "name": "mobile-reduced: script/render errors absent",
+      "pass": true,
+      "evidence": {
+        "errors": [],
+        "failed": []
+      }
+    }
+  ],
+  "cases": {
+    "desktop-normal": {
+      "errors": [],
+      "failed": [],
+      "images": [
+        {
+          "file": "desktop-normal-top.png",
+          "before": {
+            "time": 1713.6000000238419,
+            "y": 0,
+            "width": 1440,
+            "height": 900,
+            "brandCount": 0,
+            "leftHit": null,
+            "navCenter": 720,
+            "links": [
+              {
+                "href": "/personal-homepage/knowledge/",
+                "label": "Becoming · 学习",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/links/",
+                "label": "Elsewhere · 常用网站",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/about/",
+                "label": "Someone · 关于小石",
+                "height": 44,
+                "hit": true
+              }
+            ],
+            "h1": [
+              "Little Stone Still Here"
+            ],
+            "lines": [
+              "Little Stone",
+              "Still Here"
+            ],
+            "visualHidden": "true",
+            "titleTexture": {
+              "lines": [
+                "Little Stone",
+                "Still Here"
+              ],
+              "canvas": [
+                2048,
+                1280
+              ],
+              "ratio": 1.4222222222222223,
+              "factor": 1,
+              "fontSize": 129.6,
+              "safeWidth": 1180.8,
+              "widths": [
+                639.187273979187,
+                515.6784582138062
+              ],
+              "bounds": [
+                [
+                  410.9532380104065,
+                  319.62881250000004,
+                  1037.7025294303894,
+                  417.3631875
+                ],
+                [
+                  467.0826458930969,
+                  446.6368125,
+                  975.9480786323547,
+                  544.3711875
+                ]
+              ]
+            },
+            "hero": {
+              "inert": false,
+              "opacity": "1",
+              "visibility": "visible"
+            },
+            "project": "Afterimage",
+            "motion": {
+              "y": 0,
+              "phase": "kv",
+              "intro": 0,
+              "initialization": {
+                "revision": 1,
+                "y": 0,
+                "zoom": 1,
+                "reason": "layout"
+              }
+            },
+            "focus": null,
+            "quiet": false
+          },
+          "after": {
+            "time": 1942.2000000476837,
+            "y": 0,
+            "width": 1440,
+            "height": 900,
+            "brandCount": 0,
+            "leftHit": null,
+            "navCenter": 720,
+            "links": [
+              {
+                "href": "/personal-homepage/knowledge/",
+                "label": "Becoming · 学习",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/links/",
+                "label": "Elsewhere · 常用网站",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/about/",
+                "label": "Someone · 关于小石",
+                "height": 44,
+                "hit": true
+              }
+            ],
+            "h1": [
+              "Little Stone Still Here"
+            ],
+            "lines": [
+              "Little Stone",
+              "Still Here"
+            ],
+            "visualHidden": "true",
+            "titleTexture": {
+              "lines": [
+                "Little Stone",
+                "Still Here"
+              ],
+              "canvas": [
+                2048,
+                1280
+              ],
+              "ratio": 1.4222222222222223,
+              "factor": 1,
+              "fontSize": 129.6,
+              "safeWidth": 1180.8,
+              "widths": [
+                639.187273979187,
+                515.6784582138062
+              ],
+              "bounds": [
+                [
+                  410.9532380104065,
+                  319.62881250000004,
+                  1037.7025294303894,
+                  417.3631875
+                ],
+                [
+                  467.0826458930969,
+                  446.6368125,
+                  975.9480786323547,
+                  544.3711875
+                ]
+              ]
+            },
+            "hero": {
+              "inert": false,
+              "opacity": "1",
+              "visibility": "visible"
+            },
+            "project": "Afterimage",
+            "motion": {
+              "y": 0,
+              "phase": "kv",
+              "intro": 0,
+              "initialization": {
+                "revision": 1,
+                "y": 0,
+                "zoom": 1,
+                "reason": "layout"
+              }
+            },
+            "focus": null,
+            "quiet": false
+          }
+        },
+        {
+          "file": "desktop-normal-intro.png",
+          "before": {
+            "time": 4400.600000023842,
+            "y": 550,
+            "width": 1440,
+            "height": 900,
+            "brandCount": 0,
+            "leftHit": null,
+            "navCenter": 720,
+            "links": [
+              {
+                "href": "/personal-homepage/knowledge/",
+                "label": "Becoming · 学习",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/links/",
+                "label": "Elsewhere · 常用网站",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/about/",
+                "label": "Someone · 关于小石",
+                "height": 44,
+                "hit": true
+              }
+            ],
+            "h1": [
+              "Little Stone Still Here"
+            ],
+            "lines": [
+              "Little Stone",
+              "Still Here"
+            ],
+            "visualHidden": "true",
+            "titleTexture": {
+              "lines": [
+                "Little Stone",
+                "Still Here"
+              ],
+              "canvas": [
+                2048,
+                1280
+              ],
+              "ratio": 1.4222222222222223,
+              "factor": 1,
+              "fontSize": 129.6,
+              "safeWidth": 1180.8,
+              "widths": [
+                639.187273979187,
+                515.6784582138062
+              ],
+              "bounds": [
+                [
+                  410.9532380104065,
+                  319.62881250000004,
+                  1037.7025294303894,
+                  417.3631875
+                ],
+                [
+                  467.0826458930969,
+                  446.6368125,
+                  975.9480786323547,
+                  544.3711875
+                ]
+              ]
+            },
+            "hero": {
+              "inert": true,
+              "opacity": "0",
+              "visibility": "hidden"
+            },
+            "project": "Afterimage",
+            "motion": {
+              "y": 550,
+              "phase": "works_intro",
+              "intro": 0.4998086887507901,
+              "initialization": {
+                "revision": 1,
+                "y": 0,
+                "zoom": 1,
+                "reason": "layout"
+              }
+            },
+            "focus": null,
+            "quiet": false
+          },
+          "after": {
+            "time": 4700.900000035763,
+            "y": 550,
+            "width": 1440,
+            "height": 900,
+            "brandCount": 0,
+            "leftHit": null,
+            "navCenter": 720,
+            "links": [
+              {
+                "href": "/personal-homepage/knowledge/",
+                "label": "Becoming · 学习",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/links/",
+                "label": "Elsewhere · 常用网站",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/about/",
+                "label": "Someone · 关于小石",
+                "height": 44,
+                "hit": true
+              }
+            ],
+            "h1": [
+              "Little Stone Still Here"
+            ],
+            "lines": [
+              "Little Stone",
+              "Still Here"
+            ],
+            "visualHidden": "true",
+            "titleTexture": {
+              "lines": [
+                "Little Stone",
+                "Still Here"
+              ],
+              "canvas": [
+                2048,
+                1280
+              ],
+              "ratio": 1.4222222222222223,
+              "factor": 1,
+              "fontSize": 129.6,
+              "safeWidth": 1180.8,
+              "widths": [
+                639.187273979187,
+                515.6784582138062
+              ],
+              "bounds": [
+                [
+                  410.9532380104065,
+                  319.62881250000004,
+                  1037.7025294303894,
+                  417.3631875
+                ],
+                [
+                  467.0826458930969,
+                  446.6368125,
+                  975.9480786323547,
+                  544.3711875
+                ]
+              ]
+            },
+            "hero": {
+              "inert": true,
+              "opacity": "0",
+              "visibility": "hidden"
+            },
+            "project": "Afterimage",
+            "motion": {
+              "y": 550,
+              "phase": "works_intro",
+              "intro": 0.4999326479922694,
+              "initialization": {
+                "revision": 1,
+                "y": 0,
+                "zoom": 1,
+                "reason": "layout"
+              }
+            },
+            "focus": null,
+            "quiet": false
+          }
+        },
+        {
+          "file": "desktop-normal-project.png",
+          "before": {
+            "time": 5814.800000011921,
+            "y": 1900,
+            "width": 1440,
+            "height": 900,
+            "brandCount": 0,
+            "leftHit": null,
+            "navCenter": 720,
+            "links": [
+              {
+                "href": "/personal-homepage/knowledge/",
+                "label": "Becoming · 学习",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/links/",
+                "label": "Elsewhere · 常用网站",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/about/",
+                "label": "Someone · 关于小石",
+                "height": 44,
+                "hit": true
+              }
+            ],
+            "h1": [
+              "Little Stone Still Here"
+            ],
+            "lines": [
+              "Little Stone",
+              "Still Here"
+            ],
+            "visualHidden": "true",
+            "titleTexture": {
+              "lines": [
+                "Little Stone",
+                "Still Here"
+              ],
+              "canvas": [
+                2048,
+                1280
+              ],
+              "ratio": 1.4222222222222223,
+              "factor": 1,
+              "fontSize": 129.6,
+              "safeWidth": 1180.8,
+              "widths": [
+                639.187273979187,
+                515.6784582138062
+              ],
+              "bounds": [
+                [
+                  410.9532380104065,
+                  319.62881250000004,
+                  1037.7025294303894,
+                  417.3631875
+                ],
+                [
+                  467.0826458930969,
+                  446.6368125,
+                  975.9480786323547,
+                  544.3711875
+                ]
+              ]
+            },
+            "hero": {
+              "inert": true,
+              "opacity": "0",
+              "visibility": "hidden"
+            },
+            "project": "Afterimage",
+            "motion": {
+              "y": 1900,
+              "phase": "works",
+              "intro": 0.9868429357672929,
+              "initialization": {
+                "revision": 1,
+                "y": 0,
+                "zoom": 1,
+                "reason": "layout"
+              }
+            },
+            "focus": null,
+            "quiet": false
+          },
+          "after": {
+            "time": 6102.400000035763,
+            "y": 1900,
+            "width": 1440,
+            "height": 900,
+            "brandCount": 0,
+            "leftHit": null,
+            "navCenter": 720,
+            "links": [
+              {
+                "href": "/personal-homepage/knowledge/",
+                "label": "Becoming · 学习",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/links/",
+                "label": "Elsewhere · 常用网站",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/about/",
+                "label": "Someone · 关于小石",
+                "height": 44,
+                "hit": true
+              }
+            ],
+            "h1": [
+              "Little Stone Still Here"
+            ],
+            "lines": [
+              "Little Stone",
+              "Still Here"
+            ],
+            "visualHidden": "true",
+            "titleTexture": {
+              "lines": [
+                "Little Stone",
+                "Still Here"
+              ],
+              "canvas": [
+                2048,
+                1280
+              ],
+              "ratio": 1.4222222222222223,
+              "factor": 1,
+              "fontSize": 129.6,
+              "safeWidth": 1180.8,
+              "widths": [
+                639.187273979187,
+                515.6784582138062
+              ],
+              "bounds": [
+                [
+                  410.9532380104065,
+                  319.62881250000004,
+                  1037.7025294303894,
+                  417.3631875
+                ],
+                [
+                  467.0826458930969,
+                  446.6368125,
+                  975.9480786323547,
+                  544.3711875
+                ]
+              ]
+            },
+            "hero": {
+              "inert": true,
+              "opacity": "0",
+              "visibility": "hidden"
+            },
+            "project": "Afterimage",
+            "motion": {
+              "y": 1900,
+              "phase": "works",
+              "intro": 0.9954824906604203,
+              "initialization": {
+                "revision": 1,
+                "y": 0,
+                "zoom": 1,
+                "reason": "layout"
+              }
+            },
+            "focus": null,
+            "quiet": false
+          }
+        }
+      ],
+      "bundle": {
+        "url": "http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.CYZ5IZjB.js",
+        "bytes": 1162779,
+        "sha256": "d39398939c2d5935b6e74a06e3afffd599f2339f33ff18fcf8def5be927f6a1c"
+      }
+    },
+    "desktop-reduced": {
+      "errors": [],
+      "failed": [],
+      "images": [
+        {
+          "file": "desktop-reduced-top.png",
+          "before": {
+            "time": 950.6000000238419,
+            "y": 0,
+            "width": 1440,
+            "height": 900,
+            "brandCount": 0,
+            "leftHit": null,
+            "navCenter": 720,
+            "links": [
+              {
+                "href": "/personal-homepage/knowledge/",
+                "label": "Becoming · 学习",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/links/",
+                "label": "Elsewhere · 常用网站",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/about/",
+                "label": "Someone · 关于小石",
+                "height": 44,
+                "hit": true
+              }
+            ],
+            "h1": [
+              "Little Stone Still Here"
+            ],
+            "lines": [
+              "Little Stone",
+              "Still Here"
+            ],
+            "visualHidden": "true",
+            "hero": {
+              "inert": false,
+              "opacity": "1",
+              "visibility": "visible"
+            },
+            "project": "Afterimage",
+            "motion": null,
+            "focus": null,
+            "quiet": true
+          },
+          "after": {
+            "time": 1010.6000000238419,
+            "y": 0,
+            "width": 1440,
+            "height": 900,
+            "brandCount": 0,
+            "leftHit": null,
+            "navCenter": 720,
+            "links": [
+              {
+                "href": "/personal-homepage/knowledge/",
+                "label": "Becoming · 学习",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/links/",
+                "label": "Elsewhere · 常用网站",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/about/",
+                "label": "Someone · 关于小石",
+                "height": 44,
+                "hit": true
+              }
+            ],
+            "h1": [
+              "Little Stone Still Here"
+            ],
+            "lines": [
+              "Little Stone",
+              "Still Here"
+            ],
+            "visualHidden": "true",
+            "hero": {
+              "inert": false,
+              "opacity": "1",
+              "visibility": "visible"
+            },
+            "project": "Afterimage",
+            "motion": null,
+            "focus": null,
+            "quiet": true
+          }
+        },
+        {
+          "file": "desktop-reduced-intro.png",
+          "before": {
+            "time": 2149.600000023842,
+            "y": 608,
+            "width": 1440,
+            "height": 900,
+            "brandCount": 0,
+            "leftHit": null,
+            "navCenter": 720,
+            "links": [
+              {
+                "href": "/personal-homepage/knowledge/",
+                "label": "Becoming · 学习",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/links/",
+                "label": "Elsewhere · 常用网站",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/about/",
+                "label": "Someone · 关于小石",
+                "height": 44,
+                "hit": true
+              }
+            ],
+            "h1": [
+              "Little Stone Still Here"
+            ],
+            "lines": [
+              "Little Stone",
+              "Still Here"
+            ],
+            "visualHidden": "true",
+            "hero": {
+              "inert": false,
+              "opacity": "1",
+              "visibility": "visible"
+            },
+            "project": "Afterimage",
+            "motion": null,
+            "focus": null,
+            "quiet": true
+          },
+          "after": {
+            "time": 2210.800000011921,
+            "y": 608,
+            "width": 1440,
+            "height": 900,
+            "brandCount": 0,
+            "leftHit": null,
+            "navCenter": 720,
+            "links": [
+              {
+                "href": "/personal-homepage/knowledge/",
+                "label": "Becoming · 学习",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/links/",
+                "label": "Elsewhere · 常用网站",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/about/",
+                "label": "Someone · 关于小石",
+                "height": 44,
+                "hit": true
+              }
+            ],
+            "h1": [
+              "Little Stone Still Here"
+            ],
+            "lines": [
+              "Little Stone",
+              "Still Here"
+            ],
+            "visualHidden": "true",
+            "hero": {
+              "inert": false,
+              "opacity": "1",
+              "visibility": "visible"
+            },
+            "project": "Afterimage",
+            "motion": null,
+            "focus": null,
+            "quiet": true
+          }
+        },
+        {
+          "file": "desktop-reduced-project.png",
+          "before": {
+            "time": 2226.7000000476837,
+            "y": 1215,
+            "width": 1440,
+            "height": 900,
+            "brandCount": 0,
+            "leftHit": null,
+            "navCenter": 720,
+            "links": [
+              {
+                "href": "/personal-homepage/knowledge/",
+                "label": "Becoming · 学习",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/links/",
+                "label": "Elsewhere · 常用网站",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/about/",
+                "label": "Someone · 关于小石",
+                "height": 44,
+                "hit": true
+              }
+            ],
+            "h1": [
+              "Little Stone Still Here"
+            ],
+            "lines": [
+              "Little Stone",
+              "Still Here"
+            ],
+            "visualHidden": "true",
+            "hero": {
+              "inert": false,
+              "opacity": "1",
+              "visibility": "visible"
+            },
+            "project": "Afterimage",
+            "motion": null,
+            "focus": null,
+            "quiet": true
+          },
+          "after": {
+            "time": 2300.400000035763,
+            "y": 1215,
+            "width": 1440,
+            "height": 900,
+            "brandCount": 0,
+            "leftHit": null,
+            "navCenter": 720,
+            "links": [
+              {
+                "href": "/personal-homepage/knowledge/",
+                "label": "Becoming · 学习",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/links/",
+                "label": "Elsewhere · 常用网站",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/about/",
+                "label": "Someone · 关于小石",
+                "height": 44,
+                "hit": true
+              }
+            ],
+            "h1": [
+              "Little Stone Still Here"
+            ],
+            "lines": [
+              "Little Stone",
+              "Still Here"
+            ],
+            "visualHidden": "true",
+            "hero": {
+              "inert": false,
+              "opacity": "1",
+              "visibility": "visible"
+            },
+            "project": "Afterimage",
+            "motion": null,
+            "focus": null,
+            "quiet": true
+          }
+        }
+      ],
+      "bundle": {
+        "url": "http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.CYZ5IZjB.js",
+        "bytes": 1162779,
+        "sha256": "d39398939c2d5935b6e74a06e3afffd599f2339f33ff18fcf8def5be927f6a1c"
+      }
+    },
+    "mobile-normal": {
+      "errors": [],
+      "failed": [],
+      "images": [
+        {
+          "file": "mobile-normal-top.png",
+          "before": {
+            "time": 1119.800000011921,
+            "y": 0,
+            "width": 390,
+            "height": 844,
+            "brandCount": 0,
+            "leftHit": null,
+            "navCenter": 195,
+            "links": [
+              {
+                "href": "/personal-homepage/knowledge/",
+                "label": "Becoming · 学习",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/links/",
+                "label": "Elsewhere · 常用网站",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/about/",
+                "label": "Someone · 关于小石",
+                "height": 44,
+                "hit": true
+              }
+            ],
+            "h1": [
+              "Little Stone Still Here"
+            ],
+            "lines": [
+              "Little Stone",
+              "Still Here"
+            ],
+            "visualHidden": "true",
+            "titleTexture": {
+              "lines": [
+                "Little Stone",
+                "Still Here"
+              ],
+              "canvas": [
+                2048,
+                4432
+              ],
+              "ratio": 5.251282051282051,
+              "factor": 1,
+              "fontSize": 52,
+              "safeWidth": 319.79999999999995,
+              "widths": [
+                256.45736932754517,
+                206.90262258052826
+              ],
+              "bounds": [
+                [
+                  70.83371847867966,
+                  359.7267353531719,
+                  322.4812388420105,
+                  399.5382646468282
+                ],
+                [
+                  93.17365229129791,
+                  410.6867353531719,
+                  297.70386546850204,
+                  450.49826464682826
+                ]
+              ]
+            },
+            "hero": {
+              "inert": false,
+              "opacity": "1",
+              "visibility": "visible"
+            },
+            "project": "Afterimage",
+            "motion": {
+              "y": 0,
+              "phase": "kv",
+              "intro": 0,
+              "initialization": {
+                "revision": 1,
+                "y": 0,
+                "zoom": 1,
+                "reason": "layout"
+              }
+            },
+            "focus": null,
+            "quiet": false
+          },
+          "after": {
+            "time": 1177.699999988079,
+            "y": 0,
+            "width": 390,
+            "height": 844,
+            "brandCount": 0,
+            "leftHit": null,
+            "navCenter": 195,
+            "links": [
+              {
+                "href": "/personal-homepage/knowledge/",
+                "label": "Becoming · 学习",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/links/",
+                "label": "Elsewhere · 常用网站",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/about/",
+                "label": "Someone · 关于小石",
+                "height": 44,
+                "hit": true
+              }
+            ],
+            "h1": [
+              "Little Stone Still Here"
+            ],
+            "lines": [
+              "Little Stone",
+              "Still Here"
+            ],
+            "visualHidden": "true",
+            "titleTexture": {
+              "lines": [
+                "Little Stone",
+                "Still Here"
+              ],
+              "canvas": [
+                2048,
+                4432
+              ],
+              "ratio": 5.251282051282051,
+              "factor": 1,
+              "fontSize": 52,
+              "safeWidth": 319.79999999999995,
+              "widths": [
+                256.45736932754517,
+                206.90262258052826
+              ],
+              "bounds": [
+                [
+                  70.83371847867966,
+                  359.7267353531719,
+                  322.4812388420105,
+                  399.5382646468282
+                ],
+                [
+                  93.17365229129791,
+                  410.6867353531719,
+                  297.70386546850204,
+                  450.49826464682826
+                ]
+              ]
+            },
+            "hero": {
+              "inert": false,
+              "opacity": "1",
+              "visibility": "visible"
+            },
+            "project": "Afterimage",
+            "motion": {
+              "y": 0,
+              "phase": "kv",
+              "intro": 0,
+              "initialization": {
+                "revision": 1,
+                "y": 0,
+                "zoom": 1,
+                "reason": "layout"
+              }
+            },
+            "focus": null,
+            "quiet": false
+          }
+        },
+        {
+          "file": "mobile-normal-intro.png",
+          "before": {
+            "time": 3455.5,
+            "y": 522,
+            "width": 390,
+            "height": 844,
+            "brandCount": 0,
+            "leftHit": null,
+            "navCenter": 195,
+            "links": [
+              {
+                "href": "/personal-homepage/knowledge/",
+                "label": "Becoming · 学习",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/links/",
+                "label": "Elsewhere · 常用网站",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/about/",
+                "label": "Someone · 关于小石",
+                "height": 44,
+                "hit": true
+              }
+            ],
+            "h1": [
+              "Little Stone Still Here"
+            ],
+            "lines": [
+              "Little Stone",
+              "Still Here"
+            ],
+            "visualHidden": "true",
+            "titleTexture": {
+              "lines": [
+                "Little Stone",
+                "Still Here"
+              ],
+              "canvas": [
+                2048,
+                4432
+              ],
+              "ratio": 5.251282051282051,
+              "factor": 1,
+              "fontSize": 52,
+              "safeWidth": 319.79999999999995,
+              "widths": [
+                256.45736932754517,
+                206.90262258052826
+              ],
+              "bounds": [
+                [
+                  70.83371847867966,
+                  359.7267353531719,
+                  322.4812388420105,
+                  399.5382646468282
+                ],
+                [
+                  93.17365229129791,
+                  410.6867353531719,
+                  297.70386546850204,
+                  450.49826464682826
+                ]
+              ]
+            },
+            "hero": {
+              "inert": true,
+              "opacity": "0",
+              "visibility": "hidden"
+            },
+            "project": "Afterimage",
+            "motion": {
+              "y": 522,
+              "phase": "works_intro",
+              "intro": 0.4998124799941592,
+              "initialization": {
+                "revision": 1,
+                "y": 0,
+                "zoom": 1,
+                "reason": "layout"
+              }
+            },
+            "focus": null,
+            "quiet": false
+          },
+          "after": {
+            "time": 3523.800000011921,
+            "y": 522,
+            "width": 390,
+            "height": 844,
+            "brandCount": 0,
+            "leftHit": null,
+            "navCenter": 195,
+            "links": [
+              {
+                "href": "/personal-homepage/knowledge/",
+                "label": "Becoming · 学习",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/links/",
+                "label": "Elsewhere · 常用网站",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/about/",
+                "label": "Someone · 关于小石",
+                "height": 44,
+                "hit": true
+              }
+            ],
+            "h1": [
+              "Little Stone Still Here"
+            ],
+            "lines": [
+              "Little Stone",
+              "Still Here"
+            ],
+            "visualHidden": "true",
+            "titleTexture": {
+              "lines": [
+                "Little Stone",
+                "Still Here"
+              ],
+              "canvas": [
+                2048,
+                4432
+              ],
+              "ratio": 5.251282051282051,
+              "factor": 1,
+              "fontSize": 52,
+              "safeWidth": 319.79999999999995,
+              "widths": [
+                256.45736932754517,
+                206.90262258052826
+              ],
+              "bounds": [
+                [
+                  70.83371847867966,
+                  359.7267353531719,
+                  322.4812388420105,
+                  399.5382646468282
+                ],
+                [
+                  93.17365229129791,
+                  410.6867353531719,
+                  297.70386546850204,
+                  450.49826464682826
+                ]
+              ]
+            },
+            "hero": {
+              "inert": true,
+              "opacity": "0",
+              "visibility": "hidden"
+            },
+            "project": "Afterimage",
+            "motion": {
+              "y": 522,
+              "phase": "works_intro",
+              "intro": 0.49984460697077354,
+              "initialization": {
+                "revision": 1,
+                "y": 0,
+                "zoom": 1,
+                "reason": "layout"
+              }
+            },
+            "focus": null,
+            "quiet": false
+          }
+        },
+        {
+          "file": "mobile-normal-project.png",
+          "before": {
+            "time": 4633.699999988079,
+            "y": 1788,
+            "width": 390,
+            "height": 844,
+            "brandCount": 0,
+            "leftHit": null,
+            "navCenter": 195,
+            "links": [
+              {
+                "href": "/personal-homepage/knowledge/",
+                "label": "Becoming · 学习",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/links/",
+                "label": "Elsewhere · 常用网站",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/about/",
+                "label": "Someone · 关于小石",
+                "height": 44,
+                "hit": true
+              }
+            ],
+            "h1": [
+              "Little Stone Still Here"
+            ],
+            "lines": [
+              "Little Stone",
+              "Still Here"
+            ],
+            "visualHidden": "true",
+            "titleTexture": {
+              "lines": [
+                "Little Stone",
+                "Still Here"
+              ],
+              "canvas": [
+                2048,
+                4432
+              ],
+              "ratio": 5.251282051282051,
+              "factor": 1,
+              "fontSize": 52,
+              "safeWidth": 319.79999999999995,
+              "widths": [
+                256.45736932754517,
+                206.90262258052826
+              ],
+              "bounds": [
+                [
+                  70.83371847867966,
+                  359.7267353531719,
+                  322.4812388420105,
+                  399.5382646468282
+                ],
+                [
+                  93.17365229129791,
+                  410.6867353531719,
+                  297.70386546850204,
+                  450.49826464682826
+                ]
+              ]
+            },
+            "hero": {
+              "inert": true,
+              "opacity": "0",
+              "visibility": "hidden"
+            },
+            "project": "Afterimage",
+            "motion": {
+              "y": 1788,
+              "phase": "works",
+              "intro": 0.9832796749355333,
+              "initialization": {
+                "revision": 1,
+                "y": 0,
+                "zoom": 1,
+                "reason": "layout"
+              }
+            },
+            "focus": null,
+            "quiet": false
+          },
+          "after": {
+            "time": 4687.899999976158,
+            "y": 1788,
+            "width": 390,
+            "height": 844,
+            "brandCount": 0,
+            "leftHit": null,
+            "navCenter": 195,
+            "links": [
+              {
+                "href": "/personal-homepage/knowledge/",
+                "label": "Becoming · 学习",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/links/",
+                "label": "Elsewhere · 常用网站",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/about/",
+                "label": "Someone · 关于小石",
+                "height": 44,
+                "hit": true
+              }
+            ],
+            "h1": [
+              "Little Stone Still Here"
+            ],
+            "lines": [
+              "Little Stone",
+              "Still Here"
+            ],
+            "visualHidden": "true",
+            "titleTexture": {
+              "lines": [
+                "Little Stone",
+                "Still Here"
+              ],
+              "canvas": [
+                2048,
+                4432
+              ],
+              "ratio": 5.251282051282051,
+              "factor": 1,
+              "fontSize": 52,
+              "safeWidth": 319.79999999999995,
+              "widths": [
+                256.45736932754517,
+                206.90262258052826
+              ],
+              "bounds": [
+                [
+                  70.83371847867966,
+                  359.7267353531719,
+                  322.4812388420105,
+                  399.5382646468282
+                ],
+                [
+                  93.17365229129791,
+                  410.6867353531719,
+                  297.70386546850204,
+                  450.49826464682826
+                ]
+              ]
+            },
+            "hero": {
+              "inert": true,
+              "opacity": "0",
+              "visibility": "hidden"
+            },
+            "project": "Afterimage",
+            "motion": {
+              "y": 1788,
+              "phase": "works",
+              "intro": 0.9856755409775153,
+              "initialization": {
+                "revision": 1,
+                "y": 0,
+                "zoom": 1,
+                "reason": "layout"
+              }
+            },
+            "focus": null,
+            "quiet": false
+          }
+        }
+      ],
+      "bundle": {
+        "url": "http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.CYZ5IZjB.js",
+        "bytes": 1162779,
+        "sha256": "d39398939c2d5935b6e74a06e3afffd599f2339f33ff18fcf8def5be927f6a1c"
+      }
+    },
+    "mobile-reduced": {
+      "errors": [],
+      "failed": [],
+      "images": [
+        {
+          "file": "mobile-reduced-top.png",
+          "before": {
+            "time": 835.1000000238419,
+            "y": 0,
+            "width": 390,
+            "height": 844,
+            "brandCount": 0,
+            "leftHit": null,
+            "navCenter": 195,
+            "links": [
+              {
+                "href": "/personal-homepage/knowledge/",
+                "label": "Becoming · 学习",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/links/",
+                "label": "Elsewhere · 常用网站",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/about/",
+                "label": "Someone · 关于小石",
+                "height": 44,
+                "hit": true
+              }
+            ],
+            "h1": [
+              "Little Stone Still Here"
+            ],
+            "lines": [
+              "Little Stone",
+              "Still Here"
+            ],
+            "visualHidden": "true",
+            "hero": {
+              "inert": false,
+              "opacity": "1",
+              "visibility": "visible"
+            },
+            "project": "Afterimage",
+            "motion": null,
+            "focus": null,
+            "quiet": true
+          },
+          "after": {
+            "time": 864.5,
+            "y": 0,
+            "width": 390,
+            "height": 844,
+            "brandCount": 0,
+            "leftHit": null,
+            "navCenter": 195,
+            "links": [
+              {
+                "href": "/personal-homepage/knowledge/",
+                "label": "Becoming · 学习",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/links/",
+                "label": "Elsewhere · 常用网站",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/about/",
+                "label": "Someone · 关于小石",
+                "height": 44,
+                "hit": true
+              }
+            ],
+            "h1": [
+              "Little Stone Still Here"
+            ],
+            "lines": [
+              "Little Stone",
+              "Still Here"
+            ],
+            "visualHidden": "true",
+            "hero": {
+              "inert": false,
+              "opacity": "1",
+              "visibility": "visible"
+            },
+            "project": "Afterimage",
+            "motion": null,
+            "focus": null,
+            "quiet": true
+          }
+        },
+        {
+          "file": "mobile-reduced-intro.png",
+          "before": {
+            "time": 1995,
+            "y": 570,
+            "width": 390,
+            "height": 844,
+            "brandCount": 0,
+            "leftHit": null,
+            "navCenter": 195,
+            "links": [
+              {
+                "href": "/personal-homepage/knowledge/",
+                "label": "Becoming · 学习",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/links/",
+                "label": "Elsewhere · 常用网站",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/about/",
+                "label": "Someone · 关于小石",
+                "height": 44,
+                "hit": true
+              }
+            ],
+            "h1": [
+              "Little Stone Still Here"
+            ],
+            "lines": [
+              "Little Stone",
+              "Still Here"
+            ],
+            "visualHidden": "true",
+            "hero": {
+              "inert": false,
+              "opacity": "1",
+              "visibility": "visible"
+            },
+            "project": "Afterimage",
+            "motion": null,
+            "focus": null,
+            "quiet": true
+          },
+          "after": {
+            "time": 2025,
+            "y": 570,
+            "width": 390,
+            "height": 844,
+            "brandCount": 0,
+            "leftHit": null,
+            "navCenter": 195,
+            "links": [
+              {
+                "href": "/personal-homepage/knowledge/",
+                "label": "Becoming · 学习",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/links/",
+                "label": "Elsewhere · 常用网站",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/about/",
+                "label": "Someone · 关于小石",
+                "height": 44,
+                "hit": true
+              }
+            ],
+            "h1": [
+              "Little Stone Still Here"
+            ],
+            "lines": [
+              "Little Stone",
+              "Still Here"
+            ],
+            "visualHidden": "true",
+            "hero": {
+              "inert": false,
+              "opacity": "1",
+              "visibility": "visible"
+            },
+            "project": "Afterimage",
+            "motion": null,
+            "focus": null,
+            "quiet": true
+          }
+        },
+        {
+          "file": "mobile-reduced-project.png",
+          "before": {
+            "time": 2047.6000000238419,
+            "y": 1139,
+            "width": 390,
+            "height": 844,
+            "brandCount": 0,
+            "leftHit": null,
+            "navCenter": 195,
+            "links": [
+              {
+                "href": "/personal-homepage/knowledge/",
+                "label": "Becoming · 学习",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/links/",
+                "label": "Elsewhere · 常用网站",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/about/",
+                "label": "Someone · 关于小石",
+                "height": 44,
+                "hit": true
+              }
+            ],
+            "h1": [
+              "Little Stone Still Here"
+            ],
+            "lines": [
+              "Little Stone",
+              "Still Here"
+            ],
+            "visualHidden": "true",
+            "hero": {
+              "inert": false,
+              "opacity": "1",
+              "visibility": "visible"
+            },
+            "project": "Afterimage",
+            "motion": null,
+            "focus": null,
+            "quiet": true
+          },
+          "after": {
+            "time": 2088.600000023842,
+            "y": 1139,
+            "width": 390,
+            "height": 844,
+            "brandCount": 0,
+            "leftHit": null,
+            "navCenter": 195,
+            "links": [
+              {
+                "href": "/personal-homepage/knowledge/",
+                "label": "Becoming · 学习",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/links/",
+                "label": "Elsewhere · 常用网站",
+                "height": 44,
+                "hit": true
+              },
+              {
+                "href": "/personal-homepage/about/",
+                "label": "Someone · 关于小石",
+                "height": 44,
+                "hit": true
+              }
+            ],
+            "h1": [
+              "Little Stone Still Here"
+            ],
+            "lines": [
+              "Little Stone",
+              "Still Here"
+            ],
+            "visualHidden": "true",
+            "hero": {
+              "inert": false,
+              "opacity": "1",
+              "visibility": "visible"
+            },
+            "project": "Afterimage",
+            "motion": null,
+            "focus": null,
+            "quiet": true
+          }
+        }
+      ],
+      "bundle": {
+        "url": "http://127.0.0.1:4321/personal-homepage/_astro/HomeJourney.CYZ5IZjB.js",
+        "bytes": 1162779,
+        "sha256": "d39398939c2d5935b6e74a06e3afffd599f2339f33ff18fcf8def5be927f6a1c"
+      }
+    }
+  },
+  "limitations": [
+    "Native time, actual controls and screenshots. Chrome SwiftShader and emulated 390px touch, not real hardware performance. Reduced motion has ordinary reading instead of an animated intro peak."
+  ],
+  "browser": "154.0.8037.98",
+  "pass": true
+}

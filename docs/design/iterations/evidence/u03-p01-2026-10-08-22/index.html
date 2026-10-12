@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LSSH · 第22轮状态对照</title>
+<style>
+:root{color-scheme:dark}body{margin:0;background:#000;color:#ededed;font:15px/1.65 "PingFang SC","Microsoft YaHei",sans-serif}main{max-width:1200px;margin:auto;padding:32px 20px 72px}h1{font-size:25px;font-weight:500}h2{font-size:19px;font-weight:500;margin-top:32px}p{color:#a1a1a1}a{color:inherit;text-underline-offset:4px}nav{display:flex;flex-wrap:wrap;gap:12px}button{border:1px solid #555;background:#171717;color:inherit;border-radius:8px;min-height:44px;padding:8px 14px;cursor:pointer}button:focus-visible,a:focus-visible{outline:2px solid #ededed;outline-offset:4px}button[aria-pressed=true]{background:#ededed;color:#000}.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}figure{margin:0}figcaption{margin-bottom:8px;color:#a1a1a1}img{display:block;width:100%;height:auto;background:#111}.mobile img{max-height:640px;width:auto;max-width:100%;margin:auto}table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}th,td{text-align:left;padding:10px 8px;border-bottom:1px solid #333}th{color:#a1a1a1;font-weight:400}.scroll{overflow:auto}.pass{color:#ededed}code{font-size:13px;color:#a1a1a1}@media(max-width:700px){.pair{grid-template-columns:1fr}main{padding:20px 12px}td,th{white-space:nowrap}}
+</style>
+<main>
+<h1>第22轮：文案可见与入口可用同步</h1>
+<p>只修序章身份退出和首卡 CTA 门禁。桌面 1440×900、手机模拟 390×844；Chrome / SwiftShader。截图按实际滚动点对照，前后不作毫秒级运动对齐。</p>
+<nav><a href="http://127.0.0.1:4321/personal-homepage/">体验实际首页</a><a href="after/checks.json">首轮原始记录</a><a href="confirm/checks.json">针对性确认</a><a href="before/checks.json">修复前原始记录</a></nav>
+<h2>身份层交接</h2>
+<nav id="points"></nav>
+<div class="pair" id="pair"><figure><figcaption>修复前</figcaption><img id="before" alt="修复前的首页状态"></figure><figure><figcaption>修复后</figcaption><img id="after" alt="修复后的首页状态"></figure></div>
+<p id="point-state"></p>
+<h2>首卡 CTA：延迟期间保持关闭</h2>
+<p>从实际项目激活时刻采每个浏览器 RAF。下表显示全部 0–300ms 读取与后续首次开放帧；检查按钮自身透明度、祖先透明度、原生 inert、命中和焦点。</p>
+<div class="scroll"><table><thead><tr><th>实际 elapsed / ms</th><th>自身 opacity</th><th>祖先 opacity</th><th>有效 opacity</th><th>inert</th><th>命中</th><th>当前焦点</th></tr></thead><tbody id="cta"></tbody></table></div>
+<h2>验证结果</h2><ul id="checks"></ul>
+<div class="pair"><figure><figcaption>首卡停驻</figcaption><img src="after/first-card-rest.png" alt="首卡停驻及可见 CTA"></figure><figure><figcaption>栏目返回首帧：DOM 已显示和聚焦，GL 卡片仍追赶</figcaption><img src="after/first-card-return.png" alt="返回后聚焦项目入口"></figure></div>
+<p>玻璃反射、相机 sigmoid、四卡组合和全屏升墙留在各自切片。本片工程与设计复核通过，用户确认另记。</p>
+</main>
+<script type="module">
+const [before,after,confirm]=await Promise.all(['before','after','confirm'].map(p=>fetch(`${p}/checks.json`).then(r=>r.json())));
+const points=[...[0,50,100,325,550].map(y=>({mode:'desktop',y})),...[0,100,550].map(y=>({mode:'mobile',y}))];
+const nav=document.querySelector('#points');
+function select(point,button){for(const b of nav.children)b.setAttribute('aria-pressed',String(b===button));document.querySelector('#pair').classList.toggle('mobile',point.mode==='mobile');for(const mode of ['before','after'])document.querySelector(`#${mode}`).src=`${mode}/${point.mode}-${point.y}.png`;const b=before[point.mode].find(x=>x.target===point.y),a=after[point.mode].find(x=>x.target===point.y);document.querySelector('#point-state').textContent=`实际 S=${a.y}px；身份透明度 ${b.hero.opacity} → ${a.hero.opacity}；inert ${b.hero.inert} → ${a.hero.inert}；visibility ${b.hero.visibility} → ${a.hero.visibility}。`;}
+points.forEach(point=>{const button=document.createElement('button');button.textContent=`${point.mode==='desktop'?'桌面':'手机'} ${point.y}px`;button.setAttribute('aria-pressed','false');button.onclick=()=>select(point,button);nav.append(button);if(point.mode==='desktop'&&point.y===550)select(point,button);});
+const frames=after.entryFrames.filter(x=>x.elapsed<=300);const open=after.entryFrames.find(x=>!x.cta.inert&&x.cta.effectiveOpacity>0);if(open&&!frames.includes(open))frames.push(open);
+for(const row of frames){const tr=document.createElement('tr');for(const value of [row.elapsed.toFixed(1),row.cta.opacity,row.cta.ancestorOpacity,row.cta.effectiveOpacity.toFixed(4),row.cta.inert,row.cta.hit,row.focus]){const td=document.createElement('td');td.textContent=String(value);tr.append(td);}document.querySelector('#cta').append(tr);}
+const names={'desktop identity mapping':'桌面 0/50/100/325/550 身份映射','CTA delay blocks hit and focus':'延迟 CTA 不命中、不聚焦','CTA opens after own and ancestor opacity':'CTA 实际显示后开放','half-exited exploration click':'半退场探索入口实际点击','identity focus threshold without scroll jump':'焦点越界转到 LSSH，位置不跳变','outside focus remains':'其他区域焦点保持','trusted wheel reversal restores identity':'真实滚轮反向恢复身份','interrupted CTA remains gated':'离开 CTA 即关闭','reentry delay remains gated':'重入延迟保持关闭','CTA route and return fully visible before focus':'栏目返回完整显示后聚焦','pause clears identity and CTA hidden states':'暂停清理状态','context failure clears hidden states':'图形失败清理状态','mobile identity hidden in middle':'手机中段身份隐藏','reduced motion keeps native content':'减少动画保留内容','no JS exploration remains visible':'无 JS 保留探索入口','no unexpected page errors':'无非预期页面脚本错误','leave during actual CTA delay':'151.9ms 延迟期离开','no stale gate after interrupted delay':'取消后旧回调不重开','interrupted timeline reenters correctly':'被打断动画重新进入正确','actual Tab at identity 50':'50px 探索入口实际 Tab 到达','actual Tab at identity 100':'100px 实际 Tab 跳过隐藏身份','actual Tab skips delayed CTA':'实际 Tab 跳过延迟 CTA'};
+for(const c of [...after.checks,...confirm.checks]){const li=document.createElement('li');li.textContent=`${c.pass?'通过':'失败'} · ${names[c.name]||c.name}`;document.querySelector('#checks').append(li);}
+</script></html>

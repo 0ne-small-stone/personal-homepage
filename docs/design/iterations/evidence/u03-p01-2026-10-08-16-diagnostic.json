@@ -1,0 +1,204 @@
+{
+  "fixedSourceEqual": true,
+  "samePose": {
+    "desktop": {
+      "cameraMaxDelta": 0,
+      "triangleMaxDelta": 0.0,
+      "scrollMaxDelta": 0,
+      "dprMaxDelta": 0
+    },
+    "mobile": {
+      "cameraMaxDelta": 0,
+      "triangleMaxDelta": 0,
+      "scrollMaxDelta": 0,
+      "dprMaxDelta": 0
+    },
+    "project": {
+      "cameraMaxDelta": 0.0,
+      "triangleMaxDelta": 0.0,
+      "scrollMaxDelta": 0,
+      "dprMaxDelta": 0
+    }
+  },
+  "pixels": {
+    "desktop": {
+      "controlRegion": [
+        50,
+        200,
+        600,
+        780
+      ],
+      "meanDifference": [
+        0.006404388714733542,
+        0.006404388714733542,
+        0.006404388714733542
+      ],
+      "maxDifference": [
+        [
+          0,
+          50
+        ],
+        [
+          0,
+          50
+        ],
+        [
+          0,
+          50
+        ]
+      ]
+    },
+    "mobile": {
+      "controlRegion": [
+        0,
+        490,
+        390,
+        740
+      ],
+      "meanDifference": [
+        0.07474871794871794,
+        0.07474871794871794,
+        0.07474871794871794
+      ],
+      "maxDifference": [
+        [
+          0,
+          193
+        ],
+        [
+          0,
+          193
+        ],
+        [
+          0,
+          193
+        ]
+      ]
+    },
+    "project": {
+      "controlRegion": [
+        700,
+        210,
+        970,
+        560
+      ],
+      "meanDifference": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "maxDifference": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    }
+  },
+  "reflectionWeights": [
+    {
+      "normalViewAngleDegrees": 0,
+      "fixedWeight": 0.015,
+      "linearReflectedUpperBoundWithClamp": 0.01275
+    },
+    {
+      "normalViewAngleDegrees": 30,
+      "fixedWeight": 0.015264182277322166,
+      "linearReflectedUpperBoundWithClamp": 0.012974554935723841
+    },
+    {
+      "normalViewAngleDegrees": 45,
+      "fixedWeight": 0.021034636562186175,
+      "linearReflectedUpperBoundWithClamp": 0.017879441077858247
+    },
+    {
+      "normalViewAngleDegrees": 60,
+      "fixedWeight": 0.06624999999999995,
+      "linearReflectedUpperBoundWithClamp": 0.05631249999999995
+    },
+    {
+      "normalViewAngleDegrees": 75,
+      "fixedWeight": 0.2624633328231609,
+      "linearReflectedUpperBoundWithClamp": 0.2230938328996868
+    },
+    {
+      "normalViewAngleDegrees": 85,
+      "fixedWeight": 0.5843778960980277,
+      "linearReflectedUpperBoundWithClamp": 0.49672121168332356
+    }
+  ],
+  "motion": [
+    {
+      "label": "start",
+      "quaternion": [
+        0.06593178107655362,
+        -0.17064592010306298,
+        -0.04970520069000405,
+        0.9818667746800577
+      ],
+      "degreesFromStart": 0.0
+    },
+    {
+      "label": "middle",
+      "quaternion": [
+        0.06645071244074922,
+        -0.18862714019305704,
+        -0.05065139090986364,
+        0.9784878851562762
+      ],
+      "degreesFromStart": 2.1002327032466543
+    },
+    {
+      "label": "end",
+      "quaternion": [
+        0.06489418941485027,
+        -0.13662140710656218,
+        -0.04787764189341854,
+        0.9873353365028208
+      ],
+      "degreesFromStart": 3.956492658553376
+    }
+  ],
+  "interpretation": {
+    "poseAndControls": "Read from test-instrumented rendering; no pause button used for project.",
+    "weights": "Analytical bounds of the unchanged shader, not sampled GPU luminance. New light powers <=0.78, below the 0.85 clamp; clipping is not established as the cause.",
+    "visual": "Single-edge distribution changed, but front became too dark and the broader soft rim objective was not met.",
+    "broadRegions": "The initial desktop/mobile control rectangles also include DOM image/text pixels; their small nonzero differences are retained and not attributed to a verified cause. Pure background rectangles and the project control are exactly equal."
+  },
+  "pureBackgroundControls": {
+    "desktop": {
+      "region": [
+        450,
+        650,
+        650,
+        750
+      ],
+      "meanDifference": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "mobile": {
+      "region": [
+        40,
+        450,
+        340,
+        480
+      ],
+      "meanDifference": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  }
+}

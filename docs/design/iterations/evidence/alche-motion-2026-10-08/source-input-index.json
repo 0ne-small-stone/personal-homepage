@@ -1,0 +1,83 @@
+{
+  "offsetUnit": "zero based UTF-16 code units",
+  "symbols": {
+    "class LoadingUIController": 1812105,
+    "class PageLoadingManager": 1426412,
+    "class LottieAnimationController": 1795521,
+    "const ease=Easings.cubicBezier": 1812022,
+    "finalCompositeFrag=": 600832,
+    "onLoadingComplete(i=!1)": 1122956,
+    "class MainLogo": 1007638,
+    "sectionRotationSettings=": 1006560,
+    "class CameraController": 1040507,
+    "class Lerper": 1424327,
+    "class Animator": 564335,
+    "function i(T=6)": 562047,
+    "class HeaderController": 1819154,
+    "class FooterController": 1820558,
+    "class MoreWorksController": 1249659,
+    "class SoundManager": 1467017,
+    "class SoundIntroController": 1471794,
+    "class SideMenuController": 1806214,
+    "class Transition extends": 1125324,
+    "const duration=": 1125257,
+    "class TransitionUtils": 1220352,
+    "class SubPageTitleAnimation": 1221479,
+    "class GLImageManager": 1809237,
+    "onPageInStart=": 1825926,
+    "onPageInAwait=": 1826424,
+    "onPageOutStart=": 1827294,
+    "onPageOutAwait=": 1827481,
+    "onPageOutEnd=": 1828060,
+    "onContentReplace=": 1826832,
+    "swupPromise.then(l=>": 1828135,
+    "loadingUIController.show()": 1824865,
+    "loadingUIController.hide()": 1829312,
+    "MIN_STROKE_DEVICE_PX=": 1793399
+  },
+  "files": [
+    {
+      "name": "index.astro_astro_type_script_index_0_lang.Cn_goiN_.js",
+      "bytes": 1831372,
+      "sha256": "b2bd0d964416bd3db61b1392d2b645314e50ea79cadb09f69755d5f4c3791853"
+    },
+    {
+      "name": "about.DKIoZJhT.css",
+      "bytes": 334962,
+      "sha256": "ffd28d4df68dd2a8c0203e1d0e370d7a0fe0d698ef0860def19634600e576ebd"
+    },
+    {
+      "name": "index.CQ0ApTUm.css",
+      "bytes": 19537,
+      "sha256": "24584ce5b4633e05c6a29f6664cc81e0bb6571bf49c91d9631f54eaa996c7cd6"
+    },
+    {
+      "name": "index.html",
+      "bytes": 41562,
+      "sha256": "63fc9f3a0327ca6528e62f564caeebcdd892a3dd71fcd7f2c03ae2f86dc9e1e2"
+    },
+    {
+      "name": "page.SNkKDTDH.js",
+      "bytes": 3184,
+      "sha256": "2e69ea7f6d1dd8338f2782cc97d17720ae8826fa4e945cdb2249c6998c81bc2e"
+    },
+    {
+      "name": "loading-bg.json",
+      "bytes": 42484,
+      "sha256": "2df13d7b498900ee5c7bfe14677ad950b6f21442729fef2c315a29f13c6fc3ff",
+      "layers": 30,
+      "fr": 29.9700012207031,
+      "ip": 0,
+      "op": 90.0000036657751
+    },
+    {
+      "name": "loading-logo.json",
+      "bytes": 3888,
+      "sha256": "24fce47e0c3c8dc57102a8542f68c8186a92d16e153ae87145d36e0ef4535623",
+      "layers": 1,
+      "fr": 29.9700012207031,
+      "ip": 0,
+      "op": 90.0000036657751
+    }
+  ]
+}

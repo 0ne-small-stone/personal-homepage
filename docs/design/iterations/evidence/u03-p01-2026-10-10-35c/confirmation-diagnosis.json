@@ -1,0 +1,97 @@
+{
+  "date": "2026-10-09T17:21:32.392Z",
+  "method": "Read-only derivation from retained confirm/checks.json; no application change or fresh browser capture.",
+  "original": {
+    "passed": 12,
+    "total": 13,
+    "failed": [
+      "native reverse restores original light with retained objects"
+    ]
+  },
+  "checks": [
+    {
+      "name": "Reverse returns to S0, retains both lights and restores intensity within 1e-6",
+      "pass": true,
+      "evidence": {
+        "index": 0.00018144127703916945,
+        "intensity": [
+          0.9999996050443273,
+          0.9999996050443273
+        ],
+        "error": 3.949556727222969e-7,
+        "uuidsRetained": true,
+        "wheels": [
+          {
+            "type": "wheel",
+            "delta": 1266,
+            "trusted": true,
+            "time": 1961.199999988079
+          },
+          {
+            "type": "wheel",
+            "delta": -2200,
+            "trusted": true,
+            "time": 4148.199999988079
+          }
+        ]
+      }
+    },
+    {
+      "name": "No remaining handoff failure after isolated exact-equality sampling diagnosis",
+      "pass": true,
+      "evidence": {
+        "firstCardIntensities": [
+          0,
+          0
+        ],
+        "frames": 223,
+        "resources": [
+          {
+            "geometries": 18,
+            "textures": 9,
+            "programs": 8
+          },
+          {
+            "geometries": 18,
+            "textures": 9,
+            "programs": 8
+          },
+          {
+            "geometries": 18,
+            "textures": 9,
+            "programs": 8
+          },
+          {
+            "geometries": 18,
+            "textures": 9,
+            "programs": 8
+          },
+          {
+            "geometries": 18,
+            "textures": 9,
+            "programs": 8
+          },
+          {
+            "geometries": 18,
+            "textures": 9,
+            "programs": 8
+          },
+          {
+            "geometries": 18,
+            "textures": 9,
+            "programs": 8
+          },
+          {
+            "geometries": 18,
+            "textures": 9,
+            "programs": 8
+          }
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "The raw false remains unchanged. 1e-6 is a stated confirmation tolerance for this sample, not a new application clamp or a claim that all animation state has fully converged. Hardware and long-term memory were not measured."
+  ],
+  "pass": true
+}

@@ -1,4 +1,16 @@
 ---
-import PendingPage from '../components/PendingPage.astro';
+import HomeLayout from '../layouts/HomeLayout.astro';
+import RadioPlayer from '../components/music/RadioPlayer';
+import { musicConfig } from '../config/music';
+import { loadMusicCatalog } from '../lib/music-server';
+import { sitePath } from '../lib/paths';
+import '../styles/music.css';
+const catalog = await loadMusicCatalog();
 ---
-<PendingPage title="音乐电台" description="分享喜欢的歌曲，也听听你的推荐。" status="歌单与推歌功能待接入" detail="网易云歌单、播放、推歌提交和审核同步尚未配置，当前无法在这里播放或提交歌曲。" />
+<HomeLayout title="Echoes" description="小石的音乐电台。听考拉云盘收藏，也听网易云共享歌单。">
+  <div class="radio-page">
+    <header class="radio-page-heading"><a class="home-back" href={`${sitePath()}#radio`}>返回首页</a><h1>Echoes</h1><p>收藏喜欢的声音，也听听彼此的回响。</p></header>
+    <RadioPlayer initialCatalog={catalog} config={musicConfig} client:load />
+    <noscript><p class="radio-nojs">下载和目录交互需要启用 JavaScript。你也可以<a href={musicConfig.playlistUrl}>直接打开 Echoes 网易云歌单</a>。</p></noscript>
+  </div>
+</HomeLayout>

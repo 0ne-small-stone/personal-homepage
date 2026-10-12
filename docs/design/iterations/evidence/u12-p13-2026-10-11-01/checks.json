@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-11T08:36:10.435Z",
+  "checks": [],
+  "errors": [
+    "_jsxDEV is not a function"
+  ],
+  "limitations": [
+    "Emulated viewports; cloud sharing and real-device performance are separate checks."
+  ],
+  "failure": "page.waitForSelector: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.radio-track') to be visible\u001b[22m\n"
+}

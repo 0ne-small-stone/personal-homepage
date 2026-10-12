@@ -1,0 +1,323 @@
+# ALCHE 首页滚动、章节、相机与作品运动：精确源码审计
+
+日期：2026-10-08。范围：公开首页 bundle 的只读分析；未改工程/共享设计文档。来源为 https://alche.studio/ 的公开文件。原始源码只留 Temp，不作为 LSSH 可分发代码或素材。
+
+## 证据与读法
+
+- 主文件：`C:/Users/asus/AppData/Local/Temp/lssh-alche-source-audit/index.astro_astro_type_script_index_0_lang.Cn_goiN_.js`
+- 主文件字节数 **1,831,372**；SHA-256 **b2bd0d964416bd3db61b1392d2b645314e50ea79cadb09f69755d5f4c3791853**。主代理同日 fresh fetch hash 相同。
+- 本目录 `manifest.json` 保存每个抽取类/变量的 JS 字符 offset `[start,end)`、UTF-8 字节 `[byte,byteEnd)`、原始片段 SHA-256。`method-offsets.json` 细到方法；`triggers.json` 是全部 19 个 registerSection 调用位点，循环实际生成更多实例。
+- 本目录 `<标识符>.js` 是可读格式化摘录；hash 对应**原 bundle 原始切片**，不是 prettier 后的文件。`css-scroll-rules.json` 保存 CSS 规则/媒体条件/offset/hash；`dom-scroll-structure.json` 保存相关 DOM 结构；`source-files.json` 保存文件级 hash。
+- **[S] 源码确定**：分支、输入、常量、公式。**[D] 推导**：把真实 DOM 尺寸代入公式、据代码计算可见结果；不代表已操作验收。**[B] 浏览证据**：引用父代理 `C:/Users/asus/AppData/Local/Temp/lssh-alche-browser/precise-20261008/observations.json`。**[V] 待实测**：动态相位、snap 竞争、设备实况。
+- 所有角度为弧度，世界单位不可直接视为 px。下文 `clamp01(x)=max(0,min(1,x))`，`L(key,target,m)` 是原站 Lerper，不是 GSAP 的 scrub。
+
+## 1. 最重要的控制关系
+
+[S] 原站没有一条贯穿首页的 GSAP master timeline，也没有自定义命名 timeline label。主机制是：
+
+`wheel → Lenis 平滑后的真实 scrollY → 多个并行 ScrollTrigger.progress / enter事件 → 自定义 Lerper、Animator、GSAP小动画 → 多场景合成`。
+
+ScrollTrigger 给出“文档已经走到哪里”；图片/相机继续追赶平滑目标；标题在跨阈值时按秒播放；snap 在停滚条件满足后移动文档到吸附点。因此即使相同 scrollY，刚停滚与停稳后的画面不同。不能只采一张 progress 静帧就认为节奏已复刻。
+
+[S] 首页 `TopScrollManager` 中所有主 trigger 都没有 `scrub`、`pin` 或 `animation` 字段；它们主要产出 progress、事件和 snap。CSS 用 fixed/sticky 保持画面，GL 每帧直接取 trigger.progress。`WorksOutroController`、`OutroController` 的附加 trigger 也不是 scrub。
+
+## 2. 每个 ScrollTrigger：范围、输入与作用
+
+通用计算：trigger 元素文档顶端为 `T`，高 `h`，视口高 `H`。`top bottom` = `T-H`；`bottom bottom` = `T+h-H`；`bottom top` = `T+h`；`top top` = `T`。全部范围用于计算 `progress=clamp01((scrollY-start)/(end-start))`。
+
+下表数值列使用 [B] 桌面 **1440×900** 测得 DOM 尺寸推导 [D]；是根据源码算出的 trigger 范围，不是浏览器读取的 ScrollTrigger 实例。像素可复测，不能误作全部屏幕的常数。
+
+| registry key / triggerId | start → end 原值 | 桌面推导 start→end px | 输出 / 可见后果 | snap / 手机覆盖 |
+|---|---|---:|---|---|
+| kv / top_kv | top bottom → bottom bottom-=100px | -900→100 | enter/back→section=kv；首屏小幅相机推进及强指针反馈 | 无 |
+| works_intro / top_works_intro | top bottom → bottom bottom | 100→1000 | section=works_intro；开启玻璃缓慢自转；背景 WORKS 字样进度 | 无 |
+| works / top_works | top top → bottom bottom | 1900→6400 | 只负责作品文档吸附 | snapTo=1/(6-1)=.2；duration1；directional=false；手机保留 |
+| works_event / top_works_event | top bottom → bottom bottom | 1000→6400 | enter/back→section=works | 无 |
+| works_progress / top_works_progress | top bottom → bottom top | 1000→7300 | `works/progress`；作品弧线位置、背景换图读取此值 | 无 |
+| works_item_i / top_works_item_i，i=0..5 | top center → bottom center | 1450+900i→2350+900i | 进入/回进入显示第i文字；离开/回离开隐藏 | 无；文字是按秒动画 |
+| works_outro / top_works_outro | top bottom → bottom bottom | 6400→7750 | section=works_outro；相机矩阵向正交变化、指针视差收敛 | 无 |
+| mission_in / top_mission_in | top bottom → top top | 7750→8650 | section=mission_in；亮场自下往上揭幕，Mission路径/正文书写 | 无 |
+| mission / top_mission | top bottom → bottom bottom | 8650→10090 | section=mission；DOM语义和侧边指示状态 | 无 |
+| vision / top_vision | top bottom → top top | 10090→10990 | section=vision；亮场玻璃轮廓转向、Vision文字进入 | 手机end=`top 70%`，即T-.7H；区间缩到.3H |
+| vision_out / top_vision_out | top bottom → top top | 11890→12790 | section=vision_out；桌面Vision文字消失/模糊 | 手机start=`top bottom-=50%`，即T-.5H |
+| mission_vision_snapper / top_mission_vision_snapper | top top → bottom bottom | 7300→11890 | 仅这个wrapper读取子节点data-snap-ratio | 桌面计算数组，下节详述；手机删除snap |
+| vision_service_wrap / top_vision_service_wrap | top bottom → bottom top | 11890→15040 | 单独吸附跨过Vision退出与Service进入 | 桌面snap[0,1]；手机start=`top 30%`，snap[1] |
+| service_in / top_service_in | top bottom+=150% → top center | 11890→13690 | section=service_in；轮廓侧屏打开成曲面服务场景 | 无；比自身DOM顶端14140早2250px开始 |
+| service_snap / top_service | top top → bottom bottom | 15040→18730 | 服务段文档吸附 | 3项时snap数组[0,.4]；duration1；directional=false；手机保留 |
+| service_progress / top_service_progress | top bottom → bottom top | 14140→19630 | 服务卡片横向波面位置 | 无 |
+| service_scroll_item_i / top_service_scroll_item_i，i=0..2 | top bottom → bottom bottom | 14140+1530i→15670+1530i | service/item_enter+section；实际名称service_0、service_1、stellla | 无；文字按秒播放 |
+| stellla_in / top_stellla_in | top bottom → bottom bottom | 17200→18730 | 从最后服务项取得展开权重，逐渐拉平成全屏视频 | 无 |
+| stellla / top_stellla | top bottom → bottom bottom | 18730→20080 | 回进入→section=stellla；离开→section=footer；品牌文字、frame渐显 | snap[.9]，即19945px；duration1；directional=false |
+| 附加 works_outro_controller | top top → bottom bottom | 7300→7750 | onEnter将body data-works-outro-above-viewport=true；返回越过start设false；控制More Works按钮 | 无 |
+| 附加 OutroController | top bottom → 300px bottom | outro的T-H→T+300-H | 完成300px触发区后播放1秒Logo横移；回越过start时重置Lottie | 无；不是滚动播放Lottie |
+
+[S] `_onSectionEnter(name,direction)` 每次emit `section/enter`；只有名称变化才写 `body[data-current_section]` 并emit `section/change`。`direction` 是 `enter` / `enterBack`。作品项enter/leave事件和全局section事件彼此独立。多个区间可重叠；当前section不能从“某个DOM元素在顶端”反推。
+
+[S] `checkCurrentSection()` 初始化时按Map插入顺序遍历active trigger；只对sectionNames列表匹配项触发section，再补作品/服务item_enter。正常运行service项传入service_0/1/stellla；rotation settings中的`service`条目不因此自动被使用。不要把定义存在当作运行调用。
+
+## 3. 100px gap、真实页面距离、snap到底在哪里
+
+[S] 首屏gap来自 `index.CQ0ApTUm.css` 的 `.KV__container{height:100svh;margin-bottom:100px}`（selector起点403；子容器bottom margin），不是Lenis、pinSpacer或随机加载位移。外层SectionContainer仍为min-height:100lvh。父代理测得第一容器0/900，下一容器1000/900，与100px外间距吻合。
+
+[S] 布局距离：默认章节min-height100lvh；WORKS intro内部20vh仍被外层min-height撑到100lvh。每作品100lvh（6件=600lvh）；works_outro内部150lvh；mission桌面160vh、vision桌面200vh；vision_out150lvh；每service条目170lvh（3件=510lvh）；stellla150lvh。Canvas在首页用sticky，不是ScrollTrigger pin。
+
+[S] `data-snap-ratio` 本身没有吸附能力。首页只对`[data-snapper]`的4个直接子章节读取比例：[works_outro1.5,mission_in1,mission1,vision1.8]。算法分母为sum-1=4.3，先放`.5/4.3`，再放逐项累计/4.3，得到：
+
+`[0.1162790698, 0.3488372093, 0.5813953488, 0.8139534884, 1.2325581395]`。
+
+[D] 代入桌面wrapper的[7300,11890]，前四候选为约 **7834、8901、9969、11036px**；最后为12957px，但不能因此写“会吸附到12957”：源码中预测输入wi受clamp约束在0..1，非directional取最近点，最后两项的中点=1.023255814>1，因此最后候选在这条路径不会选中。这个数组与真实DOM高度比也并不相同；不能用data-snap-ratio替代布局实测。
+
+[S] 其余实际snap是works、vision_service_wrap、service_snap、stellla；手机只取消mission_vision_snapper，并将vision_service_wrap改成只吸到尾端，其余保留。services计算`i*(1/(N-.5))`，i<N-1，N=3故只有[0,.4]；第三项交给stellla路径。
+
+[S] bundle含GSAP/ScrollTrigger **3.13.0**。snap源码决定：默认delay=.1s（未设scrub），默认ease=`power3`；本页显式duration=1秒且directional=false。inertia未关闭。仅当前scroll位于trigger起止内、速度约<10 px/s（refresh后短暂例外）、无正在按压、无冲突滚动tween等条件满足后才发起snap。惯性预测先在0..1内取点。用户输入能中断scroll tween。
+
+[V] 这些snap配置确定会被创建，但竞争snap、Lenis追赶与真实触摸惯性是否使某次操作成功落在候选点，需要放开滚轮/触摸后读真实scrollY；不能仅凭配置标“实际吸附全通过”。父代理已有作品2800px落点证据，但某条截图名的百分比不是原站trigger百分比。
+
+## 4. Lenis与逐帧平滑：精确参数
+
+[S] Lenis **1.3.4**，唯一首页构造为 `new Lenis({})`，即使用bundle该版本默认值：wrapper=window、content=document.documentElement、smoothWheel=true、syncTouch=false、lerp=.1、duration/easing未指定、orientation=vertical、gestureOrientation=vertical、wheelMultiplier=1、touchMultiplier=1、infinite=false、overscroll=true、autoResize=true、autoRaf=false、anchors=false、allowNestedScroll=false。syncTouchLerp=.075、touchInertiaMultiplier=35虽然存在，但syncTouch=false时不能称为已启用的触摸平滑参数。
+
+[S] 原站主RAF顺序：`lenis.raf(timestamp)` → `gl.update()` → `lerper.update(timestamp)` → indicator/sound/loading更新 → requestAnimationFrame。未找到`lenis.on('scroll',ScrollTrigger.update)`连接；ScrollTrigger仍靠真实滚动事件更新。document.hidden时停止主RAF，恢复可见后启动。GL内部动画deltaTime最大1/30秒；Lerper用RAF实际时间差，没有这个上限。
+
+[S] Lenis默认damp：`animated += (target-animated)*(1-exp(-6*dt))`（因为lerp*.60=.1*60=6）。这是每帧指数追赶，不是固定1秒滚动。单击侧边章节/子点则明确调用`lenis.scrollTo(target,{duration:1.2,easing:t=>min(1,1.001-2^(-10t))})`，改用按时长滚动。
+
+[S] Lerper：第一次set直接current=target；后续set只写target并返回此前current。每帧update：`velocity=target-current; current += velocity*min(1,dt*10*multiplier)`。这里velocity是误差量，不是每秒速度。主要参数：
+
+| key | target | multiplier | 可见意义 |
+|---|---|---:|---|
+| works_progress | works_progress trigger | 1 | 卡片大轨迹先平滑 |
+| works_current_index | round(o) + .4*(o-round(o)) | .5 | 卡片被当前整数中心吸引，第二层平滑 |
+| bgQuadProgress | works_progress trigger | .7 | 背景图略滞后独立运动 |
+| works_title_visibility | works_intro trigger | .3 | 字样进入/离开滞后更明显 |
+| cameraController_worksOutro | works_outro trigger | .5 | 鼠标视差幅度归零 |
+| worksOutro_progress | works_outro trigger | 1 | 透视投影向正交投影的混合 |
+| mission_progress | mission_in trigger | 1.5 | 亮场揭幕主进度 |
+| mission/vision_path_raw → _path | trigger → round吸引(.7) | .4 → .4 | 文字书写/下划线有双层滞后 |
+| mainLogo_vision | vision trigger | .5 | 轮廓轻转 |
+| mainLogo_serviceRotate | service_in trigger | 1 | 侧屏旋转/铺开 |
+| service_renderer | service_in trigger | .5 | 显示服务场景、纹理噪声收敛 |
+| serviceList_serviceIn | service_in trigger | .3 | 波面幅度进入 |
+| serviceList_thumbnailScroll → current_index | service_progress公式 → round吸引(.4) | 1 → .5 | 服务卡片停驻与切换 |
+| serviceList_stellaIn / stellaView | stella项trigger / 最后卡展开公式 | .7 / .7 | 波面展平成全屏 |
+
+[D] 在60fps下multiplier1每帧追赶约16.7%，.5约8.3%，.3约5%，.7约11.7%，1.5约25%。它们不是“1秒/.5秒/.3秒”。停滚后要让第二层Lerper收敛才拍终态。
+
+## 5. 玻璃体与相机：无需猜keyframe
+
+### 固定构图和设备插值
+
+[S] `TopPageMainScene`给MainLogo对象scale=4.3，position=(0,-.3,0)；加载Alche_A mesh后局部scale=3，即嵌套缩放4.3×3。`spWeight=clamp01((16/9-aspect)/(16/9-9/16))`，不是简单≤768二值。LayoutController把mainLogo.y线性加`.5*spWeight`；背景2D Logo位于z=-15，手机趋向y=1、scale×.55。WorksThumbnails组手机趋向y=.8、scale×.6。
+
+[S] 主相机base=(0,0,10)，`baseFov=35+18/aspect`；`kvZoom`初值1，在kv目标1，离开kv目标0，Animator均1秒：相机z=`10-.5*kvZoom`，FOV=`baseFov-4*kvZoom`。1440×900时baseFov46.25°，首屏42.25°/z9.5，非首屏46.25°/z10。每帧lookAt(0,0,0)。
+
+[S] 鼠标NDC=(2x/W-1,1-2y/H)；相机offset目标=`NDC*.5*(1-L(works_outro,.5))`；offset自身用`lerp(alpha=min(3dt,1))`追赶。作品尾段逐渐把视差归零，避免亮场继续漂移。
+
+[S] works_outro [6400,7750] 内，GL最后把主相机projectionMatrix的16个元素线性混到mission orthographic projection；目标正交短边±4，长边按aspect扩展：横屏left/right=±4aspect、top/bottom=±4；竖屏left/right=±4、top/bottom=±4/aspect。不是仅调fov，也不是把camera.position一路推近。MissionScene自带perspective camera虽有(0,0,8),fov60的声明，但render实际使用main camera；正交相机仅提供目标矩阵。
+
+### 自转、滚速、指针与回正
+
+[S] glass mesh四元数每帧依次premultiply鼠标四元数、绕Y旋转四元数，再slerp回identity。worksRotate按section切换，Animator默认归一化sigmoid(k=6)，1秒。
+
+| section config | intensity | base yaw speed | return force | scroll factor | hover multiplier |
+|---|---:|---:|---:|---:|---:|
+| default |0|0|2|0|0|
+| kv |0|0|2|0|1|
+| works_intro |1|.5|.4|.001|.2|
+| works |1|.5|.1|.001|.2|
+| mission |0|0|2|0|0|
+| vision |0|0|1.5|0|0|
+| service（定义存在，常规items实际发service_0/1）|0|0|1.8|0|1|
+
+实际yaw增量：`-dt*baseSpeed*worksRotate - L(clamp(lenis.velocity,-30,30),.5)*scrollFactor`。第二项**没有再乘dt**。回正系数：`dt*returnForce*(1-.8*worksRotate)`。因此works自动旋转、滚动加速/逆滚反向，停下后仍转；kv仅指针拨动后回正。
+
+指针旋转强度`m=.01*max(0,1-1.5*length(NDC))*hoverMultiplier`；用Lerper误差vx/vy改变临时Euler：`x-=vy*m*(1-.7*worksRotate)`、`y+=vx*m`；临时Euler每帧乘`1-dt`。中心附近响应最强，NDC半径≥2/3时这一手势驱动力为0；相机视差仍可存在。不要把此效果写成“离中心越远转得越多”。
+
+### 亮场轮廓到服务侧屏
+
+[S] Mission/Vision场景包含玻璃轮廓容器，matrixWorld逐帧复制原glass mesh。顶点shader额外对局部xz旋转`(.15*visionProgress+.5*serviceRotate)*π/2`，yz旋转`-.1*visionProgress-.2*serviceRotate`。接着将正常投影位置和侧屏clip-space位置按serviceRotate线性混合；侧屏目标从原geometry转90°后构造：`x*(20.5+3/aspect)`、`y*(7+8aspect)-.22`。这是侧面持续铺开，不是一张DOM图opacity渐变。
+
+[S] SideScreen采样rtServiceScene；uServiceIn越大，UV从窄几何uv向screen UV转（权重pow(serviceIn,.2)），噪声位移、RGB镜头畸变、额外亮度逐渐降为0。screen alpha=`smoothstep(0,.1,visionProgress)`，Vision刚开始即出现内部噪声/内容。最终scene mixer到serviceIn≥.9999才硬切到全屏service render target；此前内容通过侧屏渲染持续扩张掩盖切换。
+
+## 6. WORKS：卡片沿弧线、曲面、标题、背景分别运行
+
+[S] 6卡共用works_progress。令`p=L(works_progress,1)`，`o=7p`，`r=round(o)`，`u=L(r+.4*(o-r),.5)`；debug模式才绕过第二层令u=o。第i张卡(i=0..5)令`d=i+1-u`：
+
+```
+x = sin(d)*11
+y = -d
+z = cos(d)*5-6
+rotationY = .6*d
+scale = .9 + .1*spWeight + .2*(1-min(1,abs(d)))
+alpha = (1-smoothstep(.8,2.5,abs(d))) * min(1,2u) * min(1,2*(7-u))
+visible = alpha > .01
+```
+
+[D] 卡片在中心d=0时(x,y,z)=(0,0,-1)，桌面局部scale1.1；d=±1时x≈±9.256、y=∓1、z≈-3.298、rotation≈±34.38°，scale.9。不是等速横向carousel；卡片离中心后绕到后方并略向上/下偏移。u在半整数附近被round目标推向下一整数，形成停驻与切换感，再由二层平滑消去目标跳变。
+
+[S] 局部mesh来自GLTF的`ThumbnailScreen`，失败时才用8×4.5×.1、16×16分段BoxGeometry。顶点固定曲面：`z=.2*z + 1.5*cos(x*π/16)-1`。图片按16:9 cover裁切。fragment每通道4次采样，镜头distortion系数R=.2+.03i、G=.22+.03i、B=.24+.03i（i=0,.25,.5,.75），加normal方向采样偏移；边缘暗化、最终alpha乘loaded×alpha。图片加载后loaded在1秒内渐显。
+
+[S] **滚速曲面误读要排除**：顶点中`uScrollVelocity*0.0`使“随速度挤压”项为0；fragment的`moveUVOffset.x-=uScrollVelocity`算出后没有使用。uPosX虽被传入，却不参与最终图像采样。当前bundle能确定的是固定曲率+整体轨迹，不应描述为“滚得越快卡片越软”。
+
+[S] 标题在item top到viewport center时启动，正反进入同样播放：container opacity0→1=.3s power2.out；title chars y10→0、opacity0→1=.7s、ease`power4`、stagger.01；description延迟.3s后用.5s power2.out淡入。离开title y→-10、opacity→0=.4s power2.in、stagger.001；description=.3s；item opacity=.5s power2.inOut。标题切换由独立trigger事件决定，不由u的round直接决定。
+
+[S] 背景BGQuadWorks拿同一批图，先进行512尺寸、两pass高斯模糊（权重数2、pass resolutionRatio=.5）。自身`b=L(pRaw,.7)*7`，页内进度f=fract(b)，上一张=max(0,floor(b)-1)，下一张=floor(b)。双图UV分别横向偏移`-.5*f`、`+.5*(1-f)`，各tile另有随机纵向偏移。屏幕横向擦除混合权重`w=smoothstep(screenX-.03,screenX+.03,1.06*f-.03)`，背景饱和度×2、若干暗角与点阵后整体×.5。背景换图与前景卡片不是同一渲染对象，也不是同一平滑系数。
+
+[S] 从kv背景到works图像的显示权重：`smoothstep(0,.3,-tileScreenX+(rawProgress*6)*1.6) * smoothstep(1,.9,rawProgress)`；即横向逐步占领，末尾进度.9→1退场。背景WORKS文字可见度=`smoothstep(.1,.3,introProgress)*smoothstep(1,.9,introProgress)`；introProgress=L(works_intro,.3)。
+
+[S] `WorksTitle`还定义了半径3的弯曲字带shader，但mesh初始化visible=false，全文没有找到设回true的路径；它update仍更新全局`works_title_visibility`给背景字样使用。不能把这份潜在字带代码当成已出现的独立几何动画。
+
+## 7. 黑/亮场遮罩与文字书写
+
+[S] MissionVision场景背景色是 **#D7DBDC**。主场景与亮场先分别渲染，再屏幕混合。令a=亮场当前权重，v=其motionBlur变量；每帧`M=visibleMission-a; v+=(M-v)*.5; a+=M*.5`，visibleMission来自mission_in的Lerper1.5。注意v是每帧差值的滤波，不是px/s。
+
+边缘公式（UV.y=0为画面底部）：
+
+```
+range = 1/resolutionY + abs(v)*.2
+round = -cos((uv.x-.5)*π) * v * (1-.8*spWeight)
+edge = v>0 ? a*(1+range) : a
+mask = smoothstep(0,range,-uv.y+edge+round)
+output = mix(mainSceneColor,missionVisionSceneColor,mask)
+```
+
+[D] 正向滚动从下往上揭幕，速度差越大边缘越软并出现弧度；反向滚动弧度符号反转。手机spWeight1时弧度仅桌面系数的20%。main/mission/service还各有不同径向暗角，且指针fluids对采样方向分别为+.01、-.01、+.01，产生彼此不同的波动。
+
+[S] Mission DOM文字的CSS mask与GL边缘并行：仅桌面媒体规则用`linear-gradient(to top,black --mask-height,transparent --mask-height+--mask-fade)`；JS设height=`100*L(mission_in,1)-1.5`%，fade=3%。手机UA跳过JS mask，≤768px CSS也不设此mask。
+
+[S] Mission/Vision SVG路径从strokeDasharray `0 500`到`500 0`。GSAP paused timeline名义duration1、ease none，实际`.progress(u)`由scroll每帧设定。`u=L(round(raw)+.7*(raw-round(raw)),.4)`，raw=L(trigger.progress,.4)。第j行阈值b=.8j/lineCount；行显现ease power3.out(clamp01((u-b)/.1))，opacity=该值，y=8*(1-该值)px；高亮marker从b+.03起、进度宽度.5、ease power2.out。正文逐行显现与背景擦除不是单一相同阈值。
+
+[S] 桌面退出：取outTrigger.progress，g=max(0,1-2progress)，path opacity=g、正文opacity=g、英文opacity=g*u、title/正文/英文blur=(1-g)*10px。Mission的out=vision，Vision的out=vision_out。因此退出前半区间即已完全消失，后半留给背景动作。手机≤768跳过整个opacity+blur退出逻辑，改用正常DOM滚动；Vision整体opacity仍直接等于vision trigger.progress。
+
+## 8. SERVICE到STELLLA：正弦波面与全屏铺开
+
+[S] 服务scene camera=(0,0,10),fov50。平面网格64×64，卡片16×8，标题64×1；不是刚性CSS平面。service列表自身serviceIn=L(trigger,.3)，> .01才visible。
+
+[S] 卡片progress：`o=(7*L(service_progress,1)+1)/2`；o<1时再减`(1-L(service_renderer,.5))*.4`。`u=L(round(o)+.4*(o-round(o)),.5)`，shader的thumbnailScroll=min(3,u)。第三项stellaIn=L(stellla_in,.7)；stellaView=L(clamp01(thumbnailScroll-2.5),.7)+.5*stellaIn。
+
+[S] 第i卡局部x序位=i-(thumbnailScroll-1)+.09spWeight；卡mesh基础尺寸position.xy×.3，x再×(16/9)×.85，x加序位×.95，并加-.05(1-stellaIn)；非stellla卡另左移.5*stellaView。共用曲面：
+
+```
+theta = localX*π + (1-serviceIn)*8 - 2*stellaIn
+wave = 4*serviceIn*(1-stellaIn)*(1-.2*spWeight)
+position = (localX*scaleX, localY*scaleY, -sin(theta)*wave)
+```
+
+卡片手机另上移.6*spWeight；非卡片y×1.7。normal.xz按cos(theta)*serviceIn*(1-stellaIn)*.7旋转，让光感跟曲面方向对应。随着stellaIn接近1，wave降到0；同时其他服务卡移走。
+
+[S] 最后一张STELLLA由曲面projected位置逐点混到clip全屏`(position.xy*2,0,1)`。权重`smoothstep(0,1,-uv.x*c+stellaView*(1+c))`，c桌面.3、手机.2；同时UV混到cover。因为权重取决于uv.x，展开不是所有点同步缩放，而是具有横向推进的铺开。
+
+[S] 服务DOM文字与works同类，但字符stagger进入.04、离开.02，container fade同样.3s，title .7s，description delay.3+.5s；Service整体额外paused timeline opacity0→1,duration.6,power2.out，通过service_in.progress直接寻址；实际不是滚动开始后等待.6s。
+
+[S] STELLLA正文opacity/frame --progress=`min(1,1.5*stelllaTrigger.progress)`；即trigger前2/3区间完成显示。服务大标题在进入第三条stellla时按.4s power2.inOut淡出，回到其他服务时.4s淡入。
+
+## 9. 独立时间轴与触发时刻（首页，无命名label）
+
+| 对象 | 开始条件 | 时间/寻址 | 中断、返回 |
+|---|---|---|---|
+| mainLogo worksRotate | section/change | Animator默认sigmoid(k6)，1秒到目标0/1 | 新目标取消旧目标，从当前值继续 |
+| camera kvZoom | section/change kv或其他 | 同上，1秒 | 同上 |
+| WORKS title/description | item_enter | 进入字符0→.7+(chars-1)*.01秒；desc .3→.8秒 | leave另启淡出；enter新项revert旧字符动画 |
+| Service title/description | item_enter | title0→.7+(chars-1)*.04秒；desc .3→.8秒 | hide visibility会在淡出完成后hidden |
+| Mission/Vision path | 初始paused | 名义0→1秒，实际timeline.progress(u) | scroll反向可逆 |
+| Service container | 初始paused | 名义0→.6秒，实际progress(service_in) | scroll反向可逆 |
+| Works图片资源显现 | texture loaded | loaded0→1用1秒 | 与滚动无关 |
+| BG作品图片加载 | texture loaded | loaded0→1用.5秒 | 与滚动无关 |
+| Service多纹理轮播 | 多于1纹理才启用 | 每5秒，crossfade .5秒 | 现有每项只有1个视频源，故此轮播分支未运行 |
+| Outro Logo | 300px触发范围到末端/离开 | left50%→17.1%，1秒power2.inOut；100ms后Lottie.play | onLeaveBack停止并跳回Lottie0；Logo回50%用1秒，非时间轴倒放 |
+| Outro背景 | 同上 | Animator visibility0→1用1秒 | 返回1→0用1秒 |
+| 顶部侧边indicator点击 | 点击section/子点 | Lenis1.2秒expo形函数 | 用户滚动可中断，目标用offsetTop/height公式 |
+
+[S] 这里没有“master label kv=0、works=1…”这类源码事实。列阶段名和进度范围可以作为重新实现的数据结构，但应明确是实施者新建的映射，不能冒称原站timeline label。
+
+## 10. 桌面/手机差异与验证限制
+
+[S] 手机判定有三个不同维度，必须保留区分：`DeviceManager.isSPLayout`是window.innerWidth≤768；GL `_isMobile`是另一个UA/iPad特判，用来禁用fluid setPointer/update；`spWeight`依照aspect连续变化。DeviceManager跨过768断点会整页reload。手机模拟视口不等于真实手机UA，不应仅改width就宣称fluid路径相同。
+
+[S] ≤768：mission_in高度70lvh；Mission/Vision容器从fixed变relative，正文内容高度从160/200vh变100%，vision外层取消min-height，所以按真实正文而不是强制一屏计高。Vision读入只跨.3H，Vision_out退出开始延后到top .5H；取消Mission wrapper吸附；Vision/Service wrapper只向末端吸附；侧边进度目录隐藏。手机不使用桌面文字退出模糊。图形布局通过spWeight连续改位置、scale、波幅和屏幕展开倾斜。
+
+[B] 父代理手机采样H844时，mission_in590.796875px，vision317.71875px；这两项不等于桌面同名区间。手机作品仍6×844，service仍3×约1434.797；作品机制未换成横向触摸Swiper。
+
+[V] 还需在真实渲染/真实操作中确认：双平滑后的五帧同一输入相位；快速滚轮/反滚在snap边界的落点；触摸松手后的native inertia与snap；玻璃正交转换中间帧；最后视频网络失败时的可见结果；GPU帧率降低对无dt旋转项的影响。源码没有足够依据证明prefers-reduced-motion对应完整首页降级路径；不把它写成已支持。
+
+## 11. 给复刻实现者的最小可执行切片
+
+1. **先做输入与progress表**：真实滚动DOM+相同范围公式；显示每个进度与currentSection诊断；通过再隐藏诊断。区分DOM T与trigger start，首屏保留100px来源事实。
+2. **只做works第1→第2张**：双Lerper+round中心吸引、sin/cos三维轨迹、固定曲面与alpha；加入同样停滚/反向输入。单独验收图片运动，再接文字阈值。
+3. **接背景图**：独立.7平滑、前后图.03软边横擦、背景暗化；不要把它跟前景复用一个progress以图省事。
+4. **works_outro→mission_in**：先1.5H透视矩阵过渡，再H高的曲线亮场揭幕。分别采旧/新投影与mask中间帧，避免笼统“一滚变白”。
+5. **Mission文字/退场**：路径双平滑、按行阈值、高亮marker、前半段退出blur；手机用自己的触发器和normal flow。
+6. **Service→最后铺屏**：先验证正弦曲面上2卡切换，再加第三卡波幅归零与逐点clip全屏展开；视频素材授权另行处理。
+
+这些是研究给实施的行为要求，不是已完成复刻，也不把ALCHE模型、shader、作品图、视频当作可直接分发资产。
+
+## 12. 六个作品伸缩成LSSH四个入口：精确改法
+
+这节为[D]基于源码的适配建议，不是ALCHE原生四卡配置；保留相同“每走一屏换一项”的速度与节奏。设入口数量N=4，实际视口高H、首屏后gap g=100px：
+
+| 量 | 一般式 | 原6卡，H900 | 4卡，H900 |
+|---|---|---:|---:|
+| intro trigger起止 | [g,H+g] | [100,1000] | 不变 |
+| works DOM top / height | 2H+g / NH |1900 /5400|1900 /3600|
+| works_progress起止 | [H+g,(N+2)H+g] |[1000,7300]|[1000,5500]|
+| works_progress总长 | (N+1)H |6300|4500|
+| 几何原始索引o | (N+1)*p |7p|5p|
+| 卡片d_i | i+1-u，i=0..N-1 |同式|同式|
+| 首尾显隐 | min(1,2u)*min(1,2(N+1-u)) |末因子min(1,2(7-u))|末因子min(1,2(5-u))|
+| 作品snap起止 | [2H+g,(N+1)H+g] |[1900,6400]|[1900,4600]|
+| 作品snap归一化步长 | 1/(N-1) |.2|1/3|
+| 卡片中心scrollY | (i+2)H+g |1900..6400每900|1900,2800,3700,4600|
+| works_outro DOM top | (N+2)H+g |7300|5500|
+| works_outro trigger | [(N+1)H+g,(N+2.5)H+g] |[6400,7750]|[4600,5950]|
+
+背景BGQuad也按实际texture count更新：页索引乘N+1、`WORKS_NUM=N`、texture列表4张、displayInfo clamp上限N-1；标题与真实链接4条对应。**不要只把7改成5但仍保留6屏高度；也不要把六卡路径压进原600vh再留四个空项。** 这样每张卡的sin/cos轨迹、弯曲、过渡速度、第一卡与标题阈值均保持。尾部后续章节整体提前2H，章节自身过渡宽度维持原值即可。
+
+若项目选择项目/音乐/相册/网站四个主题均作为这种卡片入口，其真实路由可映射已有栏目；这是内容适配。ALCHE的Mission/Vision/Service后半原功能不是LSSH四入口必须复制的页面分类。此报告只提供交互参数，最终章节结构遵循LSSH最新用户决定。
+
+## 13. 首个 intro→卡片切片：五采样与同输入复现
+
+必须先定义采样坐标，避免沿用旧截图的“DOM百分比”名称。原站其实有两个连续阶段：
+
+1. **I：WORKS标题引入**：pI=works_intro trigger.progress，区间[g,H+g]。1440×900为100→1000px。
+2. **A：第一卡进入**：q=(scrollY-(H+g))/H，区间[H+g,2H+g]。1440×900为1000→1900px，q=0→1。它是works_progress的头1/(N+1)，不是整段works_progress0→1。
+
+### I段五个目标位置（[D]停稳理论值）
+
+| pI | 桌面scrollY H900 | 手机H844且gap100的scrollY | 背景WORKS字样wtVisibility | 背景字样水平附加UV量 .18-.3pI |
+|---:|---:|---:|---:|---:|
+|0|100|100|0|+.18|
+|.25|325|311|.84375|+.105|
+|.5|550|522|1|+.03|
+|.75|775|733|1|-.045|
+|1|1000|944|0|-.12|
+
+[S] wtVisibility输入是平滑后progress：L(key,.3)，故刚到目标时不立即达到表值。此段玻璃位置未沿独立路径飞走，主要是1秒worksRotate变1后持续绕Y转；相机kvZoom变0完成轻微拉远。不能给玻璃在五个pI处指定唯一固定yaw角：它还取决于在该段停留多久、滚速与指针。
+
+### A段五个目标位置与第一卡的理论终态（桌面，N任意≥2）
+
+下表`u`是双Lerper充分收敛后的round目标；表中q=.5行表示数学`round(.5)=1`一侧，**并非承诺停在精确中点时每次都得这个画面**。完整数值文件`first-card-five-samples.json`。
+
+| q | scrollY H900 | u | 第一卡d | x / y / z | rotationY | local scale | alpha |
+|---:|---:|---:|---:|---|---:|---:|---:|
+|0|1000|0|1|9.256 / -1 / -3.298|.6|.9|0|
+|.25|1225|.1|.9|8.617 / -.9 / -2.892|.54|.92|.1980|
+|.5（上侧）|1450|.8|.2|2.185 / -.2 / -1.100|.12|1.06|1|
+|.75|1675|.9|.1|1.098 / -.1 / -1.025|.06|1.08|1|
+|1|1900|1|0|0 / 0 / -1|0|1.1|1|
+
+[D] 精确q=.5是`Math.round`跳变边界：从下面逼近时第一层平滑o仍可能略小于.5，u留在约.2侧；从上面返回则可能留在约.8侧。第一卡在u=.2时d=.8，x≈7.891、y=-.8、z≈-2.516、rotation.48、scale.94、alpha.4。因此**必须额外比较q=.5±1/H（即1450±1px）**，否则五帧中间那张具有输入历史歧义。这是源站非线性映射的真实特点，不应该以画面突变就误判新实现失败。
+
+[S] 第一项标题的enter阈值恰为第一卡DOM top-H/2=1450px，对应q=.5。进入后的文字再播放.7s+stagger，不跟随q暂停。所以中点图同时受“刚跨阈值后的时间”影响。q<1阶段尚未进入works_snap trigger（它从1900起），这一首卡入场段不会被该作品snap强行吸走。
+
+### 复现协议（开发与设计用同一份输入）
+
+- 同浏览器、同viewport、同DPR、同UA、同N、同图片/裁切；先完成loading，记录load结束时间。鼠标固定viewport左上(0,0)，在同一位置稳定2秒；这样Logo中心拨动驱动力为0，并把相机偏移固定为同一基线。需要居中构图时可改用中心，但两端必须同样操作并等待。
+- 每次实验从页首刷新，先静止2秒，完整执行同一方向的滚动序列；不要先跳到终点再退回起点采正向帧。动态自转由真实时间累积，所以两站都从加载结束后的同一时间启动输入。
+- **I段静态五采样**：通过受控设置文档scrollY到100、325、550、775、1000（或用公式换H），每点等同样2秒；同时记录request与实际scrollY、body.current_section、时间戳。这是“停稳状态对照”，不能证明动态节奏相同。
+- **A段静态五采样**：1000、1225、1450、1675、1900；中点另测1449和1451，记方向。每点至少保存到位立即、250ms、1000ms、2000ms四个时刻；识别平滑追赶与标题自播放，不能把2秒后截图称作瞬时映射。
+- **动态对照输入**：固定指针后，从scrollY100开始，按记录的同一系列wheel事件（deltaY及相邻时间间隔完全相同）经过1000到1900，再反向；逐RAF或每16.7ms记录scrollY，在两个站按实际pI/q而非输入次数对齐帧。建议慢输入50px/100ms、快输入单次900px、以及越过q=.5后立即反向三条序列，先只做这段。Lenis指数追赶不能以最终total delta代替同输入过程。
+- **判读**：在同一pI/q下同时比较“到该点后的时间”；卡片位置/alpha必须符合公式趋势，标题跨q=.5后启动，背景比前景用不同平滑，相机拉远完成后不要继续直线穿越。同步记录是否snap启动、视频/图像加载状态；第一卡前半alpha不应过早全亮。
+- 真实手机触摸与桌面wheel分别验收。手机native touch（syncTouch=false）不能用桌面wheel序列代替；静帧几何可同条件核对，触摸惯性另录事件/scrollY。
+
+该协议可成为首个可交付切片的验收卡；目前给出源码+理论采样，父代理现有浏览截图是否正好满足这套输入与停留条件需要另行标注，不能补写为已完成。
+
+补充源码限定：`ScrollTriggerFactory.create`会去掉自定义triggerId/pathname后直接`new ScrollTrigger(u)`，未过滤snap参数，所以显式snap不是仅写了未接通的配置。侧边indicator的`topScrollSections.service`却查询`getTrigger("service")`，注册表实际key是`service_snap`；该查询为null并由`stellla`进度兜底。这是现有源站引用不一致，不能当作应复刻的产品规则。与同类变量未使用情况一样，应在重实现中用统一阶段ID消除，而不影响上文图形公式。

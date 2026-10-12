@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-11T08:46:28.830Z",
+  "fixture": "Generated silent WAV under ignored .ci-tmp; no real download or cloud upload",
+  "checks": [
+    {
+      "name": "newStableAudioIndexed",
+      "passed": true
+    },
+    {
+      "name": "partialAndUnparseableExcluded",
+      "passed": true
+    },
+    {
+      "name": "noLocalPathsOrAudioUrls",
+      "passed": true
+    },
+    {
+      "name": "unchangedCatalogTimestamp",
+      "passed": true
+    },
+    {
+      "name": "modifiedAudioIndexedStableId",
+      "passed": true
+    },
+    {
+      "name": "deletedAudioRemoved",
+      "passed": true
+    }
+  ],
+  "log": "已更新 0 首真实曲目；尚未连接云盘分享，曲目仅展示信息。\n已更新 1 首真实曲目；尚未连接云盘分享，曲目仅展示信息。\n已更新 1 首真实曲目；尚未连接云盘分享，曲目仅展示信息。\n已更新 0 首真实曲目；尚未连接云盘分享，曲目仅展示信息。\n"
+}

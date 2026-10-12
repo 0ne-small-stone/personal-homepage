@@ -1,0 +1,187 @@
+ALCHE：加载、指针、导航、菜单与路由精确核验
+核验日期：2026-10-08；仅源码只读研究，没有修改应用或共享规划文档。
+
+证据约定
+- 主包 J = C:\Users\asus\AppData\Local\Temp\lssh-alche-source-audit\index.astro_astro_type_script_index_0_lang.Cn_goiN_.js
+- 共用 CSS C = 同目录 about.DKIoZJhT.css；首页 CSS I = index.CQ0ApTUm.css；HTML H = index.html；路由启动包 P = page.SNkKDTDH.js。
+- 下列 offset 为解码后的 UTF-16 字符索引，从 0 开始，可用 Node String.indexOf 或 PowerShell String.IndexOf 重定位；不是 UTF-8 字节 offset。
+- 新下载的官方公开数据只留在本临时目录：loading-bg.json 与 loading-logo.json，来源 https://alche.studio/common/loading/bg/data.json 和 https://alche.studio/common/loading/logo/data.json。仅用于研究，不表示本站获准采用官方素材。
+- 确定 = 源码值或 JSON 数据；推导 = 根据公式计算出的行为；未知 = 本轮没有实际浏览器计时/录屏确认。不要将代码标称 duration 等同于任意机器的墙钟时间。
+
+1. 加载：五个阶段，而非一个固定倒计时
+
+A. 黑幕与构图线起笔
+证据：J LoadingUIController@1812105；LottieAnimationController@1795521；C .Loading__container@12423、.Loading__lottieContainer@12932。
+- 全屏 position:fixed，height:100lvh，背景 #000，z-index:9999，pointer-events:auto。
+- bg 与 logo 两个 Lottie SVG 共用居中容器；preserveAspectRatio 为 xMidYMid slice；loop=false，autoplay=false；脚本手动驱动帧。
+- 桌面容器 width:80%，height:100%，left:50%，translateX(-50%)；横向 mask 为 transparent 0% → black 10% → black 90% → transparent 100%。<=768px 宽变100%，取消 mask。
+- 背景动画初始 opacity=1，logo=0；logo path stroke 强制 #bbb。
+- 桌面描边经 StrokeWidthNormalizer 至少为 1.5 device px（J@1793399）：先除 DPR，再除 SVG 实际变换尺度。手机恢复原描边。
+- 新下载 JSON 两者画布均2304×2304，frameRate=29.9700012207031，ip=0，op=90.0000036657751，完整源时长3.003003003秒。实际只播放源时间的一部分。
+- bg 有30个形状层，以横线、竖线、±60°斜线、圆和小圆组成几何施工线；trim-path 分批显露。圈的末帧40，bg推进终点40.5帧，说明第一阶段绘完施工线并停住。bg不是在屏幕上不停旋转的通用spinner。
+
+B. 背景进度的实际公式与完成门槛
+证据：J LoadingUIController._updateProgressAnimation、_updateLogoAnimation@1812105。
+- 自 show()起记录 wall clock，t=(Date.now()-start)/1000，timeGate=min(1,t/1)。minAnimationDuration=1秒。
+- 首页 displayProgress=min(realProgress,timeGate)。targetTime=displayProgress×bg.totalDuration×0.45，最多1.351351351秒源时间=40.5帧。
+- 每渲染帧 currentTime += (targetTime-currentTime)×0.1，随后 setFrame(currentTime)。这是每帧10%追随，不是 duration=.1秒，也不是严格时间无关阻尼。
+- 首页切至logo的条件同时为 realProgress>=.999、timeGate>=.999、abs(currentTime-targetTime)<.01（单位源动画秒）。所以第一阶段不保证恰好1秒。
+- 子页首入：一旦 realProgress>=.999 即开始logo；logo播放期间bg显示进度改为 timeGate。
+
+realProgress来源及严格性：
+证据：PageLoadingManager@1426412；ShaderPrecompiler@1111517；初始启动 swupPromise.then@1828135。
+- PageLoadingManager总进度是完成项目数/注册项目数。项目来自 Three LoadingManager 的 webgl_asset_N、当前 pathname 已注册的 ScrollTrigger，以及 shader_precompile。completed==total且total>0才complete；只管理初始加载，_isInitialLoad=false后 startLoading 不重启。
+- ScrollTrigger通过 notifyScrollTriggerInitialized 标记完成；Three资源onLoad将已登记资产置完成。
+- 但启动代码也直接向LoadingUIController输入shader进度：0.5+percentage/100×0.5。percentage是按六个scene的处理序号计算，并在处理该scene之前发出；不是实际shader耗时或资源字节比例。
+- 因此“完全由所有资源promise统一驱动，所有关键资源都完成才退出”的说法过强。代码意图纳入资源+trigger+shader，但可见进度另受shader序号覆盖；本轮没有实验验证慢网竞态。
+- 预编译所有注册scene，includeInvisible=false；每scene尝试compile及1×1 dummy render，再等一个RAF。编译异常多处catch吞掉；外层catch仍completeShaderPrecompile。完成意味着流程走完，不等于每个shader成功。
+- 源码未见Lottie data_ready注册入PageLoadingManager；Lottie加载失败只warn。本轮没有证据证明存在真实超时降级、跳过按钮或错误恢复。showError方法有红亮闪动，但全包只找到定义，未找到调用绑定。
+
+C. 文案逐字解扰，与加载进度并行
+证据：J LoadingUIController._startTextAnimation。
+- show后400ms启动；HTML原来有换行，脚本替换为单行“Architect worlds that move hearts and spark hope.”。
+- SplitText(chars)，随机字符集ALCHE，每32ms重选；未揭示字opacity=.3，原空白opacity=0。
+- 第u字符揭示时刻=textAnimationStart+300ms+u×40ms；变回原字且opacity=1。字符索引来自SplitText返回chars，实际索引数以运行时分割结果为准。
+- 文案CSS：白色，IBM Plex Mono，font-weight300，line-height1.4，white-space:nowrap，桌面font-size:.7vmax，bottom:max(10px,50% - 14vmax)，left50%并translate(-50%,-50%)；max-aspect-ratio:1/.8改12px与bottom:max(10px,50% - 20vh)。
+
+D. A轮廓绘制，然后黑幕淡出
+证据：J LoadingUIController，ease定义@1812022（可搜const ease=Easings.cubicBezier）；新下载logo JSON layer Aアウトライン。
+- 开始logo时立即opacity=1，并从源progress .144推进至.5215；p=.144+cubicBezier(.53,.25,.3,.99)(elapsed/duration)×.3775。
+- 首页duration=1.8秒；子页首入duration=1秒。logo累计的是GL每帧deltaTime，delta上限1/30；低于30FPS时墙钟会更长。
+- 源帧大约12.96→46.935，恰好对应logo trim-path的13→47帧；trim start100→0，end固定100。logo不是缩放旋转，主动作是A形闭合路径被逐步描出（外轮廓三点、内轮廓七点），控制器曲线负责变速。
+- logo段完成resolve progress promise；hide先令_isAnimating=false并scrollTo(0,immediate)，overlay opacity→0，.8秒power2.out。结束设置data-hidden，释放pointer-events，复位动画和文字。
+- _disableScroll名字容易误读：源码只置布尔值并把首页滚到顶，没有调用lenis.stop，也没写body overflow=hidden；布尔值未见用于拦截wheel。不能仅凭函数名宣称滚动被完全锁定。
+
+E. 黑幕退后另有3秒GL径向揭幕
+证据：J GL.onLoadingComplete@1122956；finalCompositeFrag@600832；启动顺序@1829312。
+- 首页是await overlay.hide()完成后才 gl.onLoadingComplete()；uLoaded从0到1，3秒easeOutCubic=1-(1-t)^3。子页首入用duration0，并在overlay淡出前启动。
+- 首页gl完成启动800ms后置data-gl_loading_end=true；此时DOM内容和Header才从opacity0按首访1.5秒CSS transition显现。并非等GL3秒全部结束后才出现导航。
+- 揭幕不是普通alpha淡入：从屏幕中心扩张软圆形权重。q=uv-.5，横屏q.y/=aspect、竖屏q.x*=aspect；r=smoothstep(0,.2+.7L,-length(q)+1.4L)，L=uLoaded。
+- 场景采样先缩取中心（sceneUv=(uv-.5)×(.5+.5L)+.5），再减去 sin(πr)×normalize(q)×.1，形成向中心/外沿的径向UV弯曲。
+- 最终加载静态SVG纹理与场景按smoothstep(0,.5,r)混合；加载纹理也承受同样sin径向UV位移。横屏loading UV缩放1/.8并左右渐隐，延续loader80%容器构图。
+- 确定代码阶段及曲线；实际总开场秒数未知，因为网络、预编译、逐帧追随、帧率均会改变完成点。不要写成固定6.6秒。
+
+2. 指针：位置残差推动旋转，加独立相机平移
+
+数据入口与时间基准
+证据：GL@1114395 / update@1118460附近；Lerper@1424327；MainLogo.hover/update@1007638；CameraController@1040507。
+- 全局pointermove记录最新client坐标；每个GL帧都把“最后一条pointer事件”交给各scene.hover，非只在事件触发瞬间推一次。相机另监听mousemove。
+- 归一化 x=2clientX/W-1；y=1-2clientY/H。
+- GL deltaTime=min((now-prev)/1000,1/30)。主循环顺序 lenis.raf → gl.update → lerper.update → indicator/sound/loading update。
+- Lerper第一次set直接current=target、velocity=0；后续set改target，velocity=target-current，返回旧current。update用真实RAF delta秒：current+=(target-current)×min(1,delta×10×multiplier)。所谓velocity是位置追随残差，没有除以deltaTime，不能替换成pixels/second。
+
+物体旋转
+- hover x/y各用multiplier1，故追随率10/s。vX/vY是上述残差。
+- 区域权重 m=.01×max(0,1-1.5×sqrt(x²+y²))×section.hoverRotationMultiplier。
+- 影响区中心在屏幕中心，半径2/3 NDC；换成像素是水平半轴W/3、垂直半轴H/3的椭圆。公式没有aspect修正；也不是以玻璃模型轮廓做raycast命中后才旋转。
+- worksRotate=w时，EulerX -= vY×m×(1-.7w)，EulerY += vX×m，EulerZ=0。
+- 2026-10-09原始调用链复核更正：GL先scene.hover，MainLogo.hover用本帧Animator推进前的w加入指针残差；随后MainLogo.update推进Animator，再把EulerX/Y乘(1-deltaTime)、重建mouse quaternion；物体quaternion被mouse quaternion前乘，再被Y轴基础旋转前乘。此前“先衰减再注入”的描述已撤销，短证据见同证据父目录u03-p01-2026-10-09-29-timing.json的hoverEulerOrder。
+- 基础Y轴角度=-deltaTime×baseRotationSpeed×w - smoothedScrollVelocity×scrollSpeedRotationFactor。
+- scrollVelocity取Lenis velocity夹到[-30,30]，Lerper multiplier=.5（率5/s）。注意第二项源码没有乘deltaTime。
+- 最后slerp向单位quaternion，插值因子=deltaTime×returnToOriginForce×(1-.8w)。这是持续回正，不是mouseenter/leave独立GSAP tween。
+- 停止鼠标后残差逐渐归零，Euler自身也衰减，物体按slerp回正；没有发现pointerleave将坐标强制清零。因为hover和quaternion叠加按帧执行，复刻为严格dt独立物理会与原手感不同。
+
+章节参数（J sectionRotationSettings@1006560；w切换1秒默认sigmoid）
+section | animationIntensity(w目标) | baseRotationSpeed rad/s | returnToOriginForce | scrollSpeedRotationFactor | hoverRotationMultiplier
+默认 | 0 | 0 | 2 | 0 | 0
+kv | 0 | 0 | 2 | 0 | 1
+works_intro | 1 | .5 | .4 | .001 | .2
+works | 1 | .5 | .1 | .001 | .2
+mission | 0 | 0 | 2 | 0 | 0
+vision | 0 | 0 | 1.5 | 0 | 0
+service | 0 | 0 | 1.8 | 0 | 1
+- works_intro有效回正率在w=1时为.08/s；works为.02/s，玻璃保持转动惯性更久。kv为2/s。
+- velocityMultiplier字段存在（作品段.01、其他0），但MainLogo更新函数未使用它；不要把它误抄成生效参数。
+- Animator默认sigmoid强度6：E(t)=[1+((1-exp(-6(2t-1)))/(1+exp(-6(2t-1))))×((1+exp(-6))/(1-exp(-6)))]/2。Animator@564335，定义@562047。
+
+相机
+- basePosition=(0,0,10)，mouseMoveRange=.5世界单位，mouseLerpSpeed=3。
+- targetOffset=.5×NDCmouse×(1-smoothedWorksOutroProgress)，worksOutro平滑multiplier=.5；offset向target插值min(3deltaTime,1)。最大平移各轴±.5单位。
+- camera.position=(offsetX,offsetY,10-.5kvZoom)，始终lookAt(0,0,0)。resize设baseFov=35+18/aspect，实际fov=baseFov-4kvZoom。
+- kvZoom初始1；kv段目标1，其他段0，均1秒默认sigmoid。由kv到作品，相机z9.5→10，同时FOV增加4°。
+- 相机位置由指针绝对位置控制；停在一处后会稳住偏移，不会因鼠标不动自动回中。只有作品结束progress将鼠标幅度压至0。
+
+3. 导航、CTA与声音
+
+Header hover扰码（确定）
+证据：HeaderController@1819154；C@2691。
+- 选择header nav div[class*=nav_item]中的span；mouseenter触发GSAP duration .4，ease power2.out，scrambleText chars=AlcheALCHE，revealDelay=.2，speed=1，最终原文。
+- mouseleave空函数：不会主动逆播或强制还原，已启动扰码继续完成。
+- CSS link opacity1→.7，.3秒ease。底层没有磁吸位移、弹簧、跟随鼠标位移。
+- Header fixed z99；默认40px 50px内边距，<=768为30px 10px。mission/vision/vision_out黑字黑logo，颜色.5秒ease；stellla/footer桌面向上translateY(-100%) .5秒ease，手机走opacity0。
+
+Contact SlotButton（确定，仅HTML中的顶部Contact使用该类）
+证据：H@3438（内联CSS），Contact实例@7183；C .Header__contact@3021。
+- 两份相同文字：text正常行，text_hover绝对top100%；父wrapper在hover时translateY(-100%)。原行opacity1→0；下行opacity0→1，因此看起来下方字上滚替换。
+- transform与文字opacity均.3秒cubic-bezier(.25,.46,.45,.94)；离开hover由CSS逆向回原态，无JS磁吸。
+- 按钮overflow:hidden；padding12px 20px，border1px rgba(255,255,255,.5)，border-radius999px，font11px IBM Plex Mono；hover底与边变#fff，替代文字#000。背景与边框也.3秒同曲线。
+
+More Works及footer（确定）
+证据：MoreWorksController@1249659；I .Works__more@4267附近；FooterController@1820558。
+- More Works扰码duration.4，power2.out，chars=ALCHEALCHEALCHE，revealDelay=.2，speed=1.5。
+- 横线scaleX0→1，.3秒ease，从左生长；离开时transform-origin:right，向右收回。没有按钮磁吸。
+- footer扰码同.4/.2/power2.out，但chars=ALCHE、speed=1。
+- 原生作品标题hover opacity.8；News和侧边子项hover opacity.6。没有证据支持给所有按钮统一slot或扰码。
+
+磁吸与hover声音（严格结论）
+- 在完整主包及HTML/CSS中未检出magnet/Magnet；所有应用mouse enter函数已核查。已识别的Header、Contact、More Works、Footer不存在磁吸处理。不能由此推断第三方未来脚本绝无任何磁吸，但当前可核对实现没有。
+- 没有按钮hover播放SE的调用。playSE只在PageTop section/change且direction=enter时触发：works→works_in；mission_in→mission_in+typing；service_in→works_in并stop typing。
+- SoundManager@1467017：默认静音，读localStorage sound-muted；SP布局整套音频disabled；BGM volume .08，初次播放fade0→.08，1500ms；SE volume .1。窗口click或wheel尝试startBGM（受静音/浏览器播放授权约束）。
+- SoundToggle按钮hover仅scale1.05，背景#ffffff1a，边色#fffc，.3秒cubic-bezier(.25,.46,.45,.94)。条柱每帧幅度以.08追随；三柱baseHeight=[12,14,10]px，amplitude=[6,8,5]，frequency=[.8,1.2,.6]Hz，phase=[0,π/3,2π/3]，height=max(2,base+sin(2πft+phase)×currentAmplitude×.5)。静音目标幅度0、opacity.4。
+
+首次声音提示（补充）
+证据：SoundIntroController@1471794。
+- loader结束调用show；另有8000msfallback。只桌面、localStorage sound-intro-shown为空时出现。
+- 同意/拒绝后面板朝sound toggle中心移动并scale(.04)、opacity0，750ms cubic-bezier(.65,0,.2,1)。图标scale1.35，.18秒；190ms后scale1，.42秒，曲线(.25,.46,.45,.94)。无toggle时面板translateY100%、opacity0，.5秒。
+- 提示文案停6秒，或下一次wheel/click隐藏。该动作是选择后的吸入效果，不是hover磁吸。
+
+4. 手机菜单：全屏淡入，非侧滑列表
+证据：SideMenuController@1806214；C Hamburger@3332、SideMenu@4565。
+- <=768px显示hamburger，>=769隐藏；按钮30×30，三线20×2、间距4。
+- 开：data-open=true加在hamburger和overlay；body overflow=hidden。关：移除属性并清空overflow。
+- 点击hamburger开关、点击backdrop关闭、点击任意菜单link关闭、Escape关闭。
+- overlay全屏fixed z999，默认pointer-events:none，开为auto；backdrop黑50%（#00000080），opacity0→1，.3秒ease。
+- menu绝对right0，width100%，height100dvh，backdrop-filter blur10px在开关两态均为10px；opacity0→1，.4秒CSS默认ease；backdrop-filter声明.4秒ease-out，但两态同值，没有实际10→0的blur动画。
+- 未发现菜单整体translateX/Y，也没有逐个菜单item进入delay/stagger。退出按同一opacity transition回0。
+- hamburger顶线translateY6px rotate45°，中线opacity0，底线translateY(-6px) rotate(-45°)，all .3秒ease。
+- 当前页menu item padding-left30→40px，.3秒ease；短线默认10px，当前20px；字opacity.7→1。作品详情归Works、新闻详情归News。
+- 本轮未验证实际键盘焦点圈定；源码未见focus trap或打开后主动focus。不要将默认a/button可操作扩写为已完成无障碍模态。
+
+5. 路由：持久GL+替换main；完整、作品局部、浏览器返回三条路径
+
+路由层（确定）
+证据：P完整3184字节脚本；Transition@1125324；TransitionUtils@1220352；启动hooks@1828135。
+- Swup，containers:[main]，cache:true，native:false，animationSelector=[class*="transition-"]，data-no-swup可退出拦截。
+- preloadHoveredLinks:true，preloadVisibleLinks:false；HeadPlugin awaitAssets:true；还有A11y/BodyClass/Scripts插件。
+- 初始在window load后requestIdleCallback启动（不支持时fallback1秒）；本轮未下载Swup库/plugin源码，其网络等待、滚动恢复的内部细节未知。
+- GL canvas在main外持续存在；每个页面的controller处理in/out，更新共享scene选择。不是切页重建整套renderer。
+
+普通路由完整路径（确定）
+- out:start：body data-page_changed=true；处理GLImage留存，pageManager.outStart，footer解绑。
+- out:await：非“from和to都为works或works-detail”时gl.outStart，把uTransition目标1，.5秒默认sigmoid；同时按目标首页/子页将subpageSceneSelector切到0/1，.5秒默认sigmoid。
+- transition.start把data-phase设in并等1000ms；DOM .Layout__inner因data-phase=in而opacity→0，.5秒CSS默认ease。J duration=1000（@1125257）；不能把这个1秒全都当作DOM fade duration。
+- out:end：页面controller清理，GL outEnd，GLImage更新暂停。
+- Swup替换main；content:replace回调100ms后重接data-gl_img、footer初始化、sound toggle状态同步。
+- in:start：body data-page更新，菜单active同步，pageManager.inStart，gl.inStart把uTransition→0 .5秒，GLImage恢复，switch scene。普通子页标题逐字opacity0/y30px→1/y0，单字.6秒power2.out，字符间隔.05秒（SubPageTitleAnimation@1221479）。
+- in:await先await pageLoadingManager.waitForLoading（初始加载外立即resolve），transition.end把phase设out，等1000ms，再ready。phase out解除Layout opacity0，按.5秒CSS默认ease出现。
+- uTransition在finalComposite仅乘thumbnail alpha的(1-uTransition)，在DOM image shader也压图像alpha；不是把整张3D背景黑场遮住。因此GL场景切换与DOM渐隐是并行层。
+- 初次加载后不会每次导航重播LoadingUIController；show与hide都只在初始启动调用一次。
+
+作品局部路线（确定）
+- works类别→类别、详情→详情用partial：phase partial-in等700ms，partial-out等500ms，再ready。shouldSkipTransition始终false。
+- 本次已下载CSS中没有查到partial-in/out对应Layout透明度规则，所以partial主要是生命周期等待与作品图像逻辑，不能写成普通fade的缩短版。
+- 类别↔详情仍走完整Transition等待，但from/to都属works时跳过gl.outStart，保留作品图像过渡。
+- 桌面works相关跳转先lenis.scrollTo works-swiper offsetTop-130，1秒easeInOutCubic，force:true，lerp0；手机不执行此步骤。
+- GLImageManager@1809237：类别→详情仅保留目标ID图像，startLoading type=center；详情→类别保留可视图像；详情→详情不保留；其他路由detach全部。center加载的图像细节若要复刻需另查DomMesh startLoading，不在本报告视为已完整展开。
+
+浏览器后退/前进（确定）
+- history:popstate立即body phase=force-in，GLImage暂停；CSS force-in令DOM opacity0且transition0s。
+- 一次content:replace后setTimeout10ms：取消所有待定transition promise，重跑页面in流程，phase=ready；解除一次hook并GLImage恢复。
+- 实际滚动恢复和Swup内部并发顺序本轮未运行浏览器核验，不宣称已经确认。
+
+6. 交付建议与未知边界
+- 精确复刻任务可直接将“每阶段触发+输入归一化+所有单位+曲线+重入/反向行为”作为验收表；上面的值是参考站事实，不会自动覆盖LSSH既有设计规范。
+- 应区分源时长（Lottie的3.003秒）、手动播段时长（logo1.8秒）、CSS duration（.8秒）、GL累计时间（上限delta）和墙钟总加载时间。
+- 未做本轮真实浏览器录屏、网络慢速/低FPS实验；没有截图帧序与输入轨迹。具体视觉位置与体验仍需五帧或录屏对照。
+- 所有报告判断是源码核对，不是用户审美确认或本站工程接入通过。
+

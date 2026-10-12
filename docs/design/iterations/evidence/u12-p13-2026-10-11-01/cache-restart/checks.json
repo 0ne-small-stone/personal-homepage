@@ -1,0 +1,94 @@
+{
+  "date": "2026-10-11T08:37:41.898Z",
+  "checks": [
+    {
+      "name": "realLibrary",
+      "passed": true,
+      "details": "18 首单曲，3 张专辑\n洛雪下载 · 考拉收藏\n\n下载音乐"
+    },
+    {
+      "name": "cloudNotFalselyPlayable",
+      "passed": true
+    },
+    {
+      "name": "lazyNetease",
+      "passed": true
+    },
+    {
+      "name": "albums",
+      "passed": true
+    },
+    {
+      "name": "albumSongs",
+      "passed": true
+    },
+    {
+      "name": "search",
+      "passed": true
+    },
+    {
+      "name": "selection",
+      "passed": true
+    },
+    {
+      "name": "emptySearch",
+      "passed": true
+    },
+    {
+      "name": "refresh",
+      "passed": true
+    },
+    {
+      "name": "officialLxProtocol",
+      "passed": true
+    },
+    {
+      "name": "sharedPlaylist",
+      "passed": true
+    },
+    {
+      "name": "modeUrl",
+      "passed": true
+    },
+    {
+      "name": "modeReload",
+      "passed": true
+    },
+    {
+      "name": "modeBack",
+      "passed": true
+    },
+    {
+      "name": "mobile390",
+      "passed": true
+    },
+    {
+      "name": "mobile320",
+      "passed": true
+    },
+    {
+      "name": "netease320Overflow",
+      "passed": false
+    },
+    {
+      "name": "noJsFallback",
+      "passed": true
+    },
+    {
+      "name": "noPageErrors",
+      "passed": false,
+      "details": [
+        "Failed to read a named property 'device__browser_update' from 'Window': Blocked a frame with origin \"https://music.163.com\" from accessing a frame with origin \"http://127.0.0.1:4321\".  The frame requesting access has a protocol of \"https\", the frame being accessed has a protocol of \"http\". Protocols must match."
+      ]
+    }
+  ],
+  "errors": [
+    "Failed to read a named property 'device__browser_update' from 'Window': Blocked a frame with origin \"https://music.163.com\" from accessing a frame with origin \"http://127.0.0.1:4321\".  The frame requesting access has a protocol of \"https\", the frame being accessed has a protocol of \"http\". Protocols must match."
+  ],
+  "limitations": [
+    "Emulated viewports; cloud sharing and real-device performance are separate checks."
+  ],
+  "netease": {
+    "loaded": false
+  }
+}

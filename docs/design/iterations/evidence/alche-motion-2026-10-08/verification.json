@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-08T11:23:18.538Z",
+  "method": "Playwright with Chrome; file URL; real UI controls",
+  "errors": [],
+  "externalRequests": [],
+  "checks": [
+    {
+      "clip": "loading",
+      "selectAndFirstLastFrames": "pass",
+      "dimensions": [
+        960,
+        600
+      ]
+    },
+    {
+      "clip": "pointer",
+      "selectAndFirstLastFrames": "pass",
+      "dimensions": [
+        960,
+        600
+      ]
+    },
+    {
+      "clip": "buttons",
+      "selectAndFirstLastFrames": "pass",
+      "dimensions": [
+        960,
+        600
+      ]
+    },
+    {
+      "clip": "intro-forward-reverse",
+      "selectAndFirstLastFrames": "pass",
+      "dimensions": [
+        960,
+        600
+      ]
+    },
+    {
+      "clip": "works-to-light",
+      "selectAndFirstLastFrames": "pass",
+      "dimensions": [
+        960,
+        600
+      ]
+    },
+    {
+      "clip": "route-works-return",
+      "selectAndFirstLastFrames": "pass",
+      "dimensions": [
+        960,
+        600
+      ]
+    },
+    {
+      "clip": "mobile-menu",
+      "selectAndFirstLastFrames": "pass",
+      "dimensions": [
+        277,
+        600
+      ]
+    },
+    {
+      "playbackAndPause": "pass",
+      "secondsAdvanced": 0.519699335098267
+    },
+    {
+      "halfSpeed": "pass",
+      "secondsAdvancedInAbout600ms": 0.315953254699707
+    },
+    {
+      "realPointerDrag": "pass",
+      "positionRatio": 0.6015033989485755
+    },
+    {
+      "frameStep": "pass"
+    },
+    {
+      "viewportWidth": 390,
+      "horizontalOverflow": false
+    },
+    {
+      "viewportWidth": 320,
+      "horizontalOverflow": false
+    }
+  ],
+  "success": true
+}

@@ -1,0 +1,20 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LSSH · 第27轮返回首帧</title>
+<style>:root{color-scheme:dark}body{margin:0;background:#000;color:#ededed;font:15px/1.65 "PingFang SC","Microsoft YaHei",sans-serif}main{max-width:1200px;margin:auto;padding:32px 20px 72px}h1{font-size:25px;font-weight:500}h2{font-size:19px;font-weight:500;margin-top:32px}p{color:#a1a1a1}a{color:inherit;text-underline-offset:4px}nav{display:flex;flex-wrap:wrap;gap:12px}button{border:1px solid #555;background:#171717;color:inherit;border-radius:8px;min-height:44px;padding:8px 14px;cursor:pointer}button:focus-visible,a:focus-visible{outline:2px solid #ededed;outline-offset:4px}button[aria-pressed=true]{background:#ededed;color:#000}figure{margin:0}img{display:block;width:100%;height:auto;background:#111}.mobile img{max-height:700px;width:auto;max-width:100%;margin:auto}table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}th,td{text-align:left;padding:10px 8px;border-bottom:1px solid #333}th{color:#a1a1a1;font-weight:400}.scroll{overflow:auto}@media(max-width:700px){main{padding:20px 12px}td,th{white-space:nowrap}}</style>
+<main><h1>第27轮：返回直接回到离开位置</h1>
+<p>先同步进度、卡片和镜头，再显示正文与章节索引、恢复焦点。首次顶部与普通滚动仍使用原动作。</p>
+<nav><a href="http://127.0.0.1:4321/personal-homepage/">体验首页</a><a href="checks.json">确认轮完整记录</a><a href="initial/checks.json">首轮完整记录</a><a href="summary.json">最早可见帧摘要</a></nav>
+<h2>最早可见帧</h2><p>由每个 R3F 帧末的真实诊断、独立浏览器 RAF 的 DOM 可见性读取判定，不将截图工具的执行时刻叫作 GPU 第一帧。准备时正文和索引隐藏，顶栏继续可用。</p>
+<div class="scroll"><table><thead><tr><th>路径</th><th>S / px</th><th>intro</th><th>index</th><th>相机 z / FOV</th><th>目录</th><th>焦点</th><th>loader</th></tr></thead><tbody id="states"></tbody></table></div>
+<h2>返回画面</h2><nav id="cases"></nav><figure id="figure"><img id="image" alt="返回或深链接恢复后的实际首页画面"></figure>
+<p id="caption"></p>
+<p>首轮与确认的部分即时截图未包含完整固定 DOM 层，原因未在本片定位，不把这些截图作为全部图层已合成的证据。确认采屏额外等两次浏览器 RAF；最早状态数值仍保留最初读回。桌面滚轮相册与手机相册图保留了完整固定层；设计侧另以独立浏览器验证了准备期间的黑底顶栏与恢复画面。</p>
+<h2>工程检查</h2><p id="checks"></p>
+<p>Chrome / SwiftShader，手机布局模拟。设计侧已独立复核本片；用户确认另记。玻璃颜色路径与后续转场在独立切片继续。</p></main>
+<script type="module">
+const data=await fetch('summary.json').then(r=>r.json());
+const labels={'desktop-album-nohash-1':'桌面滚轮相册返回一','desktop-album-nohash-2':'连续第二次返回','desktop-album-reload':'相册位置刷新','desktop-album-hash':'桌面目录相册返回','desktop-links-hash':'桌面网站返回','mobile-album-hash':'手机相册返回','album-new-viewport':'更换视口后返回','desktop-direct-hash':'直接进入 #album'};
+const nav=document.querySelector('#cases');
+for(const c of data.cases){const f=c.first;const tr=document.createElement('tr');for(const value of [labels[c.name],f.y,f.rendered.intro,f.rendered.index,`${f.camera.position[2]} / ${f.camera.fov.toFixed(3)}`,f.current,f.focus||'保持原焦点',f.loader]){const td=document.createElement('td');td.textContent=String(value);tr.append(td);}document.querySelector('#states').append(tr);const b=document.createElement('button');b.textContent=labels[c.name];b.setAttribute('aria-pressed','false');b.onclick=()=>{for(const peer of nav.children)peer.setAttribute('aria-pressed',String(peer===b));document.querySelector('#image').src=`${c.name}.png`;document.querySelector('#figure').classList.toggle('mobile',c.first.camera.fov>70);document.querySelector('#caption').textContent=`${labels[c.name]}：最早可见读回 t=${f.time.toFixed(1)}ms，intro=${f.rendered.intro}、镜头直接作品阶段；截图时刻独立保存在原始记录。`;};nav.append(b);if(nav.children.length===1)b.click();}
+document.querySelector('#checks').textContent=`${data.checks} 项检查通过，非预期页面错误 ${data.errors}。包括八例初始化、普通正反向、吸附与中断、透明 CTA、减少动画、无 JS 和素材失败后备。`;
+</script></html>

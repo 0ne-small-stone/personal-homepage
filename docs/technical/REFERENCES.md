@@ -116,6 +116,26 @@ Pages CMS 复用既有固定官方源码 `6f4e860a35d934406580287e7042e5e111e207
 
 2026-10-07 候选范围调整：按用户最新需求移除知识关系图及其插件、接入文档；学习内容通过总览、搜索和普通引用浏览。原有其余来源与未验证状态沿用。
 
+## ALCHE 首页实现来源（2026-10-08）
+
+| 技术问题 | 主要依据 | 本项目结论及验证状态 |
+| --- | --- | --- |
+| 保留 Astro、单独客户端场景 | [Astro 框架组件](https://docs.astro.build/en/guides/framework-components/)、[React 集成](https://docs.astro.build/en/guides/integrations-guide/react/) | 静态 DOM + 首页单 React island；已有框架不更换，集成待安装验证 |
+| React/Three 配对 | [R3F 官方安装](https://r3f.docs.pmnd.rs/getting-started/installation) | Fiber 9 配 React 19、Fiber 8 配 React 18；实际 peer 与锁文件仍在施工时核对 |
+| 透射与性能 | [Drei MeshTransmissionMaterial](https://drei.docs.pmnd.rs/shaders/mesh-transmission-material) | 支持厚度、折射、色差和独立 buffer；会增加 render pass，需实测 samples/resolution |
+| 分段进度与平滑输入 | [ScrollTrigger](https://gsap.com/docs/v3/Plugins/ScrollTrigger/)、[Lenis 官方仓库](https://github.com/darkroomengineering/lenis) | 2026-10-08 为复刻用户指定的原站行为，采用一个 Lenis 实例与现有 GSAP 协作；官方有 RAF/GSAP 接入说明，MIT。当前包版本与兼容性由开发核对，禁止双时钟和嵌套区抢滚动 |
+| 源站实际实现 | [ALCHE](https://alche.studio/)、[官网依赖许可](https://alche.studio/license/)；具体脚本与哈希见[研究](../design/iterations/u03-p01-2026-10-08-10.md) | 源站也采用 Astro/Three/GSAP；其版本、Swup、定制 shader 为研究证据，不机械复制依赖表 |
+| 字体与代码来源 | [IBM Plex](https://github.com/IBM/plex)、[GSAP 许可](https://gsap.com/community/standard-license/) | 本地部署明确许可的字体；Plex OFL、Three/Drei MIT、GSAP 自身许可分别登记 |
+
+架构边界见技术 SPEC，施工队列见 PLAN 和 [任务单](HOMEPAGE_ALCHE_HANDOFF.md)。React/Three/GSAP 与最小透射已有局部结果，Lenis、精确时间编排及其完整验收尚未完成；最新原站源码/动态证据见 [17 轮研究](../design/iterations/u03-p01-2026-10-08-17.md)，不得沿用初轮“全部未安装”的快照。
+
+## GitHub #34 光路依据（2026-10-11）
+
+- [Three Raycaster](https://threejs.org/docs/pages/Raycaster.html)：复用实际三角面求交；注意背面检测、归一化方向和共享边重复交点。45单色与46七波长已复用Three Ray及三角面求交，无新增依赖。
+- [OpenStax Snell与全反射](https://openstax.org/books/university-physics-volume-3/pages/1-4-total-internal-reflection)：每个界面使用n1/n2，全反射后光仍在介质中传播，不能在第一个全反射点直接宣称整条光消失。
+- [OpenStax色散](https://openstax.org/books/university-physics-volume-3/pages/1-5-dispersion)：波长决定折射率，普通玻璃中紫光偏折更大；连续光谱不能等同七根固定方向装饰条。
+- [SCHOTT N-BK7官方数据表](https://media.schott.com/api/public/content/41e799d0bf874807a0bb8e702fbb75b5?v=54856406)：46采用的色散斜率参考，nF约1.52238（486.1nm）、nC约1.51432（656.3nm）。实际Cauchy斜率据F/C计算，再平移至既有绿色IOR；这是虚拟材质近似，不是N-BK7全谱实测。采用参数只在SYSTEM9.3.13维护，验证见[46工程记录](../design/iterations/u03-p01-2026-10-11-46-implementation.md)。
+
 ## Astro 官方能力
 
 ### T01 工程采用记录（2026-10-07）
@@ -191,6 +211,20 @@ Astro 的交互组件可用于静态主站，但服务端动作和延迟服务�
 
 ## 留言和音乐
 
+### P13 双模式本轮来源（2026-10-11）
+
+| 来源 | 已核对能力与采用范围 |
+| --- | --- |
+| [洛雪 Scheme URL](https://lxmusic.toside.cn/desktop/scheme-url) | 官方 `lxmusic://music/search` 接收编码JSON关键词；用于直接唤起搜索，下载及最高可用档位仍在洛雪选择 |
+| [洛雪开放API](https://lxmusic.toside.cn/desktop/open-api) | 状态、歌词和播放控制，没有下载文件库读取；未为这项缺口搭建另一套音乐服务器 |
+| [music-metadata](https://github.com/Borewit/music-metadata) | 本轮采用12.1.0，MIT；本地parseFile提取真实标签、时长和格式，skipCovers避免把封面写进清单 |
+| [Nextcloud 官方同步客户端](https://docs.nextcloud.com/server/latest/user_manual/en/files/desktop_mobile_sync.html) | 优先复用目录同步；目前尚未配置真实账户同步，不把索引工具当成上传器 |
+| [Nextcloud Login Flow v2](https://docs.nextcloud.com/server/latest/developer_manual/client_apis/LoginFlow/index.html) | 使用官方浏览器授权与轮询返回的一次性内存凭证；实际考拉OCS认证失败，未保存长期凭证 |
+| [WebDAV 基础接口](https://docs.nextcloud.com/server/latest/developer_manual/client_apis/WebDAV/basic.html)与[OCS分享接口](https://docs.nextcloud.com/server/latest/developer_manual/client_apis/OCS/ocs-share-api.html) | MKCOL与只读公开分享permissions=1的最小配置工具；本次身份认证前置失败，创建/读回尚未执行 |
+| [Echoes 网易云官方外链播放器](https://music.163.com/outchain/player?type=0&id=18476425375&auto=0&height=430) | 用户指定18476425375；HTTP200、实际歌单标题/曲目及点击后音频206响应分别验证。全部曲目的权限、完整播放及跨页持续播放另验 |
+
+下载来源沿用用户仓库根`洛雪音乐.txt`中的[音源更新入口](https://github.com/guoyue2010/lxmusic-/releases)，实际应用安装入口采用[洛雪官方发行页](https://github.com/lyswhut/lx-music-desktop/releases)。第三方音源仓库只作为用户提供的跳转链接，未下载、执行其代码或宣称其音源均可用。公开音乐清单不授予音频再分发许可；本轮无音频上传或提交。
+
 | 来源 | 关键事实 |
 | --- | --- |
 | [Giscus 中文说明](https://giscus.app/zh-CN) | 留言存于 GitHub Discussions；需公开仓库、开启 Discussions、安装应用；访客需要 GitHub 登录及授权 |
@@ -198,6 +232,7 @@ Astro 的交互组件可用于静态主站，但服务端动作和延迟服务�
 | [GitHub Actions 事件](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#discussion_comment) | 评论创建、编辑、删除可触发工作流；文件需位于默认分支，相关讨论事件处于公开预览 |
 | [网易云第三方 API 候选](https://github.com/NeteaseCloudMusicApiEnhanced/api-enhanced) | 候选服务端接口，尚未完成本项目账号与运行时验证 |
 | [歌单添加接口源码](https://github.com/NeteaseCloudMusicApiEnhanced/api-enhanced/blob/main/module/playlist_tracks.js) | 可研究歌曲加入歌单的实现；代码存在不代表真实授权和写入一定成功 |
+| [考拉云盘](https://pan.koala-studio.org.cn/) | 用户账号下的音乐文件托管位置；电台音频按需读取，音频文件不进入代码仓库；直链可用性尚未验证 |
 
 Waline 曾作为匿名留言候选。当前用户已接受 Giscus，Waline 不再是默认留言方案。
 

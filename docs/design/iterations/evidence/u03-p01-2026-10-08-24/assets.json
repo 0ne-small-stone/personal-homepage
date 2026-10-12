@@ -1,0 +1,24 @@
+{
+  "sample": "home-placeholder-album-echoes",
+  "sourceUrl": "https://www.pinkfloyd.com/albums/echoes-the-best-of-pink-floyd/",
+  "sourceFile": "05-echoes.jpg",
+  "applicationAsset": "src/assets/home/echoes-placeholder.jpg",
+  "sourceBytes": 67042,
+  "sourceDimensions": [
+    1500,
+    1356
+  ],
+  "sourceSha256": "9b1aba55a866d0fde9bfe29bcee23b670caba98d7c1def9b24ab7dee2ea3077e",
+  "derivation": {
+    "width": 1100,
+    "format": "webp",
+    "quality": 85
+  },
+  "usage": "视觉占位，保留完整窗口与原比例，正式使用条件另核验",
+  "bundle": [
+    {
+      "name": "HomeJourney.Ba-7F_m-.js",
+      "sha256": "354f9ea36321be5858b9de8f07ffa5f90be158e46b60bc28a1452ad4e76fea4c"
+    }
+  ]
+}

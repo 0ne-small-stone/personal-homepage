@@ -1,0 +1,91 @@
+{
+  "date": "2026-10-11T08:38:57.734Z",
+  "checks": [
+    {
+      "name": "realLibrary",
+      "passed": true,
+      "details": "18 首单曲，3 张专辑\n洛雪下载 · 考拉收藏\n\n下载音乐"
+    },
+    {
+      "name": "cloudNotFalselyPlayable",
+      "passed": true
+    },
+    {
+      "name": "lazyNetease",
+      "passed": true
+    },
+    {
+      "name": "albums",
+      "passed": true
+    },
+    {
+      "name": "albumSongs",
+      "passed": true
+    },
+    {
+      "name": "search",
+      "passed": true
+    },
+    {
+      "name": "selection",
+      "passed": true
+    },
+    {
+      "name": "emptySearch",
+      "passed": true
+    },
+    {
+      "name": "refresh",
+      "passed": true
+    },
+    {
+      "name": "officialLxProtocol",
+      "passed": true
+    },
+    {
+      "name": "sharedPlaylist",
+      "passed": true
+    },
+    {
+      "name": "modeUrl",
+      "passed": true
+    },
+    {
+      "name": "modeReload",
+      "passed": true
+    },
+    {
+      "name": "modeBack",
+      "passed": true
+    },
+    {
+      "name": "mobile390",
+      "passed": true
+    },
+    {
+      "name": "mobile320",
+      "passed": true
+    },
+    {
+      "name": "netease320Overflow",
+      "passed": true
+    },
+    {
+      "name": "noJsFallback",
+      "passed": true
+    },
+    {
+      "name": "noLocalPageErrors",
+      "passed": true,
+      "details": []
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Emulated viewports; cloud sharing and real-device performance are separate checks."
+  ],
+  "netease": {
+    "loaded": false
+  },
+  "externalErrors": []
+}

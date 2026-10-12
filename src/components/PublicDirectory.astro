@@ -1,12 +1,12 @@
 ---
 import { siteSections, sectionCurrent } from '../lib/site-navigation';
 import { sitePath } from '../lib/paths';
-interface Props { align?: 'start' | 'end'; }
-const { align = 'end' } = Astro.props;
+interface Props { align?: 'start' | 'end'; compact?: boolean; }
+const { align = 'end', compact = false } = Astro.props;
 ---
 <public-directory data-pagefind-ignore>
   <details class:list={['public-directory', { 'align-start': align === 'start' }]}>
-    <summary>全站目录<span class="directory-indicator" aria-hidden="true"></span></summary>
+    <summary aria-label={compact ? '全站目录' : undefined}>{compact ? '目录' : '全站目录'}<span class="directory-indicator" aria-hidden="true"></span></summary>
     <div class="directory-panel">
       <nav aria-label="全站目录">
         <ul>

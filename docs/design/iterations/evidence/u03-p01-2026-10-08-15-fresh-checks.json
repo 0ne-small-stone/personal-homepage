@@ -1,0 +1,1178 @@
+{
+  "time": "2026-10-08T10:42:28.331Z",
+  "browser": "154.0.8037.98",
+  "source": "fresh independent pages; native document scroll; software GPU",
+  "cuaFailure": "node_repl kernel exited unexpectedly; Windows error 5",
+  "runs": [
+    {
+      "mode": "desktop",
+      "http": 200,
+      "metrics": {
+        "intro": {
+          "top": 0,
+          "height": 1215
+        },
+        "project": {
+          "top": 1215,
+          "height": 1215
+        },
+        "canvas": 1,
+        "overflow": false,
+        "quality": "true"
+      },
+      "frames": [
+        {
+          "label": "chapter-0",
+          "p": 0,
+          "y": 0,
+          "status": "ready",
+          "chapter": "intro",
+          "active": "#intro",
+          "hero": {
+            "x": 50.390625,
+            "y": 185.53125,
+            "width": 512,
+            "height": 512.921875,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "project": {
+            "x": 50.390625,
+            "y": 1709.421875,
+            "width": 512,
+            "height": 277.578125,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "cta": {
+            "x": 50.390625,
+            "y": 1878.609375,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "canvas": 1
+        },
+        {
+          "label": "chapter-0.25",
+          "p": 0.25,
+          "y": 304,
+          "status": "ready",
+          "chapter": "intro",
+          "active": "#intro",
+          "hero": {
+            "x": 50.390625,
+            "y": 185.53125,
+            "width": 512,
+            "height": 512.921875,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "project": {
+            "x": 50.390625,
+            "y": 1405.421875,
+            "width": 512,
+            "height": 277.578125,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "cta": {
+            "x": 50.390625,
+            "y": 1574.609375,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "canvas": 1
+        },
+        {
+          "label": "chapter-0.5",
+          "p": 0.5,
+          "y": 608,
+          "status": "ready",
+          "chapter": "intro",
+          "active": "#intro",
+          "hero": {
+            "x": 50.390625,
+            "y": -107.46875,
+            "width": 512,
+            "height": 512.921875,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "project": {
+            "x": 50.390625,
+            "y": 1101.421875,
+            "width": 512,
+            "height": 277.578125,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "cta": {
+            "x": 50.390625,
+            "y": 1270.609375,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "canvas": 1
+        },
+        {
+          "label": "chapter-0.75",
+          "p": 0.75,
+          "y": 911,
+          "status": "ready",
+          "chapter": "intro",
+          "active": "#intro",
+          "hero": {
+            "x": 50.390625,
+            "y": -410.46875,
+            "width": 512,
+            "height": 512.921875,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "project": {
+            "x": 50.390625,
+            "y": 798.421875,
+            "width": 512,
+            "height": 277.578125,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "cta": {
+            "x": 50.390625,
+            "y": 967.609375,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "canvas": 1
+        },
+        {
+          "label": "chapter-1",
+          "p": 1,
+          "y": 1215,
+          "status": "ready",
+          "chapter": "projects",
+          "active": "#projects",
+          "hero": {
+            "x": 50.390625,
+            "y": -714.46875,
+            "width": 512,
+            "height": 512.921875,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "project": {
+            "x": 50.390625,
+            "y": 494.421875,
+            "width": 512,
+            "height": 277.578125,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "cta": {
+            "x": 50.390625,
+            "y": 663.609375,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "canvas": 1
+        }
+      ],
+      "transition": [
+        {
+          "label": "transition-0.65",
+          "p": 0.65,
+          "y": 790,
+          "status": "ready",
+          "chapter": "intro",
+          "active": "#intro",
+          "hero": {
+            "x": 50.390625,
+            "y": -289.46875,
+            "width": 512,
+            "height": 512.921875,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "project": {
+            "x": 50.390625,
+            "y": 919.421875,
+            "width": 512,
+            "height": 277.578125,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "cta": {
+            "x": 50.390625,
+            "y": 1088.609375,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "canvas": 1
+        },
+        {
+          "label": "transition-0.7375",
+          "p": 0.7375,
+          "y": 896,
+          "status": "ready",
+          "chapter": "intro",
+          "active": "#intro",
+          "hero": {
+            "x": 50.390625,
+            "y": -395.46875,
+            "width": 512,
+            "height": 512.921875,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "project": {
+            "x": 50.390625,
+            "y": 813.421875,
+            "width": 512,
+            "height": 277.578125,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "cta": {
+            "x": 50.390625,
+            "y": 982.609375,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "canvas": 1
+        },
+        {
+          "label": "transition-0.825",
+          "p": 0.825,
+          "y": 1002,
+          "status": "ready",
+          "chapter": "intro",
+          "active": "#intro",
+          "hero": {
+            "x": 50.390625,
+            "y": -501.46875,
+            "width": 512,
+            "height": 512.921875,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "project": {
+            "x": 50.390625,
+            "y": 707.421875,
+            "width": 512,
+            "height": 277.578125,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "cta": {
+            "x": 50.390625,
+            "y": 876.609375,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "canvas": 1
+        },
+        {
+          "label": "transition-0.9125",
+          "p": 0.9125,
+          "y": 1109,
+          "status": "ready",
+          "chapter": "intro",
+          "active": "#intro",
+          "hero": {
+            "x": 50.390625,
+            "y": -608.46875,
+            "width": 512,
+            "height": 512.921875,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "project": {
+            "x": 50.390625,
+            "y": 600.421875,
+            "width": 512,
+            "height": 277.578125,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "cta": {
+            "x": 50.390625,
+            "y": 769.609375,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "canvas": 1
+        },
+        {
+          "label": "transition-1",
+          "p": 1,
+          "y": 1215,
+          "status": "ready",
+          "chapter": "projects",
+          "active": "#projects",
+          "hero": {
+            "x": 50.390625,
+            "y": -714.46875,
+            "width": 512,
+            "height": 512.921875,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "project": {
+            "x": 50.390625,
+            "y": 494.421875,
+            "width": 512,
+            "height": 277.578125,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "cta": {
+            "x": 50.390625,
+            "y": 663.609375,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "canvas": 1
+        }
+      ],
+      "reverse": [
+        {
+          "label": "reverse-1",
+          "p": 1,
+          "y": 1215,
+          "status": "ready",
+          "chapter": "projects",
+          "active": "#projects",
+          "hero": {
+            "x": 50.390625,
+            "y": -714.46875,
+            "width": 512,
+            "height": 512.921875,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "project": {
+            "x": 50.390625,
+            "y": 494.421875,
+            "width": 512,
+            "height": 277.578125,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "cta": {
+            "x": 50.390625,
+            "y": 663.609375,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "canvas": 1
+        },
+        {
+          "label": "reverse-0.75",
+          "p": 0.75,
+          "y": 911,
+          "status": "ready",
+          "chapter": "intro",
+          "active": "#intro",
+          "hero": {
+            "x": 50.390625,
+            "y": -410.46875,
+            "width": 512,
+            "height": 512.921875,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "project": {
+            "x": 50.390625,
+            "y": 798.421875,
+            "width": 512,
+            "height": 277.578125,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "cta": {
+            "x": 50.390625,
+            "y": 967.609375,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "canvas": 1
+        },
+        {
+          "label": "reverse-0.5",
+          "p": 0.5,
+          "y": 608,
+          "status": "ready",
+          "chapter": "intro",
+          "active": "#intro",
+          "hero": {
+            "x": 50.390625,
+            "y": -107.46875,
+            "width": 512,
+            "height": 512.921875,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "project": {
+            "x": 50.390625,
+            "y": 1101.421875,
+            "width": 512,
+            "height": 277.578125,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "cta": {
+            "x": 50.390625,
+            "y": 1270.609375,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "canvas": 1
+        },
+        {
+          "label": "reverse-0.25",
+          "p": 0.25,
+          "y": 304,
+          "status": "ready",
+          "chapter": "intro",
+          "active": "#intro",
+          "hero": {
+            "x": 50.390625,
+            "y": 185.53125,
+            "width": 512,
+            "height": 512.921875,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "project": {
+            "x": 50.390625,
+            "y": 1405.421875,
+            "width": 512,
+            "height": 277.578125,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "cta": {
+            "x": 50.390625,
+            "y": 1574.609375,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "canvas": 1
+        },
+        {
+          "label": "reverse-0",
+          "p": 0,
+          "y": 0,
+          "status": "ready",
+          "chapter": "intro",
+          "active": "#intro",
+          "hero": {
+            "x": 50.390625,
+            "y": 185.53125,
+            "width": 512,
+            "height": 512.921875,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "project": {
+            "x": 50.390625,
+            "y": 1709.421875,
+            "width": 512,
+            "height": 277.578125,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "cta": {
+            "x": 50.390625,
+            "y": 1878.609375,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "canvas": 1
+        }
+      ],
+      "wheel": {
+        "y": 650,
+        "chapter": "intro"
+      },
+      "key": {
+        "y": 0,
+        "chapter": "intro"
+      },
+      "anchor": {
+        "y": 1215,
+        "hash": "#projects",
+        "chapter": "projects"
+      },
+      "route": {
+        "url": "http://127.0.0.1:4321/personal-homepage/#projects",
+        "heading": "Afterimage"
+      },
+      "errors": [],
+      "warnings": [
+        "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+      ],
+      "failed": []
+    },
+    {
+      "mode": "mobile",
+      "http": 200,
+      "metrics": {
+        "intro": {
+          "top": 0,
+          "height": 1139
+        },
+        "project": {
+          "top": 1139,
+          "height": 1139
+        },
+        "canvas": 1,
+        "overflow": false,
+        "quality": "true"
+      },
+      "frames": [
+        {
+          "label": "chapter-0",
+          "p": 0,
+          "y": 0,
+          "status": "ready",
+          "chapter": "intro",
+          "active": "#intro",
+          "hero": {
+            "x": 16,
+            "y": 493.609375,
+            "width": 358,
+            "height": 246.390625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "project": {
+            "x": 16,
+            "y": 1684.625,
+            "width": 358,
+            "height": 194.765625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "cta": {
+            "x": 16,
+            "y": 1795,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "canvas": 1
+        },
+        {
+          "label": "chapter-0.25",
+          "p": 0.25,
+          "y": 285,
+          "status": "ready",
+          "chapter": "intro",
+          "active": "#intro",
+          "hero": {
+            "x": 16,
+            "y": 493.609375,
+            "width": 358,
+            "height": 246.390625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "project": {
+            "x": 16,
+            "y": 1399.625,
+            "width": 358,
+            "height": 194.765625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "cta": {
+            "x": 16,
+            "y": 1510,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "canvas": 1
+        },
+        {
+          "label": "chapter-0.5",
+          "p": 0.5,
+          "y": 570,
+          "status": "ready",
+          "chapter": "intro",
+          "active": "#intro",
+          "hero": {
+            "x": 16,
+            "y": 219,
+            "width": 358,
+            "height": 246.390625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "project": {
+            "x": 16,
+            "y": 1114.625,
+            "width": 358,
+            "height": 194.765625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "cta": {
+            "x": 16,
+            "y": 1225,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "canvas": 1
+        },
+        {
+          "label": "chapter-0.75",
+          "p": 0.75,
+          "y": 854,
+          "status": "ready",
+          "chapter": "intro",
+          "active": "#intro",
+          "hero": {
+            "x": 16,
+            "y": -65,
+            "width": 358,
+            "height": 246.390625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "project": {
+            "x": 16,
+            "y": 830.625,
+            "width": 358,
+            "height": 194.765625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "cta": {
+            "x": 16,
+            "y": 941,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "canvas": 1
+        },
+        {
+          "label": "chapter-1",
+          "p": 1,
+          "y": 1139,
+          "status": "ready",
+          "chapter": "projects",
+          "active": "#projects",
+          "hero": {
+            "x": 16,
+            "y": -350,
+            "width": 358,
+            "height": 246.390625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "project": {
+            "x": 16,
+            "y": 545.625,
+            "width": 358,
+            "height": 194.765625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "cta": {
+            "x": 16,
+            "y": 656,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "canvas": 1
+        }
+      ],
+      "transition": [
+        {
+          "label": "transition-0.65",
+          "p": 0.65,
+          "y": 740,
+          "status": "ready",
+          "chapter": "intro",
+          "active": "#intro",
+          "hero": {
+            "x": 16,
+            "y": 49,
+            "width": 358,
+            "height": 246.390625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "project": {
+            "x": 16,
+            "y": 944.625,
+            "width": 358,
+            "height": 194.765625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "cta": {
+            "x": 16,
+            "y": 1055,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "canvas": 1
+        },
+        {
+          "label": "transition-0.7375",
+          "p": 0.7375,
+          "y": 840,
+          "status": "ready",
+          "chapter": "intro",
+          "active": "#intro",
+          "hero": {
+            "x": 16,
+            "y": -51,
+            "width": 358,
+            "height": 246.390625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "project": {
+            "x": 16,
+            "y": 844.625,
+            "width": 358,
+            "height": 194.765625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "cta": {
+            "x": 16,
+            "y": 955,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "canvas": 1
+        },
+        {
+          "label": "transition-0.825",
+          "p": 0.825,
+          "y": 940,
+          "status": "ready",
+          "chapter": "intro",
+          "active": "#intro",
+          "hero": {
+            "x": 16,
+            "y": -151,
+            "width": 358,
+            "height": 246.390625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "project": {
+            "x": 16,
+            "y": 744.625,
+            "width": 358,
+            "height": 194.765625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "cta": {
+            "x": 16,
+            "y": 855,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "canvas": 1
+        },
+        {
+          "label": "transition-0.9125",
+          "p": 0.9125,
+          "y": 1039,
+          "status": "ready",
+          "chapter": "intro",
+          "active": "#intro",
+          "hero": {
+            "x": 16,
+            "y": -250,
+            "width": 358,
+            "height": 246.390625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "project": {
+            "x": 16,
+            "y": 645.625,
+            "width": 358,
+            "height": 194.765625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "cta": {
+            "x": 16,
+            "y": 756,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "canvas": 1
+        },
+        {
+          "label": "transition-1",
+          "p": 1,
+          "y": 1139,
+          "status": "ready",
+          "chapter": "projects",
+          "active": "#projects",
+          "hero": {
+            "x": 16,
+            "y": -350,
+            "width": 358,
+            "height": 246.390625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "project": {
+            "x": 16,
+            "y": 545.625,
+            "width": 358,
+            "height": 194.765625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "cta": {
+            "x": 16,
+            "y": 656,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "canvas": 1
+        }
+      ],
+      "reverse": [
+        {
+          "label": "reverse-1",
+          "p": 1,
+          "y": 1139,
+          "status": "ready",
+          "chapter": "projects",
+          "active": "#projects",
+          "hero": {
+            "x": 16,
+            "y": -350,
+            "width": 358,
+            "height": 246.390625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "project": {
+            "x": 16,
+            "y": 545.625,
+            "width": 358,
+            "height": 194.765625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "cta": {
+            "x": 16,
+            "y": 656,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "canvas": 1
+        },
+        {
+          "label": "reverse-0.75",
+          "p": 0.75,
+          "y": 854,
+          "status": "ready",
+          "chapter": "intro",
+          "active": "#intro",
+          "hero": {
+            "x": 16,
+            "y": -65,
+            "width": 358,
+            "height": 246.390625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "project": {
+            "x": 16,
+            "y": 830.625,
+            "width": 358,
+            "height": 194.765625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "cta": {
+            "x": 16,
+            "y": 941,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "canvas": 1
+        },
+        {
+          "label": "reverse-0.5",
+          "p": 0.5,
+          "y": 570,
+          "status": "ready",
+          "chapter": "intro",
+          "active": "#intro",
+          "hero": {
+            "x": 16,
+            "y": 219,
+            "width": 358,
+            "height": 246.390625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "project": {
+            "x": 16,
+            "y": 1114.625,
+            "width": 358,
+            "height": 194.765625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "cta": {
+            "x": 16,
+            "y": 1225,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "canvas": 1
+        },
+        {
+          "label": "reverse-0.25",
+          "p": 0.25,
+          "y": 285,
+          "status": "ready",
+          "chapter": "intro",
+          "active": "#intro",
+          "hero": {
+            "x": 16,
+            "y": 493.609375,
+            "width": 358,
+            "height": 246.390625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "project": {
+            "x": 16,
+            "y": 1399.625,
+            "width": 358,
+            "height": 194.765625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "cta": {
+            "x": 16,
+            "y": 1510,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "canvas": 1
+        },
+        {
+          "label": "reverse-0",
+          "p": 0,
+          "y": 0,
+          "status": "ready",
+          "chapter": "intro",
+          "active": "#intro",
+          "hero": {
+            "x": 16,
+            "y": 493.609375,
+            "width": 358,
+            "height": 246.390625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": true
+          },
+          "project": {
+            "x": 16,
+            "y": 1684.625,
+            "width": 358,
+            "height": 194.765625,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "cta": {
+            "x": 16,
+            "y": 1795,
+            "width": 180.390625,
+            "height": 48.59375,
+            "visibility": "visible",
+            "opacity": "1",
+            "viewport": false
+          },
+          "canvas": 1
+        }
+      ],
+      "wheel": {
+        "y": 650,
+        "chapter": "intro"
+      },
+      "key": {
+        "y": 0,
+        "chapter": "intro"
+      },
+      "anchor": {
+        "y": 1139,
+        "hash": "#projects",
+        "chapter": "projects"
+      },
+      "route": {
+        "url": "http://127.0.0.1:4321/personal-homepage/#projects",
+        "heading": "Afterimage"
+      },
+      "errors": [],
+      "warnings": [
+        "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+      ],
+      "failed": []
+    }
+  ]
+}

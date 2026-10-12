@@ -95,7 +95,7 @@ jobs:
         run: npm run check
 
       - name: Test article dates and related knowledge links
-        run: node --test tools/content/article-date.test.mjs tools/content/knowledge-links.test.mjs tools/content/cms-auto-sync.test.mjs
+        run: node --test tools/content/article-date.test.mjs tools/content/knowledge-links.test.mjs tools/content/cms-auto-sync.test.mjs tests/prism-ray.test.mjs
 
       - name: Build static website
         run: npm run build

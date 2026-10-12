@@ -49,6 +49,8 @@ flowchart LR
 
 ## 主工作流的四个 job
 
+2026-10-12 用户授权后新增第五个 `Refresh CMS candidates` job，仅匹配本仓库 `codex/learning-*` / `codex/content-*` 的 push、workflow_dispatch，且依赖三项检查成功。短效 GITHUB_TOKEN 单独授予 `contents: write`、`actions: write`；脚本仅更新 `.pages.yml` 生成区，以非强制 ref 更新防并发覆盖，再显式 dispatch 验证派生 head。main / PR 不回写，原保护不变。无变化不提交、不递归；dispatch 使用独立并发组，避免取消发起回写的源运行。具体实测见[发布记录](iterations/pages-release-2026-10-12.md)。下表初轮状态保留历史，Pages 当前结果以该记录为准。
+
 | job | 执行内容 | 当前状态 |
 | --- | --- | --- |
 | Repository checks | checkout → Node → 安装校验工具 → 文件和文档检查 → 测试 → 工程状态判断 | 本地与首轮 GitHub Actions 均通过 |

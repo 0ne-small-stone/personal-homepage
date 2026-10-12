@@ -1,0 +1,50 @@
+{
+  "source": "83ec849",
+  "onlySource": "SceneBackdrop.tsx",
+  "check": {
+    "files": 52,
+    "errors": 0,
+    "warnings": 0,
+    "hints": 0
+  },
+  "build": {
+    "html": 15,
+    "knownWarnings": [
+      "large chunk",
+      "404 conflict"
+    ]
+  },
+  "bundle": {
+    "file": "HomeJourney.D-uKsyuw.js",
+    "bytes": 1182849,
+    "sha256": "661a1c638f5b548b06f866249979bbb2bd9c1c4bf255ca3bddf97ea74b234350"
+  },
+  "fileHashes": [
+    {
+      "file": "src/components/home/PrismBeam.tsx",
+      "sha256": "dde43b8b940c89541efbb99a4c086d786d727f63c55dc438ef71f0e84ea53652",
+      "unchangedAgainstPreviousCommit": true
+    },
+    {
+      "file": "src/components/home/prism-ray.ts",
+      "sha256": "39fda218b292815267451ff233b46fe5941b82eacc1ab757d81265db8bfd9c4f",
+      "unchangedAgainstPreviousCommit": true
+    },
+    {
+      "file": "src/components/home/prism-spectrum.ts",
+      "sha256": "5ced47c86a956b49e172d2c2b51cdd77ea75437d9d451846a336c768c5b1c44d",
+      "unchangedAgainstPreviousCommit": true
+    },
+    {
+      "file": "src/components/home/GlassGlow.ts",
+      "sha256": "0b6e80d02cd1f3310b442dbedd3b67852da5337fca9ba5c2a46ba037a74eccd4",
+      "unchangedAgainstPreviousCommit": true
+    },
+    {
+      "file": "src/components/home/GlassTriangle.tsx",
+      "sha256": "12eb0036cac9670b0a943b6aeff62f229d16a25ca4bf99f254200a1c8b7d00c6",
+      "unchangedAgainstPreviousCommit": true
+    }
+  ],
+  "scope": "No50 parameters, new assets, dependencies or framebuffer targets."
+}

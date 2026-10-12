@@ -1,0 +1,309 @@
+{
+  "browser": "154.0.8037.98",
+  "url": "http://127.0.0.1:4323/",
+  "execution": "Local headless browser; viewport simulation, not a physical phone.",
+  "checks": [
+    {
+      "name": "Initial all / three demo entries / pure black",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "Label clicks select exact type; result, URL and fixed control geometry agree",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "Refresh and history keep selected type and result",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "All clears type and restores demo contents",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "Native Tab/arrow navigation, selected marker and separate label focus ring",
+      "passed": true,
+      "detail": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px"
+      }
+    },
+    {
+      "name": "Hover changes only the hovered surface, keeps selected result",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "Actual rendered font queried, rather than inferred from CSS",
+      "passed": true,
+      "detail": [
+        {
+          "familyName": "Microsoft YaHei",
+          "postScriptName": "MicrosoftYaHei",
+          "isCustomFont": false,
+          "glyphCount": 2
+        }
+      ]
+    },
+    {
+      "name": "Layout and targets at 1440px",
+      "passed": true,
+      "detail": {
+        "viewport": 1440,
+        "overflow": false,
+        "labels": [
+          {
+            "x": 360,
+            "y": 356.375,
+            "width": 102,
+            "height": 44,
+            "textContained": true
+          },
+          {
+            "x": 470,
+            "y": 356.375,
+            "width": 102,
+            "height": 44,
+            "textContained": true
+          },
+          {
+            "x": 580,
+            "y": 356.375,
+            "width": 102,
+            "height": 44,
+            "textContained": true
+          },
+          {
+            "x": 690,
+            "y": 356.375,
+            "width": 102,
+            "height": 44,
+            "textContained": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Layout and targets at 768px",
+      "passed": true,
+      "detail": {
+        "viewport": 768,
+        "overflow": false,
+        "labels": [
+          {
+            "x": 16,
+            "y": 311.578125,
+            "width": 102,
+            "height": 44,
+            "textContained": true
+          },
+          {
+            "x": 126,
+            "y": 311.578125,
+            "width": 102,
+            "height": 44,
+            "textContained": true
+          },
+          {
+            "x": 236,
+            "y": 311.578125,
+            "width": 102,
+            "height": 44,
+            "textContained": true
+          },
+          {
+            "x": 346,
+            "y": 311.578125,
+            "width": 102,
+            "height": 44,
+            "textContained": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Layout and targets at 390px",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "overflow": false,
+        "labels": [
+          {
+            "x": 16,
+            "y": 340.375,
+            "width": 175,
+            "height": 44,
+            "textContained": true
+          },
+          {
+            "x": 199,
+            "y": 340.375,
+            "width": 175,
+            "height": 44,
+            "textContained": true
+          },
+          {
+            "x": 16,
+            "y": 392.375,
+            "width": 175,
+            "height": 44,
+            "textContained": true
+          },
+          {
+            "x": 199,
+            "y": 392.375,
+            "width": 175,
+            "height": 44,
+            "textContained": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Layout and targets at 320px",
+      "passed": true,
+      "detail": {
+        "viewport": 320,
+        "overflow": false,
+        "labels": [
+          {
+            "x": 16,
+            "y": 369.171875,
+            "width": 140,
+            "height": 44,
+            "textContained": true
+          },
+          {
+            "x": 164,
+            "y": 369.171875,
+            "width": 140,
+            "height": 44,
+            "textContained": true
+          },
+          {
+            "x": 16,
+            "y": 421.171875,
+            "width": 140,
+            "height": 44,
+            "textContained": true
+          },
+          {
+            "x": 164,
+            "y": 421.171875,
+            "width": 140,
+            "height": 44,
+            "textContained": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "320px / 200% root text size reflows to one column",
+      "passed": true,
+      "detail": {
+        "viewport": 320,
+        "overflow": false,
+        "labels": [
+          {
+            "x": 32,
+            "y": 1071.109375,
+            "width": 256,
+            "height": 88,
+            "textContained": true
+          },
+          {
+            "x": 32,
+            "y": 1175.109375,
+            "width": 256,
+            "height": 88,
+            "textContained": true
+          },
+          {
+            "x": 32,
+            "y": 1279.109375,
+            "width": 256,
+            "height": 88,
+            "textContained": true
+          },
+          {
+            "x": 32,
+            "y": 1383.109375,
+            "width": 256,
+            "height": 88,
+            "textContained": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "390px touch selection / article result",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "Labeled empty fixture: zero count and recovery instruction",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "All recovers remaining two fixture contents",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "Fixture switch restores original three demos",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "Unknown type remains readable and reports all",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "Reduced motion removes surface transitions",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "Forced colors restores native radio appearance",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "Without JavaScript: hidden controls, readable demos and explicit fallback",
+      "passed": true,
+      "detail": true
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "u09-p03-t07-01-2026-10-07-02-desktop-all.png",
+    "u09-p03-t07-01-2026-10-07-02-desktop-focus.png",
+    "u09-p03-t07-01-2026-10-07-02-control-hover.png",
+    "u09-p03-t07-01-2026-10-07-02-mobile-text-200.png",
+    "u09-p03-t07-01-2026-10-07-02-mobile-selected.png",
+    "u09-p03-t07-01-2026-10-07-02-mobile-empty.png"
+  ],
+  "limitations": [
+    "No user aesthetic approval.",
+    "No real screen-reader speech.",
+    "No physical phone.",
+    "200% text scaling is a CSS root-size check, not browser-toolbar zoom.",
+    "Development branch integration not performed."
+  ],
+  "accessibility": "- group \"内容类型\":\n  - text: 内容类型\n  - radio \"全部\"\n  - text: 全部\n  - radio \"资料\" [checked]\n  - text: 资料\n  - radio \"文章\"\n  - text: 文章\n  - radio \"笔记\"\n  - text: 笔记",
+  "renderedFonts": [
+    {
+      "familyName": "Microsoft YaHei",
+      "postScriptName": "MicrosoftYaHei",
+      "isCustomFont": false,
+      "glyphCount": 2
+    }
+  ],
+  "passed": true
+}
