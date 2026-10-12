@@ -521,4 +521,8 @@ P01 / R12 / U03、U05、U14 / T03.01、T03.05。源码88fbef7，仅GlassGlow，�
 
 P01 / R12 / T27.01。用户截图ERR_CONNECTION_REFUSED；实际4335无监听，Astro状态报告无preview进程。使用原生`npm run preview -- --background --host 127.0.0.1 --port 4335`恢复后台服务，仅监听本机。首个受限执行失败，日志`require is not defined`；完整本机权限下同一命令成功，未修改应用或配置。真实Chrome打开首页返回200，Little Stone Still Here、单Canvas与增强场景正常，无pageerror/requestfailed，实际读截图通过；已打开4335入口。使用现有CeeexULm构建，无需重新构建或重做46美术验收。
 
-这是本机运行状态，重启电脑后需重新启动；`npm run preview -- status`查看，`npm run preview -- stop`停止。进程号等临时信息在`.astro/preview.json`，日志在`.astro/preview.log`，本次浏览器诊断和截图在忽略目录`.ci-tmp/p01-preview-2026-10-12.*`。没有远程部署或新增页面切片。
+首轮只证明当时可以访问；用户随后反馈“还不行”，再次检查原36768进程已消失且4335无监听。不能将首轮短时成功当作持续运行已验证。
+
+2026-10-12再次恢复：使用Windows `Start-Process -WindowStyle Hidden`启动现有Node/Astro `preview --ignore-lock --host 127.0.0.1 --port 4335`，隐藏前台服务与调用命令分离。实际PID31420，跨多个独立命令后仍在127.0.0.1:4335监听、首页200；首次探测发生在启动完成前，拒连原样保留。CUA现可连接实际应用内浏览器，旧URL未绑定到现有标签，重新创建4335可见交付标签并保留；实际AX及截图显示完整字标、玻璃和彩光，已不显示连接错误。原图`.ci-tmp/p01-preview-iab-2026-10-12.png`；没有重新构建或改应用美术。
+
+当前使用`--ignore-lock`，Astro后台`status/stop`不能管理此隐藏前台进程；运维应按4335监听进程及对应本项目Astro命令核对状态和停止，不依据旧preview.json。服务仍是本机临时预览，重启电脑后需重新启动。两次诊断/截图在忽略目录`.ci-tmp/p01-preview*-2026-10-12.*`，没有远程部署或新增页面切片。
