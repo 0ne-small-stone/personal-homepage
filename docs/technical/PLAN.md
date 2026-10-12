@@ -516,3 +516,9 @@ P01 / R12 / U03、U05、U14 / T03.01、T03.05。源码88fbef7，仅GlassGlow，�
 ### P01 46 七波长色散（2026-10-11，已实现与工程验证）
 
 源码3a40f5f，48源与47光质保留，4文件。13物理测试、518实际几何波长样本、22实际浏览器项及一次check52零诊断/build15HTML通过。实际非缓存离页释放/返回新单Canvas通过；0新target，13/16/18桌面与13/11/10手机首屏资源不增，缓冲增65,448B，软件CPU均值约.215/.203ms。CeeexULm，SHA5fd35ca6…4b72ea；[完整记录](../design/iterations/u03-p01-2026-10-11-46-implementation.md)。独立设计读图通过，用户审美/真机另记；停本切片，未部署/合并。
+
+### 本机4335预览恢复（2026-10-12）
+
+P01 / R12 / T27.01。用户截图ERR_CONNECTION_REFUSED；实际4335无监听，Astro状态报告无preview进程。使用原生`npm run preview -- --background --host 127.0.0.1 --port 4335`恢复后台服务，仅监听本机。首个受限执行失败，日志`require is not defined`；完整本机权限下同一命令成功，未修改应用或配置。真实Chrome打开首页返回200，Little Stone Still Here、单Canvas与增强场景正常，无pageerror/requestfailed，实际读截图通过；已打开4335入口。使用现有CeeexULm构建，无需重新构建或重做46美术验收。
+
+这是本机运行状态，重启电脑后需重新启动；`npm run preview -- status`查看，`npm run preview -- stop`停止。进程号等临时信息在`.astro/preview.json`，日志在`.astro/preview.log`，本次浏览器诊断和截图在忽略目录`.ci-tmp/p01-preview-2026-10-12.*`。没有远程部署或新增页面切片。
