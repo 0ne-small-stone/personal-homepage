@@ -1,0 +1,415 @@
+{
+  "date": "2026-10-12",
+  "source": "c3cfde166bcf4b91630b25769c3903ec2e0aeea8",
+  "homepage": "84dade4d24c3095e43a3c9d086affbd70e83d2b5",
+  "learning": "8ae107f4c895c56957835179e606c02e77db7d8a",
+  "originalContent": {
+    "count": 48,
+    "unchanged": true
+  },
+  "publicPdfSha256": "9e2aac37f32cc56aff3a15434a525659c95096d4481c8739c7ee9471fca953be",
+  "tests": 56,
+  "astro": {
+    "files": 65,
+    "errors": 0,
+    "warnings": 0,
+    "hints": 0
+  },
+  "cleanBuild": {
+    "pages": 53,
+    "websiteHtml": 53,
+    "localBytes": 15880171,
+    "ciBytes": 15878684,
+    "publicPdfs": 1,
+    "privatePdfs": false
+  },
+  "sync": {
+    "changedSource": "023fc01abbd82738230fce7115b919c256a6a18a",
+    "bot": "2d3f8ef0fc6e4498b091d4a3f6aba5d6e9ec8c86",
+    "botFiles": [
+      ".pages.yml"
+    ],
+    "restoredSource": "5d5f3cee99b3be71fe33993fdd711b173f739147",
+    "restoredBot": "8713c9243f3d0ab7920e672c174ef587580008c2",
+    "runs": [
+      {
+        "id": 38254111355,
+        "sha": "8713c9243f3d0ab7920e672c174ef587580008c2",
+        "event": "workflow_dispatch",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38254111355",
+        "jobs": [
+          {
+            "id": 114827603653,
+            "name": "Repository checks",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          },
+          {
+            "id": 114827604166,
+            "name": "Workflow syntax",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          },
+          {
+            "id": 114827727361,
+            "name": "Astro build",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          },
+          {
+            "id": 114828097639,
+            "name": "Refresh CMS candidates",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          },
+          {
+            "id": 114828099851,
+            "name": "Deploy to GitHub Pages",
+            "status": "completed",
+            "conclusion": "skipped",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "id": 38253991950,
+        "sha": "5d5f3cee99b3be71fe33993fdd711b173f739147",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38253991950",
+        "jobs": [
+          {
+            "id": 114827195622,
+            "name": "Workflow syntax",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          },
+          {
+            "id": 114827195717,
+            "name": "Repository checks",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          },
+          {
+            "id": 114827295891,
+            "name": "Astro build",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          },
+          {
+            "id": 114827464948,
+            "name": "Refresh CMS candidates",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          },
+          {
+            "id": 114827467205,
+            "name": "Deploy to GitHub Pages",
+            "status": "completed",
+            "conclusion": "skipped",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "id": 38253661199,
+        "sha": "2d3f8ef0fc6e4498b091d4a3f6aba5d6e9ec8c86",
+        "event": "workflow_dispatch",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38253661199",
+        "jobs": [
+          {
+            "id": 114826063940,
+            "name": "Repository checks",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          },
+          {
+            "id": 114826064137,
+            "name": "Workflow syntax",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          },
+          {
+            "id": 114826166992,
+            "name": "Astro build",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          },
+          {
+            "id": 114826390125,
+            "name": "Refresh CMS candidates",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          },
+          {
+            "id": 114826391926,
+            "name": "Deploy to GitHub Pages",
+            "status": "completed",
+            "conclusion": "skipped",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "id": 38253495363,
+        "sha": "023fc01abbd82738230fce7115b919c256a6a18a",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38253495363",
+        "jobs": [
+          {
+            "id": 114825548010,
+            "name": "Repository checks",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          },
+          {
+            "id": 114825548361,
+            "name": "Workflow syntax",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          },
+          {
+            "id": 114825671067,
+            "name": "Astro build",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          },
+          {
+            "id": 114825912364,
+            "name": "Refresh CMS candidates",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          },
+          {
+            "id": 114825913950,
+            "name": "Deploy to GitHub Pages",
+            "status": "completed",
+            "conclusion": "skipped",
+            "steps": []
+          }
+        ]
+      }
+    ],
+    "noopLog": "2026-10-12T13:10:05.2603761Z {\"status\":\"unchanged\",\"source\":\"2d3f8ef0fc6e4498b091d4a3f6aba5d6e9ec8c86\"}"
+  },
+  "releasePr": {
+    "number": 36,
+    "url": "https://github.com/0ne-small-stone/personal-homepage/pull/36",
+    "sha": "c3cfde166bcf4b91630b25769c3903ec2e0aeea8",
+    "base": "main",
+    "draft": false
+  },
+  "releaseChecks": {
+    "number": 36,
+    "sha": "c3cfde166bcf4b91630b25769c3903ec2e0aeea8",
+    "base": "ae3928289da1517151be053dd83d67904821735f",
+    "state": "open",
+    "merged": false,
+    "mergeable": true,
+    "mergeableState": "clean",
+    "checks": [
+      {
+        "name": "Refresh CMS candidates",
+        "conclusion": "skipped",
+        "status": "completed"
+      },
+      {
+        "name": "Deploy to GitHub Pages",
+        "conclusion": "skipped",
+        "status": "completed"
+      },
+      {
+        "name": "Astro build",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "name": "Repository checks",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "name": "Workflow syntax",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "name": "Deploy to GitHub Pages",
+        "conclusion": "skipped",
+        "status": "completed"
+      },
+      {
+        "name": "Refresh CMS candidates",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "name": "Astro build",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "name": "Repository checks",
+        "conclusion": "success",
+        "status": "completed"
+      },
+      {
+        "name": "Workflow syntax",
+        "conclusion": "success",
+        "status": "completed"
+      }
+    ]
+  },
+  "deployment": {
+    "status": "pending merge; not yet deployed"
+  },
+  "browserBoundaries": [
+    "An early search-return sample ran before asynchronous restoration completed; a later native snapshot showed query 阅读 and both selected filters with one result.",
+    "The initial mobile-home filename captured a still-open search dialog on the knowledge route; it is not a homepage passing reference. Confirm filenames below are the accepted actual routes.",
+    "A mobile next-page button wait failed because PDF.js hides that button at this width. The pageNumber stepper and text layer actually showed page 3/4; sidebar closed and focus returned to manager.",
+    "Leaving immediately after the chapter anchor had not settled scroll; no project-position restoration claim.",
+    "Phone viewport simulation is not physical-device performance or mainland service quality verification."
+  ],
+  "browser": [
+    {
+      "name": "local-home-desktop",
+      "canvasCount": 1,
+      "documentWidth": 1265,
+      "focus": "目录",
+      "menuOpen": false,
+      "title": "Little Stone Still Here",
+      "url": "http://127.0.0.1:4389/personal-homepage/",
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "name": "local-search-filter",
+      "canvasCount": 0,
+      "documentWidth": 1280,
+      "focus": "",
+      "menuOpen": false,
+      "title": "学习总览 | 个人主页",
+      "url": "http://127.0.0.1:4389/personal-homepage/knowledge/?type=resource&topic=%E9%98%85%E8%AF%BB%E4%B8%8E%E6%95%B4%E7%90%86",
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "name": "local-knowledge-mobile",
+      "canvasCount": 0,
+      "documentWidth": 375,
+      "focus": "跳转到内容个人主页全站目录学习当前页展示常用网站音乐电台关于我留言墙关闭目录var e=class extends HTMLElement{#e;connectedCallback(){this.#e?.abort(),this.#e=ne",
+      "menuOpen": false,
+      "title": "学习总览 | 个人主页",
+      "url": "http://127.0.0.1:4389/personal-homepage/knowledge/?type=resource&topic=%E9%98%85%E8%AF%BB%E4%B8%8E%E6%95%B4%E7%90%86",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "name": "local-home-mobile",
+      "canvasCount": 0,
+      "documentWidth": 390,
+      "focus": "",
+      "menuOpen": false,
+      "title": "学习总览 | 个人主页",
+      "url": "http://127.0.0.1:4389/personal-homepage/knowledge/?type=resource&topic=%E9%98%85%E8%AF%BB%E4%B8%8E%E6%95%B4%E7%90%86",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "name": "local-search-return-mobile",
+      "canvasCount": 0,
+      "documentWidth": 390,
+      "focus": "",
+      "menuOpen": false,
+      "title": "学习总览 | 个人主页",
+      "url": "http://127.0.0.1:4389/personal-homepage/knowledge/?type=resource&topic=%E9%98%85%E8%AF%BB%E4%B8%8E%E6%95%B4%E7%90%86",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "name": "local-home-mobile-confirm",
+      "canvasCount": 1,
+      "documentWidth": 375,
+      "focus": "(function(){const chapterHashes = [\"#intro\",\"#projects\",\"#radio\",\"#album\",\"#links\",\"#wall\"];\n\n      // Gate only a posit",
+      "menuOpen": false,
+      "title": "Little Stone Still Here",
+      "url": "http://127.0.0.1:4389/personal-homepage/",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "name": "local-home-return-mobile",
+      "canvasCount": 1,
+      "documentWidth": 375,
+      "focus": "(function(){const chapterHashes = [\"#intro\",\"#projects\",\"#radio\",\"#album\",\"#links\",\"#wall\"];\n\n      // Gate only a posit",
+      "menuOpen": false,
+      "title": "Little Stone Still Here",
+      "url": "http://127.0.0.1:4389/personal-homepage/",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "name": "local-knowledge-mobile-confirm",
+      "canvasCount": 0,
+      "documentWidth": 375,
+      "focus": "",
+      "menuOpen": false,
+      "title": "学习总览 | 个人主页",
+      "url": "http://127.0.0.1:4389/personal-homepage/knowledge/?type=resource&topic=%E9%98%85%E8%AF%BB%E4%B8%8E%E6%95%B4%E7%90%86",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "name": "local-pdf-mobile-confirm",
+      "canvasCount": 0,
+      "documentWidth": 375,
+      "focus": "",
+      "menuOpen": false,
+      "title": "PDF 阅读验证说明（功能样本） | 个人主页",
+      "url": "http://127.0.0.1:4389/personal-homepage/knowledge/resources/reading-guide/",
+      "viewport": [
+        390,
+        844
+      ]
+    }
+  ]
+}
