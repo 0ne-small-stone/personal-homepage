@@ -5,6 +5,8 @@ html[data-reading-immersive] #mainContainer { min-width: 0; }
 html[data-reading-immersive] #viewerContainer { inset: 0 !important; scrollbar-width: none; }
 html[data-reading-immersive] #viewerContainer::-webkit-scrollbar { display: none; }
 html[data-reading-touch] #viewerContainer { touch-action: pan-y pinch-zoom; }
+html[data-reading-immersive] #viewer.scrollWrapped { max-width: var(--reading-auto-width, none); margin-inline: auto; }
+html[data-reading-immersive] #viewer.scrollWrapped .page { margin: 8px; vertical-align: top; }
 :root {
   color-scheme: dark;
   --toolbar-height: 48px;

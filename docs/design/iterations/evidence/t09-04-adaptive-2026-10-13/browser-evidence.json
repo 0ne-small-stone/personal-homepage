@@ -1,0 +1,1389 @@
+[
+  {
+    "name": "native-auto-entry",
+    "parent": {
+      "controls": "none",
+      "height": 1440,
+      "mode": true,
+      "width": 3440
+    },
+    "pdf": {
+      "autoWidth": "2056px",
+      "page": "3",
+      "pages": [
+        {
+          "bottom": -9,
+          "height": 1425,
+          "left": 703,
+          "page": "1",
+          "right": 1712,
+          "top": -1434,
+          "width": 1009,
+          "x": 703,
+          "y": -1434
+        },
+        {
+          "bottom": -9,
+          "height": 1425,
+          "left": 1728,
+          "page": "2",
+          "right": 2737,
+          "top": -1434,
+          "width": 1009,
+          "x": 1728,
+          "y": -1434
+        },
+        {
+          "bottom": 1432,
+          "height": 1425,
+          "left": 703,
+          "page": "3",
+          "right": 1712,
+          "top": 7,
+          "width": 1009,
+          "x": 703,
+          "y": 7
+        },
+        {
+          "bottom": 1432,
+          "height": 1425,
+          "left": 1728,
+          "page": "4",
+          "right": 2737,
+          "top": 7,
+          "width": 1009,
+          "x": 1728,
+          "y": 7
+        }
+      ],
+      "rect": {
+        "bottom": 1440,
+        "height": 1440,
+        "left": 0,
+        "right": 3440,
+        "top": 0,
+        "width": 3440,
+        "x": 0,
+        "y": 0
+      },
+      "scale": "custom",
+      "scaleLabel": "⁨177.3⁩%",
+      "toolbar": "none",
+      "wrapped": true
+    }
+  },
+  {
+    "name": "auto-exit-restores-normal-400",
+    "parent": {
+      "controls": "block",
+      "height": 720,
+      "mode": false,
+      "width": 1280
+    },
+    "pdf": {
+      "autoWidth": "",
+      "page": "3",
+      "pages": [
+        {
+          "bottom": -3163,
+          "height": 3192,
+          "left": -9,
+          "page": "1",
+          "right": 2246,
+          "top": -6355,
+          "width": 2255,
+          "x": -9,
+          "y": -6355
+        },
+        {
+          "bottom": 22,
+          "height": 3192,
+          "left": -9,
+          "page": "2",
+          "right": 2246,
+          "top": -3170,
+          "width": 2255,
+          "x": -9,
+          "y": -3170
+        },
+        {
+          "bottom": 3207,
+          "height": 3192,
+          "left": -9,
+          "page": "3",
+          "right": 2246,
+          "top": 15,
+          "width": 2255,
+          "x": -9,
+          "y": 15
+        },
+        {
+          "bottom": 6392,
+          "height": 3192,
+          "left": -9,
+          "page": "4",
+          "right": 2246,
+          "top": 3200,
+          "width": 2255,
+          "x": -9,
+          "y": 3200
+        }
+      ],
+      "rect": {
+        "bottom": 545,
+        "height": 497,
+        "left": 0,
+        "right": 718,
+        "top": 48,
+        "width": 718,
+        "x": 0,
+        "y": 48
+      },
+      "scale": "4",
+      "scaleLabel": "⁨177.3⁩%",
+      "toolbar": "block",
+      "wrapped": false
+    }
+  },
+  {
+    "name": "manual-zoom-removes-auto-row-width",
+    "parent": {
+      "controls": "none",
+      "height": 1440,
+      "mode": true,
+      "width": 3440
+    },
+    "pdf": {
+      "autoWidth": "",
+      "page": "1",
+      "pages": [
+        {
+          "bottom": 740,
+          "height": 732,
+          "left": 654,
+          "page": "1",
+          "right": 1175,
+          "top": 8,
+          "width": 521,
+          "x": 654,
+          "y": 8
+        },
+        {
+          "bottom": 740,
+          "height": 732,
+          "left": 1191,
+          "page": "2",
+          "right": 1712,
+          "top": 8,
+          "width": 521,
+          "x": 1191,
+          "y": 8
+        },
+        {
+          "bottom": 740,
+          "height": 732,
+          "left": 1728,
+          "page": "3",
+          "right": 2249,
+          "top": 8,
+          "width": 521,
+          "x": 1728,
+          "y": 8
+        },
+        {
+          "bottom": 740,
+          "height": 732,
+          "left": 2265,
+          "page": "4",
+          "right": 2786,
+          "top": 8,
+          "width": 521,
+          "x": 2265,
+          "y": 8
+        }
+      ],
+      "rect": {
+        "bottom": 1440,
+        "height": 1440,
+        "left": 0,
+        "right": 3440,
+        "top": 0,
+        "width": 3440,
+        "x": 0,
+        "y": 0
+      },
+      "scale": "custom",
+      "scaleLabel": "⁨90⁩%",
+      "toolbar": "none",
+      "wrapped": true
+    }
+  },
+  {
+    "name": "manual-zoom-retained-on-exit",
+    "parent": {
+      "controls": "block",
+      "height": 720,
+      "mode": false,
+      "width": 1280
+    },
+    "pdf": {
+      "autoWidth": "",
+      "page": "3",
+      "pages": [
+        {
+          "bottom": -690,
+          "height": 732,
+          "left": 91,
+          "page": "1",
+          "right": 612,
+          "top": -1422,
+          "width": 521,
+          "x": 91,
+          "y": -1422
+        },
+        {
+          "bottom": 35,
+          "height": 732,
+          "left": 91,
+          "page": "2",
+          "right": 612,
+          "top": -697,
+          "width": 521,
+          "x": 91,
+          "y": -697
+        },
+        {
+          "bottom": 760,
+          "height": 732,
+          "left": 91,
+          "page": "3",
+          "right": 612,
+          "top": 28,
+          "width": 521,
+          "x": 91,
+          "y": 28
+        },
+        {
+          "bottom": 1485,
+          "height": 732,
+          "left": 91,
+          "page": "4",
+          "right": 612,
+          "top": 753,
+          "width": 521,
+          "x": 91,
+          "y": 753
+        }
+      ],
+      "rect": {
+        "bottom": 545,
+        "height": 497,
+        "left": 0,
+        "right": 718,
+        "top": 48,
+        "width": 718,
+        "x": 0,
+        "y": 48
+      },
+      "scale": "custom",
+      "scaleLabel": "⁨90⁩%",
+      "toolbar": "block",
+      "wrapped": false
+    }
+  },
+  {
+    "name": "manual-choice-retained-on-reentry",
+    "parent": {
+      "controls": "none",
+      "height": 1440,
+      "mode": true,
+      "width": 3440
+    },
+    "pdf": {
+      "autoWidth": "",
+      "page": "1",
+      "pages": [
+        {
+          "bottom": 740,
+          "height": 732,
+          "left": 654,
+          "page": "1",
+          "right": 1175,
+          "top": 8,
+          "width": 521,
+          "x": 654,
+          "y": 8
+        },
+        {
+          "bottom": 740,
+          "height": 732,
+          "left": 1191,
+          "page": "2",
+          "right": 1712,
+          "top": 8,
+          "width": 521,
+          "x": 1191,
+          "y": 8
+        },
+        {
+          "bottom": 740,
+          "height": 732,
+          "left": 1728,
+          "page": "3",
+          "right": 2249,
+          "top": 8,
+          "width": 521,
+          "x": 1728,
+          "y": 8
+        },
+        {
+          "bottom": 740,
+          "height": 732,
+          "left": 2265,
+          "page": "4",
+          "right": 2786,
+          "top": 8,
+          "width": 521,
+          "x": 2265,
+          "y": 8
+        }
+      ],
+      "rect": {
+        "bottom": 1440,
+        "height": 1440,
+        "left": 0,
+        "right": 3440,
+        "top": 0,
+        "width": 3440,
+        "x": 0,
+        "y": 0
+      },
+      "scale": "custom",
+      "scaleLabel": "⁨90⁩%",
+      "toolbar": "none",
+      "wrapped": true
+    }
+  },
+  {
+    "name": "settled-auto-before-manual",
+    "parent": {
+      "controls": "none",
+      "height": 1440,
+      "mode": true,
+      "width": 3440
+    },
+    "pdf": {
+      "autoWidth": "2056px",
+      "page": "3",
+      "pages": [
+        {
+          "bottom": -9,
+          "height": 1425,
+          "left": 703,
+          "page": "1",
+          "right": 1712,
+          "top": -1434,
+          "width": 1009,
+          "x": 703,
+          "y": -1434
+        },
+        {
+          "bottom": -9,
+          "height": 1425,
+          "left": 1728,
+          "page": "2",
+          "right": 2737,
+          "top": -1434,
+          "width": 1009,
+          "x": 1728,
+          "y": -1434
+        },
+        {
+          "bottom": 1432,
+          "height": 1425,
+          "left": 703,
+          "page": "3",
+          "right": 1712,
+          "top": 7,
+          "width": 1009,
+          "x": 703,
+          "y": 7
+        },
+        {
+          "bottom": 1432,
+          "height": 1425,
+          "left": 1728,
+          "page": "4",
+          "right": 2737,
+          "top": 7,
+          "width": 1009,
+          "x": 1728,
+          "y": 7
+        }
+      ],
+      "rect": {
+        "bottom": 1440,
+        "height": 1440,
+        "left": 0,
+        "right": 3440,
+        "top": 0,
+        "width": 3440,
+        "x": 0,
+        "y": 0
+      },
+      "scale": "custom",
+      "scaleLabel": "⁨177.3⁩%",
+      "toolbar": "none",
+      "wrapped": true
+    }
+  },
+  {
+    "name": "settled-manual-after-minus",
+    "parent": {
+      "controls": "none",
+      "height": 1440,
+      "mode": true,
+      "width": 3440
+    },
+    "pdf": {
+      "autoWidth": "",
+      "page": "1",
+      "pages": [
+        {
+          "bottom": 1292,
+          "height": 1287,
+          "left": 336,
+          "page": "1",
+          "right": 1248,
+          "top": 5,
+          "width": 912,
+          "x": 336,
+          "y": 5
+        },
+        {
+          "bottom": 1292,
+          "height": 1287,
+          "left": 1264,
+          "page": "2",
+          "right": 2176,
+          "top": 5,
+          "width": 912,
+          "x": 1264,
+          "y": 5
+        },
+        {
+          "bottom": 1292,
+          "height": 1287,
+          "left": 2192,
+          "page": "3",
+          "right": 3104,
+          "top": 5,
+          "width": 912,
+          "x": 2192,
+          "y": 5
+        },
+        {
+          "bottom": 2595,
+          "height": 1287,
+          "left": 1264,
+          "page": "4",
+          "right": 2176,
+          "top": 1308,
+          "width": 912,
+          "x": 1264,
+          "y": 1308
+        }
+      ],
+      "rect": {
+        "bottom": 1440,
+        "height": 1440,
+        "left": 0,
+        "right": 3440,
+        "top": 0,
+        "width": 3440,
+        "x": 0,
+        "y": 0
+      },
+      "scale": "custom",
+      "scaleLabel": "⁨160⁩%",
+      "toolbar": "none",
+      "wrapped": true
+    }
+  },
+  {
+    "name": "mobile-auto-single-column",
+    "parent": {
+      "controls": "none",
+      "height": 844,
+      "mode": true,
+      "width": 390
+    },
+    "pdf": {
+      "autoWidth": "390px",
+      "page": "3",
+      "pages": [
+        {
+          "bottom": -596,
+          "height": 519,
+          "left": 9.5,
+          "page": "1",
+          "right": 380.5,
+          "top": -1115,
+          "width": 371,
+          "x": 9.5,
+          "y": -1115
+        },
+        {
+          "bottom": -61,
+          "height": 519,
+          "left": 9.5,
+          "page": "2",
+          "right": 380.5,
+          "top": -580,
+          "width": 371,
+          "x": 9.5,
+          "y": -580
+        },
+        {
+          "bottom": 474,
+          "height": 519,
+          "left": 9.5,
+          "page": "3",
+          "right": 380.5,
+          "top": -45,
+          "width": 371,
+          "x": 9.5,
+          "y": -45
+        },
+        {
+          "bottom": 1009,
+          "height": 519,
+          "left": 9.5,
+          "page": "4",
+          "right": 380.5,
+          "top": 490,
+          "width": 371,
+          "x": 9.5,
+          "y": 490
+        }
+      ],
+      "rect": {
+        "bottom": 844,
+        "height": 844,
+        "left": 0,
+        "right": 390,
+        "top": 0,
+        "width": 390,
+        "x": 0,
+        "y": 0
+      },
+      "scale": "custom",
+      "scaleLabel": "⁨63.2⁩%",
+      "toolbar": "none",
+      "wrapped": true
+    }
+  },
+  {
+    "name": "resize-auto-single-to-double",
+    "parent": {
+      "controls": "none",
+      "height": 720,
+      "mode": true,
+      "width": 1280
+    },
+    "pdf": {
+      "autoWidth": "1272px",
+      "page": "3",
+      "pages": [
+        {
+          "bottom": -127,
+          "height": 868,
+          "left": 15,
+          "page": "1",
+          "right": 632,
+          "top": -995,
+          "width": 617,
+          "x": 15,
+          "y": -995
+        },
+        {
+          "bottom": -127,
+          "height": 868,
+          "left": 648,
+          "page": "2",
+          "right": 1265,
+          "top": -995,
+          "width": 617,
+          "x": 648,
+          "y": -995
+        },
+        {
+          "bottom": 757,
+          "height": 868,
+          "left": 15,
+          "page": "3",
+          "right": 632,
+          "top": -111,
+          "width": 617,
+          "x": 15,
+          "y": -111
+        },
+        {
+          "bottom": 757,
+          "height": 868,
+          "left": 648,
+          "page": "4",
+          "right": 1265,
+          "top": -111,
+          "width": 617,
+          "x": 648,
+          "y": -111
+        }
+      ],
+      "rect": {
+        "bottom": 720,
+        "height": 720,
+        "left": 0,
+        "right": 1280,
+        "top": 0,
+        "width": 1280,
+        "x": 0,
+        "y": 0
+      },
+      "scale": "custom",
+      "scaleLabel": "⁨107.2⁩%",
+      "toolbar": "none",
+      "wrapped": true
+    }
+  },
+  {
+    "name": "resize-manual-zoom",
+    "parent": {
+      "controls": "none",
+      "height": 720,
+      "mode": true,
+      "width": 1280
+    },
+    "pdf": {
+      "autoWidth": "",
+      "page": "3",
+      "pages": [
+        {
+          "bottom": -1125,
+          "height": 970,
+          "left": 295.5,
+          "page": "1",
+          "right": 984.5,
+          "top": -2095,
+          "width": 689,
+          "x": 295.5,
+          "y": -2095
+        },
+        {
+          "bottom": -139,
+          "height": 970,
+          "left": 295.5,
+          "page": "2",
+          "right": 984.5,
+          "top": -1109,
+          "width": 689,
+          "x": 295.5,
+          "y": -1109
+        },
+        {
+          "bottom": 847,
+          "height": 970,
+          "left": 295.5,
+          "page": "3",
+          "right": 984.5,
+          "top": -123,
+          "width": 689,
+          "x": 295.5,
+          "y": -123
+        },
+        {
+          "bottom": 1833,
+          "height": 970,
+          "left": 295.5,
+          "page": "4",
+          "right": 984.5,
+          "top": 863,
+          "width": 689,
+          "x": 295.5,
+          "y": 863
+        }
+      ],
+      "rect": {
+        "bottom": 720,
+        "height": 720,
+        "left": 0,
+        "right": 1280,
+        "top": 0,
+        "width": 1280,
+        "x": 0,
+        "y": 0
+      },
+      "scale": "custom",
+      "scaleLabel": "⁨120⁩%",
+      "toolbar": "none",
+      "wrapped": true
+    }
+  },
+  {
+    "name": "manual-scale-respects-new-viewport",
+    "parent": {
+      "controls": "none",
+      "height": 1080,
+      "mode": true,
+      "width": 1920
+    },
+    "pdf": {
+      "autoWidth": "",
+      "page": "3",
+      "pages": [
+        {
+          "bottom": 86,
+          "height": 970,
+          "left": 263,
+          "page": "1",
+          "right": 952,
+          "top": -884,
+          "width": 689,
+          "x": 263,
+          "y": -884
+        },
+        {
+          "bottom": 86,
+          "height": 970,
+          "left": 968,
+          "page": "2",
+          "right": 1657,
+          "top": -884,
+          "width": 689,
+          "x": 968,
+          "y": -884
+        },
+        {
+          "bottom": 1072,
+          "height": 970,
+          "left": 263,
+          "page": "3",
+          "right": 952,
+          "top": 102,
+          "width": 689,
+          "x": 263,
+          "y": 102
+        },
+        {
+          "bottom": 1072,
+          "height": 970,
+          "left": 968,
+          "page": "4",
+          "right": 1657,
+          "top": 102,
+          "width": 689,
+          "x": 968,
+          "y": 102
+        }
+      ],
+      "rect": {
+        "bottom": 1080,
+        "height": 1080,
+        "left": 0,
+        "right": 1920,
+        "top": 0,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      },
+      "scale": "custom",
+      "scaleLabel": "⁨120⁩%",
+      "toolbar": "none",
+      "wrapped": true
+    }
+  },
+  {
+    "name": "right-swipe-restores-normal",
+    "parent": {
+      "controls": "block",
+      "height": 844,
+      "mode": false,
+      "width": 390
+    },
+    "pdf": {
+      "autoWidth": "",
+      "page": "3",
+      "pages": [
+        {
+          "bottom": -892,
+          "height": 970,
+          "left": -9,
+          "page": "1",
+          "right": 680,
+          "top": -1862,
+          "width": 689,
+          "x": -9,
+          "y": -1862
+        },
+        {
+          "bottom": 71,
+          "height": 970,
+          "left": -9,
+          "page": "2",
+          "right": 680,
+          "top": -899,
+          "width": 689,
+          "x": -9,
+          "y": -899
+        },
+        {
+          "bottom": 1034,
+          "height": 970,
+          "left": -9,
+          "page": "3",
+          "right": 680,
+          "top": 64,
+          "width": 689,
+          "x": -9,
+          "y": 64
+        },
+        {
+          "bottom": 1997,
+          "height": 970,
+          "left": -9,
+          "page": "4",
+          "right": 680,
+          "top": 1027,
+          "width": 689,
+          "x": -9,
+          "y": 1027
+        }
+      ],
+      "rect": {
+        "bottom": 639,
+        "height": 543,
+        "left": 0,
+        "right": 341,
+        "top": 96,
+        "width": 341,
+        "x": 0,
+        "y": 96
+      },
+      "scale": "custom",
+      "scaleLabel": "⁨120⁩%",
+      "toolbar": "block",
+      "wrapped": false
+    }
+  },
+  {
+    "name": "final-auto-double-column",
+    "parent": {
+      "controls": "none",
+      "height": 720,
+      "mode": true,
+      "width": 1280
+    },
+    "pdf": {
+      "autoWidth": "1272px",
+      "page": "3",
+      "pages": [
+        {
+          "bottom": -67,
+          "height": 868,
+          "left": 15,
+          "page": "1",
+          "right": 632,
+          "top": -935,
+          "width": 617,
+          "x": 15,
+          "y": -935
+        },
+        {
+          "bottom": -67,
+          "height": 868,
+          "left": 648,
+          "page": "2",
+          "right": 1265,
+          "top": -935,
+          "width": 617,
+          "x": 648,
+          "y": -935
+        },
+        {
+          "bottom": 817,
+          "height": 868,
+          "left": 15,
+          "page": "3",
+          "right": 632,
+          "top": -51,
+          "width": 617,
+          "x": 15,
+          "y": -51
+        },
+        {
+          "bottom": 817,
+          "height": 868,
+          "left": 648,
+          "page": "4",
+          "right": 1265,
+          "top": -51,
+          "width": 617,
+          "x": 648,
+          "y": -51
+        }
+      ],
+      "rect": {
+        "bottom": 720,
+        "height": 720,
+        "left": 0,
+        "right": 1280,
+        "top": 0,
+        "width": 1280,
+        "x": 0,
+        "y": 0
+      },
+      "scale": "custom",
+      "scaleLabel": "⁨107.2⁩%",
+      "toolbar": "none",
+      "wrapped": true
+    }
+  },
+  {
+    "name": "final-manual-resize-wide",
+    "parent": {
+      "controls": "none",
+      "height": 1080,
+      "mode": true,
+      "width": 1920
+    },
+    "pdf": {
+      "autoWidth": "",
+      "page": "3",
+      "pages": [
+        {
+          "bottom": 86,
+          "height": 970,
+          "left": 263,
+          "page": "1",
+          "right": 952,
+          "top": -884,
+          "width": 689,
+          "x": 263,
+          "y": -884
+        },
+        {
+          "bottom": 86,
+          "height": 970,
+          "left": 968,
+          "page": "2",
+          "right": 1657,
+          "top": -884,
+          "width": 689,
+          "x": 968,
+          "y": -884
+        },
+        {
+          "bottom": 1072,
+          "height": 970,
+          "left": 263,
+          "page": "3",
+          "right": 952,
+          "top": 102,
+          "width": 689,
+          "x": 263,
+          "y": 102
+        },
+        {
+          "bottom": 1072,
+          "height": 970,
+          "left": 968,
+          "page": "4",
+          "right": 1657,
+          "top": 102,
+          "width": 689,
+          "x": 968,
+          "y": 102
+        }
+      ],
+      "rect": {
+        "bottom": 1080,
+        "height": 1080,
+        "left": 0,
+        "right": 1920,
+        "top": 0,
+        "width": 1920,
+        "x": 0,
+        "y": 0
+      },
+      "scale": "custom",
+      "scaleLabel": "⁨120⁩%",
+      "toolbar": "none",
+      "wrapped": true
+    }
+  },
+  {
+    "name": "final-manual-resize-narrow",
+    "parent": {
+      "controls": "none",
+      "height": 844,
+      "mode": true,
+      "width": 390
+    },
+    "pdf": {
+      "autoWidth": "",
+      "page": "3",
+      "pages": [
+        {
+          "bottom": -1058,
+          "height": 970,
+          "left": -9,
+          "page": "1",
+          "right": 680,
+          "top": -2028,
+          "width": 689,
+          "x": -9,
+          "y": -2028
+        },
+        {
+          "bottom": -72,
+          "height": 970,
+          "left": -9,
+          "page": "2",
+          "right": 680,
+          "top": -1042,
+          "width": 689,
+          "x": -9,
+          "y": -1042
+        },
+        {
+          "bottom": 914,
+          "height": 970,
+          "left": -9,
+          "page": "3",
+          "right": 680,
+          "top": -56,
+          "width": 689,
+          "x": -9,
+          "y": -56
+        },
+        {
+          "bottom": 1900,
+          "height": 970,
+          "left": -9,
+          "page": "4",
+          "right": 680,
+          "top": 930,
+          "width": 689,
+          "x": -9,
+          "y": 930
+        }
+      ],
+      "rect": {
+        "bottom": 844,
+        "height": 844,
+        "left": 0,
+        "right": 390,
+        "top": 0,
+        "width": 390,
+        "x": 0,
+        "y": 0
+      },
+      "scale": "custom",
+      "scaleLabel": "⁨120⁩%",
+      "toolbar": "none",
+      "wrapped": true
+    }
+  },
+  {
+    "name": "actual-reading-movement-before-exit",
+    "parent": {
+      "controls": "none",
+      "height": 844,
+      "mode": true,
+      "width": 390
+    },
+    "pdf": {
+      "autoWidth": "",
+      "page": "4",
+      "pages": [
+        {
+          "bottom": -1745,
+          "height": 970,
+          "left": -9,
+          "page": "1",
+          "right": 680,
+          "top": -2715,
+          "width": 689,
+          "x": -9,
+          "y": -2715
+        },
+        {
+          "bottom": -759,
+          "height": 970,
+          "left": -9,
+          "page": "2",
+          "right": 680,
+          "top": -1729,
+          "width": 689,
+          "x": -9,
+          "y": -1729
+        },
+        {
+          "bottom": 227,
+          "height": 970,
+          "left": -9,
+          "page": "3",
+          "right": 680,
+          "top": -743,
+          "width": 689,
+          "x": -9,
+          "y": -743
+        },
+        {
+          "bottom": 1213,
+          "height": 970,
+          "left": -9,
+          "page": "4",
+          "right": 680,
+          "top": 243,
+          "width": 689,
+          "x": -9,
+          "y": 243
+        }
+      ],
+      "rect": {
+        "bottom": 844,
+        "height": 844,
+        "left": 0,
+        "right": 390,
+        "top": 0,
+        "width": 390,
+        "x": 0,
+        "y": 0
+      },
+      "scale": "custom",
+      "scaleLabel": "⁨120⁩%",
+      "toolbar": "none",
+      "wrapped": true
+    }
+  },
+  {
+    "name": "final-right-swipe-restores-reading-page",
+    "parent": {
+      "controls": "block",
+      "height": 844,
+      "mode": false,
+      "width": 390
+    },
+    "pdf": {
+      "autoWidth": "",
+      "page": "4",
+      "pages": [
+        {
+          "bottom": -1654,
+          "height": 970,
+          "left": -9,
+          "page": "1",
+          "right": 680,
+          "top": -2624,
+          "width": 689,
+          "x": -9,
+          "y": -2624
+        },
+        {
+          "bottom": -691,
+          "height": 970,
+          "left": -9,
+          "page": "2",
+          "right": 680,
+          "top": -1661,
+          "width": 689,
+          "x": -9,
+          "y": -1661
+        },
+        {
+          "bottom": 272,
+          "height": 970,
+          "left": -9,
+          "page": "3",
+          "right": 680,
+          "top": -698,
+          "width": 689,
+          "x": -9,
+          "y": -698
+        },
+        {
+          "bottom": 1235,
+          "height": 970,
+          "left": -9,
+          "page": "4",
+          "right": 680,
+          "top": 265,
+          "width": 689,
+          "x": -9,
+          "y": 265
+        }
+      ],
+      "rect": {
+        "bottom": 639,
+        "height": 543,
+        "left": 0,
+        "right": 341,
+        "top": 96,
+        "width": 341,
+        "x": 0,
+        "y": 96
+      },
+      "scale": "custom",
+      "scaleLabel": "⁨120⁩%",
+      "toolbar": "block",
+      "wrapped": false
+    }
+  },
+  {
+    "name": "final-manual-choice-on-reentry",
+    "parent": {
+      "controls": "none",
+      "height": 844,
+      "mode": true,
+      "width": 390
+    },
+    "pdf": {
+      "autoWidth": "",
+      "page": "4",
+      "pages": [
+        {
+          "bottom": -1997,
+          "height": 970,
+          "left": -9,
+          "page": "1",
+          "right": 680,
+          "top": -2967,
+          "width": 689,
+          "x": -9,
+          "y": -2967
+        },
+        {
+          "bottom": -1011,
+          "height": 970,
+          "left": -9,
+          "page": "2",
+          "right": 680,
+          "top": -1981,
+          "width": 689,
+          "x": -9,
+          "y": -1981
+        },
+        {
+          "bottom": -25,
+          "height": 970,
+          "left": -9,
+          "page": "3",
+          "right": 680,
+          "top": -995,
+          "width": 689,
+          "x": -9,
+          "y": -995
+        },
+        {
+          "bottom": 961,
+          "height": 970,
+          "left": -9,
+          "page": "4",
+          "right": 680,
+          "top": -9,
+          "width": 689,
+          "x": -9,
+          "y": -9
+        }
+      ],
+      "rect": {
+        "bottom": 844,
+        "height": 844,
+        "left": 0,
+        "right": 390,
+        "top": 0,
+        "width": 390,
+        "x": 0,
+        "y": 0
+      },
+      "scale": "custom",
+      "scaleLabel": "⁨120⁩%",
+      "toolbar": "none",
+      "wrapped": true
+    }
+  },
+  {
+    "name": "refresh-restores-normal-layout",
+    "parent": {
+      "controls": "block",
+      "height": 844,
+      "mode": false,
+      "width": 390
+    },
+    "pdf": {
+      "autoWidth": "",
+      "page": "4",
+      "pages": [
+        {
+          "bottom": -1832,
+          "height": 970,
+          "left": -9,
+          "page": "1",
+          "right": 680,
+          "top": -2802,
+          "width": 689,
+          "x": -9,
+          "y": -2802
+        },
+        {
+          "bottom": -869,
+          "height": 970,
+          "left": -9,
+          "page": "2",
+          "right": 680,
+          "top": -1839,
+          "width": 689,
+          "x": -9,
+          "y": -1839
+        },
+        {
+          "bottom": 94,
+          "height": 970,
+          "left": -9,
+          "page": "3",
+          "right": 680,
+          "top": -876,
+          "width": 689,
+          "x": -9,
+          "y": -876
+        },
+        {
+          "bottom": 1057,
+          "height": 970,
+          "left": -9,
+          "page": "4",
+          "right": 680,
+          "top": 87,
+          "width": 689,
+          "x": -9,
+          "y": 87
+        }
+      ],
+      "rect": {
+        "bottom": 639,
+        "height": 543,
+        "left": 0,
+        "right": 341,
+        "top": 96,
+        "width": 341,
+        "x": 0,
+        "y": 96
+      },
+      "scale": "custom",
+      "scaleLabel": "⁨120⁩%",
+      "toolbar": "block",
+      "wrapped": false
+    }
+  }
+]

@@ -9,17 +9,28 @@ const { pdf = false } = Astro.props;
   <p id="reading-mode-help" data-reading-status role="status" aria-live="polite">进入全屏，电脑 Esc 退出，手机右滑退出。PDF 可用 Ctrl + 加减号或 Ctrl + 滚轮缩放。</p>
 </learning-reading-mode>
 <script>
+  import { comfortablePdfLayout } from '../lib/immersivePdfLayout';
+  interface PdfPageView {
+    div: HTMLElement;
+    scale: number;
+    viewport: { width: number; height: number; convertToPdfPoint(x: number, y: number): number[] };
+  }
+  interface PdfBookmark { page: number; x: number; y: number; }
+  type LocationListener = (event: { location: { pageNumber: number; left: number; top: number } }) => void;
   interface PdfViewer {
     pdfDocument?: unknown;
     scrollMode: number;
     spreadMode: number;
     currentPageNumber: number;
     currentScaleValue: string;
-    scrollPageIntoView(options: { pageNumber: number }): void;
+    pagesCount: number;
+    getPageView(index: number): PdfPageView | undefined;
+    scrollPageIntoView(options: { pageNumber: number; destArray?: unknown[]; ignoreDestinationZoom?: boolean }): void;
     update(): void;
   }
   interface PdfApplication {
     pdfViewer?: PdfViewer;
+    eventBus?: { on(name: string, listener: LocationListener): void; off(name: string, listener: LocationListener): void };
     findBar?: { close(): void };
     secondaryToolbar?: { close(): void };
   }
@@ -29,6 +40,12 @@ const { pdf = false } = Astro.props;
     private frameController?: AbortController;
     private observer?: MutationObserver;
     private resizeObserver?: ResizeObserver;
+    private pdfResizeObserver?: ResizeObserver;
+    private fitTimer?: number;
+    private trackedBus?: PdfApplication['eventBus'];
+    private lastBookmark?: PdfBookmark;
+    private resizeBookmark?: PdfBookmark;
+    private resizing = false;
     private button!: HTMLButtonElement;
     private status!: HTMLElement;
     private frame?: HTMLIFrameElement;
@@ -37,7 +54,9 @@ const { pdf = false } = Astro.props;
     private nativeFullscreen = false;
     private mobileSession = false;
     private scrollY = 0;
-    private savedPdf?: { scrollMode: number; spreadMode: number; sidebar: boolean; page: number };
+    private savedPdf?: { scrollMode: number; spreadMode: number; sidebar: boolean; page: number; scale: string; bookmark?: PdfBookmark };
+    private automatic = true;
+    private manualZoom = false;
     private pdfMoved = false;
     private readingFocus?: { element: HTMLElement; tabindex: string | null };
     private get app() {
@@ -67,6 +86,18 @@ const { pdf = false } = Astro.props;
           this.frameController = new AbortController();
           const frameDocument = this.frame?.contentDocument;
           if (frameDocument) this.bindInput(frameDocument, this.frameController.signal);
+          frameDocument?.defaultView?.addEventListener('resize', () => {
+            if (!this.active || this.pending) return;
+            this.resizing = true;
+            this.resizeBookmark ??= this.lastBookmark ?? this.bookmarkPdf();
+            this.scheduleFit();
+          }, { signal: this.frameController.signal, capture: true });
+          this.pdfResizeObserver?.disconnect();
+          const container = frameDocument?.getElementById('viewerContainer');
+          if (container) {
+            this.pdfResizeObserver = new ResizeObserver(() => this.scheduleFit());
+            this.pdfResizeObserver.observe(container);
+          }
           this.updateAvailability();
         };
         this.frame.addEventListener('load', bind, { signal });
@@ -90,7 +121,84 @@ const { pdf = false } = Astro.props;
       if (!ready) this.status.textContent = this.frame ? 'PDF 加载完成后可进入沉浸阅读。' : 'PDF 附件尚未接入，暂时无法进入沉浸阅读。';
       else if (!document.fullscreenEnabled && this.mobile()) this.status.textContent = '此浏览器不支持系统全屏，将铺满网页阅读；右滑退出。';
       else if (!document.fullscreenEnabled) this.status.textContent = '此浏览器不支持网页全屏，无法进入沉浸阅读。';
-      else this.status.textContent = '进入全屏，电脑 Esc 退出，手机右滑退出。PDF 可用 Ctrl + 加减号或 Ctrl + 滚轮缩放。';
+      else if (this.frame) {
+        const strategy = this.automatic
+          ? '进入全屏后自动适配页面；手动缩放后尊重你的选择。'
+          : '已保留你的手动缩放，再次进入会沿用；刷新后恢复自动适配。';
+        this.status.textContent = strategy + '电脑 Esc 退出，手机右滑退出。Ctrl + 加减号或 Ctrl + 滚轮缩放。';
+      } else this.status.textContent = '进入全屏，电脑 Esc 退出，手机右滑退出。';
+    }
+    private bookmarkPdf(): PdfBookmark | undefined {
+      const viewer = this.app?.pdfViewer;
+      const page = viewer?.getPageView(viewer.currentPageNumber - 1);
+      const container = this.frame?.contentDocument?.getElementById('viewerContainer');
+      if (!viewer || !page || !container) return;
+      const paper = page.div.getBoundingClientRect(), area = container.getBoundingClientRect();
+      const x = Math.max(0, Math.min(page.viewport.width, area.left - paper.left - page.div.clientLeft));
+      const y = Math.max(0, Math.min(page.viewport.height, area.top + 24 - paper.top - page.div.clientTop));
+      const point = page.viewport.convertToPdfPoint(x, y);
+      return { page: viewer.currentPageNumber, x: point[0], y: point[1] };
+    }
+    private restorePdfBookmark(bookmark?: PdfBookmark) {
+      if (!bookmark) return;
+      this.app?.pdfViewer?.scrollPageIntoView({
+        pageNumber: bookmark.page,
+        destArray: [null, { name: 'XYZ' }, bookmark.x, bookmark.y, null],
+        ignoreDestinationZoom: true,
+      });
+    }
+    private trackPdfLocation() {
+      const bus = this.app?.eventBus;
+      if (!bus || bus === this.trackedBus) return;
+      const listener: LocationListener = ({ location }) => {
+        if (!this.active || this.pending || this.resizing) return;
+        this.lastBookmark = !this.pdfMoved && this.savedPdf?.bookmark ? this.savedPdf.bookmark
+          : { page: location.pageNumber, x: location.left, y: location.top };
+      };
+      bus.on('updateviewarea', listener);
+      // PDF.js checks its own realm's AbortSignal; explicitly detach our listener.
+      this.frameController?.signal.addEventListener('abort', () => {
+        bus.off('updateviewarea', listener);
+        if (this.trackedBus === bus) this.trackedBus = undefined;
+      }, { once: true });
+      this.trackedBus = bus;
+    }
+    private fitPdf(bookmark = this.bookmarkPdf()) {
+      if (!this.active || !this.automatic) return;
+      const viewer = this.app?.pdfViewer, doc = this.frame?.contentDocument;
+      const container = doc?.getElementById('viewerContainer');
+      const page = viewer?.getPageView((bookmark?.page ?? viewer.currentPageNumber) - 1);
+      if (!viewer || !page || !container || !doc) return;
+      const layout = comfortablePdfLayout({ width: container.clientWidth, height: container.clientHeight,
+        pageWidth: page.viewport.width / page.scale, pageHeight: page.viewport.height / page.scale, pages: viewer.pagesCount });
+      if (!layout) return;
+      doc.documentElement.style.setProperty('--reading-auto-width', layout.rowWidth + 'px');
+      viewer.currentScaleValue = String(layout.scale);
+      viewer.update();
+      this.restorePdfBookmark(bookmark);
+      this.lastBookmark = bookmark;
+    }
+    private scheduleFit() {
+      if (!this.active || this.pending) return;
+      if (this.fitTimer) window.clearTimeout(this.fitTimer);
+      this.fitTimer = window.setTimeout(() => {
+        this.fitTimer = undefined;
+        const bookmark = this.resizeBookmark ?? this.lastBookmark ?? this.bookmarkPdf();
+        if (this.automatic) this.fitPdf(bookmark);
+        else { this.restorePdfBookmark(bookmark); this.app?.pdfViewer?.update(); this.lastBookmark = bookmark; }
+        this.resizeBookmark = undefined;
+        this.resizing = false;
+      }, 120);
+    }
+    private useManualZoom() {
+      if (!this.active || !this.frame) return;
+      this.automatic = false;
+      this.manualZoom = true;
+      if (this.fitTimer) window.clearTimeout(this.fitTimer);
+      this.fitTimer = undefined;
+      this.resizeBookmark = undefined;
+      this.resizing = false;
+      this.frame.contentDocument?.documentElement.style.removeProperty('--reading-auto-width');
     }
     private bindInput(doc: Document, signal: AbortSignal) {
       doc.addEventListener('keydown', (event) => {
@@ -99,6 +207,7 @@ const { pdf = false } = Astro.props;
           event.preventDefault(); this.exit();
           return;
         }
+        if ((event.ctrlKey || event.metaKey) && ['+', '=', '-', '_', '0'].includes(event.key)) this.useManualZoom();
         if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'PageUp', 'PageDown', 'Home', 'End'].includes(event.key)) this.pdfMoved = true;
         if ((event.ctrlKey || event.metaKey) && ['k', 'f', 'g', 'p'].includes(event.key.toLowerCase())) {
           if (event.key.toLowerCase() === 'p' && !event.altKey) return;
@@ -106,10 +215,14 @@ const { pdf = false } = Astro.props;
           event.stopImmediatePropagation();
         }
       }, { signal, capture: true });
-      doc.addEventListener('wheel', (event) => { if (this.active && !event.ctrlKey) this.pdfMoved = true; }, { signal, passive: true });
+      doc.addEventListener('wheel', (event) => {
+        if (!this.active) return;
+        if (event.ctrlKey || event.metaKey) this.useManualZoom();
+        else this.pdfMoved = true;
+      }, { signal, passive: true, capture: true });
       let start: { id: number; x: number; y: number; time: number } | undefined;
       doc.addEventListener('pointerdown', (event) => {
-        if (!event.isPrimary) { start = undefined; return; }
+        if (!event.isPrimary) { start = undefined; if (event.pointerType === 'touch') this.useManualZoom(); return; }
         if (this.active && this.mobileSession && event.button === 0) start = { id: event.pointerId, x: event.clientX, y: event.clientY, time: event.timeStamp };
       }, { signal, capture: true });
       doc.addEventListener('pointercancel', () => { start = undefined; }, { signal, capture: true });
@@ -132,6 +245,7 @@ const { pdf = false } = Astro.props;
       this.scrollY = window.scrollY;
       this.nativeFullscreen = !!document.fullscreenEnabled;
       this.pdfMoved = false;
+      this.manualZoom = false;
       const anchor = this.frame ? undefined : this.readingAnchor(this.getBoundingClientRect().bottom + 16);
       const viewer = this.app?.pdfViewer, frameDoc = this.frame?.contentDocument;
       try {
@@ -141,7 +255,10 @@ const { pdf = false } = Astro.props;
         document.documentElement.toggleAttribute('data-reading-touch', this.mobileSession);
         if (viewer && frameDoc) {
           const panel = frameDoc.getElementById('viewsManager');
-          this.savedPdf = { scrollMode: viewer.scrollMode, spreadMode: viewer.spreadMode, sidebar: !!panel && !panel.hidden, page: viewer.currentPageNumber };
+          this.savedPdf = { scrollMode: viewer.scrollMode, spreadMode: viewer.spreadMode, sidebar: !!panel && !panel.hidden, page: viewer.currentPageNumber,
+            scale: viewer.currentScaleValue, bookmark: this.bookmarkPdf() };
+          this.lastBookmark = this.savedPdf.bookmark;
+          this.trackPdfLocation();
           if (this.savedPdf.sidebar) frameDoc.getElementById('viewsManagerToggleButton')?.click();
           this.app?.findBar?.close();
           this.app?.secondaryToolbar?.close();
@@ -155,6 +272,7 @@ const { pdf = false } = Astro.props;
         if (this.nativeFullscreen) await document.documentElement.requestFullscreen();
         if (this.active) {
           viewer?.update();
+          this.fitPdf(this.savedPdf?.bookmark);
           if (frameDoc) frameDoc.getElementById('viewerContainer')?.focus({ preventScroll: true });
           else {
             const readingFrame = document.querySelector<HTMLElement>('.main-frame');
@@ -184,16 +302,24 @@ const { pdf = false } = Astro.props;
     private restore() {
       if (!this.active) return;
       const anchor = this.frame ? undefined : this.readingAnchor(24);
+      const bookmark = this.pdfMoved ? (this.lastBookmark ?? this.bookmarkPdf()) : this.savedPdf?.bookmark;
       this.active = false;
+      if (this.fitTimer) window.clearTimeout(this.fitTimer);
+      this.fitTimer = undefined;
+      this.resizeBookmark = undefined;
+      this.resizing = false;
       const viewer = this.app?.pdfViewer, frameDoc = this.frame?.contentDocument;
       const page = this.pdfMoved ? viewer?.currentPageNumber : (this.savedPdf?.page ?? viewer?.currentPageNumber);
       for (const attribute of ['data-reading-immersive', 'data-reading-pdf', 'data-reading-touch']) document.documentElement.removeAttribute(attribute);
       frameDoc?.documentElement.removeAttribute('data-reading-immersive');
       frameDoc?.documentElement.removeAttribute('data-reading-touch');
+      frameDoc?.documentElement.style.removeProperty('--reading-auto-width');
       if (viewer && this.savedPdf && page) {
         viewer.spreadMode = this.savedPdf.spreadMode;
         viewer.scrollMode = this.savedPdf.scrollMode;
-        viewer.scrollPageIntoView({ pageNumber: page });
+        if (!this.manualZoom) viewer.currentScaleValue = this.savedPdf.scale;
+        if (bookmark) this.restorePdfBookmark(bookmark);
+        else viewer.scrollPageIntoView({ pageNumber: page });
         viewer.update();
         if (this.savedPdf.sidebar) frameDoc?.getElementById('viewsManagerToggleButton')?.click();
       }
@@ -220,6 +346,7 @@ const { pdf = false } = Astro.props;
       this.frameController?.abort();
       this.observer?.disconnect();
       this.resizeObserver?.disconnect();
+      this.pdfResizeObserver?.disconnect();
       document.documentElement.style.removeProperty('--reading-toolbar-height');
     }
   }
