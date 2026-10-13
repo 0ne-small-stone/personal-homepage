@@ -121,9 +121,12 @@ const { pdf = false } = Astro.props;
       if (!ready) this.status.textContent = this.frame ? 'PDF 加载完成后可进入沉浸阅读。' : 'PDF 附件尚未接入，暂时无法进入沉浸阅读。';
       else if (!document.fullscreenEnabled && this.mobile()) this.status.textContent = '此浏览器不支持系统全屏，将铺满网页阅读；右滑退出。';
       else if (!document.fullscreenEnabled) this.status.textContent = '此浏览器不支持网页全屏，无法进入沉浸阅读。';
-      else this.status.textContent = this.frame
-        ? '进入全屏后自动适配页面；手动缩放后尊重你的选择。电脑 Esc 退出，手机右滑退出。Ctrl + 加减号或 Ctrl + 滚轮缩放。'
-        : '进入全屏，电脑 Esc 退出，手机右滑退出。';
+      else if (this.frame) {
+        const strategy = this.automatic
+          ? '进入全屏后自动适配页面；手动缩放后尊重你的选择。'
+          : '已保留你的手动缩放，再次进入会沿用；刷新后恢复自动适配。';
+        this.status.textContent = strategy + '电脑 Esc 退出，手机右滑退出。Ctrl + 加减号或 Ctrl + 滚轮缩放。';
+      } else this.status.textContent = '进入全屏，电脑 Esc 退出，手机右滑退出。';
     }
     private bookmarkPdf(): PdfBookmark | undefined {
       const viewer = this.app?.pdfViewer;
