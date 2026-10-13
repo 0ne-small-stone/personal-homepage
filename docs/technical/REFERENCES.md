@@ -1,5 +1,7 @@
 # 个人主页技术调研来源和候选方案
 
+2026-10-13 T09.04修订3：沿用本机固定PDF.js6.4.299的getPageView、PageViewport尺寸/convertToPdfPoint和scrollPageIntoView的XYZ目的地，未更换版本。[官方页视口说明](https://mozilla.github.io/pdf.js/api/draft/module-pdfjsLib-PDFPageProxy.html)提供尺度/比例依据，[官方示例](https://mozilla.github.io/pdf.js/examples/index.html)说明原始viewport与旋转；本站采用固定源码实读而非把在线draft视为当前包契约。[Resize Observer](https://developer.mozilla.org/en-US/docs/Web/API/Resize_Observer_API)观察阅读区尺寸，合并回调以避免反复布局。现成能力不足之处及最小适配范围见[修订3记录](iterations/t09-04-adaptive-2026-10-13.md)；新增依赖与设计资源为0。
+
 2026-10-13 T09.04修订2：实读vendored PDF.js6.4.299的scrollMode/spreadMode、Wrapped CSS、键盘缩放与ViewHistory事件；复用[官方PDFViewer源码](https://github.com/mozilla/pdf.js/blob/master/web/pdf_viewer.js)的布局/渲染队列，避免PresentationMode单页限制。结合[Fullscreen API](https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API)的请求/退出及事件，一键耦合恢复。版本查询避免旧viewer/style缓存，公开守卫按同源路径和唯一文件参数检查；原排列pagehide恢复，正式结论见[记录](iterations/t09-04-pure-2026-10-13.md)。
 
 2026-10-13 T09.04：复用[Starlight组件覆盖](https://starlight.astro.build/guides/overriding-components/)；实读0.42.5 PageFrame/TwoColumnContent/ContentPanel及博客原生MarkdownContent，沿用既有组合扩展控制和布局。[MDN Fullscreen API](https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API)说明原生请求/退出、fullscreenchange、fullscreenEnabled与Esc退出；实现以真实事件为状态源，不自动开启。PDF.js同源iframe保留节点，捕获已打开内部面板后交还原生Esc；[实际结果](iterations/t09-04-2026-10-13.md)分别记录成功与未验边界。
