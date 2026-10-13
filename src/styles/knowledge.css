@@ -91,13 +91,17 @@ learning-reading-mode button {
 learning-reading-mode button:is(:hover, [aria-pressed='true']) { border-color: var(--sl-color-accent); background: var(--sl-color-accent-low); }
 learning-reading-mode button:disabled { cursor: default; opacity: 0.65; }
 learning-reading-mode p { margin: var(--space-2) 0 0; font-size: 0.8125rem; color: var(--sl-color-gray-2); }
-@media (min-width: 50rem) { learning-reading-mode { top: var(--sl-nav-height); } }
-html[data-reading-immersive] { scroll-padding-top: 8rem; }
+html:has(learning-reading-mode:not([hidden])) { scroll-padding-top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height) + var(--reading-toolbar-height, 6rem) + var(--space-4)); }
+@media (min-width: 50rem) {
+  learning-reading-mode { top: var(--sl-nav-height); }
+  html:has(learning-reading-mode:not([hidden])) { scroll-padding-top: calc(var(--sl-nav-height) + var(--reading-toolbar-height, 6rem) + var(--space-4)); }
+}
+html[data-reading-immersive]:has(learning-reading-mode) { scroll-padding-top: calc(var(--reading-toolbar-height, 6rem) + var(--space-4)); }
 html[data-reading-immersive] :is(.page > .header, .page > .sidebar, .right-sidebar-container, .article-navigation, .related-knowledge, .source-details, main footer, .sl-blog-metadata, .sl-blog-post-footer) { display: none !important; }
 html[data-reading-immersive] .main-frame { padding-top: 0; padding-inline-start: 0; }
 html[data-reading-immersive] .main-pane { width: 100%; --sl-content-margin-inline: auto; }
 html[data-reading-immersive] .content-panel > .sl-container { max-width: var(--reading-max); margin-inline: auto; }
 html[data-reading-immersive] learning-reading-mode { top: 0; padding-top: max(var(--space-2), env(safe-area-inset-top)); }
 html[data-reading-pdf] .content-panel > .sl-container { max-width: var(--layout-max); }
-html[data-reading-pdf] pdf-reader iframe { height: calc(100svh - 12rem); min-height: 16rem; }
+html[data-reading-pdf] pdf-reader iframe { height: calc(100svh - var(--reading-toolbar-height, 6rem) - 6rem); min-height: 16rem; }
 @media print { learning-reading-mode { display: none; } }
