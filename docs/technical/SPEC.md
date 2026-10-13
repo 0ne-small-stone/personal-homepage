@@ -20,6 +20,8 @@
 
 ## 已确认需求和当前决定
 
+2026-10-13 T09.04：用户明确选择学习详情的专注阅读及可另行开启浏览器全屏。沿用 KnowledgeContent 的原生内容组合，少量 custom element / CSS 调整布局，使用 Fullscreen API 与 fullscreenchange 读回真实状态；不新增依赖。PDF iframe 原节点保留，Esc 从同源 iframe 事件桥接，内部菜单/搜索/侧栏优先消费。页面范围内默认关闭，不持久化、不修改 URL/内容/搜索索引；断开组件清理监听与根状态。具体交互以设计 SPEC / SYSTEM 5.3 为准。
+
 2026-10-12 用户明确授权关联候选自动回写、首页与学习区整合及 GitHub Pages 部署。内容分支的三项检查成功后，独立短效令牌 job 仅提交 `.pages.yml` 候选生成区并验证新 head；main、PR 不回写。权限与并发边界见[自动回写方案](CMS_AUTO_SYNC_PROPOSAL.md)，实际结果见[整合发布记录](iterations/pages-release-2026-10-12.md)。下文收尾补记中的“待授权”为此前状态。
 
 2026-10-12 学习区收尾补记：自写笔记使用既有 docs 集合中的 `knowledge/notes/writing`，沿用 `entryId/kind/topics/related/draft` 和 Markdown，不迁移收藏笔记。Pages CMS 原生新建默认草稿、禁止改名/删除；正文与插图复用现成字段，五层相对路径指向已有公开图库。搜索过滤通过已发布条目的 Pagefind head 元数据提供，文章标签遵循博客设置。CI 先在只读检出中运行候选生成再检查构建；后台静态候选自动回写仍待授权，详细状态见[收尾验收](LEARNING_ACCEPTANCE.md)。

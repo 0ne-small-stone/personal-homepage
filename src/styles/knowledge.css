@@ -63,3 +63,41 @@ knowledge-type-filter [hidden] { display: none !important; }
 .knowledge-topic-controls button { cursor: pointer; }
 .knowledge-result-status { color: var(--sl-color-gray-2); font-size: 0.875rem; }
 .knowledge-empty { padding-block: var(--space-4); }
+
+learning-reading-mode {
+  display: block;
+  position: sticky;
+  top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height));
+  z-index: 10;
+  padding-block: var(--space-2);
+  margin-bottom: var(--space-4);
+  background: var(--sl-color-bg);
+  border-bottom: 1px solid var(--sl-color-gray-5);
+  font-family: var(--font-reading);
+}
+learning-reading-mode[hidden] { display: none; }
+.reading-mode-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+learning-reading-mode button {
+  min-height: var(--target-min);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 0.625rem;
+  background: var(--sl-color-bg);
+  color: var(--sl-color-text);
+  font: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+learning-reading-mode button:is(:hover, [aria-pressed='true']) { border-color: var(--sl-color-accent); background: var(--sl-color-accent-low); }
+learning-reading-mode button:disabled { cursor: default; opacity: 0.65; }
+learning-reading-mode p { margin: var(--space-2) 0 0; font-size: 0.8125rem; color: var(--sl-color-gray-2); }
+@media (min-width: 50rem) { learning-reading-mode { top: var(--sl-nav-height); } }
+html[data-reading-immersive] { scroll-padding-top: 8rem; }
+html[data-reading-immersive] :is(.page > .header, .page > .sidebar, .right-sidebar-container, .article-navigation, .related-knowledge, .source-details, main footer, .sl-blog-metadata, .sl-blog-post-footer) { display: none !important; }
+html[data-reading-immersive] .main-frame { padding-top: 0; padding-inline-start: 0; }
+html[data-reading-immersive] .main-pane { width: 100%; --sl-content-margin-inline: auto; }
+html[data-reading-immersive] .content-panel > .sl-container { max-width: var(--reading-max); margin-inline: auto; }
+html[data-reading-immersive] learning-reading-mode { top: 0; padding-top: max(var(--space-2), env(safe-area-inset-top)); }
+html[data-reading-pdf] .content-panel > .sl-container { max-width: var(--layout-max); }
+html[data-reading-pdf] pdf-reader iframe { height: calc(100svh - 12rem); min-height: 16rem; }
+@media print { learning-reading-mode { display: none; } }
