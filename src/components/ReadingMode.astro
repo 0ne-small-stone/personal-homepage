@@ -39,7 +39,10 @@ const { pdf = false } = Astro.props;
     private scrollY = 0;
     private savedPdf?: { scrollMode: number; spreadMode: number; sidebar: boolean; page: number };
     private pdfMoved = false;
-    private get app() { return (this.frame?.contentWindow as PdfWindow | null)?.PDFViewerApplication; }
+    private get app() {
+      try { return (this.frame?.contentWindow as PdfWindow | null)?.PDFViewerApplication; }
+      catch { return undefined; }
+    }
     private mobile() { return matchMedia('(any-pointer: coarse)').matches || matchMedia('(max-width: 48rem)').matches; }
     connectedCallback() {
       this.controller?.abort();
@@ -75,6 +78,7 @@ const { pdf = false } = Astro.props;
         this.observer.observe(reader, { attributes: true, attributeFilter: ['aria-busy'] });
       }
       window.addEventListener('pageshow', () => this.updateAvailability(), { signal });
+      window.addEventListener('pagehide', () => this.restore(), { signal });
       this.updateAvailability();
     }
     private updateAvailability() {
@@ -109,7 +113,7 @@ const { pdf = false } = Astro.props;
       }, { signal, capture: true });
       doc.addEventListener('pointercancel', () => { start = undefined; }, { signal, capture: true });
       doc.addEventListener('pointermove', (event) => {
-        if (start && event.pointerId === start.id && Math.abs(event.clientY - start.y) > 10) this.pdfMoved = true;
+        if (start && event.pointerType !== 'mouse' && event.pointerId === start.id && Math.abs(event.clientY - start.y) > 10) this.pdfMoved = true;
       }, { signal, capture: true });
       doc.addEventListener('pointerup', (event) => {
         const origin = start; start = undefined;
@@ -127,6 +131,7 @@ const { pdf = false } = Astro.props;
       this.scrollY = window.scrollY;
       this.nativeFullscreen = !!document.fullscreenEnabled;
       this.pdfMoved = false;
+      const anchor = this.frame ? undefined : this.readingAnchor(this.getBoundingClientRect().bottom + 16);
       const viewer = this.app?.pdfViewer, frameDoc = this.frame?.contentDocument;
       try {
         this.active = true;
@@ -150,7 +155,10 @@ const { pdf = false } = Astro.props;
         if (this.active) {
           viewer?.update();
           if (frameDoc) frameDoc.getElementById('viewerContainer')?.focus({ preventScroll: true });
-          else document.querySelector<HTMLElement>('.main-frame')?.focus({ preventScroll: true });
+          else {
+            const readingFrame = document.querySelector<HTMLElement>('.main-frame');
+            if (readingFrame && anchor) readingFrame.scrollTop += anchor.element.getBoundingClientRect().top - Math.max(24, anchor.top);
+          }
         }
       } catch {
         this.restore();
@@ -169,6 +177,7 @@ const { pdf = false } = Astro.props;
     }
     private restore() {
       if (!this.active) return;
+      const anchor = this.frame ? undefined : this.readingAnchor(24);
       this.active = false;
       const viewer = this.app?.pdfViewer, frameDoc = this.frame?.contentDocument;
       const page = this.pdfMoved ? viewer?.currentPageNumber : (this.savedPdf?.page ?? viewer?.currentPageNumber);
@@ -186,7 +195,13 @@ const { pdf = false } = Astro.props;
       window.scrollTo({ top: this.scrollY, behavior: 'instant' });
       this.button.setAttribute('aria-pressed', 'false');
       this.updateAvailability();
+      if (anchor) window.scrollBy({ top: anchor.element.getBoundingClientRect().top - Math.max(anchor.top, this.getBoundingClientRect().bottom + 16), behavior: 'instant' });
       this.button.focus({ preventScroll: true });
+    }
+    private readingAnchor(top: number) {
+      const element = Array.from(document.querySelectorAll<HTMLElement>('.sl-markdown-content :is(h2, h3, p, li, pre)'))
+        .find((candidate) => candidate.getBoundingClientRect().height > 0 && candidate.getBoundingClientRect().top >= top);
+      return element ? { element, top: element.getBoundingClientRect().top } : undefined;
     }
     disconnectedCallback() {
       this.restore();
