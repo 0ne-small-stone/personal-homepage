@@ -284,14 +284,70 @@
     ]
   },
   "deployment": {
-    "status": "pending merge; not yet deployed"
+    "status": "deployed and publicly verified",
+    "url": "https://0ne-small-stone.github.io/personal-homepage/",
+    "initial": {
+      "sha": "172588074650f7024cbbc55ac91651998dcea226",
+      "merged": true,
+      "message": "Pull Request successfully merged"
+    },
+    "initialRun": 38255769344,
+    "firstFrameFix": {
+      "sha": "486bec2495ff01f6b4c1b0b3107797133a186610",
+      "merged": true,
+      "message": "Pull Request successfully merged"
+    },
+    "firstFrameRun": 38257922596,
+    "firstFrameJobs": [
+      {
+        "id": 114840691336,
+        "name": "Repository checks",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": []
+      },
+      {
+        "id": 114840691626,
+        "name": "Workflow syntax",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": []
+      },
+      {
+        "id": 114840859245,
+        "name": "Astro build",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": []
+      },
+      {
+        "id": 114841170291,
+        "name": "Deploy to GitHub Pages",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": []
+      },
+      {
+        "id": 114841171582,
+        "name": "Refresh CMS candidates",
+        "status": "completed",
+        "conclusion": "skipped",
+        "steps": []
+      }
+    ]
   },
   "browserBoundaries": [
     "An early search-return sample ran before asynchronous restoration completed; a later native snapshot showed query 阅读 and both selected filters with one result.",
     "The initial mobile-home filename captured a still-open search dialog on the knowledge route; it is not a homepage passing reference. Confirm filenames below are the accepted actual routes.",
     "A mobile next-page button wait failed because PDF.js hides that button at this width. The pageNumber stepper and text layer actually showed page 3/4; sidebar closed and focus returned to manager.",
     "Leaving immediately after the chapter anchor had not settled scroll; no project-position restoration claim.",
-    "Phone viewport simulation is not physical-device performance or mainland service quality verification."
+    "Phone viewport simulation is not physical-device performance or mainland service quality verification.",
+    "Initial public homepage actually degraded under the old 8s guard. PR39 fixes startup boundaries; this remains a failed initial observation.",
+    "An early post-fix capture preceded hydration (zero canvases, undefined status) and is not a passing frame.",
+    "The first public mobile filename captured the old 1280px tab through a stale helper closure. Final helper explicitly receives target Tab7 and validates actual390px.",
+    "The mobile quality button is CSS-hidden; waiting for it failed while DOM actually showed ready and one canvas.",
+    "A stale helper targeting closed Tab5 failed without app mutation. Public final screenshots use explicit targets.",
+    "Pages CMS candidate count read is41; draft default was read from nativeAX. A separate aria switch getter timed out; no Save was performed."
   ],
   "browser": [
     {
@@ -411,5 +467,310 @@
         844
       ]
     }
-  ]
+  ],
+  "completedRecordDate": "2026-10-13",
+  "publicHttp": {
+    "checkedAt": "2026-10-12T13:50:31.257Z",
+    "base": "https://0ne-small-stone.github.io/personal-homepage/",
+    "results": [
+      {
+        "path": "",
+        "status": 200,
+        "url": "https://0ne-small-stone.github.io/personal-homepage/",
+        "title": "Little Stone Still Here",
+        "repeatedBase": false
+      },
+      {
+        "path": "knowledge/",
+        "status": 200,
+        "url": "https://0ne-small-stone.github.io/personal-homepage/knowledge/",
+        "title": "学习总览 | 个人主页",
+        "repeatedBase": false
+      },
+      {
+        "path": "knowledge/blog/",
+        "status": 200,
+        "url": "https://0ne-small-stone.github.io/personal-homepage/knowledge/blog/",
+        "title": "文章 | 个人主页",
+        "repeatedBase": false
+      },
+      {
+        "path": "knowledge/blog/article-reading-check/",
+        "status": 200,
+        "url": "https://0ne-small-stone.github.io/personal-homepage/knowledge/blog/article-reading-check/",
+        "title": "博客阅读验证（功能验证样稿） | 个人主页",
+        "repeatedBase": false
+      },
+      {
+        "path": "knowledge/resources/reading-guide/",
+        "status": 200,
+        "url": "https://0ne-small-stone.github.io/personal-homepage/knowledge/resources/reading-guide/",
+        "title": "PDF 阅读验证说明（功能样本） | 个人主页",
+        "repeatedBase": false
+      },
+      {
+        "path": "pdfjs/web/viewer.html",
+        "status": 200,
+        "url": "https://0ne-small-stone.github.io/personal-homepage/pdfjs/web/viewer.html",
+        "title": "PDF 阅读器",
+        "repeatedBase": false
+      },
+      {
+        "path": "knowledge/notes/writing/note-web-writing-check/",
+        "status": 404,
+        "url": "https://0ne-small-stone.github.io/personal-homepage/knowledge/notes/writing/note-web-writing-check/",
+        "title": "页面未找到 | 个人主页",
+        "repeatedBase": false
+      },
+      {
+        "path": "materials/lssh-pdf-reading-check.pdf",
+        "status": 200,
+        "bytes": 65959,
+        "sha256": "9e2aac37f32cc56aff3a15434a525659c95096d4481c8739c7ee9471fca953be"
+      }
+    ]
+  },
+  "publicEarlyCaptures": [
+    {
+      "name": "public-home-initial-fallback",
+      "canvasCount": 0,
+      "component": "/personal-homepage/_astro/HomeJourney.BYoU2m7m.js",
+      "documentWidth": 1265,
+      "filters": [],
+      "homeStatus": "error",
+      "title": "Little Stone Still Here",
+      "url": "https://0ne-small-stone.github.io/personal-homepage/",
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "name": "public-search-desktop",
+      "canvasCount": 0,
+      "documentWidth": 1280,
+      "filters": [
+        "主题-阅读与整理",
+        "类型-资料"
+      ],
+      "search": "阅读",
+      "title": "学习总览 | 个人主页",
+      "url": "https://0ne-small-stone.github.io/personal-homepage/knowledge/",
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "name": "public-pdf-desktop",
+      "canvasCount": 0,
+      "documentWidth": 1265,
+      "filters": [],
+      "title": "PDF 阅读验证说明（功能样本） | 个人主页",
+      "url": "https://0ne-small-stone.github.io/personal-homepage/knowledge/resources/reading-guide/",
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "name": "public-search-return",
+      "canvasCount": 0,
+      "documentWidth": 1280,
+      "filters": [
+        "主题-阅读与整理",
+        "类型-资料"
+      ],
+      "search": "阅读",
+      "title": "学习总览 | 个人主页",
+      "url": "https://0ne-small-stone.github.io/personal-homepage/knowledge/",
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "name": "public-home-after-fix-desktop",
+      "canvasCount": 0,
+      "component": "/personal-homepage/_astro/HomeJourney.B3ZLXG7m.js",
+      "documentWidth": 1265,
+      "filters": [],
+      "title": "Little Stone Still Here",
+      "url": "https://0ne-small-stone.github.io/personal-homepage/",
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "name": "public-home-desktop-confirm",
+      "canvasCount": 1,
+      "component": "/personal-homepage/_astro/HomeJourney.B3ZLXG7m.js",
+      "documentWidth": 1265,
+      "filters": [],
+      "homeStatus": "ready",
+      "title": "Little Stone Still Here",
+      "url": "https://0ne-small-stone.github.io/personal-homepage/",
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "name": "public-home-mobile-confirm",
+      "canvasCount": 1,
+      "component": "/personal-homepage/_astro/HomeJourney.B3ZLXG7m.js",
+      "documentWidth": 1265,
+      "filters": [],
+      "homeStatus": "ready",
+      "title": "Little Stone Still Here",
+      "url": "https://0ne-small-stone.github.io/personal-homepage/",
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "name": "public-knowledge-mobile-confirm",
+      "canvasCount": 0,
+      "documentWidth": 1265,
+      "filters": [],
+      "title": "学习总览 | 个人主页",
+      "url": "https://0ne-small-stone.github.io/personal-homepage/knowledge/?type=resource&topic=%E9%98%85%E8%AF%BB%E4%B8%8E%E6%95%B4%E7%90%86",
+      "viewport": [
+        1280,
+        720
+      ]
+    }
+  ],
+  "publicFinalCaptures": [
+    {
+      "name": "public-home-mobile-final",
+      "canvasCount": 1,
+      "component": "/personal-homepage/_astro/HomeJourney.B3ZLXG7m.js",
+      "documentWidth": 375,
+      "filters": [],
+      "homeStatus": "ready",
+      "title": "Little Stone Still Here",
+      "url": "https://0ne-small-stone.github.io/personal-homepage/",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "name": "public-knowledge-mobile-final",
+      "canvasCount": 0,
+      "documentWidth": 375,
+      "filters": [],
+      "title": "学习总览 | 个人主页",
+      "url": "https://0ne-small-stone.github.io/personal-homepage/knowledge/?type=resource&topic=%E9%98%85%E8%AF%BB%E4%B8%8E%E6%95%B4%E7%90%86",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "name": "public-pdf-mobile-final",
+      "canvasCount": 0,
+      "documentWidth": 375,
+      "filters": [],
+      "title": "PDF 阅读验证说明（功能样本） | 个人主页",
+      "url": "https://0ne-small-stone.github.io/personal-homepage/knowledge/resources/reading-guide/",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "name": "public-home-desktop-final",
+      "canvasCount": 1,
+      "component": "/personal-homepage/_astro/HomeJourney.B3ZLXG7m.js",
+      "documentWidth": 1265,
+      "filters": [],
+      "homeStatus": "ready",
+      "title": "Little Stone Still Here",
+      "url": "https://0ne-small-stone.github.io/personal-homepage/",
+      "viewport": [
+        1280,
+        720
+      ]
+    }
+  ],
+  "publicReader": {
+    "pageNumber": 3,
+    "sidebarClosed": true,
+    "verified": "Actual iframe pageNumber locator property and screenshot; public-pdf-mobile-final"
+  },
+  "cms": {
+    "branch": "codex/content-editor",
+    "base": "486bec2495ff01f6b4c1b0b3107797133a186610",
+    "options": 41,
+    "nativeNewForm": true,
+    "defaultDraft": true,
+    "newSave": false
+  },
+  "protection": {
+    "url": "https://api.github.com/repos/0ne-small-stone/personal-homepage/branches/main/protection",
+    "required_status_checks": {
+      "url": "https://api.github.com/repos/0ne-small-stone/personal-homepage/branches/main/protection/required_status_checks",
+      "strict": true,
+      "contexts": [
+        "Repository checks",
+        "Workflow syntax",
+        "Astro build"
+      ],
+      "contexts_url": "https://api.github.com/repos/0ne-small-stone/personal-homepage/branches/main/protection/required_status_checks/contexts",
+      "checks": [
+        {
+          "context": "Repository checks",
+          "app_id": 15368
+        },
+        {
+          "context": "Workflow syntax",
+          "app_id": 15368
+        },
+        {
+          "context": "Astro build",
+          "app_id": 15368
+        }
+      ]
+    },
+    "required_pull_request_reviews": {
+      "url": "https://api.github.com/repos/0ne-small-stone/personal-homepage/branches/main/protection/required_pull_request_reviews",
+      "dismiss_stale_reviews": true,
+      "require_code_owner_reviews": false,
+      "require_last_push_approval": false,
+      "required_approving_review_count": 0
+    },
+    "required_signatures": {
+      "url": "https://api.github.com/repos/0ne-small-stone/personal-homepage/branches/main/protection/required_signatures",
+      "enabled": false
+    },
+    "enforce_admins": {
+      "url": "https://api.github.com/repos/0ne-small-stone/personal-homepage/branches/main/protection/enforce_admins",
+      "enabled": true
+    },
+    "required_linear_history": {
+      "enabled": true
+    },
+    "allow_force_pushes": {
+      "enabled": false
+    },
+    "allow_deletions": {
+      "enabled": false
+    },
+    "block_creations": {
+      "enabled": false
+    },
+    "required_conversation_resolution": {
+      "enabled": true
+    },
+    "lock_branch": {
+      "enabled": false
+    },
+    "allow_fork_syncing": {
+      "enabled": false
+    }
+  }
 }

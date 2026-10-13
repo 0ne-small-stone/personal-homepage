@@ -1,5 +1,7 @@
 # 个人主页设计实施计划与验收工作流
 
+2026-10-13 U01/U09/U13/U14整合发布执行验收完成：[正式桌面首页](iterations/evidence/pages-release-2026-10-12/public-home-desktop-final.png)、[390px首页](iterations/evidence/pages-release-2026-10-12/public-home-mobile-final.png)、[学习区](iterations/evidence/pages-release-2026-10-12/public-knowledge-mobile-final.png)、[PDF](iterations/evidence/pages-release-2026-10-12/public-pdf-mobile-final.png)。首帧修复仅改变加载就绪边界，未改变第50轮视觉/光路。原始公网失败、误定位与采集边界保留于[工程记录](../technical/iterations/pages-release-2026-10-12.md)。用户审美、读屏和真机性能另记。
+
 2026-10-12 U01/U09/U13/U14：用户授权首页与学习区整合发布。复用 PublicDirectory 原生 details/summary 和焦点关闭逻辑接入首页顶栏，保持第50轮场景与三项主要入口；手机使用“目录”短文案和两列排列避免遮挡。桌面/390px跨区导航、目录Esc、阅读返回与公开PDF按实际整合产物验收，证据见[发布记录](../technical/iterations/pages-release-2026-10-12.md)。沿用 ui-ux-pro-max；没有新增美术资源、主题或控件库，执行者验收与用户审美确认分别记录。
 
 2026-10-12 U09/U13/U14 学习收尾局部执行验证：我的笔记原生新建/必填/Editor与Source/共用图库/关联/草稿，当前与发布候选两态阅读；P15 原生类型/主题/可选标签和阅读返回筛选/焦点，桌面与390px正文/插图/PDF侧栏已核验。收藏笔记排除writing目录后入口不重复。复用现成控件与原插图，素材/依赖新增0；后台防误离开、自动候选回写、读屏、真机及用户体验另记。[本轮证据](iterations/u09-u13-learning-wrapup-2026-10-12.md)。
