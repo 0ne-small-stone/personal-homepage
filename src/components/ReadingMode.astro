@@ -16,6 +16,7 @@ const { pdf = false } = Astro.props;
     viewport: { width: number; height: number; convertToPdfPoint(x: number, y: number): number[] };
   }
   interface PdfBookmark { page: number; x: number; y: number; }
+  type LocationListener = (event: { location: { pageNumber: number; left: number; top: number } }) => void;
   interface PdfViewer {
     pdfDocument?: unknown;
     scrollMode: number;
@@ -29,6 +30,7 @@ const { pdf = false } = Astro.props;
   }
   interface PdfApplication {
     pdfViewer?: PdfViewer;
+    eventBus?: { on(name: string, listener: LocationListener): void; off(name: string, listener: LocationListener): void };
     findBar?: { close(): void };
     secondaryToolbar?: { close(): void };
   }
@@ -40,6 +42,10 @@ const { pdf = false } = Astro.props;
     private resizeObserver?: ResizeObserver;
     private pdfResizeObserver?: ResizeObserver;
     private fitTimer?: number;
+    private trackedBus?: PdfApplication['eventBus'];
+    private lastBookmark?: PdfBookmark;
+    private resizeBookmark?: PdfBookmark;
+    private resizing = false;
     private button!: HTMLButtonElement;
     private status!: HTMLElement;
     private frame?: HTMLIFrameElement;
@@ -80,6 +86,12 @@ const { pdf = false } = Astro.props;
           this.frameController = new AbortController();
           const frameDocument = this.frame?.contentDocument;
           if (frameDocument) this.bindInput(frameDocument, this.frameController.signal);
+          frameDocument?.defaultView?.addEventListener('resize', () => {
+            if (!this.active || this.pending) return;
+            this.resizing = true;
+            this.resizeBookmark ??= this.lastBookmark ?? this.bookmarkPdf();
+            this.scheduleFit();
+          }, { signal: this.frameController.signal, capture: true });
           this.pdfResizeObserver?.disconnect();
           const container = frameDocument?.getElementById('viewerContainer');
           if (container) {
@@ -132,6 +144,22 @@ const { pdf = false } = Astro.props;
         ignoreDestinationZoom: true,
       });
     }
+    private trackPdfLocation() {
+      const bus = this.app?.eventBus;
+      if (!bus || bus === this.trackedBus) return;
+      const listener: LocationListener = ({ location }) => {
+        if (!this.active || this.pending || this.resizing) return;
+        this.lastBookmark = !this.pdfMoved && this.savedPdf?.bookmark ? this.savedPdf.bookmark
+          : { page: location.pageNumber, x: location.left, y: location.top };
+      };
+      bus.on('updateviewarea', listener);
+      // PDF.js checks its own realm's AbortSignal; explicitly detach our listener.
+      this.frameController?.signal.addEventListener('abort', () => {
+        bus.off('updateviewarea', listener);
+        if (this.trackedBus === bus) this.trackedBus = undefined;
+      }, { once: true });
+      this.trackedBus = bus;
+    }
     private fitPdf(bookmark = this.bookmarkPdf()) {
       if (!this.active || !this.automatic) return;
       const viewer = this.app?.pdfViewer, doc = this.frame?.contentDocument;
@@ -145,11 +173,19 @@ const { pdf = false } = Astro.props;
       viewer.currentScaleValue = String(layout.scale);
       viewer.update();
       this.restorePdfBookmark(bookmark);
+      this.lastBookmark = bookmark;
     }
     private scheduleFit() {
-      if (!this.active || this.pending || !this.automatic) return;
+      if (!this.active || this.pending) return;
       if (this.fitTimer) window.clearTimeout(this.fitTimer);
-      this.fitTimer = window.setTimeout(() => { this.fitTimer = undefined; this.fitPdf(); }, 120);
+      this.fitTimer = window.setTimeout(() => {
+        this.fitTimer = undefined;
+        const bookmark = this.resizeBookmark ?? this.lastBookmark ?? this.bookmarkPdf();
+        if (this.automatic) this.fitPdf(bookmark);
+        else { this.restorePdfBookmark(bookmark); this.app?.pdfViewer?.update(); this.lastBookmark = bookmark; }
+        this.resizeBookmark = undefined;
+        this.resizing = false;
+      }, 120);
     }
     private useManualZoom() {
       if (!this.active || !this.frame) return;
@@ -157,6 +193,8 @@ const { pdf = false } = Astro.props;
       this.manualZoom = true;
       if (this.fitTimer) window.clearTimeout(this.fitTimer);
       this.fitTimer = undefined;
+      this.resizeBookmark = undefined;
+      this.resizing = false;
       this.frame.contentDocument?.documentElement.style.removeProperty('--reading-auto-width');
     }
     private bindInput(doc: Document, signal: AbortSignal) {
@@ -216,6 +254,8 @@ const { pdf = false } = Astro.props;
           const panel = frameDoc.getElementById('viewsManager');
           this.savedPdf = { scrollMode: viewer.scrollMode, spreadMode: viewer.spreadMode, sidebar: !!panel && !panel.hidden, page: viewer.currentPageNumber,
             scale: viewer.currentScaleValue, bookmark: this.bookmarkPdf() };
+          this.lastBookmark = this.savedPdf.bookmark;
+          this.trackPdfLocation();
           if (this.savedPdf.sidebar) frameDoc.getElementById('viewsManagerToggleButton')?.click();
           this.app?.findBar?.close();
           this.app?.secondaryToolbar?.close();
@@ -259,10 +299,12 @@ const { pdf = false } = Astro.props;
     private restore() {
       if (!this.active) return;
       const anchor = this.frame ? undefined : this.readingAnchor(24);
-      const bookmark = this.pdfMoved ? this.bookmarkPdf() : this.savedPdf?.bookmark;
+      const bookmark = this.pdfMoved ? (this.lastBookmark ?? this.bookmarkPdf()) : this.savedPdf?.bookmark;
       this.active = false;
       if (this.fitTimer) window.clearTimeout(this.fitTimer);
       this.fitTimer = undefined;
+      this.resizeBookmark = undefined;
+      this.resizing = false;
       const viewer = this.app?.pdfViewer, frameDoc = this.frame?.contentDocument;
       const page = this.pdfMoved ? viewer?.currentPageNumber : (this.savedPdf?.page ?? viewer?.currentPageNumber);
       for (const attribute of ['data-reading-immersive', 'data-reading-pdf', 'data-reading-touch']) document.documentElement.removeAttribute(attribute);
