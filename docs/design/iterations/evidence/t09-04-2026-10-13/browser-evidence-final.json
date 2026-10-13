@@ -1,0 +1,449 @@
+[
+  {
+    "name": "article-immersive-desktop",
+    "focus": "退出沉浸",
+    "fullscreen": null,
+    "header": "none",
+    "height": 720,
+    "mode": true,
+    "overflow": false,
+    "scroll": 0,
+    "sidebar": "none",
+    "status": "沉浸阅读中 · Esc 可退出；全屏时先退出全屏。",
+    "toolbar": {
+      "bottom": 282.171875,
+      "height": 92.390625,
+      "left": 344.5,
+      "right": 920.5,
+      "top": 189.78125,
+      "width": 576,
+      "x": 344.5,
+      "y": 189.78125
+    },
+    "url": "http://127.0.0.1:4391/personal-homepage/knowledge/blog/article-reading-check/",
+    "width": 1280
+  },
+  {
+    "name": "article-fullscreen",
+    "focus": "退出全屏",
+    "fullscreen": null,
+    "header": "none",
+    "height": 1440,
+    "mode": true,
+    "overflow": false,
+    "scroll": 0,
+    "sidebar": "none",
+    "status": "浏览器全屏中 · Esc 可退出全屏。",
+    "toolbar": {
+      "bottom": 282.171875,
+      "height": 92.390625,
+      "left": 1424.5,
+      "right": 2000.5,
+      "top": 189.78125,
+      "width": 576,
+      "x": 1424.5,
+      "y": 189.78125
+    },
+    "url": "http://127.0.0.1:4391/personal-homepage/knowledge/blog/article-reading-check/",
+    "width": 3440
+  },
+  {
+    "name": "fullscreen-escape",
+    "focus": "退出全屏",
+    "fullscreen": null,
+    "header": "none",
+    "height": 720,
+    "mode": true,
+    "overflow": false,
+    "scroll": 0,
+    "sidebar": "none",
+    "status": "浏览器全屏中 · Esc 可退出全屏。",
+    "toolbar": {
+      "bottom": 282.171875,
+      "height": 92.390625,
+      "left": 344.5,
+      "right": 920.5,
+      "top": 189.78125,
+      "width": 576,
+      "x": 344.5,
+      "y": 189.78125
+    },
+    "url": "http://127.0.0.1:4391/personal-homepage/knowledge/blog/article-reading-check/",
+    "width": 1280
+  },
+  {
+    "name": "article-escape-restore",
+    "focus": "退出沉浸",
+    "fullscreen": null,
+    "header": "none",
+    "height": 720,
+    "mode": true,
+    "overflow": false,
+    "scroll": 0,
+    "sidebar": "none",
+    "status": "浏览器全屏中 · Esc 可退出全屏。",
+    "toolbar": {
+      "bottom": 282.171875,
+      "height": 92.390625,
+      "left": 344.5,
+      "right": 920.5,
+      "top": 189.78125,
+      "width": 576,
+      "x": 344.5,
+      "y": 189.78125
+    },
+    "url": "http://127.0.0.1:4391/personal-homepage/knowledge/blog/article-reading-check/",
+    "width": 1280
+  },
+  {
+    "name": "article-escape-restored-final",
+    "focus": "沉浸阅读",
+    "fullscreen": null,
+    "header": "block",
+    "height": 720,
+    "mode": false,
+    "overflow": false,
+    "scroll": 123,
+    "sidebar": "block",
+    "status": "已恢复普通阅读。",
+    "toolbar": {
+      "bottom": 172.78125,
+      "height": 92.390625,
+      "left": 324,
+      "right": 941,
+      "top": 80.390625,
+      "width": 617,
+      "x": 324,
+      "y": 80.390625
+    },
+    "url": "http://127.0.0.1:4391/personal-homepage/knowledge/blog/article-reading-check/",
+    "width": 1280
+  },
+  {
+    "name": "article-mid-reading",
+    "focus": "退出沉浸",
+    "fullscreen": null,
+    "header": "none",
+    "height": 720,
+    "mode": true,
+    "overflow": false,
+    "scroll": 983,
+    "sidebar": "none",
+    "status": "沉浸阅读中 · Esc 可退出；全屏时先退出全屏。",
+    "toolbar": {
+      "bottom": 92.390625,
+      "height": 92.390625,
+      "left": 344.5,
+      "right": 920.5,
+      "top": 0,
+      "width": 576,
+      "x": 344.5,
+      "y": 0
+    },
+    "url": "http://127.0.0.1:4391/personal-homepage/knowledge/blog/article-reading-check/#%E9%98%85%E8%AF%BB%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5",
+    "width": 1280
+  },
+  {
+    "name": "chapter-anchor-preserved",
+    "beforeReading": {
+      "toolbarBottom": 156.390625,
+      "top": 172.390625
+    },
+    "afterReading": {
+      "toolbarBottom": 92.390625,
+      "top": 905.1875
+    }
+  },
+  {
+    "name": "native-mid-click",
+    "nativeBefore": {
+      "scroll": 1274,
+      "top": 172.390625
+    },
+    "nativeAfter": {
+      "scroll": 1209,
+      "top": 172.1875
+    }
+  },
+  {
+    "name": "search-shortcut-recovery",
+    "data": {
+      "dialog": true,
+      "header": "block",
+      "input": {
+        "bottom": 140.1875,
+        "height": 51.1875,
+        "left": 345,
+        "right": 935,
+        "top": 89,
+        "width": 590,
+        "x": 345,
+        "y": 89
+      },
+      "mode": false
+    }
+  },
+  {
+    "name": "pdf-immersive-desktop",
+    "focus": "退出沉浸",
+    "fullscreen": null,
+    "header": "none",
+    "height": 720,
+    "mode": true,
+    "overflow": false,
+    "scroll": 165,
+    "sidebar": "none",
+    "status": "沉浸阅读中 · Esc 可退出；全屏时先退出全屏。",
+    "toolbar": {
+      "bottom": 92.390625,
+      "height": 92.390625,
+      "left": 32.5,
+      "right": 1232.5,
+      "top": 0,
+      "width": 1200,
+      "x": 32.5,
+      "y": 0
+    },
+    "url": "http://127.0.0.1:4391/personal-homepage/knowledge/resources/reading-guide/",
+    "width": 1280
+  },
+  {
+    "name": "pdf-sidebar-escape-priority",
+    "data": {
+      "hidden": true,
+      "page": "3",
+      "zoom": "1.25"
+    },
+    "mode": "true"
+  },
+  {
+    "name": "pdf-search-escape-priority",
+    "data": {
+      "hidden": true
+    },
+    "mode": "false"
+  },
+  {
+    "name": "pdf-escape-restored",
+    "focus": "",
+    "fullscreen": null,
+    "header": "block",
+    "height": 720,
+    "mode": false,
+    "overflow": false,
+    "scroll": 19,
+    "sidebar": "block",
+    "status": "已恢复普通阅读。",
+    "toolbar": {
+      "bottom": 276.78125,
+      "height": 92.390625,
+      "left": 422.5,
+      "right": 1142.5,
+      "top": 184.390625,
+      "width": 720,
+      "x": 422.5,
+      "y": 184.390625
+    },
+    "url": "http://127.0.0.1:4391/personal-homepage/knowledge/resources/reading-guide/",
+    "width": 1280
+  },
+  {
+    "name": "pdf-search-escape-priority-fixed",
+    "mode": "true",
+    "find": true
+  },
+  {
+    "name": "pdf-escape-parent-focus-fixed",
+    "mode": "false",
+    "state": {
+      "page": "3",
+      "zoom": "1.25"
+    },
+    "focus": true
+  },
+  {
+    "name": "pdf-immersive-mobile",
+    "focus": "退出沉浸",
+    "fullscreen": null,
+    "header": "none",
+    "height": 844,
+    "mode": true,
+    "overflow": false,
+    "scroll": 240,
+    "sidebar": "none",
+    "status": "沉浸阅读中 · Esc 可退出；全屏时先退出全屏。",
+    "toolbar": {
+      "bottom": 92.390625,
+      "height": 92.390625,
+      "left": 16,
+      "right": 359,
+      "top": 0,
+      "width": 343,
+      "x": 16,
+      "y": 0
+    },
+    "url": "http://127.0.0.1:4391/personal-homepage/knowledge/resources/reading-guide/",
+    "width": 390
+  },
+  {
+    "name": "mobile-pdf-preserved",
+    "page": "3",
+    "zoom": "page-width"
+  },
+  {
+    "name": "article-immersive-mobile",
+    "focus": "退出沉浸",
+    "fullscreen": null,
+    "header": "none",
+    "height": 844,
+    "mode": true,
+    "overflow": false,
+    "scroll": 0,
+    "sidebar": "none",
+    "status": "沉浸阅读中 · Esc 可退出；全屏时先退出全屏。",
+    "toolbar": {
+      "bottom": 265.390625,
+      "height": 92.390625,
+      "left": 16,
+      "right": 359,
+      "top": 173,
+      "width": 343,
+      "x": 16,
+      "y": 173
+    },
+    "url": "http://127.0.0.1:4391/personal-homepage/knowledge/blog/article-reading-check/",
+    "width": 390
+  },
+  {
+    "name": "article-immersive-320",
+    "focus": "退出沉浸",
+    "fullscreen": null,
+    "header": "none",
+    "height": 680,
+    "mode": true,
+    "overflow": false,
+    "scroll": 0,
+    "sidebar": "none",
+    "status": "沉浸阅读中 · Esc 可退出；全屏时先退出全屏。",
+    "toolbar": {
+      "bottom": 330.78125,
+      "height": 115.78125,
+      "left": 16,
+      "right": 289,
+      "top": 215,
+      "width": 273,
+      "x": 16,
+      "y": 215
+    },
+    "url": "http://127.0.0.1:4391/personal-homepage/knowledge/blog/article-reading-check/",
+    "width": 320
+  },
+  {
+    "name": "article-immersive-light",
+    "focus": "退出沉浸",
+    "fullscreen": null,
+    "header": "none",
+    "height": 720,
+    "mode": true,
+    "overflow": false,
+    "scroll": 0,
+    "sidebar": "none",
+    "status": "沉浸阅读中 · Esc 可退出；全屏时先退出全屏。",
+    "toolbar": {
+      "bottom": 282.171875,
+      "height": 92.390625,
+      "left": 344.5,
+      "right": 920.5,
+      "top": 189.78125,
+      "width": 576,
+      "x": 344.5,
+      "y": 189.78125
+    },
+    "url": "http://127.0.0.1:4391/personal-homepage/knowledge/blog/article-reading-check/",
+    "width": 1280
+  },
+  {
+    "name": "native-fullscreen-enter",
+    "pressed": "true"
+  },
+  {
+    "name": "native-fullscreen-button-exit",
+    "mode": "true",
+    "fullscreen": "false"
+  },
+  {
+    "name": "native-keyboard-enter-escape",
+    "mode": "true"
+  },
+  {
+    "name": "note-next-page-reset",
+    "url": "http://127.0.0.1:4391/personal-homepage/knowledge/notes/ads/ads-algorithms-notes/",
+    "mode": "false"
+  },
+  {
+    "name": "overview-filter-return",
+    "url": "http://127.0.0.1:4391/personal-homepage/knowledge/?type=article",
+    "focus": "博客阅读验证（功能验证样稿）",
+    "controls": 0
+  },
+  {
+    "name": "article-immersive-public",
+    "focus": "退出沉浸",
+    "fullscreen": null,
+    "header": "none",
+    "height": 720,
+    "mode": true,
+    "overflow": false,
+    "scroll": 0,
+    "sidebar": "none",
+    "status": "沉浸阅读中 · Esc 可退出；全屏时先退出全屏。",
+    "toolbar": {
+      "bottom": 282.171875,
+      "height": 92.390625,
+      "left": 344.5,
+      "right": 920.5,
+      "top": 189.78125,
+      "width": 576,
+      "x": 344.5,
+      "y": 189.78125
+    },
+    "url": "https://0ne-small-stone.github.io/personal-homepage/knowledge/blog/article-reading-check/",
+    "width": 1280
+  },
+  {
+    "name": "public-browser-fullscreen",
+    "entered": "true",
+    "exited": "false",
+    "mode": "true"
+  },
+  {
+    "name": "public-pdf-mode-state",
+    "page": "3",
+    "zoom": "1.25",
+    "waitBoundary": "Initial tool wait timed out with visible matching status; fresh native state confirmed ready."
+  },
+  {
+    "name": "pdf-immersive-public",
+    "focus": "退出沉浸",
+    "fullscreen": null,
+    "header": "none",
+    "height": 720,
+    "mode": true,
+    "overflow": false,
+    "scroll": 160,
+    "sidebar": "none",
+    "status": "沉浸阅读中 · Esc 可退出；全屏时先退出全屏。",
+    "toolbar": {
+      "bottom": 92.390625,
+      "height": 92.390625,
+      "left": 32.5,
+      "right": 1232.5,
+      "top": 0,
+      "width": 1200,
+      "x": 32.5,
+      "y": 0
+    },
+    "url": "https://0ne-small-stone.github.io/personal-homepage/knowledge/resources/reading-guide/",
+    "width": 1280
+  }
+]
