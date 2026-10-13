@@ -1,5 +1,7 @@
 # 个人主页项目
 
+2026-10-13 收口：**已发布 GitHub Pages**，首页与学习区已整合；[正式主页](https://0ne-small-stone.github.io/personal-homepage/)、[学习总览](https://0ne-small-stone.github.io/personal-homepage/knowledge/)、[网页编辑](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Fcontent-editor/collection/writing-notes)。内容分支保存后自动回写关联候选并验证新提交，经PR合并main后发布。正式首页首帧问题已通过独立PR修复，桌面/390px、公网搜索及PDF第三页/侧栏通过；原48内容、教材原件和本地音乐未改或上传。[完整证据](docs/technical/iterations/pages-release-2026-10-12.md)。后文保留各轮历史状态。
+
 这是一个包含知识库、个人作品、照片与音乐互动的个人主页项目。学习资料、博客和数字花园合并为同一个知识库，共享分类、搜索、引用关系和编辑入口。当前工作路线是 Astro 静态主站、GitHub 内容仓库、Giscus 留言，以及音乐同步和未来 AI 所需的按需服务端功能。
 
 实施策略：优先复用成熟框架、主题、插件和托管服务，配置与集成优先，只补实际缺少的业务能力。知识库优先验证 Starlight 及其博客插件，以学习总览、分类、搜索与普通引用链接浏览，内容结构和路由沿用现成方案的约定。

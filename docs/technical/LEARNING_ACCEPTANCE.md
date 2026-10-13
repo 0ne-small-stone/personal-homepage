@@ -4,11 +4,11 @@
 
 ## 体验入口
 
-- [当前学习区](http://127.0.0.1:4386/personal-homepage/knowledge/)：41条公开内容，两个新增功能笔记保持草稿。
+- [正式学习区](https://0ne-small-stone.github.io/personal-homepage/knowledge/)：41条公开内容，两个新增功能笔记保持草稿。
 - [冻结功能笔记快照](http://127.0.0.1:4387/personal-homepage/knowledge/?type=note&topic=%E9%98%85%E8%AF%BB%E4%B8%8E%E6%95%B4%E7%90%86&sort=title-asc)：42条，额外一条明确标注的功能样稿，用于体验本文新增能力；不是当前发布状态。
-- [我的笔记后台](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Flearning-wrapup/collection/writing-notes)：新建和编辑自写笔记；资料/收藏笔记保留说明编辑。
+- [我的笔记后台](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Fcontent-editor/collection/writing-notes)：新建和编辑自写笔记；资料/收藏笔记保留说明编辑。
 
-本地服务是独立只读构建；机器或后台进程重启后需重新启动。首页是此学习分支的旧入口占位，最新首页在另一个开发分支。
+正式首页与学习区已整合发布。本机冻结快照仍是独立只读构建，机器或进程重启后需重新启动；不代表当前正式内容。
 
 ## 逐项验证
 
@@ -25,10 +25,10 @@
 | --- | --- |
 | 浏览、阅读、关联、筛选/排序、文章分页、可选标签 | 已有切片验收；本轮补自写笔记及搜索过滤/返回 |
 | 三类编辑 | 文章/自写笔记可编辑正文；既有资料/收藏笔记编辑标题、摘要、主题；原站/PDF内容按阅读入口使用 |
-| 保存后的构建 | 只读派生候选已验；后台候选自动回写[待授权](CMS_AUTO_SYNC_PROPOSAL.md) |
+| 保存后的构建 | 内容分支候选自动回写及新head检查已验，main/PR不回写；[范围与恢复](CMS_AUTO_SYNC_PROPOSAL.md) |
 | PDF公开范围 | 只公开一个自制CC0四页样本；36份课程附件仍保留本地，真实公开范围/存储另验 |
 | 托管编辑器 | 返回列表会放弃未保存输入；重开Save仍可点，成功以提交与读回为准；未自动备份/合并 |
-| 正式上线 | Pages已设Actions/HTTPS；main尚无网站工程，构建/部署跳过，需整合首页及学习区PR后发布 |
+| 正式上线 | 已整合并发布正式HTTPS站点，首帧修复、公开搜索/PDF及草稿404通过；[真实上线记录](iterations/pages-release-2026-10-12.md) |
 | 后续内容能力 | 正式文章/自写笔记需补内容；笔记生长状态、任意正文链接提取/旧地址迁移另作需求切片；读屏、真机/大陆访问另验 |
 
 本轮不把上表剩余事项记为完成，不恢复已取消的P04/P07。
