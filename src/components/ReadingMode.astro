@@ -135,7 +135,7 @@ const { pdf = false } = Astro.props;
       if (!viewer || !page || !container) return;
       const paper = page.div.getBoundingClientRect(), area = container.getBoundingClientRect();
       const x = Math.max(0, Math.min(page.viewport.width, area.left - paper.left - page.div.clientLeft));
-      const y = Math.max(0, Math.min(page.viewport.height, area.top + 24 - paper.top - page.div.clientTop));
+      const y = Math.max(0, Math.min(page.viewport.height, area.top - paper.top - page.div.clientTop));
       const point = page.viewport.convertToPdfPoint(x, y);
       return { page: viewer.currentPageNumber, x: point[0], y: point[1] };
     }
