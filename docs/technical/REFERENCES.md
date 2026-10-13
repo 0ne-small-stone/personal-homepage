@@ -1,5 +1,7 @@
 # 个人主页技术调研来源和候选方案
 
+2026-10-13 T09.04：复用[Starlight组件覆盖](https://starlight.astro.build/guides/overriding-components/)；实读0.42.5 PageFrame/TwoColumnContent/ContentPanel及博客原生MarkdownContent，沿用既有组合扩展控制和布局。[MDN Fullscreen API](https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API)说明原生请求/退出、fullscreenchange、fullscreenEnabled与Esc退出；实现以真实事件为状态源，不自动开启。PDF.js同源iframe保留节点，捕获已打开内部面板后交还原生Esc；[实际结果](iterations/t09-04-2026-10-13.md)分别记录成功与未验边界。
+
 ## 学习区收尾来源（2026-10-12）
 
 - [Pages CMS 原生集合与目录/排除配置](https://pagescms.org/docs/configuration/content/)、[静态select](https://pagescms.org/docs/configuration/fields/select/)：复用原生笔记新建、正文和关联；沿用此前固定MIT源码及ConfigSchema，未引入新依赖。
