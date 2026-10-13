@@ -103,6 +103,7 @@ html[data-reading-immersive] .main-pane { width: 100%; --sl-content-margin-inlin
 html[data-reading-immersive] .content-panel > .sl-container { max-width: var(--reading-max); margin-inline: auto; }
 html[data-reading-immersive] :is(learning-reading-mode, .sl-skip-link, .expressive-code .copy) { display: none !important; }
 html[data-reading-immersive]:not([data-reading-pdf]) .main-frame { position: fixed; inset: 0; overflow: auto; background: var(--sl-color-bg); }
+html[data-reading-immersive]:not([data-reading-pdf]) .main-frame:focus { outline: none; }
 html[data-reading-touch]:not([data-reading-pdf]) .main-frame { touch-action: pan-y pinch-zoom; }
 html[data-reading-pdf] .page { visibility: hidden; }
 html[data-reading-pdf] pdf-reader iframe { visibility: visible; position: fixed; inset: 0; width: 100%; height: 100dvh; min-height: 0; max-width: none; margin: 0; border: 0; border-radius: 0; z-index: 1000; }

@@ -23,6 +23,8 @@ function rejected(name, file, change, expected) {
 rejected('changed source bytes', paths[1], (data) => { const copy = Buffer.from(data); copy[20] ^= 1; return copy; }, /source checksum mismatch/);
 rejected('changed published attachment', paths[2], (data) => Buffer.concat([data, Buffer.from('x')]), /published attachment changed/);
 rejected('wrong deployment prefix', paths[3], (data) => data.toString().replace('src="/personal-homepage/pdfjs/', 'src="/pdfjs/'), /missing prefixed viewer/);
+rejected('external viewer origin', paths[3], (data) => data.toString().replace('src="/personal-homepage/pdfjs/', 'src="https://example.invalid/personal-homepage/pdfjs/'), /missing prefixed viewer/);
+rejected('duplicate PDF file parameter', paths[3], (data) => data.toString().replace(/(<iframe\b[^>]*\bsrc="[^"]+)/, '$1&amp;file=%2Fpersonal-homepage%2Fmaterials%2Fother-file.pdf'), /missing prefixed viewer/);
 rejected('unsafe file path', paths[0], (data) => data.toString().replace('materials/lssh-pdf-reading-check.pdf', '../lssh-pdf-reading-check.pdf'), /unsafe public path/);
 rejected('stale byte metadata', paths[0], (data) => data.toString().replace('bytes: 65959', 'bytes: 65958'), /size mismatch/);
 rejected('missing public checksum', paths[0], (data) => data.toString().replace(/^  sha256:.*\r?\n/m, ''), /missing public checksum/);
