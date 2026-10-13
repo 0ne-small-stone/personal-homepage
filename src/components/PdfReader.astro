@@ -28,7 +28,7 @@ const viewer = `${base}/pdfjs/web/viewer.html?file=${encodeURIComponent(file)}`;
   <div class="reader-bar">
     <p role="status" data-status>{available ? '正在加载 PDF…' : 'PDF 附件尚未接入，暂时无法阅读。'}</p>
     {available && <div class="reader-actions">
-      <a href={viewer} target="_blank" rel="noopener">全屏阅读</a>
+      <a href={viewer} target="_blank" rel="noopener">独立阅读器 ↗</a>
       <a href={file} download={`${title}.pdf`}>下载 PDF</a>
     </div>}
   </div>

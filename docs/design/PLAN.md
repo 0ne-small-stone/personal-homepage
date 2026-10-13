@@ -1,5 +1,7 @@
 # 个人主页设计实施计划与验收工作流
 
+2026-10-13 U09/U14 · P05/P06 · T09.04局部执行通过：用户选择沉浸阅读加独立浏览器全屏。沿用ui-ux-pro-max、Starlight/PDF.js、苹方优先与SYSTEM5.3，无新图片/字体/依赖。桌面/390/320、深浅色、44px、常驻退出/原生Enter/Esc、章节避让与PDF状态/面板优先通过；[原始问题与证据](../technical/iterations/t09-04-2026-10-13.md)分别留证。用户审美、真机与其他浏览器全屏另验，列表继续普通浏览，外站笔记由原站控制，本片完成即停。
+
 2026-10-13 U01/U09/U13/U14整合发布执行验收完成：[正式桌面首页](iterations/evidence/pages-release-2026-10-12/public-home-desktop-final.png)、[390px首页](iterations/evidence/pages-release-2026-10-12/public-home-mobile-final.png)、[学习区](iterations/evidence/pages-release-2026-10-12/public-knowledge-mobile-final.png)、[PDF](iterations/evidence/pages-release-2026-10-12/public-pdf-mobile-final.png)。首帧修复仅改变加载就绪边界，未改变第50轮视觉/光路。原始公网失败、误定位与采集边界保留于[工程记录](../technical/iterations/pages-release-2026-10-12.md)。用户审美、读屏和真机性能另记。
 
 2026-10-12 U01/U09/U13/U14：用户授权首页与学习区整合发布。复用 PublicDirectory 原生 details/summary 和焦点关闭逻辑接入首页顶栏，保持第50轮场景与三项主要入口；手机使用“目录”短文案和两列排列避免遮挡。桌面/390px跨区导航、目录Esc、阅读返回与公开PDF按实际整合产物验收，证据见[发布记录](../technical/iterations/pages-release-2026-10-12.md)。沿用 ui-ux-pro-max；没有新增美术资源、主题或控件库，执行者验收与用户审美确认分别记录。
