@@ -32,8 +32,11 @@ export function inspectPublicPdfs(root = process.cwd(), output = join(root, 'dis
     const route = relative(content, file).replaceAll('\\', '/').replace(/\.mdx?$/, '');
     const html = readFileSync(join(output, route, 'index.html'), 'utf8');
     const url = `/personal-homepage/${source.file}`;
-    const viewer = `/personal-homepage/pdfjs/web/viewer.html?file=${encodeURIComponent(url)}`;
-    assert(html.includes(`src="${viewer}"`), `${file}: missing prefixed viewer`);
+    const frames = Array.from(html.matchAll(/<iframe\b[^>]*\bsrc="([^"]+)"/g), (match) => new URL(match[1].replaceAll('&amp;', '&'), 'https://artifact.invalid'));
+    assert(frames.some((frame) => frame.origin === 'https://artifact.invalid' && frame.pathname === '/personal-homepage/pdfjs/web/viewer.html'
+      && frame.searchParams.getAll('file').length === 1 && frame.searchParams.get('file') === url
+      && Array.from(frame.searchParams.keys()).every((key) => key === 'file' || key === 'reader')
+      && (!frame.searchParams.has('reader') || /^pure-v\d+$/.test(frame.searchParams.get('reader')))), `${file}: missing prefixed viewer`);
     assert(html.includes(`href="${url}" download=`), `${file}: missing download`);
     const noscript = html.match(/<noscript>[\s\S]*?<\/noscript>/)?.[0] ?? '';
     assert(noscript.includes(`href="${url}"`), `${file}: missing native fallback`);

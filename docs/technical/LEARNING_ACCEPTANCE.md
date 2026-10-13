@@ -1,5 +1,7 @@
 # 学习区验收入口与剩余工作
 
+2026-10-13 T09.04最新修订取代首版：点击“沉浸阅读”直接全屏，PDF只显示页面，按缩放横向并排多张。电脑按Esc退出整套模式，手机右滑退出；Ctrl加减号/滚轮缩放，滚轮或键盘阅读。支持原生全屏的浏览器使用系统全屏；不支持的手机在进入前明确说明网页铺满。[本轮步骤、候选与正式入口](iterations/t09-04-pure-2026-10-13.md)，最终发布结论见对应PR/Actions。下方独立两开关与常驻按钮说明为首版历史。
+
 2026-10-13 新增已上线 T09.04：打开[文章样本](https://0ne-small-stone.github.io/personal-homepage/knowledge/blog/article-reading-check/)或[PDF样本](https://0ne-small-stone.github.io/personal-homepage/knowledge/resources/reading-guide/)，正文前有“沉浸阅读”和“浏览器全屏”。
 
 1. 开启沉浸，确认顶栏/侧栏/辅助关联隐藏，正文或原PDF及“退出沉浸”可见。

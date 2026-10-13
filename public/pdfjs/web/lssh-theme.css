@@ -1,4 +1,10 @@
 /* Reading controls use docs/design/SYSTEM.md; document pages keep original colors. */
+/* Pure immersion keeps PDF.js's native Wrapped layout and rendering queue. */
+html[data-reading-immersive] :is(#toolbarContainer, #viewsManager, #findbar, #secondaryToolbar, #loadingBar, .editorUndoBar) { display: none !important; }
+html[data-reading-immersive] #mainContainer { min-width: 0; }
+html[data-reading-immersive] #viewerContainer { inset: 0 !important; scrollbar-width: none; }
+html[data-reading-immersive] #viewerContainer::-webkit-scrollbar { display: none; }
+html[data-reading-touch] #viewerContainer { touch-action: pan-y pinch-zoom; }
 :root {
   color-scheme: dark;
   --toolbar-height: 48px;

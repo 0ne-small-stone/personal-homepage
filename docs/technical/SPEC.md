@@ -20,6 +20,8 @@
 
 ## 已确认需求和当前决定
 
+2026-10-13 T09.04修订2：用户要求一键全屏且PDF只显示页面，手机右滑退出。复用原生Fullscreen事件及PDF.js Wrapped/Spread API，不使用只显示单页的PresentationMode；同源iframe只调整CSS/原生排列，保存并恢复排列和当前阅读位置。电脑Esc随fullscreenchange一次恢复普通态；手机原生全屏不可用时如实说明网页铺满，右滑退出。隐藏期间禁用会打开站点/PDF工具层的快捷键，缩放/滚动沿用原生。该条覆盖下方首版独立双开关与多层Esc规则。
+
 2026-10-13 T09.04：用户明确选择学习详情的专注阅读及可另行开启浏览器全屏。沿用 KnowledgeContent 的原生内容组合，少量 custom element / CSS 调整布局，使用 Fullscreen API 与 fullscreenchange 读回真实状态；不新增依赖。PDF iframe 原节点保留，Esc 从同源 iframe 事件桥接，内部菜单/搜索/侧栏优先消费。页面范围内默认关闭，不持久化、不修改 URL/内容/搜索索引；断开组件清理监听与根状态。具体交互以设计 SPEC / SYSTEM 5.3 为准。
 
 2026-10-12 用户明确授权关联候选自动回写、首页与学习区整合及 GitHub Pages 部署。内容分支的三项检查成功后，独立短效令牌 job 仅提交 `.pages.yml` 候选生成区并验证新 head；main、PR 不回写。权限与并发边界见[自动回写方案](CMS_AUTO_SYNC_PROPOSAL.md)，实际结果见[整合发布记录](iterations/pages-release-2026-10-12.md)。下文收尾补记中的“待授权”为此前状态。
