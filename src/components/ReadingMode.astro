@@ -1,137 +1,192 @@
-<learning-reading-mode data-pagefind-ignore hidden>
+---
+interface Props { pdf?: boolean; }
+const { pdf = false } = Astro.props;
+---
+<learning-reading-mode data-reading-kind={pdf ? 'pdf' : 'content'} data-pagefind-ignore hidden>
   <div class="reading-mode-actions" role="group" aria-label="阅读模式">
-    <button type="button" data-focus-mode aria-pressed="false">沉浸阅读</button>
-    <button type="button" data-fullscreen aria-pressed="false">浏览器全屏</button>
+    <button type="button" data-focus-mode aria-pressed="false" aria-describedby="reading-mode-help">沉浸阅读</button>
   </div>
-  <p data-reading-status role="status" aria-live="polite">沉浸阅读可隐藏导航；浏览器全屏可单独开启。</p>
+  <p id="reading-mode-help" data-reading-status role="status" aria-live="polite">进入全屏，电脑 Esc 退出，手机右滑退出。PDF 可用 Ctrl + 加减号或 Ctrl + 滚轮缩放。</p>
 </learning-reading-mode>
-
 <script>
+  interface PdfViewer {
+    pdfDocument?: unknown;
+    scrollMode: number;
+    spreadMode: number;
+    currentPageNumber: number;
+    currentScaleValue: string;
+    scrollPageIntoView(options: { pageNumber: number }): void;
+    update(): void;
+  }
+  interface PdfApplication {
+    pdfViewer?: PdfViewer;
+    findBar?: { close(): void };
+    secondaryToolbar?: { close(): void };
+  }
+  type PdfWindow = Window & { PDFViewerApplication?: PdfApplication };
   class LearningReadingMode extends HTMLElement {
     private controller?: AbortController;
-    private focusButton!: HTMLButtonElement;
-    private fullscreenButton!: HTMLButtonElement;
+    private frameController?: AbortController;
+    private observer?: MutationObserver;
+    private resizeObserver?: ResizeObserver;
+    private button!: HTMLButtonElement;
     private status!: HTMLElement;
-    private immersive = false;
-    private fullscreenPending = false;
-    private frameControllers = new Set<AbortController>();
-    private observer?: ResizeObserver;
-
+    private frame?: HTMLIFrameElement;
+    private active = false;
+    private pending = false;
+    private nativeFullscreen = false;
+    private mobileSession = false;
+    private scrollY = 0;
+    private savedPdf?: { scrollMode: number; spreadMode: number; sidebar: boolean };
+    private get app() { return (this.frame?.contentWindow as PdfWindow | null)?.PDFViewerApplication; }
+    private mobile() { return matchMedia('(any-pointer: coarse)').matches || matchMedia('(max-width: 48rem)').matches; }
     connectedCallback() {
       this.controller?.abort();
       this.controller = new AbortController();
       const { signal } = this.controller;
-      this.focusButton = this.querySelector('[data-focus-mode]')!;
-      this.fullscreenButton = this.querySelector('[data-fullscreen]')!;
+      this.button = this.querySelector('[data-focus-mode]')!;
       this.status = this.querySelector('[data-reading-status]')!;
+      this.frame = document.querySelector<HTMLIFrameElement>('pdf-reader iframe') ?? undefined;
+      this.active = false;
       this.hidden = false;
-      this.observer?.disconnect();
-      this.observer = new ResizeObserver(() => {
-        document.documentElement.style.setProperty('--reading-toolbar-height', `${this.offsetHeight}px`);
-      });
-      this.observer.observe(this);
-      this.focusButton.addEventListener('click', () => this.setImmersive(!this.immersive), { signal });
-      this.fullscreenButton.addEventListener('click', () => this.toggleFullscreen(), { signal });
-      document.addEventListener('keydown', (event) => this.onEscape(event), { signal });
-      window.addEventListener('keydown', (event) => {
-        // Starlight's dialog is inside the header: restore it before its native
-        // search shortcut opens the modal, so a hidden dialog cannot trap focus.
-        if (this.immersive && (event.ctrlKey || event.metaKey) && !event.altKey && event.key.toLowerCase() === 'k') this.setImmersive(false);
-      }, { signal, capture: true });
+      this.resizeObserver = new ResizeObserver(() => document.documentElement.style.setProperty('--reading-toolbar-height', this.offsetHeight + 'px'));
+      this.resizeObserver.observe(this);
+      this.button.addEventListener('click', () => this.enter(), { signal });
       document.addEventListener('fullscreenchange', () => {
-        this.updateFullscreen();
-        this.status.textContent = document.fullscreenElement ? '浏览器全屏中 · Esc 可退出全屏。' : (this.immersive ? '已退出全屏，继续沉浸阅读。' : '已退出浏览器全屏。');
+        if (this.active && this.nativeFullscreen && !document.fullscreenElement) this.restore();
       }, { signal });
-      window.addEventListener('pageshow', () => this.updateFullscreen(), { signal });
-      for (const frame of document.querySelectorAll<HTMLIFrameElement>('pdf-reader iframe')) {
+      this.bindInput(document, signal);
+      if (this.frame) {
         const bind = () => {
-          for (const controller of this.frameControllers) controller.abort();
-          this.frameControllers.clear();
-          try {
-            const frameWindow = frame.contentWindow;
-            if (!frameWindow || !frame.contentDocument) return;
-            const controller = new AbortController();
-            this.frameControllers.add(controller);
-            // Inspect open native layers before PDF.js closes them. Returning
-            // without cancelling lets that first Escape close only the inner UI.
-            frameWindow.addEventListener('keydown', (event) => this.onEscape(event), { signal: controller.signal, capture: true });
-          } catch { /* External documents keep their own keyboard behavior. */ }
+          this.frameController?.abort();
+          this.frameController = new AbortController();
+          const frameDocument = this.frame?.contentDocument;
+          if (frameDocument) this.bindInput(frameDocument, this.frameController.signal);
+          this.updateAvailability();
         };
-        frame.addEventListener('load', bind, { signal });
+        this.frame.addEventListener('load', bind, { signal });
         bind();
+        const reader = this.frame.closest('pdf-reader')!;
+        this.observer = new MutationObserver(() => {
+          if (this.active && !reader.querySelector<HTMLElement>('[data-error]')?.hidden) this.exit();
+          this.updateAvailability();
+        });
+        this.observer.observe(reader, { attributes: true, attributeFilter: ['aria-busy'] });
       }
-      this.updateFullscreen();
+      window.addEventListener('pageshow', () => this.updateAvailability(), { signal });
+      this.updateAvailability();
     }
-
-    private setImmersive(enabled: boolean) {
-      const safeTop = this.getBoundingClientRect().bottom + 16;
-      const anchor = Array.from(document.querySelectorAll<HTMLElement>('main h1, main h2, main h3, main p, main li, main pre, pdf-reader iframe'))
-        .find((element) => !this.contains(element) && element.getBoundingClientRect().height > 0 && element.getBoundingClientRect().top >= safeTop);
-      const oldTop = anchor?.getBoundingClientRect().top;
-      this.immersive = enabled;
-      document.documentElement.toggleAttribute('data-reading-immersive', enabled);
-      document.documentElement.toggleAttribute('data-reading-pdf', enabled && !!document.querySelector('pdf-reader iframe'));
-      this.focusButton.setAttribute('aria-pressed', String(enabled));
-      this.focusButton.textContent = enabled ? '退出沉浸' : '沉浸阅读';
-      this.status.textContent = enabled ? '沉浸阅读中 · Esc 可退出；全屏时先退出全屏。' : '已恢复普通阅读。';
-      if (!document.fullscreenEnabled && !document.fullscreenElement) this.status.textContent += ' 此浏览器不支持网页全屏。';
-      // Keep the visible paragraph in place as navigation disappears/reflows.
-      // Do not replace the iframe: PDF.js retains its page, zoom and find state.
-      if (enabled && document.documentElement.hasAttribute('data-reading-pdf')) {
-        window.scrollBy({ top: this.getBoundingClientRect().top, behavior: 'instant' });
-      } else if (anchor && oldTop !== undefined) {
-        const newTop = anchor.getBoundingClientRect().top;
-        window.scrollBy({ top: newTop - Math.max(oldTop, this.getBoundingClientRect().bottom + 16), behavior: 'instant' });
-      }
-      this.focusButton.focus({ preventScroll: true });
+    private updateAvailability() {
+      const needsPdf = this.dataset.readingKind === 'pdf';
+      const ready = !needsPdf || (!!this.app?.pdfViewer?.pdfDocument && this.frame?.closest('pdf-reader')?.getAttribute('aria-busy') === 'false');
+      this.button.disabled = this.pending || !ready || (!document.fullscreenEnabled && !this.mobile());
+      if (this.active) return;
+      if (!ready) this.status.textContent = this.frame ? 'PDF 加载完成后可进入沉浸阅读。' : 'PDF 附件尚未接入，暂时无法进入沉浸阅读。';
+      else if (!document.fullscreenEnabled && this.mobile()) this.status.textContent = '此浏览器不支持系统全屏，将铺满网页阅读；右滑退出。';
+      else if (!document.fullscreenEnabled) this.status.textContent = '此浏览器不支持网页全屏，无法进入沉浸阅读。';
+      else this.status.textContent = '进入全屏，电脑 Esc 退出，手机右滑退出。PDF 可用 Ctrl + 加减号或 Ctrl + 滚轮缩放。';
     }
-
-    private onEscape(event: KeyboardEvent) {
-      if (event.key !== 'Escape' || event.defaultPrevented || !this.immersive || document.fullscreenElement) return;
-      const sourceDocument = (event.target as Node | null)?.ownerDocument ?? document;
-      if (sourceDocument.querySelector('dialog[open], [popover]:popover-open, [aria-haspopup][aria-expanded="true"]')) return;
-      if (sourceDocument !== document) {
-        if (!sourceDocument.getElementById('viewsManager')?.hidden) return;
-        if (sourceDocument.querySelector('#findbar:not(.hidden), #secondaryToolbar:not(.hidden)')) return;
-      }
-      event.preventDefault();
-      this.setImmersive(false);
+    private bindInput(doc: Document, signal: AbortSignal) {
+      doc.addEventListener('keydown', (event) => {
+        if (!this.active) return;
+        if (event.key === 'Escape') {
+          if (!this.nativeFullscreen || !document.fullscreenElement) { event.preventDefault(); this.exit(); }
+          return;
+        }
+        if ((event.ctrlKey || event.metaKey) && ['k', 'f', 'g', 'p'].includes(event.key.toLowerCase())) {
+          if (event.key.toLowerCase() === 'p' && !event.altKey) return;
+          event.preventDefault();
+          event.stopImmediatePropagation();
+        }
+      }, { signal, capture: true });
+      let start: { id: number; x: number; y: number; time: number } | undefined;
+      doc.addEventListener('pointerdown', (event) => {
+        if (!event.isPrimary) { start = undefined; return; }
+        if (this.active && this.mobileSession && event.button === 0) start = { id: event.pointerId, x: event.clientX, y: event.clientY, time: event.timeStamp };
+      }, { signal, capture: true });
+      doc.addEventListener('pointercancel', () => { start = undefined; }, { signal, capture: true });
+      doc.addEventListener('pointerup', (event) => {
+        const origin = start; start = undefined;
+        if (!origin || event.pointerId !== origin.id || !this.active) return;
+        const dx = event.clientX - origin.x, dy = Math.abs(event.clientY - origin.y);
+        if (dx >= Math.max(80, (doc.defaultView?.innerWidth ?? innerWidth) * 0.22) && dx > dy * 2 && dy <= 50 && event.timeStamp - origin.time <= 1000) {
+          event.preventDefault(); this.exit();
+        }
+      }, { signal, capture: true });
     }
-
-    private updateFullscreen() {
-      const fullscreen = !!document.fullscreenElement;
-      this.fullscreenButton.setAttribute('aria-pressed', String(fullscreen));
-      this.fullscreenButton.textContent = fullscreen ? '退出全屏' : '浏览器全屏';
-      this.fullscreenButton.disabled = this.fullscreenPending || (!fullscreen && !document.fullscreenEnabled);
-      if (!fullscreen && !document.fullscreenEnabled) {
-        this.status.textContent = '此浏览器不支持网页全屏，仍可使用沉浸阅读。';
-      }
-    }
-
-    private async toggleFullscreen() {
-      if (this.fullscreenPending) return;
-      this.fullscreenPending = true;
-      this.updateFullscreen();
+    private async enter() {
+      if (this.active || this.pending || this.button.disabled) return;
+      this.pending = true;
+      this.mobileSession = this.mobile();
+      this.scrollY = window.scrollY;
+      this.nativeFullscreen = !!document.fullscreenEnabled;
+      const viewer = this.app?.pdfViewer, frameDoc = this.frame?.contentDocument;
       try {
-        if (document.fullscreenElement) await document.exitFullscreen();
-        else await document.documentElement.requestFullscreen();
-        this.status.textContent = document.fullscreenElement ? '浏览器全屏中 · Esc 可退出全屏。' : (this.immersive ? '已退出全屏，继续沉浸阅读。' : '已退出浏览器全屏。');
+        this.active = true;
+        document.documentElement.setAttribute('data-reading-immersive', '');
+        document.documentElement.toggleAttribute('data-reading-pdf', !!this.frame);
+        document.documentElement.toggleAttribute('data-reading-touch', this.mobileSession);
+        if (viewer && frameDoc) {
+          const panel = frameDoc.getElementById('viewsManager');
+          this.savedPdf = { scrollMode: viewer.scrollMode, spreadMode: viewer.spreadMode, sidebar: !!panel && !panel.hidden };
+          if (this.savedPdf.sidebar) frameDoc.getElementById('viewsManagerToggleButton')?.click();
+          this.app?.findBar?.close();
+          this.app?.secondaryToolbar?.close();
+          frameDoc.documentElement.setAttribute('data-reading-immersive', '');
+          frameDoc.documentElement.toggleAttribute('data-reading-touch', this.mobileSession);
+          viewer.spreadMode = 0;
+          viewer.scrollMode = 2; // Native Wrapped mode: columns follow scale/viewport.
+        }
+        this.button.setAttribute('aria-pressed', 'true');
+        // Keep requestFullscreen in the initiating user gesture.
+        if (this.nativeFullscreen) await document.documentElement.requestFullscreen();
+        if (this.active) {
+          viewer?.update();
+          if (frameDoc) frameDoc.getElementById('viewerContainer')?.focus({ preventScroll: true });
+          else document.querySelector<HTMLElement>('.main-frame')?.focus({ preventScroll: true });
+        }
       } catch {
-        this.status.textContent = '浏览器未能切换全屏，请重试；沉浸阅读仍可使用。';
+        this.restore();
+        this.status.textContent = '无法进入全屏，请重试或使用支持全屏的浏览器。';
       } finally {
-        this.fullscreenPending = false;
-        this.updateFullscreen();
-        this.fullscreenButton.focus({ preventScroll: true });
+        this.pending = false;
+        this.button.disabled = false;
       }
     }
-
+    private async exit() {
+      if (!this.active) return;
+      if (document.fullscreenElement) {
+        try { await document.exitFullscreen(); } catch { return; }
+      }
+      this.restore();
+    }
+    private restore() {
+      if (!this.active) return;
+      this.active = false;
+      const viewer = this.app?.pdfViewer, frameDoc = this.frame?.contentDocument;
+      const page = viewer?.currentPageNumber;
+      for (const attribute of ['data-reading-immersive', 'data-reading-pdf', 'data-reading-touch']) document.documentElement.removeAttribute(attribute);
+      frameDoc?.documentElement.removeAttribute('data-reading-immersive');
+      frameDoc?.documentElement.removeAttribute('data-reading-touch');
+      if (viewer && this.savedPdf && page) {
+        viewer.spreadMode = this.savedPdf.spreadMode;
+        viewer.scrollMode = this.savedPdf.scrollMode;
+        viewer.scrollPageIntoView({ pageNumber: page });
+        viewer.update();
+        if (this.savedPdf.sidebar) frameDoc?.getElementById('viewsManagerToggleButton')?.click();
+      }
+      this.savedPdf = undefined;
+      window.scrollTo({ top: this.scrollY, behavior: 'instant' });
+      this.button.setAttribute('aria-pressed', 'false');
+      this.updateAvailability();
+      this.button.focus({ preventScroll: true });
+    }
     disconnectedCallback() {
+      this.restore();
       this.controller?.abort();
+      this.frameController?.abort();
       this.observer?.disconnect();
-      for (const controller of this.frameControllers) controller.abort();
-      this.frameControllers.clear();
-      document.documentElement.removeAttribute('data-reading-immersive');
-      document.documentElement.removeAttribute('data-reading-pdf');
+      this.resizeObserver?.disconnect();
       document.documentElement.style.removeProperty('--reading-toolbar-height');
     }
   }
