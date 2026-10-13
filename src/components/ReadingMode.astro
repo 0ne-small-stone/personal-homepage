@@ -37,7 +37,8 @@ const { pdf = false } = Astro.props;
     private nativeFullscreen = false;
     private mobileSession = false;
     private scrollY = 0;
-    private savedPdf?: { scrollMode: number; spreadMode: number; sidebar: boolean };
+    private savedPdf?: { scrollMode: number; spreadMode: number; sidebar: boolean; page: number };
+    private pdfMoved = false;
     private get app() { return (this.frame?.contentWindow as PdfWindow | null)?.PDFViewerApplication; }
     private mobile() { return matchMedia('(any-pointer: coarse)').matches || matchMedia('(max-width: 48rem)').matches; }
     connectedCallback() {
@@ -90,21 +91,26 @@ const { pdf = false } = Astro.props;
       doc.addEventListener('keydown', (event) => {
         if (!this.active) return;
         if (event.key === 'Escape') {
-          if (!this.nativeFullscreen || !document.fullscreenElement) { event.preventDefault(); this.exit(); }
+          event.preventDefault(); this.exit();
           return;
         }
+        if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'PageUp', 'PageDown', 'Home', 'End'].includes(event.key)) this.pdfMoved = true;
         if ((event.ctrlKey || event.metaKey) && ['k', 'f', 'g', 'p'].includes(event.key.toLowerCase())) {
           if (event.key.toLowerCase() === 'p' && !event.altKey) return;
           event.preventDefault();
           event.stopImmediatePropagation();
         }
       }, { signal, capture: true });
+      doc.addEventListener('wheel', (event) => { if (this.active && !event.ctrlKey) this.pdfMoved = true; }, { signal, passive: true });
       let start: { id: number; x: number; y: number; time: number } | undefined;
       doc.addEventListener('pointerdown', (event) => {
         if (!event.isPrimary) { start = undefined; return; }
         if (this.active && this.mobileSession && event.button === 0) start = { id: event.pointerId, x: event.clientX, y: event.clientY, time: event.timeStamp };
       }, { signal, capture: true });
       doc.addEventListener('pointercancel', () => { start = undefined; }, { signal, capture: true });
+      doc.addEventListener('pointermove', (event) => {
+        if (start && event.pointerId === start.id && Math.abs(event.clientY - start.y) > 10) this.pdfMoved = true;
+      }, { signal, capture: true });
       doc.addEventListener('pointerup', (event) => {
         const origin = start; start = undefined;
         if (!origin || event.pointerId !== origin.id || !this.active) return;
@@ -120,6 +126,7 @@ const { pdf = false } = Astro.props;
       this.mobileSession = this.mobile();
       this.scrollY = window.scrollY;
       this.nativeFullscreen = !!document.fullscreenEnabled;
+      this.pdfMoved = false;
       const viewer = this.app?.pdfViewer, frameDoc = this.frame?.contentDocument;
       try {
         this.active = true;
@@ -128,7 +135,7 @@ const { pdf = false } = Astro.props;
         document.documentElement.toggleAttribute('data-reading-touch', this.mobileSession);
         if (viewer && frameDoc) {
           const panel = frameDoc.getElementById('viewsManager');
-          this.savedPdf = { scrollMode: viewer.scrollMode, spreadMode: viewer.spreadMode, sidebar: !!panel && !panel.hidden };
+          this.savedPdf = { scrollMode: viewer.scrollMode, spreadMode: viewer.spreadMode, sidebar: !!panel && !panel.hidden, page: viewer.currentPageNumber };
           if (this.savedPdf.sidebar) frameDoc.getElementById('viewsManagerToggleButton')?.click();
           this.app?.findBar?.close();
           this.app?.secondaryToolbar?.close();
@@ -164,7 +171,7 @@ const { pdf = false } = Astro.props;
       if (!this.active) return;
       this.active = false;
       const viewer = this.app?.pdfViewer, frameDoc = this.frame?.contentDocument;
-      const page = viewer?.currentPageNumber;
+      const page = this.pdfMoved ? viewer?.currentPageNumber : (this.savedPdf?.page ?? viewer?.currentPageNumber);
       for (const attribute of ['data-reading-immersive', 'data-reading-pdf', 'data-reading-touch']) document.documentElement.removeAttribute(attribute);
       frameDoc?.documentElement.removeAttribute('data-reading-immersive');
       frameDoc?.documentElement.removeAttribute('data-reading-touch');
