@@ -1,27 +1,39 @@
-interface LayoutInput {
-  width: number;
-  height: number;
-  pageWidth: number;
-  pageHeight: number;
-  pages: number;
+export interface PdfPaperSize { width: number; height: number; }
+interface ModeInput { width: number; height: number; sizes: PdfPaperSize[]; columns: number; }
+
+export function automaticPdfColumns(width: number, height: number, paper: PdfPaperSize, pages: number) {
+  return pages > 1 && width >= 1280 && width >= height && paper.width < paper.height ? 2 : 1;
 }
 
-// PDF.js dimensions at scale 1, with native page borders and 16px page gaps.
-export function comfortablePdfLayout(input: LayoutInput) {
-  const { width, height, pageWidth, pageHeight, pages } = input;
-  if (![width, height, pageWidth, pageHeight, pages].every((value) => Number.isFinite(value) && value > 0)) return undefined;
-  const columns = pages > 1 && width >= 1280 && width >= height && pageWidth < pageHeight ? 2 : 1;
-  const pageSpace = 32;
-  const rowSpace = 4 * columns;
-  const columnWidth = Math.max(1, (width - rowSpace) / columns - pageSpace);
-  const fitWidth = columnWidth / pageWidth;
-  const fitHeight = Math.max(1, height - pageSpace) / pageHeight;
-  const readable = Math.min(600, columnWidth) / pageWidth;
-  const scale = Math.max(0.1, Math.min(10, width < 768 ? fitWidth : Math.min(fitWidth, Math.max(fitHeight, readable))));
-  const roundedScale = Math.floor(scale * 1000) / 1000;
-  return {
-    columns,
-    scale: roundedScale,
-    rowWidth: Math.min(width, Math.ceil(columns * (pageWidth * roundedScale + pageSpace) + rowSpace)),
-  };
+export function pdfModeGroup(page: number, pages: number, columns: number) {
+  const count = Math.max(1, Math.min(columns, pages));
+  const current = Math.max(1, Math.min(page, pages));
+  const start = Math.floor((current - 1) / count) * count + 1;
+  return Array.from({ length: Math.min(count, pages - start + 1) }, (_, index) => start + index);
+}
+
+export function pdfModeGeometry(input: ModeInput & { scale: number }) {
+  const { width, height, sizes, columns, scale } = input;
+  if (![width, height, scale].every((value) => Number.isFinite(value) && value > 0)
+    || !Number.isInteger(columns) || columns < 1 || columns > 4 || !sizes.length
+    || sizes.some((paper) => ![paper.width, paper.height].every((value) => Number.isFinite(value) && value > 0))) return undefined;
+  const paperWidth = Math.max(...sizes.map((paper) => paper.width));
+  const paperHeight = Math.max(...sizes.map((paper) => paper.height));
+  // Native page borders (at most 18px), plus two 8px margins.
+  const cellWidth = Math.ceil(paperWidth * scale + 34);
+  return { columns, cellWidth, rowWidth: cellWidth * columns, slotHeight: height,
+    fits: cellWidth * columns <= width && paperHeight * scale + 34 <= height };
+}
+
+export function fitPdfMode(input: ModeInput) {
+  const { width, height, sizes, columns } = input;
+  if (!pdfModeGeometry({ ...input, scale: 1 })) return undefined;
+  const availableWidth = width - 16 - columns * 34;
+  const availableHeight = height - 48;
+  if (availableWidth <= 0 || availableHeight <= 0) return undefined;
+  const scale = Math.floor((Math.min(10,
+    availableWidth / columns / Math.max(...sizes.map((paper) => paper.width)),
+    availableHeight / Math.max(...sizes.map((paper) => paper.height))) - 1e-8) * 10000) / 10000;
+  const geometry = pdfModeGeometry({ ...input, scale });
+  return geometry ? { ...geometry, scale } : undefined;
 }

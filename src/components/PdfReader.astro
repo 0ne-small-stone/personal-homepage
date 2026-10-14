@@ -22,7 +22,7 @@ if (source.file) {
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const file = `${base}/${relativeFile}`;
 // Let the native viewer restore its fingerprint-keyed page/zoom history.
-const viewer = `${base}/pdfjs/web/viewer.html?file=${encodeURIComponent(file)}&reader=pure-v3`;
+const viewer = `${base}/pdfjs/web/viewer.html?file=${encodeURIComponent(file)}&reader=pure-v4`;
 ---
 <pdf-reader class="pdf-reader" aria-label={`${title} PDF 阅读器`} aria-busy={available ? 'true' : 'false'}>
   <div class="reader-bar">
