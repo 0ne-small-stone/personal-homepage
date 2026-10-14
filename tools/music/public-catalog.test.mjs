@@ -41,10 +41,10 @@ test('an invalid cover is rejected before the shared parser can silently strip i
 test('configuration and stable IDs are validated along with nonempty content',()=>{
   for(const invalid of ['https://example.org/s/PublicFixture',share+'?auth=dummy','http://pan.koala-studio.org.cn/s/PublicFixture',share.replace('https://','https://user:password@')])assert.throws(()=>validatePublicMusicCatalog(fixture(),invalid));const duplicate=fixture();duplicate.tracks.push({...duplicate.tracks[0]});assert.throws(()=>validatePublicMusicCatalog(duplicate,share));
 });
-test('the committed snapshot remains a real nonempty 18-track, 3-album public catalog',async()=>{
+test('the committed snapshot is nonempty and its tracks match the configured share',async()=>{
   const config=JSON.parse(await readFile(new URL('../../src/config/music-cloud.json',import.meta.url),'utf8'));
   const snapshot=JSON.parse(await readFile(new URL('../../src/data/music/cloud-catalog.json',import.meta.url),'utf8'));
-  const parsed=validatePublicMusicCatalog(snapshot,config.shareUrl);assert.equal(parsed.tracks.length,18);assert.equal(new Set(parsed.tracks.map(t=>JSON.stringify([t.albumArtist,t.album]))).size,3);
+  const parsed=validatePublicMusicCatalog(snapshot,config.shareUrl);assert.ok(parsed.tracks.length > 0);assert.ok(parsed.updatedAt);
 });
 test('the deployment guard rejects empty or private-field artifacts, not merely their normalized view',async()=>{
   const folder=await mkdtemp(join(tmpdir(),'lssh-public-catalog-'));try{

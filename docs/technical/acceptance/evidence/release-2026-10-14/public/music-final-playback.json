@@ -1,0 +1,165 @@
+{
+  "url": "https://0ne-small-stone.github.io/personal-homepage/music/",
+  "startedAt": "2026-10-14T12:58:05.256Z",
+  "engine": "headless Microsoft Edge, new 1280x900 desktop context",
+  "scope": "Exactly one first-track real playback attempt; 30-second media wait limit",
+  "mediaRequests": [
+    {
+      "elapsedMs": 10001,
+      "url": "https://pan.koala-studio.org.cn/public.php/dav/files/4dEBRf4wWJmrRJH/tracks/0cd0de4544f9b23a9a412819.flac"
+    }
+  ],
+  "mediaResponses": [],
+  "requestFailures": [
+    {
+      "elapsedMs": 8577,
+      "type": "image",
+      "url": "https://pan.koala-studio.org.cn/public.php/dav/files/4dEBRf4wWJmrRJH/covers/dcc9cb1fc73683fd9ea10bf8.webp",
+      "error": "net::ERR_FAILED"
+    },
+    {
+      "elapsedMs": 8577,
+      "type": "image",
+      "url": "https://pan.koala-studio.org.cn/public.php/dav/files/4dEBRf4wWJmrRJH/covers/4d7b795322862b81da5a4569.webp",
+      "error": "net::ERR_FAILED"
+    },
+    {
+      "elapsedMs": 8577,
+      "type": "image",
+      "url": "https://pan.koala-studio.org.cn/public.php/dav/files/4dEBRf4wWJmrRJH/covers/0cd0de4544f9b23a9a412819.webp",
+      "error": "net::ERR_FAILED"
+    },
+    {
+      "elapsedMs": 10008,
+      "type": "media",
+      "url": "https://pan.koala-studio.org.cn/public.php/dav/files/4dEBRf4wWJmrRJH/tracks/0cd0de4544f9b23a9a412819.flac",
+      "error": "net::ERR_FAILED"
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    {
+      "message": "Access to image at 'https://pan.koala-studio.org.cn/public.php/dav/files/4dEBRf4wWJmrRJH/covers/dcc9cb1fc73683fd9ea10bf8.webp' from origin 'https://0ne-small-stone.github.io' has been blocked by CORS policy: Permission was denied for this request to access the `local` address space.",
+      "location": {
+        "url": "https://0ne-small-stone.github.io/personal-homepage/music/",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "message": "Failed to load resource: net::ERR_FAILED",
+      "location": {
+        "url": "https://pan.koala-studio.org.cn/public.php/dav/files/4dEBRf4wWJmrRJH/covers/dcc9cb1fc73683fd9ea10bf8.webp",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "message": "Access to image at 'https://pan.koala-studio.org.cn/public.php/dav/files/4dEBRf4wWJmrRJH/covers/4d7b795322862b81da5a4569.webp' from origin 'https://0ne-small-stone.github.io' has been blocked by CORS policy: Permission was denied for this request to access the `local` address space.",
+      "location": {
+        "url": "https://0ne-small-stone.github.io/personal-homepage/music/",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "message": "Failed to load resource: net::ERR_FAILED",
+      "location": {
+        "url": "https://pan.koala-studio.org.cn/public.php/dav/files/4dEBRf4wWJmrRJH/covers/4d7b795322862b81da5a4569.webp",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "message": "Access to image at 'https://pan.koala-studio.org.cn/public.php/dav/files/4dEBRf4wWJmrRJH/covers/0cd0de4544f9b23a9a412819.webp' from origin 'https://0ne-small-stone.github.io' has been blocked by CORS policy: Permission was denied for this request to access the `local` address space.",
+      "location": {
+        "url": "https://0ne-small-stone.github.io/personal-homepage/music/",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "message": "Failed to load resource: net::ERR_FAILED",
+      "location": {
+        "url": "https://pan.koala-studio.org.cn/public.php/dav/files/4dEBRf4wWJmrRJH/covers/0cd0de4544f9b23a9a412819.webp",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "message": "Access to audio at 'https://pan.koala-studio.org.cn/public.php/dav/files/4dEBRf4wWJmrRJH/tracks/0cd0de4544f9b23a9a412819.flac' from origin 'https://0ne-small-stone.github.io' has been blocked by CORS policy: Permission was denied for this request to access the `local` address space.",
+      "location": {
+        "url": "https://0ne-small-stone.github.io/personal-homepage/music/",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "message": "Failed to load resource: net::ERR_FAILED",
+      "location": {
+        "url": "https://pan.koala-studio.org.cn/public.php/dav/files/4dEBRf4wWJmrRJH/tracks/0cd0de4544f9b23a9a412819.flac",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    }
+  ],
+  "limitations": [
+    "No iframe, account service, script gate or security-policy override.",
+    "This is an automated desktop context, not a physical phone.",
+    "No pause/seek/navigation matrix is repeated."
+  ],
+  "browserVersion": "155.0.4283.45",
+  "before": {
+    "count": 1,
+    "source": null,
+    "paused": true,
+    "time": 0,
+    "duration": null,
+    "readyState": 0,
+    "networkState": 0,
+    "error": null,
+    "playerError": [],
+    "track": "抚琴小夜曲"
+  },
+  "clickedAtMs": 10020,
+  "after": {
+    "count": 1,
+    "sessionId": "9128661b-7306-4278-8657-0e064804a943",
+    "source": "https://pan.koala-studio.org.cn/public.php/dav/files/4dEBRf4wWJmrRJH/tracks/0cd0de4544f9b23a9a412819.flac",
+    "paused": true,
+    "time": 0,
+    "duration": null,
+    "readyState": 0,
+    "networkState": 3,
+    "error": {
+      "code": 4,
+      "message": "MEDIA_ELEMENT_ERROR: Format error"
+    },
+    "playerError": [
+      "音频暂时无法播放，请刷新音乐目录后重试。",
+      "音频暂时无法播放，请刷新音乐目录后重试。"
+    ],
+    "track": "抚琴小夜曲"
+  },
+  "result": {
+    "passed": false,
+    "reason": "Actual audio failed; original media state and network errors retained."
+  },
+  "finishedAt": "2026-10-14T12:58:15.303Z"
+}
