@@ -1,6 +1,26 @@
 # 文档导航与设计 / 技术对应表
 
+2026-10-14 最终集成：本轮发布入口为[PR #54](https://github.com/0ne-small-stone/personal-homepage/pull/54)，通过保护检查合并main后由Pages部署；最终SHA、Actions和公网回读在PR补记。本地最终工程141文件0错误/0警告、8条沿用相册的提示，53页构建与186项风险测试通过。发布期间同步保留main `5eac344` 的正式相册、36张授权WebP派生及目录契约；桌面/390px首页进入相册与原生后退4/4通过。首页加载/人物/音乐的既有验收边界保持，迷墙仍是独立原型，用户审美与真机性能另记。以下同日准备状态为过程快照。
+
 P10 / R06、R12 / U10、U14 / T12、T15、T16、T26、T27：[A Moment Remains正式接入与Pages发布](technical/iterations/t12-p10-2026-10-14-pages.md)。用户确认v17并授权当前相册及36张压缩派生公开，沿用/gallery/，未新增页面/任务编号；PR #53与Pages成功，入口[A Moment Remains](https://0ne-small-stone.github.io/personal-homepage/gallery/)，公网功能已核对。
+
+2026-10-14 新增验收入口：[当前集成候选的工程、交互与发布边界](technical/acceptance/updates-2026-10-14.md)。沿用P01/P02/P03/P05/P06/P13/P14/P15/P17及原U/T编号；本地工程/首页定向与音乐限定检查已收口，准备保护PR，远程PR/Pages尚待执行，不覆盖旧release历史。
+
+
+2026-10-14 新增整合入口：[本轮文件组织与验证范围](technical/iterations/repository-update-2026-10-14.md)。P01/P14现行F03、P02 Someone、P13目录/唱片/找音乐与旧发布main的学习/CMS/内网限制共同纳入回归；本文只维护职责/映射，实际通过与发布在两侧PLAN和验收记录。
+
+
+P13 / R04、R12 / U12、U14 / T25.28：[找音乐侧栏独立页](design/iterations/u12-p13-2026-10-14-discover-page.md)，覆盖T25.27底部展开区展示方案，服务与授权沿用。
+
+P02 / R01、R12 / U13、U14 / T05、T26–T27：Someone[首版开发与验收](design/iterations/u13-p02-2026-10-14-someone-development.md)，用户指定ITP报名表资料；真实页面和桌面／390／320px执行者证据已完成，当前待用户验收，CMS／部署另验。
+
+P03/P06/P15 / R02、R09、R10、R12 / U09、U13、U14 / T05、T07、T09–T10、T26–T27：[Becoming 博客第二轮构图与阅读候选](design/iterations/u09-blog-uiux-directions-2026-10-14.md)，含黑色创作档案、情境长文和引用对照的实际页面证据；研究完成，方向待用户判断。[第一轮研究](design/iterations/u09-blog-uiux-research-2026-10-14.md)已被用户反馈否决为主设计方向，保留历史参考，应用状态不提升。
+
+P02 / R01、R12 / U13、U14 / T05、T13、T26–T27：Someone 个人介绍界面[六站调研与设计候选](design/iterations/u13-p02-2026-10-14-someone-research.md)，含三个主案例桌面／390px原图；研究完成，应用状态不提升。
+
+P13 / R04、R12 / U12、U14 / T25.27、T21.05：洛雪功能直接接入电台的搜索/音质/下载与真实入库，见[本片](technical/iterations/t25-p13-2026-10-14-lx-integration.md)。
+
+P13 / R04、R12 / U12、U14 / T25.26：两源曲库页面统一与专辑封套悬停显影，见[本片](design/iterations/u12-p13-2026-10-14-library-unify.md)。
 
 2026-10-14 维护入口：[仓库整合记录](technical/iterations/repository-integration-2026-10-14.md)说明本轮 main 与首页/音乐文档的合并边界，沿用 T15/T16 和当前 P/U 编号；实际检查、PR 与部署结果统一见[本轮发布验收](technical/acceptance/release-2026-10-14.md)和技术计划；技术验收不代替设计侧的用户审美确认。
 
@@ -57,15 +77,23 @@ docs/
 
 P01 最新复刻依据：[ALCHE 17 轮精确研究](design/iterations/u03-p01-2026-10-08-17.md)及[实际动画回放](design/iterations/evidence/alche-motion-2026-10-08/index.html)。它们保存来源事实与证据，采用参数仍只在 SYSTEM 第 9 节维护；执行提示词见 HOMEPAGE_ALCHE_HANDOFF 第 0 节。覆盖既有 U03–U07/U14、T02.02/T03.01–T03.05/T26.02/T27.01，不新增页面或重复任务编号。
 
+2026-10-14 最新首页配置为A Moment Remains→Echoes→Afterimage三卡，旋转区Elsewhere移除，接The Wall；U03/U05/U07与T03.02–T03.04沿用。[三卡实施与采集证据](design/iterations/evidence/home-carousel-order-2026-10-14/implementation/README.md)、[工程记录](technical/iterations/p01-2026-10-14-carousel-order.md)是当前F03接续基线，参数仍归SYSTEM9.2.5；旧四卡绝对节点仅历史。
+
+随后用户要求单砖稍小，当前实际候选更新为h39_FOLj（统一比例.85），沿用P01/P14、R12、U05/T03.04；[尺寸证据](design/iterations/evidence/f02-brick-scale-2026-10-14/implementation/README.md)与[工程记录](technical/iterations/p01-f02-2026-10-14-brick-scale.md)供F03接续，三卡配置保持。
+
+2026-10-14 F03已实际接续为4342/BdZlSJh6，同资源门槛/玻璃/字标与有限最终场景采样完成，待独立/用户；P01/R12/U03、U14/T03.01、T26.02、T27.01编号沿用。[工程记录](technical/iterations/p01-f03-2026-10-14-loading-reveal.md)、[冻结哈希/原图与限制](design/iterations/evidence/f03-loading-2026-10-14/implementation/README.md)；F05/F06/F07仍排队。
+
 随后用户明确七类效果及居中要求，采用范围以 [20 轮纠偏](design/iterations/u03-p01-2026-10-08-20.md)更新为准：全屏展开纳入 T03.04 的终章进入过程，中央锚点纳入当前 T03.02；原始研究公式与实际实现状态仍分开。
 
-P01/P14 全屏展开的当前施工与验收入口：[F02 · 玻璃成方、落砖成墙（2026-10-14修订）](design/iterations/f02-brick-assembly-revision.md)，沿用 U05 / T03.04。承接玻璃质感与柔光，在近方形阶段开始逐砖落下累积为墙，覆盖[旧完整墙展开/整墙升起](design/iterations/f02-fullscreen-handoff.md)时序；不新增页面或栏目。实际交付状态仍见[首页功能验收队列](design/iterations/homepage-feature-acceptance.md)。
+P01/P14 全屏展开的当前施工与验收入口：[F02 · 玻璃成方、向上垒墙（2026-10-14最新修订）](design/iterations/f02-brick-assembly-revision.md)，沿用 U05 / T03.04。承接玻璃质感与柔光，近方形阶段开始从底部逐砖向上建立墙面，覆盖旧上方落砖及[完整墙展开/整墙升起](design/iterations/f02-fullscreen-handoff.md)时序；不新增页面或栏目。实际交付状态仍见[首页功能验收队列](design/iterations/homepage-feature-acceptance.md)。
+
+同日最新向上垒墙的本机候选为B46QOkX1，参数归SYSTEM9.2.5；[执行者原图/节点/边界](design/iterations/evidence/f02-upward-assembly-2026-10-14/implementation/README.md)与[工程记录](technical/iterations/p01-f02-2026-10-14-upward-assembly.md)对应同一U05/T03.04。当前待独立设计及用户验收，旧BC/CQ/B2只作历史。
 
 仓库维护说明：[仓库管理、目录与命名规范](technical/REPOSITORY_CONVENTIONS.md)定义分支、提交、公开资源边界与目录职责；根目录 [CONTRIBUTING.md](../CONTRIBUTING.md) 为修改入口，实际远程设置和验证仍在技术计划中记录。
 
 ## 页面与需求、任务对应
 
-P10 最新独立交互样本：[Dome Gallery照片墙 → 三维无限影像空间](design/iterations/u10-p10-2026-10-13-sphere-canvas.md)，第十一片[单图沉浸/自然切换](design/iterations/u10-p10-2026-10-14-immersive-viewer.md)接入闲置淡出/指针恢复、原组件相邻缓动与最新导航目标合并，后台暂停保持。第十片[统一单图浏览](design/iterations/u10-p10-2026-10-14-single-viewer.md)的原比例完整图、缩放/原位返回，以及第九片性能与既有曲面/空间保留；沿用R06/R12、U10/U14、T12/T26/T27，未新增页面或任务编号，原型与正式相册接入分别验收。
+P10 最新独立交互样本：[A Moment Remains：Dome Gallery照片墙 → 三维无限影像空间](design/iterations/u10-p10-2026-10-13-sphere-canvas.md)，用户已通过现有功能并[纠正栏目名称](design/iterations/u10-p10-2026-10-14-overview-controls.md#同日名称纠正)；[第十五片裁切闪边修正](design/iterations/u10-p10-2026-10-14-zoom-edge.md)在用户复验v15仍有亮线后继续修正，v16同条件对照和实际读图通过、待用户复验。保留[第十四片运行减负](design/iterations/u10-p10-2026-10-14-runtime-refinement.md)和[第十三片轻量优化](design/iterations/u10-p10-2026-10-14-lightweight.md)、[栏目/球面返回](design/iterations/u10-p10-2026-10-14-overview-controls.md)、[沉浸/自然切换](design/iterations/u10-p10-2026-10-14-immersive-viewer.md)和[完整单图](design/iterations/u10-p10-2026-10-14-single-viewer.md)，查看时后台暂停。当前4352?v=16，沿用R06/R12、U10/U14、T12/T26/T27，未新增页面或任务编号，原型与正式相册接入分别验收。
 
 编号保持原有含义：P 为页面，R 为功能需求，U 为设计任务，T 为技术任务；C、TX 和控件编号仍在概念文档维护。一项技术任务可以覆盖多页，一个页面也可以依赖多项任务。
 
@@ -88,7 +116,7 @@ P10 最新独立交互样本：[Dome Gallery照片墙 → 三维无限影像空�
 | P11 社交作品 | R05 | U10 | T11 平台内容与原站入口，T13 内容编辑 |
 | P12 常用网站 | R03 | U11 | T11 分类导航与搜索，T13 链接编辑 |
 | P13 音乐电台 | R04、R12 | U12 | T20–T25 能力验证、展示、提交、审核、自动同步与播放器 |
-| P13 专辑收放动画 | R04、R12 | U12；[当前节奏/比例修订](design/iterations/u12-p13-2026-10-14-album-choreography-revision.md) | T25.22；完整收盘/到位后停顿再动作，套大于盘，同专辑仅换信息，本地验证/用户审美另验 |
+| P13 专辑收放动画 | R04、R12 | U12；[当前空间与停顿修复](design/iterations/u12-p13-2026-10-14-record-clearance.md) | T25.22；完全离套并静止停顿后切层、缓慢回位，套大于盘/同专辑仅换信息，本地验证/用户视觉另验 |
 | P13 纸质唱片套 | R04、R12 | U12；[纸套细节](design/iterations/u12-p13-2026-10-14-paper-sleeve.md) | T25.19；纸边/开口/哑光本地接入及执行者读图完成 |
 | P13 歌词间距 | R04、R12 | U12；[歌词右移](design/iterations/u12-p13-2026-10-14-lyrics-spacing.md) | T25.17；桌面歌词列留白本地验证，手机余量0 |
 | P13 金属唱臂替换 | R04、R12 | U12；[研究](design/iterations/u12-p13-2026-10-14-tonearm-candidates.md)、[接入](design/iterations/u12-p13-2026-10-14-album-choreography-revision.md) | T25.18；原创生成透明金属素材已替换/落针校准，本地验证，用户审美另验 |
@@ -107,7 +135,7 @@ P10 最新独立交互样本：[Dome Gallery照片墙 → 三维无限影像空�
 | P13 双模式外观（2026-10-13） | R04、R12 | U12；[用户选定与实际适配](design/iterations/u12-p13-2026-10-13-selected-skins.md) | T21.04 封面/目录、T25.04 外观与真实媒体状态；考拉/自动同步仍按原队列 |
 | P13 专辑/歌曲切换层（当前停用） | R04、R12 | U12；[历史透明盒任务](design/iterations/u12-p13-2026-10-13-album-transition.md) | T25.05历史实现；2026-10-13用户取消CD选择层，T25.08撤入口/运行时，普通曲库专辑保留 |
 | P13 音乐页整体精修 | R04、R12 | U12；[苹果UI参考精修](design/iterations/u12-p13-2026-10-13-apple-refinement.md) | T25.06；布局/控件/材质与响应式，保留已选播放器及真实音源 |
-| P14 留言墙 | R08、R12 | U02、U06–U08 | T17–T19 Giscus 接入、管理及组件适配，T26–T27 返回、输入释放与降级核验 |
+| P14 留言墙 | R08、R12 | U02、U06–U08、U14；[研究](design/iterations/u08-p14-2026-10-14-wall-research.md)、[可移动迷墙第一样本](design/iterations/u08-p14-2026-10-14-wall-prototype.md) | T17–T19 Giscus 接入、管理及组件适配，T26–T27 返回、输入释放与降级核验；当前只完成独立展示样本 |
 | P15 搜索 | R02、R09、R10、R12 | U13；学习内检索由 U09 验证 | T02 原生搜索边界，T10 统一知识搜索，T26 返回与查询恢复；全站扩展范围仍待验证 |
 | P16 404 | R12 | U13 | T16 深层路由与 404 验证，T26–T27 导航与可访问性 |
 | P17 内容管理 | R13 | U13 | T13 网页后台，T14–T16 资源处理、发布与部署 |
@@ -186,7 +214,7 @@ P10 最新独立交互样本：[Dome Gallery照片墙 → 三维无限影像空�
 | T08.02 PDF 侧栏收起 | T08 | P05、P06 | R02、R09、R12 | U09 |
 
 | T02.02 首页静态身份、字体与导航 | T02 | P01、P10 路由 | R01、R12 | U01、U03、U04 |
-| T03.01 加载与玻璃单体 | T03 | P01 | R12 | U02、U03、U05 |
+| T03.01 加载与玻璃单体 | T03 | P01 | R12 | U02、U03、U05；[F03加载美术与揭幕](design/iterations/f03-loading-reveal.md)同时关联U14/T26.02/T27.01 |
 | T03.02 一个项目过渡 | T03 | P01 → P08 | R07、R12 | U04、U06 |
 | T03.03 全部滚动章节 | T03 | P01 → P08/P10/P12/P13 | R03、R04、R06、R07、R12 | U06、U10–U12 |
 | T03.04 终章升墙 | T03 | P01、P14 | R08、R12 | U02、U06、U07 |

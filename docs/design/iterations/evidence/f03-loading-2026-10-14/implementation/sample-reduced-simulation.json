@@ -1,0 +1,57 @@
+{
+  "label": "reduced-simulation",
+  "bundle": "/personal-homepage/_astro/HomeJourney.BdZlSJh6.js",
+  "canvas": 1,
+  "classes": "lssh-home has-journey home-enhanced home-loading-nav-ready home-quiet",
+  "loading": {
+    "active": false,
+    "closed": false,
+    "events": [
+      {
+        "phase": "waiting",
+        "time": 82
+      },
+      {
+        "phase": "ready",
+        "time": 241.3999999910593
+      }
+    ],
+    "phase": "ready",
+    "preference": "quiet",
+    "preview": "reduced",
+    "progress": 1,
+    "reason": "preference",
+    "requested": false,
+    "resources": [
+      "layout",
+      "wordmark",
+      "compiled",
+      "frame"
+    ],
+    "wordmarkDecoded": true
+  },
+  "motion": {},
+  "overflow": false,
+  "pass": {
+    "active": false,
+    "copies": 0,
+    "disposed": true,
+    "geometryId": "989e74b9-8801-4190-90f3-d8a9c5643d46",
+    "glassId": "3f87a35a-4ddd-4455-a80b-149bfcd31cdc",
+    "size": [],
+    "worldDrawn": true
+  },
+  "size": [
+    390,
+    844
+  ],
+  "status": "ready",
+  "url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1&loadingPreview=reduced",
+  "wordmark": {
+    "height": 208,
+    "width": 312,
+    "x": -17.59375,
+    "y": 504
+  },
+  "wordmarks": 1
+}

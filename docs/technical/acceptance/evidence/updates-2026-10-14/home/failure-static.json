@@ -1,0 +1,51 @@
+{
+  "key": "failure-static",
+  "s": {
+    "url": "http://127.0.0.1:4467/personal-homepage/?opticsDebug=1&loadingPreview=failure",
+    "title": "Little Stone Still Here",
+    "width": 390,
+    "height": 844,
+    "y": 0,
+    "classes": "lssh-home has-journey home-static home-loading-nav-ready",
+    "status": "error",
+    "loading": {
+      "phase": "error",
+      "active": false,
+      "requested": false,
+      "progress": 1,
+      "resources": [
+        "layout"
+      ],
+      "reason": "preview-resource-failure",
+      "closed": false,
+      "events": [
+        {
+          "phase": "waiting",
+          "time": 159.09999999403954
+        },
+        {
+          "phase": "error",
+          "time": 184
+        }
+      ],
+      "preview": "failure",
+      "wordmarkDecoded": true,
+      "preference": "motion"
+    },
+    "loadingPass": null,
+    "canvases": 0,
+    "audioCount": 1,
+    "audioPreserved": null,
+    "overflow": false,
+    "bundle": "/personal-homepage/_astro/HomeJourney.BVNBI4Qs.js",
+    "wordmarks": 1,
+    "motion": null,
+    "wallInert": false,
+    "focus": "",
+    "portrait": null,
+    "copy": null,
+    "copyStatus": null,
+    "retryCount": 1
+  },
+  "logs": []
+}

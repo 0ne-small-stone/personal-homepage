@@ -1,0 +1,230 @@
+{
+  "before": {
+    "active": {
+      "class": "item__image",
+      "focusVisible": true,
+      "id": "",
+      "outline": "rgb(212, 212, 212) solid 1.53846px",
+      "tag": "DIV"
+    },
+    "focusRings": [
+      {
+        "class": "item__image",
+        "outline": "rgb(212, 212, 212) solid 1.53846px",
+        "rect": {
+          "bottom": 407.95025634765625,
+          "height": 147.74658203125,
+          "left": 1474.9544677734375,
+          "right": 1600.2370147705078,
+          "top": 260.20367431640625,
+          "width": 125.28254699707033,
+          "x": 1474.9544677734375,
+          "y": 260.20367431640625
+        }
+      }
+    ],
+    "host": {
+      "clip": "inset(86.8803px 36.5812px 146.325px)",
+      "rect": {
+        "bottom": 923.0769653320312,
+        "height": 923.0769653320312,
+        "left": 0,
+        "right": 2326.923095703125,
+        "top": 0,
+        "width": 2326.923095703125,
+        "x": 0,
+        "y": 0
+      }
+    },
+    "layers": [
+      {
+        "background": "radial-gradient(rgba(235, 235, 235, 0) 65%, rgb(0, 0, 0) 100%)",
+        "class": "overlay",
+        "opacity": "0.74359",
+        "rect": {
+          "bottom": 776.7548217773438,
+          "height": 689.8798217773438,
+          "left": 36.574520111083984,
+          "right": 2290.348690032959,
+          "top": 86.875,
+          "width": 2253.774169921875,
+          "x": 36.574520111083984,
+          "y": 86.875
+        }
+      },
+      {
+        "background": "radial-gradient(rgba(235, 235, 235, 0) 65%, rgb(0, 0, 0) 100%)",
+        "class": "overlay overlay--blur",
+        "opacity": "0.74359",
+        "rect": {
+          "bottom": 776.7548217773438,
+          "height": 689.8798217773438,
+          "left": 36.574520111083984,
+          "right": 2290.348690032959,
+          "top": 86.875,
+          "width": 2253.774169921875,
+          "x": 36.574520111083984,
+          "y": 86.875
+        }
+      },
+      {
+        "background": "linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0))",
+        "class": "edge-fade edge-fade--top",
+        "opacity": "0.74359",
+        "rect": {
+          "bottom": 206.875,
+          "height": 120,
+          "left": 36.574520111083984,
+          "right": 2290.348690032959,
+          "top": 86.875,
+          "width": 2253.774169921875,
+          "x": 36.574520111083984,
+          "y": 86.875
+        }
+      },
+      {
+        "background": "linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0))",
+        "class": "edge-fade edge-fade--bottom",
+        "opacity": "0.74359",
+        "rect": {
+          "bottom": 776.7548217773438,
+          "height": 120,
+          "left": 36.574520111083984,
+          "right": 2290.348690032959,
+          "top": 656.7548217773438,
+          "width": 2253.774169921875,
+          "x": 36.574520111083984,
+          "y": 656.7548217773438
+        }
+      }
+    ],
+    "view": {
+      "actualCamera": "-0.2671,0.0082,17.3018",
+      "anchorPose": "-3.1250,0.0957,5.3540",
+      "aspectError": "0.000e+0",
+      "axes": "6.200,6.200,6.200",
+      "camera": "0.00,0.00,-45.00",
+      "detail": "ready",
+      "distance": "-45.00",
+      "domeRadius": "902",
+      "fieldCount": "0",
+      "fieldLayout": "projection-gap",
+      "fieldRetiring": "0",
+      "flightVelocity": "0.0000",
+      "imageFit": "contain",
+      "layout": "react-bits-dome",
+      "layoutAspect": "2.521",
+      "orientation": "-0.483,-0.071",
+      "pan": "0.00,0.00",
+      "portal": "-3.1250,0.0957,5.3540",
+      "progress": "0.085",
+      "quaternion": "-0.03464,-0.23886,0.00853,0.97040",
+      "reduced": "false",
+      "regions": "0",
+      "rotationMode": "dome-limited-pitch",
+      "starfield": "hidden",
+      "view": "transition",
+      "viewer": "closed"
+    },
+    "viewport": [
+      2327,
+      923
+    ]
+  },
+  "forward": {
+    "clip": "inset(63.3333px 26.6667px 106.667px)",
+    "guard": {
+      "background": "linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0)), linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)), linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0)), linear-gradient(to left, rgb(0, 0, 0), rgba(0, 0, 0, 0))",
+      "display": "block",
+      "opacity": "1",
+      "rect": {
+        "bottom": 816.4182548522949,
+        "height": 753.0889282226562,
+        "left": 26.658655166625977,
+        "right": 2300.264368057251,
+        "top": 63.32932662963867,
+        "width": 2273.605712890625,
+        "x": 26.658655166625977,
+        "y": 63.32932662963867
+      }
+    },
+    "oldFade": "0",
+    "phase": "transition",
+    "progress": "0.333"
+  },
+  "wheel": {
+    "guardDisplay": "block",
+    "guardOpacity": "1",
+    "view": {
+      "actualCamera": "-0.0181,-0.0181,17.6939",
+      "anchorPose": "-0.2860,-0.2863,6.1868",
+      "aspectError": "0.000e+0",
+      "axes": "6.200,6.200,6.200",
+      "camera": "0.00,0.00,-45.00",
+      "detail": "ready",
+      "distance": "-45.00",
+      "domeRadius": "902",
+      "fieldCount": "0",
+      "fieldLayout": "projection-gap",
+      "fieldRetiring": "0",
+      "flightVelocity": "0.0000",
+      "imageFit": "contain",
+      "layout": "react-bits-dome",
+      "layoutAspect": "2.521",
+      "orientation": "0.000,0.000",
+      "pan": "0.00,0.00",
+      "portal": "-0.2860,-0.2863,6.1868",
+      "progress": "0.063",
+      "quaternion": "0.00000,0.00000,0.00000,1.00000",
+      "reduced": "false",
+      "regions": "0",
+      "rotationMode": "dome-limited-pitch",
+      "starfield": "hidden",
+      "view": "transition"
+    }
+  },
+  "phone": {
+    "canvases": 1,
+    "clip": "inset(73.3333px 13.3333px 153.333px)",
+    "guard": "block",
+    "opacity": "1",
+    "phase": "transition",
+    "progress": "0.333",
+    "rect": {
+      "bottom": 495.9014434814453,
+      "height": 422.5721130371094,
+      "left": 13.329327583312988,
+      "right": 286.6706666946411,
+      "top": 73.32933044433594,
+      "width": 273.3413391113281,
+      "x": 13.329327583312988,
+      "y": 73.32933044433594
+    },
+    "viewport": [
+      300,
+      649
+    ]
+  },
+  "initial": {
+    "defaultHidden": true,
+    "guard": "none",
+    "phase": "sphere"
+  },
+  "partial": {
+    "display": "block",
+    "hiddenAttribute": true,
+    "opacity": "1",
+    "phase": "transition",
+    "progress": "0.333",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  "space": {
+    "canvases": 1,
+    "guard": "none",
+    "phase": "space",
+    "progress": "1.000"
+  }
+}

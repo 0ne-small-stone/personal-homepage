@@ -83,7 +83,7 @@
 .home-enhanced:not(.home-quiet) .home-wall .home-chapter-content::before { display: none; }
 .home-wall h2 { font-size: clamp(4rem, 10vw, 9rem); }
 .home-wall-surface { position: absolute; inset: 0; z-index: 0; background-color: #e8e4dc; background-image: linear-gradient(#bcb9b3 1px, transparent 1px), linear-gradient(90deg, #c8c4bd 1px, transparent 1px), linear-gradient(90deg, #c8c4bd 1px, transparent 1px); background-size: 100% 7rem, 18rem 14rem, 18rem 14rem; background-position: 0 0, 0 0, 9rem 7rem; }
-.home-wall { --color-bg: #e8e4dc; --color-text: #272a2c; --color-muted: #62645d; --color-border: #72746e; color: var(--color-text); }
+.home-wall { --color-bg: #e8e4dc; --color-text: #272a2c; --color-muted: #444740; --color-border: #72746e; color: var(--color-text); }
 .home-wall-empty { padding: 1rem 0; max-width: 32rem; }
 .home-wall-empty p { margin: 0 0 1rem; }
 .home-wall-bottom { display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 2rem; font-size: .875rem; }
@@ -98,6 +98,7 @@
 .home-scene-controls button:hover:not(:disabled) { color: #000; background: #ededed; }
 .home-on-wall .home-header, .home-on-wall .home-chapter-index, .home-on-wall .home-scene-controls { color: #272a2c; }
 .home-on-wall .home-chapter-index a[aria-current], .home-on-wall .home-chapter-index a:hover { color: #272a2c; }
+.home-on-wall .home-header public-directory summary { color: #272a2c; --directory-text: #272a2c; --directory-border: #777; }
 .home-portal-cover .home-header, .home-portal-cover .home-chapter-index, .home-portal-cover .home-scene-controls { color: #ededed; mix-blend-mode: normal; }
 .home-portal-cover .home-header-wall, .home-portal-cover .home-header > nav, .home-portal-cover .home-chapter-index, .home-portal-cover .home-scene-controls { background: rgb(31 31 31 / .96); border-radius: 999px; }
 .home-portal-cover .home-header > nav { padding-inline: .75rem; }
@@ -118,11 +119,19 @@
 .lssh-home[data-home-restoring] #main-content,
 .lssh-home[data-home-restoring] #main-content * { visibility: hidden !important; }
 .home-scene canvas { width: 100% !important; height: 100% !important; }
-.home-loader { --opening: 0%; position: fixed; inset: 0; z-index: 19; background: #000; color: #ededed; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; mask-image: radial-gradient(circle at center, transparent var(--opening), #000 calc(var(--opening) + 1px)); }
+.home-loader { position: fixed; inset: auto var(--home-gutter) max(1rem, env(safe-area-inset-bottom)); z-index: 30; color: #ededed; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .home-loader[hidden] { display: none; }
 .home-loader p { font: .75rem var(--font-home-nav); color: #a1a1a1; }
 .home-loader button { color: #ededed; background: transparent; border: 1px solid #777; padding: .75rem 1.25rem; border-radius: 999px; min-height: 2.75rem; cursor: pointer; }
-.home-loader-logo { width: 22rem; max-width: calc(100vw - 3rem); }
+.home-loading-active .home-scroll, .home-loading-active .home-scene-controls, .home-loading-active .home-chapter-index { visibility: hidden; }
+.home-loading-active .home-header { opacity: var(--home-loading-nav, 0); }
+.home-loading-active:not(.home-loading-nav-ready) .home-header { visibility: hidden; }
+.home-loading-active .home-wordmark { animation: loading-wordmark .18s ease-out both; }
+@keyframes loading-wordmark { from { opacity: 0; } to { opacity: 1; } }
+.home-wordmark-failed .home-wordmark { display: none; }
+.home-wordmark-failed #home-title { position: static; width: auto; height: auto; clip: auto; white-space: normal; overflow: visible; font: 500 2.5rem/1.1 var(--font-home-display); }
+.home-loading-lab { position: fixed; top: 1rem; right: 1rem; z-index: 40; display: flex; flex-wrap: wrap; gap: .5rem; max-width: calc(100vw - 2rem); padding: .5rem; color: #a1a1a1; background: #000; font-size: 12px; }
+.home-loading-lab button { border: 1px solid #777; border-radius: .5rem; color: #ededed; background: #000; min-height: 44px; padding: .3rem .7rem; }
 .home-status { position: fixed; bottom: 5.5rem; right: var(--home-gutter); z-index: 18; max-width: 18rem; font-size: .75rem; color: #a1a1a1; }
 .home-status:empty { display: none; }
 .home-enhanced .home-art--scene, .home-enhanced .home-wall-surface { visibility: hidden; }

@@ -1,0 +1,112 @@
+{
+  "finalBundle": "app-MWSFUD6U.js",
+  "checks": [
+    {
+      "case": "drag, native zoom policy, original return",
+      "drag": {
+        "brickTouchAction": "pinch-zoom",
+        "open": false,
+        "script": "http://127.0.0.1:4360/app-MWSFUD6U.js",
+        "touchAction": "pinch-zoom"
+      },
+      "before": "matrix(1, 0, 0, 1, -647.146, -98.7642)",
+      "after": {
+        "focus": "demo-02",
+        "portals": 0,
+        "wall": "matrix(1, 0, 0, 1, -647.146, -98.7642)"
+      },
+      "passed": true
+    },
+    {
+      "case": "rapid Back/Forward",
+      "result": {
+        "hash": "#message/demo-02",
+        "open": true,
+        "phase": "reading"
+      }
+    },
+    {
+      "case": "three Enter/Escape cycles",
+      "results": [
+        {
+          "focus": "demo-02",
+          "open": false,
+          "portals": 0
+        },
+        {
+          "focus": "demo-02",
+          "open": false,
+          "portals": 0
+        },
+        {
+          "focus": "demo-02",
+          "open": false,
+          "portals": 0
+        }
+      ]
+    },
+    {
+      "case": "320 list and internal scrolling",
+      "before": {
+        "close": {
+          "bottom": 90,
+          "height": 44,
+          "left": 245,
+          "right": 289,
+          "top": 46,
+          "width": 44,
+          "x": 245,
+          "y": 46
+        },
+        "wall": "matrix(1, 0, 0, 1, -2118, -784)"
+      },
+      "after": {
+        "close": {
+          "bottom": 90,
+          "height": 44,
+          "left": 245,
+          "right": 289,
+          "top": 46,
+          "width": 44,
+          "x": 245,
+          "y": 46
+        },
+        "scrollTop": 364,
+        "wall": "matrix(1, 0, 0, 1, -2118, -784)",
+        "width": 320
+      }
+    },
+    {
+      "case": "reduced motion policy override",
+      "result": {
+        "opacity": "1",
+        "policy": "true",
+        "portals": 0,
+        "systemPreference": false,
+        "transition": "0s"
+      }
+    },
+    {
+      "case": "390 direct and refresh",
+      "result": {
+        "id": "demo-22",
+        "phase": "reading",
+        "width": 390
+      }
+    },
+    {
+      "case": "reply notice",
+      "result": {
+        "frozen": "true",
+        "message": true,
+        "notice": true
+      }
+    }
+  ],
+  "console": [],
+  "limits": [
+    "No physical touch/pinch hardware tested",
+    "Reduced motion forced by QA query; system preference unchanged",
+    "Tab browser-chrome boundary not fully validated"
+  ]
+}

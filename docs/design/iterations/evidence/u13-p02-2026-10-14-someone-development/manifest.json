@@ -1,0 +1,46 @@
+{
+  "savedAt": "2026-10-14T13:22:19.653Z",
+  "preview": "http://127.0.0.1:4345/personal-homepage/about/",
+  "sourceScope": "Someone page and its shared layout inputs; other preview routes retain existing built pages",
+  "sources": [
+    {
+      "file": "src/pages/about.astro",
+      "sha256": "eeff0c202666774f8f61ec32f6d305f77a4c9bb9a858f8e2023f4bc3977cfed2"
+    },
+    {
+      "file": "src/data/profile.ts",
+      "sha256": "901b7e86c5d3e73761288ab8a0e18777c881d7476d045bea847e8c19f4304d18"
+    },
+    {
+      "file": "src/styles/about.css",
+      "sha256": "98e4cbdf59a8d8f22db6301048a0f514b8985b27367ccbed145eaa2e8f2826be"
+    },
+    {
+      "file": "src/assets/about/portrait.jpg",
+      "sha256": "be6d9b41b3d44468e8ee34dc3577a6dcd46b78dbdcd24bc30ae6b07a5318420c"
+    },
+    {
+      "file": "src/layouts/HomeLayout.astro",
+      "sha256": "313c359721d80ba460b3b9b5d1006bdb0fdf25f1e189c78ff8d41884069d8e89"
+    },
+    {
+      "file": "src/components/home/HomeHeader.astro",
+      "sha256": "99e4322ba5bc975c9f4866087a09a0efd93978031490779ab9bd01fb39f6a31d"
+    },
+    {
+      "file": "src/lib/paths.ts",
+      "sha256": "b257d27936b5e8f509c2d4b7dc3199d9b2f25a031e71c116e2132b00152e716e"
+    }
+  ],
+  "html": {
+    "file": ".local-tools/someone-preview/site/about/index.html",
+    "sha256": "3dd3acf381fb8e91815ceacdeabc624bb22fd51b2817c4eda847341173f8ff86"
+  },
+  "checks": {
+    "hasSSRIdentity": true,
+    "hasSSRExperience": true,
+    "hasSSRMailLink": true,
+    "hasNativeAnchor": true,
+    "containsProtectedFields": false
+  }
+}

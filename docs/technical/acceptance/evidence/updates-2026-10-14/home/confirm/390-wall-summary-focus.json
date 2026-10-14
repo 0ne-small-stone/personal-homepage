@@ -1,0 +1,79 @@
+{
+  "key": "390-wall-summary-focus",
+  "s": {
+    "url": "http://127.0.0.1:4467/personal-homepage/?opticsDebug=1#wall",
+    "width": 390,
+    "height": 844,
+    "y": 9806,
+    "classes": "lssh-home has-journey home-enhanced home-loading-nav-ready home-wall-ready home-on-wall",
+    "status": "ready",
+    "canvases": 1,
+    "audio": 1,
+    "overflow": false,
+    "bundle": "/personal-homepage/_astro/HomeJourney.BVNBI4Qs.js",
+    "summary": {
+      "color": "rgb(39, 42, 44)",
+      "border": "rgb(119, 119, 119)",
+      "background": "rgba(0, 0, 0, 0)",
+      "outlineColor": "rgb(39, 42, 44)",
+      "outlineWidth": "2px",
+      "outlineStyle": "solid",
+      "focusVisible": true,
+      "rect": {
+        "x": 16,
+        "y": 16,
+        "width": 70.484375,
+        "height": 44,
+        "top": 16,
+        "right": 86.484375,
+        "bottom": 60,
+        "left": 16
+      }
+    },
+    "panel": {
+      "color": "rgb(237, 237, 237)",
+      "border": "rgb(119, 119, 119)",
+      "background": "rgb(31, 31, 31)",
+      "outlineColor": "rgb(237, 237, 237)",
+      "outlineWidth": "3px",
+      "outlineStyle": "none",
+      "focusVisible": false,
+      "rect": {
+        "x": 16,
+        "y": 68,
+        "width": 320,
+        "height": 342.390625,
+        "top": 68,
+        "right": 336,
+        "bottom": 410.390625,
+        "left": 16
+      }
+    },
+    "open": false,
+    "panelLink": {
+      "color": "rgb(237, 237, 237)",
+      "border": "rgb(237, 237, 237)",
+      "background": "rgba(0, 0, 0, 0)",
+      "outlineColor": "rgb(237, 237, 237)",
+      "outlineWidth": "3px",
+      "outlineStyle": "none",
+      "focusVisible": false,
+      "rect": {
+        "x": 29,
+        "y": 81,
+        "width": 294,
+        "height": 44,
+        "top": 81,
+        "right": 323,
+        "bottom": 125,
+        "left": 29
+      }
+    }
+  },
+  "logs": [
+    {
+      "type": "warning",
+      "message": "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+    }
+  ]
+}

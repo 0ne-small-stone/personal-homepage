@@ -1,4 +1,5 @@
-export const workCount = 4;
+import { homeWorkChapters } from './home-chapters.ts';
+export const workCount = homeWorkChapters.length;
 export const introGap = 100;
 
 export type MotionChannel = 'kv' | 'intro' | 'works' | 'event' | 'snap' | 'outro' | 'prepare' | 'expand' | 'wall';

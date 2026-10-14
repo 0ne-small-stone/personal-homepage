@@ -25,7 +25,7 @@ export default function VinylSleeve({ title, artist, coverUrl, selected, onSelec
   }, []);
   return <button ref={button} type="button" className={`vinyl-sleeve ${selected ? 'is-selected' : ''} ${playing ? 'is-playing' : ''}`} data-motion-visible={motionVisible} aria-pressed={selected} aria-label={`${action}：${title}`} onClick={onSelect}>
     <span className="sleeve-composition" aria-hidden="true">
-      <span className="sleeve-record"><span className="sleeve-record-label">{artist.slice(0, 1)}<i /></span></span>
+      <span className="sleeve-record-pocket"><span className="sleeve-record"><span className="sleeve-record-label">{artist.slice(0, 1)}<i /></span></span></span>
       <span className="sleeve-cover"><AlbumArtwork src={coverUrl} title={title} artist={artist} /><span className="sleeve-cover-overlay"><strong>{title}</strong><small>{artist}</small><span className="sleeve-action">{action}<span className="sleeve-play-circle"><svg viewBox="0 0 24 24">{actionIcon === 'open' ? <path d="m9 5 7 7-7 7" /> : playing ? <path d="M8 5v14M16 5v14" /> : <path d="m9 5 10 7-10 7Z" />}</svg></span></span>{selected && <span className="sleeve-progress"><span style={{ width: `${Math.min(100, Math.max(0, progress * 100))}%` }} /></span>}</span></span>
     </span>
     <span className="sleeve-caption"><strong>{title}</strong><span>{artist}</span></span>

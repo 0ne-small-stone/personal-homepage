@@ -1,0 +1,21 @@
+{
+  "bundle": "app-YRQ27TYB.js",
+  "checks": [
+    {
+      "case": "drag without misclick",
+      "open": false,
+      "transform": "matrix(1, 0, 0, 1, -839.111, -226.741)"
+    },
+    {
+      "case": "Escape restore after drag",
+      "before": "matrix(1, 0, 0, 1, -827.902, -219.268)",
+      "after": {
+        "focus": "demo-02",
+        "hash": "",
+        "portals": 0,
+        "transform": "matrix(1, 0, 0, 1, -827.902, -219.268)"
+      },
+      "passed": true
+    }
+  ]
+}

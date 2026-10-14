@@ -2,6 +2,61 @@
 
 2026-10-14 P10正式采用：React Bits Dome Gallery固定496968c4117e21278f13917201b7d615bc5e7450、PhotoSwipe5.4.4、Three0.186.1和Infinite Canvas参考承接已验收原型，完整许可与出处在[公开来源登记](../../public/gallery/attribution.txt)。用户授权发布36张WebP派生，原JPEG不公开；组件作为本站应用使用，不发布独立组件库，见[接入记录](../technical/iterations/t12-p10-2026-10-14-pages.md)。
 
+
+## F03 时序参考与复用（2026-10-14）
+
+按六站提醒规则，本轮提醒并核对 [Anime.js Timeline官方文档](https://animejs.com/documentation/timeline/)：适合讨论轮廓、空间与导航的重叠时序。只参考编排思路，实际复用已有GSAP/Three，不增加Anime依赖或复制案例素材。ALCHE仍为主参考，固定研究和来源沿用F03施工卡；字标、玻璃与局部柔光均沿用批准资产/原几何。实施状态、有限采样缺口及边界见[本轮证据](iterations/evidence/f03-loading-2026-10-14/implementation/README.md)，不将候选图检写为用户通过。
+
+## P14 可移动迷墙与留言展开研究（2026-10-14）
+
+**后续实际复用：**用户已选择建议并完成[独立第一样本](iterations/u08-p14-2026-10-14-wall-prototype.md)。运行复用项目既有GSAP3.15.0 [Draggable](https://gsap.com/docs/v3/Plugins/Draggable/)、[InertiaPlugin](https://gsap.com/docs/v3/Plugins/InertiaPlugin/)、[Flip](https://gsap.com/docs/v3/Plugins/Flip/)及浏览器原生[dialog](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog)，包保留GSAP版权和标准许可链接；Palmer只借动作思想，未复制其源码/素材。错缝布局、页面、内容连接和演示留言为本站原创，无新增依赖。下表的“本轮无采用”为研究当时的状态。
+
+用户想要可移动砖墙、点砖弹出留言。拆解、来源许可与验证边界见 [U08 / P14 研究](iterations/u08-p14-2026-10-14-wall-research.md)；以下均为候选/参考，本轮无代码、素材或依赖采用。
+
+| 来源 ID | 精确入口 | 用途与当前证据 |
+| --- | --- | --- |
+| `wall-palmer-drag-detail` | [Palmer Draggable Grid](https://tympanus.net/Tutorials/PalmerDraggableGrid/) / [作者文章](https://tympanus.net/codrops/2025/09/01/recreating-palmers-draggable-product-grid-with-gsap/) | 首选整墙移动与原单元到详情的交接；桌面初态/点击详情原图已查看，拖动未实测。仓库 LICENSE 为 MIT，正式复用需固定版本/保留声明，图像与依赖另核 |
+| `wall-grid-zoom-context` | [Grid Zoom](https://tympanus.net/Development/GridZoom/) / [作者文章](https://tympanus.net/codrops/2021/12/01/grid-zoom-layout/) | 连续放大与缩略位置；官方说明/仓库 MIT 已核，未实点，示例并非完整 slideshow |
+| `wall-unsent-message-archive` | [The Unsent Project](https://theunsentproject.com/) / [官方说明](https://theunsentproject.com/about) | 短话语档案与名字检索；不采用彩色、匿名/审核规则，不导入留言，未接受年龄/条款或投稿 |
+| `wall-before-i-die-participation` | [Before I Die / Candy Chang](https://www.candychang.com/beforeidie/) | 公共墙与每人留痕；实体艺术参考，官方 CC BY-NC-ND 4.0，不改造或采用原图/模板 |
+| `wall-aceternity-layout` | [Layout Grid](https://ui.aceternity.com/components/layout-grid) | 收藏资源中最贴近单砖展开，已提醒；组件行为/许可待验证，未安装 |
+| `wall-infinite-canvas-pan` | [Infinite Canvas](https://tympanus.net/Tutorials/InfiniteCanvas/) / [作者文章](https://tympanus.net/codrops/2026/01/07/infinite-canvas-building-a-seamless-pan-anywhere-image-space/) | 远期平移/缩放与有限渲染，P10 有同源登记；不循环复制真实留言，不自动引入三维飞行 |
+
+已有 `pf-wall` 继续负责《迷墙》主题/材质来源，Giscus 负责身份、写入和讨论管理；这些 UI 案例不替换二者。
+
+## Someone 个人介绍界面参考 2026年10月14日
+
+同日用户确认方向并要求以ITP报名表开发：Dennis的首屏留白、Brittany的经历层级、Anthony的阅读／内容连接已转译到[Someone首版](iterations/u13-p02-2026-10-14-someone-development.md)，未复制三站源码或人物素材。`someone-user-portrait`为用户指定报名表内的`word/media/image4.jpeg`，原样采用为`src/assets/about/portrait.jpg`（198×265，SHA-256 `be6d9b41b3d44468e8ee34dc3577a6dcd46b78dbdcd24bc30ae6b07a5318420c`）；不附带原扫描表、签章、成绩或其他身份字段。原图尺寸适合小幅肖像，不冒称新制作的高分辨率摄影。下方“参考候选／未改应用”保留为研究阶段记录。
+
+用户要求调研优秀个人主页中 Someone 类似功能。首选三站有桌面／390px 原图；另外三站只核对正文与结构。[完整对比与本站建议](iterations/u13-p02-2026-10-14-someone-research.md)、[原图与采集边界](iterations/evidence/u13-p02-2026-10-14-someone-research/README.md)。均为参考候选，未采用第三方代码、照片或字体，未修改应用。
+
+| ID | 作者页面 | 本轮用途与状态 |
+| --- | --- | --- |
+| `someone-dennis` | [Dennis Snellenberg About](https://dennissnellenberg.com/about) | 实际桌面／手机标题、留白、短介绍与人物照片布局；首屏构图候选，菜单和转场未验 |
+| `someone-brittany` | [Brittany Chiang](https://brittanychiang.com/) | 实际桌面身份侧栏与 About／Experience／Projects 层级、手机单栏；经历索引候选，目录点击未通过操作验证 |
+| `someone-anthony` | [Anthony Fu](https://antfu.me/) | 实际黑底单栏、介绍中的项目／文章／照片链接、手机标签重排；内容连接候选，图标与装饰不照搬 |
+| `someone-paco` | [Paco Coursey](https://paco.me/) | 正文的 Now、音乐兴趣和 Connect 分工；个人叙事参考，未取得本轮截图或验证交互 |
+| `someone-steph` | [Steph Ango About](https://stephango.com/about) | 简介连接写作／项目／Now、外部平台；稳定资料与近况分工参考，未实际读图 |
+| `someone-maggie` | [Maggie Appleton About](https://maggieappleton.com/about) | 正文从能力关系到经历、个人成长与照片；叙事参考，未实际读图 |
+
+Guillaume Azadian About 文本可读但浏览器持续加载，排除视觉主候选。Awwwards 按既有 `resource-awwwards` 提醒用于案例发现；质量判断以具体原站内容和实际页面为依据。案例版权与站点源码许可独立，本轮截图仅在设计证据目录保存，不接入 public 或作为获授权生产素材。
+
+### P13-PLAYER-EXTRA-20261014 · 新增网易云播放器参考
+
+用户继续要求寻找更多网易云第三方播放器。本批按作者仓库/README核对，不重复前批SPlayer、Alger、HyPlayer、Vutron；仅参考登记，没有安装、授权或接入，没有把作者声明写成本站播放能力。
+
+| 参考 ID | 作者入口 | 特点和适用边界 | 来源/采用状态 |
+| --- | --- | --- | --- |
+| P13-PLAYER-EXTRA-01 | [Hydrogen Music复活版](https://github.com/ldx123000/Hydrogen-Music) | 延续明日方舟风格，深色模式、歌词/评论切换、私人漫游、网易云账号登录；Windows/macOS/Linux打包配置。适合研究沉浸歌词与曲库的分工 | 作者README及img/lyric.png、img/dark_mode.png；代码MIT，README另有非商业使用说明；图片/音乐独立权利。网页读取完成，浏览器截图页超时，未声称当前图已实际读图/客户端运行通过 |
+| P13-PLAYER-EXTRA-02 | [不倦 bujuan](https://github.com/2697a/bujuan) | Flutter多端网易云客户端，登录/每日推荐/私人FM/电台/云盘，作者明确专注音乐、减少无用功能；适合研究手机端取舍 | 当前feature/new-ui作者README，MIT标识；图像含独立内容权利，未提取应用资产；未安装实测 |
+| P13-PLAYER-EXTRA-03 | [TuneFree](https://github.com/alanbulan/TuneFree) | Tauri桌面聚合播放器，含网易云等来源、全屏播放器/主题/独立歌词；Windows/macOS安装包，区别于专门同步网易云个人账号的客户端 | 当前tauri作者README，MIT标识；这里只核对多音源搜索和界面功能声明，未验证账号/接口兼容，不直接采用 |
+| P13-PLAYER-EXTRA-04 | [Listen 1](https://github.com/listen1/listen1_desktop) | Windows/macOS/Linux多平台曲库聚合，网易云为其中一个来源；适合参考搜索/队列组织，视觉优先级低于前两款 | 作者README与官方站，MIT标识；未声称完整网易云账号同步或本站播放已接通 |
+
+按用户简约沉浸偏好，优先研究01歌词/播放区、02移动端取舍；这是基于作者定位的推荐，审美需用户看作者预览后选择。所有候选与现有黑胶页替换决定分开记录。
+
+2026-10-14 T25.18艺术化研究：已实看REF-07 [Side One](https://github.com/mintdotgg/bookshelf)此前三维测试场景与REF-01 [Codrops](https://tympanus.net/codrops/2016/06/15/interactive-record-player/)官方图形化唱臂原图。前者是三维器物方向，后者是SVG抽象方向；Dribbble风格化Spline仅作者描述可读，实际原页需人机验证，未作已实看推荐。具体许可/俯视资产和原创变体未取得，用户选择/接入另记，见[艺术化参考](iterations/u12-p13-2026-10-14-tonearm-candidates.md#艺术化唱臂参考)。研究途中用户指出盘/套闪现，已优先完成T25.22空间修复。
+
+2026-10-14 T25.18后续外观研究：用户继续询问更好看的唱臂，新增P13-TONEARM-REF-05 [Ortofon AS-212R](https://ortofon.com/products/as-212r)、REF-06 [Rega RB3000](https://www.rega.co.uk/products/rb3000)，与原REF-04 SME并排对照；实际官方图读回，Rega建议更适合简约黑灰、SME偏复古、Ortofon偏克制，均是执行者审美建议/尚未获用户选择。Reed 3P轴承近照已看但未入优先三款。来源/预览证据及图片使用边界见[第二组选型](iterations/u12-p13-2026-10-14-tonearm-candidates.md#当前素材之后的第二组选型)，没有再次替换当前应用唱臂。
 2026-10-14 T25.18正式替代样本：原有矢量候选不满足写实要求，Technics模型未取得、SME照片再利用未验证。本次内置imagegen生成原创俯视银色曲臂/轴承/配重/黑色唱头透明图，导出`public/music/turntable/tonearm-metal-v1.webp`，重新测量落针坐标。生成提示词/模式/处理/alpha证据见[生成记录](iterations/evidence/u12-p13-2026-10-14-album-choreography-revision/tonearm-generation.json)，接入状态见[修订片](iterations/u12-p13-2026-10-14-album-choreography-revision.md)；未将厂家照片或模型viewer图作为应用素材，生成样本不冒充厂家实拍。
 
 2026-10-14 T25.22六资源站提醒：resource-animejs的[Timeline](https://animejs.com/documentation/timeline/)适合对照收盘→换套→抽盘的顺序衔接，原官方页面已核对；本片用浏览器原生CSS动画与React粗粒度快照完成，未安装Anime.js或复制其代码，参数仍归SYSTEM。
@@ -110,6 +165,7 @@ T09.03 的阅读资源见[本轮清单](#t0903-文章阅读资源清单)；下�
 
 ## 六个设计资源站与提醒规则
 
+2026-10-14 P10第十二片`p10-return-wireframe`：既有项目无对应球面网格图标，使用原型统一SVG描边样式制作圆/椭圆/经纬线的简单几何图标，直接内联在[原型index.html](iterations/evidence/u10-p10-2026-10-13-sphere-canvas/prototype/index.html)。本站适配产物，不复制第三方图标，不新增依赖/位图；实际44px按钮、28px图标与功能证据见[本片](iterations/u10-p10-2026-10-14-overview-controls.md)。
 2026-10-14 P10第十片实际采用`single-photoswipe-v5`：用户选择①展开+②排布+④缩放后，官方npm photoswipe@5.4.4的ESM/CSS固定在原型vendor，[来源哈希](iterations/evidence/u10-p10-2026-10-13-sphere-canvas/prototype/vendor/photoswipe/provenance.json)与[MIT全文](iterations/evidence/u10-p10-2026-10-13-sphere-canvas/prototype/vendor/photoswipe/LICENSE)保留/随生成包复制。参考案例仅借动作/构图，来源投影桥和缩略导航为本站适配；未采用其AI图片或GSAP/Aceternity代码。实际能力/性能/限制见[第十片](iterations/u10-p10-2026-10-14-single-viewer.md)。
 
 2026-10-14 P10/U10 单图浏览研究：新增`single-continuous-reveal`（[Infinite Scroll GSAP Gallery](https://tympanus.net/Tutorials/InfiniteScrollGSAPGallery/)）、`single-grid-slideshow`（[GridToSlider Demo2](https://tympanus.net/Development/GridToSlider/index2.html)）、`single-cinema-slideshow`（[Slideshow Animations](https://tympanus.net/Development/SlideshowAnimations/)）及`single-minimal-lightbox`（[PhotoSwipe](https://photoswipe.com/)）候选，实际点击/切换/缩放范围与许可见[单图研究](iterations/u10-p10-2026-10-14-single-image-research.md)。Aceternity [Layout Grid](https://ui.aceternity.com/components/layout-grid)按六站提醒规则提供同源展开动作参考；未装其框架/组件，未复制代码/照片，研究不等于用户选型或正式采用。
@@ -672,6 +728,35 @@ Moosync本次官网未定位完整界面，仓库Screenshots仍TODO，未作为�
 用户要求右侧真实歌词、移除CD选择层、按Apple感觉精修；现有黑灰、唱片机和曲库专辑保持。实际浏览[Apple Layout](https://developer.apple.com/design/human-interface-guidelines/layout)、[Typography](https://developer.apple.com/design/human-interface-guidelines/typography)、[Materials](https://developer.apple.com/design/human-interface-guidelines/materials)：落实分组/对齐、字重层级和控件/内容材质区分；不下载SF或品牌图像，不声称CSS实现原生Liquid Glass。字体继续沿用项目栈，Apple原则作为本站适配依据。
 
 [Apple同步歌词说明](https://support.apple.com/en-ie/108960)作为时间轴与普通全文/缺失的状态参考。本地歌词来自用户洛雪下载目录18份同名LRC，按原文件读取；网易云可选补充复用[LRCLIB官方匿名接口](https://lrclib.net/docs)，实际读回同专辑/时长的Echoes记录并在页面验证Eclipse时间轴。外部歌词不在仓库硬编码，只通过公开接口运行时读取；不复制歌词服务代码或使用账号凭证。接口公开访问不等于本轮核验所有音乐版权或平台播放权限。实际来源/边界与读图见[T25.08](iterations/u12-p13-2026-10-13-lyrics-polish.md)。
+
+## 博客 UI/UX 补充调研（2026-10-14）
+
+用户要求调研优秀博客项目的 UI/UX。本轮覆盖 P03/P06/P15、U09/U13/U14，沿用 R02/R09/R10/R12 与 T05/T07/T09/T10/T26/T27；不恢复 P04/P07。结论、观察与设计判断见[研究报告](iterations/u09-blog-uiux-research-2026-10-14.md)，8 张原图和已验证操作见[证据](iterations/evidence/u09-blog-uiux-research-2026-10-14/README.md)。以下均为研究参考或代码候选，尚未正式采用。
+
+| 来源 ID | 官方体验与来源 | 本轮参考用途 | 使用条件及状态 |
+| --- | --- | --- | --- |
+| BLOG26-01 | [AstroPaper](https://astro-paper.pages.dev/) / [源码](https://github.com/satnaing/astro-paper) | 摘要列表、文章目录 | 官方仓库标注 MIT；代码复用待选，演示照片与字体另核对 |
+| BLOG26-02 | [Astro Cactus](https://astro-cactus.chriswilliams.dev/) / [源码](https://github.com/chrismwilliams/astro-theme-cactus) | 紧凑索引、手机重排和 Pagefind 结果 | 官方仓库标注 MIT；实际菜单及搜索结果已查看，完整旅程另验 |
+| BLOG26-03 | [Fuwari](https://fuwari.vercel.app/) / [源码](https://github.com/saicaca/fuwari) | 圆角分组与列表间距 | 官方仓库标注 MIT；演示插画的使用条件独立，不下载作为本站素材 |
+| BLOG26-04 | [Josh 长文](https://www.joshwcomeau.com/css/anchor-positioning/) | 长文分节、目录和示例节奏 | 仅设计观察；未取得整站代码/字体/插画复用授权 |
+| BLOG26-05 | [Maggie 花园](https://maggieappleton.com/garden) / [状态说明](https://maggieappleton.com/epistemic-disclosure) | 内容类型、成长阶段与可信程度说明 | 仅结构研究，筛选行为本轮未验证；状态字段待选 |
+| BLOG26-06 | [Quartz](https://quartz.jzhao.xyz/) / [反向引用](https://quartz.jzhao.xyz/plugins/backlinks) / [源码](https://github.com/jackyzha0/quartz) | 真实反向引用与空状态 | 官方主仓库标注 MIT；这里只参考机制，不引入生成器或关系图；独立插件许可需按实际文件核对 |
+
+[Awwwards 博客目录](https://www.awwwards.com/websites/blogs/)用于案例发现，已按六个设计资源站提醒规则向用户提示；不把类别收录、社区推荐或项目自报分数等同于设计获奖及本轮验证。验收依据补充[W3C 重排](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html)和[目标尺寸最低要求](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html)，项目参数仍唯一维护在 SYSTEM。
+
+## Becoming 博客第二轮调研（2026-10-14）
+
+用户否决第一轮作为主设计方向，反馈视觉个性、阅读/布局及与首页艺术氛围三项均不满意。BLOG26-01–06 保留历史功能参考，不视为已选。第二轮在 P03/P06/P15、U09/U13/U14 范围研究构图、内容节奏与普通阅读方式，详见[候选报告](iterations/u09-blog-uiux-directions-2026-10-14.md)和[实际证据](iterations/evidence/u09-blog-directions-2026-10-14/README.md)。以下来源只作参考，尚未正式采用。
+
+| 来源 ID | 官方体验页 | 参考用途 | 实际范围与使用条件 |
+| --- | --- | --- | --- |
+| BLOG26-07 | [Are.na Editorial](https://www.are.na/editorial) / [文章](https://www.are.na/editorial/alice-yuan-zhang-on-building-things-into-being) | 黑色创作档案、图像与文字的层级、来源上下文 | 实际列表进入文章、返回位置与390px文章；原站图片/字体/正文/代码未接入本站，许可另核对 |
+| BLOG26-08 | [Emergence 长文](https://emergencemagazine.org/essay/new-life-for-the-ezo-spruce/) | 图像开篇、标题与正文节奏 | 实际关闭首次订阅浮层、滚动至正文；未提交订阅，原图像与字体不因参考而获授权 |
+| BLOG26-09 | [Andy working notes](https://notes.andymatuschak.org/) | 引用在原文旁打开、保留上下文 | 一次实际引用打开；手机完整返回/退出未验。作者入口声明是研究环境，未作为可直接使用的系统公开；不复制代码或恢复图谱 |
+| BLOG26-10 | [Rauno 交互设计长文](https://rauno.me/craft/interaction-design) | 安静阅读区与媒体示例、章节定位 | 桌面文章和一次章节跳转；手机、全量例子未验，代码/资产未复用 |
+| BLOG26-11 | [Maxime 的视觉技术长文](https://blog.maximeheckel.com/posts/on-rendering-the-sky-sunsets-and-planets/) / [博客](https://blog.maximeheckel.com/) | 内容相关图解及可体验例子 | 首屏、结构与Index返回首页；不把Index误写为正文目录，全部图形例子和Ask未测、未采用 |
+
+本轮的视觉判断与实际运行范围分开；黑灰、苹方、圆润克制的项目基线继续生效。后续若选用构图、素材或交互，先做一个明确样本，再分别记录许可、工程接入与用户确认。当前没有取得整站复制或资产复用授权，没有下载原站素材作为本站运行资源。
 
 ## P01 入射接缝反馈证据（2026-10-12）
 

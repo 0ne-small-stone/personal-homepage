@@ -1,0 +1,823 @@
+{
+  "base": "http://127.0.0.1:4467/personal-homepage/",
+  "startedAt": "2026-10-14T14:49:53.083Z",
+  "scope": "Music increments only; all media and non-LX account/backends intercepted",
+  "checks": [
+    {
+      "name": "20 tracks / 5 albums and existing LAN warning/readiness survive integration",
+      "status": "pass",
+      "evidence": {
+        "url": "http://127.0.0.1:4467/personal-homepage/music/",
+        "audioCount": 1,
+        "sessionId": "22d35348-843d-42a6-ab9e-4c2e5096709a",
+        "view": "专辑",
+        "keyword": "",
+        "ready": "false",
+        "motion": "idle",
+        "scenes": 1,
+        "title": "抚琴小夜曲",
+        "viewport": 1280,
+        "documentWidth": 1280,
+        "bodyWidth": 1280,
+        "dialogRect": null,
+        "focus": {
+          "label": null,
+          "text": "跳到正文LSSH目录学习展示常用网站音乐电台当前页关于我留言墙关闭目录var e=class ext",
+          "hidden": false,
+          "visible": true
+        },
+        "documentVisibility": "visible"
+      }
+    },
+    {
+      "name": "both sources use the same album detail structure and typography",
+      "status": "pass",
+      "evidence": {
+        "cloud": {
+          "className": "music-album-detail",
+          "h2": true,
+          "artist": true,
+          "count": true,
+          "artwork": true,
+          "play": "播放专辑",
+          "font": "\"PingFang SC\", \"Microsoft YaHei\", system-ui, sans-serif",
+          "headingSize": "28px"
+        },
+        "netease": {
+          "className": "music-album-detail",
+          "h2": true,
+          "artist": true,
+          "count": true,
+          "artwork": true,
+          "play": "播放专辑",
+          "font": "\"PingFang SC\", \"Microsoft YaHei\", system-ui, sans-serif",
+          "headingSize": "28px"
+        }
+      }
+    },
+    {
+      "name": "rapid cross-album selection has at most two scenes and converges; close resets motion",
+      "status": "pass",
+      "evidence": {
+        "fixture": "synthetic silent audio only",
+        "samples": [
+          {
+            "url": "http://127.0.0.1:4467/personal-homepage/music/?mode=cloud&view=songs",
+            "audioCount": 1,
+            "sessionId": "22d35348-843d-42a6-ab9e-4c2e5096709a",
+            "view": "歌曲",
+            "keyword": "",
+            "ready": "false",
+            "motion": "idle",
+            "scenes": 1,
+            "title": "最美妙的旅行",
+            "viewport": 1280,
+            "documentWidth": 1280,
+            "bodyWidth": 1280,
+            "dialogRect": {
+              "left": 0,
+              "right": 1280,
+              "width": 1280,
+              "scroll": 1280,
+              "client": 1280
+            },
+            "focus": {
+              "label": null,
+              "text": "返回音乐库",
+              "hidden": false,
+              "visible": true
+            },
+            "documentVisibility": "visible"
+          },
+          {
+            "url": "http://127.0.0.1:4467/personal-homepage/music/?mode=cloud&view=songs",
+            "audioCount": 1,
+            "sessionId": "22d35348-843d-42a6-ab9e-4c2e5096709a",
+            "view": "歌曲",
+            "keyword": "",
+            "ready": "false",
+            "motion": "changing",
+            "scenes": 2,
+            "title": "爱是昂贵的",
+            "viewport": 1280,
+            "documentWidth": 1280,
+            "bodyWidth": 1280,
+            "dialogRect": {
+              "left": 0,
+              "right": 1280,
+              "width": 1280,
+              "scroll": 1280,
+              "client": 1280
+            },
+            "focus": {
+              "label": "下一首",
+              "text": "",
+              "hidden": false,
+              "visible": true
+            },
+            "documentVisibility": "visible"
+          },
+          {
+            "url": "http://127.0.0.1:4467/personal-homepage/music/?mode=cloud&view=songs",
+            "audioCount": 1,
+            "sessionId": "22d35348-843d-42a6-ab9e-4c2e5096709a",
+            "view": "歌曲",
+            "keyword": "",
+            "ready": "false",
+            "motion": "changing",
+            "scenes": 2,
+            "title": "超级巨星",
+            "viewport": 1280,
+            "documentWidth": 1280,
+            "bodyWidth": 1280,
+            "dialogRect": {
+              "left": 0,
+              "right": 1280,
+              "width": 1280,
+              "scroll": 1280,
+              "client": 1280
+            },
+            "focus": {
+              "label": "下一首",
+              "text": "",
+              "hidden": false,
+              "visible": true
+            },
+            "documentVisibility": "visible"
+          },
+          {
+            "url": "http://127.0.0.1:4467/personal-homepage/music/?mode=cloud&view=songs",
+            "audioCount": 1,
+            "sessionId": "22d35348-843d-42a6-ab9e-4c2e5096709a",
+            "view": "歌曲",
+            "keyword": "",
+            "ready": "false",
+            "motion": "changing",
+            "scenes": 2,
+            "title": "没有人能够比我们更接近对方",
+            "viewport": 1280,
+            "documentWidth": 1280,
+            "bodyWidth": 1280,
+            "dialogRect": {
+              "left": 0,
+              "right": 1280,
+              "width": 1280,
+              "scroll": 1280,
+              "client": 1280
+            },
+            "focus": {
+              "label": "下一首",
+              "text": "",
+              "hidden": false,
+              "visible": true
+            },
+            "documentVisibility": "visible"
+          },
+          {
+            "url": "http://127.0.0.1:4467/personal-homepage/music/?mode=cloud&view=songs",
+            "audioCount": 1,
+            "sessionId": "22d35348-843d-42a6-ab9e-4c2e5096709a",
+            "view": "歌曲",
+            "keyword": "",
+            "ready": "false",
+            "motion": "changing",
+            "scenes": 2,
+            "title": "没有人能够比我们更接近对方",
+            "viewport": 1280,
+            "documentWidth": 1280,
+            "bodyWidth": 1280,
+            "dialogRect": {
+              "left": 0,
+              "right": 1280,
+              "width": 1280,
+              "scroll": 1280,
+              "client": 1280
+            },
+            "focus": {
+              "label": "下一首",
+              "text": "",
+              "hidden": false,
+              "visible": true
+            },
+            "documentVisibility": "visible"
+          }
+        ],
+        "final": {
+          "url": "http://127.0.0.1:4467/personal-homepage/music/?mode=cloud&view=songs",
+          "audioCount": 1,
+          "sessionId": "22d35348-843d-42a6-ab9e-4c2e5096709a",
+          "view": "歌曲",
+          "keyword": "",
+          "ready": "false",
+          "motion": "idle",
+          "scenes": 1,
+          "title": "没有人能够比我们更接近对方",
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "bodyWidth": 1280,
+          "dialogRect": {
+            "left": 0,
+            "right": 1280,
+            "width": 1280,
+            "scroll": 1280,
+            "client": 1280
+          },
+          "focus": {
+            "label": "下一首",
+            "text": "",
+            "hidden": false,
+            "visible": true
+          },
+          "documentVisibility": "visible"
+        },
+        "closed": {
+          "url": "http://127.0.0.1:4467/personal-homepage/music/?mode=cloud&view=songs",
+          "audioCount": 1,
+          "sessionId": "22d35348-843d-42a6-ab9e-4c2e5096709a",
+          "view": "歌曲",
+          "keyword": "",
+          "ready": "false",
+          "motion": "idle",
+          "scenes": 1,
+          "title": "你的城市",
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "bodyWidth": 1280,
+          "dialogRect": null,
+          "focus": {
+            "label": "打开黑胶播放页",
+            "text": "你的城市声音玩具",
+            "hidden": false,
+            "visible": true
+          },
+          "documentVisibility": "visible"
+        }
+      }
+    },
+    {
+      "name": "discover click, unavailable status1/jobs0, and explicit reconnect makes one additional status request",
+      "status": "pass",
+      "evidence": {
+        "first": [
+          {
+            "route": "status",
+            "time": 1791989401909,
+            "method": "GET"
+          }
+        ],
+        "afterReconnect": [
+          {
+            "route": "status",
+            "time": 1791989401909,
+            "method": "GET"
+          },
+          {
+            "route": "status",
+            "time": 1791989405348,
+            "method": "GET"
+          }
+        ],
+        "state": {
+          "url": "http://127.0.0.1:4467/personal-homepage/music/?mode=cloud&view=discover",
+          "audioCount": 1,
+          "sessionId": "22d35348-843d-42a6-ab9e-4c2e5096709a",
+          "view": "找音乐",
+          "keyword": "",
+          "ready": "false",
+          "motion": "idle",
+          "scenes": 1,
+          "title": "你的城市",
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "bodyWidth": 1280,
+          "dialogRect": null,
+          "focus": {
+            "label": null,
+            "text": "跳到正文LSSH目录学习展示常用网站音乐电台当前页关于我留言墙关闭目录var e=class ext",
+            "hidden": false,
+            "visible": true
+          },
+          "documentVisibility": "visible"
+        }
+      }
+    },
+    {
+      "name": "discover URL refresh/back/forward retains subview and in-document keyword with visible focus",
+      "status": "pass",
+      "evidence": {
+        "refreshView": "discover",
+        "keywordAfterHistory": "QA keyword retention",
+        "back": {
+          "url": "http://127.0.0.1:4467/personal-homepage/music/?mode=cloud&view=discover",
+          "audioCount": 1,
+          "sessionId": "b638ebb5-1815-4b14-b3fe-57029b7bf473",
+          "view": "找音乐",
+          "keyword": "QA keyword retention",
+          "ready": "false",
+          "motion": "idle",
+          "scenes": 1,
+          "title": "抚琴小夜曲",
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "bodyWidth": 1280,
+          "dialogRect": null,
+          "focus": {
+            "label": null,
+            "text": "歌曲",
+            "hidden": false,
+            "visible": true
+          },
+          "documentVisibility": "visible"
+        },
+        "final": {
+          "url": "http://127.0.0.1:4467/personal-homepage/music/?mode=cloud&view=discover",
+          "audioCount": 1,
+          "sessionId": "b638ebb5-1815-4b14-b3fe-57029b7bf473",
+          "view": "找音乐",
+          "keyword": "QA keyword retention",
+          "ready": "false",
+          "motion": "idle",
+          "scenes": 1,
+          "title": "抚琴小夜曲",
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "bodyWidth": 1280,
+          "dialogRect": null,
+          "focus": {
+            "label": null,
+            "text": "找音乐",
+            "hidden": false,
+            "visible": true
+          },
+          "documentVisibility": "visible"
+        }
+      }
+    },
+    {
+      "name": "390px direct discover, album detail, and listening dialog fit and Escape restores focus",
+      "status": "pass",
+      "evidence": {
+        "discover": {
+          "url": "http://127.0.0.1:4467/personal-homepage/music/?view=discover",
+          "audioCount": 1,
+          "sessionId": "5a9619e5-a57f-42f4-b8c7-39198ad49b40",
+          "view": "找音乐",
+          "keyword": "",
+          "ready": "false",
+          "motion": "idle",
+          "scenes": 1,
+          "title": "抚琴小夜曲",
+          "viewport": 390,
+          "documentWidth": 390,
+          "bodyWidth": 390,
+          "dialogRect": null,
+          "focus": {
+            "label": null,
+            "text": "跳到正文LSSH目录学习展示常用网站音乐电台当前页关于我留言墙关闭目录var e=class ext",
+            "hidden": false,
+            "visible": true
+          },
+          "documentVisibility": "visible"
+        },
+        "detail": {
+          "url": "http://127.0.0.1:4467/personal-homepage/music/",
+          "audioCount": 1,
+          "sessionId": "5a9619e5-a57f-42f4-b8c7-39198ad49b40",
+          "view": "专辑",
+          "keyword": "",
+          "ready": "false",
+          "motion": "idle",
+          "scenes": 1,
+          "title": "抚琴小夜曲",
+          "viewport": 390,
+          "documentWidth": 390,
+          "bodyWidth": 390,
+          "dialogRect": null,
+          "focus": {
+            "label": null,
+            "text": "跳到正文LSSH目录学习展示常用网站音乐电台当前页关于我留言墙关闭目录var e=class ext",
+            "hidden": false,
+            "visible": true
+          },
+          "documentVisibility": "visible"
+        },
+        "dialog": {
+          "url": "http://127.0.0.1:4467/personal-homepage/music/",
+          "audioCount": 1,
+          "sessionId": "5a9619e5-a57f-42f4-b8c7-39198ad49b40",
+          "view": "专辑",
+          "keyword": "",
+          "ready": "false",
+          "motion": "idle",
+          "scenes": 1,
+          "title": "抚琴小夜曲",
+          "viewport": 390,
+          "documentWidth": 390,
+          "bodyWidth": 390,
+          "dialogRect": {
+            "left": 0,
+            "right": 390,
+            "width": 390,
+            "scroll": 390,
+            "client": 390
+          },
+          "focus": {
+            "label": null,
+            "text": "返回音乐库",
+            "hidden": false,
+            "visible": true
+          },
+          "documentVisibility": "visible"
+        },
+        "afterEscape": {
+          "url": "http://127.0.0.1:4467/personal-homepage/music/",
+          "audioCount": 1,
+          "sessionId": "5a9619e5-a57f-42f4-b8c7-39198ad49b40",
+          "view": "专辑",
+          "keyword": "",
+          "ready": "false",
+          "motion": "idle",
+          "scenes": 1,
+          "title": "抚琴小夜曲",
+          "viewport": 390,
+          "documentWidth": 390,
+          "bodyWidth": 390,
+          "dialogRect": null,
+          "focus": {
+            "label": "打开黑胶播放页",
+            "text": "抚琴小夜曲声音玩具",
+            "hidden": false,
+            "visible": true
+          },
+          "documentVisibility": "visible"
+        }
+      }
+    },
+    {
+      "name": "320px direct discover, album detail, and listening dialog fit and Escape restores focus",
+      "status": "pass",
+      "evidence": {
+        "discover": {
+          "url": "http://127.0.0.1:4467/personal-homepage/music/?view=discover",
+          "audioCount": 1,
+          "sessionId": "593e17fe-a759-4f87-9b3f-5bc2810c3b44",
+          "view": "找音乐",
+          "keyword": "",
+          "ready": "false",
+          "motion": "idle",
+          "scenes": 1,
+          "title": "抚琴小夜曲",
+          "viewport": 320,
+          "documentWidth": 320,
+          "bodyWidth": 320,
+          "dialogRect": null,
+          "focus": {
+            "label": null,
+            "text": "跳到正文LSSH目录学习展示常用网站音乐电台当前页关于我留言墙关闭目录var e=class ext",
+            "hidden": false,
+            "visible": true
+          },
+          "documentVisibility": "visible"
+        },
+        "detail": {
+          "url": "http://127.0.0.1:4467/personal-homepage/music/",
+          "audioCount": 1,
+          "sessionId": "593e17fe-a759-4f87-9b3f-5bc2810c3b44",
+          "view": "专辑",
+          "keyword": "",
+          "ready": "false",
+          "motion": "idle",
+          "scenes": 1,
+          "title": "抚琴小夜曲",
+          "viewport": 320,
+          "documentWidth": 320,
+          "bodyWidth": 320,
+          "dialogRect": null,
+          "focus": {
+            "label": null,
+            "text": "跳到正文LSSH目录学习展示常用网站音乐电台当前页关于我留言墙关闭目录var e=class ext",
+            "hidden": false,
+            "visible": true
+          },
+          "documentVisibility": "visible"
+        },
+        "dialog": {
+          "url": "http://127.0.0.1:4467/personal-homepage/music/",
+          "audioCount": 1,
+          "sessionId": "593e17fe-a759-4f87-9b3f-5bc2810c3b44",
+          "view": "专辑",
+          "keyword": "",
+          "ready": "false",
+          "motion": "idle",
+          "scenes": 1,
+          "title": "抚琴小夜曲",
+          "viewport": 320,
+          "documentWidth": 320,
+          "bodyWidth": 320,
+          "dialogRect": {
+            "left": 0,
+            "right": 320,
+            "width": 320,
+            "scroll": 320,
+            "client": 320
+          },
+          "focus": {
+            "label": null,
+            "text": "返回音乐库",
+            "hidden": false,
+            "visible": true
+          },
+          "documentVisibility": "visible"
+        },
+        "afterEscape": {
+          "url": "http://127.0.0.1:4467/personal-homepage/music/",
+          "audioCount": 1,
+          "sessionId": "593e17fe-a759-4f87-9b3f-5bc2810c3b44",
+          "view": "专辑",
+          "keyword": "",
+          "ready": "false",
+          "motion": "idle",
+          "scenes": 1,
+          "title": "抚琴小夜曲",
+          "viewport": 320,
+          "documentWidth": 320,
+          "bodyWidth": 320,
+          "dialogRect": null,
+          "focus": {
+            "label": "打开黑胶播放页",
+            "text": "抚琴小夜曲声音玩具",
+            "hidden": false,
+            "visible": true
+          },
+          "documentVisibility": "visible"
+        }
+      }
+    },
+    {
+      "name": "labelled ready fixture preserves keyword/results/quality and stops idle jobs when discover is hidden",
+      "status": "pass",
+      "evidence": {
+        "fixture": true,
+        "calls": [
+          {
+            "route": "status",
+            "method": "GET",
+            "input": null,
+            "time": 1791989407632
+          },
+          {
+            "route": "search",
+            "method": "POST",
+            "input": {
+              "keyword": "QA synthetic song",
+              "source": "kw",
+              "page": 1
+            },
+            "time": 1791989407716
+          },
+          {
+            "route": "status",
+            "method": "GET",
+            "input": null,
+            "time": 1791989409662
+          },
+          {
+            "route": "download",
+            "method": "POST",
+            "input": {
+              "id": "mock-result",
+              "quality": "320k"
+            },
+            "time": 1791989409693
+          },
+          {
+            "route": "jobs",
+            "method": "GET",
+            "input": null,
+            "time": 1791989411252
+          },
+          {
+            "route": "status",
+            "method": "GET",
+            "input": null,
+            "time": 1791989411740
+          }
+        ],
+        "state": {
+          "url": "http://127.0.0.1:4467/personal-homepage/music/?view=discover",
+          "audioCount": 1,
+          "sessionId": "a868eb60-d24b-49c0-924f-ed59aa0a244e",
+          "view": "找音乐",
+          "keyword": "QA synthetic song",
+          "ready": "false",
+          "motion": "idle",
+          "scenes": 1,
+          "title": "抚琴小夜曲",
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "bodyWidth": 1280,
+          "dialogRect": null,
+          "focus": {
+            "label": null,
+            "text": "找音乐",
+            "hidden": false,
+            "visible": true
+          },
+          "documentVisibility": "visible"
+        }
+      }
+    },
+    {
+      "name": "labelled active-download fixture keeps jobs tracking while its UI subview is hidden",
+      "status": "pass",
+      "evidence": {
+        "fixture": true,
+        "realDownload": false,
+        "visibility": "visible document / hidden discover subview",
+        "before": 0,
+        "after": 1,
+        "calls": [
+          {
+            "route": "status",
+            "method": "GET",
+            "input": null,
+            "time": 1791989407632
+          },
+          {
+            "route": "search",
+            "method": "POST",
+            "input": {
+              "keyword": "QA synthetic song",
+              "source": "kw",
+              "page": 1
+            },
+            "time": 1791989407716
+          },
+          {
+            "route": "status",
+            "method": "GET",
+            "input": null,
+            "time": 1791989409662
+          },
+          {
+            "route": "download",
+            "method": "POST",
+            "input": {
+              "id": "mock-result",
+              "quality": "320k"
+            },
+            "time": 1791989409693
+          },
+          {
+            "route": "jobs",
+            "method": "GET",
+            "input": null,
+            "time": 1791989411252
+          },
+          {
+            "route": "status",
+            "method": "GET",
+            "input": null,
+            "time": 1791989411740
+          }
+        ],
+        "state": {
+          "url": "http://127.0.0.1:4467/personal-homepage/music/?view=discover",
+          "audioCount": 1,
+          "sessionId": "a868eb60-d24b-49c0-924f-ed59aa0a244e",
+          "view": "找音乐",
+          "keyword": "QA synthetic song",
+          "ready": "false",
+          "motion": "idle",
+          "scenes": 1,
+          "title": "抚琴小夜曲",
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "bodyWidth": 1280,
+          "dialogRect": null,
+          "focus": {
+            "label": null,
+            "text": "找音乐",
+            "hidden": false,
+            "visible": true
+          },
+          "documentVisibility": "visible"
+        }
+      }
+    },
+    {
+      "name": "no duplicate audio owner or uncaught application error in this batch",
+      "status": "pass",
+      "evidence": {
+        "pageErrors": [],
+        "syntheticMediaCount": 5,
+        "backendFixtureCount": 2,
+        "realAudioRequestsForwarded": 0,
+        "realBackendRequestsForwarded": 0
+      }
+    }
+  ],
+  "mediaFixtures": [
+    {
+      "label": "desktop-static",
+      "url": "https://pan.koala-studio.org.cn/public.php/dav/files/4dEBRf4wWJmrRJH/tracks/cba6992c4259af82bac607c3.flac",
+      "fixture": "120-second silence WAV; no HTTP request forwarded"
+    },
+    {
+      "label": "desktop-static",
+      "url": "https://pan.koala-studio.org.cn/public.php/dav/files/4dEBRf4wWJmrRJH/tracks/4d7b795322862b81da5a4569.flac",
+      "fixture": "120-second silence WAV; no HTTP request forwarded"
+    },
+    {
+      "label": "desktop-static",
+      "url": "https://pan.koala-studio.org.cn/public.php/dav/files/4dEBRf4wWJmrRJH/tracks/61b12bcce38c6bfa5cc7ea4f.flac",
+      "fixture": "120-second silence WAV; no HTTP request forwarded"
+    },
+    {
+      "label": "desktop-static",
+      "url": "https://pan.koala-studio.org.cn/public.php/dav/files/4dEBRf4wWJmrRJH/tracks/257bf186809089cb3f58057b.flac",
+      "fixture": "120-second silence WAV; no HTTP request forwarded"
+    },
+    {
+      "label": "desktop-static",
+      "url": "https://pan.koala-studio.org.cn/public.php/dav/files/4dEBRf4wWJmrRJH/tracks/cc00df888cfa616673f1b791.flac",
+      "fixture": "120-second silence WAV; no HTTP request forwarded"
+    }
+  ],
+  "blockedBackends": [
+    {
+      "label": "desktop-static",
+      "url": "http://127.0.0.1:4467/personal-homepage/api/music/playback/account",
+      "fixture": "unconfigured backend 404"
+    },
+    {
+      "label": "desktop-static",
+      "url": "http://127.0.0.1:4467/personal-homepage/api/music/status",
+      "fixture": "unconfigured backend 404"
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    {
+      "label": "desktop-static",
+      "message": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "label": "desktop-static",
+      "message": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "label": "desktop-static",
+      "message": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "label": "desktop-static",
+      "message": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "label": "desktop-static",
+      "message": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "label": "desktop-static",
+      "message": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "label": "desktop-static",
+      "message": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "label": "390px-static",
+      "message": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "label": "320px-static",
+      "message": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    }
+  ],
+  "screenshots": [
+    "desktop-cloud-grid.png",
+    "desktop-cloud-detail.png",
+    "desktop-netease-detail.png",
+    "desktop-motion-converged.png",
+    "desktop-discover-unconfigured.png",
+    "mobile-390-discover.png",
+    "mobile-390-detail.png",
+    "mobile-390-dialog.png",
+    "mobile-320-discover.png",
+    "mobile-320-detail.png",
+    "mobile-320-dialog.png",
+    "desktop-LX-mock-active.png"
+  ],
+  "limits": [
+    "All selected-track audio is a synthetic silent WAV. No actual song audio is requested.",
+    "LX ready/search/jobs/download responses are a labelled artificial same-origin fixture, not a deployed service or real download.",
+    "390/320 are emulated desktop-Edge viewports; history back/forward are browser API navigation, not physical mobile gestures."
+  ],
+  "browserVersion": "155.0.4283.45",
+  "finishedAt": "2026-10-14T14:50:11.810Z",
+  "summary": {
+    "passed": 10,
+    "failed": 0
+  }
+}

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Wall，可移动白砖墙与留言阅读体验。">
+  <title>The Wall · Little Stone Still Here</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <a class="skip-link" href="#message-list-button">跳到留言列表</a>
+  <main>
+    <section id="wall-stage" class="wall-stage" tabindex="0" aria-label="留言砖墙，可拖动探索，也可用方向键移动" aria-describedby="wall-hint">
+      <div id="wall" class="wall"></div>
+    </section>
+    <header class="site-header">
+      <div class="identity"><h1>The Wall</h1><p>Little Stone Still Here</p></div>
+      <button id="leave-button" class="leave-button" type="button">留下话语<span aria-hidden="true">＋</span></button>
+    </header>
+    <footer class="wall-footer">
+      <p id="wall-hint">演示留言<span aria-hidden="true"> · </span><span id="hint-text">拖动探索，悬停显字，点砖阅读</span></p>
+      <nav class="toolbar" aria-label="浏览留言墙">
+        <button id="latest-button" type="button">最新留言</button>
+        <button id="message-list-button" type="button">列表</button>
+        <button id="center-button" type="button">回到中心</button>
+        <button id="move-button" type="button" aria-expanded="false" aria-controls="move-controls">移动</button>
+      </nav>
+    </footer>
+    <div id="move-controls" class="move-controls" hidden role="group" aria-label="移动墙面">
+      <button type="button" data-pan="left" aria-label="查看墙面左侧">←</button>
+      <button type="button" data-pan="up" aria-label="查看墙面上方">↑</button>
+      <button type="button" data-pan="down" aria-label="查看墙面下方">↓</button>
+      <button type="button" data-pan="right" aria-label="查看墙面右侧">→</button>
+    </div>
+    <p id="status" class="sr-only" role="status" aria-live="polite"></p>
+    <noscript><p class="no-script">当前浏览器未启用脚本，独立体验需要 JavaScript。真实留言接通后仍提供普通列表。</p></noscript>
+  </main>
+  <dialog id="message-dialog" class="message-dialog" aria-labelledby="message-title" aria-describedby="message-meta">
+    <article id="reading-surface" class="reading-surface">
+      <button id="message-close" class="close-button" type="button" aria-label="关闭留言，回到原砖">×</button>
+      <div id="reading-content" class="reading-content">
+        <p id="message-meta" class="message-meta"></p>
+        <h2 id="message-title"></h2>
+        <div id="message-body" class="message-body"></div>
+        <footer class="message-bottom"><span>演示留言</span><button id="reply-button" type="button">回复</button></footer>
+      </div>
+    </article>
+  </dialog>
+  <dialog id="list-dialog" class="utility-dialog" aria-labelledby="list-title">
+    <button class="close-button" type="button" data-close-dialog="list-dialog" aria-label="关闭留言列表">×</button>
+    <div class="utility-content"><p class="message-meta">演示留言</p><h2 id="list-title">墙上的话</h2><div id="message-list" class="message-list"></div></div>
+  </dialog>
+  <dialog id="notice-dialog" class="utility-dialog notice-dialog" aria-labelledby="notice-title">
+    <button class="close-button" type="button" data-close-dialog="notice-dialog" aria-label="关闭留言说明">×</button>
+    <div class="utility-content"><p class="message-meta">留言说明</p><h2 id="notice-title">把话留在这里</h2><p>现在展示的是演示留言，你可以先体验拖墙与阅读。</p><p>真实留言接通后，用 GitHub 账号留下话语或回复，内容会公开显示。</p><button class="plain-button" type="button" data-close-dialog="notice-dialog">继续看墙</button></div>
+  </dialog>
+  <script type="module" src="./__APP__"></script>
+</body>
+</html>

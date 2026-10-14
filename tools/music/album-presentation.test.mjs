@@ -1,8 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { build } from 'esbuild';
-const compiled = await build({entryPoints:['src/lib/album-presentation.ts'],bundle:true,write:false,format:'esm',platform:'node'});
-const { albumIdentity, jacketPacking, jacketChoreography } = await import(`data:text/javascript;base64,${Buffer.from(compiled.outputFiles[0].text).toString('base64')}`);
+import {fileURLToPath} from 'node:url';
+const compiled = await build({entryPoints:[fileURLToPath(new URL('../../src/lib/album-presentation.ts',import.meta.url))],bundle:true,write:false,format:'esm',platform:'node'});
+const { albumIdentity, jacketPacking, jacketClearance, jacketChoreography } = await import(`data:text/javascript;base64,${Buffer.from(compiled.outputFiles[0].text).toString('base64')}`);
 const song = {id:'one',album:'The Dark Side of the Moon',albumArtist:'Pink Floyd',artist:'Pink Floyd'};
 
 test('same album remains stable across songs, casing, whitespace and cover changes', () => {
@@ -26,9 +27,29 @@ test('packed record fits inside the square sleeve with a visible paper margin', 
 });
 
 test('the old jacket rests after packing and the new jacket rests before ejection', () => {
-  const {stow,leave,arrive,eject,total} = jacketChoreography;
+  const {stow,leave,arrive,eject,settle,total} = jacketChoreography;
   assert.ok(leave.start - stow.start - stow.duration >= 200);
   assert.ok(arrive.start >= leave.start + leave.duration);
   assert.ok(eject.start - arrive.start - arrive.duration >= 250);
-  assert.equal(total, eject.start + eject.duration);
+  assert.equal(total, settle.start + settle.duration);
+});
+
+test('the entire circle clears the tilted paper silhouette before changing depth', () => {
+  for (const w of [725,160,136,110]) {
+    const d=.62*w*380/450;
+    const discLeft=.38*w+jacketClearance.x/100*d;
+    const a=5*Math.PI/180;
+    const paperRight=.56*w/2*(1+Math.cos(a)+Math.sin(a));
+    assert.ok(discLeft>paperRight+.02*w, 'clearance includes the paper edge');
+  }
+});
+
+test('both depth switches occur during the non-overlapping stationary rests', () => {
+  const {clear,behind,stow,eject,front,settle}=jacketChoreography;
+  assert.ok(behind.start>clear.start+clear.duration);
+  assert.ok(behind.start+behind.duration<stow.start);
+  assert.ok(front.start>eject.start+eject.duration);
+  assert.ok(front.start+front.duration<settle.start);
+  assert.ok(settle.start-eject.start-eject.duration>=500, 'full extraction pauses before foreground return');
+  assert.ok(settle.duration>=900, 'foreground return remains a slow, separate gesture');
 });

@@ -1,0 +1,140 @@
+{
+  "Url": "http://127.0.0.1:4342/personal-homepage/#album",
+  "Bundle": "HomeJourney.Buuw_zpt.js",
+  "Bytes": 1172722,
+  "SHA256": "61BE46FD1E48E8C46906AA36D2C901D7F165538BC3E8C9D9FDF734CF058AA58D",
+  "Status": "Frozen local three-card candidate, implementation verified; pending independent design/user review",
+  "Order": [
+    "album",
+    "radio",
+    "projects"
+  ],
+  "WorkCount": 3,
+  "RemovedCarousel": "links",
+  "HeaderElsewhere": "Retained as website-page link; request scoped to carousel",
+  "SourceHashes": [
+    {
+      "Path": "src/components/home/wall-assembly.ts",
+      "SHA256": "CDD4C80ADB4EB1B3918319DDA9D041751E2AB875F6C9877FF1F29D3CFBA455DE"
+    },
+    {
+      "Path": "src/components/home/RisingWall.tsx",
+      "SHA256": "EA96F3158682FD0364874A98F5B819038715EF9E4F92BDB26A18C43A6161163E"
+    },
+    {
+      "Path": "src/components/home/wall-portal-geometry.ts",
+      "SHA256": "D3483336F4994107798F59989E6511872C03046EB037CDFD5A6DFEF8B09BB3FA"
+    },
+    {
+      "Path": "src/components/home/GlassPortalShape.ts",
+      "SHA256": "8C6FAEB0EFD4902426061E5B5FE50B322F274867C8D1AAEB3F0E1BF625D2528A"
+    },
+    {
+      "Path": "src/components/home/WallPortal.ts",
+      "SHA256": "608D2030C1C5EAFD55525972A98AFF7638406883461BC7ED5C7257FC3A137525"
+    },
+    {
+      "Path": "src/components/home/GlassRenderLayer.tsx",
+      "SHA256": "4CAA87812AB27FE11944BC42D5057F45F05C802F4B16500F0D3458AFB3E40D00"
+    },
+    {
+      "Path": "src/components/home/GlassTriangle.tsx",
+      "SHA256": "A6BCAA17DA84B7E5925E8DB256A09FA8A6D63B62439F435650CFC1FD9ADD82DD"
+    },
+    {
+      "Path": "src/components/home/CameraRig.tsx",
+      "SHA256": "680C2919B5E2C8F904108DF264AF036C909551D844ACD00F20342F3EEC62FC90"
+    },
+    {
+      "Path": "src/components/home/WorksMotionDriver.tsx",
+      "SHA256": "2FFF2BC385951E6DA72F844B2C1AA26F3831E5915B8D10B37FA6D6A5AB2BD1C9"
+    },
+    {
+      "Path": "src/components/home/HomeJourney.tsx",
+      "SHA256": "79E5942532AD48B5A871988EAAAB6EB3600991E4FC7DC489EB9F6F143FBAE9E7"
+    },
+    {
+      "Path": "src/components/home/home-motion.ts",
+      "SHA256": "D5FB61DEC62057E0A6D31339A52645431DDACF6D95ED83F587CE0C9097BFE0C1"
+    },
+    {
+      "Path": "src/components/home/home-return.ts",
+      "SHA256": "855A8830BA6CDD378B5D997D810ED0BEE22DF51FB5EB8912B37FD07D352D33DB"
+    },
+    {
+      "Path": "src/components/home/works-motion.ts",
+      "SHA256": "A9BCA1ED2D17FF7A757A5477A44C63B21DD18F4FB0BFDBE7DA3BE88BB995F396"
+    },
+    {
+      "Path": "src/styles/home.css",
+      "SHA256": "E90DCB325A85511259F29C839968A6B0743A88691B6641DA016EA0C6C2EAA3EE"
+    },
+    {
+      "Path": "tests/home-motion-ranges.test.mjs",
+      "SHA256": "629DE69AEC8263585A9FB30169BACB3E8492D1ACF4B94E817D5171120853EF03"
+    },
+    {
+      "Path": "src/components/home/prism-geometry.ts",
+      "SHA256": "42C37A53C86B8A4D10D5F1B5C25B5C6FB8D0F193FFE8A13BB6CD7A907E906DAC"
+    },
+    {
+      "Path": "src/components/home/GlassGlow.ts",
+      "SHA256": "37545DF1E9EB708EAD5D3EBA2BCE732A4FF494EA065B06A9BFEB148449F48FD5"
+    },
+    {
+      "Path": "src/components/home/GlassEdgeLight.tsx",
+      "SHA256": "5E26C98E038A1A459CD2AA02BCA207DCD198BBDB78642640A287DEC7DFFC1CB5"
+    },
+    {
+      "Path": "src/components/home/wall-material.ts",
+      "SHA256": "B1F925CF8256EE393FC88992DB0B41F55DA8DF508B2F8E15F41D1ACB165844EE"
+    },
+    {
+      "Path": "src/components/home/motion-ranges.ts",
+      "SHA256": "66747CE7BF9491ACEF3A4880DAC348C9F41EAF0FADEF06D3848E614EF66D118F"
+    },
+    {
+      "Path": "src/components/home/home-chapters.ts",
+      "SHA256": "81BB0917798B247F22153508B9FE5089DE00DB9F08039D985FE18655CD164416"
+    },
+    {
+      "Path": "src/components/home/WorksScene.tsx",
+      "SHA256": "CC84F4903EB008F55908F059B70C58259A79F9718BD9B8A5BC2630F47A8D8D80"
+    },
+    {
+      "Path": "src/pages/index.astro",
+      "SHA256": "A80F9CCD40B5752690BA9E1BCE81B4C175875AF708269A8D399BA936A04BB054"
+    }
+  ],
+  "ChangedImplementationFiles": [
+    "src/components/home/home-chapters.ts",
+    "src/components/home/motion-ranges.ts",
+    "src/components/home/WorksScene.tsx",
+    "src/components/home/home-motion.ts",
+    "src/components/home/home-return.ts",
+    "src/pages/index.astro",
+    "tests/home-motion-ranges.test.mjs"
+  ],
+  "ChangedInOldManifest": [
+    "src/components/home/home-motion.ts",
+    "src/components/home/home-return.ts",
+    "tests/home-motion-ranges.test.mjs",
+    "src/components/home/motion-ranges.ts"
+  ],
+  "PreservedOldManifest": 16,
+  "NewlyRecordedSourceFiles": [
+    "src/components/home/home-chapters.ts",
+    "src/components/home/WorksScene.tsx",
+    "src/pages/index.astro"
+  ],
+  "Check": "108 files zero diagnostics",
+  "Build": "15 pages and Pagefind",
+  "Tests": "11/11",
+  "Detector": "One scoped pass []",
+  "InitialDomSamples": 9,
+  "ConfirmationDirectScreenshots": 3,
+  "ConfirmationMobileDefaultReset": "confirmed-mobile-album is actually 1280x720; actual-mobile-album is authoritative 390x844",
+  "ViewportReset": true,
+  "Committed": false,
+  "Deployed": false
+}

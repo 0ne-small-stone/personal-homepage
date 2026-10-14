@@ -1,0 +1,70 @@
+{
+  "base": "http://127.0.0.1:4467/personal-homepage/",
+  "scope": "Correct neutral-border assertion without mutating application; additional native Someone directory viewport check.",
+  "checks": [
+    {
+      "name": "1280 reverse restores existing pale text/focus and neutral border",
+      "passed": true,
+      "evidence": {
+        "color": "rgb(237, 237, 237)",
+        "border": "rgb(119, 119, 119)",
+        "outlineColor": "rgb(237, 237, 237)",
+        "y": 0,
+        "status": "ready",
+        "canvas": 1,
+        "body": "lssh-home has-journey home-enhanced home-loading-nav-ready"
+      }
+    },
+    {
+      "name": "390 reverse restores existing pale text/focus and neutral border",
+      "passed": true,
+      "evidence": {
+        "color": "rgb(237, 237, 237)",
+        "border": "rgb(119, 119, 119)",
+        "outlineColor": "rgb(237, 237, 237)",
+        "y": 0,
+        "status": "ready",
+        "canvas": 1,
+        "body": "lssh-home has-journey home-enhanced home-loading-nav-ready"
+      }
+    },
+    {
+      "name": "390 Someone directory fits viewport",
+      "passed": true,
+      "evidence": {
+        "open": true,
+        "panel": {
+          "x": 0,
+          "y": 132.796875,
+          "width": 320,
+          "height": 342.390625,
+          "top": 132.796875,
+          "right": 320,
+          "bottom": 475.1875,
+          "left": 0
+        },
+        "viewport": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "name": "320 Someone directory fits viewport",
+      "passed": true,
+      "evidence": {
+        "open": true,
+        "panel": {
+          "x": 0,
+          "y": 132.796875,
+          "width": 288,
+          "height": 342.390625,
+          "top": 132.796875,
+          "right": 288,
+          "bottom": 475.1875,
+          "left": 0
+        },
+        "viewport": 320,
+        "scrollWidth": 320
+      }
+    }
+  ]
+}

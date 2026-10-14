@@ -1,0 +1,128 @@
+{
+  "label": "mobile-projects",
+  "bundle": "/personal-homepage/_astro/HomeJourney.Buuw_zpt.js",
+  "chapter": "projects",
+  "classes": "lssh-home has-journey home-enhanced",
+  "count": "3",
+  "current": [
+    {
+      "href": "#projects",
+      "text": "03"
+    }
+  ],
+  "order": [
+    {
+      "active": "false",
+      "href": "/personal-homepage/gallery/",
+      "id": "album",
+      "image": "/personal-homepage/_astro/echoes-placeholder.CF27I39E_Z1yWTlh.webp",
+      "index": "0",
+      "title": "A Moment Remains"
+    },
+    {
+      "active": "false",
+      "href": "/personal-homepage/music/",
+      "id": "radio",
+      "image": "/personal-homepage/_astro/wish-neighbor-placeholder.C3OY0qeQ_Z1reaH4.webp",
+      "index": "1",
+      "title": "Echoes"
+    },
+    {
+      "active": "true",
+      "href": "/personal-homepage/showcase/",
+      "id": "projects",
+      "image": "/personal-homepage/_astro/the-wall-placeholder.DaiTKZr6_ZIlk3C.webp",
+      "index": "2",
+      "title": "Afterimage"
+    }
+  ],
+  "overflow": false,
+  "sample": {
+    "frame": 72,
+    "glass": {
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "bounds": [
+        108.22139983559217,
+        353.4355895708023,
+        265.9832805591231,
+        489.8931998394841
+      ],
+      "centeredLocalBounds": [
+        -1.6766839027404783,
+        -1.45678448677063,
+        -0.4102458655834198,
+        1.6766839027404783,
+        1.45678448677063,
+        0.4102458655834198
+      ],
+      "projectedAnchor": [
+        187.33334350585935,
+        422
+      ],
+      "quaternion": [
+        0,
+        -0.02883549761642079,
+        0,
+        0.999584170581554
+      ],
+      "scale": 0.5,
+      "visible": true
+    },
+    "initialization": {
+      "reason": "back-forward",
+      "revision": 2,
+      "y": 1540,
+      "zoom": 0
+    },
+    "phase": "works_outro",
+    "portal": null,
+    "portalCovered": false,
+    "raw": {
+      "event": 1,
+      "expand": 0,
+      "intro": 1,
+      "kv": 1,
+      "outro": 0,
+      "prepare": 0,
+      "snap": 1,
+      "wall": 0,
+      "works": 0.75
+    },
+    "rendered": {
+      "background": 3,
+      "expand": 0,
+      "index": 2.9991037914692225,
+      "intro": 1,
+      "prepare": 0,
+      "progress": 0.75,
+      "wall": 0
+    },
+    "scrollY": 3476,
+    "wall": {
+      "build": 0,
+      "drawn": 0,
+      "falling": 0,
+      "position": [
+        0,
+        0,
+        -1
+      ],
+      "raw": 0,
+      "revision": 1,
+      "rise": 0,
+      "rows": 3,
+      "samples": [],
+      "settled": 0,
+      "visible": false
+    }
+  },
+  "size": [
+    390,
+    844
+  ],
+  "url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1#projects"
+}

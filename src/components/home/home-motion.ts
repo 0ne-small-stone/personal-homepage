@@ -174,15 +174,15 @@ export function installWorksMotion(model: JourneyModel) {
     hero.inert = identityHidden;
     if (identityHidden) hero.setAttribute('aria-hidden', 'true');
     else hero.removeAttribute('aria-hidden');
-    const current = s < h + introGap ? 0 : model.motion.activeItem >= 0 ? model.motion.activeItem + 1 : Math.min(4, Math.max(1, Math.round(model.motion.rendered.index)));
-    body.dataset.chapter = s >= motionRange('wall', h)[0] ? 'wall' : s < h + introGap ? 'intro' : sections[Math.max(0, current - 1)]?.id || 'projects';
+    const current = s < h + introGap ? 0 : model.motion.activeItem >= 0 ? model.motion.activeItem + 1 : Math.min(workCount, Math.max(1, Math.round(model.motion.rendered.index)));
+    body.dataset.chapter = s >= motionRange('wall', h)[0] ? 'wall' : s < h + introGap ? 'intro' : sections[Math.max(0, current - 1)]?.id || sections[0]?.id || 'intro';
     const onWall = wallReadingReady(renderedExpand,renderedWall,model.motion.portalCovered);
     body.classList.toggle('home-wall-ready',onWall);
     wallContent.inert=!onWall;
     if(onWall)wallContent.removeAttribute('aria-hidden');else wallContent.setAttribute('aria-hidden','true');
     body.classList.toggle('home-portal-cover', (nextPortalMode || model.motion.rendered.prepare > .001) && !onWall);
     body.classList.toggle('home-on-wall', onWall);
-    document.querySelectorAll('.home-chapter-index a').forEach((link, index) => index === (body.dataset.chapter === 'wall' ? 5 : current) ? link.setAttribute('aria-current', 'location') : link.removeAttribute('aria-current'));
+    document.querySelectorAll('.home-chapter-index a').forEach((link, index) => index === (body.dataset.chapter === 'wall' ? workCount + 1 : current) ? link.setAttribute('aria-current', 'location') : link.removeAttribute('aria-current'));
   };
   model.afterFrame = dt => {
     // Camera and cards have consumed this revision in the same R3F frame.

@@ -14,7 +14,7 @@ const catalog = await loadMusicCatalog();
 <HomeLayout title="Echoes" description="小石的音乐电台。听考拉云盘收藏，也听网易云共享歌单。">
   <div class="radio-page">
     {!import.meta.env.DEV && <p class="radio-nojs">现有考拉音源需要内网访问，外网播放尚未接通。你可以浏览曲库，或<a href={musicConfig.playlistUrl} target="_blank" rel="noopener noreferrer">打开网易云共享歌单（新窗口）</a>。</p>}
-    <RadioLibraryExperience initialCatalog={catalog} config={musicConfig} client:load />
+    <RadioLibraryExperience initialCatalog={catalog} config={musicConfig} client:load transition:persist="lssh-music-library" transition:persist-props />
     <noscript><p class="radio-nojs">下载和目录交互需要启用 JavaScript。你也可以<a href={musicConfig.playlistUrl}>直接打开 Echoes 网易云歌单</a>。</p></noscript>
   </div>
 </HomeLayout>

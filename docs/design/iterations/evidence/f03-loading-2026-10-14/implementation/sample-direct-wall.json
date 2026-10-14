@@ -1,0 +1,188 @@
+{
+  "label": "direct-wall",
+  "bundle": "/personal-homepage/_astro/HomeJourney.BdZlSJh6.js",
+  "canvas": 1,
+  "classes": "lssh-home has-journey home-enhanced home-loading-nav-ready home-wall-ready home-on-wall",
+  "loading": {
+    "active": false,
+    "closed": false,
+    "events": [
+      {
+        "phase": "waiting",
+        "time": 71.09999999403954
+      },
+      {
+        "phase": "ready",
+        "time": 718.5
+      }
+    ],
+    "phase": "ready",
+    "preference": "motion",
+    "preview": null,
+    "progress": 1,
+    "reason": "",
+    "requested": false,
+    "resources": [
+      "layout",
+      "wordmark",
+      "compiled",
+      "frame"
+    ],
+    "wordmarkDecoded": true
+  },
+  "motion": {
+    "frame": 27,
+    "glass": {
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "bounds": [
+        90.26779241295912,
+        360.341949727461,
+        284.7322075870409,
+        506.50562588682095
+      ],
+      "centeredLocalBounds": [
+        -1.6766839027404783,
+        -1.45678448677063,
+        -0.4102458655834198,
+        1.6766839027404783,
+        1.45678448677063,
+        0.4102458655834198
+      ],
+      "projectedAnchor": [
+        187.5,
+        422
+      ],
+      "quaternion": [
+        0.4831345516573914,
+        -0.13038417388763104,
+        -0.07301864581623647,
+        0.8626988174082624
+      ],
+      "scale": 0.725,
+      "visible": false
+    },
+    "initialization": {
+      "reason": "deep-link",
+      "revision": 2,
+      "y": 9806,
+      "zoom": 0
+    },
+    "phase": "wall",
+    "portal": null,
+    "portalCovered": true,
+    "raw": {
+      "event": 1,
+      "expand": 1,
+      "intro": 1,
+      "kv": 1,
+      "outro": 1,
+      "prepare": 1,
+      "snap": 1,
+      "wall": 1,
+      "works": 1
+    },
+    "rendered": {
+      "background": 4,
+      "expand": 1,
+      "index": 4,
+      "intro": 1,
+      "prepare": 1,
+      "progress": 1,
+      "wall": 1
+    },
+    "scrollY": 9806,
+    "wall": {
+      "build": 1,
+      "drawn": 162,
+      "falling": 0,
+      "position": [
+        0,
+        0,
+        -1
+      ],
+      "raw": 1,
+      "revision": 1,
+      "rise": 1,
+      "rows": 27,
+      "samples": [
+        {
+          "column": 10,
+          "id": 148,
+          "progress": 1,
+          "row": 6,
+          "x": -0.9605,
+          "y": -5.414499999999999
+        },
+        {
+          "column": 10,
+          "id": 171,
+          "progress": 1,
+          "row": 7,
+          "x": -0.4802499999999999,
+          "y": -4.997999999999999
+        },
+        {
+          "column": 10,
+          "id": 194,
+          "progress": 1,
+          "row": 8,
+          "x": -0.9605,
+          "y": -4.5815
+        },
+        {
+          "column": 10,
+          "id": 217,
+          "progress": 1,
+          "row": 9,
+          "x": -0.4802499999999999,
+          "y": -4.165
+        },
+        {
+          "column": 10,
+          "id": 240,
+          "progress": 1,
+          "row": 10,
+          "x": -0.9605,
+          "y": -3.7485
+        },
+        {
+          "column": 10,
+          "id": 263,
+          "progress": 1,
+          "row": 11,
+          "x": -0.4802499999999999,
+          "y": -3.332
+        }
+      ],
+      "settled": 162,
+      "visible": true
+    }
+  },
+  "overflow": false,
+  "pass": {
+    "active": false,
+    "copies": 0,
+    "disposed": true,
+    "geometryId": "33d80c10-3a12-4eff-8669-32d7dad203ec",
+    "glassId": "a3d3a8ba-140e-4994-98ff-9eef8fa05685",
+    "size": [],
+    "worldDrawn": true
+  },
+  "size": [
+    390,
+    844
+  ],
+  "status": "ready",
+  "url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1#wall",
+  "wordmark": {
+    "height": 208,
+    "width": 312,
+    "x": -17.59375,
+    "y": 504
+  },
+  "wordmarks": 1
+}
