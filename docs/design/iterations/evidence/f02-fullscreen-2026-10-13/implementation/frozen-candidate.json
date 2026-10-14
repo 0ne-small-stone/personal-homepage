@@ -1,0 +1,66 @@
+{
+  "Bundle": "HomeJourney.CIZrgdwT.js",
+  "Bytes": 1162801,
+  "SHA256": "2980D744E50F5A1CA985592D9F287FCE0266F0819ABA8B6359479C3331D119F1",
+  "PreviewUrl": "http://127.0.0.1:4342/personal-homepage/",
+  "PreviewPid": 48456,
+  "Status": "Frozen for independent design review",
+  "SourceHashes": [
+    {
+      "Path": "src/components/home/WallPortal.ts",
+      "SHA256": "D8AD353FE1F7B8AB7929209C3135A4C1B1DA10137DF55E20B16BE07ED1B269DA"
+    },
+    {
+      "Path": "src/components/home/GlassRenderLayer.tsx",
+      "SHA256": "40628A01AAB6BEFE14DABFAD3D92D2F0BA529E88459E4557D5BF9E5B8ECE5035"
+    },
+    {
+      "Path": "src/components/home/home-motion.ts",
+      "SHA256": "CCE30B9F8B17241370A8DE2F42DD217E4F835EBE78F41B6384AE15F58C865FA6"
+    },
+    {
+      "Path": "src/components/home/works-motion.ts",
+      "SHA256": "66757CC8D2731CBB7CC70A622BBFD9162B971149237C608911A4B15DA8E6A7DD"
+    },
+    {
+      "Path": "src/components/home/motion-ranges.ts",
+      "SHA256": "E036390F7A7B0FF1C378D178A713EAE6E931F9D5CE1377C3387E13449803EC18"
+    },
+    {
+      "Path": "src/components/home/wall-portal-geometry.ts",
+      "SHA256": "897026D11D6EEB20E891174B1CFF6CAA42B73FC51845CED8E2857593F8F93103"
+    },
+    {
+      "Path": "src/components/home/RisingWall.tsx",
+      "SHA256": "08793572053BD0B3F037B18AB72395F8F38C476D824D6C3550698C0D60530DBF"
+    },
+    {
+      "Path": "src/components/home/GlassTriangle.tsx",
+      "SHA256": "1E91B45ED3108B7649F048BB04A43DAC0B6C9D5B90A8AB365DDF021681692179"
+    },
+    {
+      "Path": "src/components/home/GlassEdgeLight.tsx",
+      "SHA256": "1D2F21C4D3CCAEB0D9C1DAC00A6CA78275276B9FA39896B52A6C90E54CE56EF3"
+    },
+    {
+      "Path": "src/components/home/CameraRig.tsx",
+      "SHA256": "37AA6451953EE0340539ADE2CB77DB22F1C6F164847E421FA8AC012520C86835"
+    },
+    {
+      "Path": "src/components/home/HomeJourney.tsx",
+      "SHA256": "009771970C5C0F1461652F5EBE145E55A6ABBCD9F9FFDDF3C56FC17A6E2EB92C"
+    },
+    {
+      "Path": "src/pages/index.astro",
+      "SHA256": "EC67ED3516502379DD8A9FC8938E7584891CDEE06261E61BE76F20D5D283ADA7"
+    },
+    {
+      "Path": "src/styles/home.css",
+      "SHA256": "93931DAF9E2A0821E2D65C8B070ABBDC07131927B5C04B5DDFEC1DCD2E69390C"
+    },
+    {
+      "Path": "tests/home-motion-ranges.test.mjs",
+      "SHA256": "51293A03BE3F7D58108407F59534869A6FA13D64EC17FADE0E77CC867C54E318"
+    }
+  ]
+}

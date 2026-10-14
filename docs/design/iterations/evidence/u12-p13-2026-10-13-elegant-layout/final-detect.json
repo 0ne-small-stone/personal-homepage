@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-13",
+  "layout": {"exitCode": 0, "findings": []},
+  "type": {"exitCode": 0, "findings": []},
+  "scope": [
+    "src/components/music/MusicLibraryHeader.tsx",
+    "src/components/music/MusicTrackList.tsx",
+    "src/components/music/LocalMusicCatalog.tsx",
+    "src/components/music/NetEaseMusicCatalog.tsx",
+    "src/components/music/RadioLibraryExperience.tsx",
+    "src/components/music/LibrarySidebar.tsx",
+    "src/styles/music-radio.css"
+  ],
+  "note": "机械扫描仅为工程证据，不替代视觉读图或用户成品审美确认；浏览器最后读取error日志为空。"
+}

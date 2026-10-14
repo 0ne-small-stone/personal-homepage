@@ -1,0 +1,10 @@
+---
+import DefaultPageFrame from '@astrojs/starlight/components/PageFrame.astro';
+import PersistentPlayer from '../music/PersistentPlayer';
+---
+<DefaultPageFrame>
+  <slot name="header" slot="header" />
+  <slot name="sidebar" slot="sidebar" />
+  <slot />
+</DefaultPageFrame>
+<PersistentPlayer client:load transition:persist="lssh-audio" transition:persist-props />

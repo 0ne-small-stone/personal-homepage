@@ -1,0 +1,16 @@
+{
+  "passed": 10,
+  "checks": [
+    "Equal IOR has zero Fresnel reflectance at every finite angle",
+    "Secondary real reflected paths illuminate a receiver behind glass",
+    "Threaded tree contains each photon leaf exactly once",
+    "Every leaf encloses both actual beam endpoints",
+    "Parent preorder escape encloses all descendant leaf boxes",
+    "GPU prism accelerator retains all original triangles in one root",
+    "Multiple receivers cannot create power",
+    "IOR 1 source paths remain parallel and preserve terminal flux",
+    "Source off clears every GPU photon power slot",
+    "Empty source clears spatial tree rather than retaining old paths"
+  ],
+  "withGlassFlux": 15.9315916052652
+}

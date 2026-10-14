@@ -1,0 +1,80 @@
+{
+  "date": "2026-10-13",
+  "tool": "actual Codex IAB / CUA",
+  "initialBatch": {
+    "front": {
+      "image": "white-receiver-front.jpg",
+      "visibleEpoch": 6,
+      "sourceSamples": 128,
+      "segments": 640,
+      "hits": 128
+    },
+    "noMediumEarly": {
+      "image": "white-receiver-no-medium-early.jpg",
+      "visibleEpoch": 6,
+      "result": "stale pre-toggle compositor frame, not a pass"
+    },
+    "noMedium": {
+      "image": "white-receiver-no-medium.jpg",
+      "visibleEpoch": 7,
+      "result": "air beam absent, actual receiving spot remains"
+    },
+    "noSource": {
+      "image": "white-receiver-no-source.jpg",
+      "visibleEpoch": 8,
+      "sourceSamples": 128,
+      "segments": 128,
+      "hits": 0,
+      "result": "beam and receiving spot absent"
+    },
+    "noGlass": {
+      "image": "white-receiver-no-glass.jpg",
+      "visibleEpoch": 16,
+      "sourceSamples": 128,
+      "segments": 128,
+      "hits": 128,
+      "result": "straight beam and upper spot"
+    },
+    "turned": {
+      "image": "white-receiver-turned.jpg",
+      "visibleEpoch": 28,
+      "sourceSamples": 128,
+      "segments": 768,
+      "hits": 128,
+      "result": "receiving spot moves up with real paths"
+    },
+    "receiverRemovedEarly": {
+      "image": "white-receiver-removed-early.jpg",
+      "visibleEpoch": 28,
+      "expectedEpoch": 29,
+      "result": "stale compositor frame, not a pass"
+    },
+    "browserErrors": []
+  },
+  "confirmationDom": "white-receiver-confirmation-dom.json",
+  "confirmation": {
+    "receiverRemoved": {
+      "image": "white-receiver-removed.jpg",
+      "visibleEpoch": 7,
+      "result": "spot removed, propagation continues beyond old sheet"
+    },
+    "mobile": {
+      "image": "white-receiver-mobile.jpg",
+      "visibleEpoch": 9,
+      "result": "beam and receiving spot visible, controls fit; camera moves back for diagnostic framing"
+    }
+  },
+  "interruptions": [
+    "CUA session bindings and tab disappeared before final confirmation; no source changes in recovery",
+    "4339 listener subsequently absent, a new create reported connection refused",
+    "old error-page data URL binding was blocked; no warning bypassed",
+    "hidden native server restarted on loopback as PID 33488; actual IAB successfully reopened"
+  ],
+  "limits": [
+    "single-scattering finite Gaussian estimate",
+    "observer rays are still straight with a glass mask / ordinary raster glass",
+    "no whole-site replacement or spectral acceptance",
+    "no real phone hardware or convergence-time benchmark",
+    "DOM transport data is separate from screenshot compositor timing"
+  ]
+}

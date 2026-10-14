@@ -1,0 +1,13 @@
+import { build } from 'esbuild';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const source = path.dirname(fileURLToPath(import.meta.url));
+const output = fileURLToPath(new URL('../../../../../../.local-tools/sphere-canvas/site/', import.meta.url));
+await fs.mkdir(output, { recursive: true });
+await build({ entryPoints: {app:path.join(source, 'scene.js')}, outdir:output, splitting:true,chunkNames:'viewer-[hash]', bundle: true, jsx:'automatic', format: 'esm', platform: 'browser', target: 'es2022', minify: true, legalComments: 'eof' });
+await build({entryPoints:[path.join(source,'dome-compare.jsx')],outfile:path.join(output,'dome-compare.js'),bundle:true,jsx:'automatic',format:'esm',platform:'browser',target:'es2022',minify:true,legalComments:'eof'});
+for (const name of ['index.html', 'style.css', 'responsive.html', 'dome-compare.html','INFINITE-CANVAS-LICENSE.txt']) await fs.copyFile(path.join(source, name), path.join(output, name));
+await fs.copyFile(path.join(source,'vendor/REACT-BITS-LICENSE.md'),path.join(output,'REACT-BITS-LICENSE.md'));
+await fs.copyFile(path.join(source,'vendor/photoswipe/LICENSE'),path.join(output,'PHOTOSWIPE-LICENSE.txt'));
+console.log('Prototype source bundled.');

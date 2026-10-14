@@ -1,0 +1,728 @@
+[
+  {
+    "label": "desktop-quarter",
+    "body": "lssh-home has-journey home-enhanced home-portal-cover",
+    "bundle": "/personal-homepage/_astro/HomeJourney.BZgdJJ3A.js",
+    "height": 720,
+    "motion": {
+      "frame": 36,
+      "glass": {
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "bounds": [
+          388.0920288174642,
+          186.71879982682935,
+          876.887462695397,
+          540.9346501566089
+        ],
+        "centeredLocalBounds": [
+          -2.8244516849517822,
+          -2.052828788757324,
+          -1.0529202222824097,
+          2.885460138320923,
+          2.0324299335479736,
+          0.844731867313385
+        ],
+        "projectedAnchor": [
+          632.5,
+          360
+        ],
+        "quaternion": [
+          0.22321602052949036,
+          -0.07545706368533485,
+          -0.01733395952653051,
+          0.9716894429631816
+        ],
+        "scale": 0.561875,
+        "visible": true
+      },
+      "initialization": {
+        "reason": "layout",
+        "revision": 1,
+        "y": 0,
+        "zoom": 1
+      },
+      "phase": "portal",
+      "portal": {
+        "coversCorners": false,
+        "error": null,
+        "expand": 0.275,
+        "frontCoversCorners": false,
+        "hdr": true,
+        "homographyValid": true,
+        "prepare": 1,
+        "quad": [
+          [
+            0.3965250803936163,
+            0.7062785533711062
+          ],
+          [
+            0.30807222952054963,
+            0.2728784520636724
+          ],
+          [
+            0.6770855836896962,
+            0.25266121802590946
+          ],
+          [
+            0.6810659619789843,
+            0.46326330383474407
+          ]
+        ],
+        "renderedExpand": 0.275,
+        "renderedPrepare": 1,
+        "renderedWall": 0,
+        "target": [
+          1265,
+          720
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "portalCovered": false,
+      "raw": {
+        "event": 1,
+        "expand": 0.275,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 0,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 0.275,
+        "index": 5,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 0
+      },
+      "scrollY": 5896,
+      "wall": {
+        "position": [
+          0,
+          -1.2,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0,
+        "visible": false
+      }
+    },
+    "scrollWidth": 1265,
+    "url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1#links",
+    "width": 1280,
+    "y": 5896
+  },
+  {
+    "label": "desktop-nav-boundary",
+    "body": "lssh-home has-journey home-enhanced home-portal-cover",
+    "bundle": "/personal-homepage/_astro/HomeJourney.BZgdJJ3A.js",
+    "height": 720,
+    "motion": {
+      "frame": 69,
+      "glass": {
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "bounds": [
+          29.168911545662855,
+          12.187420805441276,
+          1235.8304163020607,
+          712.5208404586504
+        ],
+        "centeredLocalBounds": [
+          -6.036397933959961,
+          -3.4358019828796387,
+          -4.366239070892334,
+          6.345748424530029,
+          3.269338846206665,
+          3.1852993965148926
+        ],
+        "projectedAnchor": [
+          632.5,
+          360
+        ],
+        "quaternion": [
+          0.39762205734981215,
+          -0.11422548928433536,
+          -0.04996325392157521,
+          0.9090395537952268
+        ],
+        "scale": 0.66875,
+        "visible": true
+      },
+      "initialization": {
+        "reason": "layout",
+        "revision": 1,
+        "y": 0,
+        "zoom": 1
+      },
+      "phase": "portal",
+      "portal": {
+        "coversCorners": false,
+        "error": null,
+        "expand": 0.75,
+        "frontCoversCorners": false,
+        "hdr": true,
+        "homographyValid": true,
+        "prepare": 1,
+        "quad": [
+          [
+            0.04311782621966331,
+            0.9704631551220404
+          ],
+          [
+            0.02332175442368789,
+            0.02374264697287304
+          ],
+          [
+            0.97238102956145,
+            0.011287540881702696
+          ],
+          [
+            0.973271852792269,
+            0.9241337137484154
+          ]
+        ],
+        "renderedExpand": 0.75,
+        "renderedPrepare": 1,
+        "renderedWall": 0,
+        "target": [
+          1265,
+          720
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "portalCovered": false,
+      "raw": {
+        "event": 1,
+        "expand": 0.75,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 0,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 0.75,
+        "index": 5,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 0
+      },
+      "scrollY": 6580,
+      "wall": {
+        "position": [
+          0,
+          -1.2,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0,
+        "visible": false
+      }
+    },
+    "scrollWidth": 1265,
+    "url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1#links",
+    "width": 1280,
+    "y": 6580
+  },
+  {
+    "label": "desktop-full-cover",
+    "body": "lssh-home has-journey home-enhanced home-on-wall",
+    "bundle": "/personal-homepage/_astro/HomeJourney.BZgdJJ3A.js",
+    "height": 720,
+    "motion": {
+      "frame": 114,
+      "glass": {
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "bounds": [
+          -30.192175937610944,
+          -18.443946792330497,
+          1301.9024514095142,
+          751.366762658718
+        ],
+        "centeredLocalBounds": [
+          -6.036389350891113,
+          -3.4357519149780273,
+          -4.366298675537109,
+          6.345743179321289,
+          3.269359827041626,
+          3.1853654384613037
+        ],
+        "projectedAnchor": [
+          632.5,
+          360
+        ],
+        "quaternion": [
+          0.4831345516573914,
+          -0.13038417388763104,
+          -0.07301864581623647,
+          0.8626988174082624
+        ],
+        "scale": 0.725,
+        "visible": false
+      },
+      "initialization": {
+        "reason": "layout",
+        "revision": 1,
+        "y": 0,
+        "zoom": 1
+      },
+      "phase": "wall",
+      "portal": {
+        "coversCorners": true,
+        "error": null,
+        "expand": 1,
+        "frontCoversCorners": true,
+        "hdr": true,
+        "homographyValid": true,
+        "prepare": 1,
+        "quad": [
+          [
+            -0.04000000000000003,
+            1.04
+          ],
+          [
+            -0.03999999999999998,
+            -0.03999999999999998
+          ],
+          [
+            1.04,
+            -0.03999999999999998
+          ],
+          [
+            1.04,
+            1.04
+          ]
+        ],
+        "renderedExpand": 1,
+        "renderedPrepare": 1,
+        "renderedWall": 0.18392918758124732,
+        "target": [
+          1265,
+          720
+        ],
+        "targetReady": true,
+        "wall": 1
+      },
+      "portalCovered": true,
+      "raw": {
+        "event": 1,
+        "expand": 1,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 1,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 1,
+        "index": 5,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 1
+      },
+      "scrollY": 7660,
+      "wall": {
+        "position": [
+          0,
+          0,
+          -1
+        ],
+        "raw": 1,
+        "rise": 1,
+        "visible": true
+      }
+    },
+    "scrollWidth": 1265,
+    "url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1#links",
+    "width": 1280,
+    "y": 7660
+  },
+  {
+    "label": "mobile-full-cover",
+    "body": "lssh-home has-journey home-enhanced home-on-wall",
+    "bundle": "/personal-homepage/_astro/HomeJourney.BZgdJJ3A.js",
+    "height": 844,
+    "motion": {
+      "frame": 141,
+      "glass": {
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "bounds": [
+          -157.65212439003767,
+          224.89383637497872,
+          536.147116060702,
+          625.8368095136477
+        ],
+        "centeredLocalBounds": [
+          -6.036389350891113,
+          -3.4357519149780273,
+          -4.366298675537109,
+          6.345743179321289,
+          3.269359827041626,
+          3.1853654384613037
+        ],
+        "projectedAnchor": [
+          187.5,
+          422
+        ],
+        "quaternion": [
+          0.4831345516573914,
+          -0.13038417388763104,
+          -0.07301864581623647,
+          0.8626988174082624
+        ],
+        "scale": 0.725,
+        "visible": false
+      },
+      "initialization": {
+        "reason": "layout",
+        "revision": 1,
+        "y": 0,
+        "zoom": 1
+      },
+      "phase": "wall",
+      "portal": {
+        "coversCorners": true,
+        "error": null,
+        "expand": 1,
+        "frontCoversCorners": true,
+        "hdr": true,
+        "homographyValid": true,
+        "prepare": 1,
+        "quad": [
+          [
+            -0.04000000000000003,
+            1.04
+          ],
+          [
+            -0.03999999999999998,
+            -0.03999999999999998
+          ],
+          [
+            1.04,
+            -0.03999999999999998
+          ],
+          [
+            1.04,
+            1.04
+          ]
+        ],
+        "renderedExpand": 1,
+        "renderedPrepare": 1,
+        "renderedWall": 0.18392918758124732,
+        "target": [
+          1265,
+          720
+        ],
+        "targetReady": true,
+        "wall": 1
+      },
+      "portalCovered": true,
+      "raw": {
+        "event": 1,
+        "expand": 1,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 1,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 1,
+        "index": 5,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 1
+      },
+      "scrollY": 8962,
+      "wall": {
+        "position": [
+          0,
+          0,
+          -1
+        ],
+        "raw": 1,
+        "rise": 1,
+        "visible": true
+      }
+    },
+    "scrollWidth": 375,
+    "url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1#wall",
+    "width": 390,
+    "y": 8962
+  },
+  {
+    "label": "mobile-retracted",
+    "body": "lssh-home has-journey home-enhanced home-portal-cover",
+    "bundle": "/personal-homepage/_astro/HomeJourney.BZgdJJ3A.js",
+    "height": 844,
+    "motion": {
+      "frame": 165,
+      "glass": {
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "bounds": [
+          92.9600343486639,
+          296.57360437079734,
+          282.0399635550055,
+          551.2802771487459
+        ],
+        "centeredLocalBounds": [
+          -2.059990167617798,
+          -2.7938168048858643,
+          -1.2321590185165403,
+          2.215298652648926,
+          2.7759742736816406,
+          1.063647985458374
+        ],
+        "projectedAnchor": [
+          187.5,
+          422
+        ],
+        "quaternion": [
+          0.21370669105556617,
+          -0.07318878156137516,
+          -0.01605812210503359,
+          0.9740200147666894
+        ],
+        "scale": 0.55625,
+        "visible": true
+      },
+      "initialization": {
+        "reason": "layout",
+        "revision": 1,
+        "y": 0,
+        "zoom": 1
+      },
+      "phase": "portal",
+      "portal": {
+        "coversCorners": false,
+        "error": null,
+        "expand": 0.25,
+        "frontCoversCorners": false,
+        "hdr": true,
+        "homographyValid": true,
+        "prepare": 1,
+        "quad": [
+          [
+            0.4096305655295106,
+            0.6335761512218605
+          ],
+          [
+            0.2502143957835484,
+            0.3571981283076804
+          ],
+          [
+            0.7234492799983363,
+            0.3486379771749499
+          ],
+          [
+            0.7306230076369047,
+            0.522231238206088
+          ]
+        ],
+        "renderedExpand": 0.25,
+        "renderedPrepare": 1,
+        "renderedWall": 0,
+        "target": [
+          375,
+          844
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "portalCovered": false,
+      "raw": {
+        "event": 1,
+        "expand": 0.25,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 0,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 0.25,
+        "index": 5,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 0
+      },
+      "scrollY": 6852,
+      "wall": {
+        "position": [
+          0,
+          -1.2,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0,
+        "visible": false
+      }
+    },
+    "scrollWidth": 375,
+    "url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1#wall",
+    "width": 390,
+    "y": 6852
+  },
+  {
+    "label": "mobile-intro-restored",
+    "body": "lssh-home has-journey home-enhanced",
+    "bundle": "/personal-homepage/_astro/HomeJourney.BZgdJJ3A.js",
+    "height": 844,
+    "motion": {
+      "frame": 192,
+      "glass": {
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "bounds": [
+          98.276102822558,
+          344.2652199958793,
+          277.1965650494474,
+          499.2244306792719
+        ],
+        "centeredLocalBounds": [
+          -1.6766839027404783,
+          -1.45678448677063,
+          -0.4102458655834198,
+          1.6766839027404783,
+          1.45678448677063,
+          0.4102458655834198
+        ],
+        "projectedAnchor": [
+          187.5,
+          422
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": 0.5,
+        "visible": true
+      },
+      "initialization": {
+        "reason": "layout",
+        "revision": 1,
+        "y": 0,
+        "zoom": 1
+      },
+      "phase": "kv",
+      "portal": {
+        "coversCorners": false,
+        "error": null,
+        "expand": 0,
+        "frontCoversCorners": false,
+        "hdr": true,
+        "homographyValid": true,
+        "prepare": 0,
+        "quad": [
+          [
+            0.4996049296632435,
+            0.5902139354711258
+          ],
+          [
+            0.26613808679454154,
+            0.4108779858049137
+          ],
+          [
+            0.7124015874012257,
+            0.410589251958401
+          ],
+          [
+            0.7229075953303172,
+            0.4186593696933805
+          ]
+        ],
+        "renderedExpand": 0,
+        "renderedPrepare": 0.14749737287534095,
+        "renderedWall": 0,
+        "target": [
+          375,
+          844
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "portalCovered": false,
+      "raw": {
+        "event": 0,
+        "expand": 0,
+        "intro": 0,
+        "kv": 0.8940677966101694,
+        "outro": 0,
+        "prepare": 0,
+        "snap": 0,
+        "wall": 0,
+        "works": 0
+      },
+      "rendered": {
+        "background": 0,
+        "expand": 0,
+        "index": 0,
+        "intro": 0,
+        "prepare": 0,
+        "progress": 0,
+        "wall": 0
+      },
+      "scrollY": 0,
+      "wall": {
+        "position": [
+          0,
+          -1.2,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0,
+        "visible": false
+      }
+    },
+    "scrollWidth": 375,
+    "url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1#intro",
+    "width": 390,
+    "y": 0
+  }
+]

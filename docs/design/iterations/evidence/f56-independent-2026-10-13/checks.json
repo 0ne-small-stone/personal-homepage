@@ -1,0 +1,55 @@
+[
+  {
+    "body": {
+      "chapter": "intro",
+      "homeMotion": "ready",
+      "homeStatus": "ready"
+    },
+    "canvas": {
+      "engine": "three.js r186",
+      "glassQuaternion": "0.000000,-0.104191,0.000000,0.994557"
+    },
+    "h": 720,
+    "sample": "desktop-scroll",
+    "w": 1280,
+    "y": 648
+  },
+  {
+    "canvas": {
+      "engine": "three.js r186",
+      "glassQuaternion": "0.000000,-0.266624,0.000000,0.963801"
+    },
+    "chapter": "projects",
+    "sample": "desktop-projects",
+    "y": 1540
+  },
+  {
+    "body": {
+      "chapter": "intro",
+      "homeMotion": "ready",
+      "homeStatus": "ready"
+    },
+    "canvas": {
+      "engine": "three.js r186",
+      "glassQuaternion": "0.000000,-0.000001,0.000000,1.000000"
+    },
+    "h": 844,
+    "island": "/personal-homepage/_astro/HomeJourney.BN42XM_m.js",
+    "overflow": 375,
+    "sample": "mobile-intro",
+    "w": 390,
+    "y": 0
+  },
+  {
+    "body": {
+      "chapter": "intro",
+      "homeStatus": "ready"
+    },
+    "canvas": {
+      "engine": "three.js r186",
+      "glassQuaternion": "0.000000,-0.000000,0.000000,1.000000"
+    },
+    "classes": "lssh-home has-journey home-enhanced home-quiet",
+    "sample": "mobile-paused"
+  }
+]

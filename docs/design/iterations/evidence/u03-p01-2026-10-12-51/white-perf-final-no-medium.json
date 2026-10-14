@@ -1,0 +1,25 @@
+{
+  "canvas": {
+    "data": {
+      "draws": "19",
+      "engine": "three.js r186",
+      "epoch": "19",
+      "glass": "true",
+      "gpuRenderer": "ANGLE (Intel, Intel(R) Graphics (0x00007D67) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "medium": "false",
+      "receiverFlux": "14.569105061135344",
+      "receiverHits": "128",
+      "renderState": "idle",
+      "samples": "128",
+      "timing": "{\"draws\":19,\"state\":\"idle\",\"jsRenderMs\":2.6894736841909195,\"transportMs\":10.00526315787513,\"gpuMs\":15.1675295,\"gpuLastMs\":3.75203,\"gpu128Ms\":10.3809625,\"gpuMeasurements\":[{\"sourceSamples\":48,\"ms\":32.756196},{\"sourceSamples\":64,\"ms\":22.670677},{\"sourceSamples\":80,\"ms\":14.795311},{\"sourceSamples\":96,\"ms\":14.844583},{\"sourceSamples\":128,\"ms\":17.009895},{\"sourceSamples\":48,\"ms\":11.592655},{\"sourceSamples\":64,\"ms\":16.808645},{\"sourceSamples\":80,\"ms\":16.931614},{\"sourceSamples\":48,\"ms\":7.856614},{\"sourceSamples\":64,\"ms\":12.072603},{\"sourceSamples\":80,\"ms\":10.919531},{\"sourceSamples\":128,\"ms\":3.75203}],\"frameGapMs\":61.69077777777779,\"gpuTimerSupported\":true}"
+    },
+    "height": 510,
+    "width": 1280
+  },
+  "performance": "渲染 19 帧 · 静止停算 · JS提交 2.7 ms · 光路 10.0 ms · 最近GPU帧 3.8 ms",
+  "status": "白光单散射估计 · 128 源采样 · 640 传播段 · 128 接收面命中 · epoch 19",
+  "viewport": [
+    1280,
+    720
+  ]
+}

@@ -1,0 +1,2673 @@
+[
+  {
+    "label": "desktop-links",
+    "body": "lssh-home has-journey home-enhanced",
+    "bundle": "/personal-homepage/_astro/HomeJourney.a1MSPEeb.js",
+    "height": 720,
+    "motion": {
+      "frame": 906,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 3700,
+        "zoom": 0
+      },
+      "phase": "works_outro",
+      "portal": null,
+      "raw": {
+        "event": 1,
+        "expand": 0,
+        "intro": 1,
+        "kv": 1,
+        "outro": 0,
+        "prepare": 0,
+        "snap": 1,
+        "wall": 0,
+        "works": 0.8
+      },
+      "rendered": {
+        "background": 4,
+        "expand": 0,
+        "index": 4,
+        "intro": 1,
+        "prepare": 0,
+        "progress": 0.8,
+        "wall": 0
+      },
+      "scrollY": 3700,
+      "wall": {
+        "position": [
+          0,
+          -11,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0,
+        "visible": false
+      }
+    },
+    "scrollWidth": 1265,
+    "width": 1280,
+    "y": 3700
+  },
+  {
+    "label": "desktop-prepare",
+    "body": "lssh-home has-journey home-enhanced",
+    "bundle": "/personal-homepage/_astro/HomeJourney.a1MSPEeb.js",
+    "height": 720,
+    "motion": {
+      "frame": 927,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 3700,
+        "zoom": 0
+      },
+      "phase": "works_outro",
+      "portal": null,
+      "raw": {
+        "event": 1,
+        "expand": 0,
+        "intro": 1,
+        "kv": 1,
+        "outro": 0.8703703703703703,
+        "prepare": 0,
+        "snap": 1,
+        "wall": 0,
+        "works": 1
+      },
+      "rendered": {
+        "background": 4.648412912713054,
+        "expand": 0,
+        "index": 4.2814824582340005,
+        "intro": 1,
+        "prepare": 0,
+        "progress": 0.95623859437561,
+        "wall": 0
+      },
+      "scrollY": 4640,
+      "wall": {
+        "position": [
+          0,
+          -11,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0,
+        "visible": false
+      }
+    },
+    "scrollWidth": 1265,
+    "width": 1280,
+    "y": 4640
+  },
+  {
+    "label": "desktop-window",
+    "body": "lssh-home has-journey home-enhanced",
+    "bundle": "/personal-homepage/_astro/HomeJourney.a1MSPEeb.js",
+    "height": 720,
+    "motion": {
+      "frame": 1524,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 3700,
+        "zoom": 0
+      },
+      "phase": "portal",
+      "portal": {
+        "coversCorners": false,
+        "error": null,
+        "expand": 0,
+        "prepare": 0.7625,
+        "renderedExpand": 0,
+        "renderedPrepare": 0.43547208140991434,
+        "renderedWall": 0,
+        "target": [
+          1265,
+          720
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "raw": {
+        "event": 1,
+        "expand": 0,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 0.8402777777777778,
+        "snap": 1,
+        "wall": 0,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 0,
+        "index": 5,
+        "intro": 1,
+        "prepare": 0.5086888834394873,
+        "progress": 1,
+        "wall": 0
+      },
+      "scrollY": 5385,
+      "wall": {
+        "position": [
+          0,
+          -11,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0,
+        "visible": false
+      }
+    },
+    "scrollWidth": 1265,
+    "width": 1280,
+    "y": 5409
+  },
+  {
+    "label": "desktop-half-expand",
+    "body": "lssh-home has-journey home-enhanced",
+    "bundle": "/personal-homepage/_astro/HomeJourney.a1MSPEeb.js",
+    "height": 720,
+    "motion": {
+      "frame": 1545,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 3700,
+        "zoom": 0
+      },
+      "phase": "portal",
+      "portal": {
+        "coversCorners": false,
+        "error": null,
+        "expand": 0.65,
+        "prepare": 1,
+        "renderedExpand": 0.4097457852804855,
+        "renderedPrepare": 0.940446588871482,
+        "renderedWall": 0,
+        "target": [
+          1265,
+          720
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "raw": {
+        "event": 1,
+        "expand": 0.6833333333333333,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 0,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 0.4570758655694897,
+        "index": 5,
+        "intro": 1,
+        "prepare": 0.94631259986631,
+        "progress": 1,
+        "wall": 0
+      },
+      "scrollY": 6484,
+      "wall": {
+        "position": [
+          0,
+          -11,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0,
+        "visible": false
+      }
+    },
+    "scrollWidth": 1265,
+    "width": 1280,
+    "y": 6484
+  },
+  {
+    "label": "desktop-full-cover",
+    "body": "lssh-home has-journey home-enhanced home-on-wall",
+    "bundle": "/personal-homepage/_astro/HomeJourney.a1MSPEeb.js",
+    "height": 720,
+    "motion": {
+      "frame": 1563,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 3700,
+        "zoom": 0
+      },
+      "phase": "wall",
+      "portal": {
+        "coversCorners": false,
+        "error": null,
+        "expand": 1,
+        "prepare": 1,
+        "renderedExpand": 0.937516044815896,
+        "renderedPrepare": 0.9913588311692546,
+        "renderedWall": 0.22724747395833336,
+        "target": [
+          1265,
+          720
+        ],
+        "targetReady": true,
+        "wall": 0.9875
+      },
+      "raw": {
+        "event": 1,
+        "expand": 1,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 1,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 1,
+        "index": 5,
+        "intro": 1,
+        "prepare": 0.9982616187861096,
+        "progress": 1,
+        "wall": 0.9897978666668826
+      },
+      "scrollY": 7683,
+      "wall": {
+        "position": [
+          0,
+          -0.11222346666429106,
+          -1
+        ],
+        "raw": 1,
+        "rise": 0.9897978666668826,
+        "visible": true
+      }
+    },
+    "scrollWidth": 1265,
+    "width": 1280,
+    "y": 7707
+  },
+  {
+    "label": "desktop-wall",
+    "body": "lssh-home has-journey home-enhanced home-on-wall",
+    "bundle": "/personal-homepage/_astro/HomeJourney.a1MSPEeb.js",
+    "height": 720,
+    "motion": {
+      "frame": 1581,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 3700,
+        "zoom": 0
+      },
+      "phase": "wall",
+      "portal": {
+        "coversCorners": true,
+        "error": null,
+        "expand": 1,
+        "prepare": 1,
+        "renderedExpand": 1,
+        "renderedPrepare": 0.9990211027267432,
+        "renderedWall": 0.998504546445722,
+        "target": [
+          1265,
+          720
+        ],
+        "targetReady": true,
+        "wall": 1
+      },
+      "raw": {
+        "event": 1,
+        "expand": 1,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 1,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 1,
+        "index": 5,
+        "intro": 1,
+        "prepare": 0.9997288687164684,
+        "progress": 1,
+        "wall": 0.9999821853767094
+      },
+      "scrollY": 8009,
+      "wall": {
+        "position": [
+          0,
+          -0.00019596085619710824,
+          -1
+        ],
+        "raw": 1,
+        "rise": 0.9999821853767094,
+        "visible": true
+      }
+    },
+    "scrollWidth": 1265,
+    "width": 1280,
+    "y": 8029
+  },
+  {
+    "label": "mobile-initial-window",
+    "body": "lssh-home has-journey home-enhanced",
+    "bundle": "/personal-homepage/_astro/HomeJourney.a1MSPEeb.js",
+    "height": 844,
+    "motion": {
+      "frame": 11817,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 3700,
+        "zoom": 0
+      },
+      "phase": "portal",
+      "portal": {
+        "coversCorners": false,
+        "error": null,
+        "expand": 0,
+        "prepare": 0.4253554502369668,
+        "renderedExpand": 0,
+        "renderedPrepare": 0.05055881192002619,
+        "renderedWall": 0,
+        "target": [
+          375,
+          844
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "raw": {
+        "event": 1,
+        "expand": 0,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 0.6255924170616114,
+        "snap": 1,
+        "wall": 0,
+        "works": 1
+      },
+      "rendered": {
+        "background": 4.70048608464513,
+        "expand": 0,
+        "index": 4.564771251956914,
+        "intro": 1,
+        "prepare": 0.12126118104219231,
+        "progress": 0.9650949938037,
+        "wall": 0
+      },
+      "scrollY": 6114,
+      "wall": {
+        "position": [
+          0,
+          -11,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0,
+        "visible": false
+      }
+    },
+    "scrollWidth": 375,
+    "width": 390,
+    "y": 6156
+  },
+  {
+    "label": "mobile-initial-expand",
+    "body": "lssh-home has-journey home-enhanced",
+    "bundle": "/personal-homepage/_astro/HomeJourney.a1MSPEeb.js",
+    "height": 844,
+    "motion": {
+      "frame": 11850,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 3700,
+        "zoom": 0
+      },
+      "phase": "portal",
+      "portal": {
+        "coversCorners": false,
+        "error": null,
+        "expand": 0.7411137440758294,
+        "prepare": 1,
+        "renderedExpand": 0.39263400826464934,
+        "renderedPrepare": 0.7576366704163681,
+        "renderedWall": 0,
+        "target": [
+          375,
+          844
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "raw": {
+        "event": 1,
+        "expand": 0.8791469194312796,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 0,
+        "works": 1
+      },
+      "rendered": {
+        "background": 4.971606189434893,
+        "expand": 0.5601710431922714,
+        "index": 4.9066326988002,
+        "intro": 1,
+        "prepare": 0.8129176130230817,
+        "progress": 0.9988632866735664,
+        "wall": 0
+      },
+      "scrollY": 7914,
+      "wall": {
+        "position": [
+          0,
+          -11,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0,
+        "visible": false
+      }
+    },
+    "scrollWidth": 375,
+    "width": 390,
+    "y": 7986
+  },
+  {
+    "label": "confirm-desktop-window",
+    "body": "lssh-home has-journey home-enhanced home-portal-cover",
+    "bundle": "/personal-homepage/_astro/HomeJourney.C9hJLHMB.js",
+    "height": 720,
+    "motion": {
+      "frame": 30,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 3700,
+        "zoom": 0
+      },
+      "phase": "portal",
+      "portal": {
+        "coversCorners": false,
+        "error": null,
+        "expand": 0,
+        "prepare": 0.17777777777777778,
+        "renderedExpand": 0,
+        "renderedPrepare": 0.01225,
+        "renderedWall": 0,
+        "target": [
+          1265,
+          720
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "portalCovered": false,
+      "raw": {
+        "event": 1,
+        "expand": 0,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 0.3236111111111111,
+        "snap": 1,
+        "wall": 0,
+        "works": 1
+      },
+      "rendered": {
+        "background": 4.8071455803312055,
+        "expand": 0,
+        "index": 4.504824865126836,
+        "intro": 1,
+        "prepare": 0.0541743945877608,
+        "progress": 0.9826545521812898,
+        "wall": 0
+      },
+      "scrollY": 5013,
+      "wall": {
+        "position": [
+          0,
+          -1.2,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0,
+        "visible": false
+      }
+    },
+    "scrollWidth": 1265,
+    "width": 1280,
+    "y": 5045
+  },
+  {
+    "label": "confirm-desktop-half",
+    "body": "lssh-home has-journey home-enhanced home-portal-cover",
+    "bundle": "/personal-homepage/_astro/HomeJourney.C9hJLHMB.js",
+    "height": 720,
+    "motion": {
+      "frame": 630,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 3700,
+        "zoom": 0
+      },
+      "phase": "portal",
+      "portal": {
+        "coversCorners": false,
+        "error": null,
+        "expand": 0.2520833333333333,
+        "prepare": 1,
+        "renderedExpand": 0.11088886815029264,
+        "renderedPrepare": 0.8761692946224777,
+        "renderedWall": 0,
+        "target": [
+          1265,
+          720
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "portalCovered": false,
+      "raw": {
+        "event": 1,
+        "expand": 0.31319444444444444,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 0,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 0.177959690019423,
+        "index": 5,
+        "intro": 1,
+        "prepare": 0.9042692678659372,
+        "progress": 1,
+        "wall": 0
+      },
+      "scrollY": 5951,
+      "wall": {
+        "position": [
+          0,
+          -1.2,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0,
+        "visible": false
+      }
+    },
+    "scrollWidth": 1265,
+    "width": 1280,
+    "y": 5951
+  },
+  {
+    "label": "confirm-desktop-interrupt-reverse",
+    "body": "lssh-home has-journey home-enhanced home-portal-cover",
+    "bundle": "/personal-homepage/_astro/HomeJourney.C9hJLHMB.js",
+    "height": 720,
+    "motion": {
+      "frame": 648,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 3700,
+        "zoom": 0
+      },
+      "phase": "portal",
+      "portal": {
+        "coversCorners": false,
+        "error": null,
+        "expand": 0.2513888888888889,
+        "prepare": 1,
+        "renderedExpand": 0.33272796076147254,
+        "renderedPrepare": 0.9890420145927656,
+        "renderedWall": 0,
+        "target": [
+          1265,
+          720
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "portalCovered": false,
+      "raw": {
+        "event": 1,
+        "expand": 0.21875,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 0,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 0.29790758579279863,
+        "index": 5,
+        "intro": 1,
+        "prepare": 0.9913157308171452,
+        "progress": 1,
+        "wall": 0
+      },
+      "scrollY": 5815,
+      "wall": {
+        "position": [
+          0,
+          -1.2,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0,
+        "visible": false
+      }
+    },
+    "scrollWidth": 1265,
+    "width": 1280,
+    "y": 5798
+  },
+  {
+    "label": "confirm-desktop-cover",
+    "body": "lssh-home has-journey home-enhanced home-portal-cover",
+    "bundle": "/personal-homepage/_astro/HomeJourney.C9hJLHMB.js",
+    "height": 720,
+    "motion": {
+      "frame": 669,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 3700,
+        "zoom": 0
+      },
+      "phase": "portal",
+      "portal": {
+        "coversCorners": false,
+        "error": null,
+        "expand": 0.6097222222222223,
+        "prepare": 1,
+        "renderedExpand": 0.43220692329155286,
+        "renderedPrepare": 0.999401033952774,
+        "renderedWall": 0,
+        "target": [
+          1265,
+          720
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "portalCovered": false,
+      "raw": {
+        "event": 1,
+        "expand": 0.6472222222222223,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 0,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 0.4771182939289478,
+        "index": 5,
+        "intro": 1,
+        "prepare": 0.9994768031577614,
+        "progress": 1,
+        "wall": 0
+      },
+      "scrollY": 6432,
+      "wall": {
+        "position": [
+          0,
+          -1.2,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0,
+        "visible": false
+      }
+    },
+    "scrollWidth": 1265,
+    "width": 1280,
+    "y": 6458
+  },
+  {
+    "label": "confirm-desktop-rise",
+    "body": "lssh-home has-journey home-enhanced home-portal-cover",
+    "bundle": "/personal-homepage/_astro/HomeJourney.C9hJLHMB.js",
+    "height": 720,
+    "motion": {
+      "frame": 690,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 3700,
+        "zoom": 0
+      },
+      "phase": "portal",
+      "portal": {
+        "coversCorners": true,
+        "error": null,
+        "expand": 0.975,
+        "prepare": 1,
+        "renderedExpand": 0.9041505256907848,
+        "renderedPrepare": 0.9999612774124528,
+        "renderedWall": 0,
+        "target": [
+          1265,
+          720
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "portalCovered": true,
+      "raw": {
+        "event": 1,
+        "expand": 0.9965277777777778,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 0,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 0.9369388768245642,
+        "index": 5,
+        "intro": 1,
+        "prepare": 0.9999703570073356,
+        "progress": 1,
+        "wall": 0
+      },
+      "scrollY": 6935,
+      "wall": {
+        "position": [
+          0,
+          -1.2,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0,
+        "visible": false
+      }
+    },
+    "scrollWidth": 1265,
+    "width": 1280,
+    "y": 6935
+  },
+  {
+    "label": "confirm-desktop-wall-rise",
+    "body": "lssh-home has-journey home-enhanced home-portal-cover",
+    "bundle": "/personal-homepage/_astro/HomeJourney.C9hJLHMB.js",
+    "height": 720,
+    "motion": {
+      "frame": 1653,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 3700,
+        "zoom": 0
+      },
+      "phase": "wall",
+      "portal": {
+        "coversCorners": true,
+        "error": null,
+        "expand": 1,
+        "prepare": 1,
+        "renderedExpand": 1,
+        "renderedPrepare": 1,
+        "renderedWall": 0.3068771261583639,
+        "target": [
+          1265,
+          720
+        ],
+        "targetReady": true,
+        "wall": 0.36527777777777776
+      },
+      "portalCovered": true,
+      "raw": {
+        "event": 1,
+        "expand": 1,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 0.3875,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 1,
+        "index": 5,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 0.3194916669133787
+      },
+      "scrollY": 7219,
+      "wall": {
+        "position": [
+          0,
+          -0.8166099997039455,
+          -1
+        ],
+        "raw": 0.3875,
+        "rise": 0.3194916669133787,
+        "visible": true
+      }
+    },
+    "scrollWidth": 1265,
+    "width": 1280,
+    "y": 7219
+  },
+  {
+    "label": "confirm-desktop-wall-reading",
+    "body": "lssh-home has-journey home-enhanced home-portal-cover",
+    "bundle": "/personal-homepage/_astro/HomeJourney.C9hJLHMB.js",
+    "height": 720,
+    "motion": {
+      "frame": 1671,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 3700,
+        "zoom": 0
+      },
+      "phase": "wall",
+      "portal": {
+        "coversCorners": true,
+        "error": null,
+        "expand": 1,
+        "prepare": 1,
+        "renderedExpand": 1,
+        "renderedPrepare": 1,
+        "renderedWall": 0.8009826675571796,
+        "target": [
+          1265,
+          720
+        ],
+        "targetReady": true,
+        "wall": 0.9666666666666668
+      },
+      "portalCovered": true,
+      "raw": {
+        "event": 1,
+        "expand": 1,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 1,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 1,
+        "index": 5,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 0.8606289072365949
+      },
+      "scrollY": 7668,
+      "wall": {
+        "position": [
+          0,
+          -0.1672453113160861,
+          -1
+        ],
+        "raw": 1,
+        "rise": 0.8606289072365949,
+        "visible": true
+      }
+    },
+    "scrollWidth": 1265,
+    "width": 1280,
+    "y": 7727
+  },
+  {
+    "label": "confirm-desktop-wall-reverse",
+    "body": "lssh-home has-journey home-enhanced home-portal-cover",
+    "bundle": "/personal-homepage/_astro/HomeJourney.C9hJLHMB.js",
+    "height": 720,
+    "motion": {
+      "frame": 1689,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 3700,
+        "zoom": 0
+      },
+      "phase": "wall",
+      "portal": {
+        "coversCorners": true,
+        "error": null,
+        "expand": 1,
+        "prepare": 1,
+        "renderedExpand": 1,
+        "renderedPrepare": 1,
+        "renderedWall": 0.4747836573555051,
+        "target": [
+          1265,
+          720
+        ],
+        "targetReady": true,
+        "wall": 0.15416666666666667
+      },
+      "portalCovered": true,
+      "raw": {
+        "event": 1,
+        "expand": 1,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 0.07222222222222222,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 1,
+        "index": 5,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 0.34493377612652554
+      },
+      "scrollY": 6992,
+      "wall": {
+        "position": [
+          0,
+          -0.7860794686481694,
+          -1
+        ],
+        "raw": 0.07222222222222222,
+        "rise": 0.34493377612652554,
+        "visible": true
+      }
+    },
+    "scrollWidth": 1265,
+    "width": 1280,
+    "y": 6877
+  },
+  {
+    "label": "confirm-desktop-return-window",
+    "body": "lssh-home has-journey home-enhanced home-portal-cover",
+    "bundle": "/personal-homepage/_astro/HomeJourney.C9hJLHMB.js",
+    "height": 720,
+    "motion": {
+      "frame": 1707,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 3700,
+        "zoom": 0
+      },
+      "phase": "portal",
+      "portal": {
+        "coversCorners": false,
+        "error": null,
+        "expand": 0.2625,
+        "prepare": 1,
+        "renderedExpand": 0.5476469158790862,
+        "renderedPrepare": 1,
+        "renderedWall": 0.00006466070297733863,
+        "target": [
+          1265,
+          720
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "portalCovered": false,
+      "raw": {
+        "event": 1,
+        "expand": 0.2111111111111111,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 0,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 0.460962253456093,
+        "index": 5,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 0.000035175422421117496
+      },
+      "scrollY": 5804,
+      "wall": {
+        "position": [
+          0,
+          -1.1999577894930946,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0.000035175422421117496,
+        "visible": true
+      }
+    },
+    "scrollWidth": 1265,
+    "width": 1280,
+    "y": 5739
+  },
+  {
+    "label": "final-desktop-wall",
+    "body": "lssh-home has-journey home-enhanced home-on-wall",
+    "bundle": "/personal-homepage/_astro/HomeJourney.ur3unrG0.js",
+    "height": 720,
+    "motion": {
+      "frame": 27,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 3700,
+        "zoom": 0
+      },
+      "phase": "wall",
+      "portal": {
+        "coversCorners": true,
+        "error": null,
+        "expand": 1,
+        "prepare": 1,
+        "renderedExpand": 0.9485010912382048,
+        "renderedPrepare": 0.7451517034130991,
+        "renderedWall": 0.6280822499993965,
+        "target": [
+          1265,
+          720
+        ],
+        "targetReady": true,
+        "wall": 1
+      },
+      "portalCovered": true,
+      "raw": {
+        "event": 1,
+        "expand": 1,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 1,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 1,
+        "index": 4.960805805789107,
+        "intro": 1,
+        "prepare": 0.9834495921813464,
+        "progress": 1,
+        "wall": 1
+      },
+      "scrollY": 7660,
+      "wall": {
+        "position": [
+          0,
+          0,
+          -1
+        ],
+        "raw": 1,
+        "rise": 1,
+        "visible": true
+      }
+    },
+    "scrollWidth": 1265,
+    "width": 1280,
+    "y": 7660
+  },
+  {
+    "label": "final-desktop-wall-reload",
+    "body": "lssh-home has-journey home-enhanced home-on-wall",
+    "bundle": "/personal-homepage/_astro/HomeJourney.ur3unrG0.js",
+    "height": 720,
+    "motion": {
+      "frame": 15,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 7660,
+        "zoom": 0
+      },
+      "phase": "wall",
+      "portal": {
+        "coversCorners": false,
+        "error": null,
+        "expand": 0,
+        "prepare": 0.7111111111111111,
+        "renderedExpand": 0,
+        "renderedPrepare": 0.7111111111111111,
+        "renderedWall": 0,
+        "target": [
+          1265,
+          720
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "portalCovered": true,
+      "raw": {
+        "event": 1,
+        "expand": 1,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 1,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 1,
+        "index": 5,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 1
+      },
+      "scrollY": 7660,
+      "wall": {
+        "position": [
+          0,
+          0,
+          -1
+        ],
+        "raw": 1,
+        "rise": 1,
+        "visible": true
+      }
+    },
+    "scrollWidth": 1265,
+    "width": 1280,
+    "y": 7660
+  },
+  {
+    "label": "final-desktop-reverse-gate",
+    "body": "lssh-home has-journey home-enhanced home-portal-cover",
+    "bundle": "/personal-homepage/_astro/HomeJourney.ur3unrG0.js",
+    "height": 720,
+    "motion": {
+      "frame": 33,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 7660,
+        "zoom": 0
+      },
+      "phase": "portal",
+      "portal": {
+        "coversCorners": true,
+        "error": null,
+        "expand": 0.6486111111111111,
+        "prepare": 1,
+        "renderedExpand": 1,
+        "renderedPrepare": 1,
+        "renderedWall": 0.111539537378558,
+        "target": [
+          1265,
+          720
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "portalCovered": true,
+      "raw": {
+        "event": 1,
+        "expand": 0.5923611111111111,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 0,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 1,
+        "index": 5,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 0.05063894997235845
+      },
+      "scrollY": 6353,
+      "wall": {
+        "position": [
+          0,
+          -1.1392332600331698,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0.05063894997235845,
+        "visible": true
+      }
+    },
+    "scrollWidth": 1265,
+    "width": 1280,
+    "y": 6254
+  },
+  {
+    "label": "final-desktop-reverse-window",
+    "body": "lssh-home has-journey home-enhanced home-portal-cover",
+    "bundle": "/personal-homepage/_astro/HomeJourney.ur3unrG0.js",
+    "height": 720,
+    "motion": {
+      "frame": 1086,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 7660,
+        "zoom": 0
+      },
+      "phase": "portal",
+      "portal": {
+        "coversCorners": false,
+        "error": null,
+        "expand": 0.2,
+        "prepare": 1,
+        "renderedExpand": 0.2,
+        "renderedPrepare": 1,
+        "renderedWall": 0,
+        "target": [
+          1265,
+          720
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "portalCovered": false,
+      "raw": {
+        "event": 1,
+        "expand": 0.2,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 0,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 0.2,
+        "index": 5,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 0
+      },
+      "scrollY": 5788,
+      "wall": {
+        "position": [
+          0,
+          -1.2,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0,
+        "visible": false
+      }
+    },
+    "scrollWidth": 1265,
+    "width": 1280,
+    "y": 5788
+  },
+  {
+    "label": "final-desktop-route-return",
+    "body": "lssh-home has-journey home-enhanced home-on-wall",
+    "bundle": "/personal-homepage/_astro/HomeJourney.ur3unrG0.js",
+    "height": 720,
+    "motion": {
+      "frame": 12,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 7660,
+        "zoom": 0
+      },
+      "phase": "wall",
+      "portal": {
+        "coversCorners": false,
+        "error": null,
+        "expand": 0,
+        "prepare": 0.7111111111111111,
+        "renderedExpand": 0,
+        "renderedPrepare": 0.7111111111111111,
+        "renderedWall": 0,
+        "target": [
+          1265,
+          720
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "portalCovered": true,
+      "raw": {
+        "event": 1,
+        "expand": 1,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 1,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 1,
+        "index": 5,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 1
+      },
+      "scrollY": 7660,
+      "wall": {
+        "position": [
+          0,
+          0,
+          -1
+        ],
+        "raw": 1,
+        "rise": 1,
+        "visible": true
+      }
+    },
+    "scrollWidth": 1265,
+    "width": 1280,
+    "y": 7660
+  },
+  {
+    "label": "final-mobile-window",
+    "body": "lssh-home has-journey home-enhanced",
+    "bundle": "/personal-homepage/_astro/HomeJourney.ur3unrG0.js",
+    "height": 844,
+    "motion": {
+      "frame": 1659,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 7660,
+        "zoom": 0
+      },
+      "phase": "works_outro",
+      "portal": {
+        "coversCorners": false,
+        "error": null,
+        "expand": 0,
+        "prepare": 0,
+        "renderedExpand": 0.42398399999788405,
+        "renderedPrepare": 0.22946348521943177,
+        "renderedWall": 0,
+        "target": [
+          375,
+          844
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "portalCovered": false,
+      "raw": {
+        "event": 1,
+        "expand": 0,
+        "intro": 1,
+        "kv": 1,
+        "outro": 0.8380726698262243,
+        "prepare": 0,
+        "snap": 1,
+        "wall": 0,
+        "works": 1
+      },
+      "rendered": {
+        "background": 4.5448312731116465,
+        "expand": 0,
+        "index": 4.1556071443986475,
+        "intro": 1,
+        "prepare": 0,
+        "progress": 0.9377126926870064,
+        "wall": 0
+      },
+      "scrollY": 5381,
+      "wall": {
+        "position": [
+          0,
+          -1.2,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0,
+        "visible": false
+      }
+    },
+    "scrollWidth": 375,
+    "width": 390,
+    "y": 5572
+  },
+  {
+    "label": "final-mobile-half",
+    "body": "lssh-home has-journey home-enhanced home-portal-cover",
+    "bundle": "/personal-homepage/_astro/HomeJourney.ur3unrG0.js",
+    "height": 844,
+    "motion": {
+      "frame": 1680,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 7660,
+        "zoom": 0
+      },
+      "phase": "portal",
+      "portal": {
+        "coversCorners": false,
+        "error": null,
+        "expand": 0.17476303317535544,
+        "prepare": 1,
+        "renderedExpand": 0.0733193008852544,
+        "renderedPrepare": 0.6862108779581998,
+        "renderedWall": 0,
+        "target": [
+          375,
+          844
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "portalCovered": false,
+      "raw": {
+        "event": 1,
+        "expand": 0.19727488151658767,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 0,
+        "works": 1
+      },
+      "rendered": {
+        "background": 4.995056821549455,
+        "expand": 0.09918745261923016,
+        "index": 4.957618056702953,
+        "intro": 1,
+        "prepare": 0.7262189910185293,
+        "progress": 0.999931518698262,
+        "wall": 0
+      },
+      "scrollY": 6763,
+      "wall": {
+        "position": [
+          0,
+          -1.2,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0,
+        "visible": false
+      }
+    },
+    "scrollWidth": 375,
+    "width": 390,
+    "y": 6763
+  },
+  {
+    "label": "final-mobile-interrupt",
+    "body": "lssh-home has-journey home-enhanced home-portal-cover",
+    "bundle": "/personal-homepage/_astro/HomeJourney.ur3unrG0.js",
+    "height": 844,
+    "motion": {
+      "frame": 1695,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 7660,
+        "zoom": 0
+      },
+      "phase": "portal",
+      "portal": {
+        "coversCorners": false,
+        "error": null,
+        "expand": 0.235781990521327,
+        "prepare": 1,
+        "renderedExpand": 0.2735146179919302,
+        "renderedPrepare": 0.9537831333204873,
+        "renderedWall": 0,
+        "target": [
+          375,
+          844
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "portalCovered": false,
+      "raw": {
+        "event": 1,
+        "expand": 0.2126777251184834,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 0,
+        "works": 1
+      },
+      "rendered": {
+        "background": 4.999766945888482,
+        "expand": 0.2492369541128003,
+        "index": 4.994870340451608,
+        "intro": 1,
+        "prepare": 0.9669609485162348,
+        "progress": 0.9999993042720676,
+        "wall": 0
+      },
+      "scrollY": 6789,
+      "wall": {
+        "position": [
+          0,
+          -1.2,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0,
+        "visible": false
+      }
+    },
+    "scrollWidth": 375,
+    "width": 390,
+    "y": 6756
+  },
+  {
+    "label": "final-mobile-cover",
+    "body": "lssh-home has-journey home-enhanced home-portal-cover",
+    "bundle": "/personal-homepage/_astro/HomeJourney.ur3unrG0.js",
+    "height": 844,
+    "motion": {
+      "frame": 1713,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 7660,
+        "zoom": 0
+      },
+      "phase": "portal",
+      "portal": {
+        "coversCorners": false,
+        "error": null,
+        "expand": 0.5574644549763034,
+        "prepare": 1,
+        "renderedExpand": 0.4040055099243776,
+        "renderedPrepare": 0.9973380148496056,
+        "renderedWall": 0,
+        "target": [
+          375,
+          844
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "portalCovered": false,
+      "raw": {
+        "event": 1,
+        "expand": 0.6054502369668247,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 0,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 0.4832465083616896,
+        "index": 4.999692659285575,
+        "intro": 1,
+        "prepare": 0.9980205478421666,
+        "progress": 1,
+        "wall": 0
+      },
+      "scrollY": 7452,
+      "wall": {
+        "position": [
+          0,
+          -1.2,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0,
+        "visible": false
+      }
+    },
+    "scrollWidth": 375,
+    "width": 390,
+    "y": 7452
+  },
+  {
+    "label": "final-mobile-full-cover",
+    "body": "lssh-home has-journey home-enhanced home-portal-cover",
+    "bundle": "/personal-homepage/_astro/HomeJourney.ur3unrG0.js",
+    "height": 844,
+    "motion": {
+      "frame": 3246,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 7660,
+        "zoom": 0
+      },
+      "phase": "wall",
+      "portal": {
+        "coversCorners": true,
+        "error": null,
+        "expand": 1,
+        "prepare": 1,
+        "renderedExpand": 0.887068275160602,
+        "renderedPrepare": 1,
+        "renderedWall": 0,
+        "target": [
+          375,
+          844
+        ],
+        "targetReady": true,
+        "wall": 0.03317535545023697
+      },
+      "portalCovered": true,
+      "raw": {
+        "event": 1,
+        "expand": 1,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 0.13033175355450238,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 0.9378330053163764,
+        "index": 5,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 0.042543330565450184
+      },
+      "scrollY": 8228,
+      "wall": {
+        "position": [
+          0,
+          -1.1489480033214596,
+          -1
+        ],
+        "raw": 0.13033175355450238,
+        "rise": 0.042543330565450184,
+        "visible": true
+      }
+    },
+    "scrollWidth": 375,
+    "width": 390,
+    "y": 8260
+  },
+  {
+    "label": "final-mobile-rise",
+    "body": "lssh-home has-journey home-enhanced home-portal-cover",
+    "bundle": "/personal-homepage/_astro/HomeJourney.ur3unrG0.js",
+    "height": 844,
+    "motion": {
+      "frame": 3264,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 7660,
+        "zoom": 0
+      },
+      "phase": "wall",
+      "portal": {
+        "coversCorners": true,
+        "error": null,
+        "expand": 1,
+        "prepare": 1,
+        "renderedExpand": 0.9994943923033554,
+        "renderedPrepare": 1,
+        "renderedWall": 0.5713474693345347,
+        "target": [
+          375,
+          844
+        ],
+        "targetReady": true,
+        "wall": 0.7002369668246445
+      },
+      "portalCovered": true,
+      "raw": {
+        "event": 1,
+        "expand": 1,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 0.7760663507109005,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 0.999716724187024,
+        "index": 5,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 0.670985146504731
+      },
+      "scrollY": 8773,
+      "wall": {
+        "position": [
+          0,
+          -0.3948178241943229,
+          -1
+        ],
+        "raw": 0.7760663507109005,
+        "rise": 0.670985146504731,
+        "visible": true
+      }
+    },
+    "scrollWidth": 375,
+    "width": 390,
+    "y": 8804
+  },
+  {
+    "label": "final-mobile-wall",
+    "body": "lssh-home has-journey home-enhanced home-on-wall",
+    "bundle": "/personal-homepage/_astro/HomeJourney.ur3unrG0.js",
+    "height": 844,
+    "motion": {
+      "frame": 3288,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 7660,
+        "zoom": 0
+      },
+      "phase": "wall",
+      "portal": {
+        "coversCorners": true,
+        "error": null,
+        "expand": 1,
+        "prepare": 1,
+        "renderedExpand": 1,
+        "renderedPrepare": 1,
+        "renderedWall": 0.9888375948142574,
+        "target": [
+          375,
+          844
+        ],
+        "targetReady": true,
+        "wall": 0.9928909952606636
+      },
+      "portalCovered": true,
+      "raw": {
+        "event": 1,
+        "expand": 1,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 0.995260663507109,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 1,
+        "index": 5,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 0.9916856053002426
+      },
+      "scrollY": 8958,
+      "wall": {
+        "position": [
+          0,
+          -0.009977273639708796,
+          -1
+        ],
+        "raw": 0.995260663507109,
+        "rise": 0.9916856053002426,
+        "visible": true
+      }
+    },
+    "scrollWidth": 375,
+    "width": 390,
+    "y": 8958
+  },
+  {
+    "label": "final-mobile-fast-reverse",
+    "body": "lssh-home has-journey home-enhanced home-portal-cover",
+    "bundle": "/personal-homepage/_astro/HomeJourney.ur3unrG0.js",
+    "height": 844,
+    "motion": {
+      "frame": 3303,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 7660,
+        "zoom": 0
+      },
+      "phase": "portal",
+      "portal": {
+        "coversCorners": true,
+        "error": null,
+        "expand": 0.7582938388625592,
+        "prepare": 1,
+        "renderedExpand": 1,
+        "renderedPrepare": 1,
+        "renderedWall": 0.20655548787192432,
+        "target": [
+          375,
+          844
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "portalCovered": true,
+      "raw": {
+        "event": 1,
+        "expand": 0.6860189573459715,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 0,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 1,
+        "index": 5,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 0.12847751347018754
+      },
+      "scrollY": 7588,
+      "wall": {
+        "position": [
+          0,
+          -1.045826983835775,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0.12847751347018754,
+        "visible": true
+      }
+    },
+    "scrollWidth": 375,
+    "width": 390,
+    "y": 7326
+  },
+  {
+    "label": "hdr-mobile-progress",
+    "body": "lssh-home has-journey home-enhanced home-portal-cover",
+    "bundle": "/personal-homepage/_astro/HomeJourney.CIZrgdwT.js",
+    "height": 844,
+    "motion": {
+      "frame": 27,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 8962,
+        "zoom": 0
+      },
+      "phase": "portal",
+      "portal": {
+        "coversCorners": false,
+        "error": null,
+        "expand": 0.10071090047393363,
+        "hdr": true,
+        "prepare": 1,
+        "renderedExpand": 0.11338954979888898,
+        "renderedPrepare": 0.291111172539544,
+        "renderedWall": 0,
+        "target": [
+          375,
+          844
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "portalCovered": false,
+      "raw": {
+        "event": 1,
+        "expand": 0.2446682464454976,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 0,
+        "works": 1
+      },
+      "rendered": {
+        "background": 4.674935160694914,
+        "expand": 0.11058756829788492,
+        "index": 4.410479500148479,
+        "intro": 1,
+        "prepare": 0.369443387979206,
+        "progress": 0.9611611548656276,
+        "wall": 0
+      },
+      "scrollY": 6843,
+      "wall": {
+        "position": [
+          0,
+          -1.2,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0,
+        "visible": false
+      }
+    },
+    "scrollWidth": 375,
+    "width": 390,
+    "y": 6843
+  },
+  {
+    "label": "hdr-mobile-cover",
+    "body": "lssh-home has-journey home-enhanced home-portal-cover",
+    "bundle": "/personal-homepage/_astro/HomeJourney.CIZrgdwT.js",
+    "height": 844,
+    "motion": {
+      "frame": 552,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 8962,
+        "zoom": 0
+      },
+      "phase": "portal",
+      "portal": {
+        "coversCorners": true,
+        "error": null,
+        "expand": 0.9502369668246444,
+        "hdr": true,
+        "prepare": 1,
+        "renderedExpand": 0.9502369668246444,
+        "renderedPrepare": 1,
+        "renderedWall": 0,
+        "target": [
+          375,
+          844
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "portalCovered": true,
+      "raw": {
+        "event": 1,
+        "expand": 0.9502369668246444,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 0,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 0.9502369668246444,
+        "index": 5,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 0
+      },
+      "scrollY": 8034,
+      "wall": {
+        "position": [
+          0,
+          -1.2,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0,
+        "visible": false
+      }
+    },
+    "scrollWidth": 375,
+    "width": 390,
+    "y": 8034
+  },
+  {
+    "label": "hdr-mobile-wall",
+    "body": "lssh-home has-journey home-enhanced home-on-wall",
+    "bundle": "/personal-homepage/_astro/HomeJourney.CIZrgdwT.js",
+    "height": 844,
+    "motion": {
+      "frame": 573,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 8962,
+        "zoom": 0
+      },
+      "phase": "wall",
+      "portal": {
+        "coversCorners": true,
+        "error": null,
+        "expand": 1,
+        "hdr": true,
+        "prepare": 1,
+        "renderedExpand": 0.9945519516008164,
+        "renderedPrepare": 1,
+        "renderedWall": 0.9733267452638386,
+        "target": [
+          375,
+          844
+        ],
+        "targetReady": true,
+        "wall": 1
+      },
+      "portalCovered": true,
+      "raw": {
+        "event": 1,
+        "expand": 1,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 1,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 0.9974382949543894,
+        "index": 5,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 0.9926191503252996
+      },
+      "scrollY": 8962,
+      "wall": {
+        "position": [
+          0,
+          -0.00885701960964047,
+          -1
+        ],
+        "raw": 1,
+        "rise": 0.9926191503252996,
+        "visible": true
+      }
+    },
+    "scrollWidth": 375,
+    "width": 390,
+    "y": 8962
+  },
+  {
+    "label": "final-mobile-quiet-content",
+    "body": "lssh-home has-journey home-enhanced home-quiet",
+    "bundle": "/personal-homepage/_astro/HomeJourney.CIZrgdwT.js",
+    "height": 844,
+    "motion": null,
+    "scrollWidth": 375,
+    "width": 390,
+    "y": 5697
+  },
+  {
+    "label": "frozen-mobile-quiet",
+    "body": "lssh-home has-journey home-enhanced home-quiet",
+    "bundle": "/personal-homepage/_astro/HomeJourney.CIZrgdwT.js",
+    "height": 844,
+    "motion": null,
+    "scrollWidth": 375,
+    "width": 390,
+    "y": 5697
+  },
+  {
+    "label": "frozen-desktop-expansion",
+    "body": "lssh-home has-journey home-enhanced home-portal-cover",
+    "bundle": "/personal-homepage/_astro/HomeJourney.CIZrgdwT.js",
+    "height": 720,
+    "motion": {
+      "frame": 45,
+      "initialization": {
+        "reason": "layout",
+        "revision": 3,
+        "y": 5697,
+        "zoom": 0
+      },
+      "phase": "portal",
+      "portal": {
+        "coversCorners": false,
+        "error": null,
+        "expand": 0,
+        "hdr": true,
+        "prepare": 0.5486111111111112,
+        "renderedExpand": 0,
+        "renderedPrepare": 0.05411720519433377,
+        "renderedWall": 0,
+        "target": [
+          1265,
+          720
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "portalCovered": false,
+      "raw": {
+        "event": 1,
+        "expand": 0.050694444444444445,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 0,
+        "works": 1
+      },
+      "rendered": {
+        "background": 4.668068861928893,
+        "expand": 0,
+        "index": 4.347352430480304,
+        "intro": 1,
+        "prepare": 0.2568095848678078,
+        "progress": 0.9617690680945506,
+        "wall": 0
+      },
+      "scrollY": 5573,
+      "wall": {
+        "position": [
+          0,
+          -1.2,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0,
+        "visible": false
+      }
+    },
+    "scrollWidth": 1265,
+    "width": 1280,
+    "y": 5741
+  },
+  {
+    "label": "frozen-desktop-half",
+    "body": "lssh-home has-journey home-enhanced home-portal-cover",
+    "bundle": "/personal-homepage/_astro/HomeJourney.CIZrgdwT.js",
+    "height": 720,
+    "motion": {
+      "frame": 639,
+      "initialization": {
+        "reason": "layout",
+        "revision": 3,
+        "y": 5697,
+        "zoom": 0
+      },
+      "phase": "portal",
+      "portal": {
+        "coversCorners": false,
+        "error": null,
+        "expand": 0.75,
+        "hdr": true,
+        "prepare": 1,
+        "renderedExpand": 0.75,
+        "renderedPrepare": 1,
+        "renderedWall": 0,
+        "target": [
+          1265,
+          720
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "portalCovered": false,
+      "raw": {
+        "event": 1,
+        "expand": 0.75,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 0,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 0.75,
+        "index": 5,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 0
+      },
+      "scrollY": 6580,
+      "wall": {
+        "position": [
+          0,
+          -1.2,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0,
+        "visible": false
+      }
+    },
+    "scrollWidth": 1265,
+    "width": 1280,
+    "y": 6580
+  },
+  {
+    "label": "frozen-desktop-wall-rise",
+    "body": "lssh-home has-journey home-enhanced home-portal-cover",
+    "bundle": "/personal-homepage/_astro/HomeJourney.CIZrgdwT.js",
+    "height": 720,
+    "motion": {
+      "frame": 657,
+      "initialization": {
+        "reason": "layout",
+        "revision": 3,
+        "y": 5697,
+        "zoom": 0
+      },
+      "phase": "portal",
+      "portal": {
+        "coversCorners": false,
+        "error": null,
+        "expand": 0.9256944444444444,
+        "hdr": true,
+        "prepare": 1,
+        "renderedExpand": 0.835603087522682,
+        "renderedPrepare": 1,
+        "renderedWall": 0,
+        "target": [
+          1265,
+          720
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "portalCovered": false,
+      "raw": {
+        "event": 1,
+        "expand": 0.9423611111111112,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 0,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 0.8638016822365087,
+        "index": 5,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 0
+      },
+      "scrollY": 6857,
+      "wall": {
+        "position": [
+          0,
+          -1.2,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0,
+        "visible": false
+      }
+    },
+    "scrollWidth": 1265,
+    "width": 1280,
+    "y": 6905
+  },
+  {
+    "label": "frozen-desktop-hdr-cover",
+    "body": "lssh-home has-journey home-enhanced home-portal-cover",
+    "bundle": "/personal-homepage/_astro/HomeJourney.CIZrgdwT.js",
+    "height": 720,
+    "motion": {
+      "frame": 2673,
+      "initialization": {
+        "reason": "layout",
+        "revision": 3,
+        "y": 5697,
+        "zoom": 0
+      },
+      "phase": "wall",
+      "portal": {
+        "coversCorners": true,
+        "error": null,
+        "expand": 1,
+        "hdr": true,
+        "prepare": 1,
+        "renderedExpand": 1,
+        "renderedPrepare": 1,
+        "renderedWall": 0.1,
+        "target": [
+          1265,
+          720
+        ],
+        "targetReady": true,
+        "wall": 0.1
+      },
+      "portalCovered": true,
+      "raw": {
+        "event": 1,
+        "expand": 1,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 0.1,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 1,
+        "index": 5,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 0.1
+      },
+      "scrollY": 7012,
+      "wall": {
+        "position": [
+          0,
+          -1.08,
+          -1
+        ],
+        "raw": 0.1,
+        "rise": 0.1,
+        "visible": true
+      }
+    },
+    "scrollWidth": 1265,
+    "width": 1280,
+    "y": 7012
+  },
+  {
+    "label": "frozen-desktop-wall",
+    "body": "lssh-home has-journey home-enhanced home-on-wall",
+    "bundle": "/personal-homepage/_astro/HomeJourney.CIZrgdwT.js",
+    "height": 720,
+    "motion": {
+      "frame": 2700,
+      "initialization": {
+        "reason": "layout",
+        "revision": 3,
+        "y": 5697,
+        "zoom": 0
+      },
+      "phase": "wall",
+      "portal": {
+        "coversCorners": true,
+        "error": null,
+        "expand": 1,
+        "hdr": true,
+        "prepare": 1,
+        "renderedExpand": 1,
+        "renderedPrepare": 1,
+        "renderedWall": 0.9980151459642148,
+        "target": [
+          1265,
+          720
+        ],
+        "targetReady": true,
+        "wall": 1
+      },
+      "portalCovered": true,
+      "raw": {
+        "event": 1,
+        "expand": 1,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 1,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 1,
+        "index": 5,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 0.9986314431421932
+      },
+      "scrollY": 7660,
+      "wall": {
+        "position": [
+          0,
+          -0.0016422682293681934,
+          -1
+        ],
+        "raw": 1,
+        "rise": 0.9986314431421932,
+        "visible": true
+      }
+    },
+    "scrollWidth": 1265,
+    "width": 1280,
+    "y": 7660
+  },
+  {
+    "label": "frozen-reverse-hold",
+    "body": "lssh-home has-journey home-enhanced home-portal-cover",
+    "bundle": "/personal-homepage/_astro/HomeJourney.CIZrgdwT.js",
+    "height": 720,
+    "motion": {
+      "frame": 8538,
+      "initialization": {
+        "reason": "layout",
+        "revision": 3,
+        "y": 5697,
+        "zoom": 0
+      },
+      "phase": "portal",
+      "portal": {
+        "coversCorners": true,
+        "error": null,
+        "expand": 0.9020833333333332,
+        "hdr": true,
+        "prepare": 1,
+        "renderedExpand": 1,
+        "renderedPrepare": 1,
+        "renderedWall": 0.40665498694006774,
+        "target": [
+          1265,
+          720
+        ],
+        "targetReady": true,
+        "wall": 0
+      },
+      "portalCovered": true,
+      "raw": {
+        "event": 1,
+        "expand": 0.7104166666666667,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 0,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 1,
+        "index": 5,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 0.15959012301607084
+      },
+      "scrollY": 6523,
+      "wall": {
+        "position": [
+          0,
+          -1.008491852380715,
+          -1
+        ],
+        "raw": 0,
+        "rise": 0.15959012301607084,
+        "visible": true
+      }
+    },
+    "scrollWidth": 1265,
+    "width": 1280,
+    "y": 6318
+  },
+  {
+    "label": "frozen-wall-reload",
+    "body": "lssh-home has-journey home-enhanced home-on-wall",
+    "bundle": "/personal-homepage/_astro/HomeJourney.CIZrgdwT.js",
+    "height": 720,
+    "motion": {
+      "frame": 15,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 7660,
+        "zoom": 0
+      },
+      "phase": "wall",
+      "portal": null,
+      "portalCovered": true,
+      "raw": {
+        "event": 1,
+        "expand": 1,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 1,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 1,
+        "index": 5,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 1
+      },
+      "scrollY": 7660,
+      "wall": {
+        "position": [
+          0,
+          0,
+          -1
+        ],
+        "raw": 1,
+        "rise": 1,
+        "visible": true
+      }
+    },
+    "scrollWidth": 1265,
+    "width": 1280,
+    "y": 7660
+  },
+  {
+    "label": "frozen-route-return",
+    "body": "lssh-home has-journey home-enhanced home-on-wall",
+    "bundle": "/personal-homepage/_astro/HomeJourney.CIZrgdwT.js",
+    "height": 720,
+    "motion": {
+      "frame": 12,
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 7660,
+        "zoom": 0
+      },
+      "phase": "wall",
+      "portal": null,
+      "portalCovered": true,
+      "raw": {
+        "event": 1,
+        "expand": 1,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 1,
+        "works": 1
+      },
+      "rendered": {
+        "background": 5,
+        "expand": 1,
+        "index": 5,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 1
+      },
+      "scrollY": 7660,
+      "wall": {
+        "position": [
+          0,
+          0,
+          -1
+        ],
+        "raw": 1,
+        "rise": 1,
+        "visible": true
+      }
+    },
+    "scrollWidth": 1265,
+    "width": 1280,
+    "y": 7660
+  }
+]

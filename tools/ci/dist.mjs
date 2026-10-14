@@ -13,13 +13,13 @@ export function inspectDist(root, { localPreview = false } = {}) {
       const path = join(directory, entry.name);
       const stats = lstatSync(path);
       if (stats.isSymbolicLink()) throw new Error(`静态产物含符号链接：${path}`);
-      if (entry.name === '大二上学习资源' || entry.name === '.git' || entry.name === 'node_modules') {
+      if (entry.name === '大二上学习资源' || ['.git','node_modules','.local-tools','.ci-tmp','图片'].includes(entry.name)) {
         throw new Error(`静态产物含不应发布的目录：${entry.name}`);
       }
       if (entry.name === 'local-materials' && !localPreview) {
         throw new Error('静态产物含本地预览附件 local-materials，拒绝发布；本地验收可显式使用 --local-preview。');
       }
-      if (/^\.env(?:\.|$)/u.test(entry.name) || entry.name.endsWith('.pem') || entry.name.endsWith('.key')) {
+      if (/^\.env(?:\.|$)/u.test(entry.name) || entry.name.endsWith('.pem') || entry.name.endsWith('.key') || entry.name.endsWith('.dpapi')) {
         throw new Error(`静态产物含配置或密钥文件：${entry.name}`);
       }
       if (entry.isDirectory()) walk(path);

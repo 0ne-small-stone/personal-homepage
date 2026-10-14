@@ -1,0 +1,107 @@
+{
+  "date": "2026-10-12",
+  "scope": "P01 actual renderer capability sample, not homepage replacement",
+  "packages": {
+    "three": "0.186.1",
+    "pathTracer": "0.0.27",
+    "bvh": "0.9.15",
+    "buildTool": "esbuild@0.28.2"
+  },
+  "sourceFiles": {
+    "entry.js": {
+      "bytes": 4636,
+      "sha256": "e4579a63c3f602d106ec39d9920ba06dcf4d02f481cea952a779c5566ad7ddbe"
+    },
+    "index.html": {
+      "bytes": 1554,
+      "sha256": "09b9e5abfc6b75ca335ecc148ef953ec5bab3ff04e770302ab5734bece72df94"
+    },
+    "geometry.js": {
+      "bytes": 1369,
+      "sha256": "d93a2be87d29ee6235c0d861480e0661b84e10e68023284dab814adcf532b081"
+    },
+    "ray.js": {
+      "bytes": 6035,
+      "sha256": "6722b6f1944674460881dfe6a8a3d227dbdcffc0bbbca91dc0f93ae4adcbad54"
+    },
+    "beam-field.js": {
+      "bytes": 8906,
+      "sha256": "df9a1378cece4ced12e1396abcd44b4e99c2d1e31ff3dccf0d795da03147a332"
+    },
+    "white-entry.js": {
+      "bytes": 4314,
+      "sha256": "e536ea8eb83eeb11d3f6ebae163a2036fd115d1ee66bd513d3963393a33f28a1"
+    },
+    "white.html": {
+      "bytes": 1560,
+      "sha256": "39eb553932391fb8a664f076c33e2d628f3dbd8f20fc98038f0d655339ff00e2"
+    },
+    "check-white.mjs": {
+      "bytes": 2150,
+      "sha256": "fe0e31c86470d87cb31f9abdeca2dd9e2cc560543ec46002035e420729a32e8e"
+    },
+    "build.mjs": {
+      "bytes": 1116,
+      "sha256": "8b62042c305cca84f1f900dea507c2f3d29ee7629f8aa69d4a67d2c3929d6044"
+    },
+    "server.mjs": {
+      "bytes": 883,
+      "sha256": "1735bbd4c93a98d9d783008914a13fb1a31cdf35d455994a34c8c0ee71388c24"
+    },
+    "package.json": {
+      "bytes": 121,
+      "sha256": "faed77d4b76c9161ee8274853d2e52ddd82142a8170d7c3c8d82d9107a2e1ba4"
+    },
+    "package-lock.json": {
+      "bytes": 1662,
+      "sha256": "b665f7ba175728288c40c533a12b505b836c1c8030e171f926743d169a77064a"
+    }
+  },
+  "generatedBundle": {
+    "bytes": 1626348,
+    "sha256": "23abc396f399d1bea8b08c5501a0b1d00584baebcee383a1f007566dd80f766e",
+    "committed": false
+  },
+  "whiteGeneratedBundle": {
+    "bytes": 1240090,
+    "sha256": "8141e7ef44edf7c97a1e6617cb1c79b011a450b79783754123955d95b7a37d1c",
+    "committed": false
+  },
+  "rootPackageSha256": "98cb9f4a998c542260d5f66cb583b96ed6f9a38a3295b528d53ab04d213d1ab1",
+  "dependencyScope": ".ci-tmp/optics-engine, ignored",
+  "applicationCodeChanged": false,
+  "physicalResult": {
+    "volumeVisibility": "observed",
+    "zeroDensityRemovesAirBeam": "observed",
+    "postPrismVolumeDeflection": "failed"
+  },
+  "localEstimator": {
+    "method": "bounded single-scattering photon beams, Gaussian density kernel, world radiance integral",
+    "physicalTransportChecks": 8,
+    "sourceSamples": [
+      32,
+      128
+    ],
+    "frontSegments": 640,
+    "rotatedSegments": 768,
+    "shaderMaskPlanes": 505,
+    "completeEngine": false,
+    "fullObserverRefraction": false,
+    "receivingSurface": false,
+    "spectral": false,
+    "homepage": false
+  },
+  "observations": [
+    "initial shader compilation 0 samples / black",
+    "stock renderer with volume 512 samples",
+    "stock renderer without volume 512 samples",
+    "no browser error logs in QA tab"
+  ],
+  "limits": [
+    "desktop IAB only",
+    "no exact pixel registration between UI captures",
+    "no performance or convergence-time benchmark",
+    "no full spectral or refractive caustics acceptance",
+    "no homepage integration"
+  ]
+}

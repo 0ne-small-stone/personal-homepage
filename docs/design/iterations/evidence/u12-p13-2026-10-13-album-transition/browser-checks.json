@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-13",
+  "source": "CUA 原生浏览器与只读 DOM 实际读数；图片在会话读回",
+  "preview": "http://127.0.0.1:4345/personal-homepage/music/",
+  "check": { "files": 60, "errors": 0, "warnings": 0, "hints": 0 },
+  "build": { "pages": 15, "passed": true, "warnings": ["large chunk", "existing 404 route conflict"] },
+  "desktopOpen": { "viewport": [1280, 720], "coverLoaded": true, "dialogClientHeight": 667, "dialogScrollHeight": 667, "dialogScrollTop": 0, "audioPaused": false, "audioTime": 5.971683, "audioError": null },
+  "rapidLatest": { "album": "爱是昂贵的", "busy": false, "audioPaused": false, "audioTime": 25.696675, "audioError": null },
+  "cancel": { "dialogs": 0, "selectionCanvases": 0, "focus": "切换音乐 / 专辑", "title": "抚琴小夜曲", "audioPaused": false, "audioTime": 25.997011, "audioError": null },
+  "confirmedSong": { "title": "超级巨星", "dialogs": 0, "audioPaused": false, "audioTime": 0.06427, "audioError": null },
+  "mobileOpen": { "viewport": [390, 844], "pageWidth": 390, "dialogWidth": 335, "dialogScrollWidth": 335, "dialogScrollHeight": 1355, "stage": { "left": 28, "right": 347, "top": 99.4375, "bottom": 399.4375 }, "cover": { "left": 197.74411010742188, "right": 293.41790771484375, "top": 199.8900909423828, "bottom": 299.7654724121094 }, "audioPaused": false, "audioTime": 6.755115, "audioError": null },
+  "netease": { "albumCount": 1, "previousDisabled": true, "nextDisabled": true, "coverNaturalWidth": 3000, "playingWhileBrowsing": { "readyState": 4, "time": 7.454207, "paused": false, "error": null }, "finalPaused": true, "finalTime": 90.403504, "otherAudioReadyState": 0, "dialogsAfterClose": 0, "selectionCanvasesAfterClose": 0 },
+  "reducedMotion": { "verification": "开发夹具模拟 matchMedia 的减少动画分支，未修改系统偏好", "album": "最美妙的旅行", "busy": false, "expanded": true, "audioCount": 0, "dialogsAfterClose": 0, "canvasesAfterClose": 0, "focus": "打开测试切换层" },
+  "productionBrowserErrors": [],
+  "publicCoverHead": { "status": 200, "contentType": "image/webp", "accessControlAllowOrigin": null },
+  "productionBrowserWarnings": ["THREE.Clock deprecated"],
+  "notVerified": ["用户审美", "手机真机GPU性能", "WebGL不可用降级实测", "跨页持续播放"]
+}

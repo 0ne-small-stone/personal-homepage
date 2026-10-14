@@ -1,0 +1,25 @@
+{
+  "canvas": {
+    "data": {
+      "draws": "6",
+      "engine": "three.js r186",
+      "epoch": "6",
+      "glass": "true",
+      "gpuRenderer": "ANGLE (Intel, Intel(R) Graphics (0x00007D67) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "medium": "true",
+      "receiverFlux": "9.798486012162181",
+      "receiverHits": "128",
+      "renderState": "idle",
+      "samples": "128",
+      "timing": "{\"draws\":6,\"state\":\"idle\",\"jsRenderMs\":7.299999999968956,\"transportMs\":8.816666666728755,\"gpuMs\":33.70434875000001,\"gpuLastMs\":35.173906,\"gpu128Ms\":null,\"gpuMeasurements\":[{\"sourceSamples\":48,\"ms\":35.570104},{\"sourceSamples\":64,\"ms\":29.07125},{\"sourceSamples\":80,\"ms\":35.002135},{\"sourceSamples\":96,\"ms\":35.173906}],\"frameGapMs\":26.9668,\"gpuTimerSupported\":true}"
+    },
+    "height": 510,
+    "width": 1280
+  },
+  "performance": "渲染 6 帧 · 静止停算 · JS提交 7.3 ms · 光路 8.8 ms · 最近GPU帧 35.2 ms",
+  "status": "白光单散射估计 · 128 源采样 · 640 传播段 · 128 接收面命中 · epoch 6",
+  "viewport": [
+    1280,
+    720
+  ]
+}

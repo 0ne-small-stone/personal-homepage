@@ -1,0 +1,190 @@
+{
+  "date": "2026-10-13",
+  "checks": [
+    {
+      "case": "desktop_cd_browse",
+      "audio": [
+        {
+          "error": null,
+          "paused": false,
+          "time": 40.006694
+        }
+      ],
+      "coverLoaded": true,
+      "dialog": {
+        "bottom": 679.5,
+        "height": 639,
+        "left": 120,
+        "right": 1160,
+        "top": 40.5,
+        "width": 1040,
+        "x": 120,
+        "y": 40.5
+      }
+    },
+    {
+      "case": "desktop_cd_cancel",
+      "audio": [
+        {
+          "error": null,
+          "paused": false,
+          "time": 40.302896
+        }
+      ],
+      "dialogCount": 0,
+      "focus": "切换音乐 / 专辑"
+    },
+    {
+      "case": "final_desktop_cloud",
+      "albumColumns": "124.844px 124.844px 124.859px",
+      "library": {
+        "bottom": 670.953125,
+        "height": 490,
+        "left": 778.453125,
+        "right": 1225,
+        "top": 180.953125,
+        "width": 446.546875,
+        "x": 778.453125,
+        "y": 180.953125
+      },
+      "pageWidth": 1265,
+      "player": {
+        "bottom": 716.046875,
+        "height": 535.09375,
+        "left": 40,
+        "right": 754.453125,
+        "top": 180.953125,
+        "width": 714.453125,
+        "x": 40,
+        "y": 180.953125
+      },
+      "progress": {
+        "bottom": 644.046875,
+        "height": 48,
+        "left": 64,
+        "right": 730.453125,
+        "top": 596.046875,
+        "width": 666.453125,
+        "x": 64,
+        "y": 596.046875
+      },
+      "viewport": [
+        1280,
+        720
+      ],
+      "volume": {
+        "bottom": 692.046875,
+        "height": 48,
+        "left": 634.453125,
+        "right": 730.453125,
+        "top": 644.046875,
+        "width": 96,
+        "x": 634.453125,
+        "y": 644.046875
+      }
+    },
+    {
+      "case": "final_netease_row_play",
+      "audio": [
+        {
+          "error": null,
+          "paused": true,
+          "ready": 0,
+          "time": 0
+        },
+        {
+          "error": null,
+          "paused": false,
+          "ready": 4,
+          "time": 39.441244
+        }
+      ],
+      "rowSelected": "true"
+    },
+    {
+      "case": "final_mobile_netease",
+      "externalLinkWidth": 44,
+      "pageWidth": 375,
+      "scrollY": 292,
+      "sidebar": {
+        "bottom": 26.28125,
+        "height": 75,
+        "left": 17,
+        "right": 358,
+        "top": -48.71875,
+        "width": 341,
+        "x": 17,
+        "y": -48.71875
+      },
+      "viewport": 390
+    },
+    {
+      "case": "final_mobile_cloud",
+      "pageWidth": 375,
+      "player": {
+        "bottom": 831.09375,
+        "height": 588.8125,
+        "left": 16,
+        "right": 359,
+        "top": 242.28125,
+        "width": 343,
+        "x": 16,
+        "y": 242.28125
+      },
+      "progress": {
+        "bottom": 767.09375,
+        "height": 48,
+        "left": 32,
+        "right": 343,
+        "top": 719.09375,
+        "width": 311,
+        "x": 32,
+        "y": 719.09375
+      },
+      "scrollY": 0,
+      "viewport": 390,
+      "volume": {
+        "bottom": 815.09375,
+        "height": 48,
+        "left": 247,
+        "right": 343,
+        "top": 767.09375,
+        "width": 96,
+        "x": 247,
+        "y": 767.09375
+      }
+    },
+    {
+      "case": "final_mobile_netease_top",
+      "externalLink": {
+        "bottom": 302.28125,
+        "height": 44,
+        "left": 302,
+        "right": 346,
+        "top": 258.28125,
+        "width": 44,
+        "x": 302,
+        "y": 258.28125
+      },
+      "pageWidth": 375,
+      "scrollY": 0,
+      "sidebar": {
+        "bottom": 318.28125,
+        "height": 75,
+        "left": 17,
+        "right": 358,
+        "top": 243.28125,
+        "width": 341,
+        "x": 17,
+        "y": 243.28125
+      },
+      "smallButtons": [],
+      "viewport": 390
+    },
+    {
+      "case": "final_320_cloud",
+      "pageWidth": 305,
+      "viewport": 320
+    }
+  ]
+}

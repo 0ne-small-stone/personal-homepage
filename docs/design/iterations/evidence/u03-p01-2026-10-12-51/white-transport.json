@@ -1,0 +1,17 @@
+{
+  "checks": [
+    "Fresnel normal reflectance",
+    "TIR sends all power to reflection",
+    "Every actual triangle vertex inside convex planes",
+    "Branching cannot generate energy",
+    "Snell output actually turns down",
+    "Finite world geometry and power",
+    "Removing glass gives exactly straight source bundle",
+    "Source power zero actually clears all radiance"
+  ],
+  "passed": 8,
+  "unattenuatedOutgoingFlux": 15.998463389291146,
+  "sourceFlux": 16,
+  "planes": 505,
+  "scope": "transport only, not full observer path or surface caustics validation"
+}

@@ -1,0 +1,147 @@
+{
+  "date": "2026-10-13",
+  "browser": "Codex IAB",
+  "checks": [
+    {
+      "name": "图片与球面载入",
+      "pass": true,
+      "observed": {
+        "photos": "36",
+        "pool": "192",
+        "view": "sphere"
+      }
+    },
+    {
+      "name": "滚轮停在中间态",
+      "pass": true,
+      "observed": "0.400，实际画面保留"
+    },
+    {
+      "name": "中途反向收回",
+      "pass": true,
+      "observed": "0.000"
+    },
+    {
+      "name": "选中锚点进入空间",
+      "pass": true,
+      "observed": "影像 01"
+    },
+    {
+      "name": "实际点击选中照片",
+      "pass": true,
+      "observed": "影像 11"
+    },
+    {
+      "name": "空间拖拽与键盘平移",
+      "pass": true,
+      "observed": "7.69,0.47"
+    },
+    {
+      "name": "空间继续放大",
+      "pass": true,
+      "observed": "5.10"
+    },
+    {
+      "name": "原比例查看和前后切换",
+      "pass": true,
+      "observed": "12 / 36"
+    },
+    {
+      "name": "关闭照片保留空间",
+      "pass": true,
+      "observed": {
+        "distance": "5.10",
+        "pan": "7.69,0.47",
+        "selection": "影像 11"
+      }
+    },
+    {
+      "name": "平移缩放后返回球面",
+      "pass": true,
+      "observed": "影像 11"
+    },
+    {
+      "name": "减少动画支路",
+      "pass": true,
+      "observed": "原型 motion=reduce 参数，Enter 直接到达空间"
+    },
+    {
+      "name": "超过对象池宽度的探索",
+      "pass": true,
+      "observed": "64.80,0.00"
+    },
+    {
+      "name": "跨区域重访图片一致",
+      "pass": true,
+      "observed": "左右各72次键盘平移，414000像素内容区域平均通道差0"
+    },
+    {
+      "name": "390px布局与控件范围",
+      "pass": true,
+      "observed": {
+        "buttons": [
+          {
+            "bottom": 62,
+            "label": "选择照片",
+            "right": 370,
+            "x": 254,
+            "y": 20
+          },
+          {
+            "bottom": 100,
+            "label": "返回球面",
+            "right": 370,
+            "x": 296,
+            "y": 66
+          },
+          {
+            "bottom": 770,
+            "label": "查看照片",
+            "right": 312,
+            "x": 234,
+            "y": 736
+          },
+          {
+            "bottom": 820,
+            "label": "缩小",
+            "right": 62,
+            "x": 20,
+            "y": 778
+          },
+          {
+            "bottom": 820,
+            "label": "放大",
+            "right": 216,
+            "x": 174,
+            "y": 778
+          },
+          {
+            "bottom": 820,
+            "label": "进入空间",
+            "right": 312,
+            "x": 224,
+            "y": 778
+          }
+        ],
+        "height": 844,
+        "overflow": false,
+        "width": 390
+      }
+    },
+    {
+      "name": "窄屏空间平移与按钮缩放",
+      "pass": true,
+      "observed": "1.33,0.42"
+    },
+    {
+      "name": "窄屏返回球面",
+      "pass": true
+    }
+  ],
+  "limitations": [
+    "窄屏为浏览器390×844视口，不是真机触控",
+    "减少动画支路用原型 motion=reduce 验证，未改变系统偏好",
+    "未做真机性能、BFCache分支和正式相册接入"
+  ],
+  "captureNote": "初批截取出现中间态黑帧及控件未合成，原型启用 preserveDrawingBuffer，最终独立截图读回可保留"
+}

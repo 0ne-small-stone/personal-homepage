@@ -1,5 +1,18 @@
 # 个人主页设计复用与素材来源
 
+2026-10-14 T25.18正式替代样本：原有矢量候选不满足写实要求，Technics模型未取得、SME照片再利用未验证。本次内置imagegen生成原创俯视银色曲臂/轴承/配重/黑色唱头透明图，导出`public/music/turntable/tonearm-metal-v1.webp`，重新测量落针坐标。生成提示词/模式/处理/alpha证据见[生成记录](iterations/evidence/u12-p13-2026-10-14-album-choreography-revision/tonearm-generation.json)，接入状态见[修订片](iterations/u12-p13-2026-10-14-album-choreography-revision.md)；未将厂家照片或模型viewer图作为应用素材，生成样本不冒充厂家实拍。
+
+2026-10-14 T25.22六资源站提醒：resource-animejs的[Timeline](https://animejs.com/documentation/timeline/)适合对照收盘→换套→抽盘的顺序衔接，原官方页面已核对；本片用浏览器原生CSS动画与React粗粒度快照完成，未安装Anime.js或复制其代码，参数仍归SYSTEM。
+
+2026-10-14 P13-TONEARM-REF-03/04写实候选：实际浏览[Geug的Technics SL-1210MK2](https://sketchfab.com/3d-models/technics-sl-1210mk2-41f8370f7899443488a9263de55601c0)公开viewer与CC Attribution标注，以及[SME M2-9R](https://sme.co.uk/product/series-m2-9r-2/)官方2560px金属图。前者是待取得/拆分渲染的模型候选，后者仅材质参考，照片再利用许可未核验；均未替换应用唱臂，见[本片](iterations/u12-p13-2026-10-14-tonearm-candidates.md)。
+
+2026-10-14 P13-TONEARM-REF-01/02：已读取[Codrops RecordPlayer](https://github.com/codrops/RecordPlayer)的icon-tonearm路径与项目许可、[Vinyle](https://github.com/Liotou/obsidian-vinyle)的SVG与MIT LICENSE，制作黑灰矢量适配对照。用户看后要求“继续找更写实的金属唱臂”，两款不采用，继续寻找高清金属素材/可授权模型；原图、改造范围及状态见[本片](iterations/u12-p13-2026-10-14-tonearm-candidates.md)。
+
+2026-10-13 P13/T25.12排版参考：`P13-LAYOUT-REF-01` [Apple Music中国区新发现](https://music.apple.com/cn/new)、`P13-LAYOUT-REF-02` [Cider官方专辑截图](https://cider.sh/client/album.webp)、`P13-LAYOUT-REF-03` [Tauon官方主窗口](https://tauonmusicbox.rocks/_astro/scr.C0AQBHoy_ZkxhJy.webp)均实际读图。采用侧栏/内容分组、曲目阅读节奏与底栏比例，未复制字体、图像、源码或框架；原图仅为研究证据。Apple US专辑请求重定向，不宣称此轮查看其专辑页；YesPlayMusic作者demo实际暂停。来源与成品证据见[排版重整](iterations/u12-p13-2026-10-13-elegant-layout.md)。
+
+2026-10-13 P13悬窗参考：P13-MINI-REF-02 Apple Music大封面已由用户选择，并完成本站组件适配；Spotify/Sleeve/Cider保留调研记录。只借布局/交互，未复制宣传图或引入播放器框架，现有真实封面与原生音频保持。来源及实际证据见[本片](iterations/u12-p13-2026-10-13-floating-player-research.md)。
+
+
 文档对应（2026-10-07 整理）：本文件为设计侧 `REFERENCES.md`，对应[技术调研与候选方案](../technical/REFERENCES.md)。本文维护体验参考、素材许可与改造范围，技术侧维护依赖能力和运行条件；职责与任务映射见[文档对应表](../README.md)。
 
 更新日期：2026-10-07。本文为[整体页面与交互设计](SPEC.md)提供可追溯的设计参考、组件候选和素材来源。未列实际采用及验证记录的代码、素材仍为候选，不能视为已接入项目或正式页面。
@@ -94,6 +107,28 @@ T09.03 的阅读资源见[本轮清单](#t0903-文章阅读资源清单)；下�
 **接入顺序：**当前玻璃灯光旧新对照使用原图基线先收口；随后单独换项目占位图并采集新的静帧，再据此验 intro → projects。电台与相册在各自章节切片接入另外两图。常用网站保留真实网站名称；升墙仍使用已选的哑光实体白砖，不用封面图片冒充整个三维墙。加载图像失败时保留文本与真实入口。图片本轮仅完成选择和交接，未由设计侧修改应用源码。
 
 ## 六个设计资源站与提醒规则
+
+2026-10-14 P10第十片实际采用`single-photoswipe-v5`：用户选择①展开+②排布+④缩放后，官方npm photoswipe@5.4.4的ESM/CSS固定在原型vendor，[来源哈希](iterations/evidence/u10-p10-2026-10-13-sphere-canvas/prototype/vendor/photoswipe/provenance.json)与[MIT全文](iterations/evidence/u10-p10-2026-10-13-sphere-canvas/prototype/vendor/photoswipe/LICENSE)保留/随生成包复制。参考案例仅借动作/构图，来源投影桥和缩略导航为本站适配；未采用其AI图片或GSAP/Aceternity代码。实际能力/性能/限制见[第十片](iterations/u10-p10-2026-10-14-single-viewer.md)。
+
+2026-10-14 P10/U10 单图浏览研究：新增`single-continuous-reveal`（[Infinite Scroll GSAP Gallery](https://tympanus.net/Tutorials/InfiniteScrollGSAPGallery/)）、`single-grid-slideshow`（[GridToSlider Demo2](https://tympanus.net/Development/GridToSlider/index2.html)）、`single-cinema-slideshow`（[Slideshow Animations](https://tympanus.net/Development/SlideshowAnimations/)）及`single-minimal-lightbox`（[PhotoSwipe](https://photoswipe.com/)）候选，实际点击/切换/缩放范围与许可见[单图研究](iterations/u10-p10-2026-10-14-single-image-research.md)。Aceternity [Layout Grid](https://ui.aceternity.com/components/layout-grid)按六站提醒规则提供同源展开动作参考；未装其框架/组件，未复制代码/照片，研究不等于用户选型或正式采用。
+
+2026-10-13 P10/U10 球面到无限空间原型参考：`gallery-dome` / [React Bits Dome Gallery](https://reactbits.dev/components/dome-gallery)（半球曲面、拖拽与选图，作者 David Haz；当前 MIT + Commons Clause）；`gallery-infinite-canvas` / [Edoardo Lunardi Infinite Canvas](https://github.com/edoardolunardi/infinite-canvas)（空间移动、缩放与可重复媒体区域，MIT）。两者为交互机制参考，不复制原站图片。独立原型复用现有 Three.js 0.186.1 的投影、射线选取与资源管理，以少量适配连接两种布局；不安装第二套主题或主站依赖。当前工作区 `图片/` 的 36 个 JPEG 只作本机样本，原文件保持完整，压缩派生与清单放在忽略目录 `.local-tools/sphere-canvas/`；不据此声明作者身份、公开许可或正式相册内容。详情见 [原型记录](iterations/u10-p10-2026-10-13-sphere-canvas.md)。
+
+同日修订采样官方 [constants.ts](https://github.com/edoardolunardi/infinite-canvas/blob/main/src/infinite-canvas/constants.ts)、[区域生成](https://github.com/edoardolunardi/infinite-canvas/blob/main/src/infinite-canvas/utils.ts)、[控制器/消隐](https://github.com/edoardolunardi/infinite-canvas/blob/main/src/infinite-canvas/scene.tsx) 与实际演示。采用其确定性区域生成及随机种子函数，适配为原生 Three.js、黑底、同图锚点和受限对象池；保留 MIT 署名/许可。React/R3F 外壳与原站艺术作品不复制。React Bits 继续仅作曲面机制参考，未复用受 Commons Clause 限制的组件源码。
+
+最新第三片继续适配同一MIT控制器的滚轮积累、速度上限、追随/衰减，以及距离雾/透明度消隐；来源说明保留在flight.js。镜头入墙路线属于本站连接层，保留椭球几何但全部照片使用原图比例。标杆公开Demo的白底/艺术图片不复制，不以本站黑底照片帧宣称像素复刻。
+
+同日用户否定椭球构图后，实际查看与拖动下列公共案例；研究结果见[第四片前置记录](iterations/u10-p10-2026-10-13-sphere-canvas.md#第四片前置曲面照片墙案例研究)。它们是球面/弧面 UI 参考，不宣称均为自适应椭球；截图只作研究证据，不当作生产素材授权。
+
+| 来源 ID | 官方入口 | 可借鉴部分与采用边界 |
+| --- | --- | --- |
+| `gallery-dome-layout` | [Dome Gallery](https://reactbits.dev/components/dome-gallery)、官方 [JSX](https://github.com/DavidHDev/react-bits/blob/main/src/content/Components/DomeGallery/DomeGallery.jsx) / [CSS](https://github.com/DavidHDev/react-bits/blob/main/src/content/Components/DomeGallery/DomeGallery.css) | 已核对相邻列纵向错位、边缘渐隐及固定框 cover；参考构图，不照搬裁图，不采用组件源码，许可边界沿用 gallery-dome |
+| `gallery-inverted-dome` | [React Bits Pro Inverted Dome](https://pro.reactbits.dev/docs/components/inverted-dome) | 公共预览已看/拖动，只借大照片与紧凑间距；内凹形态与边缘变形不匹配本站约束。未取得付费源码或使用许可，不采用其资产/源码 |
+| `gallery-infinite-menu` | [React Bits Infinite Menu](https://reactbits.dev/components/infinite-menu) | 已实际看 Gallery/Orbit 并拖动；参考镜头拉远/前方焦点，不复制固定框/圆形裁切、运动 stretch、自动切换；本轮未复用源码或图片，正式采用前核对当时许可/兼容性 |
+
+同日第四片用户已选择 `gallery-dome-layout` 的错列构图与 `gallery-infinite-menu` 的上下左右自由旋转。独立原型采用原创原比例列占位、四元数增量/局部框输送和椭球适配；不复制两组件源码/图片，不保留Dome纵向限制、不采用Menu运动拉伸/圆形裁切。已有MIT的Infinite Canvas连接层继续使用。实际交付与参数见U10记录和SYSTEM第10节；方向选择与成品用户审美分别记录。
+
+**第五片实际采用 `gallery-dome-source-v5`：**用户改为完整复用Dome Gallery并选择完整图/黑边。官方[固定提交](https://github.com/DavidHDev/react-bits/tree/496968c4117e21278f13917201b7d615bc5e7450)、[组件](https://github.com/DavidHDev/react-bits/blob/496968c4117e21278f13917201b7d615bc5e7450/src/content/Components/DomeGallery/DomeGallery.jsx)、[CSS](https://github.com/DavidHDev/react-bits/blob/496968c4117e21278f13917201b7d615bc5e7450/src/content/Components/DomeGallery/DomeGallery.css)实际接入独立原型；[完整许可](iterations/evidence/u10-p10-2026-10-13-sphere-canvas/prototype/vendor/REACT-BITS-LICENSE.md)与[哈希来源](iterations/evidence/u10-p10-2026-10-13-sphere-canvas/prototype/vendor/provenance.json)保留，许可随生成包复制。以应用组成部分使用，不提供独立组件库；原示例图片不采用。CSS未改，JSX仅为完整图/自由纵向、窄屏/输入/减少动画和空间连接适配，结果见[第五片](iterations/u10-p10-2026-10-13-sphere-canvas.md#第五片实际交付官方dome-gallery接入)。上方此前“不复用源码”是第一至第四片历史状态。
 
 > 2026-10-08 首页首要体验标杆已由用户明确指定为 ALCHE。六站继续提供按需局部资源，不重新替代本轮已确定的整体方向。
 
@@ -383,6 +418,127 @@ P17 / AD01 / U13 使用 [Pages CMS 官方托管后台](https://app.pagescms.org/
 
 主技能frontend-design按TOOLKIT使用，沿用当前概念与规范，不建立第二套品牌。六资源站中Uiverse最适合后续播放器控件的交互样本研究，本轮已提醒并评估；现有分段按钮和原生控件足够，未复制其组件代码或新增动画依赖。页面执行者读图、实际播放启动和窄屏检查见[首片交付](iterations/u12-p13-2026-10-11-01.md)，用户审美与真机性能另记。
 
+### P13-RADIO-REF-02 · 播放器 UI 参考候选
+
+2026-10-11，用户要求先看优秀音乐播放器 UI。沿用 frontend-design 主技能，仅研究与比较，不修改应用页面。已读取原作者或官方来源并实际查看界面图：
+
+| 候选与来源 | 可参考的部分 | 本轮状态 |
+| --- | --- | --- |
+| [YesPlayMusic](https://github.com/qier222/YesPlayMusic) | 暗色专辑网格、收藏列表、固定底部播放栏 | 已查看 README 的 library-dark.png；优先布局候选 |
+| [Plexamp](https://apps.apple.com/us/app/plexamp/id1500797510) | 大封面、封面色氛围、波形进度与少量控制 | 已查看开发者商店的播放页与专辑页截图；优先播放页候选，官网直接读取异常 |
+| [Dopamine](https://github.com/digimezzo/dopamine) | 艺人、专辑、曲目三栏及紧凑播放栏 | 已查看原仓库 Dopamine.screenshot.1.png |
+| [Apple Music](https://www.apple.com/apple-music/) | 专辑封面、主操作、留白和手机内容层级 | 已查看官网专辑详情展示图，不将该图误称为正在播放页 |
+| [Roon](https://roon.app/en/music) | 艺人、流派、音乐背景和收藏关联 | 已查看官网产品合成图；界面信息参考，不把宣传合成图当独立原始截图 |
+| [Poolsuite](https://poolsuite.net/) | 复古窗口、频道切换和个人电台身份 | 临时无登录浏览器实际打开并截取未播放状态；视频区显示静态噪声，未验证媒体播放 |
+
+比较板为独立本地 HTML，包含来源、放大查看与适配判断，未作为本站页面或资产提交。参考候选不等于用户采用；本轮未复制代码、图片或商标进应用。截图与音乐封面权利独立于开源代码许可，实际采用时另核对。建议以 YesPlayMusic 的音乐库结构配合 Plexamp 的专注播放布局，并压低封面氛围色以沿用本站黑灰规范。
+
+### P13-RADIO-REF-03 · 网易云第三方播放器界面比较
+
+2026-10-11，用户继续寻找更好看的网易云第三方播放器。实际读取原作者仓库与界面图，候选为 [SPlayer 旧版](https://github.com/SPlayer-Dev/SPlayer)、[Alger Music Player](https://github.com/algerkong/AlgerMusicPlayer)、[HyPlayer](https://github.com/HyPlayer/HyPlayer) 和 [VutronMusic](https://github.com/stark81/VutronMusic)。临时本地比较板分别提供音乐库/歌单与播放/歌词页，实际读图后优先建议 SPlayer 的宽松沉浸歌词布局与 Alger 的丰富浏览布局；HyPlayer 提供深灰克制方向，Vutron 提供侧栏与多音源结构。未选定或接入应用。
+
+来源与版本边界：SPlayer 使用 master 分支的旧版网易云截图，仓库已归档；[SPlayer-Next](https://github.com/SPlayer-Dev/SPlayer-Next) 的当前官方介绍以本地与流媒体音乐为主，不将其直接宣称为已验证的网易云客户端。Alger 使用 main/docs/image3.png、image6.png；官网预览读取超时，未声称在线体验已通过。HyPlayer 使用 master/PREVIEW.md 的 SongList.png、ExpandedPlayer.png，预览明确标明截图版本 2.1.15.0。Vutron 使用 main/images/localMusic.jpg、play-page.jpg，当前网易云等平台经插件系统接入。
+
+比较板图片实际加载、图片放大、Escape 关闭、390px 无横向溢出通过；原作者静态图只支持视觉比较，不代表已验证动态歌词、第三方授权或音乐播放。继续区分截图、封面和代码的使用条件，本轮不复制其应用代码或媒体进本站。
+
+### P13-RADIO-REF-04 · 黑胶、磁带与沉浸器物界面
+
+2026-10-11，用户继续寻找沉浸、简约、复古风格，举例黑胶专辑与磁带机。主技能继续 frontend-design，仅比较候选，不把方向询问视为实施批准。已读官方来源并实际查看图片：
+
+| 候选与官方来源 | 视觉判断与接入边界 |
+| --- | --- |
+| [MP95](https://mp95.app/) | 优先视觉候选。黑胶与烟黑磁带两个播放页，以器物为主、留白和控件较少。官方介绍为本地音乐播放器，不宣称已接网易云；本轮仅核对官网展示图，未核验其音频规格 |
+| [CloudPlatter](https://github.com/Chengyunlai/cloud-platter) | 胡桃木全屏唱机桌面、圆形封面和少量控制；Mac 网易云伴随桌面层，读取系统 Now Playing，不独立提供曲库或网页登录。作者明确处于原型阶段，兼容性验证范围有限。已查看 docs/images/cloud-platter-desktop.jpg；不把项目徽章当产品界面 |
+| [Marquee Vinyl](https://marquee.fm/features/vinyl-player/) | 圆润唱机面板、唱臂与现代播放控件，Apple Music 第三方播放器；官方标明该外观属于 Pro，并需 Apple Music 订阅。已看官网 vinyl-player.png |
+| [Catsette](https://catsette.com/) | 奶油机身、实体按钮和琥珀色文字；更有器物趣味，控件密度高于 MP95。iPhone 本地 MP3 播放器，未验证网易云接入。已看 cassette_tabby.png |
+| [MD Vinyl](https://apps.apple.com/us/app/md-vinyl-music-app/id1606306441) | 唱片、唱臂与专辑包装的拟物呈现；已看开发者商店宣传图，不能当作纯界面截屏。平台音源能力另行核验，未验证网易云接入 |
+| [Casse-o-player](https://play.google.com/store/apps/details?id=com.hornwerk.compactcassetteplayer&hl=en) | 已看官方商店磁带/VU 表头展示图；传统器材细节丰富，作为拟物细节备选，简约程度低于 MP95；未加入本轮优先参考板 |
+
+独立本地比较板包含 5 个产品、6 个画面（MP95 两种外观），最终 6 张图片实际加载并读图；放大、Escape 关闭、390px 无横向溢出通过。未安装或登录以上应用、未验证真实动态或声音。本次建议优先黑灰背景中的大黑胶与少量播放键，磁带可作为另一视觉皮肤；音源模式与外观选择分开，不能用复古外观代替考拉、网易云接入验收。仅为建议，尚未成为用户确认的 P13 设计决定。图片与专辑封面不进应用，代码和媒体许可分别核对。
+
+### P13-RADIO-REF-05 · CloudPlatter 相近唱机场景
+
+2026-10-11，用户进一步询问类似 CloudPlatter 的播放器。沿用 P13/U12 的参考研究范围，未改变音源方案或正式选择界面。主技能继续 frontend-design。本轮实际查看以下图像：
+
+| 候选与官方来源 | 画面与能力边界 |
+| --- | --- |
+| [Vinyl for Mac](https://www.vinylformac.com/) | 官方 After Hours 场景：木桌上的唱机、封套、唱片与暖灯；官网还列 Listening Room、Turntable 场景。视觉上最接近 CloudPlatter 的实体唱机方向。macOS 产品，官方标明 Spotify / Apple Music；未宣称支持网易云 |
+| [Vinyl Wallpaper](https://rawmean.github.io/vinyl-wallpaper/) | 官方 hero.png：黑色唱机、封套、唱臂、VU 表头和独立顶部播放层；多种外观。macOS 产品，官网列 Spotify / WiiM / Apple Music / AirPlay；未宣称支持网易云 |
+| [Vinyl Vue 网页体验](https://vinyl-vue.ventuss.xyz/) / [原作者仓库](https://github.com/Ventuss-OvO/Vinyl-Vue) | 本轮实际网页截图：深灰背景、封套、大黑胶、金属唱臂和少量控制，页面实际可达；曲库采用自有音频文件及对象存储配置，未接网易云。适合作为本站网页的构图与专辑浏览候选，代码与素材许可仍需在采用前分别核对 |
+
+独立比较板以 CloudPlatter 作者截图为基准，最终四张图加载并读图；放大、Escape 关闭、390px 无横向溢出通过。Vinyl Wallpaper 原 screenshots/turntable-wallpaper.png 在浏览器未加载，已改为官网当前 hero.png；Vinyl for Mac 第二次场景按钮定位超时，最终使用已由官方来源定位的 After Hours 图，不把场景交互记为通过。Codrops RecordPlayer 的公开示例在自动浏览器遇到安全验证，本轮未列为优先推荐。
+
+建议视觉上比较 Vinyl for Mac，网页上先体验 Vinyl Vue；仅为执行者建议，尚无用户正式选用。未安装应用、登录服务或验证音频播放；比较图未接入应用素材。本轮只追加来源记录，不修改 P13 应用或首页源码。
+
+### P13-RADIO-REF-06 · Vinyl Vue 相近网页参考
+
+2026-10-11，用户继续寻找与 Vinyl Vue 相近的界面，收窄为大黑胶、唱臂、专辑封套与少量控件的网页案例。主技能继续 frontend-design，仅补充来源候选：
+
+| 官方来源 | 样本与边界 |
+| --- | --- |
+| [Codrops Interactive Record Player](https://tympanus.net/codrops/2016/06/15/interactive-record-player/) / [源码](https://github.com/codrops/RecordPlayer) | 2016 年历史实验，专辑网格→单张专辑→大黑胶与唱臂播放页；Vinyl Vue 作者明确列为参考。已实际看官方 InteractiveRecordPlayer_3.jpg；当前 Demo 在自动浏览器遇到安全验证，不能把历史截图当成本轮可播放验收 |
+| [Audio Sleeve 预览](https://sleeve-audioplayer.framer.website/) / [作者 Framer 页面](https://www.framer.com/marketplace/components/audio-sleeve/) | 实际网页可达并查看悬停后的封套与黑胶。黑胶从封套滑出，偏小型专辑播放组件；属于付费 Framer 组件，官方标单次使用许可，未购买或采用。首次悬停唱片被封套遮挡，改为实际封套元素后截取画面；未点击播放或验证音频 |
+| [Vinyl Simulator](https://vinyl.riyo.me/) / [作者介绍](https://apps.riyo.me/vinyl-simulator) | 实际三维唱机场景可达：防尘罩、唱臂、滑杆与本地音频入口。比 Vinyl Vue 更偏机器模拟，作为三维器物交互候选；作者说明本地解码，本轮未导入个人文件或验证音频 |
+| [Matthew Blode Album](https://blode.co/experiments/album) | 实际查看圆形封面唱片到方形封面的轻量实验；没有完整唱臂播放器，作为专辑展开动效备选，不列为前三款完整唱机场景 |
+
+前三项整理为独立界面对照，三张图最终加载并读图。Record Room 仍停留在房间纹理加载，FTR 实际画面偏常规专辑/曲目界面，本輪不列为优先相似推荐。MD Vinyl 仍沿用 REF-04；Vinyl Vue 作者明确列其为灵感来源，但不因此新增网易云能力声明。全部为研究候选，未修改应用、采用资产或确认最终设计；网页可达、静帧查看与声音/动态验证分别记录。
+
+### P13-RADIO-REF-07 · Codrops 相近的专辑到唱机流程
+
+2026-10-12，用户继续询问与 Codrops Record Player 相近的案例。维持 P13/U12 来源研究，未选择新实现或变更音源。主技能继续 frontend-design。
+
+| 官方来源 | 实际证据与筛选 |
+| --- | --- |
+| [Vinyls 官方展示](https://pixelfolio.app/press/vinyls/) | 实际查看官方 Mac dark 与 iPad portrait 展示图：曲库/专辑封套在左，大唱片和唱臂在右，曲库信息较 Codrops 密集；优先参考其播放区。作者说明支持 iPhone/iPad/Mac，播放需 Apple Music 订阅，不能当作网易云播放器或可嵌入网页组件 |
+| [Side One 作者仓库](https://github.com/mintdotgg/bookshelf) | 实际读取 README，流程为唱片柜浏览→抽出封套→检查专辑/选曲→唱片移至唱机→唱臂落下，适合作为完整器物流程候选。当前只找到仓库入口，未定位公开 Demo、安装、运行或做视觉验收；源码公开不等于许可已核验，未正式采用 |
+| [Retro Music Player](https://store.steampowered.com/app/4505200/Retro_Music_Player/) | 实际看作者 Steam 宣传图，偏早期电脑窗口与颗粒复古外观；截至本轮页面标 Coming soon，暂不列为可立即体验的优先候选。宣传图不当作原始纯 UI 截图，也不当作实际播放证据 |
+
+Chris Gannon 的 SoundCloud Vinyl Search CodePen 入口在自动浏览器遇到安全验证，未作可体验推荐。Vinyl Vue 仍沿用 REF-05/06，避免将已给过的案例冒充新增。推荐比较 Vinyls 播放区与 Side One 的专辑选取流程；以上是执行者建议，未获用户正式选用，不修改应用源码。图像与交互描述分别说明证据来源，未验证音频、第三方接入或大陆访问质量。
+
+2026-10-12 后续：用户要求实际验证 Side One，固定 `c9b28f89` 在独立忽略目录运行成功。原目录 7 专辑/9 唱片/7 封面实载；桌面、390px/减少动画及键盘/返回 11 项 UI 核对通过，45 秒自生成测试 WAV 的 7 项音频补验通过。首轮悬停索引定位失败及第二轮即时忙碌状态断言失败均保留，不能把原始批次改成全绿。源码未修改，未接入本站、账号或商业歌曲；根目录尚未找到主项目 LICENSE。执行记录：[Side One 候选验证](iterations/u12-p13-2026-10-12-side-one-validation.md)。当前为运行/交互候选验证完成，未正式采用。
+
+### P13-RADIO-REF-08 · 更适合本站的黑胶候选筛选
+
+2026-10-12，用户继续寻找更好、更适合的 Codrops/Side One 相近方案。范围仍为 P13/U12 参考研究；主技能继续 frontend-design，未改应用、安装候选或变更音源方案。
+
+| 官方来源 | 实际证据与适配判断 |
+| --- | --- |
+| [GlassMusicPlayer](https://github.com/XiangZi7/GlassMusicPlayer) / [网页体验](https://topm.pages.dev/) | 新增中优先参考其网易云功能与黑胶播放区。实际网页外壳、中文导航及本地音乐入口可达，曲库区仍为加载占位，未验证在线音乐播放。官方桌面 image-77.png 与手机 images/mobile/image-1.jpg 完整解码并实际读图：桌面大黑胶、直唱臂、歌词与彩色玻璃背景；手机图为曲库界面。更偏现代，若用于本站需减去彩色背景与频谱、沿用黑灰规范。作者说明使用另配的网易云 API；根 LICENSE 为 PolyForm-Noncommercial-1.0.0，不能记为 MIT 或无条件复用 |
+| [CompScout Vinyl Player](https://compscout.dev/comps/vinyl-player) / [公开组件源码](https://compscout.dev/r/vinyl-player.json) | 实际预览可达，深色预览与封套点击后的唱片展开已截取。React 小组件，无唱臂，更适合专辑卡片。源码仅通过 isPlaying 控制 CSS 转动、setInterval 模拟进度，没有 audio/AudioContext 或音源参数；不能作为已实现的播放器。若采用需接真实媒体状态并补键盘语义；未核验组件许可，未运行安装命令 |
+| [BINIX MUSIC](https://github.com/CMbin2333/BINIX_MUSIC) | README 声称本地音频与网易云、React 19 及黑胶唱臂；未找到可查看的官方界面图或公开 Demo，未运行。README 写 MIT，根目录未找到 LICENSE；只保留为技术候选，不宣称比现有方案更美观或可直接复用 |
+
+[VirtualVinyl](https://github.com/ThatOtherAndrew/VirtualVinyl) 与 [Jockey](https://github.com/ThatOtherAndrew/Jockey) 的作者 GitHub Pages Demo 实际返回 404；mozarta-nexus/music-web-player 的 Demo 同样 404，本轮不列为可立即体验的优先候选。以上失败不推断源码无法运行。
+
+执行者建议：完整网易云功能可比较 GlassMusicPlayer；专辑卡片可看 CompScout；符合本站沉浸、简约、黑灰方向的整体构图仍优先沿用 REF-05 的 Vinyl Vue。所有候选均未验证同时接入考拉与网易云，视觉、实际音频、第三方接入、手机真机与许可分别验收。官方截图仅用于比较，未进入网站资产。新增记录不代表用户选定或正式采用。
+
+### P13-RADIO-REF-09 · 用户已选的双模式外观
+
+2026-10-13 用户明确选择：网易云模式用 GlassMusicPlayer 的其余界面，专辑封面展示/播放采用 CompScout Vinyl Player；本地模式采用 Vinyl Vue。这是用户已确认的参考方向，替代 REF-08 的执行者排序；最终适配画面与真实功能分别验收。
+
+| 来源与状态 | 实际采用范围、许可与改造 |
+| --- | --- |
+| [Vinyl Vue](https://github.com/Ventuss-OvO/Vinyl-Vue) / [LICENSE](https://github.com/Ventuss-OvO/Vinyl-Vue/blob/main/LICENSE) | 已核对 CC BY-NC 4.0，个人非商业站按许可复用 record.svg 与 Tone Arm.svg、封套/唱片构图及唱臂78.82%/20.28%旋转原点。唱臂从1,852,769B SVG转为300px宽34,130B WebP，唱片SVG22,901B保留；媒体/参数适配为 React。原例音效、音乐、专辑封面和字体未复制；真实封面取现有下载文件内嵌标签，只在本机开发页提供 |
+| [GlassMusicPlayer](https://github.com/XiangZi7/GlassMusicPlayer) / [LICENSE](https://github.com/XiangZi7/GlassMusicPlayer/blob/main/LICENSE) | 已核对 PolyForm Noncommercial 1.0.0，Required Notice: Copyright Yxcr。采用深色侧栏、搜索、歌单/专辑区与手机重排的组织方式，按现有 Astro/React、黑灰参数适配，不搬入第二套 Vue 应用或其完整 API/登录流程 |
+| [COMPScout Vinyl Player](https://compscout.dev/comps/vinyl-player) / [许可页](https://compscout.dev/policies/license) | 用户选择视觉，已核对原组件模拟进度、没有音频。许可页明确讨论 purchased templates/premium components，并限制源码公开分发；尚未找到免费注册表组件的独立许可。本轮独立实现封套/黑胶构图，不复制或分发其注册表源码，不安装 shadcn/Tailwind，不把公开可读当作许可授权；若后续要直接复制源码，需先确认适用许可 |
+
+固定来源读取：Vinyl Vue `e70f8e97ddbbb9b225feeb988e75f4aeaa1aca8d`，GlassMusicPlayer `f19ae8ec4ed9b66e215cefdff63f46e1495cae6c`。统一随站署名与完整原许可位于 `public/music/attribution.txt`，不把第三方资产覆盖为本站通用许可。真实 Echoes 公开歌单元数据已读到1首（Pink Floyd《Echoes》）；它是有读取日期的目录快照，封面仍为网易云外链。当前该曲官方公开音频入口经浏览器实际解码/启动、暂停继续/进度与模式切换验证；并不证明其他曲目、账号付费权限、写入或自动同步。卡片旋转和进度绑定自有音频；官方 iframe 仅作失败时的独立入口，不读取或模拟其跨源播放状态。工程与实际证据见[本轮记录](iterations/u12-p13-2026-10-13-selected-skins.md)。
+
+### P13-VINYL-DETAIL-01 · 唱片表面与落针适配
+
+T25.09（2026-10-13）在上述固定Vinyl Vue来源上继续适配：现有tonearm.webp及原record.svg保留，唱针/枢轴按原图测量；新增record-surface.svg细沟槽和CSS固定方向反光，署名增加本轮改造范围。圆标复用当前MusicTrack.coverUrl（真实下载文件内嵌封面/现有平台封面），未复制原例封面、音效或字体。新表面与现有器物构图按原非商业来源一并登记，不将站内通用许可覆盖原素材；执行证据见[唱片细节](iterations/u12-p13-2026-10-13-vinyl-detail.md)。
+
+### P13-APPLE-REF-01 · 音乐页层级与材质
+
+2026-10-13用户要求根据苹果UI精修整体。实际阅读[Apple HIG Layout](https://developer.apple.com/design/human-interface-guidelines/layout)的渲染正文：用重要性、对齐与分组建立层级，渐进展开降低初始选择负担，布局适应窗口与文字尺寸；[Materials](https://developer.apple.com/design/human-interface-guidelines/materials)为材质参考入口。只借鉴界面原则，不复制Apple UI素材、品牌或字体；保留本站黑灰与已选择的播放器。Uiverse（既有resource-uiverse）在本轮提醒，用于控件状态比对，不登记为源码采用。实现/验收见[苹果参考精修](iterations/u12-p13-2026-10-13-apple-refinement.md)。
+
+### P13-TRANSITION-REF-01 · 透明 CD 盒切换参考
+
+2026-10-13 用户提供 [BzsJ：分享一个非常棒的音乐交互界面](https://www.xiaohongshu.com/explore/6acc9895000000000200f653)，随后明确仅用于音乐/专辑切换界面，保留现有黑胶播放页。实际公开浏览器观看29.867秒视频，并通过原生时间轴查看：约3秒盖沿左侧铰链打开；约6秒旧盒向上退出、新盒从下进入；8秒新专辑落定；27秒有半开盒盖与转视角。作者文字只作参考说明，不把其模型/引擎声明当作本站工程验证。
+
+本轮参考动作与器物结构，不复制视频、光盘贴纸、字体或示例音频；暂未核验可复用的作者源码。本站复用已安装 React Three Fiber、Three MeshPhysicalMaterial、Drei RoundedBox/Environment/OrbitControls 与 GSAP，自行组合简单盒体/铰链/光盘的必要几何，封面使用现有真实标签/歌单信息。先前给出的考拉分享实际为音乐文件夹空列表，未当作动效样本；链接签名参数不保存到文档或应用。
+
+Anime.js Timeline（六资源站 resource-animejs）已在本轮提醒，用于理解开盖/换盒时间线；实现沿用已有GSAP，不新增动画引擎。状态与证据见[本轮任务](iterations/u12-p13-2026-10-13-album-transition.md)，用户选择范围与实际效果验收分开记录。
+
 ### P01-HALO-REF-04 连续光晕的实现复用
 
 2026-10-10，39轮用户否定侧视光片。候选与边界：
@@ -449,3 +605,74 @@ P05/P06 / K03 / U09 / R02、R09、R10。复用 T09.01 的列表、Starlight 语�
 ## 封面入射角测量（48轮）
 
 [Pink Floyd官方专辑页](https://www.pinkfloyd.com/albums/the-dark-side-of-the-moon/)，复用已登记05轮1500px原图，不新增生产素材。97个白光中性像素中心线样本测得向右上14.2115394°、RMS .245px，方法与原始点见[48测量](iterations/evidence/u03-p01-2026-10-11-48/cover-measurement.json)。这是图像读数，不是原作者工程角度，官方艺术参考的许可状态保持。
+
+### P13-RADIO-LAYOUT-01 · 播放器页面布局参考（2026-10-13）
+
+用户要求寻找优秀播放器页面布局，范围为P13/U12参考研究，主技能frontend-design。本轮未改应用或改变已选音源/播放器外观。实际通过作者官方截图比较：
+
+| 作者来源 | 实际查看的截图 | 布局与本站用途 |
+| --- | --- | --- |
+| [Cider](https://cider.sh/) | [官方专辑页](https://cider.sh/client/album.webp) | 左导航、中间专辑封面与曲目、右队列、底部播放条；适合较大曲库，队列可作为可选边栏参考 |
+| [YesPlayMusic](https://github.com/qier222/YesPlayMusic) | [作者深色音乐库](https://raw.githubusercontent.com/qier222/YesPlayMusic/master/images/library-dark.png) | 顶部导航/搜索、收藏与最近歌曲、分类标签/专辑网格、底部播放条；适合封面浏览，易沿用本站黑灰与圆润控件 |
+| [Feishin](https://github.com/jeffvli/feishin) | [development官方专注播放图](https://raw.githubusercontent.com/jeffvli/feishin/development/media/preview_full_screen_player.png) | 左侧大封面、右侧歌词/队列等标签、底部控制；可研究独立专注播放布局。最初读取main误落旧Sonixd README，已以仓库当前默认development和正确图修正 |
+| [Vinyls](https://pixelfolio.app/press/vinyls/) | [作者Mac深色展示](https://pixelfolio.app/assets/images/press/vinyls/mac/04-dark.png) | 左导航、中间专辑/曲目、右侧大黑胶/进度/播放键；最接近本站器物感。此前已研究，当前只补充整体分栏比较，不冒称新案例 |
+
+以上四图均在浏览器实际读取，Cider与Vinyls作为优先比较方向。静态截图不代表候选已运行、音源接入或播放能力验证；未安装候选、复制源码或素材进入应用，图片与代码许可在正式采用前独立核对。建议为左曲库/右唱机，曲库可参考YesPlayMusic封面网格；属于执行者建议，尚未获用户选用。
+
+### P13-RADIO-LAYOUT-02 · 补充布局（2026-10-13）
+
+用户继续寻找其他优秀播放器页面布局，仍为P13/U12参考研究，沿用frontend-design，无应用修改或选用确认。
+
+| 作者来源 | 实际图像与用途 |
+| --- | --- |
+| [Tauon](https://tauonmusicbox.rocks/) | 实际查看官方[主窗口](https://tauonmusicbox.rocks/_astro/scr.C0AQBHoy_ZkxhJy.webp)和[封面墙](https://tauonmusicbox.rocks/_astro/cgal.Ghj_oXwz_IqToe.webp)：顶部少量标签，左曲目，右大封面/专辑网格，底部控制。适合减少页面导航负担；把右封面换成本站唱机为建议，未选用 |
+| [Audirvana Studio](https://audirvana.com/audirvana-studio/) | 官方[桌面展示照片](https://audirvana.com/sitev8/wp-content/uploads/2025/12/Studio-01-1024x768.jpg)可见左导航、顶部分类、中央艺人网格和底部控制；克制的收藏库布局。图片是屏幕情境照片，不冒称纯界面截图。Interface.png实际为音频设置面板，未用它推断播放器布局 |
+| [Eole foobar2000 theme](https://github.com/Ottodix/Eole-foobar-theme) | 实际查看作者[preview.png](https://raw.githubusercontent.com/Ottodix/Eole-foobar-theme/master/preview.png)：多个深浅色界面合成，含导航、封面网格、曲目表和右侧当前播放/队列；适合较大收藏库。它是foobar2000主题，不是独立网页播放器；未安装或复用源码 |
+
+Moosync本次官网未定位完整界面，仓库Screenshots仍TODO，未作为有实际读图证据的优先案例。Plexamp/Roon等此前已登记，不把重复案例冒充新增。仅比较布局，不作平台接入或音乐播放验证；图像/代码授权正式采用另核对。
+
+### P13-RADIO-LAYOUT-03 · 场景、海报与文字式电台（2026-10-13）
+
+用户再次要求其他布局。沿用P13/U12/frontend-design参考研究，无应用改动。
+
+- [lofi.cafe](https://www.lofi.cafe/)：实际打开并展开界面，整屏动态场景，左下角播放/音量等小控件，底部频道名，右上角辅助入口。使用播放按钮暂停后离开，未提交订阅/分享或登录。进入时有About提示层，关闭尝试未形成明确成功证据，截图按实际状态保留，不冒称完整交互验收。适合沉浸式电台的场景/控制层级。
+- [Jazz FM Romania](https://jazzfm.ro/)：实际首页为黄黑海报式构图，左侧品牌/Now Playing信息，右半屏巨大的播放图形；未启动广播。作为极少操作和强主视觉的布局参考，不改变本站既定黑灰配色。Awwwards作为此前收藏的非传统布局研究入口已提醒。
+- [Music for Programming](https://musicforprogramming.net/)：实际网页加载后跳转latest，左侧代码说明/ASCII播放控件，中间当期标题/曲目，右侧历期目录；初始截图为空，等待其他独立研究后实际读回完整界面。未点击音频源下载或启动混音。适合文字主导的复古终端式布局。
+- [Supersonic](https://github.com/supersonic-app/supersonic)：旧作者URL自动转到新组织，按API读回当前main分支。实际查看[AlbumsView](https://raw.githubusercontent.com/supersonic-app/supersonic/main/res/screenshots/AlbumsView.png)：顶部工具/搜索筛选，中央专辑封面网格，底部控制；作为丰富曲库的实用布局。
+
+本轮实际页面截图在当前任务可视化目录保存layout-lofi-cafe、layout-jazz-fm和layout-music-for-programming PNG；来源是网页现场截图，不是已获素材复用许可。Colibri官网图已读，但当前紫色样本未列为本站优先美术方向；Swinsian/vidify入口读取失败，不作已验证推荐。所有候选未安装、未接入音源或复制到应用。
+
+### P13-RADIO-LAYOUT-04 · Apple Music 整体布局（2026-10-13）
+
+用户询问Apple Music是否适合作为播放器布局参考。本轮区分实际Apple Music产品布局与此前T25.06通用Apple HIG/控件质感精修，仍为P13/U12研究，没有改变布局或已选黑胶播放器。
+
+实际浏览[Apple Music网页版新发现](https://music.apple.com/cn/new)与当前公开[专辑详情](https://music.apple.com/cn/album/kick-off-the-wall-pt-1/6819069684)。桌面1280级窗口，左侧固定导航，中间滚动内容，底部浮动胶囊播放条；新发现包含横向推荐/曲目分组，专辑页为左大封面、右信息与主操作，下方歌曲表。未登录，截图包含订阅宣传栏；未点击试用、试听、登录或外部音乐应用。一次异步导航后重复旧标题定位无匹配，实际新页面随后读回成功，未记为应用故障。
+
+[Apple官方音乐库指南](https://support.apple.com/guide/music-web/play-songs-from-your-library-apdm5cce24ab/web)验证按侧栏艺人/专辑/歌曲/歌单浏览；个人音乐库未登录不可实查。[Mac MiniPlayer官方指南](https://support.apple.com/en-ae/guide/music/mus71d7dcfce/mac)说明小窗、大封面、歌词/队列及全屏播放器状态；本轮没有运行Mac应用，不将Mac能力写成网页实测。网页浮动播放条位置以实际浏览器画面为准，不沿用旧版顶部播放器假设。
+
+建议以Apple Music作整体布局参考：稳定侧栏/音乐库与专辑详情、常驻小播放条，点击当前唱片再进入单独黑胶播放视图。该建议未获用户采用，未新建页面/任务、复制Apple素材/字体/品牌或调整音源。实际截图保存为本任务可视化目录layout-apple-music-browse与layout-apple-music-album PNG。
+
+### P13-RADIO-LAYOUT-05 · 网易云官方客户端布局（2026-10-13）
+
+用户继续询问网易云音乐布局，范围保持P13/U12参考研究。网易云官网实页被当前浏览工具站点安全策略拒绝，没有通过其他浏览器、代理或命令绕过；改用不同公开来源的[网易云官方Mac App Store展示](https://apps.apple.com/cn/app/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/id944848654?mt=12)，发布者为杭州网易云音乐科技有限公司。商店文字与四张图片已实际读取；图片为作者宣传合成图，不是本机运行截图，也不代表Windows客户端或网页版已验证。
+
+- [推荐页图](https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/a7/b4/25/a7b42514-78c0-7d01-650a-24111005d7df/01.png/1286x804bb.webp)：左导航/音乐库，顶部搜索，中间推荐封面网格，底部常驻播放条。
+- [曲目列表图](https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/b6/a8/f9/b6a8f9c3-28f8-ccd3-01d7-04330e0132e7/02.png/1286x804bb.webp)：侧栏保持，中央曲目/专辑/喜欢/时长列，底部缩略唱片与控制。可参考日常选歌信息层级。
+- [黑胶播放图](https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/4a/64/66/4a64664b-1a78-0eda-2c45-633a0bb53c10/03.png/1286x804bb.webp)：左大唱片和唱臂，右标题/歌词，底部进度及控制，顶部返回。与本站既有黑胶方向较接近，作为独立沉浸播放状态参考。
+- [音质宣传图](https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/aa/23/8c/aa238ce2-dd65-da2f-e3cd-0754ec9dde20/04.png/1286x804bb.webp)：居中唱片与环绕声宣传叠层，不据此声称本轮验证音质、空间音频或会员功能。
+
+建议比较网易云的曲库/曲目层级与独立黑胶播放页，沿用本站黑灰与克制控件；Apple Music整体壳与网易云沉浸播放组合仍是执行者建议，尚未获用户选用。本轮未安装客户端、登录、播放、复制图片到应用或修改应用源码；静态宣传图不能验收展开动画、歌词同步或音源接入。
+
+同日后续用户明确选用P13-RADIO-LAYOUT-04/05的信息层级组合，要求黑灰简约并保留现有专辑与唱片机。T25.07已实际适配侧栏/专辑详情/小播放条和独立黑胶视图，复用本站组件与真实封面；未复制官方代码、图片、字体或品牌。实际实现/失败与执行者读图见[曲库与黑胶页记录](iterations/u12-p13-2026-10-13-library-listening.md)；方向选择与成品审美确认分开记录。
+
+### P13-LYRICS-REF-08 · Apple原则与歌词精修（2026-10-13）
+
+用户要求右侧真实歌词、移除CD选择层、按Apple感觉精修；现有黑灰、唱片机和曲库专辑保持。实际浏览[Apple Layout](https://developer.apple.com/design/human-interface-guidelines/layout)、[Typography](https://developer.apple.com/design/human-interface-guidelines/typography)、[Materials](https://developer.apple.com/design/human-interface-guidelines/materials)：落实分组/对齐、字重层级和控件/内容材质区分；不下载SF或品牌图像，不声称CSS实现原生Liquid Glass。字体继续沿用项目栈，Apple原则作为本站适配依据。
+
+[Apple同步歌词说明](https://support.apple.com/en-ie/108960)作为时间轴与普通全文/缺失的状态参考。本地歌词来自用户洛雪下载目录18份同名LRC，按原文件读取；网易云可选补充复用[LRCLIB官方匿名接口](https://lrclib.net/docs)，实际读回同专辑/时长的Echoes记录并在页面验证Eclipse时间轴。外部歌词不在仓库硬编码，只通过公开接口运行时读取；不复制歌词服务代码或使用账号凭证。接口公开访问不等于本轮核验所有音乐版权或平台播放权限。实际来源/边界与读图见[T25.08](iterations/u12-p13-2026-10-13-lyrics-polish.md)。
+
+## P01 入射接缝反馈证据（2026-10-12）
+
+> 历史研究与需求证据；当前首页运行范围以56玻璃/柔晕及F02为准，不据此恢复光谱或流体。
+
+`p01-entry-seam-51`：用户本对话上传的本站入射交界裁图，原像素复制到[51用户原图](iterations/evidence/u03-p01-2026-10-12-51/user-entry-seam.png)，用于需求定位与前后验收；未调色/重画，不作为页面展示素材。用户否定接缝自然性，覆盖此前50执行者/设计允许保留，不记为用户已确认。设计任务[51](iterations/u03-p01-2026-10-12-51.md)。

@@ -1,0 +1,994 @@
+[
+  {
+    "ms": 413,
+    "file": "motion-00.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, 601.432)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 528,
+    "file": "motion-01.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, 601.432)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.999999, -0.00129785, 0.00129785, 0.999999, -4.63643, -0.0208194)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 638,
+    "file": "motion-02.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, 601.432)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.999904, -0.0138778, 0.0138778, 0.999904, -49.5784, -0.222626)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 746,
+    "file": "motion-03.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, 601.432)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.999217, -0.0395636, 0.0395636, 0.999217, -141.373, -0.63482)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 873,
+    "file": "motion-04.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, 601.432)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.998057, -0.0623041, 0.0623041, 0.998057, -222.719, -1.00009)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 988,
+    "file": "motion-05.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, 601.432)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.997091, -0.0762139, 0.0762139, 0.997091, -272.53, -1.22376)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 1097,
+    "file": "motion-06.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, 601.432)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996572, -0.0827297, 0.0827297, 0.996572, -295.881, -1.32862)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 1210,
+    "file": "motion-07.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, 601.432)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996299, -0.0859506, 0.0859506, 0.996299, -307.428, -1.38047)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 1301,
+    "file": "motion-08.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, 601.432)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996199, -0.0871081, 0.0871081, 0.996199, -311.579, -1.39911)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 1391,
+    "file": "motion-09.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, 601.432)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 1499,
+    "file": "motion-10.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, 601.432)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 1630,
+    "file": "motion-11.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, 601.432)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, -6.75514)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 1746,
+    "file": "motion-12.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, 601.432)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, -109.368)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 1874,
+    "file": "motion-13.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, 601.432)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, -259.549)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 1993,
+    "file": "motion-14.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, 601.432)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, -465.92)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 2087,
+    "file": "motion-15.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, 601.432)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "0.743367",
+      "transform": "matrix(1, 0, 0, 1, 0, -579.377)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 2173,
+    "file": "motion-16.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, 601.432)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, -601.432)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 2265,
+    "file": "motion-17.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, 601.432)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, -601.432)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 2364,
+    "file": "motion-18.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "0.90629",
+      "transform": "matrix(1, 0, 0, 1, 0, 407.076)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, -601.432)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 2478,
+    "file": "motion-19.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 174.468)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, -601.432)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 2589,
+    "file": "motion-20.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 74.2375)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, -601.432)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 2712,
+    "file": "motion-21.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 27.2065)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, -601.432)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 2818,
+    "file": "motion-22.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 6.56853)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, -601.432)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 2922,
+    "file": "motion-23.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0.879957)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, -601.432)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 3018,
+    "file": "motion-24.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, -601.432)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 3119,
+    "file": "motion-25.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, -601.432)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 3225,
+    "file": "motion-26.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, -601.432)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 3331,
+    "file": "motion-27.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.996304, -0.0859017, 0.0859017, 0.996304, -307.253, -1.37968)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, -601.432)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 3467,
+    "file": "motion-28.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.997058, -0.0766533, 0.0766533, 0.997058, -274.104, -1.23083)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, -601.432)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 3586,
+    "file": "motion-29.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.99889, -0.0471082, 0.0471082, 0.99889, -168.351, -0.755962)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, -601.432)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 3717,
+    "file": "motion-30.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.999676, -0.0254507, 0.0254507, 0.999676, -90.9296, -0.408309)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, -601.432)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 3836,
+    "file": "motion-31.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.999922, -0.0125183, 0.0125183, 0.999922, -44.7214, -0.200816)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, -601.432)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 3941,
+    "file": "motion-32.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.999984, -0.00573576, 0.00573576, 0.999984, -20.4905, -0.0920102)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, -601.432)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 4040,
+    "file": "motion-33.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(0.999998, -0.00196468, 0.00196468, 0.999998, -7.01861, -0.0315163)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, -601.432)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 4162,
+    "file": "motion-34.png",
+    "audioCount": 1,
+    "incoming": {
+      "animation": "jacket-album-arrive",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "newDisc": {
+      "animation": "jacket-disc-eject",
+      "opacity": "0.45",
+      "transform": "matrix(1, -0.000484102, 0.000484102, 1, -1.7294, -0.00776568)"
+    },
+    "old": {
+      "animation": "jacket-album-leave",
+      "opacity": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, -601.432)"
+    },
+    "oldDisc": {
+      "animation": "jacket-disc-stow",
+      "opacity": "1",
+      "transform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, -311.75, -1.39988)"
+    },
+    "phase": "changing",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  },
+  {
+    "ms": 4284,
+    "file": "motion-35.png",
+    "audioCount": 1,
+    "incoming": null,
+    "newDisc": null,
+    "old": null,
+    "oldDisc": null,
+    "phase": "idle",
+    "revision": "1",
+    "visualAlbum": "劳动之余"
+  }
+]

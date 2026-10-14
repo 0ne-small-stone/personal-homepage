@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><title>影像空间尺寸预览</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>body{margin:0;padding:20px;background:#171717;color:#ddd;font:14px system-ui,sans-serif}header{display:flex;gap:16px;align-items:center;margin-bottom:20px}select{padding:8px;background:#000;color:#ddd;border:1px solid #777;border-radius:12px}iframe{display:block;border:0;margin:auto;background:#000}main{overflow:auto}</style>
+<header><span>独立原型尺寸预览</span><select id="viewport" aria-label="预览尺寸"><option value="390,844">390 × 844 竖屏</option><option value="320,568">320 × 568 小屏</option><option value="844,390">844 × 390 横屏</option><option value="768,1024">768 × 1024 平板</option><option value="1024,768">1024 × 768 桌面</option><option value="1280,720">1280 × 720 桌面</option><option value="1920,1080">1920 × 1080 大屏</option></select></header>
+<main><iframe id="preview" title="影像空间原型" src="./index.html" width="390" height="844"></iframe></main>
+<script>document.getElementById('viewport').addEventListener('change',e=>{const [width,height]=e.target.value.split(',');const frame=document.getElementById('preview');frame.width=width;frame.height=height;});</script>
+</html>

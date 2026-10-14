@@ -1,0 +1,856 @@
+[
+  {
+    "case": "before",
+    "audioCount": 1,
+    "bar": {
+      "bottom": 923,
+      "height": 104,
+      "right": 2327,
+      "width": 2327,
+      "x": 0,
+      "y": 819
+    },
+    "documentScroll": 923,
+    "font": {
+      "line": "22px",
+      "size": "16px"
+    },
+    "glass": "blur(28px) saturate(1.4)",
+    "header": {
+      "bottom": 72,
+      "height": 72,
+      "right": 783,
+      "width": 783,
+      "x": 0,
+      "y": 0
+    },
+    "heading": null,
+    "mode": {
+      "bottom": 61,
+      "height": 50,
+      "right": 437,
+      "width": 189,
+      "x": 248,
+      "y": 11
+    },
+    "modeButton": {
+      "bottom": 58,
+      "height": 44,
+      "right": 335,
+      "width": 84,
+      "x": 251,
+      "y": 14
+    },
+    "overflow": false,
+    "page": {
+      "bottom": 923,
+      "height": 923,
+      "right": 2327,
+      "width": 2327,
+      "x": 0,
+      "y": 0
+    },
+    "pane": {
+      "bottom": 819,
+      "height": 747,
+      "right": 704.96875,
+      "width": 488.96875,
+      "x": 216,
+      "y": 72
+    },
+    "paneClient": 479,
+    "paneScroll": 160,
+    "paneScrollHeight": 909,
+    "paused": false,
+    "reading": {
+      "bottom": 788.59375,
+      "height": 844.59375,
+      "right": 662.96875,
+      "width": 414.96875,
+      "x": 248,
+      "y": -56
+    },
+    "room": null,
+    "row": {
+      "bottom": 356,
+      "height": 64,
+      "right": 662.96875,
+      "width": 414.96875,
+      "x": 248,
+      "y": 292
+    },
+    "search": {
+      "bottom": 58,
+      "height": 44,
+      "right": 741,
+      "width": 280,
+      "x": 461,
+      "y": 14
+    },
+    "sidebar": {
+      "bottom": 819,
+      "height": 747,
+      "right": 216,
+      "width": 216,
+      "x": 0,
+      "y": 72
+    },
+    "time": 245.263574,
+    "title": {
+      "bottom": 325,
+      "height": 22,
+      "right": 456.78125,
+      "width": 96.78125,
+      "x": 360,
+      "y": 303
+    },
+    "viewport": {
+      "height": 923,
+      "width": 2327
+    }
+  },
+  {
+    "case": "wide-local-albums",
+    "app": {
+      "bottom": 923,
+      "height": 923,
+      "right": 2327,
+      "width": 2327,
+      "x": 0,
+      "y": 0
+    },
+    "audioCount": 1,
+    "balancedReading": true,
+    "fullWidth": true,
+    "header": {
+      "bottom": 72,
+      "height": 72,
+      "right": 2327,
+      "width": 2327,
+      "x": 0,
+      "y": 0
+    },
+    "horizontalOverflow": false,
+    "mainAlign": "stretch",
+    "mode": "cloud",
+    "pane": {
+      "bottom": 819,
+      "height": 747,
+      "right": 2327,
+      "width": 2111,
+      "x": 216,
+      "y": 72
+    },
+    "reading": {
+      "bottom": 585.984375,
+      "height": 481.984375,
+      "right": 1954.5,
+      "width": 1376,
+      "x": 578.5,
+      "y": 104
+    },
+    "search": {
+      "bottom": 58,
+      "height": 44,
+      "right": 1954.5,
+      "width": 280,
+      "x": 1674.5,
+      "y": 14
+    },
+    "searchRightAligned": true,
+    "shell": {
+      "bottom": 819,
+      "height": 747,
+      "right": 2327,
+      "width": 2327,
+      "x": 0,
+      "y": 72
+    },
+    "viewport": {
+      "height": 923,
+      "width": 2327
+    }
+  },
+  {
+    "case": "wide-local-detail",
+    "app": {
+      "bottom": 923,
+      "height": 923,
+      "right": 2327,
+      "width": 2327,
+      "x": 0,
+      "y": 0
+    },
+    "audioCount": 1,
+    "balancedReading": true,
+    "fullWidth": true,
+    "header": {
+      "bottom": 72,
+      "height": 72,
+      "right": 2327,
+      "width": 2327,
+      "x": 0,
+      "y": 0
+    },
+    "horizontalOverflow": false,
+    "mainAlign": "stretch",
+    "mode": "cloud",
+    "pane": {
+      "bottom": 819,
+      "height": 747,
+      "right": 2327,
+      "width": 2111,
+      "x": 216,
+      "y": 72
+    },
+    "reading": {
+      "bottom": 948.59375,
+      "height": 844.59375,
+      "right": 1954.5,
+      "width": 1376,
+      "x": 578.5,
+      "y": 104
+    },
+    "search": {
+      "bottom": 58,
+      "height": 44,
+      "right": 1954.5,
+      "width": 280,
+      "x": 1674.5,
+      "y": 14
+    },
+    "searchRightAligned": true,
+    "shell": {
+      "bottom": 819,
+      "height": 747,
+      "right": 2327,
+      "width": 2327,
+      "x": 0,
+      "y": 72
+    },
+    "viewport": {
+      "height": 923,
+      "width": 2327
+    }
+  },
+  {
+    "case": "desktop-local-detail",
+    "app": {
+      "bottom": 800,
+      "height": 800,
+      "right": 1280,
+      "width": 1280,
+      "x": 0,
+      "y": 0
+    },
+    "audioCount": 1,
+    "balancedReading": true,
+    "fullWidth": true,
+    "header": {
+      "bottom": 72,
+      "height": 72,
+      "right": 1280,
+      "width": 1280,
+      "x": 0,
+      "y": 0
+    },
+    "horizontalOverflow": false,
+    "mainAlign": "stretch",
+    "mode": "cloud",
+    "pane": {
+      "bottom": 696,
+      "height": 624,
+      "right": 1280,
+      "width": 1064,
+      "x": 216,
+      "y": 72
+    },
+    "reading": {
+      "bottom": 948.59375,
+      "height": 844.59375,
+      "right": 1238,
+      "width": 990,
+      "x": 248,
+      "y": 104
+    },
+    "search": {
+      "bottom": 58,
+      "height": 44,
+      "right": 1238,
+      "width": 280,
+      "x": 958,
+      "y": 14
+    },
+    "searchRightAligned": true,
+    "shell": {
+      "bottom": 696,
+      "height": 624,
+      "right": 1280,
+      "width": 1280,
+      "x": 0,
+      "y": 72
+    },
+    "viewport": {
+      "height": 800,
+      "width": 1280
+    }
+  },
+  {
+    "case": "mobile390-local-detail",
+    "app": {
+      "bottom": 844,
+      "height": 844,
+      "right": 390,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "audioCount": 1,
+    "balancedReading": true,
+    "fullWidth": true,
+    "header": {
+      "bottom": 130,
+      "height": 130,
+      "right": 390,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "horizontalOverflow": false,
+    "mainAlign": "stretch",
+    "mode": "cloud",
+    "pane": {
+      "bottom": 732,
+      "height": 542,
+      "right": 390,
+      "width": 390,
+      "x": 0,
+      "y": 190
+    },
+    "reading": {
+      "bottom": 990.984375,
+      "height": 776.984375,
+      "right": 364,
+      "width": 348,
+      "x": 16,
+      "y": 214
+    },
+    "search": {
+      "bottom": 118,
+      "height": 44,
+      "right": 364,
+      "width": 348,
+      "x": 16,
+      "y": 74
+    },
+    "searchRightAligned": true,
+    "shell": {
+      "bottom": 732,
+      "height": 602,
+      "right": 390,
+      "width": 390,
+      "x": 0,
+      "y": 130
+    },
+    "viewport": {
+      "height": 844,
+      "width": 390
+    }
+  },
+  {
+    "case": "mobile320-local-detail",
+    "app": {
+      "bottom": 740,
+      "height": 740,
+      "right": 320,
+      "width": 320,
+      "x": 0,
+      "y": 0
+    },
+    "audioCount": 1,
+    "balancedReading": true,
+    "fullWidth": true,
+    "header": {
+      "bottom": 130,
+      "height": 130,
+      "right": 320,
+      "width": 320,
+      "x": 0,
+      "y": 0
+    },
+    "horizontalOverflow": false,
+    "mainAlign": "stretch",
+    "mode": "cloud",
+    "pane": {
+      "bottom": 628,
+      "height": 438,
+      "right": 320,
+      "width": 320,
+      "x": 0,
+      "y": 190
+    },
+    "reading": {
+      "bottom": 990.984375,
+      "height": 776.984375,
+      "right": 294,
+      "width": 278,
+      "x": 16,
+      "y": 214
+    },
+    "search": {
+      "bottom": 118,
+      "height": 44,
+      "right": 294,
+      "width": 278,
+      "x": 16,
+      "y": 74
+    },
+    "searchRightAligned": true,
+    "shell": {
+      "bottom": 628,
+      "height": 498,
+      "right": 320,
+      "width": 320,
+      "x": 0,
+      "y": 130
+    },
+    "viewport": {
+      "height": 740,
+      "width": 320
+    }
+  },
+  {
+    "case": "mobile320-local-songs",
+    "app": {
+      "bottom": 740,
+      "height": 740,
+      "right": 320,
+      "width": 320,
+      "x": 0,
+      "y": 0
+    },
+    "audioCount": 1,
+    "balancedReading": true,
+    "fullWidth": true,
+    "header": {
+      "bottom": 130,
+      "height": 130,
+      "right": 320,
+      "width": 320,
+      "x": 0,
+      "y": 0
+    },
+    "horizontalOverflow": false,
+    "mainAlign": "stretch",
+    "mode": "cloud",
+    "pane": {
+      "bottom": 628,
+      "height": 438,
+      "right": 320,
+      "width": 320,
+      "x": 0,
+      "y": 190
+    },
+    "reading": {
+      "bottom": 1711.59375,
+      "height": 1497.59375,
+      "right": 294,
+      "width": 278,
+      "x": 16,
+      "y": 214
+    },
+    "search": {
+      "bottom": 118,
+      "height": 44,
+      "right": 294,
+      "width": 278,
+      "x": 16,
+      "y": 74
+    },
+    "searchRightAligned": true,
+    "shell": {
+      "bottom": 628,
+      "height": 498,
+      "right": 320,
+      "width": 320,
+      "x": 0,
+      "y": 130
+    },
+    "viewport": {
+      "height": 740,
+      "width": 320
+    }
+  },
+  {
+    "case": "wide-local-songs",
+    "app": {
+      "bottom": 923,
+      "height": 923,
+      "right": 2327,
+      "width": 2327,
+      "x": 0,
+      "y": 0
+    },
+    "audioCount": 1,
+    "balancedReading": true,
+    "fullWidth": true,
+    "header": {
+      "bottom": 72,
+      "height": 72,
+      "right": 2327,
+      "width": 2327,
+      "x": 0,
+      "y": 0
+    },
+    "horizontalOverflow": false,
+    "mainAlign": "stretch",
+    "mode": "cloud",
+    "pane": {
+      "bottom": 819,
+      "height": 747,
+      "right": 2327,
+      "width": 2111,
+      "x": 216,
+      "y": 72
+    },
+    "reading": {
+      "bottom": 1563.59375,
+      "height": 1459.59375,
+      "right": 1954.5,
+      "width": 1376,
+      "x": 578.5,
+      "y": 104
+    },
+    "search": {
+      "bottom": 58,
+      "height": 44,
+      "right": 1954.5,
+      "width": 280,
+      "x": 1674.5,
+      "y": 14
+    },
+    "searchRightAligned": true,
+    "shell": {
+      "bottom": 819,
+      "height": 747,
+      "right": 2327,
+      "width": 2327,
+      "x": 0,
+      "y": 72
+    },
+    "viewport": {
+      "height": 923,
+      "width": 2327
+    }
+  },
+  {
+    "case": "wide-local-empty",
+    "app": {
+      "bottom": 923,
+      "height": 923,
+      "right": 2327,
+      "width": 2327,
+      "x": 0,
+      "y": 0
+    },
+    "audioCount": 1,
+    "balancedReading": true,
+    "fullWidth": true,
+    "header": {
+      "bottom": 72,
+      "height": 72,
+      "right": 2327,
+      "width": 2327,
+      "x": 0,
+      "y": 0
+    },
+    "horizontalOverflow": false,
+    "mainAlign": "stretch",
+    "mode": "cloud",
+    "pane": {
+      "bottom": 819,
+      "height": 747,
+      "right": 2327,
+      "width": 2111,
+      "x": 216,
+      "y": 72
+    },
+    "reading": {
+      "bottom": 435.984375,
+      "height": 331.984375,
+      "right": 1954.5,
+      "width": 1376,
+      "x": 578.5,
+      "y": 104
+    },
+    "search": {
+      "bottom": 58,
+      "height": 44,
+      "right": 1954.5,
+      "width": 280,
+      "x": 1674.5,
+      "y": 14
+    },
+    "searchRightAligned": true,
+    "shell": {
+      "bottom": 819,
+      "height": 747,
+      "right": 2327,
+      "width": 2327,
+      "x": 0,
+      "y": 72
+    },
+    "viewport": {
+      "height": 923,
+      "width": 2327
+    }
+  },
+  {
+    "case": "wide-netease-albums",
+    "app": {
+      "bottom": 923,
+      "height": 923,
+      "right": 2327,
+      "width": 2327,
+      "x": 0,
+      "y": 0
+    },
+    "audioCount": 1,
+    "balancedReading": true,
+    "fullWidth": true,
+    "header": {
+      "bottom": 72,
+      "height": 72,
+      "right": 2327,
+      "width": 2327,
+      "x": 0,
+      "y": 0
+    },
+    "horizontalOverflow": false,
+    "mainAlign": "stretch",
+    "mode": "netease",
+    "pane": {
+      "bottom": 819,
+      "height": 747,
+      "right": 2327,
+      "width": 2111,
+      "x": 216,
+      "y": 72
+    },
+    "reading": {
+      "bottom": 558.46875,
+      "height": 454.46875,
+      "right": 1954.5,
+      "width": 1376,
+      "x": 578.5,
+      "y": 104
+    },
+    "search": {
+      "bottom": 58,
+      "height": 44,
+      "right": 1954.5,
+      "width": 280,
+      "x": 1674.5,
+      "y": 14
+    },
+    "searchRightAligned": true,
+    "shell": {
+      "bottom": 819,
+      "height": 747,
+      "right": 2327,
+      "width": 2327,
+      "x": 0,
+      "y": 72
+    },
+    "viewport": {
+      "height": 923,
+      "width": 2327
+    }
+  },
+  {
+    "case": "mobile390-netease-albums",
+    "app": {
+      "bottom": 844,
+      "height": 844,
+      "right": 390,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "audioCount": 1,
+    "balancedReading": true,
+    "fullWidth": true,
+    "header": {
+      "bottom": 130,
+      "height": 130,
+      "right": 390,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "horizontalOverflow": false,
+    "mainAlign": "stretch",
+    "mode": "netease",
+    "pane": {
+      "bottom": 732,
+      "height": 542,
+      "right": 390,
+      "width": 390,
+      "x": 0,
+      "y": 190
+    },
+    "reading": {
+      "bottom": 1041.84375,
+      "height": 827.84375,
+      "right": 364,
+      "width": 348,
+      "x": 16,
+      "y": 214
+    },
+    "search": {
+      "bottom": 118,
+      "height": 44,
+      "right": 364,
+      "width": 348,
+      "x": 16,
+      "y": 74
+    },
+    "searchRightAligned": true,
+    "shell": {
+      "bottom": 732,
+      "height": 602,
+      "right": 390,
+      "width": 390,
+      "x": 0,
+      "y": 130
+    },
+    "viewport": {
+      "height": 844,
+      "width": 390
+    }
+  },
+  {
+    "case": "mobile390-netease-songs",
+    "app": {
+      "bottom": 844,
+      "height": 844,
+      "right": 390,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "audioCount": 1,
+    "balancedReading": true,
+    "fullWidth": true,
+    "header": {
+      "bottom": 130,
+      "height": 130,
+      "right": 390,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "horizontalOverflow": false,
+    "mainAlign": "stretch",
+    "mode": "netease",
+    "pane": {
+      "bottom": 732,
+      "height": 542,
+      "right": 390,
+      "width": 390,
+      "x": 0,
+      "y": 190
+    },
+    "reading": {
+      "bottom": 1163,
+      "height": 949,
+      "right": 364,
+      "width": 348,
+      "x": 16,
+      "y": 214
+    },
+    "search": {
+      "bottom": 118,
+      "height": 44,
+      "right": 364,
+      "width": 348,
+      "x": 16,
+      "y": 74
+    },
+    "searchRightAligned": true,
+    "shell": {
+      "bottom": 732,
+      "height": 602,
+      "right": 390,
+      "width": 390,
+      "x": 0,
+      "y": 130
+    },
+    "viewport": {
+      "height": 844,
+      "width": 390
+    }
+  },
+  {
+    "case": "wide-netease-songs",
+    "app": {
+      "bottom": 923,
+      "height": 923,
+      "right": 2327,
+      "width": 2327,
+      "x": 0,
+      "y": 0
+    },
+    "audioCount": 1,
+    "balancedReading": true,
+    "fullWidth": true,
+    "header": {
+      "bottom": 72,
+      "height": 72,
+      "right": 2327,
+      "width": 2327,
+      "x": 0,
+      "y": 0
+    },
+    "horizontalOverflow": false,
+    "mainAlign": "stretch",
+    "mode": "netease",
+    "pane": {
+      "bottom": 819,
+      "height": 747,
+      "right": 2327,
+      "width": 2111,
+      "x": 216,
+      "y": 72
+    },
+    "reading": {
+      "bottom": 1055,
+      "height": 951,
+      "right": 1954.5,
+      "width": 1376,
+      "x": 578.5,
+      "y": 104
+    },
+    "search": {
+      "bottom": 58,
+      "height": 44,
+      "right": 1954.5,
+      "width": 280,
+      "x": 1674.5,
+      "y": 14
+    },
+    "searchRightAligned": true,
+    "shell": {
+      "bottom": 819,
+      "height": 747,
+      "right": 2327,
+      "width": 2327,
+      "x": 0,
+      "y": 72
+    },
+    "viewport": {
+      "height": 923,
+      "width": 2327
+    }
+  }
+]

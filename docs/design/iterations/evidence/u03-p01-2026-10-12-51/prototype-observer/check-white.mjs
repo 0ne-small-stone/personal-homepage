@@ -1,0 +1,23 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import { Matrix4 } from './node_modules/three/build/three.module.js';
+import { makeTriangleGeometry } from './geometry.js';
+import { BeamField, fresnel } from './beam-field.js';
+const geometry=makeTriangleGeometry(), field=new BeamField(geometry), checks=[];
+function test(name,fn){fn();checks.push(name);}
+const matrix=new Matrix4().makeScale(.5,.5,.5);
+test('Fresnel normal reflectance',()=>assert.ok(Math.abs(fresnel(1,1,1.45)-((1-1.45)/(1+1.45))**2)<1e-12));
+test('TIR sends all power to reflection',()=>assert.equal(fresnel(.1,1.45,1),1));
+test('Every actual triangle vertex inside convex planes',()=>{const p=geometry.attributes.position;for(let i=0;i<p.count;i++)for(const plane of field.planes)assert.ok(plane[0]*p.getX(i)+plane[1]*p.getY(i)+plane[2]*p.getZ(i)<=plane[3]+1e-5);});
+field.rebuild(matrix,128,true,16,0);
+const outgoing=field.records.filter(r=>r.terminal), flux=outgoing.reduce((sum,r)=>sum+r.power,0);
+test('Branching cannot generate energy',()=>assert.ok(flux<=16+1e-10&&flux>15.9));
+test('Snell output actually turns down',()=>assert.ok(outgoing.some(r=>r.b.x>r.a.x&&r.b.y<r.a.y&&r.power>.08)));
+test('Finite world geometry and power',()=>assert.ok(field.records.every(r=>Number.isFinite(r.power)&&Number.isFinite(r.a.lengthSq())&&Number.isFinite(r.b.lengthSq()))));
+field.rebuild(matrix,128,false,16,0);
+test('Removing glass gives exactly straight source bundle',()=>{assert.equal(field.records.length,128);for(const r of field.records)assert.ok(Math.abs((r.b.y-r.a.y)/(r.b.x-r.a.x)-.2532532084998948)<1e-12);});
+field.rebuild(matrix,128,true,0,0);
+test('Source power zero actually clears all radiance',()=>assert.ok(field.records.every(r=>r.power===0)));
+field.dispose();geometry.dispose();
+const result={checks,passed:checks.length,unattenuatedOutgoingFlux:flux,sourceFlux:16,planes:field.planes.length,scope:'transport only, not full observer path or surface caustics validation'};
+await fs.writeFile('docs/design/iterations/evidence/u03-p01-2026-10-12-51/white-transport.json',JSON.stringify(result,null,2));console.log(JSON.stringify(result));

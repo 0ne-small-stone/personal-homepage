@@ -1,0 +1,25 @@
+{
+  "data": {
+    "backHits": "0",
+    "cacheProbe": "{\"passed\":true,\"width\":1106,\"height\":673,\"litPixels\":1797,\"differentPixels\":0,\"comparison\":\"native half-float RGB values, tiled versus full pass\"}",
+    "convergenceMs": "555.7999999998137",
+    "draws": "22",
+    "engine": "three.js r186",
+    "epoch": "6",
+    "glass": "true",
+    "gpuRenderer": "ANGLE (Intel, Intel(R) Graphics (0x00007D67) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ior": "1.45",
+    "medium": "true",
+    "observerComplete": "true",
+    "observerTiles": "16",
+    "phase": "observer-tile",
+    "photonNodes": "1279",
+    "receiverFlux": "9.798486012162181",
+    "receiverHits": "128",
+    "renderState": "idle",
+    "samples": "128",
+    "timing": "{\"draws\":22,\"state\":\"idle\",\"jsRenderMs\":3.5499999998560683,\"transportMs\":15.983333333550641,\"gpuMs\":22.215472153846154,\"gpuLastMs\":23.149114,\"gpu128Ms\":18.01923125,\"gpuMeasurements\":[{\"sourceSamples\":48,\"ms\":40.624113,\"phase\":\"source\",\"epoch\":1},{\"sourceSamples\":64,\"ms\":23.308385,\"phase\":\"source\",\"epoch\":2},{\"sourceSamples\":80,\"ms\":26.33677,\"phase\":\"source\",\"epoch\":3},{\"sourceSamples\":96,\"ms\":26.011979,\"phase\":\"source\",\"epoch\":4},{\"sourceSamples\":112,\"ms\":28.366041,\"phase\":\"source\",\"epoch\":5},{\"sourceSamples\":128,\"ms\":39.317031,\"phase\":\"source\",\"epoch\":6},{\"sourceSamples\":128,\"ms\":19.667031,\"phase\":\"observer-tile-1\",\"epoch\":6},{\"sourceSamples\":128,\"ms\":18.405989,\"phase\":\"observer-tile-6\",\"epoch\":6},{\"sourceSamples\":128,\"ms\":12.375781,\"phase\":\"observer-tile-7\",\"epoch\":6},{\"sourceSamples\":128,\"ms\":13.751457,\"phase\":\"observer-tile-8\",\"epoch\":6},{\"sourceSamples\":128,\"ms\":0.634895,\"phase\":\"observer-tile-13\",\"epoch\":6},{\"sourceSamples\":128,\"ms\":16.852552,\"phase\":\"observer-tile-14\",\"epoch\":6},{\"sourceSamples\":128,\"ms\":23.149114,\"phase\":\"observer-tile-15\",\"epoch\":6}],\"frameGapMs\":29.21114285714286,\"gpuTimerSupported\":true}"
+  },
+  "height": 673,
+  "width": 1106
+}

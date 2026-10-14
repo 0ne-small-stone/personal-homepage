@@ -1,0 +1,121 @@
+{
+  "label": "mobile-retracted-final",
+  "observedAt": "2026-10-13T15:05:15.669Z",
+  "body": "lssh-home has-journey home-enhanced home-portal-cover",
+  "bundle": "/personal-homepage/_astro/HomeJourney.BZgdJJ3A.js",
+  "height": 844,
+  "motion": {
+    "frame": 1950,
+    "glass": {
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "bounds": [
+        92.9600343486639,
+        296.57360437079734,
+        282.0399635550055,
+        551.2802771487459
+      ],
+      "centeredLocalBounds": [
+        -2.059990167617798,
+        -2.7938168048858643,
+        -1.2321590185165403,
+        2.215298652648926,
+        2.7759742736816406,
+        1.063647985458374
+      ],
+      "projectedAnchor": [
+        187.5,
+        422
+      ],
+      "quaternion": [
+        0.21370669105556617,
+        -0.07318878156137516,
+        -0.01605812210503359,
+        0.9740200147666894
+      ],
+      "scale": 0.55625,
+      "visible": true
+    },
+    "initialization": {
+      "reason": "deep-link",
+      "revision": 2,
+      "y": 3700,
+      "zoom": 0
+    },
+    "phase": "portal",
+    "portal": {
+      "coversCorners": false,
+      "error": null,
+      "expand": 0.25,
+      "frontCoversCorners": false,
+      "hdr": true,
+      "homographyValid": true,
+      "prepare": 1,
+      "quad": [
+        [
+          0.4096305655295106,
+          0.6335761512218605
+        ],
+        [
+          0.2502143957835484,
+          0.3571981283076804
+        ],
+        [
+          0.7234492799983363,
+          0.3486379771749499
+        ],
+        [
+          0.7306230076369047,
+          0.522231238206088
+        ]
+      ],
+      "renderedExpand": 0.25,
+      "renderedPrepare": 1,
+      "renderedWall": 0,
+      "target": [
+        375,
+        844
+      ],
+      "targetReady": true,
+      "wall": 0
+    },
+    "portalCovered": false,
+    "raw": {
+      "event": 1,
+      "expand": 0.25,
+      "intro": 1,
+      "kv": 1,
+      "outro": 1,
+      "prepare": 1,
+      "snap": 1,
+      "wall": 0,
+      "works": 1
+    },
+    "rendered": {
+      "background": 5,
+      "expand": 0.25,
+      "index": 5,
+      "intro": 1,
+      "prepare": 1,
+      "progress": 1,
+      "wall": 0
+    },
+    "scrollY": 6852,
+    "wall": {
+      "position": [
+        0,
+        -1.2,
+        -1
+      ],
+      "raw": 0,
+      "rise": 0,
+      "visible": false
+    }
+  },
+  "scrollWidth": 375,
+  "width": 390,
+  "y": 6852
+}

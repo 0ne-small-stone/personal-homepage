@@ -1,0 +1,23 @@
+{
+  "passed": 10,
+  "checks": [
+    "Finite sheet rejects parallel, behind-eye and out-of-bounds rays",
+    "Oblique kernel integrates to packet power on a plane",
+    "No glass delivers the entire parallel source to the sheet",
+    "Photon paths end at the actual finite receiver plane",
+    "Beer attenuation is measured over each real source-to-sheet distance",
+    "Actual prism moves the illuminated centroid below the straight source",
+    "Rotating prism recomputes the receiver centroid without old paths",
+    "Source zero removes receiving flux and incident field power",
+    "Removing the receiver restores longer paths and clears every hit",
+    "Opaque receiver before prism blocks source before any interface"
+  ],
+  "straightY": 1.0994370109144054,
+  "glassY": -1.4676425149950911,
+  "turnedY": 1.1430996478019637,
+  "glassFlux": 14.569105061135344,
+  "turnedFlux": 13.906313888834523,
+  "attenuatedFlux": 10.497601279641302,
+  "sourceFlux": 16,
+  "scope": "receiver transport / finite Gaussian surface estimate; full observer glass leg and multiple scattering pending"
+}

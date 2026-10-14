@@ -1,0 +1,86 @@
+/* T25.08: Apple HIG hierarchy/materials adapted to the existing black/gray radio. */
+.radio-heading h1 { font-size: 34px; letter-spacing: -.025em; }
+.music-catalog-shell { background: #141416; border: 0; }
+.music-library-sidebar { background: #19191c; }
+.music-catalog-content { padding: 32px; }
+.music-catalog-heading h2 { font-size: 30px; letter-spacing: -.02em; }
+.music-catalog-albums .album-artwork { border-radius: 12px; }
+.music-catalog-albums strong { margin-top: 4px; }
+.music-now-playing { border: 0; background: #252527eb; backdrop-filter: blur(20px); box-shadow: 0 12px 36px #0006; }
+.music-transport .music-play-button { width: 48px; height: 48px; }
+.music-transport button:not(:disabled):hover, .music-expand:hover, .music-room-back:hover { background: #ffffff12; }
+.music-transport .music-play-button:not(:disabled):hover { background: #fff; }
+.music-progress { font-size: 12px; }
+.music-progress > span { min-width: 38px; }
+.music-listening-room { width: min(1440px, calc(100% - 48px)); height: min(900px, calc(100dvh - 48px)); background: #101012; border: 0; border-radius: 16px; box-shadow: 0 24px 72px #0008; overflow: hidden; }
+.music-listening-room::backdrop { background: #000e; }
+.music-room-header { padding: 16px 24px; min-height: 72px; }
+.music-room-back { font-size: 14px; color: #e1e1e6; padding-inline: 12px; }
+.music-room-header > span { font-size: 12px; margin-right: 12px; color: #a1a1aa; }
+.music-room-body { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 64px; padding: 16px 48px 32px; overflow: hidden; }
+.music-room-turntable { display: flex; flex-direction: column; gap: 32px; min-height: 0; justify-content: center; }
+.music-room-info { max-height: none; overflow: visible; padding: 0 12px; }
+.music-room-info h2 { font-size: 28px; font-weight: 500; letter-spacing: -.025em; line-height: 1.3; margin-bottom: 10px; text-wrap: balance; }
+.music-room-artist { font-size: 15px; color: #b4b4bd; margin-bottom: 6px; }
+.music-room-album { font-size: 12px; color: #94949e; line-height: 1.6; }
+.music-lyrics { position: relative; height: 100%; min-height: 0; max-height: 620px; }
+.music-lyrics-scroll { height: 100%; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; mask-image: linear-gradient(transparent, #000 12%, #000 85%, transparent); outline-offset: -2px; }
+.music-lyrics-scroll::-webkit-scrollbar { display: none; }
+.music-lyrics-scroll:focus-visible { outline: 2px solid #8e8e98; border-radius: 8px; }
+.music-lyric-lines { list-style: none; margin: 0; padding: var(--lyrics-inset, 160px) 0 calc(var(--lyrics-inset, 160px) * 1.5); }
+.music-lyric-lines li { margin-bottom: 24px; }
+.music-lyric-lines button { display: block; border: 0; background: transparent; padding: 8px 4px; width: 100%; text-align: left; font-size: clamp(26px, 2.4vw, 34px); font-weight: 600; letter-spacing: -.02em; line-height: 1.5; color: #8e8e98; white-space: pre-line; overflow-wrap: anywhere; transition: color 220ms ease; }
+.music-lyric-lines button.is-current { color: #f5f5f7; }
+.music-lyric-lines button:not(:disabled):hover { color: #dcdce2; }
+.music-lyric-lines button:disabled { opacity: 1; cursor: default; }
+.music-lyric-break { display: block; letter-spacing: .25em; font-size: 22px; }
+.music-lyrics-empty { display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 16px; height: 100%; color: #a1a1aa; font-size: 18px; }
+.music-lyrics-empty p { margin: 0; }
+.music-plain-lyrics { padding: 48px 0; color: #b4b4bd; font-size: 24px; font-weight: 500; line-height: 1.8; white-space: pre-line; }
+.music-lyrics-note { font-size: 13px; font-weight: 400; color: #a1a1aa; }
+.music-room-footer { padding: 16px 48px 24px; gap: 32px; border-top-color: #ffffff08; background: #101012; }
+.music-room-current span { color: #a1a1aa; font-size: 12px; }
+.music-room-footer .music-playback-center { max-width: 480px; }
+.music-room-footer .music-transport { gap: 16px; }
+.music-room-footer .music-progress { margin-top: 8px; font-size: 12px; }
+@media (max-width: 1000px) and (min-width: 801px) {
+  .music-room-body { gap: 32px; padding-inline: 32px; }
+  .music-room-footer { padding-inline: 32px; }
+}
+@media (max-width: 800px) {
+  .music-listening-room { width: calc(100% - 24px); height: calc(100dvh - 24px); }
+  .music-room-header { padding: 8px 12px; min-height: 60px; }
+  .music-room-header > span { font-size: 11px; }
+  .music-room-body { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); gap: 24px; padding: 12px 24px 16px; overflow: hidden; }
+  .music-room-turntable { flex-direction: row; align-items: center; gap: 20px; justify-content: flex-start; }
+  .music-room-turntable .vinyl-turntable { width: 160px; flex: 0 0 160px; aspect-ratio: var(--scene-ratio); }
+  .music-room-turntable .turntable-sleeve { top: var(--jacket-top); bottom: auto; left: 0; width: var(--jacket-width); transform: rotate(-5deg); }
+  .music-room-turntable .turntable-platter, .music-room-turntable .turntable-arm-mount { width: 62%; right: 0; left: auto; }
+  .music-room-info { padding: 0; }
+  .music-room-info h2 { font-size: 22px; margin-bottom: 8px; }
+  .music-room-artist { font-size: 13px; }
+  .music-room-album { display: none; }
+  .music-lyric-lines button { font-size: 24px; }
+  .music-lyric-lines li { margin-bottom: 16px; }
+  .music-room-footer { grid-template-columns: minmax(0, 1fr) 100px; padding: 12px 24px 20px; gap: 16px; }
+  .music-room-footer .music-playback-center { max-width: none; }
+}
+@media (max-width: 600px) {
+  .music-catalog-content { padding: 24px 16px; }
+  .music-catalog-heading h2 { font-size: 28px; }
+  .music-room-header > span { display: none; }
+  .music-room-body { padding: 8px 20px 12px; gap: 20px; }
+  .music-room-turntable { gap: 16px; }
+  .music-room-turntable .vinyl-turntable { width: 136px; flex-basis: 136px; }
+  .music-room-info h2 { font-size: 20px; }
+  .music-room-footer { grid-template-columns: minmax(0, 1fr); padding: 12px 20px 20px; }
+  .music-room-footer > .music-volume { display: none; }
+  .music-now-playing .music-transport .music-play-button { width: 44px; height: 44px; }
+}
+@media (max-width: 360px) {
+  .music-room-turntable .vinyl-turntable { width: 110px; flex-basis: 110px; }
+  .music-room-info h2 { font-size: 18px; }
+  .music-lyric-lines button { font-size: 22px; }
+}
+@media (prefers-reduced-motion: reduce) { .music-lyric-lines button { transition: none; } }
+@media (prefers-reduced-transparency: reduce) { .music-now-playing { background: #252527; backdrop-filter: none; } }

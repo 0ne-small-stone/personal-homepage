@@ -1,0 +1,179 @@
+{
+  "date": "2026-10-13",
+  "scope": "51 prototype performance correction, not homepage integration",
+  "sourceFiles": {
+    "entry.js": {
+      "bytes": 4636,
+      "sha256": "e4579a63c3f602d106ec39d9920ba06dcf4d02f481cea952a779c5566ad7ddbe"
+    },
+    "index.html": {
+      "bytes": 1554,
+      "sha256": "09b9e5abfc6b75ca335ecc148ef953ec5bab3ff04e770302ab5734bece72df94"
+    },
+    "geometry.js": {
+      "bytes": 1369,
+      "sha256": "d93a2be87d29ee6235c0d861480e0661b84e10e68023284dab814adcf532b081"
+    },
+    "ray.js": {
+      "bytes": 6035,
+      "sha256": "6722b6f1944674460881dfe6a8a3d227dbdcffc0bbbca91dc0f93ae4adcbad54"
+    },
+    "beam-field.js": {
+      "bytes": 11465,
+      "sha256": "f25b4d8a217ba0484112d4a7e8b42780d746e41b362bc5b0f43f6910161ad093"
+    },
+    "receiver.js": {
+      "bytes": 4558,
+      "sha256": "129b0ff755f4274f333aea8e468c5243e7c2f55df292839f1f4238356d4224f3"
+    },
+    "white-entry.js": {
+      "bytes": 5917,
+      "sha256": "ad7a6dfb75c405becc8608581de0bf240968b5b396f5ca4a03c89d52978096ed"
+    },
+    "white.html": {
+      "bytes": 1707,
+      "sha256": "e6753ab696d1efca596a881d9d2ecb14a2c6e00ce38b1eab3b885de6d5ced0ba"
+    },
+    "check-white.mjs": {
+      "bytes": 2150,
+      "sha256": "fe0e31c86470d87cb31f9abdeca2dd9e2cc560543ec46002035e420729a32e8e"
+    },
+    "check-receiver.mjs": {
+      "bytes": 4697,
+      "sha256": "65e1f33fac6fe6a2c1ad9cc148baa5da95c5cba04404d73101cc06d63ed9fe0a"
+    },
+    "build.mjs": {
+      "bytes": 1116,
+      "sha256": "8b62042c305cca84f1f900dea507c2f3d29ee7629f8aa69d4a67d2c3929d6044"
+    },
+    "server.mjs": {
+      "bytes": 883,
+      "sha256": "1735bbd4c93a98d9d783008914a13fb1a31cdf35d455994a34c8c0ee71388c24"
+    },
+    "package.json": {
+      "bytes": 121,
+      "sha256": "faed77d4b76c9161ee8274853d2e52ddd82142a8170d7c3c8d82d9107a2e1ba4"
+    },
+    "package-lock.json": {
+      "bytes": 1662,
+      "sha256": "b665f7ba175728288c40c533a12b505b836c1c8030e171f926743d169a77064a"
+    },
+    "timing.js": {
+      "bytes": 3242,
+      "sha256": "917dbdea9f5653ee48ade552abe6817fe12a29aedbfe9741666d3488c58a96e9"
+    },
+    "render-scheduler.js": {
+      "bytes": 850,
+      "sha256": "85437354c3fc7f811d2e29f0d7f5a0f7b305bafd7c55d551bb707c48a346c07d"
+    },
+    "check-scheduler.mjs": {
+      "bytes": 5142,
+      "sha256": "1e7b25290c7446c84ff86913f9ae2d2011a0922e92ea543745f2237b3d7466db"
+    }
+  },
+  "bundle": {
+    "bytes": 1253062,
+    "sha256": "7bbdad9e842891caa85aebc40019139011b56ce99994a0881c70af25e517e334",
+    "committed": false
+  },
+  "applicationSourceChanged": false,
+  "rootDependenciesChangedByThisTask": false,
+  "images": {
+    "white-perf-baseline.jpg": {
+      "format": "jpeg",
+      "width": 1265,
+      "height": 712,
+      "bytes": 34993,
+      "sha256": "561fc1487a17896c6af9ebf4dd5a7c9176b6f14e4a61bda1a387b4cd69bdce54"
+    },
+    "white-perf-final-front-early.jpg": {
+      "format": "jpeg",
+      "width": 1265,
+      "height": 712,
+      "bytes": 35313,
+      "sha256": "6430b0f4726b987781087cad498d5f2fbdaae14bbe3990d748e1e23a2ea2cb0c"
+    },
+    "white-perf-final-front.jpg": {
+      "format": "jpeg",
+      "width": 1280,
+      "height": 720,
+      "bytes": 37587,
+      "sha256": "a1dc396565c01a6b2820e9af32b8a06dd91e9ce65aacf7c3bd5495a630b50997"
+    },
+    "white-perf-final-mobile.jpg": {
+      "format": "jpeg",
+      "width": 390,
+      "height": 844,
+      "bytes": 29265,
+      "sha256": "41e601128bfcd0744e9b40b23fa923e49ddce0d96e9b2a75b3132ab25968d7d0"
+    },
+    "white-perf-final-no-medium.jpg": {
+      "format": "jpeg",
+      "width": 1280,
+      "height": 720,
+      "bytes": 32538,
+      "sha256": "f413d02a6bc0d32176282ad698ec3f49759412b5256711e2e2649d0de1f5afa1"
+    },
+    "white-perf-final-no-source.jpg": {
+      "format": "jpeg",
+      "width": 1280,
+      "height": 720,
+      "bytes": 31793,
+      "sha256": "09ebcfd5a1399d643575838261c13230cad981c329b4f26b0bb55a80662d123e"
+    },
+    "white-perf-final-turned.jpg": {
+      "format": "jpeg",
+      "width": 1280,
+      "height": 720,
+      "bytes": 38207,
+      "sha256": "3d37e8020916f1e5c8367494c3ded9c4c17514e33968f733702d40e4b04141e9"
+    },
+    "white-perf-recurrence-only.jpg": {
+      "format": "jpeg",
+      "width": 1265,
+      "height": 712,
+      "bytes": 35102,
+      "sha256": "592155dc37bf1ea71c63bb972075beacd2fdaa616770971aec3174bb9c9ff330"
+    }
+  },
+  "sceneCropComparison": {
+    "performed": false,
+    "reason": "Actual baseline capture is 1265x712, final is 1280x720; diagnostic text initially triggered a scrollbar. Preserve originals without resizing/re-registration or claiming a pixel match."
+  },
+  "measurements": {
+    "browser": "actual Codex IAB",
+    "renderer": "ANGLE Intel Graphics Direct3D11",
+    "baselineStationaryGpuMs": [
+      173.23891524324327,
+      174.71518323333333
+    ],
+    "baselineJsSubmitMs": [
+      0.5966666666480402,
+      0.3983333333162591
+    ],
+    "baselineSourceRebuildMeanMs": 10.983333333279006,
+    "intervalFirst128GpuMs": 17.771614,
+    "finalReturnedFront128GpuMs": 22.148854,
+    "mobileLastGpuMs": 32.9,
+    "idleDrawsA": 22,
+    "idleDrawsB": 22
+  },
+  "checks": {
+    "schedulerAndMath": 10,
+    "physicalTransportRegression": 18
+  },
+  "parameters": {
+    "sourceSamples": 128,
+    "integrationSteps": 16,
+    "glassPlanes": 505,
+    "geometryAndPowerChanged": false
+  },
+  "limits": [
+    "initial compilation included in some averages",
+    "asynchronous timer may omit samples when three queries are pending",
+    "GPU measurements vary with shared GPU load",
+    "single desktop Intel driver path, not all devices or 60fps guarantee",
+    "CSS mobile viewport only, not real phone hardware",
+    "full glass observer refraction/spectrum/homepage still pending"
+  ]
+}

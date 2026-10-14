@@ -1,0 +1,1053 @@
+{
+  "sizes": [
+    {
+      "breakpoint": "phone",
+      "controls": [
+        {
+          "id": "photo-pick",
+          "inBounds": true
+        },
+        {
+          "id": "return",
+          "inBounds": true
+        },
+        {
+          "id": "view-photo",
+          "inBounds": true
+        },
+        {
+          "id": "zoom-out",
+          "inBounds": true
+        },
+        {
+          "id": "journey",
+          "inBounds": true
+        },
+        {
+          "id": "zoom-in",
+          "inBounds": true
+        },
+        {
+          "id": "enter",
+          "inBounds": true
+        }
+      ],
+      "filter": "none",
+      "fit": "contain",
+      "host": [
+        20,
+        112,
+        350,
+        502
+      ],
+      "radius": "315px",
+      "rotation": "0.0000,0.0000",
+      "selected": "",
+      "state": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "anchorPose": "-0.4722,-0.4727,10.2131",
+        "aspectError": "2.220e-16",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "315",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.462",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-free",
+        "view": "sphere"
+      },
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "breakpoint": "phone-short",
+      "controls": [
+        {
+          "id": "photo-pick",
+          "inBounds": true
+        },
+        {
+          "id": "return",
+          "inBounds": true
+        },
+        {
+          "id": "view-photo",
+          "inBounds": true
+        },
+        {
+          "id": "zoom-out",
+          "inBounds": true
+        },
+        {
+          "id": "journey",
+          "inBounds": true
+        },
+        {
+          "id": "zoom-in",
+          "inBounds": true
+        },
+        {
+          "id": "enter",
+          "inBounds": true
+        }
+      ],
+      "filter": "none",
+      "fit": "contain",
+      "host": [
+        20,
+        110,
+        280,
+        228
+      ],
+      "radius": "205px",
+      "rotation": "0.0000,0.0000",
+      "selected": "",
+      "state": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "anchorPose": "-0.4395,-0.4400,9.5065",
+        "aspectError": "0.000e+0",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "205",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.563",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-free",
+        "view": "sphere"
+      },
+      "viewport": [
+        320,
+        568
+      ]
+    },
+    {
+      "breakpoint": "landscape",
+      "controls": [
+        {
+          "id": "photo-pick",
+          "inBounds": true
+        },
+        {
+          "id": "return",
+          "inBounds": true
+        },
+        {
+          "id": "view-photo",
+          "inBounds": true
+        },
+        {
+          "id": "zoom-out",
+          "inBounds": true
+        },
+        {
+          "id": "journey",
+          "inBounds": true
+        },
+        {
+          "id": "zoom-in",
+          "inBounds": true
+        },
+        {
+          "id": "enter",
+          "inBounds": true
+        }
+      ],
+      "filter": "none",
+      "fit": "contain",
+      "host": [
+        28,
+        72,
+        788,
+        214
+      ],
+      "radius": "289px",
+      "rotation": "0.0000,0.0000",
+      "selected": "",
+      "state": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "anchorPose": "-0.2053,-0.2055,4.4411",
+        "aspectError": "2.220e-16",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "289",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "2.164",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-free",
+        "view": "sphere"
+      },
+      "viewport": [
+        844,
+        390
+      ]
+    },
+    {
+      "breakpoint": "tablet",
+      "controls": [
+        {
+          "id": "photo-pick",
+          "inBounds": true
+        },
+        {
+          "id": "return",
+          "inBounds": true
+        },
+        {
+          "id": "view-photo",
+          "inBounds": true
+        },
+        {
+          "id": "zoom-out",
+          "inBounds": true
+        },
+        {
+          "id": "journey",
+          "inBounds": true
+        },
+        {
+          "id": "zoom-in",
+          "inBounds": true
+        },
+        {
+          "id": "enter",
+          "inBounds": true
+        }
+      ],
+      "filter": "none",
+      "fit": "contain",
+      "host": [
+        28,
+        88,
+        712,
+        756
+      ],
+      "radius": "605px",
+      "rotation": "0.0000,0.0000",
+      "selected": "",
+      "state": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "anchorPose": "-0.1366,-0.1368,2.9553",
+        "aspectError": "0.000e+0",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "605",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.750",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-free",
+        "view": "sphere"
+      },
+      "viewport": [
+        768,
+        1024
+      ]
+    },
+    {
+      "breakpoint": "desktop",
+      "controls": [
+        {
+          "id": "photo-pick",
+          "inBounds": true
+        },
+        {
+          "id": "return",
+          "inBounds": true
+        },
+        {
+          "id": "view-photo",
+          "inBounds": true
+        },
+        {
+          "id": "zoom-out",
+          "inBounds": true
+        },
+        {
+          "id": "journey",
+          "inBounds": true
+        },
+        {
+          "id": "zoom-in",
+          "inBounds": true
+        },
+        {
+          "id": "enter",
+          "inBounds": true
+        }
+      ],
+      "filter": "none",
+      "fit": "contain",
+      "host": [
+        40,
+        95,
+        944,
+        513
+      ],
+      "radius": "693px",
+      "rotation": "0.0000,0.0000",
+      "selected": "",
+      "state": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "anchorPose": "-0.2126,-0.2129,4.5990",
+        "aspectError": "0.000e+0",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "693",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "1.333",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-free",
+        "view": "sphere"
+      },
+      "viewport": [
+        1024,
+        768
+      ]
+    },
+    {
+      "breakpoint": "desktop",
+      "controls": [
+        {
+          "id": "photo-pick",
+          "inBounds": true
+        },
+        {
+          "id": "return",
+          "inBounds": true
+        },
+        {
+          "id": "view-photo",
+          "inBounds": true
+        },
+        {
+          "id": "zoom-out",
+          "inBounds": true
+        },
+        {
+          "id": "journey",
+          "inBounds": true
+        },
+        {
+          "id": "zoom-in",
+          "inBounds": true
+        },
+        {
+          "id": "enter",
+          "inBounds": true
+        }
+      ],
+      "filter": "none",
+      "fit": "contain",
+      "host": [
+        40,
+        95,
+        1200,
+        465
+      ],
+      "radius": "628px",
+      "rotation": "0.0000,0.0000",
+      "selected": "",
+      "state": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "anchorPose": "-0.3156,-0.3160,6.8271",
+        "aspectError": "0.000e+0",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "628",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "1.778",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-free",
+        "view": "sphere"
+      },
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "breakpoint": "desktop",
+      "controls": [
+        {
+          "id": "photo-pick",
+          "inBounds": true
+        },
+        {
+          "id": "return",
+          "inBounds": true
+        },
+        {
+          "id": "view-photo",
+          "inBounds": true
+        },
+        {
+          "id": "zoom-out",
+          "inBounds": true
+        },
+        {
+          "id": "journey",
+          "inBounds": true
+        },
+        {
+          "id": "zoom-in",
+          "inBounds": true
+        },
+        {
+          "id": "enter",
+          "inBounds": true
+        }
+      ],
+      "filter": "none",
+      "fit": "contain",
+      "host": [
+        40,
+        95,
+        1840,
+        825
+      ],
+      "radius": "1114px",
+      "rotation": "0.0000,0.0000",
+      "selected": "",
+      "state": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "anchorPose": "-0.1686,-0.1688,3.6476",
+        "aspectError": "0.000e+0",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "1114",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "1.778",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-free",
+        "view": "sphere"
+      },
+      "viewport": [
+        1920,
+        1080
+      ]
+    }
+  ],
+  "selectedPhone": {
+    "breakpoint": "phone",
+    "controls": [
+      {
+        "id": "photo-pick",
+        "inBounds": true
+      },
+      {
+        "id": "return",
+        "inBounds": true
+      },
+      {
+        "id": "view-photo",
+        "inBounds": true
+      },
+      {
+        "id": "zoom-out",
+        "inBounds": true
+      },
+      {
+        "id": "journey",
+        "inBounds": true
+      },
+      {
+        "id": "zoom-in",
+        "inBounds": true
+      },
+      {
+        "id": "enter",
+        "inBounds": true
+      }
+    ],
+    "filter": "none",
+    "fit": "contain",
+    "host": [
+      20,
+      112,
+      350,
+      502
+    ],
+    "radius": "315px",
+    "rotation": "9.1670,9.1670",
+    "selected": "10",
+    "state": {
+      "actualCamera": "0.0000,0.0000,18.6000",
+      "anchorPose": "-1.5447,-0.9412,6.5677",
+      "aspectError": "2.220e-16",
+      "axes": "6.200,6.200,6.200",
+      "camera": "0.00,0.00,-45.00",
+      "distance": "-45.00",
+      "domeRadius": "315",
+      "flightVelocity": "0.0000",
+      "imageFit": "contain",
+      "layout": "react-bits-dome",
+      "layoutAspect": "0.462",
+      "orientation": "0.160,-0.160",
+      "pan": "0.00,0.00",
+      "portal": "0.0000,0.0000,0.0000",
+      "progress": "0.000",
+      "quaternion": "-0.07966,0.07966,-0.00639,0.99361",
+      "reduced": "false",
+      "rotationMode": "dome-free",
+      "view": "sphere"
+    },
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "spacePhone": {
+    "breakpoint": "phone",
+    "controls": [
+      {
+        "id": "photo-pick",
+        "inBounds": true
+      },
+      {
+        "id": "return",
+        "inBounds": true
+      },
+      {
+        "id": "view-photo",
+        "inBounds": true
+      },
+      {
+        "id": "zoom-out",
+        "inBounds": true
+      },
+      {
+        "id": "journey",
+        "inBounds": true
+      },
+      {
+        "id": "zoom-in",
+        "inBounds": true
+      },
+      {
+        "id": "enter",
+        "inBounds": true
+      }
+    ],
+    "filter": "none",
+    "fit": "contain",
+    "host": [
+      0,
+      0,
+      390,
+      844
+    ],
+    "radius": "315px",
+    "rotation": "9.1670,9.1670",
+    "selected": "10",
+    "state": {
+      "actualCamera": "-1.5671,0.6719,4.0285",
+      "anchorPose": "-1.5671,0.6719,5.9609",
+      "aspectError": "2.220e-16",
+      "axes": "6.200,6.200,6.200",
+      "camera": "0.00,0.00,-45.00",
+      "detail": "ready",
+      "distance": "-45.00",
+      "domeRadius": "315",
+      "fieldCount": "61",
+      "flightVelocity": "0.0000",
+      "imageFit": "contain",
+      "layout": "react-bits-dome",
+      "layoutAspect": "0.462",
+      "orientation": "0.160,-0.160",
+      "pan": "0.00,0.00",
+      "portal": "-1.5671,0.6719,5.9609",
+      "progress": "1.000",
+      "quaternion": "-0.07966,0.07966,-0.00639,0.99361",
+      "reduced": "false",
+      "regions": "21",
+      "rotationMode": "dome-free",
+      "view": "space"
+    },
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "spaceLandscape": {
+    "breakpoint": "phone",
+    "controls": [
+      {
+        "id": "photo-pick",
+        "inBounds": true
+      },
+      {
+        "id": "return",
+        "inBounds": true
+      },
+      {
+        "id": "view-photo",
+        "inBounds": true
+      },
+      {
+        "id": "zoom-out",
+        "inBounds": true
+      },
+      {
+        "id": "journey",
+        "inBounds": true
+      },
+      {
+        "id": "zoom-in",
+        "inBounds": true
+      },
+      {
+        "id": "enter",
+        "inBounds": true
+      }
+    ],
+    "filter": "none",
+    "fit": "contain",
+    "host": [
+      0,
+      0,
+      844,
+      390
+    ],
+    "radius": "315px",
+    "rotation": "9.1670,9.1670",
+    "selected": "10",
+    "state": {
+      "actualCamera": "-1.5671,0.6719,4.0285",
+      "anchorPose": "-1.5671,0.6719,5.9609",
+      "aspectError": "2.220e-16",
+      "axes": "6.200,6.200,6.200",
+      "camera": "0.00,0.00,-45.00",
+      "detail": "ready",
+      "distance": "-45.00",
+      "domeRadius": "315",
+      "fieldCount": "135",
+      "flightVelocity": "0.0000",
+      "imageFit": "contain",
+      "layout": "react-bits-dome",
+      "layoutAspect": "2.164",
+      "orientation": "0.160,-0.160",
+      "pan": "0.00,0.00",
+      "portal": "-1.5671,0.6719,5.9609",
+      "progress": "1.000",
+      "quaternion": "-0.07966,0.07966,-0.00639,0.99361",
+      "reduced": "false",
+      "regions": "46",
+      "rotationMode": "dome-free",
+      "view": "space"
+    },
+    "viewport": [
+      844,
+      390
+    ]
+  },
+  "returnedLandscape": {
+    "breakpoint": "landscape",
+    "controls": [
+      {
+        "id": "photo-pick",
+        "inBounds": true
+      },
+      {
+        "id": "return",
+        "inBounds": true
+      },
+      {
+        "id": "view-photo",
+        "inBounds": true
+      },
+      {
+        "id": "zoom-out",
+        "inBounds": true
+      },
+      {
+        "id": "journey",
+        "inBounds": true
+      },
+      {
+        "id": "zoom-in",
+        "inBounds": true
+      },
+      {
+        "id": "enter",
+        "inBounds": true
+      }
+    ],
+    "filter": "none",
+    "fit": "contain",
+    "host": [
+      28,
+      72,
+      788,
+      214
+    ],
+    "radius": "289px",
+    "rotation": "9.1670,9.1670",
+    "selected": "10",
+    "state": {
+      "actualCamera": "0.0000,0.0000,18.6000",
+      "anchorPose": "-1.7080,0.7323,6.4972",
+      "aspectError": "2.220e-16",
+      "axes": "6.200,6.200,6.200",
+      "camera": "0.00,0.00,-45.00",
+      "detail": "ready",
+      "distance": "-45.00",
+      "domeRadius": "289",
+      "fieldCount": "149",
+      "flightVelocity": "0.0000",
+      "imageFit": "contain",
+      "layout": "react-bits-dome",
+      "layoutAspect": "2.164",
+      "orientation": "0.160,-0.160",
+      "pan": "0.00,0.00",
+      "portal": "-1.5671,0.6719,5.9609",
+      "progress": "0.000",
+      "quaternion": "-0.07966,0.07966,-0.00639,0.99361",
+      "reduced": "false",
+      "regions": "51",
+      "rotationMode": "dome-free",
+      "view": "sphere"
+    },
+    "viewport": [
+      844,
+      390
+    ]
+  },
+  "smallFinal": {
+    "breakpoint": "phone-short",
+    "controls": [
+      {
+        "id": "photo-pick",
+        "inBounds": true
+      },
+      {
+        "id": "return",
+        "inBounds": true
+      },
+      {
+        "id": "view-photo",
+        "inBounds": true
+      },
+      {
+        "id": "zoom-out",
+        "inBounds": true
+      },
+      {
+        "id": "journey",
+        "inBounds": true
+      },
+      {
+        "id": "zoom-in",
+        "inBounds": true
+      },
+      {
+        "id": "enter",
+        "inBounds": true
+      }
+    ],
+    "filter": "none",
+    "fit": "contain",
+    "host": [
+      20,
+      110,
+      280,
+      228
+    ],
+    "radius": "205px",
+    "rotation": "9.1670,9.1670",
+    "selected": "10",
+    "state": {
+      "actualCamera": "0.0000,0.0000,18.6000",
+      "anchorPose": "-2.2092,0.9472,8.4035",
+      "aspectError": "0.000e+0",
+      "axes": "6.200,6.200,6.200",
+      "camera": "0.00,0.00,-45.00",
+      "detail": "ready",
+      "distance": "-45.00",
+      "domeRadius": "205",
+      "fieldCount": "149",
+      "flightVelocity": "0.0000",
+      "imageFit": "contain",
+      "layout": "react-bits-dome",
+      "layoutAspect": "0.563",
+      "orientation": "0.160,-0.160",
+      "pan": "0.00,0.00",
+      "portal": "-1.5671,0.6719,5.9609",
+      "progress": "0.000",
+      "quaternion": "-0.07966,0.07966,-0.00639,0.99361",
+      "reduced": "false",
+      "regions": "51",
+      "rotationMode": "dome-free",
+      "view": "sphere"
+    },
+    "viewport": [
+      320,
+      568
+    ]
+  },
+  "phoneFinal": {
+    "breakpoint": "phone",
+    "controls": [
+      {
+        "id": "photo-pick",
+        "inBounds": true
+      },
+      {
+        "id": "return",
+        "inBounds": true
+      },
+      {
+        "id": "view-photo",
+        "inBounds": true
+      },
+      {
+        "id": "zoom-out",
+        "inBounds": true
+      },
+      {
+        "id": "journey",
+        "inBounds": true
+      },
+      {
+        "id": "zoom-in",
+        "inBounds": true
+      },
+      {
+        "id": "enter",
+        "inBounds": true
+      }
+    ],
+    "filter": "none",
+    "fit": "contain",
+    "host": [
+      20,
+      112,
+      350,
+      502
+    ],
+    "radius": "315px",
+    "rotation": "9.1670,9.1670",
+    "selected": "10",
+    "state": {
+      "actualCamera": "0.0000,0.0000,18.6000",
+      "anchorPose": "-1.1279,0.4836,4.2903",
+      "aspectError": "2.220e-16",
+      "axes": "6.200,6.200,6.200",
+      "camera": "0.00,0.00,-45.00",
+      "detail": "ready",
+      "distance": "-45.00",
+      "domeRadius": "315",
+      "fieldCount": "149",
+      "flightVelocity": "0.0000",
+      "imageFit": "contain",
+      "layout": "react-bits-dome",
+      "layoutAspect": "0.462",
+      "orientation": "0.160,-0.160",
+      "pan": "0.00,0.00",
+      "portal": "-1.5671,0.6719,5.9609",
+      "progress": "0.000",
+      "quaternion": "-0.07966,0.07966,-0.00639,0.99361",
+      "reduced": "false",
+      "regions": "51",
+      "rotationMode": "dome-free",
+      "view": "sphere"
+    },
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "desktopSpace": {
+    "dome": {
+      "breakpoint": "desktop",
+      "rotation": "0.0000,0.0000"
+    },
+    "filter": "none",
+    "fit": "contain",
+    "host": [
+      0,
+      0,
+      1280,
+      720
+    ],
+    "radius": "628px",
+    "state": {
+      "actualCamera": "-0.2860,-0.2863,4.3590",
+      "anchorPose": "-0.2860,-0.2863,6.1868",
+      "aspectError": "2.220e-16",
+      "axes": "6.200,6.200,6.200",
+      "camera": "0.00,0.00,-45.00",
+      "detail": "ready",
+      "distance": "-45.00",
+      "domeRadius": "628",
+      "fieldCount": "119",
+      "flightVelocity": "0.0000",
+      "imageFit": "contain",
+      "layout": "react-bits-dome",
+      "layoutAspect": "1.778",
+      "orientation": "0.000,0.000",
+      "pan": "0.00,0.00",
+      "portal": "-0.2860,-0.2863,6.1868",
+      "progress": "1.000",
+      "quaternion": "0.00000,0.00000,0.00000,1.00000",
+      "reduced": "false",
+      "regions": "40",
+      "rotationMode": "dome-free",
+      "view": "space"
+    },
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  "desktopFlight": {
+    "dome": {
+      "breakpoint": "desktop",
+      "rotation": "0.0000,0.0000"
+    },
+    "filter": "none",
+    "fit": "contain",
+    "host": [
+      0,
+      0,
+      1280,
+      720
+    ],
+    "radius": "628px",
+    "state": {
+      "actualCamera": "-0.2860,-0.2863,4.3547",
+      "anchorPose": "-0.2860,-0.2863,6.1868",
+      "aspectError": "2.220e-16",
+      "axes": "6.200,6.200,6.200",
+      "camera": "0.00,0.00,-45.11",
+      "detail": "ready",
+      "distance": "-45.11",
+      "domeRadius": "628",
+      "fieldCount": "119",
+      "flightVelocity": "-0.2117",
+      "imageFit": "contain",
+      "layout": "react-bits-dome",
+      "layoutAspect": "1.778",
+      "orientation": "0.000,0.000",
+      "pan": "0.00,0.00",
+      "portal": "-0.2860,-0.2863,6.1868",
+      "progress": "1.000",
+      "quaternion": "0.00000,0.00000,0.00000,1.00000",
+      "reduced": "false",
+      "regions": "40",
+      "rotationMode": "dome-free",
+      "view": "space"
+    },
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  "desktopReturn": {
+    "dome": {
+      "breakpoint": "desktop",
+      "rotation": "0.0000,0.0000"
+    },
+    "filter": "none",
+    "fit": "contain",
+    "host": [
+      40,
+      95,
+      1200,
+      465
+    ],
+    "radius": "628px",
+    "state": {
+      "actualCamera": "0.0000,0.0000,18.6000",
+      "anchorPose": "-0.2860,-0.2863,6.1868",
+      "aspectError": "0.000e+0",
+      "axes": "6.200,6.200,6.200",
+      "camera": "0.00,0.00,-67.35",
+      "detail": "ready",
+      "distance": "-45.00",
+      "domeRadius": "628",
+      "fieldCount": "135",
+      "flightVelocity": "0.0000",
+      "imageFit": "contain",
+      "layout": "react-bits-dome",
+      "layoutAspect": "1.778",
+      "orientation": "0.000,0.000",
+      "pan": "0.00,0.00",
+      "portal": "-0.2860,-0.2863,6.1868",
+      "progress": "0.000",
+      "quaternion": "0.00000,0.00000,0.00000,1.00000",
+      "reduced": "false",
+      "regions": "47",
+      "rotationMode": "dome-free",
+      "view": "sphere"
+    },
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  "logs": {
+    "desktop": [],
+    "responsive": []
+  },
+  "initialIssues": [
+    "首次尺寸读取使用iframe的contentDocument，当前只读作用域不暴露它；改用框架内元素ownerDocument读取。",
+    "选择原版看图后立即按Esc落在原组件250ms防误触期，关闭等待超时；稳定后再按Esc关闭通过。"
+  ]
+}

@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { introGap, workCount, motionRange, MotionLerper, type MotionChannel } from './works-motion';
 import type { JourneyModel } from './scene-state';
+import { wallReadingReady } from './wall-assembly';
 
 export function installWorksMotion(model: JourneyModel) {
   gsap.registerPlugin(ScrollTrigger);
@@ -10,6 +11,7 @@ export function installWorksMotion(model: JourneyModel) {
   const sections = [...document.querySelectorAll<HTMLElement>('[data-work-item]')];
   const hero = document.querySelector<HTMLElement>('#intro .home-chapter-viewport')!;
   const identityFallback = document.querySelector<HTMLAnchorElement>('.home-chapter-index a[href="#intro"]')!;
+  const wallContent=document.querySelector<HTMLElement>('#wall .home-chapter-content')!;
   const controller = new AbortController();
   const timelines = new Map<number, gsap.core.Timeline>();
   const headings = sections.map(section => section.querySelector<HTMLHeadingElement>('h2')!);
@@ -88,7 +90,7 @@ export function installWorksMotion(model: JourneyModel) {
     body.style.setProperty('--journey-height', `${innerHeight}px`);
   };
   measure(); sections.forEach((_, index) => hide(index, true));
-  const channels: MotionChannel[] = ['kv', 'intro', 'works', 'event', 'snap', 'outro', 'wall'];
+  const channels: MotionChannel[] = ['kv', 'intro', 'works', 'event', 'snap', 'outro', 'prepare', 'expand', 'wall'];
   const triggers = channels.map(channel => ScrollTrigger.create({
     id: `lssh-${channel}`, start: () => motionRange(channel, model.motion.height)[0],
     end: () => motionRange(channel, model.motion.height)[1],
@@ -108,11 +110,13 @@ export function installWorksMotion(model: JourneyModel) {
   });
   const disconnect = lenis.on('scroll', () => ScrollTrigger.update());
   const progress = new MotionLerper(1), center = new MotionLerper(.5), background = new MotionLerper(.7), title = new MotionLerper(.3);
-  const allLerpers = [progress, center, background, title];
+  const prepare = new MotionLerper(.5), expand = new MotionLerper(1), wall = new MotionLerper(1.5);
+  const allLerpers = [progress, center, background, title, prepare, expand, wall];
   let pendingFocus: string | undefined;
+  let portalMode = false;
   const phaseAt = (s: number) => {
     const h = model.motion.height;
-    return s <= introGap ? 'kv' : s < h + introGap ? 'works_intro' : s < (workCount + 1) * h + introGap ? 'works' : s < (workCount + 2.5) * h + introGap ? 'works_outro' : 'wall';
+    return s <= introGap ? 'kv' : s < h + introGap ? 'works_intro' : s < (workCount + 1) * h + introGap ? 'works' : s < (workCount + 2.5) * h + introGap ? 'works_outro' : s < motionRange('wall', h)[0] ? 'portal' : 'wall';
   };
   const centeredIndex = (p: number) => {
     const o = (workCount + 1) * p, rounded = Math.round(o + Number.EPSILON * 8);
@@ -127,7 +131,11 @@ export function installWorksMotion(model: JourneyModel) {
     }
     const p = model.motion.raw.works, u = centeredIndex(p);
     progress.reset(p); center.reset(u); background.reset(p); title.reset(model.motion.raw.intro);
-    model.motion.rendered = { progress: p, index: u, background: p * (workCount + 1), intro: model.motion.raw.intro };
+    prepare.reset(model.motion.raw.prepare); expand.reset(model.motion.raw.expand); wall.reset(model.motion.raw.wall);
+    model.motion.portalCovered = model.motion.raw.expand === 1;
+    model.motion.portal = null;
+    model.motion.rendered = { progress: p, index: u, background: p * (workCount + 1), intro: model.motion.raw.intro,
+      prepare: model.motion.raw.prepare, expand: model.motion.raw.expand, wall: model.motion.raw.wall };
     model.motion.scrollY = s; model.motion.phase = phaseAt(s); model.motion.snapActive = false;
     model.motion.initialization = { revision: model.motion.initialization.revision + 1, y: s, zoom: s <= introGap ? 1 : 0, reason };
     sections.forEach((_, index) => hide(index, true));
@@ -142,14 +150,20 @@ export function installWorksMotion(model: JourneyModel) {
     const h = model.motion.height, s = scrollY;
     model.motion.phase = phaseAt(s);
     const p = progress.read(model.motion.raw.works);
+    const renderedWall = wall.read(model.motion.portalCovered ? model.motion.raw.wall : 0);
+    const renderedExpand = expand.read(renderedWall > .001 ? 1 : model.motion.raw.expand);
     // Stabilize the exact half index after N=6 → N=4 floating point conversion.
     // The 8-ULP tie tolerance is far smaller than a physical scroll pixel.
     model.motion.rendered = { progress: p, index: center.read(centeredIndex(p)),
-      background: background.read(model.motion.raw.works) * (workCount + 1), intro: title.read(model.motion.raw.intro) };
+      background: background.read(model.motion.raw.works) * (workCount + 1), intro: title.read(model.motion.raw.intro),
+      prepare: prepare.read(model.motion.raw.prepare), expand: renderedExpand, wall: renderedWall };
+    const nextPortalMode = model.motion.raw.prepare > 0;
+    if (nextPortalMode && !portalMode) sections.forEach((_, index) => hide(index, true));
+    portalMode = nextPortalMode;
     // ScrollTrigger uses numeric 0 after completion/interruption, not only undefined.
     const snapTween = triggers[4].getTween(true);
     model.motion.snapActive = Boolean(snapTween && snapTween.isActive());
-    // Legacy progress now only fades the intro backdrop; wall/glass use raw.wall.
+    // Legacy progress fades the intro only; assembly consumes shared rendered state.
     model.progress = s < h + introGap ? model.motion.raw.intro : 1;
     const identityProgress = Math.max(0, Math.min(1, s / introGap));
     const identityHidden = s >= introGap;
@@ -162,7 +176,12 @@ export function installWorksMotion(model: JourneyModel) {
     else hero.removeAttribute('aria-hidden');
     const current = s < h + introGap ? 0 : model.motion.activeItem >= 0 ? model.motion.activeItem + 1 : Math.min(4, Math.max(1, Math.round(model.motion.rendered.index)));
     body.dataset.chapter = s >= motionRange('wall', h)[0] ? 'wall' : s < h + introGap ? 'intro' : sections[Math.max(0, current - 1)]?.id || 'projects';
-    body.classList.toggle('home-on-wall', model.motion.raw.wall > .98);
+    const onWall = wallReadingReady(renderedExpand,renderedWall,model.motion.portalCovered);
+    body.classList.toggle('home-wall-ready',onWall);
+    wallContent.inert=!onWall;
+    if(onWall)wallContent.removeAttribute('aria-hidden');else wallContent.setAttribute('aria-hidden','true');
+    body.classList.toggle('home-portal-cover', (nextPortalMode || model.motion.rendered.prepare > .001) && !onWall);
+    body.classList.toggle('home-on-wall', onWall);
     document.querySelectorAll('.home-chapter-index a').forEach((link, index) => index === (body.dataset.chapter === 'wall' ? 5 : current) ? link.setAttribute('aria-current', 'location') : link.removeAttribute('aria-current'));
   };
   model.afterFrame = dt => {
@@ -174,9 +193,21 @@ export function installWorksMotion(model: JourneyModel) {
       document.dispatchEvent(new CustomEvent('lssh:home-restored', { detail: { ...model.motion.initialization, focusOrigin } }));
     }
     // Optional read-only diagnostics: browser tests subscribe; no product controls or text.
-    if (document.documentElement.dataset.motionDiagnostics === 'true')
-      document.dispatchEvent(new CustomEvent('lssh:motion', { detail: { ...structuredClone(model.motion),
-        lerpers: { progress: progress.snapshot(), index: center.snapshot(), background: background.snapshot(), intro: title.snapshot() } } }));
+    if (document.documentElement.dataset.motionDiagnostics === 'true') {
+      const snapshot = { ...structuredClone(model.motion), lerpers: {
+        progress: progress.snapshot(), index: center.snapshot(), background: background.snapshot(), intro: title.snapshot(),
+        prepare: prepare.snapshot(), expand: expand.snapshot(), wall: wall.snapshot(),
+      } };
+      // Opt-in inspection only: browser validation reads the latest event sample
+      // without adding a second clock or mutating motion through page scripts.
+      (window as Window & { __lsshHomeMotion?: unknown }).__lsshHomeMotion = snapshot;
+      if (model.motion.frame % 3 === 0) body.dataset.homeMotionSample = JSON.stringify({
+        frame: snapshot.frame, scrollY: snapshot.scrollY, phase: snapshot.phase,
+        raw: snapshot.raw, rendered: snapshot.rendered, portal: snapshot.portal, portalCovered: snapshot.portalCovered,
+        wall: snapshot.wall, glass: snapshot.glass, initialization: snapshot.initialization,
+      });
+      document.dispatchEvent(new CustomEvent('lssh:motion', { detail: snapshot }));
+    }
     allLerpers.forEach(lerper => lerper.update(dt));
   };
   function abortSnap() {
@@ -195,8 +226,10 @@ export function installWorksMotion(model: JourneyModel) {
     const target = document.getElementById(url.hash.slice(1)); if (!target) return;
     event.preventDefault(); abortSnap();
     lenis.scrollTo(target.offsetTop, { duration: 1.2, easing: t => Math.min(1, 1.001 - 2 ** (-10 * t)) });
-    history.replaceState(history.state, '', url.hash);
-  }, { signal: controller.signal });
+    const chapterHistory={...history.state};delete chapterHistory.lsshHome;
+    history.replaceState(chapterHistory, '', url.hash);
+  // Own same-page chapter links before Astro's bubble-phase route handler.
+  }, { signal: controller.signal,capture:true });
   document.addEventListener('focusin', event => {
     const section = event.target instanceof Element ? event.target.closest<HTMLElement>('[data-work-item]') : null;
     if (!section) return; const index = sections.indexOf(section);
@@ -215,6 +248,10 @@ export function installWorksMotion(model: JourneyModel) {
     model.drive = undefined; model.afterFrame = undefined;
     controller.abort(); disconnect(); triggers.forEach(trigger => trigger.kill()); lenis.destroy();
     delete body.dataset.homeMotion;
+    delete body.dataset.homeMotionSample;
+    delete (window as Window & { __lsshHomeMotion?: unknown }).__lsshHomeMotion;
+    body.classList.remove('home-portal-cover', 'home-on-wall','home-wall-ready');
+    wallContent.inert=false;wallContent.removeAttribute('aria-hidden');
     timelines.forEach(timeline => timeline.kill());
     sections.forEach((section, index) => {
       section.inert = false; section.removeAttribute('aria-hidden'); delete section.dataset.workActive; delete section.dataset.workVisible;

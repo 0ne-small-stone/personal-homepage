@@ -6,7 +6,7 @@
 
 - 仓库名为 `personal-homepage`，默认分支为 `main`，用于个人主页代码、允许公开的内容与项目文档。
 - 采用公开仓库，配合已选择的 GitHub Pages 与低成本路线。公开仓库的文件和历史均可被读取；网站的 `draft` 字段不能隐藏仓库中的私密草稿。[Pages 使用条件](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages)
-- 本地 `大二上学习资源/` 完整保留且不上传；发布资料时另行核对公开范围、许可与大小，选择派生文件或外部地址。
+- 本地 `大二上学习资源/`、`图片/` 原件完整保留且不上传；公开选用经过登记的派生文件或外部地址。原型、公开附件、音乐音源与本机运行工具分别记录真实接入和许可。
 - 已开始搭建 Astro 网站工程；具体功能与验收以两侧 PLAN 的真实证据为准。模板、账号登录和 Pages 设置均不能作为网站全部功能完成的证据。
 - 不自动为整仓库添加 MIT 等通用许可证。代码、正文、照片、教材与第三方素材分别记录使用条件，采用资源时在设计或技术参考文档保留来源和许可。
 
@@ -53,7 +53,7 @@ personal-homepage/
 | `public/` | 必须原样公开的静态文件；进入前核对许可和公开范围 |
 | 根 `package.json` 与锁文件 | 网站依赖及 dev/check/build/preview 四个真实命令 |
 
-`node_modules/`、`dist/`、`.astro/`、`.ci-tmp/`、`.local-tools/` 为本地产物或工具目录，不提交。真实功能需要时再建立目录，避免提前建立空数据库、服务端工程或多套主题。
+`node_modules/`、`dist/`、`.astro/`、`.ci-tmp/`、`.local-tools/`、`public/local-materials/` 为本地产物、私有运行状态或预览附件目录，不提交。不得把本机 DPAPI 登录、短期音源索引、音频或上传授权纳入源码、证据或静态产物。真实功能需要时再建立目录，避免提前建立空数据库、服务端工程或多套主题。
 
 设计与技术继续对应维护 `SPEC.md`、`PLAN.md`、`REFERENCES.md`。设计的 `CONCEPT.md`、`SYSTEM.md` 各自维护空间动作与统一参数；技术的 `GITHUB_WORKFLOW.md` 维护实际流水线。本规范只管理仓库，不另写一套页面设计或数据方案。
 

@@ -1,0 +1,59 @@
+{
+  "Url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1",
+  "Bundle": "HomeJourney.BZgdJJ3A.js",
+  "Bytes": 1168425,
+  "SHA256": "0A8C2C93C242DFE1963CB479CAF18C251EE809CF024DCA448DF1094C05821799",
+  "PreviewPid": 48456,
+  "Check": "103 files, zero diagnostics",
+  "Build": "15 pages and Pagefind",
+  "Tests": "5/5",
+  "Status": "Frozen, pending independent targeted confirmation",
+  "Committed": false,
+  "Deployed": false,
+  "SourceHashes": [
+    {
+      "Path": "src/components/home/GlassPortalShape.ts",
+      "SHA256": "287FC33A67B00E15FEED778C641E3DCBA1DC12BF6F411C741AE081F9F2992E0E"
+    },
+    {
+      "Path": "src/components/home/prism-geometry.ts",
+      "SHA256": "42C37A53C86B8A4D10D5F1B5C25B5C6FB8D0F193FFE8A13BB6CD7A907E906DAC"
+    },
+    {
+      "Path": "src/components/home/GlassGlow.ts",
+      "SHA256": "37545DF1E9EB708EAD5D3EBA2BCE732A4FF494EA065B06A9BFEB148449F48FD5"
+    },
+    {
+      "Path": "src/components/home/GlassTriangle.tsx",
+      "SHA256": "4DED63F9AC838419F6EA106A2452EAACFAEA8418EA3CD4253FDAAD6CF916CCA4"
+    },
+    {
+      "Path": "src/components/home/GlassEdgeLight.tsx",
+      "SHA256": "5E26C98E038A1A459CD2AA02BCA207DCD198BBDB78642640A287DEC7DFFC1CB5"
+    },
+    {
+      "Path": "src/components/home/GlassRenderLayer.tsx",
+      "SHA256": "8EA1357A8F03CACF67E0705487E84EAB6505B30C890BEC9157362A4D029F6964"
+    },
+    {
+      "Path": "src/components/home/WallPortal.ts",
+      "SHA256": "34D82A853957FD76ACE7D1EE70D133A6D639546B3F7A5AA378D55650D8646EF1"
+    },
+    {
+      "Path": "src/components/home/wall-portal-geometry.ts",
+      "SHA256": "E909D5F194B8C13B01C763E7C2A542D7EAE276A5598F8ABACE96B2C57CC64381"
+    },
+    {
+      "Path": "src/components/home/home-motion.ts",
+      "SHA256": "ECD27EB14B49E9C097AA8AFB94AF21CF2DE53518F5C7BCC71FE884CF4F648DB3"
+    },
+    {
+      "Path": "src/components/home/works-motion.ts",
+      "SHA256": "F7041EF6F575657C11AC31CE329BD3B0DF10FCC932C303FC8AFE8CF1E75EFE1E"
+    },
+    {
+      "Path": "tests/home-motion-ranges.test.mjs",
+      "SHA256": "FFA1C156260E4132022C0768CB3921A7D2CD3A93DDEBDB5B118ECA54F2F98961"
+    }
+  ]
+}

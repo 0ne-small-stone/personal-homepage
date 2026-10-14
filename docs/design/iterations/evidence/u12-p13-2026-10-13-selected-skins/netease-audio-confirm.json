@@ -1,0 +1,79 @@
+{
+  "checks": [
+    {
+      "name": "public album image decodes; no autoplay",
+      "passed": true
+    },
+    {
+      "name": "sleeve starts real official NetEase audio and animation",
+      "passed": true,
+      "evidence": {
+        "time": 0.823867,
+        "duration": 1618.334966,
+        "error": null,
+        "readyState": 4
+      }
+    },
+    {
+      "name": "sleeve pause/resume and keyboard seek are real",
+      "passed": true,
+      "evidence": {
+        "time": 162.051896,
+        "duration": 1618.334966
+      }
+    },
+    {
+      "name": "official fallback pauses own media and closes with focus",
+      "passed": true
+    },
+    {
+      "name": "source switching stops real NetEase media",
+      "passed": true
+    },
+    {
+      "name": "mobile native player and reduced motion",
+      "passed": true
+    },
+    {
+      "name": "runtime and real audio MIME",
+      "passed": true,
+      "evidence": [
+        {
+          "status": 206,
+          "mime": "audio/mpeg",
+          "host": "m801.music.126.net"
+        },
+        {
+          "status": 206,
+          "mime": "audio/flac",
+          "host": "127.0.0.1"
+        },
+        {
+          "status": 206,
+          "mime": "audio/mpeg",
+          "host": "m701.music.126.net"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "media": [
+    {
+      "status": 206,
+      "mime": "audio/mpeg",
+      "host": "m801.music.126.net"
+    },
+    {
+      "status": 206,
+      "mime": "audio/flac",
+      "host": "127.0.0.1"
+    },
+    {
+      "status": 206,
+      "mime": "audio/mpeg",
+      "host": "m701.music.126.net"
+    }
+  ],
+  "passed": 7,
+  "failed": 0
+}

@@ -1,0 +1,48 @@
+.single-viewer{--pswp-bg:#000;--pswp-icon-color:#ededed;--pswp-icon-color-secondary:#000;--pswp-icon-stroke-color:#000;z-index:2000;font-family:inherit}
+.single-viewer.is-opening{opacity:0!important;pointer-events:none}
+.single-viewer .pswp__top-bar,.single-viewer .pswp__button--arrow,.single-viewer .viewer-rail,.single-viewer .viewer-caption{transition:opacity 140ms ease-out}
+.single-viewer.is-ui-idle{cursor:none}
+.single-viewer.is-ui-idle .pswp__img{cursor:none}
+.single-viewer.is-ui-idle .pswp__top-bar,.single-viewer.is-ui-idle .pswp__button--arrow,.single-viewer.is-ui-idle .viewer-rail,.single-viewer.is-ui-idle .viewer-caption{opacity:0!important;pointer-events:none;transition-duration:240ms}
+.single-viewer[data-reduced="true"] .pswp__top-bar,.single-viewer[data-reduced="true"] .pswp__button--arrow,.single-viewer[data-reduced="true"] .viewer-rail,.single-viewer[data-reduced="true"] .viewer-caption{transition-duration:0ms}
+.single-viewer .pswp__top-bar{top:26px;right:32px;left:auto;width:auto;height:44px;gap:8px;padding:0}
+.single-viewer .pswp__button{width:44px;height:44px;min-height:44px;padding:0;margin:0;border:1px solid #444;border-radius:50%;background:#000;color:#ededed;box-shadow:none;opacity:1}
+.single-viewer .pswp__button:hover{background:#1f1f1f}
+.single-viewer .pswp__button:focus-visible,.viewer-thumb:focus-visible{outline:2px solid #ededed;outline-offset:3px}
+.single-viewer .pswp__button .pswp__icn{width:24px;height:24px;top:10px;left:10px;color:var(--pswp-icon-color)}
+.single-viewer .pswp__button--arrow .pswp__icn{margin-top:0}
+.single-viewer .pswp__button--arrow{visibility:visible}
+.single-viewer .pswp__button--fit{width:auto;border-radius:99px;padding-inline:16px;font-size:13px;white-space:nowrap}
+.single-viewer .pswp__button--arrow--prev{left:28px;top:50%;margin-top:-22px}
+.single-viewer .pswp__button--arrow--next{right:28px;top:50%;margin-top:-22px}
+.single-viewer .pswp__preloader{display:none}
+.viewer-rail{position:absolute;top:24px;left:40px;right:248px;height:72px;display:flex;gap:10px;align-items:center;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;overscroll-behavior:contain;padding:4px}
+.viewer-rail::-webkit-scrollbar{display:none}
+.viewer-thumb{flex:0 0 52px;width:52px;height:64px;min-height:44px;border:1px solid #333;border-radius:12px;padding:3px;background:#000;opacity:.55;transition:opacity .15s,border-color .15s}
+.viewer-thumb[aria-current="true"]{border-color:#ededed;opacity:1;background:#111}
+.viewer-thumb:hover{opacity:1}
+.viewer-thumb img{display:block;width:100%;height:100%;object-fit:contain;border-radius:8px;pointer-events:none}
+.viewer-caption{position:absolute;bottom:28px;left:40px;right:40px;display:flex;align-items:center;justify-content:space-between;gap:24px;font-size:13px;line-height:1.5;color:#a1a1a1;pointer-events:none}
+.viewer-caption-title{color:#ededed}.viewer-zoom{font-variant-numeric:tabular-nums;min-width:4ch;text-align:right}
+.viewer-portal{position:fixed;inset:0;z-index:2001;pointer-events:none;overflow:hidden}
+.viewer-portal-backdrop{position:absolute;inset:0;background:#000}
+.viewer-portal-photo{position:absolute;left:0;top:0;display:block;max-width:none;object-fit:contain;transform-origin:0 0;will-change:transform,opacity}
+@media(max-width:650px){
+  .single-viewer .pswp__top-bar{top:16px;right:16px}
+  .viewer-rail{top:66px;left:12px;right:12px;height:52px;gap:8px}
+  .viewer-thumb{flex-basis:44px;width:44px;height:48px;border-radius:10px;padding:2px}
+  .single-viewer .pswp__button--arrow--prev{left:16px;top:auto;bottom:20px;margin:0}
+  .single-viewer .pswp__button--arrow--next{right:16px;top:auto;bottom:20px;margin:0}
+  .viewer-caption{bottom:28px;left:72px;right:72px;justify-content:center;gap:8px;font-size:12px}
+  .viewer-caption-hint,.viewer-zoom{display:none}
+}
+@media(max-height:560px) and (min-width:651px){
+  .single-viewer .pswp__top-bar{top:16px;right:16px}
+  .viewer-rail{top:12px;left:20px;right:232px;height:64px;gap:8px}
+  .viewer-thumb{height:52px;flex-basis:44px;width:44px}
+  .viewer-caption{bottom:14px;left:24px;right:24px;font-size:11px}
+  .single-viewer .pswp__button--arrow--prev{left:14px}.single-viewer .pswp__button--arrow--next{right:14px}
+}
+@media(prefers-reduced-motion:reduce){
+  .single-viewer .pswp__top-bar,.single-viewer .pswp__button--arrow,.single-viewer .viewer-rail,.single-viewer .viewer-caption{transition:none}
+}

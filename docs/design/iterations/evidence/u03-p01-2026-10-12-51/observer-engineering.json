@@ -1,0 +1,209 @@
+{
+  "date": "2026-10-13",
+  "slice": "P01 51 white observer transport",
+  "engine": "Three 0.186.1 / WebGL2; three-mesh-bvh 0.9.15; actual 1016 triangles",
+  "bundle": {
+    "bytes": 1458549,
+    "sha256": "e0c3c58ccf3ef97bfb8ca980ebf74d7496e99eff6070be9cc3691908181b3a41"
+  },
+  "sources": [
+    {
+      "file": "entry.js",
+      "bytes": 4636,
+      "sha256": "e4579a63c3f602d106ec39d9920ba06dcf4d02f481cea952a779c5566ad7ddbe"
+    },
+    {
+      "file": "white-entry.js",
+      "bytes": 11683,
+      "sha256": "4751a697e7163111eb59fbbcc7dc66291d066fcd31cc2e1b25a0dcfc36b55eee"
+    },
+    {
+      "file": "beam-field.js",
+      "bytes": 12629,
+      "sha256": "06a1e66455ed2c46d084a6e8a363531e74246212cd73a5d5855f535e98f7300e"
+    },
+    {
+      "file": "receiver.js",
+      "bytes": 5431,
+      "sha256": "cc814b0d610ec75835018230d26e84aae659871dca753ebf906e984f74fcbd6f"
+    },
+    {
+      "file": "timing.js",
+      "bytes": 3301,
+      "sha256": "0e64a2875e6b76a7ee1c00a880541029390968331a28883092ded288e3db2176"
+    },
+    {
+      "file": "render-scheduler.js",
+      "bytes": 850,
+      "sha256": "85437354c3fc7f811d2e29f0d7f5a0f7b305bafd7c55d551bb707c48a346c07d"
+    },
+    {
+      "file": "observer-field.js",
+      "bytes": 2064,
+      "sha256": "c67fadf6e2ce03533ed3ff708ce015e5894efa7990a3370be262f9a543c25d03"
+    },
+    {
+      "file": "observer-optics.js",
+      "bytes": 13430,
+      "sha256": "4ce166307bc29650436d115108abfbf9c7ac83d5dfa155663f8dababe061c57f"
+    },
+    {
+      "file": "optical-cache.js",
+      "bytes": 7743,
+      "sha256": "bba16dea858e499d56c6535fbf6a423d7ccba2ea41fd77c8b17b4ac4f40d792b"
+    },
+    {
+      "file": "check-white.mjs",
+      "bytes": 2150,
+      "sha256": "fe0e31c86470d87cb31f9abdeca2dd9e2cc560543ec46002035e420729a32e8e"
+    },
+    {
+      "file": "check-receiver.mjs",
+      "bytes": 4697,
+      "sha256": "65e1f33fac6fe6a2c1ad9cc148baa5da95c5cba04404d73101cc06d63ed9fe0a"
+    },
+    {
+      "file": "check-scheduler.mjs",
+      "bytes": 5142,
+      "sha256": "1e7b25290c7446c84ff86913f9ae2d2011a0922e92ea543745f2237b3d7466db"
+    },
+    {
+      "file": "check-observer.mjs",
+      "bytes": 3682,
+      "sha256": "b4acd7ae13301c82e2b8599c74ed84692c9f60ae4a6277202de55067fbac3753"
+    },
+    {
+      "file": "geometry.js",
+      "bytes": 1369,
+      "sha256": "d93a2be87d29ee6235c0d861480e0661b84e10e68023284dab814adcf532b081"
+    },
+    {
+      "file": "ray.js",
+      "bytes": 6035,
+      "sha256": "6722b6f1944674460881dfe6a8a3d227dbdcffc0bbbca91dc0f93ae4adcbad54"
+    },
+    {
+      "file": "build.mjs",
+      "bytes": 1116,
+      "sha256": "8b62042c305cca84f1f900dea507c2f3d29ee7629f8aa69d4a67d2c3929d6044"
+    },
+    {
+      "file": "server.mjs",
+      "bytes": 883,
+      "sha256": "1735bbd4c93a98d9d783008914a13fb1a31cdf35d455994a34c8c0ee71388c24"
+    },
+    {
+      "file": "index.html",
+      "bytes": 1554,
+      "sha256": "09b9e5abfc6b75ca335ecc148ef953ec5bab3ff04e770302ab5734bece72df94"
+    },
+    {
+      "file": "white.html",
+      "bytes": 1962,
+      "sha256": "bd5419730220fb32e6b8a1da24ad2f6f508a7f11a1d24735b1fa01534d117f31"
+    },
+    {
+      "file": "package.json",
+      "bytes": 121,
+      "sha256": "faed77d4b76c9161ee8274853d2e52ddd82142a8170d7c3c8d82d9107a2e1ba4"
+    },
+    {
+      "file": "package-lock.json",
+      "bytes": 1662,
+      "sha256": "b665f7ba175728288c40c533a12b505b836c1c8030e171f926743d169a77064a"
+    }
+  ],
+  "images": [
+    {
+      "file": "observer-delivery-turned.jpg",
+      "bytes": 44955,
+      "format": "jpeg",
+      "width": 1106,
+      "height": 923,
+      "sha256": "b76d2553bd5eb428d13de1b61974c6dba68b0d5642520402c11d0e1268b1b3f1"
+    },
+    {
+      "file": "observer-final-desktop.jpg",
+      "bytes": 45051,
+      "format": "jpeg",
+      "width": 1106,
+      "height": 923,
+      "sha256": "bdd9124a5ff46f536badf0674c60f59d244e3be447f594b41c2f651211f15a0e"
+    },
+    {
+      "file": "observer-final-turned.jpg",
+      "bytes": 42117,
+      "format": "jpeg",
+      "width": 1106,
+      "height": 923,
+      "sha256": "2829dec9c34f0e86f4ead7520443a1d3d8d741d4dd2f3519c7d7b8e71eaf782f"
+    },
+    {
+      "file": "observer-ior1.jpg",
+      "bytes": 42044,
+      "format": "jpeg",
+      "width": 1106,
+      "height": 923,
+      "sha256": "f949ba900f784b626f8286bb197a1efa0f06fdbb615388b56e3d9dc75cfd0261"
+    },
+    {
+      "file": "observer-mobile.jpg",
+      "bytes": 28962,
+      "format": "jpeg",
+      "width": 375,
+      "height": 812,
+      "sha256": "b1888f1bdaaaff4b265948033e7437cc53958aeb439777d32bedd74fce1a3dd1"
+    },
+    {
+      "file": "observer-no-medium.jpg",
+      "bytes": 39685,
+      "format": "jpeg",
+      "width": 1106,
+      "height": 923,
+      "sha256": "3dfd7779e111a653ba057128acac68dbbe3323fb2a3c20aa940e434846c63ed4"
+    },
+    {
+      "file": "observer-no-source.jpg",
+      "bytes": 38551,
+      "format": "jpeg",
+      "width": 1106,
+      "height": 923,
+      "sha256": "b3144c4c15994a4789c3b9bd888096755c5f2d13e1d916da68a1c2e087bce8f3"
+    },
+    {
+      "file": "observer-residual-128.jpg",
+      "bytes": 42738,
+      "format": "jpeg",
+      "width": 1106,
+      "height": 923,
+      "sha256": "407b998f2dc7326ee4c5876c3c62784947672fcd5bb75715d78125a2695e783a"
+    },
+    {
+      "file": "observer-residual.jpg",
+      "bytes": 49217,
+      "format": "jpeg",
+      "width": 1106,
+      "height": 923,
+      "sha256": "6e860d446977c689c5b12122866c7d934ccdf9e50696a4bc2eeb67fd3d4d598b"
+    },
+    {
+      "file": "observer-sparse-turned.jpg",
+      "bytes": 45075,
+      "format": "jpeg",
+      "width": 1106,
+      "height": 923,
+      "sha256": "3f3eb31a7a085af5ae0a0e53bf0ebd3ce8a17b463f108f819e1b1da801625db7"
+    },
+    {
+      "file": "observer-turned.jpg",
+      "bytes": 42504,
+      "format": "jpeg",
+      "width": 1106,
+      "height": 923,
+      "sha256": "85affc5e904b7252479df042ebee5dce9793d5ed2aa2211b71909a462ac260b4"
+    }
+  ],
+  "scope": "local white observer, ideal dielectric + single scattering; spectral and main homepage integration pending",
+  "nativeCache": "quarter-resolution temporary preview; 4 by 4 native tiles; sparse 512-interface tail using exact float32 raster anchors in batches of 128",
+  "changedRootAppOrDependenciesByThisSlice": false
+}

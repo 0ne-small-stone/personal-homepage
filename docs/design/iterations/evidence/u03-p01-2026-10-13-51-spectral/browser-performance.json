@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-13",
+  "sample": "http://127.0.0.1:4340/spectrum/",
+  "scope": "independent spectral prototype; not homepage integration",
+  "environment": "Codex in-app browser, Intel integrated GPU, ANGLE D3D11",
+  "mode": {
+    "source": "CIE D65",
+    "observer": "CIE 1931 2 degree",
+    "spectralBands": 16,
+    "sourceSamplesPerBand": 64,
+    "material": "fused silica Sellmeier, 20 C",
+    "staticRender": "stops after convergence"
+  },
+  "warmCachedMeasurementsMs": {
+    "front": {
+      "convergence": 1491,
+      "gpuWarmup": 131,
+      "preview": 277,
+      "reflectionProgramPreparation": 67,
+      "latestGpuFrame": 0.2,
+      "opticalPath": 1.2,
+      "jsSubmit": 0.8,
+      "renderedFrames": 118
+    },
+    "rotated": {
+      "convergence": 4994,
+      "latestGpuFrame": 0.4,
+      "opticalPath": 1.6,
+      "jsSubmit": 1.3,
+      "renderedFrames": 275
+    },
+    "returnedToFront": {
+      "convergence": 2638,
+      "gpuWarmup": 131,
+      "preview": 292,
+      "reflectionProgramPreparation": 67,
+      "latestGpuFrame": 0.4,
+      "opticalPath": 1.6,
+      "jsSubmit": 0.6,
+      "renderedFrames": 381
+    }
+  },
+  "validation": {
+    "cpuSpectralPhysicsChecks": 8,
+    "cpuSchedulerAndNumericsChecks": 10,
+    "quadrature32vs64RelativeReceivingPowerDifference": 6.922073592652423e-7,
+    "browserActualGpuGeometryRays": 315,
+    "browserSellmeierShaderValidation": "passed",
+    "d65VisibleDispersion": "visually present after convergence",
+    "coldShaderCompilation": "not measured in a comparable fresh context",
+    "realDeviceAndOtherGpuValidation": "not tested"
+  },
+  "caveats": [
+    "Performance values are warm-cached measurements on this host only.",
+    "One automation click timed out at the CDP transport while starting the GPU probe; a fresh accessibility snapshot showed the probe passed and the page had stopped drawing.",
+    "The prior pixel probe sampled black background pixels and could pass vacuously; it was removed from the official probe button and is not counted as validation."
+  ]
+}

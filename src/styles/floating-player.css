@@ -1,0 +1,76 @@
+.lssh-audio-carrier audio { display: none; }
+body[data-radio-mini] { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+.lssh-floating-player, .lssh-floating-restore { color-scheme: dark; position: fixed; z-index: 120; color: #f5f5f7; font: 14px/1.4 -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+.lssh-floating-player { --float-edge: 24px; --float-safe-bottom: env(safe-area-inset-bottom, 0px); --float-surface: #202023; --float-muted: #c7c7cf; right: var(--float-edge); bottom: calc(var(--float-edge) + var(--float-safe-bottom)); width: min(320px, calc(100vw - 32px)); max-height: calc(100dvh - 2 * var(--float-edge) - var(--float-safe-bottom)); border-radius: 24px; background: linear-gradient(160deg, #303036db, #202026cc); -webkit-backdrop-filter: blur(28px) saturate(140%); backdrop-filter: blur(28px) saturate(140%); box-shadow: 0 16px 48px #0007; overflow: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #777 var(--float-surface); isolation: isolate; animation: lssh-floating-arrive 220ms ease-out; }
+.lssh-floating-player *, .lssh-floating-player *::before, .lssh-floating-player *::after { box-sizing: border-box; }
+.lssh-floating-player a { color: inherit; text-decoration: none; }
+.lssh-floating-player button, .lssh-floating-toolbar a, .lssh-floating-more summary { appearance: none; border: 0; display: grid; place-items: center; flex: 0 0 44px; width: 44px; height: 44px; padding: 11px; border-radius: 50%; background: transparent; color: inherit; cursor: pointer; }
+.lssh-floating-player svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.lssh-floating-player button:hover, .lssh-floating-toolbar a:hover, .lssh-floating-more summary:hover { background: #ffffff16; }
+.lssh-floating-player button:disabled { opacity: .3; cursor: default; }
+.lssh-floating-player button:focus-visible, .lssh-floating-player a:focus-visible, .lssh-floating-player input:focus-visible, .lssh-floating-more summary:focus-visible, .lssh-floating-restore:focus-visible { outline: 2px solid #fff; outline-offset: -3px; }
+.lssh-floating-close-area { position: absolute; z-index: 3; top: 0; right: 0; width: 52px; height: 52px; display: grid; place-items: center; }
+.lssh-floating-player .lssh-floating-close { opacity: 0; pointer-events: none; background: #171719b8; transition: opacity 160ms ease; }
+.lssh-floating-close-area:hover .lssh-floating-close, .lssh-floating-close-area:focus-within .lssh-floating-close { opacity: 1; pointer-events: auto; }
+.lssh-floating-player .lssh-floating-artwork { display: block; width: 100%; height: auto; padding: 0; border-radius: 0; aspect-ratio: 1; cursor: grab; touch-action: none; }
+.lssh-floating-artwork:active, .lssh-floating-small-art:active { cursor: grabbing; }
+.lssh-floating-artwork > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.lssh-floating-fallback { display: flex; align-items: center; justify-content: center; flex-direction: column; height: 100%; padding: 58px 24px 70px; background: #161618; color: var(--float-muted); text-align: center; gap: 12px; }
+.lssh-floating-fallback svg { flex: 0 1 120px; width: 120px; height: 120px; stroke-width: .7; }
+.lssh-floating-fallback > span { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.lssh-floating-content { position: relative; z-index: 1; margin-top: -88px; padding: 20px 16px 14px; background: transparent; border-radius: 0 0 24px 24px; }
+.lssh-floating-track { display: block; min-width: 0; }
+.lssh-floating-track strong { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: 16px; line-height: 1.35; font-weight: 600; overflow-wrap: anywhere; }
+.lssh-floating-track-text { display: block; min-width: 0; }
+.lssh-floating-track-text > span { display: block; margin-top: 4px; font-size: 13px; color: var(--float-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lssh-floating-progress { display: block; margin-top: 5px; font-size: 11px; color: var(--float-muted); font-variant-numeric: tabular-nums; }
+.lssh-floating-progress > span { display: flex; justify-content: space-between; margin-top: -2px; }
+.lssh-floating-player input[type='range'] { appearance: none; display: block; min-width: 0; width: 100%; height: 28px; margin: 0; background: transparent; cursor: pointer; accent-color: #f5f5f7; }
+.lssh-floating-player input[type='range']::-webkit-slider-runnable-track { height: 3px; border-radius: 2px; background: linear-gradient(to right, #f5f5f7 var(--range-fill, 0%), #ffffff36 var(--range-fill, 0%)); }
+.lssh-floating-player input[type='range']::-webkit-slider-thumb { appearance: none; width: 12px; height: 12px; margin-top: -4.5px; background: #f5f5f7; border-radius: 50%; }
+.lssh-floating-player input[type='range']::-moz-range-track { height: 3px; border-radius: 2px; background: #ffffff36; }
+.lssh-floating-player input[type='range']::-moz-range-progress { height: 3px; background: #f5f5f7; }
+.lssh-floating-player input[type='range']::-moz-range-thumb { width: 12px; height: 12px; border: 0; background: #f5f5f7; border-radius: 50%; }
+.lssh-floating-player input:disabled { opacity: .4; cursor: default; }
+.lssh-floating-transport { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: center; justify-items: center; gap: 0; margin-top: 5px; }
+.lssh-floating-transport .lssh-floating-play { flex-basis: 56px; width: 56px; height: 56px; padding: 15px; background: #f5f5f7; color: #18181b; }
+.lssh-floating-play svg { width: 26px; height: 26px; }
+.lssh-floating-transport > button:not(.lssh-floating-play) svg { fill: currentColor; }
+.lssh-floating-more { position: relative; }
+.lssh-floating-more summary { list-style: none; }
+.lssh-floating-more summary::-webkit-details-marker { display: none; }
+.lssh-floating-more > div { position: absolute; right: 0; bottom: 50px; width: 170px; padding: 6px; border-radius: 12px; background: #333337; box-shadow: 0 8px 24px #0008; }
+.lssh-floating-more > div :is(button, a) { width: 100%; height: 44px; border-radius: 8px; padding: 0 10px; display: flex; align-items: center; text-align: left; font: inherit; }
+.lssh-floating-more > div a:hover { background: #ffffff16; }
+.lssh-floating-volume { display: flex; align-items: center; gap: 12px; margin-top: 10px; padding-top: 6px; font-size: 13px; }
+.lssh-floating-volume input { flex: 1; }
+.lssh-floating-message { margin: 12px 0 0; font-size: 13px; line-height: 1.5; color: var(--float-muted); overflow-wrap: anywhere; }
+.lssh-floating-player .lssh-floating-source { display: inline-block; padding: 8px 0; font-size: 13px; text-decoration: underline; text-underline-offset: 3px; }
+.lssh-floating-player.is-compact { width: min(508px, calc(100vw - 32px)); border-radius: 14px; }
+.is-compact .lssh-floating-content { margin-top: 0; padding: 8px 14px 4px; border-radius: 0 0 14px 14px; }
+.is-compact .lssh-floating-track { display: flex; align-items: center; gap: 10px; height: 44px; padding-right: 38px; }
+.lssh-floating-player .lssh-floating-small-art { display: block; flex: 0 0 44px; width: 44px; height: 44px; padding: 4px; overflow: hidden; border-radius: 8px; cursor: grab; touch-action: none; }
+.lssh-floating-small-art > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.lssh-floating-small-art .lssh-floating-fallback { padding: 0; }
+.lssh-floating-small-art .lssh-floating-fallback svg { width: 36px; height: 36px; flex-basis: 36px; }
+.lssh-floating-small-art .lssh-floating-fallback > span { display: none; }
+.is-compact .lssh-floating-track strong { display: block; white-space: nowrap; text-overflow: ellipsis; font-size: 15px; line-height: 18px; }
+.is-compact .lssh-floating-track-text > span { font-size: 12px; line-height: 16px; margin-top: 2px; }
+.is-compact .lssh-floating-progress { margin-top: 0; font-size: 11px; line-height: 12px; }
+.is-compact .lssh-floating-progress input { height: 22px; }
+.is-compact .lssh-floating-progress > span { height: 12px; margin-top: 0; line-height: 12px; }
+.is-compact .lssh-floating-transport { height: 44px; margin-top: 0; }
+.is-compact .lssh-floating-play { width: 44px; height: 44px; flex-basis: 44px; padding: 11px; }
+.is-compact .lssh-floating-play svg { width: 22px; height: 22px; }
+.is-compact .lssh-floating-more > div { top: 50px; bottom: auto; }
+.is-compact:has(.lssh-floating-more[open]) .lssh-floating-content { padding-bottom: 212px; }
+.lssh-floating-restore { right: 24px; bottom: calc(24px + env(safe-area-inset-bottom)); display: flex; align-items: center; gap: 9px; min-height: 48px; padding: 8px 14px 8px 10px; border: 0; border-radius: 16px; background: #242426; box-shadow: 0 8px 28px #0006; cursor: pointer; }
+.lssh-floating-restore img { width: 28px; height: 28px; object-fit: cover; border-radius: 5px; }
+@keyframes lssh-floating-arrive { from { opacity: .6; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
+@media (max-width: 600px) { .lssh-floating-player { --float-edge: 16px; } .lssh-floating-restore { right: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); } }
+@media (max-height: 500px) { .lssh-floating-player .lssh-floating-artwork { aspect-ratio: auto; height: max(110px, calc(100dvh - 215px)); } .lssh-floating-content { margin-top: -30px; } }
+@media (hover: none) { .lssh-floating-player .lssh-floating-close { opacity: 1; pointer-events: auto; } }
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .lssh-floating-player { background: var(--float-surface); } }
+/* The user's explicit glass choice applies to this player; system settings stay intact. */
+@media (prefers-reduced-motion: reduce) { .lssh-floating-player { animation: none; } .lssh-floating-close { transition: none; } }
+@media print { .lssh-audio-carrier { display: none; } body[data-radio-mini] { padding-bottom: 0; } }

@@ -11,6 +11,8 @@ export interface MusicTrack {
   sampleRate: number;
   bitsPerSample: number;
   audioUrl: string | null;
+  coverUrl?: string | null;
+  lyrics?: string | null;
 }
 
 export interface MusicCatalog {
@@ -21,16 +23,22 @@ export interface MusicCatalog {
 
 export const emptyMusicCatalog: MusicCatalog = { version: 1, updatedAt: null, tracks: [] };
 
-export function safeAudioUrl(value: unknown): string | null {
+export function safeAudioUrl(value: unknown, allowLocalAudio = false): string | null {
   if (typeof value !== 'string') return null;
+  if (allowLocalAudio && /^\/personal-homepage\/music\/local-audio\/[a-f0-9]{24}\/$/.test(value)) return value;
   try {
     const url = new URL(value);
     return url.protocol === 'https:' && !url.username && !url.password ? url.href : null;
   } catch { return null; }
 }
 
+export function safeCoverUrl(value: unknown, allowLocal = false): string | null {
+  if (allowLocal && typeof value === 'string' && /^\/personal-homepage\/music\/local-cover\/[a-f0-9]{24}\/$/.test(value)) return value;
+  return safeAudioUrl(value);
+}
+
 /** Only allow public music fields through to the browser. */
-export function parseMusicCatalog(value: unknown): MusicCatalog {
+export function parseMusicCatalog(value: unknown, allowLocalAudio = false): MusicCatalog {
   if (!value || typeof value !== 'object') throw new Error('曲目清单格式不正确');
   const data = value as Record<string, unknown>;
   if (data.version !== 1 || !Array.isArray(data.tracks)) throw new Error('曲目清单版本不支持');
@@ -49,7 +57,9 @@ export function parseMusicCatalog(value: unknown): MusicCatalog {
       trackNumber: number(track.trackNumber), discNumber: number(track.discNumber),
       duration: number(track.duration), format: text(track.format),
       sampleRate: number(track.sampleRate), bitsPerSample: number(track.bitsPerSample),
-      audioUrl: safeAudioUrl(track.audioUrl),
+      audioUrl: safeAudioUrl(track.audioUrl, allowLocalAudio),
+      coverUrl: safeCoverUrl(track.coverUrl, allowLocalAudio),
+      lyrics: typeof track.lyrics === 'string' && track.lyrics.length <= 65536 ? track.lyrics.replaceAll('\u0000', '') : null,
     };
   });
   return { version: 1, updatedAt: typeof data.updatedAt === 'string' && !Number.isNaN(Date.parse(data.updatedAt)) ? data.updatedAt : null, tracks };

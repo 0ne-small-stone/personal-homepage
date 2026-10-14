@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-13",
+  "stage": "CPU physical gate before browser QA",
+  "passedBeforeFailure": 6,
+  "failed": "Rotating prism recomputes the receiver centroid without old paths",
+  "diagnosis": {
+    "receiverHalfWidth": 1.6,
+    "frontHits": 128,
+    "frontFlux": 14.569105061135344,
+    "frontY": -1.4676425149950911,
+    "turnedHits": 0,
+    "turnedFlux": 0,
+    "reason": "real turned bundle misses the finite diagnostic sheet; not a Fresnel or Snell failure"
+  },
+  "correction": "halfWidth 1.6 -> 2; keep source/IOR/prism/path directions unchanged",
+  "repeat": "10 receiving-surface physical checks passed; 8 prior white checks passed"
+}

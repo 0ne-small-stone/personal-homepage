@@ -1,0 +1,249 @@
+{
+  "checks": [
+    {
+      "name": "return from Z=-10 restores selected photo",
+      "pass": true,
+      "selection": "影像 11"
+    },
+    {
+      "name": "ellipsoid rotation keeps adaptive axes and does not select",
+      "pass": true,
+      "before": "0.000,0.000",
+      "after": "-0.535,0.182",
+      "axes": "9.793,3.925,6.200"
+    },
+    {
+      "name": "actual canvas click selects photo",
+      "pass": true,
+      "selection": "影像 13"
+    },
+    {
+      "name": "continuous intermediate unfold at 40%",
+      "pass": true,
+      "state": {
+        "axes": "9.793,3.925,6.200",
+        "camera": "0.00,0.00,50.00",
+        "distance": "50.00",
+        "layoutAspect": "2.495",
+        "orientation": "-0.449,0.000",
+        "pan": "0.00,0.00",
+        "progress": "0.400",
+        "reduced": "false",
+        "view": "transition"
+      }
+    },
+    {
+      "name": "wheel reversal returns intermediate state",
+      "pass": true
+    },
+    {
+      "name": "wheel entry preserves selected identity",
+      "pass": true
+    },
+    {
+      "name": "wheel moves through Z instead of finite zoom",
+      "pass": true,
+      "start": "0.00,0.00,50.00",
+      "after": "0.00,0.00,-10.00",
+      "regions": "44"
+    },
+    {
+      "name": "space drag pans with inertia and preserves selection",
+      "pass": true,
+      "pan": "20.68,8.27"
+    },
+    {
+      "name": "viewer next and close preserves camera and selection",
+      "pass": true,
+      "pan": "20.68,8.27"
+    },
+    {
+      "name": "cross three X regions keeps bounded populated field",
+      "pass": true,
+      "state": {
+        "axes": "9.793,3.925,6.200",
+        "camera": "340.68,8.27,-10.00",
+        "distance": "-10.00",
+        "fieldCount": "121",
+        "layoutAspect": "2.495",
+        "orientation": "-0.449,0.000",
+        "pan": "340.68,8.27",
+        "pool": "192",
+        "progress": "1.000",
+        "reduced": "false",
+        "regions": "46",
+        "view": "space"
+      }
+    },
+    {
+      "name": "reverse X travel restores camera region",
+      "pass": true,
+      "before": "20.68,8.27",
+      "after": "20.68,8.27"
+    },
+    {
+      "name": "travel through two Z regions creates new images",
+      "pass": true,
+      "state": {
+        "axes": "9.793,3.925,6.200",
+        "camera": "20.68,8.27,-190.00",
+        "distance": "-190.00",
+        "fieldCount": "109",
+        "layoutAspect": "2.495",
+        "orientation": "-0.449,0.000",
+        "pan": "20.68,8.27",
+        "pool": "192",
+        "progress": "1.000",
+        "reduced": "false",
+        "regions": "40",
+        "view": "space"
+      }
+    },
+    {
+      "name": "final bundle progress reflects wheel and buttons even after slider focus",
+      "pass": true
+    },
+    {
+      "name": "final bundle wheel passes anchor and retains populated regions",
+      "pass": true,
+      "state": {
+        "axes": "9.793,3.925,6.200",
+        "camera": "0.00,0.00,-40.00",
+        "distance": "-40.00",
+        "fieldCount": "113",
+        "layoutAspect": "2.495",
+        "orientation": "-0.277,0.000",
+        "pan": "0.00,0.00",
+        "progress": "1.000",
+        "reduced": "false",
+        "regions": "39",
+        "view": "space"
+      }
+    },
+    {
+      "name": "final drag response and selection",
+      "pass": true,
+      "pan": "31.90,12.81"
+    },
+    {
+      "name": "final return restores entry photo and orientation",
+      "pass": true,
+      "state": {
+        "axes": "9.793,3.925,6.200",
+        "camera": "32.49,12.37,-40.00",
+        "distance": "50.00",
+        "fieldCount": "112",
+        "layoutAspect": "2.495",
+        "orientation": "-0.277,0.000",
+        "pan": "0.00,0.00",
+        "progress": "0.000",
+        "reduced": "false",
+        "regions": "42",
+        "selection": "影像 13",
+        "view": "sphere"
+      }
+    },
+    {
+      "name": "actual 390×844 frame adapts ellipsoid and controls",
+      "pass": true,
+      "state": {
+        "axes": "5.124,7.502,6.200",
+        "camera": "0.00,0.00,50.00",
+        "controls": true,
+        "distance": "50.00",
+        "height": 844,
+        "layoutAspect": "0.683",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "progress": "0.000",
+        "reduced": "false",
+        "view": "sphere",
+        "width": 390
+      }
+    },
+    {
+      "name": "actual portrait space pan and depth travel",
+      "pass": true,
+      "state": {
+        "axes": "5.124,7.502,6.200",
+        "camera": "8.00,0.00,-4.00",
+        "distance": "-4.00",
+        "fieldCount": "50",
+        "layoutAspect": "0.683",
+        "orientation": "-0.198,0.000",
+        "pan": "8.00,0.00",
+        "progress": "1.000",
+        "reduced": "false",
+        "regions": "20",
+        "view": "space"
+      }
+    },
+    {
+      "name": "actual short landscape contains controls and adapts ellipse",
+      "pass": true,
+      "state": {
+        "axes": "11.404,3.371,6.200",
+        "camera": "8.00,0.00,-4.00",
+        "controls": true,
+        "distance": "50.00",
+        "fieldCount": "50",
+        "height": 390,
+        "layoutAspect": "3.383",
+        "mainHeight": 390,
+        "orientation": "-0.198,0.000",
+        "pan": "0.00,0.00",
+        "progress": "0.000",
+        "reduced": "false",
+        "regions": "20",
+        "view": "sphere",
+        "width": 844
+      }
+    },
+    {
+      "name": "reduced motion immediately enters space without drift",
+      "pass": true,
+      "state": {
+        "axes": "9.793,3.925,6.200",
+        "camera": "0.00,0.00,50.00",
+        "distance": "50.00",
+        "fieldCount": "107",
+        "layoutAspect": "2.495",
+        "orientation": "-0.449,0.000",
+        "pan": "0.00,0.00",
+        "progress": "1.000",
+        "reduced": "true",
+        "regions": "38",
+        "view": "space"
+      }
+    },
+    {
+      "name": "final reduced X=320 Z=-490 traverses multiple 3D regions with bounded pool",
+      "pass": true,
+      "state": {
+        "axes": "9.793,3.925,6.200",
+        "camera": "320.00,0.00,-490.00",
+        "distance": "-490.00",
+        "fieldCount": "108",
+        "layoutAspect": "2.495",
+        "orientation": "-0.449,0.000",
+        "pan": "320.00,0.00",
+        "pool": "192",
+        "progress": "1.000",
+        "reduced": "true",
+        "regions": "38",
+        "view": "space"
+      }
+    },
+    {
+      "name": "return through XYZ regions restores exact coordinates",
+      "pass": true
+    }
+  ],
+  "viewportCaveat": "390×844 and 844×390 verified in same-origin iframe preview after browser viewport capability did not change actual tab size. Original ineffective viewport records are excluded and preserved separately.",
+  "reference": "Official demo in an agent-created 1280×720 tab; same one-page wheel and 200px/60px drag sequences captured.",
+  "unverified": [
+    "physical touch/pinch",
+    "real device performance",
+    "BFCache and production integration"
+  ]
+}

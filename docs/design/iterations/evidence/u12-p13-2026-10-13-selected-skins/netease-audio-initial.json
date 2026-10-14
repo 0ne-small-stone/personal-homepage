@@ -1,0 +1,67 @@
+{
+  "checks": [
+    {
+      "name": "public album image decodes; no autoplay",
+      "passed": true
+    },
+    {
+      "name": "sleeve starts real official NetEase audio and animation",
+      "passed": false,
+      "error": "page.waitForFunction: Timeout 30000ms exceeded."
+    },
+    {
+      "name": "official fallback pauses own media and closes with focus",
+      "passed": false,
+      "error": "Expected values to be strictly equal:\n\nfalse !== true\n"
+    },
+    {
+      "name": "source switching stops real NetEase media",
+      "passed": true
+    },
+    {
+      "name": "mobile native player and reduced motion",
+      "passed": true
+    },
+    {
+      "name": "runtime and real audio MIME",
+      "passed": true,
+      "evidence": [
+        {
+          "status": 206,
+          "mime": "audio/mpeg",
+          "host": "m801.music.126.net"
+        },
+        {
+          "status": 206,
+          "mime": "audio/flac",
+          "host": "127.0.0.1"
+        },
+        {
+          "status": 206,
+          "mime": "audio/mpeg",
+          "host": "m801.music.126.net"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "media": [
+    {
+      "status": 206,
+      "mime": "audio/mpeg",
+      "host": "m801.music.126.net"
+    },
+    {
+      "status": 206,
+      "mime": "audio/flac",
+      "host": "127.0.0.1"
+    },
+    {
+      "status": 206,
+      "mime": "audio/mpeg",
+      "host": "m801.music.126.net"
+    }
+  ],
+  "passed": 4,
+  "failed": 2
+}

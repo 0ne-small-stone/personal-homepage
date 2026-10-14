@@ -24,6 +24,7 @@
 .radio-artist { margin: 0 0 .25rem; }
 .radio-album-name { color: var(--color-muted); margin: 0; }
 .radio-quality { color: var(--color-muted); font-size: .875rem; margin: 1rem 0; }
+.radio-playback-source { color: var(--color-muted); font-size: .875rem; }
 .radio-now audio { width: 100%; margin-block: 1rem; }
 .radio-unlinked { margin-block: 1.5rem 1rem; }
 .radio-unlinked button { width: 100%; border: 1px solid var(--color-border); background: transparent; border-radius: .625rem; color: var(--color-muted); }
@@ -94,7 +95,7 @@
   .radio-now > .radio-caption { margin: 0 0 .25rem; }
   .radio-now > h2 { font-size: 1.25rem; }
   .radio-quality { margin: .5rem 0 0; }
-  .radio-unlinked, .radio-now > audio, .radio-now > .radio-link, .radio-now > .radio-error { grid-column: 1 / -1; }
+  .radio-unlinked, .radio-now > audio, .radio-now > .radio-link, .radio-now > .radio-error, .radio-playback-source { grid-column: 1 / -1; }
   .radio-track { gap: .75rem; padding: 1rem .5rem; }
   .radio-track-album { display: none; }
   .radio-help { grid-column: 1; }

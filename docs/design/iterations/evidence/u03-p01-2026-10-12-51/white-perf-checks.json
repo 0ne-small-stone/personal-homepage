@@ -1,0 +1,20 @@
+{
+  "passed": 10,
+  "checks": [
+    "Multiple input invalidations schedule only one frame",
+    "Converged field stops GPU draw scheduling entirely",
+    "A real input resumes idle render once",
+    "Hidden page cancels frame and resumes unfinished sampling when visible",
+    "Showing a converged page does not wake heavy rendering",
+    "Disposal cancels pending work and future input cannot restart it",
+    "Broad-phase bounds contain every real geometry vertex",
+    "Fast bound preserves full hull classification over 32^3 probe positions",
+    "Float32 Gaussian recurrence agrees with independent direct midpoint quadrature",
+    "Convex ray interval matches independent point-in-hull tests, including parallel rays"
+  ],
+  "probePositions": 32768,
+  "broadPhaseRejected": 29312,
+  "quadratureComparisons": 1000,
+  "maximumRelativeError": 0.000001048708142708044,
+  "sourceAndTransportParametersChanged": false
+}

@@ -1,0 +1,607 @@
+{
+  "initialGap": [
+    {
+      "label": "desktop",
+      "dome": {
+        "breakpoint": "desktop",
+        "pitchLimit": "35",
+        "rotation": "0.0000,0.0000"
+      },
+      "filter": "none",
+      "mask": "radial-gradient(circle, rgba(0, 0, 0, 0) 480.863px, rgb(0, 0, 0) 490.863px)",
+      "photo": "",
+      "side": {
+        "cells": "112",
+        "clearRadius": "480.86",
+        "curveRadius": "452.06",
+        "gap": "28.80",
+        "offsetX": "0.000",
+        "offsetY": "0.000"
+      },
+      "state": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "anchorPose": "-0.2432,-0.2435,5.2612",
+        "aspectError": "0.000e+0",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "628",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "1.778",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere"
+      },
+      "track": "matrix(1, 0, 0, 1, -115.995, -115.995)",
+      "wallOpacity": "0.48"
+    },
+    {
+      "label": "rotated-upper-limit",
+      "dome": {
+        "breakpoint": "desktop",
+        "pitchLimit": "35",
+        "rotation": "35.0000,55.0020"
+      },
+      "filter": "none",
+      "mask": "radial-gradient(circle, rgba(0, 0, 0, 0) 480.863px, rgb(0, 0, 0) 490.863px)",
+      "photo": "",
+      "side": {
+        "cells": "112",
+        "clearRadius": "480.86",
+        "curveRadius": "452.06",
+        "gap": "28.80",
+        "offsetX": "-331.572",
+        "offsetY": "210.993"
+      },
+      "state": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "anchorPose": "-3.4174,-2.9483,2.7253",
+        "aspectError": "0.000e+0",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "628",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "1.778",
+        "orientation": "0.960,-0.611",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "-0.26673,0.44039,-0.13886,0.84595",
+        "reduced": "false",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere"
+      },
+      "track": "matrix(1, 0, 0, 1, -99.5817, -20.9977)",
+      "wallOpacity": "0.48"
+    }
+  ],
+  "final": [
+    {
+      "label": "desktop",
+      "dome": {
+        "breakpoint": "desktop",
+        "pitchLimit": "35",
+        "rotation": "0.0000,0.0000"
+      },
+      "mask": "radial-gradient(circle, rgba(0, 0, 0, 0) 685.81px, rgb(0, 0, 0) 695.81px)",
+      "photo": "",
+      "side": {
+        "cells": "198",
+        "clearRadius": "685.81",
+        "curveRadius": "645.81",
+        "gap": "40.00",
+        "offsetX": "0.000",
+        "offsetY": "0.000",
+        "stagger": "half-step"
+      },
+      "state": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "anchorPose": "-0.2627,-0.2630,5.6828",
+        "aspectError": "0.000e+0",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "902",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "2.521",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere"
+      },
+      "wallOpacity": "0.48"
+    },
+    {
+      "label": "rotated",
+      "dome": {
+        "breakpoint": "desktop",
+        "pitchLimit": "35",
+        "rotation": "35.0000,55.0020"
+      },
+      "mask": "radial-gradient(circle, rgba(0, 0, 0, 0) 685.81px, rgb(0, 0, 0) 695.81px)",
+      "photo": "",
+      "side": {
+        "cells": "198",
+        "clearRadius": "685.81",
+        "curveRadius": "645.81",
+        "gap": "40.00",
+        "offsetX": "-476.239",
+        "offsetY": "303.050",
+        "stagger": "half-step"
+      },
+      "state": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "anchorPose": "-3.6913,-3.1846,2.9437",
+        "aspectError": "0.000e+0",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "902",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "2.521",
+        "orientation": "0.960,-0.611",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "-0.26673,0.44039,-0.13886,0.84595",
+        "reduced": "false",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere"
+      },
+      "wallOpacity": "0.48"
+    }
+  ],
+  "staggerRows": [
+    {
+      "src": "./media/photo-01.webp",
+      "transform": "none"
+    },
+    {
+      "src": "./media/photo-12.webp",
+      "transform": "none"
+    },
+    {
+      "src": "./media/photo-23.webp",
+      "transform": "none"
+    },
+    {
+      "src": "./media/photo-34.webp",
+      "transform": "none"
+    },
+    {
+      "src": "./media/photo-09.webp",
+      "transform": "none"
+    },
+    {
+      "src": "./media/photo-20.webp",
+      "transform": "none"
+    },
+    {
+      "src": "./media/photo-31.webp",
+      "transform": "none"
+    },
+    {
+      "src": "./media/photo-06.webp",
+      "transform": "none"
+    },
+    {
+      "src": "./media/photo-17.webp",
+      "transform": "none"
+    },
+    {
+      "src": "./media/photo-28.webp",
+      "transform": "none"
+    },
+    {
+      "src": "./media/photo-03.webp",
+      "transform": "none"
+    },
+    {
+      "src": "./media/photo-14.webp",
+      "transform": "none"
+    },
+    {
+      "src": "./media/photo-25.webp",
+      "transform": "none"
+    },
+    {
+      "src": "./media/photo-36.webp",
+      "transform": "none"
+    },
+    {
+      "src": "./media/photo-11.webp",
+      "transform": "none"
+    },
+    {
+      "src": "./media/photo-22.webp",
+      "transform": "none"
+    },
+    {
+      "src": "./media/photo-33.webp",
+      "transform": "none"
+    },
+    {
+      "src": "./media/photo-08.webp",
+      "transform": "none"
+    },
+    {
+      "src": "./media/photo-19.webp",
+      "transform": "none"
+    },
+    {
+      "src": "./media/photo-30.webp",
+      "transform": "none"
+    },
+    {
+      "src": "./media/photo-05.webp",
+      "transform": "none"
+    },
+    {
+      "src": "./media/photo-16.webp",
+      "transform": "none"
+    },
+    {
+      "src": "./media/photo-08.webp",
+      "transform": "matrix(1, 0, 0, 1, 66, 0)"
+    },
+    {
+      "src": "./media/photo-19.webp",
+      "transform": "matrix(1, 0, 0, 1, 66, 0)"
+    },
+    {
+      "src": "./media/photo-30.webp",
+      "transform": "matrix(1, 0, 0, 1, 66, 0)"
+    },
+    {
+      "src": "./media/photo-05.webp",
+      "transform": "matrix(1, 0, 0, 1, 66, 0)"
+    },
+    {
+      "src": "./media/photo-16.webp",
+      "transform": "matrix(1, 0, 0, 1, 66, 0)"
+    },
+    {
+      "src": "./media/photo-27.webp",
+      "transform": "matrix(1, 0, 0, 1, 66, 0)"
+    },
+    {
+      "src": "./media/photo-02.webp",
+      "transform": "matrix(1, 0, 0, 1, 66, 0)"
+    },
+    {
+      "src": "./media/photo-13.webp",
+      "transform": "matrix(1, 0, 0, 1, 66, 0)"
+    },
+    {
+      "src": "./media/photo-24.webp",
+      "transform": "matrix(1, 0, 0, 1, 66, 0)"
+    },
+    {
+      "src": "./media/photo-35.webp",
+      "transform": "matrix(1, 0, 0, 1, 66, 0)"
+    }
+  ],
+  "space": {
+    "dome": {
+      "breakpoint": "desktop",
+      "pitchLimit": "35",
+      "rotation": "35.0000,55.0020"
+    },
+    "mask": "radial-gradient(circle, rgba(0, 0, 0, 0) 685.81px, rgb(0, 0, 0) 695.81px)",
+    "photo": "14",
+    "side": {
+      "cells": "198",
+      "clearRadius": "685.81",
+      "curveRadius": "645.81",
+      "gap": "40.00",
+      "offsetX": "-476.239",
+      "offsetY": "303.050",
+      "stagger": "half-step"
+    },
+    "state": {
+      "actualCamera": "0.3204,0.1025,3.5996",
+      "anchorPose": "0.3204,0.1025,6.1909",
+      "aspectError": "2.220e-16",
+      "axes": "6.200,6.200,6.200",
+      "camera": "0.00,0.00,-45.00",
+      "detail": "ready",
+      "distance": "-45.00",
+      "domeRadius": "902",
+      "fieldCount": "37",
+      "fieldLayout": "projection-gap",
+      "fieldRetiring": "0",
+      "flightVelocity": "0.0000",
+      "imageFit": "contain",
+      "layout": "react-bits-dome",
+      "layoutAspect": "2.521",
+      "orientation": "0.960,-0.611",
+      "pan": "0.00,0.00",
+      "portal": "0.3204,0.1025,6.1909",
+      "progress": "1.000",
+      "quaternion": "-0.26673,0.44039,-0.13886,0.84595",
+      "reduced": "false",
+      "regions": "23",
+      "rotationMode": "dome-limited-pitch",
+      "starfield": "subtle",
+      "view": "space"
+    },
+    "wallOpacity": "0"
+  },
+  "flight": {
+    "dome": {
+      "breakpoint": "desktop",
+      "pitchLimit": "35",
+      "rotation": "35.0000,55.0020"
+    },
+    "mask": "radial-gradient(circle, rgba(0, 0, 0, 0) 685.81px, rgb(0, 0, 0) 695.81px)",
+    "photo": "14",
+    "side": {
+      "cells": "198",
+      "clearRadius": "685.81",
+      "curveRadius": "645.81",
+      "gap": "40.00",
+      "offsetX": "-476.239",
+      "offsetY": "303.050",
+      "stagger": "half-step"
+    },
+    "state": {
+      "actualCamera": "3.0844,0.1025,-0.7885",
+      "anchorPose": "0.3204,0.1025,6.1909",
+      "aspectError": "2.220e-16",
+      "axes": "6.200,6.200,6.200",
+      "camera": "48.00,0.00,-121.21",
+      "detail": "ready",
+      "distance": "-121.21",
+      "domeRadius": "902",
+      "fieldCount": "45",
+      "fieldLayout": "projection-gap",
+      "fieldRetiring": "0",
+      "flightVelocity": "-0.0009",
+      "imageFit": "contain",
+      "layout": "react-bits-dome",
+      "layoutAspect": "2.521",
+      "orientation": "0.960,-0.611",
+      "pan": "48.00,0.00",
+      "portal": "0.3204,0.1025,6.1909",
+      "progress": "1.000",
+      "quaternion": "-0.26673,0.44039,-0.13886,0.84595",
+      "reduced": "false",
+      "regions": "25",
+      "rotationMode": "dome-limited-pitch",
+      "starfield": "subtle",
+      "view": "space"
+    },
+    "wallOpacity": "0"
+  },
+  "returned": {
+    "dome": {
+      "breakpoint": "desktop",
+      "pitchLimit": "35",
+      "rotation": "35.0000,55.0020"
+    },
+    "mask": "radial-gradient(circle, rgba(0, 0, 0, 0) 685.81px, rgb(0, 0, 0) 695.81px)",
+    "photo": "14",
+    "side": {
+      "cells": "198",
+      "clearRadius": "685.81",
+      "curveRadius": "645.81",
+      "gap": "40.00",
+      "offsetX": "-476.239",
+      "offsetY": "303.050",
+      "stagger": "half-step"
+    },
+    "state": {
+      "actualCamera": "0.0000,0.0000,18.6000",
+      "anchorPose": "0.3204,0.1025,6.1909",
+      "aspectError": "0.000e+0",
+      "axes": "6.200,6.200,6.200",
+      "camera": "48.00,0.00,-121.21",
+      "detail": "ready",
+      "distance": "-45.00",
+      "domeRadius": "902",
+      "fieldCount": "46",
+      "fieldLayout": "projection-gap",
+      "fieldRetiring": "5",
+      "flightVelocity": "0.0000",
+      "imageFit": "contain",
+      "layout": "react-bits-dome",
+      "layoutAspect": "2.521",
+      "orientation": "0.960,-0.611",
+      "pan": "0.00,0.00",
+      "portal": "0.3204,0.1025,6.1909",
+      "progress": "0.000",
+      "quaternion": "-0.26673,0.44039,-0.13886,0.84595",
+      "reduced": "false",
+      "regions": "31",
+      "rotationMode": "dome-limited-pitch",
+      "starfield": "hidden",
+      "view": "sphere"
+    },
+    "wallOpacity": "0.48"
+  },
+  "viewport": [
+    2327,
+    923
+  ],
+  "phone": {
+    "controls": true,
+    "dome": {
+      "breakpoint": "phone",
+      "pitchLimit": "35",
+      "rotation": "0.0000,0.0000"
+    },
+    "fit": "contain",
+    "mask": "radial-gradient(circle, rgba(0, 0, 0, 0) 250.739px, rgb(0, 0, 0) 260.739px)",
+    "side": {
+      "cells": "90",
+      "clearRadius": "250.74",
+      "curveRadius": "230.74",
+      "gap": "20.00",
+      "offsetX": "0.000",
+      "offsetY": "0.000",
+      "stagger": "half-step"
+    },
+    "state": {
+      "actualCamera": "0.0000,0.0000,18.6000",
+      "anchorPose": "-0.2860,-0.2863,6.1868",
+      "aspectError": "2.220e-16",
+      "axes": "6.200,6.200,6.200",
+      "camera": "0.00,0.00,-45.00",
+      "distance": "-45.00",
+      "domeRadius": "315",
+      "flightVelocity": "0.0000",
+      "imageFit": "contain",
+      "layout": "react-bits-dome",
+      "layoutAspect": "0.462",
+      "orientation": "0.000,0.000",
+      "pan": "0.00,0.00",
+      "portal": "0.0000,0.0000,0.0000",
+      "progress": "0.000",
+      "quaternion": "0.00000,0.00000,0.00000,1.00000",
+      "reduced": "false",
+      "rotationMode": "dome-limited-pitch",
+      "starfield": "hidden",
+      "view": "sphere"
+    },
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "phoneSpace": {
+    "controls": true,
+    "dome": {
+      "breakpoint": "phone",
+      "pitchLimit": "35",
+      "rotation": "0.0000,0.0000"
+    },
+    "fit": "contain",
+    "mask": "radial-gradient(circle, rgba(0, 0, 0, 0) 250.739px, rgb(0, 0, 0) 260.739px)",
+    "side": {
+      "cells": "90",
+      "clearRadius": "250.74",
+      "curveRadius": "230.74",
+      "gap": "20.00",
+      "offsetX": "0.000",
+      "offsetY": "0.000",
+      "stagger": "half-step"
+    },
+    "state": {
+      "actualCamera": "-0.2860,-0.2863,4.7374",
+      "anchorPose": "-0.2860,-0.2863,6.1868",
+      "aspectError": "2.220e-16",
+      "axes": "6.200,6.200,6.200",
+      "camera": "0.00,0.00,-45.00",
+      "detail": "ready",
+      "distance": "-45.00",
+      "domeRadius": "315",
+      "fieldCount": "11",
+      "fieldLayout": "projection-gap",
+      "fieldRetiring": "0",
+      "flightVelocity": "0.0000",
+      "imageFit": "contain",
+      "layout": "react-bits-dome",
+      "layoutAspect": "0.462",
+      "orientation": "0.000,0.000",
+      "pan": "0.00,0.00",
+      "portal": "-0.2860,-0.2863,6.1868",
+      "progress": "1.000",
+      "quaternion": "0.00000,0.00000,0.00000,1.00000",
+      "reduced": "false",
+      "regions": "9",
+      "rotationMode": "dome-limited-pitch",
+      "starfield": "subtle",
+      "view": "space"
+    },
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "landscape": {
+    "controls": true,
+    "dome": {
+      "breakpoint": "landscape",
+      "pitchLimit": "35",
+      "rotation": "0.0000,0.0000"
+    },
+    "fit": "contain",
+    "mask": "radial-gradient(circle, rgba(0, 0, 0, 0) 232.354px, rgb(0, 0, 0) 242.354px)",
+    "side": {
+      "cells": "90",
+      "clearRadius": "232.35",
+      "curveRadius": "212.35",
+      "gap": "20.00",
+      "offsetX": "0.000",
+      "offsetY": "0.000",
+      "stagger": "half-step"
+    },
+    "state": {
+      "actualCamera": "0.0000,0.0000,18.6000",
+      "anchorPose": "-0.3118,-0.3121,6.7434",
+      "aspectError": "2.220e-16",
+      "axes": "6.200,6.200,6.200",
+      "camera": "0.00,0.00,-45.00",
+      "detail": "ready",
+      "distance": "-45.00",
+      "domeRadius": "289",
+      "fieldCount": "42",
+      "fieldLayout": "projection-gap",
+      "fieldRetiring": "1",
+      "flightVelocity": "0.0000",
+      "imageFit": "contain",
+      "layout": "react-bits-dome",
+      "layoutAspect": "2.164",
+      "orientation": "0.000,0.000",
+      "pan": "0.00,0.00",
+      "portal": "-0.2860,-0.2863,6.1868",
+      "progress": "0.000",
+      "quaternion": "0.00000,0.00000,0.00000,1.00000",
+      "reduced": "false",
+      "regions": "24",
+      "rotationMode": "dome-limited-pitch",
+      "starfield": "hidden",
+      "view": "sphere"
+    },
+    "viewport": [
+      844,
+      390
+    ]
+  },
+  "logs": {
+    "desktop": [],
+    "responsive": []
+  },
+  "projectionSamples": {
+    "views": 120,
+    "pairs": 44408,
+    "overlaps": 0,
+    "minimumAccepted": 3,
+    "maximumAccepted": 47
+  },
+  "initialIssues": [
+    "用户关闭旧检查标签后，旧19号句柄失效。切换当前29号体验页，并将读回函数改成显式传入tab，避免旧闭包引用。"
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "browser": "155.0.4283.45",
+  "base": "http://127.0.0.1:4466/personal-homepage",
+  "records": [
+    {
+      "mode": 1,
+      "result": "passed",
+      "columns": "1",
+      "scale": 1.1994,
+      "container": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 1000
+      },
+      "pages": [
+        {
+          "x": 376,
+          "y": 14.5,
+          "width": 688,
+          "height": 969
+        }
+      ]
+    },
+    {
+      "mode": 2,
+      "result": "passed",
+      "columns": "2",
+      "scale": 1.1994,
+      "container": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 1000
+      },
+      "pages": [
+        {
+          "x": 23.5,
+          "y": 14.5,
+          "width": 688,
+          "height": 969
+        },
+        {
+          "x": 728.5,
+          "y": 14.5,
+          "width": 688,
+          "height": 969
+        }
+      ]
+    },
+    {
+      "mode": 3,
+      "result": "passed",
+      "columns": "3",
+      "scale": 0.7877,
+      "container": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 1000
+      },
+      "pages": [
+        {
+          "x": 16,
+          "y": 177.5,
+          "width": 458,
+          "height": 643
+        },
+        {
+          "x": 491,
+          "y": 177.5,
+          "width": 458,
+          "height": 643
+        },
+        {
+          "x": 966,
+          "y": 177.5,
+          "width": 458,
+          "height": 643
+        }
+      ]
+    },
+    {
+      "mode": 4,
+      "result": "passed",
+      "columns": "4",
+      "scale": 0.5756,
+      "container": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 1000
+      },
+      "pages": [
+        {
+          "x": 16.5,
+          "y": 263,
+          "width": 339,
+          "height": 474
+        },
+        {
+          "x": 372.5,
+          "y": 263,
+          "width": 339,
+          "height": 474
+        },
+        {
+          "x": 728.5,
+          "y": 263,
+          "width": 339,
+          "height": 474
+        },
+        {
+          "x": 1084.5,
+          "y": 263,
+          "width": 339,
+          "height": 474
+        }
+      ]
+    },
+    {
+      "check": "zero-releases-layout-and-F-keeps-free-flow",
+      "result": "passed"
+    },
+    {
+      "check": "Esc-restores-reader",
+      "result": "passed"
+    },
+    {
+      "check": "fresh-mobile-automatic-single-page-and-exit",
+      "result": "passed"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "passed": 8,
+  "checks": [
+    "Sellmeier visible refractive index decreases from blue to red",
+    "Spectral source divides one power 16 instead of duplicating it",
+    "CIE/D65 synthesis is normalized white without per-channel coloring",
+    "Every measured wavelength conserves bounded source energy",
+    "Actual blue and red Snell paths are separated, independent of display RGB",
+    "Combined broadband receiving power is bounded by single source",
+    "Fixed IOR comparison preserves spectrum and energy while removing geometric dispersion",
+    "Changing quadrature does not alter incident D65 chromaticity"
+  ],
+  "whiteXYZ": [
+    0.9504197879543713,
+    1.0000000000000004,
+    1.0885773872389317
+  ],
+  "whiteRGB": [
+    0.9999656795676037,
+    1.000114229021426,
+    0.9995646805006091
+  ],
+  "totalReceivingPower": 14.501478792576407,
+  "outputs": [
+    {
+      "wavelength": 405,
+      "ior": 1.4695810210223692,
+      "flux": 15.999907076732788,
+      "direction": [
+        0.9352307737414728,
+        -0.3540386982335777,
+        0
+      ],
+      "received": 14.439147982227452
+    },
+    {
+      "wavelength": 450,
+      "ior": 1.4655656654352176,
+      "flux": 15.999913486481892,
+      "direction": [
+        0.9374276267912324,
+        -0.34818018974168813,
+        0
+      ],
+      "received": 14.467055100908908
+    },
+    {
+      "wavelength": 550,
+      "ior": 1.4599108864687285,
+      "flux": 15.999921784337374,
+      "direction": [
+        0.940434977683824,
+        -0.33997360595908843,
+        0
+      ],
+      "received": 14.505492605609291
+    },
+    {
+      "wavelength": 650,
+      "ior": 1.4565349736401405,
+      "flux": 15.999926362579046,
+      "direction": [
+        0.9421832578417421,
+        -0.3350980582497027,
+        0
+      ],
+      "received": 14.527978866486748
+    },
+    {
+      "wavelength": 750,
+      "ior": 1.4542367370309937,
+      "flux": 15.999929329267792,
+      "direction": [
+        0.943353677585878,
+        -0.33178884698735656,
+        0
+      ],
+      "received": 14.54309698222046
+    }
+  ]
+}

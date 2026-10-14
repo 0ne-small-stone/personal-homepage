@@ -1,67 +1,45 @@
 import { useEffect, useMemo, useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { MeshTransmissionMaterial } from '@react-three/drei';
-import { ExtrudeGeometry, Shape, Vector2, Vector3, Scene, type Mesh } from 'three';
+import { Euler, Quaternion, Vector3, type Mesh } from 'three';
 import type { JourneyModel } from './scene-state';
 import { GlassRotation } from './glass-rotation';
-import GlassOptics from './GlassOptics';
-import GlassReflectionEnvironment from './GlassReflectionEnvironment';
+import { makeTriangleGeometry } from './prism-geometry';
 import GlassEdgeLight from './GlassEdgeLight';
-import PrismBeam from './PrismBeam';
+import GlassPortalShape from './GlassPortalShape';
 
-function roundedTriangle(points: Vector2[], radius: number, target: Shape) {
-  const entries = points.map((v, i) => v.clone().lerp(points[(i + points.length - 1) % points.length], radius));
-  const exits = points.map((v, i) => v.clone().lerp(points[(i + 1) % points.length], radius));
-  target.moveTo(entries[0].x, entries[0].y);
-  points.forEach((v, i) => {
-    if (i) target.lineTo(entries[i].x, entries[i].y);
-    target.quadraticCurveTo(v.x, v.y, exits[i].x, exits[i].y);
-  });
-  target.lineTo(entries[0].x, entries[0].y);
-  target.closePath();
-}
-
-export function makeTriangleGeometry() {
-  // SYSTEM 9.3.10: solid prism, retaining the calibrated outer rounding and depth.
-  // Final local W/H/D = 3.353368 / 2.913569 / .820492.
-  const vertices = (width: number, height: number, y = 0) => [
-    new Vector2(0, height * 2 / 3 + y),
-    new Vector2(-width / 2, -height / 3 + y),
-    new Vector2(width / 2, -height / 3 + y),
-  ];
-  const shape = new Shape();
-  roundedTriangle(vertices(3.382356834, 2.914426843), .035, shape);
-  const geometry = new ExtrudeGeometry(shape, { depth: .770491776, bevelEnabled: true, bevelThickness: .025, bevelSize: .025, bevelSegments: 4, curveSegments: 16, steps: 1 });
-  geometry.computeVertexNormals();
-  // One local calibration: the outline bounds and rotation anchor share the origin.
-  // This translation preserves the shape/material and never cancels pointer feedback.
-  geometry.computeBoundingBox();
-  const center = geometry.boundingBox!.getCenter(new Vector3());
-  geometry.translate(-center.x, -center.y, -center.z);
-  geometry.computeBoundingBox();
-  return geometry;
-}
-
-export default function GlassTriangle({ model, paused, mobile, hover, low, detailed }: { model: JourneyModel; paused: boolean; mobile: boolean; hover: boolean; low: boolean; detailed:boolean }) {
+export default function GlassTriangle({ model, paused, hover, mobile,frozen=false }: { model: JourneyModel; paused: boolean; hover: boolean; mobile: boolean;frozen?:boolean }) {
   const mesh = useRef<Mesh>(null);
   const geometry = useMemo(makeTriangleGeometry, []);
-  const reflectionScene = useMemo(() => new Scene(), []);
+  const portalShape = useMemo(() => new GlassPortalShape(geometry), [geometry]);
   const rotation = useMemo(() => new GlassRotation(), []);
-  const { camera, size } = useThree();
+  const authoredRotation = useMemo(() => new Quaternion(), []);
+  const authoredEuler = useMemo(() => new Euler(), []);
+  const { camera, size, scene } = useThree();
   useEffect(() => () => geometry.dispose(), [geometry]);
   useFrame((_, rawDt) => {
-    if (!mesh.current) return;
+    if (!mesh.current||frozen) return;
     const diagnostics = rotation.step(model, rawDt, paused, hover);
     // Latest user correction: one central anchor, no chapter-driven side placement.
     mesh.current.position.set(0, 0, 0);
-    // Half-size model on every device (SYSTEM 9.3.9); CameraRig owns the aspect adaptation.
-    mesh.current.scale.setScalar(.5);
-    mesh.current.quaternion.copy(rotation.quaternion);
-    // Temporary old wall handoff, independent of the four-card index.
-    mesh.current.visible = paused || model.motion.raw.wall < (.3 / .35);
+    const prepare=paused?0:model.motion.rendered.prepare,expand=paused?0:model.motion.rendered.expand;
+    authoredEuler.set((.15*prepare+.5*expand)*Math.PI/2,-.1*prepare-.2*expand,0,'XYZ');
+    authoredRotation.setFromEuler(authoredEuler);
+    // Keep the calibrated half-size at rest; the authored side turn and modest
+    // geometric opening belong only to this scroll-driven transition.
+    mesh.current.scale.setScalar(.5*(1+.45*expand));
+    mesh.current.quaternion.copy(rotation.quaternion).multiply(authoredRotation);
+    mesh.current.updateMatrixWorld(true);
+    portalShape.update(camera, mesh.current.matrixWorld, expand, size.width, size.height);
+    scene.userData.lsshPortalQuad = portalShape.quad;
+    scene.userData.lsshPortalFrontCovered = portalShape.frontCoversCorners;
+    mesh.current.visible = paused || (model.motion.rendered.expand < .999 && model.motion.rendered.wall < .9999);
+    scene.userData.lsshGlassMesh=mesh.current;
     if (document.documentElement.dataset.motionDiagnostics === 'true') {
       model.motion.glassRotation = diagnostics;
       mesh.current.updateMatrixWorld();
+      const canvas = document.querySelector<HTMLCanvasElement>('.home-scene canvas');
+      if (canvas) canvas.dataset.glassQuaternion = mesh.current.quaternion.toArray().map(value => value.toFixed(6)).join(',');
       const anchor = new Vector3().applyMatrix4(mesh.current.matrixWorld).project(camera);
       const positions = geometry.getAttribute('position'), point = new Vector3();
       let left = Infinity, top = Infinity, right = -Infinity, bottom = -Infinity;
@@ -81,12 +59,26 @@ export default function GlassTriangle({ model, paused, mobile, hover, low, detai
       } }));
     }
   },-1);
-  return <>
-    {detailed && <GlassReflectionEnvironment scene={reflectionScene} />}
-    <mesh ref={mesh} geometry={geometry}>
-      {detailed ? <GlassOptics mesh={mesh} low={low} reflectionScene={reflectionScene} /> : <MeshTransmissionMaterial samples={low ? 2 : 4} resolution={low ? 256 : 512} transmission={1} roughness={.08} thickness={.25} ior={1.45} chromaticAberration={.015} anisotropicBlur={0} distortion={0} temporalDistortion={0} backside={false} color="#ffffff" envMapIntensity={.8} specularIntensity={.35} />}
-      <GlassEdgeLight mesh={mesh} geometry={geometry} model={model} mobile={mobile} />
-    </mesh>
-    <PrismBeam mesh={mesh} geometry={geometry} model={model} />
-  </>;
+  useEffect(()=>()=>{
+    if(scene.userData.lsshGlassMesh===mesh.current)delete scene.userData.lsshGlassMesh;
+    if(scene.userData.lsshPortalQuad===portalShape.quad){delete scene.userData.lsshPortalQuad;delete scene.userData.lsshPortalFrontCovered;}
+  },[scene,portalShape]);
+  return <mesh ref={mesh} geometry={geometry}>
+    <MeshTransmissionMaterial
+      transmission={1}
+      ior={1.45}
+      roughness={.08}
+      thickness={.25}
+      chromaticAberration={0}
+      distortion={0}
+      temporalDistortion={0}
+      samples={mobile ? 2 : 4}
+      resolution={mobile ? 256 : 512}
+      backside={false}
+      color="#ffffff"
+      envMapIntensity={.8}
+      specularIntensity={.35}
+    />
+    <GlassEdgeLight mesh={mesh} geometry={geometry} model={model} mobile={mobile} quiet={paused} />
+  </mesh>;
 }

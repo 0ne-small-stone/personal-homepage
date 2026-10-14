@@ -1,0 +1,152 @@
+{
+  "checks": [
+    {
+      "name": "real catalog, private artwork routes, no filesystem paths",
+      "passed": true,
+      "evidence": {
+        "tracks": 18,
+        "covers": 18
+      }
+    },
+    {
+      "name": "initial playback is paused; original assets and real cover decode",
+      "passed": true,
+      "evidence": [
+        {
+          "width": 500,
+          "height": 500
+        },
+        {
+          "width": 380,
+          "height": 380
+        },
+        {
+          "width": 300,
+          "height": 994
+        }
+      ]
+    },
+    {
+      "name": "play button starts real FLAC and drives disc/tonearm",
+      "passed": true,
+      "evidence": {
+        "time": 0.692259,
+        "duration": 479.56,
+        "error": null
+      }
+    },
+    {
+      "name": "tonearm pause and keyboard play preserve real progress",
+      "passed": false,
+      "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '抬起唱臂并暂停', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" aria-label=\"抬起唱臂并暂停\" class=\"turntable-tonearm\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    54 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not stable\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+    },
+    {
+      "name": "keyboard seeking and volume update actual media",
+      "passed": true,
+      "evidence": {
+        "time": 48.145378,
+        "duration": 479.56
+      }
+    },
+    {
+      "name": "next/previous, refresh retain single audio instance",
+      "passed": true,
+      "evidence": {
+        "instances": 1
+      }
+    },
+    {
+      "name": "album selection, track selection and search use real catalog",
+      "passed": true,
+      "evidence": {
+        "albums": 3
+      }
+    },
+    {
+      "name": "mode switch pauses native audio; NetEase has no fake playback",
+      "passed": true,
+      "evidence": {
+        "sharedTracks": 1,
+        "iframesBeforeAction": 0
+      }
+    },
+    {
+      "name": "sleeve opens actual official player, focus/close restore",
+      "passed": true,
+      "evidence": {
+        "official": true
+      }
+    },
+    {
+      "name": "NetEase shared list and search work",
+      "passed": true
+    },
+    {
+      "name": "browser history restores actual source mode",
+      "passed": true
+    },
+    {
+      "name": "390px local layout and reduced motion",
+      "passed": false,
+      "error": "Expected values to be strictly equal:\n\ntrue !== false\n"
+    },
+    {
+      "name": "390px NetEase cards and full official iframe fit",
+      "passed": true,
+      "evidence": {
+        "iframeWidth": 324
+      }
+    },
+    {
+      "name": "runtime, MIME and seekable bytes",
+      "passed": true,
+      "evidence": [
+        {
+          "status": 206,
+          "mime": "audio/flac",
+          "range": "bytes 0-92276153/92276154"
+        },
+        {
+          "status": 206,
+          "mime": "audio/flac",
+          "range": "bytes 1048576-92276153/92276154"
+        },
+        {
+          "status": 206,
+          "mime": "audio/flac",
+          "range": "bytes 0-98133800/98133801"
+        },
+        {
+          "status": 206,
+          "mime": "audio/flac",
+          "range": "bytes 0-92276153/92276154"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "audioResponses": [
+    {
+      "status": 206,
+      "mime": "audio/flac",
+      "range": "bytes 0-92276153/92276154"
+    },
+    {
+      "status": 206,
+      "mime": "audio/flac",
+      "range": "bytes 1048576-92276153/92276154"
+    },
+    {
+      "status": 206,
+      "mime": "audio/flac",
+      "range": "bytes 0-98133800/98133801"
+    },
+    {
+      "status": 206,
+      "mime": "audio/flac",
+      "range": "bytes 0-92276153/92276154"
+    }
+  ],
+  "passed": 12,
+  "failed": 2
+}
