@@ -1,0 +1,503 @@
+[
+  {
+    "label": "local-enter",
+    "parent": {
+      "active": true,
+      "focus": "IFRAME",
+      "height": 1440,
+      "width": 3440
+    },
+    "pdf": {
+      "columns": "2",
+      "complete": true,
+      "display": "grid",
+      "focus": "viewerContainer",
+      "page": "1",
+      "pending": false,
+      "scale": "custom",
+      "scaleLabel": "⁨175.38⁩%",
+      "visible": [
+        {
+          "bottom": 1423.5,
+          "height": 1409,
+          "left": 712.5,
+          "page": "1",
+          "right": 1711.5,
+          "top": 14.5,
+          "width": 999
+        },
+        {
+          "bottom": 1423.5,
+          "height": 1409,
+          "left": 1728.5,
+          "page": "2",
+          "right": 2727.5,
+          "top": 14.5,
+          "width": 999
+        }
+      ]
+    }
+  },
+  {
+    "label": "local-fixed-minus",
+    "parent": {
+      "active": true,
+      "focus": "IFRAME",
+      "height": 1440,
+      "width": 3440
+    },
+    "pdf": {
+      "columns": "2",
+      "complete": true,
+      "display": "grid",
+      "focus": "viewerContainer",
+      "page": "1",
+      "pending": false,
+      "scale": "1.5",
+      "scaleLabel": "⁨175.38⁩%",
+      "visible": [
+        {
+          "bottom": 1324,
+          "height": 1208,
+          "left": 854.5,
+          "page": "1",
+          "right": 1711.5,
+          "top": 116,
+          "width": 857
+        },
+        {
+          "bottom": 1324,
+          "height": 1208,
+          "left": 1728.5,
+          "page": "2",
+          "right": 2585.5,
+          "top": 116,
+          "width": 857
+        }
+      ]
+    }
+  },
+  {
+    "label": "local-fixed-F",
+    "parent": {
+      "active": true,
+      "focus": "IFRAME",
+      "height": 1440,
+      "width": 3440
+    },
+    "pdf": {
+      "columns": "2",
+      "complete": true,
+      "display": "grid",
+      "focus": "viewerContainer",
+      "page": "1",
+      "pending": false,
+      "scale": "custom",
+      "scaleLabel": "⁨175.38⁩%",
+      "visible": [
+        {
+          "bottom": 1423.5,
+          "height": 1409,
+          "left": 712.5,
+          "page": "1",
+          "right": 1711.5,
+          "top": 14.5,
+          "width": 999
+        },
+        {
+          "bottom": 1423.5,
+          "height": 1409,
+          "left": 1728.5,
+          "page": "2",
+          "right": 2727.5,
+          "top": 14.5,
+          "width": 999
+        }
+      ]
+    }
+  },
+  {
+    "label": "local-zero-releases",
+    "parent": {
+      "active": true,
+      "focus": "IFRAME",
+      "height": 1440,
+      "width": 3440
+    },
+    "pdf": {
+      "columns": null,
+      "complete": false,
+      "display": "block",
+      "focus": "viewerContainer",
+      "page": "1",
+      "pending": false,
+      "scale": "custom",
+      "scaleLabel": "⁨175.38⁩%",
+      "visible": [
+        {
+          "bottom": 1400,
+          "height": 1409,
+          "left": 205.5,
+          "page": "1",
+          "right": 1204.5,
+          "top": -9,
+          "width": 999
+        },
+        {
+          "bottom": 1400,
+          "height": 1409,
+          "left": 1220.5,
+          "page": "2",
+          "right": 2219.5,
+          "top": -9,
+          "width": 999
+        },
+        {
+          "bottom": 1400,
+          "height": 1409,
+          "left": 2235.5,
+          "page": "3",
+          "right": 3234.5,
+          "top": -9,
+          "width": 999
+        },
+        {
+          "bottom": 2825,
+          "height": 1409,
+          "left": 1220.5,
+          "page": "4",
+          "right": 2219.5,
+          "top": 1416,
+          "width": 999
+        }
+      ]
+    }
+  },
+  {
+    "label": "local-free-minus",
+    "parent": {
+      "active": true,
+      "focus": "IFRAME",
+      "height": 1440,
+      "width": 3440
+    },
+    "pdf": {
+      "columns": null,
+      "complete": false,
+      "display": "block",
+      "focus": "viewerContainer",
+      "page": "1",
+      "pending": false,
+      "scale": "1.5",
+      "scaleLabel": "⁨175.38⁩%",
+      "visible": [
+        {
+          "bottom": 1199,
+          "height": 1208,
+          "left": 418.5,
+          "page": "1",
+          "right": 1275.5,
+          "top": -9,
+          "width": 857
+        },
+        {
+          "bottom": 1199,
+          "height": 1208,
+          "left": 1291.5,
+          "page": "2",
+          "right": 2148.5,
+          "top": -9,
+          "width": 857
+        },
+        {
+          "bottom": 1199,
+          "height": 1208,
+          "left": 2164.5,
+          "page": "3",
+          "right": 3021.5,
+          "top": -9,
+          "width": 857
+        },
+        {
+          "bottom": 2423,
+          "height": 1208,
+          "left": 1291.5,
+          "page": "4",
+          "right": 2148.5,
+          "top": 1215,
+          "width": 857
+        }
+      ]
+    }
+  },
+  {
+    "label": "local-free-F-does-not-lock",
+    "parent": {
+      "active": false,
+      "focus": "BUTTON",
+      "height": 720,
+      "width": 1280
+    },
+    "pdf": {
+      "columns": null,
+      "complete": false,
+      "display": "block",
+      "focus": "",
+      "page": "1",
+      "pending": false,
+      "scale": "1.5",
+      "scaleLabel": "⁨175.38⁩%",
+      "visible": [
+        {
+          "bottom": 1247,
+          "height": 1208,
+          "left": -9,
+          "page": "1",
+          "right": 848,
+          "top": 39,
+          "width": 857
+        }
+      ]
+    }
+  },
+  {
+    "label": "local-free-F-active",
+    "parent": {
+      "active": true,
+      "focus": "IFRAME",
+      "height": 1440,
+      "width": 3440
+    },
+    "pdf": {
+      "columns": null,
+      "complete": false,
+      "display": "block",
+      "focus": "viewerContainer",
+      "page": "1",
+      "pending": false,
+      "scale": "custom",
+      "scaleLabel": "⁨175.38⁩%",
+      "visible": [
+        {
+          "bottom": 1417,
+          "height": 1409,
+          "left": 205.5,
+          "page": "1",
+          "right": 1204.5,
+          "top": 8,
+          "width": 999
+        },
+        {
+          "bottom": 1417,
+          "height": 1409,
+          "left": 1220.5,
+          "page": "2",
+          "right": 2219.5,
+          "top": 8,
+          "width": 999
+        },
+        {
+          "bottom": 1417,
+          "height": 1409,
+          "left": 2235.5,
+          "page": "3",
+          "right": 3234.5,
+          "top": 8,
+          "width": 999
+        },
+        {
+          "bottom": 2842,
+          "height": 1409,
+          "left": 1220.5,
+          "page": "4",
+          "right": 2219.5,
+          "top": 1433,
+          "width": 999
+        }
+      ]
+    }
+  },
+  {
+    "label": "local-free-zoom-multiple-columns",
+    "parent": {
+      "active": true,
+      "focus": "IFRAME",
+      "height": 1440,
+      "width": 3440
+    },
+    "pdf": {
+      "columns": null,
+      "complete": true,
+      "display": "block",
+      "focus": "viewerContainer",
+      "page": "1",
+      "pending": false,
+      "scale": "custom",
+      "scaleLabel": "⁨110⁩%",
+      "visible": [
+        {
+          "bottom": 899,
+          "height": 891,
+          "left": 430,
+          "page": "1",
+          "right": 1063,
+          "top": 8,
+          "width": 633
+        },
+        {
+          "bottom": 899,
+          "height": 891,
+          "left": 1079,
+          "page": "2",
+          "right": 1712,
+          "top": 8,
+          "width": 633
+        },
+        {
+          "bottom": 899,
+          "height": 891,
+          "left": 1728,
+          "page": "3",
+          "right": 2361,
+          "top": 8,
+          "width": 633
+        },
+        {
+          "bottom": 899,
+          "height": 891,
+          "left": 2377,
+          "page": "4",
+          "right": 3010,
+          "top": 8,
+          "width": 633
+        }
+      ]
+    }
+  },
+  {
+    "label": "local-free-exit",
+    "parent": {
+      "active": false,
+      "focus": "BUTTON",
+      "height": 720,
+      "width": 1280
+    },
+    "pdf": {
+      "columns": null,
+      "complete": false,
+      "display": "block",
+      "focus": "",
+      "page": "1",
+      "pending": false,
+      "scale": "custom",
+      "scaleLabel": "⁨110⁩%",
+      "visible": [
+        {
+          "bottom": 930,
+          "height": 891,
+          "left": 35,
+          "page": "1",
+          "right": 668,
+          "top": 39,
+          "width": 633
+        }
+      ]
+    }
+  },
+  {
+    "label": "local-free-reentry",
+    "parent": {
+      "active": true,
+      "focus": "IFRAME",
+      "height": 1440,
+      "width": 3440
+    },
+    "pdf": {
+      "columns": null,
+      "complete": true,
+      "display": "block",
+      "focus": "viewerContainer",
+      "page": "1",
+      "pending": false,
+      "scale": "custom",
+      "scaleLabel": "⁨110⁩%",
+      "visible": [
+        {
+          "bottom": 899,
+          "height": 891,
+          "left": 430,
+          "page": "1",
+          "right": 1063,
+          "top": 8,
+          "width": 633
+        },
+        {
+          "bottom": 899,
+          "height": 891,
+          "left": 1079,
+          "page": "2",
+          "right": 1712,
+          "top": 8,
+          "width": 633
+        },
+        {
+          "bottom": 899,
+          "height": 891,
+          "left": 1728,
+          "page": "3",
+          "right": 2361,
+          "top": 8,
+          "width": 633
+        },
+        {
+          "bottom": 899,
+          "height": 891,
+          "left": 2377,
+          "page": "4",
+          "right": 3010,
+          "top": 8,
+          "width": 633
+        }
+      ]
+    }
+  },
+  {
+    "label": "local-relock-two",
+    "parent": {
+      "active": true,
+      "focus": "IFRAME",
+      "height": 1440,
+      "width": 3440
+    },
+    "pdf": {
+      "columns": "2",
+      "complete": true,
+      "display": "grid",
+      "focus": "viewerContainer",
+      "page": "1",
+      "pending": false,
+      "scale": "custom",
+      "scaleLabel": "⁨175.38⁩%",
+      "visible": [
+        {
+          "bottom": 1423.5,
+          "height": 1409,
+          "left": 712.5,
+          "page": "1",
+          "right": 1711.5,
+          "top": 14.5,
+          "width": 999
+        },
+        {
+          "bottom": 1423.5,
+          "height": 1409,
+          "left": 1728.5,
+          "page": "2",
+          "right": 2727.5,
+          "top": 14.5,
+          "width": 999
+        }
+      ]
+    }
+  }
+]
