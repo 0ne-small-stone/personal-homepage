@@ -1,0 +1,71 @@
+[
+  {
+    "label": "mobile-one",
+    "parent": {
+      "active": true,
+      "focus": "IFRAME",
+      "height": 844,
+      "width": 390
+    },
+    "pdf": {
+      "columns": "1",
+      "complete": true,
+      "display": "grid",
+      "focus": "viewerContainer",
+      "page": "1",
+      "pending": false,
+      "scale": "custom",
+      "scaleLabel": "⁨60.78⁩%",
+      "visible": [
+        {
+          "bottom": 672,
+          "height": 500,
+          "left": 16.5,
+          "page": "1",
+          "right": 373.5,
+          "top": 172,
+          "width": 357
+        }
+      ]
+    }
+  },
+  {
+    "label": "mobile-swipe-exit",
+    "parent": {
+      "active": false,
+      "focus": "BUTTON",
+      "height": 844,
+      "width": 390
+    },
+    "pdf": {
+      "columns": null,
+      "complete": false,
+      "display": "block",
+      "focus": "",
+      "page": "1",
+      "pending": false,
+      "scale": "auto",
+      "scaleLabel": "⁨60.78⁩%",
+      "visible": [
+        {
+          "bottom": 510,
+          "height": 423,
+          "left": 11,
+          "page": "1",
+          "right": 315,
+          "top": 87,
+          "width": 304
+        },
+        {
+          "bottom": 926,
+          "height": 423,
+          "left": 11,
+          "page": "2",
+          "right": 315,
+          "top": 503,
+          "width": 304
+        }
+      ]
+    }
+  }
+]
