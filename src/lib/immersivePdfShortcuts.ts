@@ -13,6 +13,8 @@ export function immersivePdfShortcut(event: ReadingKey): PdfShortcut | undefined
   // An IME may report key="Process" while code still identifies the physical key.
   if (event.code === 'KeyF' || event.key.toLowerCase() === 'f') return { kind: 'fit' };
   if (event.shiftKey) return;
+  if (event.code.startsWith('Numpad') && !/^[0-9]$/.test(event.key)
+    && !['Process', 'Unidentified'].includes(event.key)) return;
   const digit = /^(?:Digit|Numpad)([0-9])$/.exec(event.code)?.[1]
     ?? (/^[0-9]$/.test(event.key) ? event.key : undefined);
   if (digit === undefined) return;

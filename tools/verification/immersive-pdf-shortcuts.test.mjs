@@ -27,4 +27,7 @@ test('modified browser commands do not become fit or layout commands', () => {
 });
 test('other reading keys remain native PDF navigation', () => {
   for (const value of ['ArrowDown','PageUp','Escape','Tab']) assert.equal(immersivePdfShortcut(key({key:value,code:value})),undefined);
+  for (const [value,code] of [['ArrowDown','Numpad2'],['Insert','Numpad0'],['PageDown','Numpad3']]) {
+    assert.equal(immersivePdfShortcut(key({key:value,code})),undefined);
+  }
 });
