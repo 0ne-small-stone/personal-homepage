@@ -1,0 +1,379 @@
+{
+  "base": "https://0ne-small-stone.github.io/personal-homepage/",
+  "startedAt": "2026-10-14T11:17:40.969Z",
+  "engine": "headless Microsoft Edge",
+  "checks": [
+    {
+      "name": "cloud catalog has 18 tracks and 3 albums",
+      "status": "pass",
+      "evidence": {
+        "tracks": 18,
+        "albums": 3,
+        "firstTrack": "抚琴小夜曲",
+        "hostnames": [
+          "pan.koala-studio.org.cn"
+        ]
+      }
+    },
+    {
+      "name": "first actual FLAC plays and clock advances",
+      "status": "pass",
+      "evidence": {
+        "count": 1,
+        "id": "225b28ef-8f6a-4db3-a91d-9a60fae15a99",
+        "identity": true,
+        "paused": false,
+        "time": 1.012715,
+        "duration": 479.56,
+        "readyState": 4,
+        "error": null,
+        "sourceHost": "pan.koala-studio.org.cn",
+        "sourceExtension": "flac"
+      }
+    },
+    {
+      "name": "pause preserves real position; keyboard seek moves actual media clock",
+      "status": "pass",
+      "evidence": {
+        "paused": {
+          "count": 1,
+          "id": "225b28ef-8f6a-4db3-a91d-9a60fae15a99",
+          "identity": true,
+          "paused": true,
+          "time": 1.179679,
+          "duration": 479.56,
+          "readyState": 4,
+          "error": null,
+          "sourceHost": "pan.koala-studio.org.cn",
+          "sourceExtension": "flac"
+        },
+        "stable": {
+          "count": 1,
+          "id": "225b28ef-8f6a-4db3-a91d-9a60fae15a99",
+          "identity": true,
+          "paused": true,
+          "time": 1.179679,
+          "duration": 479.56,
+          "readyState": 4,
+          "error": null,
+          "sourceHost": "pan.koala-studio.org.cn",
+          "sourceExtension": "flac"
+        },
+        "sought": {
+          "count": 1,
+          "id": "225b28ef-8f6a-4db3-a91d-9a60fae15a99",
+          "identity": true,
+          "paused": true,
+          "time": 2,
+          "duration": 479.56,
+          "readyState": 4,
+          "error": null,
+          "sourceHost": "pan.koala-studio.org.cn",
+          "sourceExtension": "flac"
+        },
+        "resumed": {
+          "count": 1,
+          "id": "225b28ef-8f6a-4db3-a91d-9a60fae15a99",
+          "identity": true,
+          "paused": false,
+          "time": 3.011311,
+          "duration": 479.56,
+          "readyState": 4,
+          "error": null,
+          "sourceHost": "pan.koala-studio.org.cn",
+          "sourceExtension": "flac"
+        }
+      }
+    },
+    {
+      "name": "music to knowledge retains the same playing audio and session",
+      "status": "pass",
+      "evidence": {
+        "navigation": "native existing header anchor activation through client router",
+        "before": {
+          "count": 1,
+          "id": "225b28ef-8f6a-4db3-a91d-9a60fae15a99",
+          "identity": true,
+          "paused": false,
+          "time": 3.013523,
+          "duration": 479.56,
+          "readyState": 4,
+          "error": null,
+          "sourceHost": "pan.koala-studio.org.cn",
+          "sourceExtension": "flac"
+        },
+        "after": {
+          "count": 1,
+          "id": "225b28ef-8f6a-4db3-a91d-9a60fae15a99",
+          "identity": true,
+          "paused": false,
+          "time": 4.908381,
+          "duration": 479.56,
+          "readyState": 4,
+          "error": null,
+          "sourceHost": "pan.koala-studio.org.cn",
+          "sourceExtension": "flac"
+        }
+      }
+    },
+    {
+      "name": "knowledge to homepage retains the same playing audio and session",
+      "status": "pass",
+      "evidence": {
+        "before": {
+          "count": 1,
+          "id": "225b28ef-8f6a-4db3-a91d-9a60fae15a99",
+          "identity": true,
+          "paused": false,
+          "time": 4.928717,
+          "duration": 479.56,
+          "readyState": 4,
+          "error": null,
+          "sourceHost": "pan.koala-studio.org.cn",
+          "sourceExtension": "flac"
+        },
+        "after": {
+          "count": 1,
+          "id": "225b28ef-8f6a-4db3-a91d-9a60fae15a99",
+          "identity": true,
+          "paused": false,
+          "time": 5.981945,
+          "duration": 479.56,
+          "readyState": 4,
+          "error": null,
+          "sourceHost": "pan.koala-studio.org.cn",
+          "sourceExtension": "flac"
+        }
+      }
+    },
+    {
+      "name": "browser back twice returns to music with the same progressing audio",
+      "status": "pass",
+      "evidence": {
+        "before": {
+          "count": 1,
+          "id": "225b28ef-8f6a-4db3-a91d-9a60fae15a99",
+          "identity": true,
+          "paused": false,
+          "time": 5.984496,
+          "duration": 479.56,
+          "readyState": 4,
+          "error": null,
+          "sourceHost": "pan.koala-studio.org.cn",
+          "sourceExtension": "flac"
+        },
+        "after": {
+          "count": 1,
+          "id": "225b28ef-8f6a-4db3-a91d-9a60fae15a99",
+          "identity": true,
+          "paused": false,
+          "time": 6.802034,
+          "duration": 479.56,
+          "readyState": 4,
+          "error": null,
+          "sourceHost": "pan.koala-studio.org.cn",
+          "sourceExtension": "flac"
+        }
+      }
+    },
+    {
+      "name": "NetEase snapshot has 11 tracks and missing resolver never loads HTML as audio",
+      "status": "pass",
+      "evidence": {
+        "tracks": 11,
+        "audio": {
+          "count": 1,
+          "id": "225b28ef-8f6a-4db3-a91d-9a60fae15a99",
+          "identity": true,
+          "paused": true,
+          "time": 0,
+          "duration": null,
+          "readyState": 0,
+          "error": null,
+          "sourceHost": "pan.koala-studio.org.cn",
+          "sourceExtension": "flac"
+        },
+        "error": "网易云播放服务尚未接通，请稍后重试或在网易云打开。"
+      }
+    },
+    {
+      "name": "unavailable account service exposes no QR or DPAPI promises and Escape restores focus",
+      "status": "pass",
+      "evidence": {
+        "text": "网易云账号服务\n\n账号服务尚未接通，当前无法扫码登录。你可以在网易云继续收听共享歌单。\n\n重新检查服务\n打开共享歌单（新窗口）",
+        "qrButtons": 0,
+        "focusRestored": true
+      }
+    },
+    {
+      "name": "unavailable recommendation service cannot submit; official alternatives remain reachable",
+      "status": "pass",
+      "evidence": {
+        "message": "推荐一首歌\n关闭\n\n把喜欢的歌分享给 Echoes。通过审核后，会加入网易云共享歌单。\n\n推荐服务尚未接通，暂时无法提交。你可以先打开共享歌单收听。",
+        "playlistUrl": "https://music.163.com/#/playlist?id=18476425375",
+        "iframeSrc": "https://music.163.com/outchain/player?type=0&id=18476425375&auto=0&height=430",
+        "iframePlayback": "not tested"
+      }
+    },
+    {
+      "name": "desktop layout has no horizontal overflow",
+      "status": "pass",
+      "evidence": {
+        "width": 1280,
+        "document": 1280,
+        "body": 1280,
+        "dialog": []
+      }
+    },
+    {
+      "name": "390px cloud catalog and listening dialog fit; Escape restores focus",
+      "status": "fail",
+      "error": "locator.waitFor: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.music-listening-room[open]') to be visible\u001b[22m\n"
+    },
+    {
+      "name": "390px unavailable account dialog fits and reduced-motion stops sleeve rotation",
+      "status": "pass",
+      "evidence": {
+        "motion": {
+          "matches": true,
+          "animation": "none",
+          "transition": "0s"
+        },
+        "size": {
+          "width": 390,
+          "document": 390,
+          "body": 390,
+          "dialog": [
+            {
+              "width": 356,
+              "left": 17,
+              "right": 373,
+              "scroll": 356,
+              "client": 356
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "public music catalog contains only public metadata fields and no credential URLs",
+      "status": "pass",
+      "evidence": {
+        "tracks": 18,
+        "fields": [
+          "id",
+          "title",
+          "artist",
+          "album",
+          "albumArtist",
+          "trackNumber",
+          "discNumber",
+          "duration",
+          "format",
+          "sampleRate",
+          "bitsPerSample",
+          "audioUrl",
+          "coverUrl",
+          "lyrics"
+        ],
+        "catalogSHA256": "ce03ef52fef9178f3257d776516f012afe5691450b75013290164b7fe6c84a1a",
+        "scope": "Public metadata only; filesystem private-file exclusion remains proven by build/CI guards."
+      }
+    },
+    {
+      "name": "no uncaught browser runtime errors",
+      "status": "fail",
+      "error": "Runtime errors: [{\"label\":\"desktop\",\"message\":\"Failed to read a named property 'device__browser_update' from 'Window': Blocked a frame with origin \\\"https://music.163.com\\\" from accessing a frame with origin \\\"https://0ne-small-stone.github.io\\\". Protocols, domains, and ports must match.\"}]"
+    }
+  ],
+  "pageErrors": [
+    {
+      "label": "desktop",
+      "message": "Failed to read a named property 'device__browser_update' from 'Window': Blocked a frame with origin \"https://music.163.com\" from accessing a frame with origin \"https://0ne-small-stone.github.io\". Protocols, domains, and ports must match."
+    }
+  ],
+  "consoleErrors": [
+    {
+      "label": "desktop",
+      "message": "Failed to load resource: the server responded with a status of 404 ()"
+    },
+    {
+      "label": "desktop",
+      "message": "Failed to load resource: the server responded with a status of 404 ()"
+    },
+    {
+      "label": "desktop",
+      "message": "Failed to load resource: the server responded with a status of 405 ()"
+    },
+    {
+      "label": "desktop",
+      "message": "Failed to load resource: the server responded with a status of 404 ()"
+    },
+    {
+      "label": "desktop",
+      "message": "Failed to load resource: the server responded with a status of 404 ()"
+    },
+    {
+      "label": "desktop",
+      "message": "Failed to read a named property 'document' from 'Window': Blocked a frame with origin \"https://music.163.com\" from accessing a cross-origin frame."
+    },
+    {
+      "label": "desktop",
+      "message": "SecurityError: Failed to read a named property 'document' from 'Window': Blocked a frame with origin \"https://music.163.com\" from accessing a cross-origin frame.\n    at onload (https://s3.music.126.net/web/s/core_c7686f506f6f2607bb7f6cea1951f039.js?c7686f506f6f2607bb7f6cea1951f039:95:3576)\n    at bUz8u (https://s3.music.126.net/web/s/core_c7686f506f6f2607bb7f6cea1951f039.js?c7686f506f6f2607bb7f6cea1951f039:35:933)\n    at Cd4q (https://s3.music.126.net/web/s/core_c7686f506f6f2607bb7f6cea1951f039.js?c7686f506f6f2607bb7f6cea1951f039:35:1306)\n    at gb4e.<anonymous> (https://s3.music.126.net/web/s/core_c7686f506f6f2607bb7f6cea1951f039.js?c7686f506f6f2607bb7f6cea1951f039:1:2478)\n    at qo0G.z4W (https://s3.music.126.net/web/s/core_c7686f506f6f2607bb7f6cea1951f039.js?c7686f506f6f2607bb7f6cea1951f039:18:3001)\n    at b8q.wE2G (https://s3.music.126.net/web/s/core_c7686f506f6f2607bb7f6cea1951f039.js?c7686f506f6f2607bb7f6cea1951f039:20:1300)\n    at Yr6C.gJ6a (https://s3.music.126.net/web/s/core_c7686f506f6f2607bb7f6cea1951f039.js?c7686f506f6f2607bb7f6cea1951f039:21:1140)\n    at XMLHttpRequest.<anonymous> (https://s3.music.126.net/web/s/core_c7686f506f6f2607bb7f6cea1951f039.js?c7686f506f6f2607bb7f6cea1951f039:1:2478)"
+    },
+    {
+      "label": "desktop",
+      "message": "Permissions policy violation: accelerometer is not allowed in this document."
+    },
+    {
+      "label": "desktop",
+      "message": "Permissions policy violation: accelerometer is not allowed in this document."
+    },
+    {
+      "label": "desktop",
+      "message": "Permissions policy violation: accelerometer is not allowed in this document."
+    },
+    {
+      "label": "desktop",
+      "message": "Permissions policy violation: accelerometer is not allowed in this document."
+    },
+    {
+      "label": "desktop",
+      "message": "Failed to load resource: the server responded with a status of 404 ()"
+    },
+    {
+      "label": "desktop",
+      "message": "Failed to load resource: the server responded with a status of 404 ()"
+    },
+    {
+      "label": "390px-reduced-motion",
+      "message": "Failed to load resource: the server responded with a status of 404 ()"
+    },
+    {
+      "label": "390px-reduced-motion",
+      "message": "Failed to load resource: the server responded with a status of 404 ()"
+    }
+  ],
+  "mediaResponses": [
+    {
+      "label": "desktop",
+      "host": "pan.koala-studio.org.cn",
+      "status": 206,
+      "mime": "audio/flac",
+      "range": "bytes 0-92276153/92276154",
+      "length": "92276154"
+    }
+  ],
+  "limitations": [
+    "390px is an emulated Chromium viewport, not a physical mobile device.",
+    "Official iframe existence and source are verified; official platform playback is not claimed.",
+    "No account backend, login or private credential was accessed."
+  ],
+  "browserVersion": "155.0.4283.45",
+  "finishedAt": "2026-10-14T11:18:13.361Z",
+  "summary": {
+    "passed": 12,
+    "failed": 2,
+    "notTested": 0
+  }
+}
