@@ -1,5 +1,7 @@
 # 个人主页技术调研来源和候选方案
 
+2026-10-14 T09.04修订4：继续复用固定PDF.js6.4.299的PDFDocumentProxy.getPage、PDFPageProxy.getViewport和原生缩放/渲染队列。[官方视口说明](https://mozilla.github.io/pdf.js/api/draft/module-pdfjsLib-PDFPageProxy.html)承接纸张尺寸与旋转，实际契约以已提交版本实读为准；[CSS Grid固定列](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns)和[行尺寸](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-rows)承接独立页数及每组至少一屏。现成Wrapped缺少固定1–4页模式，只补最小布局和输入策略，取当前组最多4页尺寸、异步请求失效保护；手动翻组也读目标尺寸并保持比例。能力缺口、实际测试与边界见[修订4](iterations/t09-04-page-modes-2026-10-14.md)，新增依赖/素材0。
+
 2026-10-13 T09.04修订3：沿用本机固定PDF.js6.4.299的getPageView、PageViewport尺寸/convertToPdfPoint和scrollPageIntoView的XYZ目的地，未更换版本。[官方页视口说明](https://mozilla.github.io/pdf.js/api/draft/module-pdfjsLib-PDFPageProxy.html)提供尺度/比例依据，[官方示例](https://mozilla.github.io/pdf.js/examples/index.html)说明原始viewport与旋转；本站采用固定源码实读而非把在线draft视为当前包契约。[Resize Observer](https://developer.mozilla.org/en-US/docs/Web/API/Resize_Observer_API)观察阅读区尺寸，合并回调以避免反复布局。现成能力不足之处及最小适配范围见[修订3记录](iterations/t09-04-adaptive-2026-10-13.md)；新增依赖与设计资源为0。
 
 2026-10-13 T09.04修订2：实读vendored PDF.js6.4.299的scrollMode/spreadMode、Wrapped CSS、键盘缩放与ViewHistory事件；复用[官方PDFViewer源码](https://github.com/mozilla/pdf.js/blob/master/web/pdf_viewer.js)的布局/渲染队列，避免PresentationMode单页限制。结合[Fullscreen API](https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API)的请求/退出及事件，一键耦合恢复。版本查询避免旧viewer/style缓存，公开守卫按同源路径和唯一文件参数检查；原排列pagehide恢复，正式结论见[记录](iterations/t09-04-pure-2026-10-13.md)。
