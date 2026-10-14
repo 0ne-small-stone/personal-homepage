@@ -1,0 +1,454 @@
+{
+  "date": "2026-10-14",
+  "sourceHead": "cc9830b",
+  "mainBaseline": "c122144",
+  "preserved": "main HomeHeader public directory",
+  "records": [
+    {
+      "file": "src/components/home/AlbumScene.tsx",
+      "sha256": "f98683d2b22b3f5b8db54d7b681a93b97b57997fed54989dffb40de5dcc1ff16",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "f98683d2b22b3f5b8db54d7b681a93b97b57997fed54989dffb40de5dcc1ff16"
+    },
+    {
+      "file": "src/components/home/black-flow.ts",
+      "sha256": "06f0e6c394000409b2b19845ede075d6f8c86b1f440effcdf3c2477447681741",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "06f0e6c394000409b2b19845ede075d6f8c86b1f440effcdf3c2477447681741"
+    },
+    {
+      "file": "src/components/home/BlackFlowLayer.tsx",
+      "sha256": "60e93aad1e462a452e6d954a26632b9e14b4f1245c8824910805bea77ae2bdd0",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "60e93aad1e462a452e6d954a26632b9e14b4f1245c8824910805bea77ae2bdd0"
+    },
+    {
+      "file": "src/components/home/CameraRig.tsx",
+      "sha256": "680c2919b5e2c8f904108df264af036c909551d844acd00f20342f3eec62fc90",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "680c2919b5e2c8f904108df264af036c909551d844acd00f20342f3eec62fc90"
+    },
+    {
+      "file": "src/components/home/glass-rotation.ts",
+      "sha256": "c71ff679d31138b32802f16b2460add995f538d08501a78c15c2ef7629b95c7b",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "c71ff679d31138b32802f16b2460add995f538d08501a78c15c2ef7629b95c7b"
+    },
+    {
+      "file": "src/components/home/GlassEdgeLight.tsx",
+      "sha256": "5e26c98e038a1a459cd2aa02bca207dcd198bbdb78642640a287dec7dffc1cb5",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "5e26c98e038a1a459cd2aa02bca207dcd198bbdb78642640a287dec7dffc1cb5"
+    },
+    {
+      "file": "src/components/home/GlassGlow.ts",
+      "sha256": "37545df1e9eb708ead5d3eba2bce732a4ff494ea065b06a9bfeb148449f48fd5",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "37545df1e9eb708ead5d3eba2bce732a4ff494ea065b06a9bfeb148449f48fd5"
+    },
+    {
+      "file": "src/components/home/GlassOptics.tsx",
+      "sha256": "5919384b0403dcd7ac7fd5c45a294707f3fe7a8920463bc6f54f662907e0ba7a",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "5919384b0403dcd7ac7fd5c45a294707f3fe7a8920463bc6f54f662907e0ba7a"
+    },
+    {
+      "file": "src/components/home/GlassPortalShape.ts",
+      "sha256": "8c6faeb0efd4902426061e5b5fe50b322f274867c8d1aaeb3f0e1bf625d2528a",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "8c6faeb0efd4902426061e5b5fe50b322f274867c8d1aaeb3f0e1bf625d2528a"
+    },
+    {
+      "file": "src/components/home/GlassReflectionEnvironment.tsx",
+      "sha256": "5a6c79c4c80f1f55f476f6c40640951e6e9a1c7b37d856d07084b2b09378a6a5",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "5a6c79c4c80f1f55f476f6c40640951e6e9a1c7b37d856d07084b2b09378a6a5"
+    },
+    {
+      "file": "src/components/home/GlassRenderLayer.tsx",
+      "sha256": "4caa87812ab27fe11944bc42d5057f45f05c802f4b16500f0d3458afb3e40d00",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "4caa87812ab27fe11944bc42d5057f45f05c802f4b16500f0d3458afb3e40d00"
+    },
+    {
+      "file": "src/components/home/GlassTriangle.tsx",
+      "sha256": "a6bcaa17da84b7e5925e8db256a09fa8a6d63b62439f435650cfc1fd9add82dd",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "a6bcaa17da84b7e5925e8db256a09fa8a6d63b62439f435650cfc1fd9add82dd"
+    },
+    {
+      "file": "src/components/home/Guestbook.astro",
+      "sha256": "e091928db2f22099d83d7f0e5c401c63b6e26ebc9caae45d8702b9b1d6b53525",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "e091928db2f22099d83d7f0e5c401c63b6e26ebc9caae45d8702b9b1d6b53525"
+    },
+    {
+      "file": "src/components/home/home-chapters.ts",
+      "sha256": "ce70fa92508088cdeeb7c5c9c669a706d57ee8b1dbb3ca3be4ce0f4cd3551aef",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "ce70fa92508088cdeeb7c5c9c669a706d57ee8b1dbb3ca3be4ce0f4cd3551aef"
+    },
+    {
+      "file": "src/components/home/home-motion.ts",
+      "sha256": "e1a6fed3ef45a510d61636fe810b79c1a8fa38994b362ec054be3c47b8b4c56f",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "e1a6fed3ef45a510d61636fe810b79c1a8fa38994b362ec054be3c47b8b4c56f"
+    },
+    {
+      "file": "src/components/home/home-return.ts",
+      "sha256": "e5aee4fc3639bc680e9db7837dbd2d9bb454350e04470cc9773e1338e730fe30",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "e5aee4fc3639bc680e9db7837dbd2d9bb454350e04470cc9773e1338e730fe30"
+    },
+    {
+      "file": "src/components/home/HomeCta.astro",
+      "sha256": "885b54a3d502e2c2a32840015fc940862ba56bd7c0174490f001f24a97a45de5",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "885b54a3d502e2c2a32840015fc940862ba56bd7c0174490f001f24a97a45de5"
+    },
+    {
+      "file": "src/components/home/HomeJourney.tsx",
+      "sha256": "79e5942532ad48b5a871988eaaab6eb3600991e4fc7dc489eb9f6f143fbae9e7",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "614f13a82b2b9fdcae8f4b306dc73e69e7479cfe5822cecbfccb4be78a99a630"
+    },
+    {
+      "file": "src/components/home/JourneyPage.astro",
+      "sha256": "d290bbe33528a21d005755c4735ad9b13c4830ac34416be0fe27ca8dc639af0d",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "d290bbe33528a21d005755c4735ad9b13c4830ac34416be0fe27ca8dc639af0d"
+    },
+    {
+      "file": "src/components/home/motion-ranges.ts",
+      "sha256": "f12832d00331ae0041062c271bfea0c034a3ef17d83d178e223febbf279630a1",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "f12832d00331ae0041062c271bfea0c034a3ef17d83d178e223febbf279630a1"
+    },
+    {
+      "file": "src/components/home/prism-geometry.ts",
+      "sha256": "42c37a53c86b8a4d10d5f1b5c25b5c6fb8d0f193ffe8a13bb6cd7a907e906dac",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "42c37a53c86b8a4d10d5f1b5c25b5c6fb8d0f193ffe8a13bb6cd7a907e906dac"
+    },
+    {
+      "file": "src/components/home/prism-ray.ts",
+      "sha256": "39fda218b292815267451ff233b46fe5941b82eacc1ab757d81265db8bfd9c4f",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "39fda218b292815267451ff233b46fe5941b82eacc1ab757d81265db8bfd9c4f"
+    },
+    {
+      "file": "src/components/home/prism-spectrum.ts",
+      "sha256": "2cf64d190afe086dac99fa87367951babd51fde596fed0d1a06c6c9bae8ede65",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "2cf64d190afe086dac99fa87367951babd51fde596fed0d1a06c6c9bae8ede65"
+    },
+    {
+      "file": "src/components/home/prism-visibility.ts",
+      "sha256": "ebc07eac1766e163b3cd0ef543714447336d88c2c6592793f46c32367049ed3a",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "ebc07eac1766e163b3cd0ef543714447336d88c2c6592793f46c32367049ed3a"
+    },
+    {
+      "file": "src/components/home/PrismBeam.tsx",
+      "sha256": "7b5f87a5ea06081c02c37334b26f6304fffd3232f0c6269cadd8b5528f043267",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "7b5f87a5ea06081c02c37334b26f6304fffd3232f0c6269cadd8b5528f043267"
+    },
+    {
+      "file": "src/components/home/ProjectScene.tsx",
+      "sha256": "5a32d307f6f47410d79e73197d88779114fae9f64c5fae68468a93e4632e0411",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "5a32d307f6f47410d79e73197d88779114fae9f64c5fae68468a93e4632e0411"
+    },
+    {
+      "file": "src/components/home/RadioScene.tsx",
+      "sha256": "66c53a36e3a1234c6a9c034fea3a132702bb242705338b5e4579cdada61cef2b",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "66c53a36e3a1234c6a9c034fea3a132702bb242705338b5e4579cdada61cef2b"
+    },
+    {
+      "file": "src/components/home/RisingWall.tsx",
+      "sha256": "193cc00620a196caefc0e4a3312579318e4dc5e3069f831e75437a253da73105",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "193cc00620a196caefc0e4a3312579318e4dc5e3069f831e75437a253da73105"
+    },
+    {
+      "file": "src/components/home/scene-state.ts",
+      "sha256": "d9b720274e690ff30c37fe7e4bd85349cfd67e615b9395b6475c87ffc7565352",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "d9b720274e690ff30c37fe7e4bd85349cfd67e615b9395b6475c87ffc7565352"
+    },
+    {
+      "file": "src/components/home/SceneBackdrop.tsx",
+      "sha256": "8601b71ab1bd91c136d7a02f6f058a7c225639d711eea4765f5a934efc0b36aa",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "8601b71ab1bd91c136d7a02f6f058a7c225639d711eea4765f5a934efc0b36aa"
+    },
+    {
+      "file": "src/components/home/SceneLighting.tsx",
+      "sha256": "691516ed0d1b87b6af84e63c929a373b73c196a78c17e019cc106c746b0ad581",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "691516ed0d1b87b6af84e63c929a373b73c196a78c17e019cc106c746b0ad581"
+    },
+    {
+      "file": "src/components/home/SpectralTransport.tsx",
+      "sha256": "d51b2b7c36a4a276a59a839da57855dfa91f81f6e56f1a748505482edfdb5102",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "d51b2b7c36a4a276a59a839da57855dfa91f81f6e56f1a748505482edfdb5102"
+    },
+    {
+      "file": "src/components/home/wall-assembly.ts",
+      "sha256": "567cc09482fc58dcbfbb2f5dacd341488886f611e481c33fb58a2e78b3c1d802",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "567cc09482fc58dcbfbb2f5dacd341488886f611e481c33fb58a2e78b3c1d802"
+    },
+    {
+      "file": "src/components/home/wall-material.ts",
+      "sha256": "dff0cbdeaf088053258b235439988c47d68774f02073d61abb0f355fedecb165",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "dff0cbdeaf088053258b235439988c47d68774f02073d61abb0f355fedecb165"
+    },
+    {
+      "file": "src/components/home/wall-portal-geometry.ts",
+      "sha256": "d3483336f4994107798f59989e6511872c03046eb037cdfd5a6dfef8b09bb3fa",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "d3483336f4994107798f59989e6511872c03046eb037cdfd5a6dfef8b09bb3fa"
+    },
+    {
+      "file": "src/components/home/WallPortal.ts",
+      "sha256": "608d2030c1c5eafd55525972a98aff7638406883461bc7ed5c7257fc3a137525",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "608d2030c1c5eafd55525972a98aff7638406883461bc7ed5c7257fc3a137525"
+    },
+    {
+      "file": "src/components/home/works-motion.ts",
+      "sha256": "a9bca1ed2d17ff7a757a5477a44c63b21dd18f4fb0bfdbe7da3be88bb995f396",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "a9bca1ed2d17ff7a757a5477a44c63b21dd18f4fb0bfdbe7da3be88bb995f396"
+    },
+    {
+      "file": "src/components/home/WorksMotionDriver.tsx",
+      "sha256": "2fff2bc385951e6da72f844b2c1aa26f3831e5915b8d10b37fa6d6a5ab2bd1c9",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "2fff2bc385951e6da72f844b2c1aa26f3831e5915b8d10b37fa6d6a5ab2bd1c9"
+    },
+    {
+      "file": "src/components/home/WorksScene.tsx",
+      "sha256": "5fea01aa32812fec282733753d6295423661da47564c576353c7c221d7fb6406",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "5fea01aa32812fec282733753d6295423661da47564c576353c7c221d7fb6406"
+    },
+    {
+      "file": "src/lib/home-optics/beam-field.js",
+      "sha256": "0b97898f02efd3427ad3da5d8add65db042515ee27f33be5779dd7b197316909",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "0b97898f02efd3427ad3da5d8add65db042515ee27f33be5779dd7b197316909"
+    },
+    {
+      "file": "src/lib/home-optics/cap-accelerator.js",
+      "sha256": "01b86570be0f2066669fe78e3067ef689a4f976262c50ead7b5467703e98fa88",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "01b86570be0f2066669fe78e3067ef689a4f976262c50ead7b5467703e98fa88"
+    },
+    {
+      "file": "src/lib/home-optics/observer-field.js",
+      "sha256": "cf24b8c9f4ded1b286d400ed10a833a2772ae6d636acf635991957d68a310665",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "cf24b8c9f4ded1b286d400ed10a833a2772ae6d636acf635991957d68a310665"
+    },
+    {
+      "file": "src/lib/home-optics/observer-optics.js",
+      "sha256": "b18b0e94dc493ffa7a979d196dfa361ddb4e822e552a10a0af80ae9fc2aa6941",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "b18b0e94dc493ffa7a979d196dfa361ddb4e822e552a10a0af80ae9fc2aa6941"
+    },
+    {
+      "file": "src/lib/home-optics/ray.js",
+      "sha256": "2178b6419826449061f3c9cdfa59b889f94d568acbf6c7b8967cc281a745692e",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "2178b6419826449061f3c9cdfa59b889f94d568acbf6c7b8967cc281a745692e"
+    },
+    {
+      "file": "src/lib/home-optics/receiver.js",
+      "sha256": "ede4d598dda6543dd74040593e84a37db18238b63efd804a12ae9a3a41b76ab3",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "ede4d598dda6543dd74040593e84a37db18238b63efd804a12ae9a3a41b76ab3"
+    },
+    {
+      "file": "src/lib/home-optics/render-scheduler.js",
+      "sha256": "85437354c3fc7f811d2e29f0d7f5a0f7b305bafd7c55d551bb707c48a346c07d",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "85437354c3fc7f811d2e29f0d7f5a0f7b305bafd7c55d551bb707c48a346c07d"
+    },
+    {
+      "file": "src/lib/home-optics/source-depth.js",
+      "sha256": "642fbbbce17bb971ed2fa621790c75b79129ce6eb74324218f4bba989154654e",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "642fbbbce17bb971ed2fa621790c75b79129ce6eb74324218f4bba989154654e"
+    },
+    {
+      "file": "src/lib/home-optics/spectral-atlas.js",
+      "sha256": "b0a277927d8f586517ad05a2f95f61298666a21ae9f621ecbc31c3e56be39fba",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "b0a277927d8f586517ad05a2f95f61298666a21ae9f621ecbc31c3e56be39fba"
+    },
+    {
+      "file": "src/lib/home-optics/spectral-observer.js",
+      "sha256": "5a3097e992ef497599c3627e7d94eb3b76a9adf744c3b9bfedc5bac325419885",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "5a3097e992ef497599c3627e7d94eb3b76a9adf744c3b9bfedc5bac325419885"
+    },
+    {
+      "file": "src/lib/home-optics/spectral-render.js",
+      "sha256": "03bce6efe86d1704471bf5adc6023d2dd1f998923fdf2104511870f31d6580ad",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "03bce6efe86d1704471bf5adc6023d2dd1f998923fdf2104511870f31d6580ad"
+    },
+    {
+      "file": "src/lib/home-optics/spectral-science.js",
+      "sha256": "274c536d40edb28a40cda2c0e9b62498f0cd7e7a3ca4311521dabcd35518dfc1",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "274c536d40edb28a40cda2c0e9b62498f0cd7e7a3ca4311521dabcd35518dfc1"
+    },
+    {
+      "file": "src/lib/home-optics/spectral-table.js",
+      "sha256": "a63539d3b2ba5ae2f7b42716e3524b13d1bd7a4543914c6baecfe5835f8c7a6f",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "a63539d3b2ba5ae2f7b42716e3524b13d1bd7a4543914c6baecfe5835f8c7a6f"
+    },
+    {
+      "file": "src/lib/home-optics/spectral-worker.js",
+      "sha256": "6e30dcc7df0b693cc51e07d4ef51bdc5914a6e313afc1e7ed9107dd7853e7adc",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "6e30dcc7df0b693cc51e07d4ef51bdc5914a6e313afc1e7ed9107dd7853e7adc"
+    },
+    {
+      "file": "src/assets/home/coast-sample.jpg",
+      "sha256": "31a3eb55a10b7e3f175b5b8b81e80b3cbcea509d95dd77820ea20b77b6c145d8",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "31a3eb55a10b7e3f175b5b8b81e80b3cbcea509d95dd77820ea20b77b6c145d8"
+    },
+    {
+      "file": "src/assets/home/echoes-placeholder.jpg",
+      "sha256": "9b1aba55a866d0fde9bfe29bcee23b670caba98d7c1def9b24ab7dee2ea3077e",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "9b1aba55a866d0fde9bfe29bcee23b670caba98d7c1def9b24ab7dee2ea3077e"
+    },
+    {
+      "file": "src/assets/home/lssh-wordmark.png",
+      "sha256": "6ee59815233d9ad40db79a1c6f709f9705cc7e9c84e5be985a107fb9c4a711b5",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "6ee59815233d9ad40db79a1c6f709f9705cc7e9c84e5be985a107fb9c4a711b5"
+    },
+    {
+      "file": "src/assets/home/the-wall-placeholder.jpg",
+      "sha256": "c3a46f4c214f36d56a49e8d749b6184fc7feadef3f2f7b791e86ae999d72c71a",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "c3a46f4c214f36d56a49e8d749b6184fc7feadef3f2f7b791e86ae999d72c71a"
+    },
+    {
+      "file": "src/assets/home/wish-neighbor-placeholder.png",
+      "sha256": "b5ead545965d98f64bd64bcce93d7fceffc7d7ea3d22229ed25f1ed52c879f14",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "b5ead545965d98f64bd64bcce93d7fceffc7d7ea3d22229ed25f1ed52c879f14"
+    },
+    {
+      "file": "tests/home-motion-ranges.test.mjs",
+      "sha256": "0ac33a5f98d510b06ea9471cc5ab1248aaf8ae7c43f303f7ac3a8b37c2fafaaa",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "0ac33a5f98d510b06ea9471cc5ab1248aaf8ae7c43f303f7ac3a8b37c2fafaaa"
+    },
+    {
+      "file": "tests/prism-ray.test.mjs",
+      "sha256": "ad72a3713f86f9315c2217caf79eafaf7ceee454b44773657d77bdfc15617d31",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "ad72a3713f86f9315c2217caf79eafaf7ceee454b44773657d77bdfc15617d31"
+    },
+    {
+      "file": "src/layouts/HomeLayout.astro",
+      "sha256": "313c359721d80ba460b3b9b5d1006bdb0fdf25f1e189c78ff8d41884069d8e89",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "313c359721d80ba460b3b9b5d1006bdb0fdf25f1e189c78ff8d41884069d8e89"
+    },
+    {
+      "file": "src/styles/home.css",
+      "sha256": "9e325d0219571c5cf3e69d4fb733f55c969fa565d274de33206a4b90a5a6ff1d",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "4cdffb9b5c270180518450a2a8b1c6497765cc16ea4703b9703551ffe530e7f2"
+    },
+    {
+      "file": "src/pages/index.astro",
+      "sha256": "ec67ed3516502379dd8a9fc8938e7584891cdee06261e61be76f20d5d283ada7",
+      "sourceUnchanged": true,
+      "copyMatches": true,
+      "releaseSha256": "ec67ed3516502379dd8a9fc8938e7584891cdee06261e61be76f20d5d283ada7"
+    }
+  ],
+  "updatedTo": "BCioJqmj source after compact production build",
+  "integrationChanges": [
+    "src/components/home/HomeJourney.tsx",
+    "src/styles/home.css"
+  ]
+}

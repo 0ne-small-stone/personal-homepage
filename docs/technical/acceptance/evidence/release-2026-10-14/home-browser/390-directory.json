@@ -1,0 +1,389 @@
+{
+  "key": "390-directory",
+  "s": {
+    "at": 11435.70000000298,
+    "url": "http://127.0.0.1:4466/personal-homepage/?opticsDebug=1#intro",
+    "title": "Little Stone Still Here",
+    "status": "ready",
+    "classes": "lssh-home has-journey home-enhanced",
+    "bundle": "/personal-homepage/_astro/HomeJourney.BCXaLeTH.js",
+    "y": 0,
+    "width": 390,
+    "height": 844,
+    "canvases": 1,
+    "overflow": false,
+    "wallInert": true,
+    "wallAriaHidden": "true",
+    "motion": {
+      "height": 844,
+      "scrollY": 0,
+      "velocity": 0,
+      "phase": "kv",
+      "raw": {
+        "kv": 0.8940677966101694,
+        "intro": 0,
+        "works": 0,
+        "event": 0,
+        "snap": 0,
+        "outro": 0,
+        "prepare": 0,
+        "expand": 0,
+        "wall": 0
+      },
+      "rendered": {
+        "progress": 0,
+        "index": 0.00043506107225686893,
+        "background": 0,
+        "intro": 0.010967285331575484,
+        "prepare": 0.00001296665597281861,
+        "expand": 0,
+        "wall": 0
+      },
+      "activeItem": -1,
+      "snapActive": false,
+      "portalCovered": false,
+      "frame": 198,
+      "time": 11406.90000000596,
+      "initialization": {
+        "revision": 1,
+        "y": 0,
+        "zoom": 1,
+        "reason": "layout"
+      },
+      "cards": [
+        {
+          "index": 0,
+          "position": [
+            3.331293929087847,
+            0.12015662198601249,
+            -1.1867969772147446
+          ],
+          "rotationY": 0.5997389633566459,
+          "scale": 0.3600313243972025,
+          "alpha": 0.0008369647652483126,
+          "visible": false
+        },
+        {
+          "index": 1,
+          "position": [
+            3.6015344246131855,
+            -0.23984337801398756,
+            -2.908352155072246
+          ],
+          "rotationY": 1.199738963356646,
+          "scale": 0.36,
+          "alpha": 0.00018181118388488777,
+          "visible": false
+        },
+        {
+          "index": 2,
+          "position": [
+            0.5605407794761295,
+            -0.5998433780139875,
+            -3.9418758127591067
+          ],
+          "rotationY": 1.7997389633566458,
+          "scale": 0.36,
+          "alpha": 0,
+          "visible": false
+        },
+        {
+          "index": 3,
+          "position": [
+            -2.995811473245032,
+            -0.9598433780139873,
+            -3.337151065736577
+          ],
+          "rotationY": 2.3997389633566457,
+          "scale": 0.36,
+          "alpha": 0,
+          "visible": false
+        }
+      ],
+      "camera": {
+        "position": [
+          -0.2346811462591128,
+          -0.08600200768026922,
+          5.7
+        ],
+        "fov": 69.95384615384616,
+        "outro": {
+          "raw": 0,
+          "parallax": 0.0000194509922304484,
+          "projection": 0
+        },
+        "offset": [
+          -0.391135243765188,
+          -0.14333667946711537
+        ],
+        "offsetTarget": [
+          -0.36860821037672514,
+          0.45496745357699464
+        ],
+        "projection": [
+          3.0933097064566186,
+          0,
+          0,
+          0,
+          0,
+          1.4293729686233192,
+          0,
+          0,
+          0,
+          0,
+          -1.0040080160320641,
+          -1,
+          0,
+          0,
+          -0.20040080160320642,
+          0
+        ],
+        "inverse": [
+          0.3232783312685164,
+          0,
+          0,
+          0,
+          0,
+          0.6996074656169944,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -4.99,
+          0,
+          0,
+          -1,
+          5.01
+        ],
+        "perspective": [
+          3.0933097064566186,
+          0,
+          0,
+          0,
+          0,
+          1.4293729686233192,
+          0,
+          0,
+          0,
+          0,
+          -1.0040080160320641,
+          -1,
+          0,
+          0,
+          -0.20040080160320642,
+          0
+        ],
+        "orthographic": [
+          0.4166666666666667,
+          0,
+          0,
+          0,
+          0,
+          0.1925355450236967,
+          0,
+          0,
+          0,
+          0,
+          -0.04008016032064128,
+          0,
+          0,
+          0,
+          -1.0040080160320641,
+          1
+        ]
+      },
+      "glass": {
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0.0000015273434480602306,
+          0.018259670608838045,
+          -2.7895419823523188e-8,
+          0.9998332783154015
+        ],
+        "scale": 0.5,
+        "visible": true,
+        "projectedAnchor": [
+          195,
+          422
+        ],
+        "bounds": [
+          103.94736109844261,
+          342.1621944600212,
+          287.18109306129503,
+          502.31166434775525
+        ],
+        "centeredLocalBounds": [
+          -1.6766839027404785,
+          -1.4567844867706299,
+          -0.4102458655834198,
+          1.6766839027404785,
+          1.4567844867706299,
+          0.4102458655834198
+        ]
+      },
+      "wall": {
+        "raw": 0,
+        "rise": 0,
+        "build": 0,
+        "position": [
+          0,
+          0,
+          -1
+        ],
+        "visible": false,
+        "revision": 110,
+        "settled": 0,
+        "falling": 0,
+        "drawn": 0,
+        "rows": 5,
+        "samples": []
+      },
+      "portal": {
+        "prepare": 0,
+        "renderedPrepare": 0.0014195449628093407,
+        "expand": 0,
+        "renderedExpand": 0,
+        "wall": 0,
+        "renderedWall": 0,
+        "build": 0,
+        "sampleRevision": 110,
+        "target": [
+          390,
+          844
+        ],
+        "targetReady": true,
+        "hdr": true,
+        "homographyValid": true,
+        "quad": [
+          [
+            0.5098398739532825,
+            0.5846960216651672
+          ],
+          [
+            0.2973307707891962,
+            0.4162604127461703
+          ],
+          [
+            0.6921974870911949,
+            0.4192512381519627
+          ],
+          [
+            0.7017603967335788,
+            0.4268308405533175
+          ]
+        ],
+        "frontCoversCorners": false,
+        "coversCorners": false,
+        "error": null
+      },
+      "glassRotation": {
+        "dt": 0.03333333333333333,
+        "rawDt": 0.040599999994039536,
+        "paused": false,
+        "hover": true,
+        "reset": "",
+        "initialization": 1,
+        "phase": "kv",
+        "pointer": {
+          "target": [
+            -0.7372307606232472,
+            0.909952606635071
+          ],
+          "current": [
+            -0.7610119226968114,
+            0.40648379874509877
+          ],
+          "residual": [
+            0.023781162073564177,
+            0.5034688078899723
+          ],
+          "active": true,
+          "revision": 1,
+          "weight": 0
+        },
+        "worksRotate": {
+          "value": 0,
+          "from": 0.16633154215506343,
+          "target": 0,
+          "elapsed": 1,
+          "revision": 4
+        },
+        "wBefore": 0,
+        "eulerBefore": [
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "velocity": {
+          "raw": 0,
+          "clamped": 0,
+          "current": -0.12179488340270736
+        },
+        "yIncrement": 0,
+        "returnFactor": 0.06666666666666667,
+        "before": [
+          0,
+          0.019564394317304508,
+          0,
+          0.999808598920312
+        ],
+        "quaternion": [
+          0,
+          0.01826031883356302,
+          0,
+          0.9998332664780145
+        ]
+      },
+      "lerpers": {
+        "progress": {
+          "current": 0,
+          "target": 0
+        },
+        "index": {
+          "current": 0.00043506107225686893,
+          "target": 0
+        },
+        "background": {
+          "current": 0,
+          "target": 0
+        },
+        "intro": {
+          "current": 0.010967285331575484,
+          "target": 0
+        },
+        "prepare": {
+          "current": 0.00001296665597281861,
+          "target": 0
+        },
+        "expand": {
+          "current": 0,
+          "target": 0
+        },
+        "wall": {
+          "current": 0,
+          "target": 0
+        }
+      }
+    },
+    "focus": "",
+    "statusText": "",
+    "directoryOpen": true,
+    "losses": []
+  },
+  "logs": [
+    {
+      "type": "warning",
+      "text": "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+    }
+  ]
+}

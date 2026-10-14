@@ -17,7 +17,7 @@ export default defineConfig({
     localMusicPlayback(),
     react(),
     starlight({
-      title: '个人主页',
+      title: 'LSSH',
       defaultLocale: 'root',
       locales: { root: { label: '简体中文', lang: 'zh-CN' } },
       description: '资料、文章与笔记，共用一个学习入口。',

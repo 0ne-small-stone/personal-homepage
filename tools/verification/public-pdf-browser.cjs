@@ -147,14 +147,18 @@ const ready = async (page) => {
   assert.equal(await page.locator('pdf-reader iframe').count(), 0);
   assert((await page.locator('[data-status]').textContent()).includes('尚未接入'));
   record('clean build leaves private PDF unavailable truthfully');
-  const local = await context.newPage();
-  await local.goto('http://127.0.0.1:4322/personal-homepage/knowledge/notes/ads/ads-algorithms-notes/');
-  const localFrame = local.frames().find((frame) => frame.url().includes('/pdfjs/web/viewer.html'));
-  assert(localFrame);
-  await localFrame.waitForFunction(() => window.PDFViewerApplication?.pdfDocument?.numPages === 35, null, { timeout: 45000 });
-  assert((await local.locator('pdf-reader iframe').getAttribute('src')).includes('local-materials'));
-  record('existing local 35-page note still renders on 4322');
-  await local.close();
+  // Private-copy regression is optional and must use an explicitly supplied preview.
+  if (process.env.LOCAL_READING_PREVIEW) {
+    const local = await context.newPage();
+    const localBase = process.env.LOCAL_READING_PREVIEW.replace(/\/$/, '');
+    await local.goto(`${localBase}/knowledge/notes/ads/ads-algorithms-notes/`);
+    const localFrame = local.frames().find((frame) => frame.url().includes('/pdfjs/web/viewer.html'));
+    assert(localFrame);
+    await localFrame.waitForFunction(() => window.PDFViewerApplication?.pdfDocument?.numPages === 35, null, { timeout: 45000 });
+    assert((await local.locator('pdf-reader iframe').getAttribute('src')).includes('local-materials'));
+    record('explicit local preview still renders private 35-page note');
+    await local.close();
+  }
   const noJS = await browser.newContext({ javaScriptEnabled: false });
   const native = await noJS.newPage();
   await native.goto(detail);
