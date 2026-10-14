@@ -838,3 +838,8 @@ P01 / R12 / U03、U14 / T03.05、T26.02、T27.01。保留53版波长传输与首
 `npm run check`：97文件、零诊断；`npm run build`：15页与Pagefind成功，保留既有`/404`路由提示及大chunk警告。生产预览 `http://127.0.0.1:4342/personal-homepage/#intro`，bundle `HomeJourney.BN42XM_m.js`，1,153,374 bytes，SHA-256 `18C6E877C79BA58C65752E383893D4EB294571EBB354528E8EF87ABCE94791B4`。实际IAB桌面首屏与390×844 CSS窄屏可见玻璃与柔晕；Afterimage前景、暂停/继续和返回序章通过。Impeccable detector无发现；控制台只有Three弃用与shader精度warning，无运行错误。窄屏为模拟视口，实体手机/GPU性能未测；用户审美仍待确认。详细范围和证据见[56轮设计记录](../design/iterations/u03-p01-2026-10-13-56-glass-glow.md)。F02等待用户验收F01后再开始。
 
 2026-10-14 P13/T25发布范围确认：用户选择暂保留现有内网音源并公开说明限制；曲库与界面静态上线不等于公网音频可用。保留实际最新失败与历史成功证据，换公网来源后再验。
+
+
+### P03 / T05、T07、T26–T27 总览外观首片（2026-10-14）
+
+用户授权只改Becoming总览，方向Framer整体与shadcn选中。在最新main的独立codex/becoming-overview-framer分支复用现有学习功能；本机首片已实现，类型0错误/0警告、生产53页通过，实际桌面/390px/320px、普通筛选/返回/搜索完成；首次快速中断路径不计通过，用户外观/正式部署另验。结果见[本片](../design/iterations/u09-p03-2026-10-14-framer-overview.md)，不以规划提升完成状态。

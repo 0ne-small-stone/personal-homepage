@@ -1,10 +1,24 @@
 ---
 import DefaultPageFrame from '@astrojs/starlight/components/PageFrame.astro';
 import PersistentPlayer from '../music/PersistentPlayer';
+import { sitePath } from '../../lib/paths';
+import '../../styles/becoming-overview.css';
+
+const isOverview = Astro.url.pathname.replace(/\/$/, '') === sitePath('knowledge').replace(/\/$/, '');
 ---
-<DefaultPageFrame>
-  <slot name="header" slot="header" />
-  <slot name="sidebar" slot="sidebar" />
-  <slot />
-</DefaultPageFrame>
+{isOverview ? (
+  <div class="becoming-overview">
+    <DefaultPageFrame>
+      <slot name="header" slot="header" />
+      <slot name="sidebar" slot="sidebar" />
+      <slot />
+    </DefaultPageFrame>
+  </div>
+) : (
+  <DefaultPageFrame>
+    <slot name="header" slot="header" />
+    <slot name="sidebar" slot="sidebar" />
+    <slot />
+  </DefaultPageFrame>
+)}
 <PersistentPlayer client:load transition:persist="lssh-audio" transition:persist-props />

@@ -16,6 +16,7 @@ const titleOrder = new Map([...entries].sort((a, b) =>
   a.data.entryId.localeCompare(b.data.entryId, 'en')).map((entry, index) => [entry.data.entryId, index]));
 ---
 <knowledge-type-filter>
+  <div class="knowledge-filter-toolbar">
   <fieldset class="knowledge-type-controls" hidden data-pagefind-ignore>
     <legend>内容类型</legend>
     <div class="knowledge-type-options">
@@ -31,7 +32,6 @@ const titleOrder = new Map([...entries].sort((a, b) =>
       <option value="">全部主题</option>
       {topics.map((topic) => <option value={topic}>{topic}</option>)}
     </select>
-    <button type="button" data-clear-filters hidden>清空筛选</button>
   </div>
   <div class="knowledge-sort-controls" hidden data-pagefind-ignore>
     <label for="knowledge-sort">排序</label>
@@ -41,16 +41,21 @@ const titleOrder = new Map([...entries].sort((a, b) =>
       <option value="title-desc">标题降序</option>
     </select>
   </div>
+  </div>
+  <div class="knowledge-results-caption">
   <p class="knowledge-result-status" role="status" aria-live="polite" aria-atomic="true" data-pagefind-ignore>全部主题 · 全部：{entries.length} 条内容。</p>
+  <button type="button" data-clear-filters hidden>清空筛选</button>
+  </div>
   <p class="knowledge-empty" hidden data-pagefind-ignore>当前筛选暂无已发布内容。可调整主题或类型，也可“清空筛选”查看全部内容。</p>
   <ul class="knowledge-list">
     {entries.map((entry, index) => <li data-knowledge-kind={entry.data.kind} data-knowledge-topics={JSON.stringify(entry.data.topics)} data-knowledge-order={index} data-knowledge-title-order={titleOrder.get(entry.data.entryId)}>
+
+      <a href={entry.data.source?.format === 'link' ? entry.data.source.url : sitePath(entry.id)}>{entry.data.title}</a>
+      <p>{entry.data.description}</p>
       <div class="knowledge-meta">{kindLabels[entry.data.kind]} · {entry.data.topics.join(' / ')}{entry.data.example ? ' · 演示内容' : ''}
         {entry.data.source?.format === 'pdf' && ` · PDF · ${((entry.data.source.bytes ?? 0) / 1024 / 1024).toFixed(2)} MiB · ${entry.data.source.pages} 页`}
         {entry.data.source?.format === 'link' && ` · 外部笔记 · ${entry.data.source.author}`}
       </div>
-      <a href={entry.data.source?.format === 'link' ? entry.data.source.url : sitePath(entry.id)}>{entry.data.title}</a>
-      <p>{entry.data.description}</p>
     </li>)}
   </ul>
   <p class="knowledge-filter-fallback" data-pagefind-ignore>类型与主题筛选、排序暂不可用，当前仍可按主题顺序浏览全部内容。</p>

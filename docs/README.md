@@ -225,3 +225,6 @@ P10 最新独立交互样本：[Dome Gallery照片墙 → 三维无限影像空�
 | `docs/RESEARCH_REFERENCES.md` | `docs/technical/REFERENCES.md` |
 
 项目根目录保留 `README.md` 和 `AGENTS.md`。本地原始资料目录 `大二上学习资源/` 作为内容来源独立保留，由 `.gitignore` 排除，不随 GitHub 仓库上传；2026-10-07 检查为 38 个文件（36 PDF、2 TXT），共 532,588,263 字节，约 507.9 MiB。根 Astro/Starlight 工程已建立；GitHub 工作流与实际接入进展见技术计划的状态记录。
+
+
+P03 / R02、R09、R12 / U09、U13、U14 / T05、T07、T26–T27：[Becoming Framer总览首片](design/iterations/u09-p03-2026-10-14-framer-overview.md)。用户选定Framer整体与shadcn选中，仅本页实施和体验；P05/P06后续另片。

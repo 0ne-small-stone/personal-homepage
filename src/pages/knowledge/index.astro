@@ -5,6 +5,7 @@ import { publishedKnowledge } from '../../lib/knowledge';
 import { sitePath } from '../../lib/paths';
 import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
+
 const entries = await publishedKnowledge();
 const resourceCount = entries.filter((entry) => entry.data.kind === 'resource').length;
 const noteCount = entries.filter((entry) => entry.data.kind === 'note').length;
@@ -14,11 +15,27 @@ const pdfEntries = entries.filter((entry) => entry.data.source?.format === 'pdf'
 const availablePdfs = pdfEntries.filter(({ data: { source } }) => source?.format === 'pdf' &&
   existsSync(resolve('public', source.file ?? `local-materials/${source.id}.pdf`))).length;
 ---
-<StarlightPage frontmatter={{ title: '学习总览', description: '在同一个入口浏览资料、文章与笔记。', tableOfContents: false }}>
-  <p class="knowledge-summary">已整理 {resourceCount} 条学习资料与 {noteCount} 条笔记。目录中的“学习资料”和“笔记”可按科目展开，标题与本站正文、说明共用搜索。</p>
-  {exampleArticleCount > 0 && <p>另有 {exampleArticleCount} 篇功能验证样稿，用于体验文章阅读；{formalArticleCount === 0 ? '正式文章尚待添加。' : `正式文章 ${formalArticleCount} 篇。`}</p>}
-  <p>{availablePdfs === pdfEntries.length ? '点开资料或 PDF 笔记即可阅读' : `已接入 ${availablePdfs} 份 PDF，其他附件待配置`}；外部笔记直接进入作者原站。资料原件完整保留。</p>
-  <a class="knowledge-blog-link" href={sitePath('knowledge/blog')}>按时间浏览文章 →</a>
+
+<StarlightPage frontmatter={{ title: 'Becoming', description: '学习总览：资料、文章与笔记，共用一个入口。', tableOfContents: false, prev: false, next: false }}>
+  <div class="becoming-intro">
+    <p class="becoming-lede">学习总览。收藏的资料，写下的文章与笔记。</p>
+    <div class="becoming-collection-meta">
+      <p>{resourceCount} 份资料<span aria-hidden="true"> / </span>{noteCount} 篇笔记
+        {formalArticleCount > 0 && <><span aria-hidden="true"> / </span>{formalArticleCount} 篇文章</>}
+        {exampleArticleCount > 0 && <><span aria-hidden="true"> / </span>{exampleArticleCount} 篇功能样稿</>}
+      </p>
+      <details class="becoming-collection-status">
+        <summary>收录说明</summary>
+        <div>
+          <p>{availablePdfs === pdfEntries.length ? '已接入全部 PDF，可打开阅读。' : `已接入 ${availablePdfs} 份 PDF，其他附件待配置。`}外部笔记直接进入作者原站，资料原件完整保留。</p>
+          {exampleArticleCount > 0 && <p>功能样稿用于体验文章阅读，不代表个人经历或正式创作。{formalArticleCount === 0 ? '正式文章尚待添加。' : ''}</p>}
+        </div>
+      </details>
+    </div>
+  </div>
   <KnowledgeTypeFilter entries={entries} />
-  <p><a href={sitePath()}>← 返回首页</a></p>
+  <div class="becoming-overview-footer">
+    <a href={sitePath('knowledge/blog')}>按时间浏览文章</a>
+    <a href={sitePath()}>返回首页</a>
+  </div>
 </StarlightPage>

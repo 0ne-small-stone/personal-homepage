@@ -464,3 +464,8 @@ Giscus 仍依赖外部托管服务。网易云同步和未来 AI 需要服务端
 2026-10-11 48源角度切片：只更新PrismBeam/prism-ray固定源方向与只读诊断，复用45求解器与47光层，无新依赖/target。参数由设计SYSTEM9.3.15维护，实际记录见[48](../design/iterations/u03-p01-2026-10-11-48-implementation.md)。后续色散以此固定斜向源重新验证。
 
 2026-10-11 46实际色散：复用45纯Snell求解及ThreeBufferGeometry/ShaderMaterial，在现有R3F循环内共享真实几何的不可变三角缓存，七波长独立状态和有限TIR。matrixWorld不变不重求交；显示近裁面与物理分开。相邻色带核对真实界面族，不用相同事件串当完整拓扑；通道无效即时撤旧输出。层2只在最终default target绘制，普通/增强透射快照排除，前景层仍最后。一个geometry/material/draw，无新依赖/target，离页统一释放。参数归设计SYSTEM9.3.13，具体证据/CPU/缓冲见[46工程记录](../design/iterations/u03-p01-2026-10-11-46-implementation.md)。
+
+
+### P03 Becoming 总览外观作用域（2026-10-14）
+
+用户授权Framer/shadcn总览外观首片。复用现有Starlight PageFrame扩展在P03添加页面作用域；现有KnowledgeTypeFilter仅调整展示结构，查询/排序/历史/生命周期机制保持。用CSS覆盖原生目录、搜索和控件，不引入Framer/shadcn框架，P05/P06无新样式作用域。施工与实际检查见[本片](../design/iterations/u09-p03-2026-10-14-framer-overview.md)。
