@@ -1,0 +1,1326 @@
+[
+  {
+    "label": "desktop-album",
+    "bundle": "/personal-homepage/_astro/HomeJourney.Buuw_zpt.js",
+    "chapter": "album",
+    "classes": "lssh-home has-journey home-enhanced",
+    "count": "3",
+    "current": [
+      {
+        "href": "#album",
+        "text": "01"
+      }
+    ],
+    "order": [
+      {
+        "active": "true",
+        "href": "/personal-homepage/gallery/",
+        "id": "album",
+        "image": "/personal-homepage/_astro/echoes-placeholder.CF27I39E_Z1yWTlh.webp",
+        "index": "0",
+        "title": "A Moment Remains"
+      },
+      {
+        "active": "false",
+        "href": "/personal-homepage/music/",
+        "id": "radio",
+        "image": "/personal-homepage/_astro/wish-neighbor-placeholder.C3OY0qeQ_Z1reaH4.webp",
+        "index": "1",
+        "title": "Echoes"
+      },
+      {
+        "active": "false",
+        "href": "/personal-homepage/showcase/",
+        "id": "projects",
+        "image": "/personal-homepage/_astro/the-wall-placeholder.DaiTKZr6_ZIlk3C.webp",
+        "index": "2",
+        "title": "Afterimage"
+      }
+    ],
+    "overflow": false,
+    "sample": {
+      "frame": 81,
+      "glass": {
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "bounds": [
+          507.63258163617814,
+          251.65388923884564,
+          757.0341664106968,
+          468.3461107611544
+        ],
+        "centeredLocalBounds": [
+          -1.6766839027404783,
+          -1.45678448677063,
+          -0.4102458655834198,
+          1.6766839027404783,
+          1.45678448677063,
+          0.4102458655834198
+        ],
+        "projectedAnchor": [
+          632.3333740234375,
+          360
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": 0.5,
+        "visible": true
+      },
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 1540,
+        "zoom": 0
+      },
+      "phase": "works",
+      "portal": null,
+      "portalCovered": false,
+      "raw": {
+        "event": 0.3333333333333333,
+        "expand": 0,
+        "intro": 1,
+        "kv": 1,
+        "outro": 0,
+        "prepare": 0,
+        "snap": 0,
+        "wall": 0,
+        "works": 0.25
+      },
+      "rendered": {
+        "background": 1,
+        "expand": 0,
+        "index": 1,
+        "intro": 1,
+        "prepare": 0,
+        "progress": 0.25,
+        "wall": 0
+      },
+      "scrollY": 1540,
+      "wall": {
+        "build": 0,
+        "drawn": 0,
+        "falling": 0,
+        "position": [
+          0,
+          0,
+          -1
+        ],
+        "raw": 0,
+        "revision": 1,
+        "rise": 0,
+        "rows": 3,
+        "samples": [],
+        "settled": 0,
+        "visible": false
+      }
+    },
+    "size": [
+      1280,
+      720
+    ],
+    "url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1#album"
+  },
+  {
+    "label": "desktop-radio",
+    "bundle": "/personal-homepage/_astro/HomeJourney.Buuw_zpt.js",
+    "chapter": "radio",
+    "classes": "lssh-home has-journey home-enhanced",
+    "count": "3",
+    "current": [
+      {
+        "href": "#radio",
+        "text": "02"
+      }
+    ],
+    "order": [
+      {
+        "active": "false",
+        "href": "/personal-homepage/gallery/",
+        "id": "album",
+        "image": "/personal-homepage/_astro/echoes-placeholder.CF27I39E_Z1yWTlh.webp",
+        "index": "0",
+        "title": "A Moment Remains"
+      },
+      {
+        "active": "true",
+        "href": "/personal-homepage/music/",
+        "id": "radio",
+        "image": "/personal-homepage/_astro/wish-neighbor-placeholder.C3OY0qeQ_Z1reaH4.webp",
+        "index": "1",
+        "title": "Echoes"
+      },
+      {
+        "active": "false",
+        "href": "/personal-homepage/showcase/",
+        "id": "projects",
+        "image": "/personal-homepage/_astro/the-wall-placeholder.DaiTKZr6_ZIlk3C.webp",
+        "index": "2",
+        "title": "Afterimage"
+      }
+    ],
+    "overflow": false,
+    "sample": {
+      "frame": 90,
+      "glass": {
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "bounds": [
+          507.2565344603347,
+          251.4332704529447,
+          757.089854168508,
+          468.2161120058186
+        ],
+        "centeredLocalBounds": [
+          -1.6766839027404783,
+          -1.45678448677063,
+          -0.4102458655834198,
+          1.6766839027404783,
+          1.45678448677063,
+          0.4102458655834198
+        ],
+        "projectedAnchor": [
+          632.3333740234375,
+          360
+        ],
+        "quaternion": [
+          0,
+          -0.01496759882058433,
+          0,
+          0.9998879792184452
+        ],
+        "scale": 0.5,
+        "visible": true
+      },
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 1540,
+        "zoom": 0
+      },
+      "phase": "works",
+      "portal": null,
+      "portalCovered": false,
+      "raw": {
+        "event": 0.6666666666666666,
+        "expand": 0,
+        "intro": 1,
+        "kv": 1,
+        "outro": 0,
+        "prepare": 0,
+        "snap": 0.5,
+        "wall": 0,
+        "works": 0.5
+      },
+      "rendered": {
+        "background": 2,
+        "expand": 0,
+        "index": 1.9994776279929751,
+        "intro": 1,
+        "prepare": 0,
+        "progress": 0.5,
+        "wall": 0
+      },
+      "scrollY": 2260,
+      "wall": {
+        "build": 0,
+        "drawn": 0,
+        "falling": 0,
+        "position": [
+          0,
+          0,
+          -1
+        ],
+        "raw": 0,
+        "revision": 1,
+        "rise": 0,
+        "rows": 3,
+        "samples": [],
+        "settled": 0,
+        "visible": false
+      }
+    },
+    "size": [
+      1280,
+      720
+    ],
+    "url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1#radio"
+  },
+  {
+    "label": "desktop-projects",
+    "bundle": "/personal-homepage/_astro/HomeJourney.Buuw_zpt.js",
+    "chapter": "projects",
+    "classes": "lssh-home has-journey home-enhanced",
+    "count": "3",
+    "current": [
+      {
+        "href": "#projects",
+        "text": "03"
+      }
+    ],
+    "order": [
+      {
+        "active": "false",
+        "href": "/personal-homepage/gallery/",
+        "id": "album",
+        "image": "/personal-homepage/_astro/echoes-placeholder.CF27I39E_Z1yWTlh.webp",
+        "index": "0",
+        "title": "A Moment Remains"
+      },
+      {
+        "active": "false",
+        "href": "/personal-homepage/music/",
+        "id": "radio",
+        "image": "/personal-homepage/_astro/wish-neighbor-placeholder.C3OY0qeQ_Z1reaH4.webp",
+        "index": "1",
+        "title": "Echoes"
+      },
+      {
+        "active": "true",
+        "href": "/personal-homepage/showcase/",
+        "id": "projects",
+        "image": "/personal-homepage/_astro/the-wall-placeholder.DaiTKZr6_ZIlk3C.webp",
+        "index": "2",
+        "title": "Afterimage"
+      }
+    ],
+    "overflow": false,
+    "sample": {
+      "frame": 99,
+      "glass": {
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "bounds": [
+          507.223749887752,
+          251.34711629819412,
+          757.2875063660323,
+          467.89211749933384
+        ],
+        "centeredLocalBounds": [
+          -1.6766839027404783,
+          -1.45678448677063,
+          -0.4102458655834198,
+          1.6766839027404783,
+          1.45678448677063,
+          0.4102458655834198
+        ],
+        "projectedAnchor": [
+          632.3333740234375,
+          360
+        ],
+        "quaternion": [
+          0,
+          -0.01438919925047257,
+          0,
+          0.9998964701132464
+        ],
+        "scale": 0.5,
+        "visible": true
+      },
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 1540,
+        "zoom": 0
+      },
+      "phase": "works_outro",
+      "portal": null,
+      "portalCovered": false,
+      "raw": {
+        "event": 1,
+        "expand": 0,
+        "intro": 1,
+        "kv": 1,
+        "outro": 0,
+        "prepare": 0,
+        "snap": 1,
+        "wall": 0,
+        "works": 0.75
+      },
+      "rendered": {
+        "background": 3,
+        "expand": 0,
+        "index": 2.999442091011579,
+        "intro": 1,
+        "prepare": 0,
+        "progress": 0.75,
+        "wall": 0
+      },
+      "scrollY": 2980,
+      "wall": {
+        "build": 0,
+        "drawn": 0,
+        "falling": 0,
+        "position": [
+          0,
+          0,
+          -1
+        ],
+        "raw": 0,
+        "revision": 1,
+        "rise": 0,
+        "rows": 3,
+        "samples": [],
+        "settled": 0,
+        "visible": false
+      }
+    },
+    "size": [
+      1280,
+      720
+    ],
+    "url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1#projects"
+  },
+  {
+    "label": "desktop-wall",
+    "bundle": "/personal-homepage/_astro/HomeJourney.Buuw_zpt.js",
+    "chapter": "wall",
+    "classes": "lssh-home has-journey home-enhanced home-wall-ready home-on-wall",
+    "count": "3",
+    "current": [
+      {
+        "href": "#wall",
+        "text": "04"
+      }
+    ],
+    "order": [
+      {
+        "active": "false",
+        "href": "/personal-homepage/gallery/",
+        "id": "album",
+        "image": "/personal-homepage/_astro/echoes-placeholder.CF27I39E_Z1yWTlh.webp",
+        "index": "0",
+        "title": "A Moment Remains"
+      },
+      {
+        "active": "false",
+        "href": "/personal-homepage/music/",
+        "id": "radio",
+        "image": "/personal-homepage/_astro/wish-neighbor-placeholder.C3OY0qeQ_Z1reaH4.webp",
+        "index": "1",
+        "title": "Echoes"
+      },
+      {
+        "active": "false",
+        "href": "/personal-homepage/showcase/",
+        "id": "projects",
+        "image": "/personal-homepage/_astro/the-wall-placeholder.DaiTKZr6_ZIlk3C.webp",
+        "index": "2",
+        "title": "Afterimage"
+      }
+    ],
+    "overflow": false,
+    "sample": {
+      "frame": 195,
+      "glass": {
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "bounds": [
+          445.6697760261428,
+          241.61590826019147,
+          819.0392417617453,
+          522.2512787290453
+        ],
+        "centeredLocalBounds": [
+          -1.6766839027404783,
+          -1.45678448677063,
+          -0.4102458655834198,
+          1.6766839027404783,
+          1.45678448677063,
+          0.4102458655834198
+        ],
+        "projectedAnchor": [
+          632.3333740234375,
+          360
+        ],
+        "quaternion": [
+          0.48314072032179456,
+          -0.13045707518032762,
+          -0.07297781860923945,
+          0.8626877963048792
+        ],
+        "scale": 0.725,
+        "visible": false
+      },
+      "initialization": {
+        "reason": "deep-link",
+        "revision": 2,
+        "y": 1540,
+        "zoom": 0
+      },
+      "phase": "wall",
+      "portal": {
+        "build": 0.6539894386574072,
+        "coversCorners": true,
+        "error": null,
+        "expand": 1,
+        "frontCoversCorners": true,
+        "hdr": true,
+        "homographyValid": true,
+        "prepare": 1,
+        "quad": [
+          [
+            -0.04,
+            1.04
+          ],
+          [
+            -0.04,
+            -0.04
+          ],
+          [
+            1.04,
+            -0.04
+          ],
+          [
+            1.04,
+            1.04
+          ]
+        ],
+        "renderedExpand": 1,
+        "renderedPrepare": 1,
+        "renderedWall": 0,
+        "sampleRevision": 2,
+        "target": [
+          1280,
+          729
+        ],
+        "targetReady": true,
+        "wall": 1
+      },
+      "portalCovered": true,
+      "raw": {
+        "event": 1,
+        "expand": 1,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 1,
+        "works": 1
+      },
+      "rendered": {
+        "background": 4,
+        "expand": 1,
+        "index": 4,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 1
+      },
+      "scrollY": 8380,
+      "wall": {
+        "build": 1,
+        "drawn": 99,
+        "falling": 0,
+        "position": [
+          0,
+          0,
+          -1
+        ],
+        "raw": 1,
+        "revision": 3,
+        "rise": 1,
+        "rows": 11,
+        "samples": [
+          {
+            "column": 11,
+            "id": 333,
+            "progress": 1,
+            "row": 14,
+            "x": 0,
+            "y": -2.45
+          },
+          {
+            "column": 11,
+            "id": 356,
+            "progress": 1,
+            "row": 15,
+            "x": 0.565,
+            "y": -1.96
+          },
+          {
+            "column": 11,
+            "id": 379,
+            "progress": 1,
+            "row": 16,
+            "x": 0,
+            "y": -1.47
+          },
+          {
+            "column": 11,
+            "id": 402,
+            "progress": 1,
+            "row": 17,
+            "x": 0.565,
+            "y": -0.98
+          },
+          {
+            "column": 11,
+            "id": 425,
+            "progress": 1,
+            "row": 18,
+            "x": 0,
+            "y": -0.49
+          },
+          {
+            "column": 11,
+            "id": 448,
+            "progress": 1,
+            "row": 19,
+            "x": 0.565,
+            "y": 0
+          }
+        ],
+        "settled": 99,
+        "visible": true
+      }
+    },
+    "size": [
+      1280,
+      720
+    ],
+    "url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1#wall"
+  },
+  {
+    "label": "desktop-album-return",
+    "bundle": "/personal-homepage/_astro/HomeJourney.Buuw_zpt.js",
+    "chapter": "album",
+    "classes": "lssh-home has-journey home-enhanced",
+    "count": "3",
+    "current": [
+      {
+        "href": "#album",
+        "text": "01"
+      }
+    ],
+    "order": [
+      {
+        "active": "true",
+        "href": "/personal-homepage/gallery/",
+        "id": "album",
+        "image": "/personal-homepage/_astro/echoes-placeholder.CF27I39E_Z1yWTlh.webp",
+        "index": "0",
+        "title": "A Moment Remains"
+      },
+      {
+        "active": "false",
+        "href": "/personal-homepage/music/",
+        "id": "radio",
+        "image": "/personal-homepage/_astro/wish-neighbor-placeholder.C3OY0qeQ_Z1reaH4.webp",
+        "index": "1",
+        "title": "Echoes"
+      },
+      {
+        "active": "false",
+        "href": "/personal-homepage/showcase/",
+        "id": "projects",
+        "image": "/personal-homepage/_astro/the-wall-placeholder.DaiTKZr6_ZIlk3C.webp",
+        "index": "2",
+        "title": "Afterimage"
+      }
+    ],
+    "overflow": false,
+    "sample": {
+      "frame": 12,
+      "glass": {
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "bounds": [
+          507.63258163617814,
+          251.65388923884564,
+          757.0341664106968,
+          468.3461107611544
+        ],
+        "centeredLocalBounds": [
+          -1.6766839027404783,
+          -1.45678448677063,
+          -0.4102458655834198,
+          1.6766839027404783,
+          1.45678448677063,
+          0.4102458655834198
+        ],
+        "projectedAnchor": [
+          632.3333740234375,
+          360
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": 0.5,
+        "visible": true
+      },
+      "initialization": {
+        "reason": "back-forward",
+        "revision": 2,
+        "y": 1540,
+        "zoom": 0
+      },
+      "phase": "works",
+      "portal": null,
+      "portalCovered": false,
+      "raw": {
+        "event": 0.3333333333333333,
+        "expand": 0,
+        "intro": 1,
+        "kv": 1,
+        "outro": 0,
+        "prepare": 0,
+        "snap": 0,
+        "wall": 0,
+        "works": 0.25
+      },
+      "rendered": {
+        "background": 1,
+        "expand": 0,
+        "index": 1,
+        "intro": 1,
+        "prepare": 0,
+        "progress": 0.25,
+        "wall": 0
+      },
+      "scrollY": 1540,
+      "wall": {
+        "build": 0,
+        "drawn": 0,
+        "falling": 0,
+        "position": [
+          0,
+          0,
+          -1
+        ],
+        "raw": 0,
+        "revision": 1,
+        "rise": 0,
+        "rows": 3,
+        "samples": [],
+        "settled": 0,
+        "visible": false
+      }
+    },
+    "size": [
+      1280,
+      720
+    ],
+    "url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1#album"
+  },
+  {
+    "label": "mobile-album",
+    "bundle": "/personal-homepage/_astro/HomeJourney.Buuw_zpt.js",
+    "chapter": "album",
+    "classes": "lssh-home has-journey home-enhanced",
+    "count": "3",
+    "current": [
+      {
+        "href": "#album",
+        "text": "01"
+      }
+    ],
+    "order": [
+      {
+        "active": "true",
+        "href": "/personal-homepage/gallery/",
+        "id": "album",
+        "image": "/personal-homepage/_astro/echoes-placeholder.CF27I39E_Z1yWTlh.webp",
+        "index": "0",
+        "title": "A Moment Remains"
+      },
+      {
+        "active": "false",
+        "href": "/personal-homepage/music/",
+        "id": "radio",
+        "image": "/personal-homepage/_astro/wish-neighbor-placeholder.C3OY0qeQ_Z1reaH4.webp",
+        "index": "1",
+        "title": "Echoes"
+      },
+      {
+        "active": "false",
+        "href": "/personal-homepage/showcase/",
+        "id": "projects",
+        "image": "/personal-homepage/_astro/the-wall-placeholder.DaiTKZr6_ZIlk3C.webp",
+        "index": "2",
+        "title": "Afterimage"
+      }
+    ],
+    "overflow": false,
+    "sample": {
+      "frame": 54,
+      "glass": {
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "bounds": [
+          108.67777999098514,
+          353.4518681641329,
+          266.41563864431714,
+          489.86154121640146
+        ],
+        "centeredLocalBounds": [
+          -1.6766839027404783,
+          -1.45678448677063,
+          -0.4102458655834198,
+          1.6766839027404783,
+          1.45678448677063,
+          0.4102458655834198
+        ],
+        "projectedAnchor": [
+          187.33334350585935,
+          422
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": 0.5,
+        "visible": true
+      },
+      "initialization": {
+        "reason": "back-forward",
+        "revision": 2,
+        "y": 1540,
+        "zoom": 0
+      },
+      "phase": "works",
+      "portal": null,
+      "portalCovered": false,
+      "raw": {
+        "event": 0.32622432859399686,
+        "expand": 0,
+        "intro": 1,
+        "kv": 1,
+        "outro": 0,
+        "prepare": 0,
+        "snap": 0,
+        "wall": 0,
+        "works": 0.2446682464454976
+      },
+      "rendered": {
+        "background": 0.7061611374407583,
+        "expand": 0,
+        "index": 1,
+        "intro": 1,
+        "prepare": 0,
+        "progress": 0.17654028436018956,
+        "wall": 0
+      },
+      "scrollY": 1770,
+      "wall": {
+        "build": 0,
+        "drawn": 0,
+        "falling": 0,
+        "position": [
+          0,
+          0,
+          -1
+        ],
+        "raw": 0,
+        "revision": 1,
+        "rise": 0,
+        "rows": 3,
+        "samples": [],
+        "settled": 0,
+        "visible": false
+      }
+    },
+    "size": [
+      390,
+      844
+    ],
+    "url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1#album"
+  },
+  {
+    "label": "mobile-radio",
+    "bundle": "/personal-homepage/_astro/HomeJourney.Buuw_zpt.js",
+    "chapter": "radio",
+    "classes": "lssh-home has-journey home-enhanced",
+    "count": "3",
+    "current": [
+      {
+        "href": "#radio",
+        "text": "02"
+      }
+    ],
+    "order": [
+      {
+        "active": "false",
+        "href": "/personal-homepage/gallery/",
+        "id": "album",
+        "image": "/personal-homepage/_astro/echoes-placeholder.CF27I39E_Z1yWTlh.webp",
+        "index": "0",
+        "title": "A Moment Remains"
+      },
+      {
+        "active": "true",
+        "href": "/personal-homepage/music/",
+        "id": "radio",
+        "image": "/personal-homepage/_astro/wish-neighbor-placeholder.C3OY0qeQ_Z1reaH4.webp",
+        "index": "1",
+        "title": "Echoes"
+      },
+      {
+        "active": "false",
+        "href": "/personal-homepage/showcase/",
+        "id": "projects",
+        "image": "/personal-homepage/_astro/the-wall-placeholder.DaiTKZr6_ZIlk3C.webp",
+        "index": "2",
+        "title": "Afterimage"
+      }
+    ],
+    "overflow": false,
+    "sample": {
+      "frame": 66,
+      "glass": {
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "bounds": [
+          108.24626309830374,
+          353.4437624624307,
+          266.00848544278745,
+          489.86311058850794
+        ],
+        "centeredLocalBounds": [
+          -1.6766839027404783,
+          -1.45678448677063,
+          -0.4102458655834198,
+          1.6766839027404783,
+          1.45678448677063,
+          0.4102458655834198
+        ],
+        "projectedAnchor": [
+          187.33334350585935,
+          422
+        ],
+        "quaternion": [
+          0,
+          -0.029334512748109456,
+          0,
+          0.9995696505806042
+        ],
+        "scale": 0.5,
+        "visible": true
+      },
+      "initialization": {
+        "reason": "back-forward",
+        "revision": 2,
+        "y": 1540,
+        "zoom": 0
+      },
+      "phase": "works",
+      "portal": null,
+      "portalCovered": false,
+      "raw": {
+        "event": 0.6658767772511849,
+        "expand": 0,
+        "intro": 1,
+        "kv": 1,
+        "outro": 0,
+        "prepare": 0,
+        "snap": 0.49881516587677727,
+        "wall": 0,
+        "works": 0.4994075829383886
+      },
+      "rendered": {
+        "background": 1.9992438650450275,
+        "expand": 0,
+        "index": 1.9992351010148697,
+        "intro": 1,
+        "prepare": 0,
+        "progress": 0.49974527281930936,
+        "wall": 0
+      },
+      "scrollY": 2630,
+      "wall": {
+        "build": 0,
+        "drawn": 0,
+        "falling": 0,
+        "position": [
+          0,
+          0,
+          -1
+        ],
+        "raw": 0,
+        "revision": 1,
+        "rise": 0,
+        "rows": 3,
+        "samples": [],
+        "settled": 0,
+        "visible": false
+      }
+    },
+    "size": [
+      390,
+      844
+    ],
+    "url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1#radio"
+  },
+  {
+    "label": "mobile-projects",
+    "bundle": "/personal-homepage/_astro/HomeJourney.Buuw_zpt.js",
+    "chapter": "projects",
+    "classes": "lssh-home has-journey home-enhanced",
+    "count": "3",
+    "current": [
+      {
+        "href": "#projects",
+        "text": "03"
+      }
+    ],
+    "order": [
+      {
+        "active": "false",
+        "href": "/personal-homepage/gallery/",
+        "id": "album",
+        "image": "/personal-homepage/_astro/echoes-placeholder.CF27I39E_Z1yWTlh.webp",
+        "index": "0",
+        "title": "A Moment Remains"
+      },
+      {
+        "active": "false",
+        "href": "/personal-homepage/music/",
+        "id": "radio",
+        "image": "/personal-homepage/_astro/wish-neighbor-placeholder.C3OY0qeQ_Z1reaH4.webp",
+        "index": "1",
+        "title": "Echoes"
+      },
+      {
+        "active": "true",
+        "href": "/personal-homepage/showcase/",
+        "id": "projects",
+        "image": "/personal-homepage/_astro/the-wall-placeholder.DaiTKZr6_ZIlk3C.webp",
+        "index": "2",
+        "title": "Afterimage"
+      }
+    ],
+    "overflow": false,
+    "sample": {
+      "frame": 72,
+      "glass": {
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "bounds": [
+          108.22139983559217,
+          353.4355895708023,
+          265.9832805591231,
+          489.8931998394841
+        ],
+        "centeredLocalBounds": [
+          -1.6766839027404783,
+          -1.45678448677063,
+          -0.4102458655834198,
+          1.6766839027404783,
+          1.45678448677063,
+          0.4102458655834198
+        ],
+        "projectedAnchor": [
+          187.33334350585935,
+          422
+        ],
+        "quaternion": [
+          0,
+          -0.02883549761642079,
+          0,
+          0.999584170581554
+        ],
+        "scale": 0.5,
+        "visible": true
+      },
+      "initialization": {
+        "reason": "back-forward",
+        "revision": 2,
+        "y": 1540,
+        "zoom": 0
+      },
+      "phase": "works_outro",
+      "portal": null,
+      "portalCovered": false,
+      "raw": {
+        "event": 1,
+        "expand": 0,
+        "intro": 1,
+        "kv": 1,
+        "outro": 0,
+        "prepare": 0,
+        "snap": 1,
+        "wall": 0,
+        "works": 0.75
+      },
+      "rendered": {
+        "background": 3,
+        "expand": 0,
+        "index": 2.9991037914692225,
+        "intro": 1,
+        "prepare": 0,
+        "progress": 0.75,
+        "wall": 0
+      },
+      "scrollY": 3476,
+      "wall": {
+        "build": 0,
+        "drawn": 0,
+        "falling": 0,
+        "position": [
+          0,
+          0,
+          -1
+        ],
+        "raw": 0,
+        "revision": 1,
+        "rise": 0,
+        "rows": 3,
+        "samples": [],
+        "settled": 0,
+        "visible": false
+      }
+    },
+    "size": [
+      390,
+      844
+    ],
+    "url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1#projects"
+  },
+  {
+    "label": "mobile-wall",
+    "bundle": "/personal-homepage/_astro/HomeJourney.Buuw_zpt.js",
+    "chapter": "wall",
+    "classes": "lssh-home has-journey home-enhanced home-wall-ready home-on-wall",
+    "count": "3",
+    "current": [
+      {
+        "href": "#wall",
+        "text": "04"
+      }
+    ],
+    "order": [
+      {
+        "active": "false",
+        "href": "/personal-homepage/gallery/",
+        "id": "album",
+        "image": "/personal-homepage/_astro/echoes-placeholder.CF27I39E_Z1yWTlh.webp",
+        "index": "0",
+        "title": "A Moment Remains"
+      },
+      {
+        "active": "false",
+        "href": "/personal-homepage/music/",
+        "id": "radio",
+        "image": "/personal-homepage/_astro/wish-neighbor-placeholder.C3OY0qeQ_Z1reaH4.webp",
+        "index": "1",
+        "title": "Echoes"
+      },
+      {
+        "active": "false",
+        "href": "/personal-homepage/showcase/",
+        "id": "projects",
+        "image": "/personal-homepage/_astro/the-wall-placeholder.DaiTKZr6_ZIlk3C.webp",
+        "index": "2",
+        "title": "Afterimage"
+      }
+    ],
+    "overflow": false,
+    "sample": {
+      "frame": 159,
+      "glass": {
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "bounds": [
+          90.2461546955394,
+          360.3949837983962,
+          284.5318454002759,
+          506.431841608716
+        ],
+        "centeredLocalBounds": [
+          -1.6766839027404783,
+          -1.45678448677063,
+          -0.4102458655834198,
+          1.6766839027404783,
+          1.45678448677063,
+          0.4102458655834198
+        ],
+        "projectedAnchor": [
+          187.33334350585935,
+          422
+        ],
+        "quaternion": [
+          0.4831654382605389,
+          -0.1307495925338153,
+          -0.07281398843990716,
+          0.8626435106173441
+        ],
+        "scale": 0.725,
+        "visible": false
+      },
+      "initialization": {
+        "reason": "back-forward",
+        "revision": 2,
+        "y": 1540,
+        "zoom": 0
+      },
+      "phase": "wall",
+      "portal": {
+        "build": 0.6539894386574072,
+        "coversCorners": true,
+        "error": null,
+        "expand": 1,
+        "frontCoversCorners": true,
+        "hdr": true,
+        "homographyValid": true,
+        "prepare": 1,
+        "quad": [
+          [
+            -0.04,
+            1.04
+          ],
+          [
+            -0.04,
+            -0.04
+          ],
+          [
+            1.04,
+            -0.04
+          ],
+          [
+            1.04,
+            1.04
+          ]
+        ],
+        "renderedExpand": 1,
+        "renderedPrepare": 1,
+        "renderedWall": 0,
+        "sampleRevision": 2,
+        "target": [
+          374,
+          844
+        ],
+        "targetReady": true,
+        "wall": 1
+      },
+      "portalCovered": true,
+      "raw": {
+        "event": 1,
+        "expand": 1,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 1,
+        "works": 1
+      },
+      "rendered": {
+        "background": 4,
+        "expand": 1,
+        "index": 4,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 1
+      },
+      "scrollY": 9806,
+      "wall": {
+        "build": 1,
+        "drawn": 138,
+        "falling": 0,
+        "position": [
+          0,
+          0,
+          -1
+        ],
+        "raw": 1,
+        "revision": 3,
+        "rise": 1,
+        "rows": 23,
+        "samples": [
+          {
+            "column": 10,
+            "id": 194,
+            "progress": 1,
+            "row": 8,
+            "x": -1.13,
+            "y": -5.39
+          },
+          {
+            "column": 10,
+            "id": 217,
+            "progress": 1,
+            "row": 9,
+            "x": -0.565,
+            "y": -4.9
+          },
+          {
+            "column": 10,
+            "id": 240,
+            "progress": 1,
+            "row": 10,
+            "x": -1.13,
+            "y": -4.41
+          },
+          {
+            "column": 10,
+            "id": 263,
+            "progress": 1,
+            "row": 11,
+            "x": -0.565,
+            "y": -3.92
+          },
+          {
+            "column": 10,
+            "id": 286,
+            "progress": 1,
+            "row": 12,
+            "x": -1.13,
+            "y": -3.4299999999999997
+          },
+          {
+            "column": 10,
+            "id": 309,
+            "progress": 1,
+            "row": 13,
+            "x": -0.565,
+            "y": -2.94
+          }
+        ],
+        "settled": 138,
+        "visible": true
+      }
+    },
+    "size": [
+      390,
+      844
+    ],
+    "url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1#wall"
+  }
+]

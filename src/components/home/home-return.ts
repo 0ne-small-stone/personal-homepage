@@ -24,7 +24,7 @@ export function installHomeReturn() {
     if(!dynamic&&!native)return;
     const state=pending;pending=undefined;
     focusOrigin=state.focusOrigin;
-    const section=document.getElementById(state.chapterId);const y=section?section.offsetTop+section.offsetHeight*state.localProgress:state.scrollY;
+    const section=document.getElementById(state.chapterId);const y=section?section.offsetTop+section.offsetHeight*state.localProgress:0;
     if(dynamic)document.dispatchEvent(new CustomEvent('lssh:home-restore',{detail:{y,focusOrigin:state.focusOrigin,reason:state.reason}}));
     else {scrollTo(0,y);delete body.dataset.homeRestoring;document.getElementById(state.focusOrigin)?.focus({preventScroll:true});}
   };

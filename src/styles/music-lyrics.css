@@ -52,7 +52,7 @@
   .music-room-header { padding: 8px 12px; min-height: 60px; }
   .music-room-header > span { font-size: 11px; }
   .music-room-body { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); gap: 24px; padding: 12px 24px 16px; overflow: hidden; }
-  .music-room-turntable { flex-direction: row; align-items: center; gap: 20px; justify-content: flex-start; }
+  .music-room-turntable { flex-direction: row; align-items: center; gap: 24px; justify-content: flex-start; }
   .music-room-turntable .vinyl-turntable { width: 160px; flex: 0 0 160px; aspect-ratio: var(--scene-ratio); }
   .music-room-turntable .turntable-sleeve { top: var(--jacket-top); bottom: auto; left: 0; width: var(--jacket-width); transform: rotate(-5deg); }
   .music-room-turntable .turntable-platter, .music-room-turntable .turntable-arm-mount { width: 62%; right: 0; left: auto; }
@@ -70,7 +70,7 @@
   .music-catalog-heading h2 { font-size: 28px; }
   .music-room-header > span { display: none; }
   .music-room-body { padding: 8px 20px 12px; gap: 20px; }
-  .music-room-turntable { gap: 16px; }
+  .music-room-turntable { gap: 24px; }
   .music-room-turntable .vinyl-turntable { width: 136px; flex-basis: 136px; }
   .music-room-info h2 { font-size: 20px; }
   .music-room-footer { grid-template-columns: minmax(0, 1fr); padding: 12px 20px 20px; }

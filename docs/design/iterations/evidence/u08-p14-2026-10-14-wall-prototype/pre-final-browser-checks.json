@@ -1,0 +1,171 @@
+{
+  "lastBundle": "app-I5VZAP5C.js",
+  "checks": [
+    {
+      "case": "current bundle",
+      "result": {
+        "bricks": 169,
+        "messages": 22,
+        "motion": "false",
+        "script": "http://127.0.0.1:4360/app-JXGLBSWF.js"
+      }
+    },
+    {
+      "case": "native dialog keyboard loop",
+      "tabOne": "回复",
+      "tabTwo": null
+    },
+    {
+      "case": "browser Back",
+      "result": {
+        "focus": "demo-01",
+        "hash": "",
+        "open": false
+      }
+    },
+    {
+      "case": "rapid Back/Forward",
+      "result": {
+        "hash": "#message/demo-01",
+        "open": true,
+        "phase": "reading"
+      }
+    },
+    {
+      "case": "wheel while reading",
+      "before": "matrix(1, 0, 0, 1, -1126, -418)",
+      "after": "matrix(1, 0, 0, 1, -1126, -418)"
+    },
+    {
+      "case": "single pointer movement",
+      "before": "matrix(1, 0, 0, 1, -1126, -418)",
+      "after": "matrix(1, 0, 0, 1, -982.115, -418)"
+    },
+    {
+      "case": "list to long message",
+      "result": {
+        "clientHeight": 656,
+        "id": "demo-22",
+        "scrollHeight": 673
+      }
+    },
+    {
+      "case": "390 long message layout",
+      "result": {
+        "contentHeight": 615,
+        "contentScrollHeight": 615,
+        "documentWidth": 390,
+        "script": "http://127.0.0.1:4360/app-I5VZAP5C.js",
+        "surface": {
+          "bottom": 759.375,
+          "height": 674.75,
+          "left": 16,
+          "right": 374,
+          "top": 84.625,
+          "width": 358,
+          "x": 16,
+          "y": 84.625
+        },
+        "viewport": [
+          390,
+          844
+        ]
+      }
+    },
+    {
+      "case": "320 long content scroll and fixed close",
+      "before": {
+        "close": {
+          "bottom": 90,
+          "height": 44,
+          "left": 245,
+          "right": 289,
+          "top": 46,
+          "width": 44,
+          "x": 245,
+          "y": 46
+        },
+        "wall": "matrix(1, 0, 0, 1, -2118.32, -646)"
+      },
+      "after": {
+        "close": {
+          "bottom": 90,
+          "height": 44,
+          "left": 245,
+          "right": 289,
+          "top": 46,
+          "width": 44,
+          "x": 245,
+          "y": 46
+        },
+        "documentWidth": 320,
+        "scrollTop": 364,
+        "wall": "matrix(1, 0, 0, 1, -2118.32, -646)"
+      }
+    },
+    {
+      "case": "reduced motion policy through local QA override",
+      "result": {
+        "contentOpacity": "1",
+        "phase": "reading",
+        "policy": "true",
+        "portals": 0,
+        "systemPreference": false,
+        "transition": "0s"
+      }
+    },
+    {
+      "case": "direct message and refresh at 390",
+      "result": {
+        "documentWidth": 390,
+        "hash": "#message/demo-03",
+        "id": "demo-03",
+        "open": true,
+        "phase": "reading"
+      }
+    },
+    {
+      "case": "final desktop reading",
+      "result": {
+        "close": {
+          "bottom": 201,
+          "height": 44,
+          "left": 901,
+          "right": 945,
+          "top": 157,
+          "width": 44,
+          "x": 901,
+          "y": 157
+        },
+        "contentOpacity": "1",
+        "phase": "reading",
+        "script": "http://127.0.0.1:4360/app-I5VZAP5C.js",
+        "wall": "matrix(1, 0, 0, 1, -1126, -418)"
+      }
+    },
+    {
+      "case": "final drag and original position restoration",
+      "bundle": "app-I5VZAP5C.js",
+      "drag": {
+        "open": false,
+        "transform": "matrix(1, 0, 0, 1, -776.12, -184.177)"
+      },
+      "before": "matrix(1, 0, 0, 1, -767.684, -178.528)",
+      "after": {
+        "focus": "demo-02",
+        "portals": 0,
+        "transform": "matrix(1, 0, 0, 1, 0, 0)"
+      },
+      "passed": false
+    },
+    {
+      "case": "final rapid history confirmation",
+      "bundle": "app-I5VZAP5C.js",
+      "result": {
+        "hash": "#message/demo-01",
+        "open": true,
+        "phase": "reading"
+      }
+    }
+  ]
+}

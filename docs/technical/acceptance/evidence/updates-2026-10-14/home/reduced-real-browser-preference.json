@@ -1,0 +1,67 @@
+{
+  "key": "reduced-real-browser-preference",
+  "s": {
+    "url": "http://127.0.0.1:4467/personal-homepage/?opticsDebug=1",
+    "title": "Little Stone Still Here",
+    "width": 390,
+    "height": 844,
+    "y": 0,
+    "classes": "lssh-home has-journey home-enhanced home-loading-nav-ready home-quiet",
+    "status": "ready",
+    "loading": {
+      "phase": "ready",
+      "active": false,
+      "requested": false,
+      "progress": 1,
+      "resources": [
+        "layout",
+        "wordmark",
+        "compiled",
+        "frame"
+      ],
+      "reason": "preference",
+      "closed": false,
+      "events": [
+        {
+          "phase": "waiting",
+          "time": 198.59999999403954
+        },
+        {
+          "phase": "ready",
+          "time": 505.59999999403954
+        }
+      ],
+      "preview": null,
+      "wordmarkDecoded": true,
+      "preference": "quiet"
+    },
+    "loadingPass": {
+      "active": false,
+      "copies": 0,
+      "size": [],
+      "disposed": true,
+      "glassId": "72c01f78-6a6a-4952-bb3d-f8177b56dd1f",
+      "geometryId": "f5992384-5300-42e1-b171-c16059dc5155",
+      "worldDrawn": true
+    },
+    "canvases": 1,
+    "audioCount": 1,
+    "audioPreserved": null,
+    "overflow": false,
+    "bundle": "/personal-homepage/_astro/HomeJourney.BVNBI4Qs.js",
+    "wordmarks": 1,
+    "motion": null,
+    "wallInert": false,
+    "focus": "",
+    "portrait": null,
+    "copy": null,
+    "copyStatus": null,
+    "retryCount": 0
+  },
+  "logs": [
+    {
+      "type": "warning",
+      "message": "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+    }
+  ]
+}

@@ -1,14 +1,21 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { MeshBasicMaterial, type Mesh } from 'three';
 import GlassGlow from './GlassGlow';
 import WallPortal from './WallPortal';
+import LoadingReveal from './LoadingReveal';
 import type { JourneyModel } from './scene-state';
 
 // Keep the single-canvas order: world/glass, local edge glow, then layer-1 cards.
 // This owns only draw order; no flow field, optical transport, or spectrum work.
 export default function GlassRenderLayer({model,quiet}:{model:JourneyModel;quiet:boolean}) {
+  const ownerBody=useRef(document.body);
   const portal=useMemo(()=>new WallPortal(model),[model]);
+  const opening=useMemo(()=>new LoadingReveal(),[model]);
+  useEffect(()=>()=>{
+    opening.dispose();
+    if(ownerBody.current.classList.contains('has-journey')&&document.documentElement.dataset.motionDiagnostics==='true')ownerBody.current.dataset.homeLoadingPass=JSON.stringify(opening.diagnostics());
+  },[opening]);
   const hiddenCap=useMemo(()=>new MeshBasicMaterial({visible:false}),[]);
   useEffect(()=>()=>portal.dispose(),[portal]);
   useEffect(()=>()=>hiddenCap.dispose(),[hiddenCap]);
@@ -27,12 +34,14 @@ export default function GlassRenderLayer({model,quiet}:{model:JourneyModel;quiet
     }
 
     try {
+      if(!model.loading.compiled){gl.compile(scene,camera);model.loading.compiled=true;model.loading.onCompiled?.();}
       if(!quiet)portal.renderWall(gl,scene,camera);
       gl.setRenderTarget(oldTarget);
       gl.autoClear = true;
       camera.layers.set(0);
       if(quiet||model.motion.rendered.expand>=.999)camera.layers.enable(2);
       gl.render(scene, camera);
+      const drawn=gl.info.render.calls>0&&!gl.getContext().isContextLost();
 
       const glow = scene.userData.lsshGlassGlow as GlassGlow | undefined;
       if (glow) glow.coverageRequested = !quiet && model.motion.rendered.prepare > .001 && model.motion.rendered.expand < .999;
@@ -46,6 +55,12 @@ export default function GlassRenderLayer({model,quiet}:{model:JourneyModel;quiet
         gl.clearDepth();
         gl.render(scene, camera);
       }
+      if(model.loading.active&&oldTarget===null) {
+        try {opening.render(gl,glow,model.loading.progress);}
+        catch {model.loading.onSampleError?.();opening.dispose();}
+      } else opening.dispose();
+      if(drawn&&!model.loading.frameReady){model.loading.frameReady=true;model.loading.onFrame?.();}
+      if(document.documentElement.dataset.motionDiagnostics==='true')ownerBody.current.dataset.homeLoadingPass=JSON.stringify({...opening.diagnostics(),glassId:glass?.uuid,geometryId:glass?.geometry.uuid,worldDrawn:drawn});
     } catch {
       // Recover the readable scene if the optional local glow pass fails.
       try {

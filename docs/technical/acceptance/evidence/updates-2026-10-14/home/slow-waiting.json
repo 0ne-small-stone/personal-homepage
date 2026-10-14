@@ -1,0 +1,47 @@
+{
+  "key": "slow-waiting",
+  "s": {
+    "url": "http://127.0.0.1:4467/personal-homepage/?opticsDebug=1&loadingPreview=slow",
+    "title": "Little Stone Still Here",
+    "width": 1280,
+    "height": 720,
+    "y": 0,
+    "classes": "lssh-home has-journey home-loading-active home-enhanced",
+    "status": "waiting",
+    "loading": {
+      "phase": "waiting",
+      "active": true,
+      "requested": true,
+      "progress": 0,
+      "resources": [
+        "layout"
+      ],
+      "reason": "",
+      "closed": false,
+      "events": [
+        {
+          "phase": "waiting",
+          "time": 150.8999999910593
+        }
+      ],
+      "preview": "slow",
+      "wordmarkDecoded": true,
+      "preference": "motion"
+    },
+    "loadingPass": null,
+    "canvases": 1,
+    "audioCount": 1,
+    "audioPreserved": null,
+    "overflow": false,
+    "bundle": "/personal-homepage/_astro/HomeJourney.BVNBI4Qs.js",
+    "wordmarks": 1,
+    "motion": null,
+    "wallInert": false,
+    "focus": "",
+    "portrait": null,
+    "copy": null,
+    "copyStatus": null,
+    "retryCount": 0
+  },
+  "logs": []
+}

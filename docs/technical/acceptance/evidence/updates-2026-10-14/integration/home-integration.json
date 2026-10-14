@@ -1,0 +1,210 @@
+{
+  "at": "2026-10-14T14:24:34.711Z",
+  "frozen": "C:\\Users\\asus\\Desktop\\个人主页\\.ci-tmp\\release-next-2026-10-14\\frozen",
+  "qa": "C:\\Users\\asus\\.codex\\worktrees\\acceptance-foundation\\个人主页",
+  "records": [
+    {
+      "file": "src/components/home/wall-assembly.ts",
+      "before": "567cc09482fc58dcbfbb2f5dacd341488886f611e481c33fb58a2e78b3c1d802",
+      "frozen": "543285ff178938040ebf93771eb181bcf7d135764ee6a4eaeb50385d6ec05cdb",
+      "patched": false,
+      "after": "543285ff178938040ebf93771eb181bcf7d135764ee6a4eaeb50385d6ec05cdb",
+      "bytes": 4946
+    },
+    {
+      "file": "src/components/home/RisingWall.tsx",
+      "before": "193cc00620a196caefc0e4a3312579318e4dc5e3069f831e75437a253da73105",
+      "frozen": "fa880cd0be90c7ec74ef5ad9b1145f63300ad0839cac06759c92c8c60d26a9d1",
+      "patched": false,
+      "after": "fa880cd0be90c7ec74ef5ad9b1145f63300ad0839cac06759c92c8c60d26a9d1",
+      "bytes": 6308
+    },
+    {
+      "file": "src/components/home/GlassRenderLayer.tsx",
+      "before": "4caa87812ab27fe11944bc42d5057f45f05c802f4b16500f0d3458afb3e40d00",
+      "frozen": "a3ebd7463a60abebcaaef44e9474d22c39c9cd02d2ebbdecd43b59f7dda62c34",
+      "patched": true,
+      "after": "72538337f5ec669b0aff2c84f53c559590ca9c892519566d67174e83b96f856c",
+      "bytes": 4380
+    },
+    {
+      "file": "src/components/home/HomeJourney.tsx",
+      "before": "6df51043451bfcb4c40b20324fcad75d2c205f7aa0098615b7d782ec5bc45a69",
+      "frozen": "68b358be41c573be1e26058d1b9bd38671e8e0f8ddb887f7aa65151a0b145507",
+      "patched": true,
+      "after": "8b2523e7c3e38b6fe41d1480b93d77a4365096be4225466d344572fb8f66edb1",
+      "bytes": 8696
+    },
+    {
+      "file": "src/components/home/home-motion.ts",
+      "before": "e1a6fed3ef45a510d61636fe810b79c1a8fa38994b362ec054be3c47b8b4c56f",
+      "frozen": "d5fb61dec62057e0a6d31339a52645431ddacf6d95ed83f587ce0c9097bfe0c1",
+      "patched": false,
+      "after": "d5fb61dec62057e0a6d31339a52645431ddacf6d95ed83f587ce0c9097bfe0c1",
+      "bytes": 16964
+    },
+    {
+      "file": "src/components/home/home-return.ts",
+      "before": "e5aee4fc3639bc680e9db7837dbd2d9bb454350e04470cc9773e1338e730fe30",
+      "frozen": "855a8830ba6cdd378b5d997d810ed0bee22df51fb5eb8912b37fd07d352d33db",
+      "patched": false,
+      "after": "855a8830ba6cdd378b5d997d810ed0bee22df51fb5eb8912b37fd07d352d33db",
+      "bytes": 4238
+    },
+    {
+      "file": "src/styles/home.css",
+      "before": "4cdffb9b5c270180518450a2a8b1c6497765cc16ea4703b9703551ffe530e7f2",
+      "frozen": "3ecb67197855ad6972094ba667b63ecf4a6ddde54bd36e11ec80b3361ea0686d",
+      "patched": true,
+      "after": "76bf3ed46b7de00e1cce97d09c7f0467392297fb8111c4e33a5dd08403480004",
+      "bytes": 18278
+    },
+    {
+      "file": "tests/home-motion-ranges.test.mjs",
+      "before": "0ac33a5f98d510b06ea9471cc5ab1248aaf8ae7c43f303f7ac3a8b37c2fafaaa",
+      "frozen": "2f0de61058e914e76a27601c7ee430133d864f56490f996e9bb21fe46cfd10b6",
+      "patched": false,
+      "after": "2f0de61058e914e76a27601c7ee430133d864f56490f996e9bb21fe46cfd10b6",
+      "bytes": 10219
+    },
+    {
+      "file": "src/components/home/GlassGlow.ts",
+      "before": "37545df1e9eb708ead5d3eba2bce732a4ff494ea065b06a9bfeb148449f48fd5",
+      "frozen": "9523c45704bcd5ab095ee47c47db3f87ef35e201586fccf2278df6102174368f",
+      "patched": false,
+      "after": "9523c45704bcd5ab095ee47c47db3f87ef35e201586fccf2278df6102174368f",
+      "bytes": 9886
+    },
+    {
+      "file": "src/components/home/GlassEdgeLight.tsx",
+      "before": "5e26c98e038a1a459cd2aa02bca207dcd198bbdb78642640a287dec7dffc1cb5",
+      "frozen": "a12966268c7dec42840a47d0d99bcd5e3af48acdb38b6092a2b6a7f5851a9ec4",
+      "patched": false,
+      "after": "a12966268c7dec42840a47d0d99bcd5e3af48acdb38b6092a2b6a7f5851a9ec4",
+      "bytes": 3252
+    },
+    {
+      "file": "src/components/home/wall-material.ts",
+      "before": "dff0cbdeaf088053258b235439988c47d68774f02073d61abb0f355fedecb165",
+      "frozen": "dccdbf415b8dd60d81a69e6ce0d443ab1d1e8e466916a2c0b5e058da4eadeb82",
+      "patched": false,
+      "after": "dccdbf415b8dd60d81a69e6ce0d443ab1d1e8e466916a2c0b5e058da4eadeb82",
+      "bytes": 1413
+    },
+    {
+      "file": "src/components/home/motion-ranges.ts",
+      "before": "f12832d00331ae0041062c271bfea0c034a3ef17d83d178e223febbf279630a1",
+      "frozen": "66747ce7bf9491acef3a4880dac348c9f41eaf0fadef06d3848e614ef66d118f",
+      "patched": false,
+      "after": "66747ce7bf9491acef3a4880dac348c9f41eaf0fadef06d3848e614ef66d118f",
+      "bytes": 781
+    },
+    {
+      "file": "src/components/home/home-chapters.ts",
+      "before": "ce70fa92508088cdeeb7c5c9c669a706d57ee8b1dbb3ca3be4ce0f4cd3551aef",
+      "frozen": "81bb0917798b247f22153508b9fe5089de00db9f08039d985fe18655cd164416",
+      "patched": false,
+      "after": "81bb0917798b247f22153508b9fe5089de00db9f08039d985fe18655cd164416",
+      "bytes": 1254
+    },
+    {
+      "file": "src/components/home/WorksScene.tsx",
+      "before": "5fea01aa32812fec282733753d6295423661da47564c576353c7c221d7fb6406",
+      "frozen": "cc84f4903eb008f55908f059b70c58259a79f9718bd9b8a5bc2630f47a8d8d80",
+      "patched": false,
+      "after": "cc84f4903eb008f55908f059b70c58259a79f9718bd9b8a5bc2630f47a8d8d80",
+      "bytes": 3663
+    },
+    {
+      "file": "src/pages/index.astro",
+      "before": "ec67ed3516502379dd8a9fc8938e7584891cdee06261e61be76f20d5d283ada7",
+      "frozen": "a80f9ccd40b5752690ba9e1bce81b4c175875af708269a8d399ba936a04bb054",
+      "patched": false,
+      "after": "a80f9ccd40b5752690ba9e1bce81b4c175875af708269a8d399ba936a04bb054",
+      "bytes": 5094
+    },
+    {
+      "file": "src/components/home/loading-state.ts",
+      "before": null,
+      "frozen": "49bb9ffb2e4594ba9638fd94370b0ceb24464a3f2f477a9c30365d8046d5b869",
+      "patched": false,
+      "after": "49bb9ffb2e4594ba9638fd94370b0ceb24464a3f2f477a9c30365d8046d5b869",
+      "bytes": 2327
+    },
+    {
+      "file": "src/components/home/LoadingReveal.ts",
+      "before": null,
+      "frozen": "facb7dae75addd2805eab1aa6dded8730d45ddd99fc0aaf4d5cb2f1631f543f0",
+      "patched": false,
+      "after": "facb7dae75addd2805eab1aa6dded8730d45ddd99fc0aaf4d5cb2f1631f543f0",
+      "bytes": 3281
+    },
+    {
+      "file": "src/components/home/useHomeLoading.ts",
+      "before": null,
+      "frozen": "aa3117cdefff5cebf4b146313bad8994e6a688c2cc7f0a16bc7efff1d19d3276",
+      "patched": true,
+      "after": "2b87d7c5bdc7b68b372352280e4153c97f5f1f06135d6a196ca008572f4095ab",
+      "bytes": 8057
+    },
+    {
+      "file": "src/components/home/scene-state.ts",
+      "before": "d9b720274e690ff30c37fe7e4bd85349cfd67e615b9395b6475c87ffc7565352",
+      "frozen": "f3d8f0b5389e40748f67ed8188b820248be65919d889318e04ea88be3ace1abf",
+      "patched": false,
+      "after": "f3d8f0b5389e40748f67ed8188b820248be65919d889318e04ea88be3ace1abf",
+      "bytes": 1052
+    },
+    {
+      "file": "tests/home-loading.test.mjs",
+      "before": null,
+      "frozen": "6bdef7dbdcd4c88da88c29255eaff1eab921cb07d5b37b5b79cdd17b95c91bbd",
+      "patched": false,
+      "after": "6bdef7dbdcd4c88da88c29255eaff1eab921cb07d5b37b5b79cdd17b95c91bbd",
+      "bytes": 2197
+    },
+    {
+      "file": "src/pages/about.astro",
+      "before": "d34ff5fde4442b3b5a7bcc00b63ed087b838af466d97977fb2113137c8e924c7",
+      "frozen": "eeff0c202666774f8f61ec32f6d305f77a4c9bb9a858f8e2023f4bc3977cfed2",
+      "patched": false,
+      "after": "eeff0c202666774f8f61ec32f6d305f77a4c9bb9a858f8e2023f4bc3977cfed2",
+      "bytes": 6394
+    },
+    {
+      "file": "src/data/profile.ts",
+      "before": null,
+      "frozen": "901b7e86c5d3e73761288ab8a0e18777c881d7476d045bea847e8c19f4304d18",
+      "patched": false,
+      "after": "901b7e86c5d3e73761288ab8a0e18777c881d7476d045bea847e8c19f4304d18",
+      "bytes": 3904
+    },
+    {
+      "file": "src/styles/about.css",
+      "before": null,
+      "frozen": "98e4cbdf59a8d8f22db6301048a0f514b8985b27367ccbed145eaa2e8f2826be",
+      "patched": false,
+      "after": "98e4cbdf59a8d8f22db6301048a0f514b8985b27367ccbed145eaa2e8f2826be",
+      "bytes": 7224
+    },
+    {
+      "file": "src/assets/about/portrait.jpg",
+      "before": null,
+      "frozen": "be6d9b41b3d44468e8ee34dc3577a6dcd46b78dbdcd24bc30ae6b07a5318420c",
+      "patched": false,
+      "after": "be6d9b41b3d44468e8ee34dc3577a6dcd46b78dbdcd24bc30ae6b07a5318420c",
+      "bytes": 5695
+    }
+  ],
+  "protectedHashes": {
+    "src/components/home/HomeHeader.astro": "9e7c306524c8d67130320c2bc3b76719be0655971120381374cfdf1ddc12535f",
+    "src/components/PublicDirectory.astro": "77e5be7a6e422ee8d0d44e28aa65a4e53d23dac461081503280ab1f514a861e1",
+    "src/layouts/HomeLayout.astro": "313c359721d80ba460b3b9b5d1006bdb0fdf25f1e189c78ff8d41884069d8e89"
+  },
+  "rationale": [
+    "Component-owned context-loss cleanup and homepage body ownership survive route swaps.",
+    "F03 uses eight seconds of foreground resource budget, paused while hidden.",
+    "Noncritical work-card texture suspense preserves the published independent first-render behavior.",
+    "Published directory selectors and mobile layout remain; no other visual changes."
+  ]
+}

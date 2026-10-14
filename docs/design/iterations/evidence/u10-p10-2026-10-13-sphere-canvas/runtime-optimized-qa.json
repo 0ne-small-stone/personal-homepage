@@ -1,0 +1,369 @@
+[
+  {
+    "stage": "optimized-initial",
+    "sample": {
+      "cardCount": 358,
+      "phase": "sphere",
+      "portal": 0,
+      "rootData": {
+        "breakpoint": "desktop",
+        "pitchLimit": "35",
+        "rotation": "0.0000,0.0000",
+        "visibleCards": "152"
+      },
+      "sphereTransform": "translateZ(calc(var(--radius) * -1)) rotateX(0deg) rotateY(0deg)",
+      "stats": {
+        "loading:readyMs": {
+          "max": 4167.2,
+          "mean": 4167.2,
+          "p95": 4167.2,
+          "samples": 1,
+          "total": 4167.2
+        },
+        "sphere:dome-motion": {
+          "max": 0,
+          "mean": 0,
+          "p95": 0,
+          "samples": 2,
+          "total": 0
+        },
+        "sphere:update": {
+          "max": 0.2,
+          "mean": 0.2,
+          "p95": 0.2,
+          "samples": 1,
+          "total": 0.2
+        },
+        "sphere:warm-render": {
+          "max": 178,
+          "mean": 178,
+          "p95": 178,
+          "samples": 1,
+          "total": 178
+        }
+      },
+      "viewer": null,
+      "viewport": [
+        1280,
+        720
+      ],
+      "visibleCards": 152
+    }
+  },
+  {
+    "stage": "optimized-first-open",
+    "sample": {
+      "cardCount": 358,
+      "phase": "sphere",
+      "portal": 0,
+      "rootData": {
+        "breakpoint": "desktop",
+        "moving": "false",
+        "pitchLimit": "35",
+        "rotation": "0.0000,0.0000",
+        "visibleCards": "152"
+      },
+      "sphereTransform": "translateZ(calc(var(--radius) * -1)) rotateX(0deg) rotateY(0deg)",
+      "stats": {
+        "loading:readyMs": {
+          "max": 4167.2,
+          "mean": 4167.2,
+          "p95": 4167.2,
+          "samples": 1,
+          "total": 4167.2
+        },
+        "sphere:dome-motion": {
+          "max": 0,
+          "mean": 0,
+          "p95": 0,
+          "samples": 2,
+          "total": 0
+        },
+        "sphere:update": {
+          "max": 0.2,
+          "mean": 0.2,
+          "p95": 0.2,
+          "samples": 1,
+          "total": 0.2
+        },
+        "sphere:viewer-background-pause": {
+          "max": 0.3,
+          "mean": 0.3,
+          "p95": 0.3,
+          "samples": 1,
+          "total": 0.3
+        },
+        "sphere:warm-render": {
+          "max": 178,
+          "mean": 178,
+          "p95": 178,
+          "samples": 1,
+          "total": 178
+        },
+        "viewer:viewer-init": {
+          "max": 24.8,
+          "mean": 24.8,
+          "p95": 24.8,
+          "samples": 1,
+          "total": 24.8
+        },
+        "viewer:viewer-rail-write": {
+          "max": 1,
+          "mean": 1,
+          "p95": 1,
+          "samples": 1,
+          "total": 1
+        },
+        "viewer:viewer-zoom-write": {
+          "max": 1,
+          "mean": 1,
+          "p95": 1,
+          "samples": 1,
+          "total": 1
+        }
+      },
+      "viewer": {
+        "bgFilter": "blur(16px) saturate(0.8)",
+        "controls": "visible",
+        "fit": 0,
+        "index": "20",
+        "paused": "true",
+        "rootFilter": "none",
+        "rootWillChange": "auto",
+        "tint": "rgba(14, 15, 17, 0.56)",
+        "zoom": "1.000"
+      },
+      "viewport": [
+        1280,
+        720
+      ],
+      "visibleCards": 152
+    }
+  },
+  {
+    "stage": "optimized-closed",
+    "sample": {
+      "cardCount": 358,
+      "phase": "sphere",
+      "portal": 0,
+      "rootData": {
+        "breakpoint": "desktop",
+        "moving": "false",
+        "pitchLimit": "35",
+        "rotation": "0.0000,0.0000",
+        "visibleCards": "152"
+      },
+      "sphereTransform": "translateZ(calc(var(--radius) * -1)) rotateX(0deg) rotateY(0deg)",
+      "stats": {
+        "loading:readyMs": {
+          "max": 4167.2,
+          "mean": 4167.2,
+          "p95": 4167.2,
+          "samples": 1,
+          "total": 4167.2
+        },
+        "sphere:dome-motion": {
+          "max": 0,
+          "mean": 0,
+          "p95": 0,
+          "samples": 2,
+          "total": 0
+        },
+        "sphere:update": {
+          "max": 0.2,
+          "mean": 0.2,
+          "p95": 0.2,
+          "samples": 1,
+          "total": 0.2
+        },
+        "sphere:viewer-background-pause": {
+          "max": 0.3,
+          "mean": 0.3,
+          "p95": 0.3,
+          "samples": 1,
+          "total": 0.3
+        },
+        "sphere:viewer-background-resume": {
+          "max": 0.4,
+          "mean": 0.4,
+          "p95": 0.4,
+          "samples": 1,
+          "total": 0.4
+        },
+        "sphere:warm-render": {
+          "max": 178,
+          "mean": 178,
+          "p95": 178,
+          "samples": 1,
+          "total": 178
+        },
+        "viewer:viewer-init": {
+          "max": 24.8,
+          "mean": 24.8,
+          "p95": 24.8,
+          "samples": 1,
+          "total": 24.8
+        },
+        "viewer:viewer-navigation-ms": {
+          "max": 354.2,
+          "mean": 342.9,
+          "p95": 331.6,
+          "samples": 2,
+          "total": 685.8
+        },
+        "viewer:viewer-navigation-start": {
+          "max": 0.1,
+          "mean": 0.05,
+          "p95": 0,
+          "samples": 2,
+          "total": 0.1
+        },
+        "viewer:viewer-rail-write": {
+          "max": 2,
+          "mean": 1.667,
+          "p95": 2,
+          "samples": 3,
+          "total": 5
+        },
+        "viewer:viewer-slide-frame": {
+          "max": 1,
+          "mean": 1,
+          "p95": 1,
+          "samples": 23,
+          "total": 23
+        },
+        "viewer:viewer-zoom-write": {
+          "max": 1,
+          "mean": 1,
+          "p95": 1,
+          "samples": 3,
+          "total": 3
+        }
+      },
+      "viewer": null,
+      "viewport": [
+        1280,
+        720
+      ],
+      "visibleCards": 152
+    }
+  },
+  {
+    "stage": "optimized-second-open",
+    "sample": {
+      "cardCount": 358,
+      "phase": "sphere",
+      "portal": 0,
+      "rootData": {
+        "breakpoint": "desktop",
+        "moving": "false",
+        "pitchLimit": "35",
+        "rotation": "0.0000,0.0000",
+        "visibleCards": "152"
+      },
+      "sphereTransform": "translateZ(calc(var(--radius) * -1)) rotateX(0deg) rotateY(0deg)",
+      "stats": {
+        "loading:readyMs": {
+          "max": 4167.2,
+          "mean": 4167.2,
+          "p95": 4167.2,
+          "samples": 1,
+          "total": 4167.2
+        },
+        "sphere:dome-motion": {
+          "max": 0,
+          "mean": 0,
+          "p95": 0,
+          "samples": 2,
+          "total": 0
+        },
+        "sphere:update": {
+          "max": 0.2,
+          "mean": 0.2,
+          "p95": 0.2,
+          "samples": 1,
+          "total": 0.2
+        },
+        "sphere:viewer-background-pause": {
+          "max": 0.3,
+          "mean": 0.2,
+          "p95": 0.1,
+          "samples": 2,
+          "total": 0.4
+        },
+        "sphere:viewer-background-resume": {
+          "max": 0.4,
+          "mean": 0.4,
+          "p95": 0.4,
+          "samples": 1,
+          "total": 0.4
+        },
+        "sphere:warm-render": {
+          "max": 178,
+          "mean": 178,
+          "p95": 178,
+          "samples": 1,
+          "total": 178
+        },
+        "viewer:viewer-init": {
+          "max": 24.8,
+          "mean": 22.55,
+          "p95": 20.3,
+          "samples": 2,
+          "total": 45.1
+        },
+        "viewer:viewer-navigation-ms": {
+          "max": 354.2,
+          "mean": 342.9,
+          "p95": 331.6,
+          "samples": 2,
+          "total": 685.8
+        },
+        "viewer:viewer-navigation-start": {
+          "max": 0.1,
+          "mean": 0.05,
+          "p95": 0,
+          "samples": 2,
+          "total": 0.1
+        },
+        "viewer:viewer-rail-write": {
+          "max": 2,
+          "mean": 1.5,
+          "p95": 2,
+          "samples": 4,
+          "total": 6
+        },
+        "viewer:viewer-slide-frame": {
+          "max": 1,
+          "mean": 1,
+          "p95": 1,
+          "samples": 23,
+          "total": 23
+        },
+        "viewer:viewer-zoom-write": {
+          "max": 1,
+          "mean": 1,
+          "p95": 1,
+          "samples": 4,
+          "total": 4
+        }
+      },
+      "viewer": {
+        "bgFilter": "blur(16px) saturate(0.8)",
+        "controls": "visible",
+        "fit": 0,
+        "index": "20",
+        "paused": "true",
+        "rootFilter": "none",
+        "rootWillChange": "auto",
+        "tint": "rgba(14, 15, 17, 0.56)",
+        "zoom": "1.000"
+      },
+      "viewport": [
+        1280,
+        720
+      ],
+      "visibleCards": 152
+    }
+  }
+]

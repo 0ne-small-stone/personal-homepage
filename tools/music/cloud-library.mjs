@@ -3,6 +3,7 @@ import path from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 import { createHash } from 'node:crypto';
 import { parseMusicCatalog } from '../../src/lib/music.ts';
+import { completedWebFiles } from './lx-downloads.mjs';
 
 const origin = 'https://pan.koala-studio.org.cn';
 const configFile = '.local-tools/music/cloud-library-config.json';
@@ -109,6 +110,7 @@ export async function syncCloudLibrary({ directory = '.local-tools/music/cloud-l
   if (map.version !== 1 || !Array.isArray(map.files)) throw new Error('私有索引不完整。');
   const root = await realpath(map.directory);
   const completed = completedFiles || completedDownloads();
+  if (!completedFiles) for (const entry of await completedWebFiles()) completed.add(entry.file.toLowerCase());
   const initialImport = new Map((config.initialImportFiles || []).filter(file => idPattern.test(file.id))
     .map(file => [file.id, `${file.size}:${file.mtimeMs}`]));
   const destination = path.resolve(directory);

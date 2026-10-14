@@ -21,7 +21,7 @@
     "music:playlist": "node tools/music/sync-playlist.mjs",
     "music:recommend": "node tools/music/recommendation-service.mjs",
     "music:preview": "node tools/music/preview-service.mjs",
-    "music:test": "node --test tools/music/audio-session.test.mjs tools/music/recommendations.test.mjs tools/music/netease-playback.test.mjs tools/music/playback-service.test.mjs tools/music/playback-account.test.mjs tools/music/saved-login.test.mjs tools/music/public-catalog.test.mjs",
+    "music:test": "node --test tools/music/audio-session.test.mjs tools/music/recommendations.test.mjs tools/music/netease-playback.test.mjs tools/music/playback-service.test.mjs tools/music/playback-account.test.mjs tools/music/saved-login.test.mjs tools/music/public-catalog.test.mjs tools/music/album-presentation.test.mjs tools/music/cloud-library.test.mjs tools/music/local-playback.test.mjs tools/music/lx-downloads.test.mjs tools/music/lx-engine.test.mjs tools/music/lx-service.test.mjs",
     "content:import": "node tools/content/import-learning.mjs",
     "materials:prepare": "node tools/content/prepare-local-materials.mjs",
     "cms:sync-related": "node tools/content/cms-related-options.mjs",
@@ -48,11 +48,12 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
+    "@neteasecloudmusicapienhanced/api": "4.41.1",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@types/three": "0.186.0",
+    "esbuild": "0.28.2",
     "music-metadata": "12.1.0",
-    "typescript": "~5.9.3",
-    "@neteasecloudmusicapienhanced/api": "4.41.1"
+    "typescript": "~5.9.3"
   }
 }

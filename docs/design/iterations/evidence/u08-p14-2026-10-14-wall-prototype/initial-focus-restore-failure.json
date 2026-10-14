@@ -1,0 +1,11 @@
+{
+  "bundle": "app-PQBGMRZA.js",
+  "case": "drag then open demo-02 and Escape",
+  "before": "matrix(1, 0, 0, 1, -786.959, -191.973)",
+  "after": {
+    "focus": "demo-02",
+    "phase": "closed",
+    "transform": "matrix(1, 0, 0, 1, -718, -298)"
+  },
+  "result": "position changed on focus restoration"
+}

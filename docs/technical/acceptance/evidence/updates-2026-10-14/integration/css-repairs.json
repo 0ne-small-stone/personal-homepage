@@ -1,0 +1,14 @@
+{
+  "scope": "Two localized CSS repairs; final directed browser confirmation pending",
+  "homeCssSha256": "99ec8d569f4ebc5330c3c3611924251a0036d525e76b4616fbbca31df2f42295",
+  "aboutCssSha256": "2d9c4b69a198e2716bbefa3534c27a2d3129e02dc8eaeb77b4e9d085ce61677f",
+  "bundle": "HomeJourney.BVNBI4Qs.js",
+  "bundleBytes": 1183445,
+  "bundleSha256": "925a9894e718ab7ebc87f6f26dc42e3518d9ad2187453762f9b2a407a406f55f",
+  "repairs": [
+    "Someone <=767px section/experience scroll-margin-top:9rem so 390px JS/no-JS anchors clear the wrapped fixed header",
+    "home-on-wall PublicDirectory summary uses #272a2c and #777 border; expanded black panel/pale text preserved"
+  ],
+  "afterRepairCommands": "Root command session 88246: check128 zero diagnostics/build53 pages, exit0",
+  "limitations": "The source integration manifest predates these final CSS repairs; no final browser-pass assertion yet"
+}

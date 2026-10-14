@@ -5,19 +5,19 @@ import { motionRange, workCount } from '../src/components/home/motion-ranges.ts'
 import { portalContainsPoint, portalCoversViewport, portalQuadAt, portalStartQuad, portalUvProjection, portalWallY } from '../src/components/home/wall-portal-geometry.ts';
 import GlassPortalShape from '../src/components/home/GlassPortalShape.ts';
 import { makeTriangleGeometry } from '../src/components/home/prism-geometry.ts';
-import { assemblyLayout, brickLanding, brickState, brickTiming, openingCoordinate, wallBuild, wallReadingReady, wallView } from '../src/components/home/wall-assembly.ts';
+import { assemblyLayout, brickLanding, brickRiseDistance, brickState, brickTiming, openingCoordinate, wallBrick, wallBuild, wallReadingReady, wallView } from '../src/components/home/wall-assembly.ts';
 
-test('F02 prepare, expand, and wall ranges meet without changing the work-card track', () => {
+test('F02 ranges meet after the three-card track without a removed carousel slot', () => {
   const height = 900;
-  assert.deepEqual(motionRange('outro', height), [4600, 5950]);
-  assert.deepEqual(motionRange('prepare', height), [5950, 6850]);
-  assert.deepEqual(motionRange('expand', height), [6850, 9550]);
-  assert.deepEqual(motionRange('wall', height), [9550, 11350]);
-  assert.deepEqual(motionRange('works', height), [1000, 5500]);
-  assert.deepEqual(motionRange('prepare', 390), [2635, 3025]);
-  assert.deepEqual(motionRange('expand', 390), [3025, 4195]);
-  assert.deepEqual(motionRange('wall', 390), [4195, 4975]);
-  assert.equal(workCount, 4);
+  assert.deepEqual(motionRange('outro', height), [3700, 5050]);
+  assert.deepEqual(motionRange('prepare', height), [5050, 5950]);
+  assert.deepEqual(motionRange('expand', height), [5950, 8650]);
+  assert.deepEqual(motionRange('wall', height), [8650, 10450]);
+  assert.deepEqual(motionRange('works', height), [1000, 4600]);
+  assert.deepEqual(motionRange('prepare', 390), [2245, 2635]);
+  assert.deepEqual(motionRange('expand', 390), [2635, 3805]);
+  assert.deepEqual(motionRange('wall', 390), [3805, 4585]);
+  assert.equal(workCount, 3);
 });
 
 test('F02 full-screen gate uses actual two-triangle viewport coverage', () => {
@@ -52,24 +52,30 @@ test('square milestone has equal CSS sides on desktop and phone, and C1 joins',(
   assert.ok(Math.abs(before-after)<.001);
 });
 
-test('brick sequence starts after the square, lands bottom first and is entirely reversible',()=>{
+test('brick sequence starts after the square, rises from its foundation and is entirely reversible',()=>{
   const layout=assemblyLayout(4.27,2.4);
   assert.equal(wallBuild(.419,0),0);assert.equal(wallBuild(.42,0),0);
   assert.ok(wallBuild(1,0)<1);assert.equal(wallBuild(1,.76),1);
   const row=layout.minRow,column=11;
-  const sequence=[0,.08,.2,.5,1,.5,.2,.08,0].map(build=>brickState(build,row,column,layout,3.2));
+  const sequence=[0,.08,.2,.5,1,.5,.2,.08,0].map(build=>brickState(build,row,column,layout));
   for(let i=0;i<4;i++)assert.deepEqual(sequence[i],sequence[8-i]);
   assert.equal(sequence[0].visible,false);
   const timing=brickTiming(row,column,layout);
-  assert.ok(brickState(timing.start+timing.duration*.25,row,column,layout,3.2).y>
-    brickState(timing.start+timing.duration*.75,row,column,layout,3.2).y);
+  assert.ok(brickState(timing.start+timing.duration*.25,row,column,layout).y<
+    brickState(timing.start+timing.duration*.75,row,column,layout).y);
   assert.deepEqual({x:sequence[4].x,y:sequence[4].y},brickLanding(row,column));
   for(let r=layout.minRow;r<=layout.maxRow;r++)for(let c=layout.minColumn;c<=layout.maxColumn;c++) {
-    const landed=brickState(1,r,c,layout,5);
+    const landed=brickState(1,r,c,layout);
     assert.equal(landed.progress,1);assert.equal(landed.visible,true);
     assert.deepEqual({x:landed.x,y:landed.y},brickLanding(r,c));
+    const phase=brickTiming(r,c,layout);
+    for(const progress of [0,.25,.5,.75,1]) {
+      const state=brickState(phase.start+phase.duration*progress,r,c,layout);
+      assert.ok(state.y<=landed.y+1e-9,'brick entered from above its final position');
+      assert.ok(state.y>=landed.y-brickRiseDistance-1e-9,'brick travelled through the empty space');
+    }
   }
-  const lower=brickState(.2,row,column,layout,5),upper=brickState(.2,row+2,column,layout,5);
+  const lower=brickState(.2,row,column,layout),upper=brickState(.2,row+2,column,layout);
   assert.ok(lower.progress>=upper.progress);
 });
 
@@ -89,16 +95,16 @@ test('individual brick timing breaks row cohorts while preserving each column fo
       const timing=brickTiming(row,column,layout);timings.push(timing);
       for(let r=row;r<layout.maxRow;r++) {
         const lower=brickTiming(r,column,layout),upper=brickTiming(r+1,column,layout);
-        assert.ok(lower.start+lower.duration<upper.start+upper.duration,'upper brick settled before its column base');
+        assert.ok(lower.start+lower.duration<upper.start,'upper brick started before its column base settled');
       }
     }
     const spread=Math.max(...timings.map(t=>t.start))-Math.min(...timings.map(t=>t.start));
-    assert.ok(spread>2/(layout.rows+4),'row still falls as one cohort');
-    assert.ok(new Set(timings.map(t=>t.duration)).size>=4,'one shared fall duration');
+    assert.ok(spread>2/(layout.rows+4),'row still rises as one cohort');
+    assert.ok(new Set(timings.map(t=>t.duration)).size>=4,'one shared rise duration');
     const fronts=[];
     for(let column=layout.minColumn;column<=layout.maxColumn;column++) {
       let highest=row-1;
-      for(let r=row;r<=layout.maxRow;r++)if(brickState(.45,r,column,layout,7).progress===1)highest=r;
+      for(let r=row;r<=layout.maxRow;r++)if(brickState(.45,r,column,layout).progress===1)highest=r;
       fronts.push(highest);
     }
     assert.ok(Math.max(...fronts)-Math.min(...fronts)>=2,'flat horizontal assembly front');
@@ -108,22 +114,22 @@ test('individual brick timing breaks row cohorts while preserving each column fo
 test('art-directed approach stays restrained, reversible and restores exact final pose',()=>{
   const layout=assemblyLayout(4.27,2.4),row=layout.minRow,column=11;
   const timing=brickTiming(row,column,layout);
-  const pose=brickState(timing.start+timing.duration*.5,row,column,layout,4);
+  const pose=brickState(timing.start+timing.duration*.5,row,column,layout);
   assert.ok(Math.abs(pose.x-brickLanding(row,column).x)<=.08);
   assert.ok(pose.tiltX>0&&pose.tiltX<=.14&&Math.abs(pose.tiltY)<=.08);
   assert.ok(pose.reveal>0&&pose.reveal<1);
-  const landed=brickState(1,row,column,layout,4);
+  const landed=brickState(1,row,column,layout);
   assert.equal(landed.tiltX,0);assert.equal(landed.tiltY,0);assert.equal(landed.z,0);assert.equal(landed.reveal,1);
-  assert.deepEqual(pose,brickState(timing.start+timing.duration*.5,row,column,layout,4));
+  assert.deepEqual(pose,brickState(timing.start+timing.duration*.5,row,column,layout));
 });
 
 test('compact wall draw set retains every viewport corner without all 897 bricks',()=>{
-  for(const [width,height] of [[4.27,2.4],[2.4,5.2]]) {
+  for(const [width,height] of [[4.27,2.4],[2.4,5.2],[2.4,5.6]]) {
     const layout=assemblyLayout(width,height),points=[];
     for(let r=layout.minRow;r<=layout.maxRow;r++)for(let c=layout.minColumn;c<=layout.maxColumn;c++)points.push(brickLanding(r,c));
-    assert.ok(points.length<160);
+    assert.ok(points.length<200);
     for(const x of [-width,width])for(const y of [-height,height]) {
-      assert.ok(points.some(p=>Math.abs(p.x-x)<=.565&&Math.abs(p.y-y)<=.245),'viewport corner lost from compact instance set');
+      assert.ok(points.some(p=>Math.abs(p.x-x)<=wallBrick.stepX/2&&Math.abs(p.y-y)<=wallBrick.stepY/2),'viewport corner lost from compact instance set');
     }
   }
 });

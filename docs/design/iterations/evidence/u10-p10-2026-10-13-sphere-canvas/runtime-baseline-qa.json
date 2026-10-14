@@ -1,0 +1,115 @@
+{
+  "cardCount": 358,
+  "phase": "sphere",
+  "portal": 0,
+  "rootData": {
+    "breakpoint": "desktop",
+    "moving": "false",
+    "pitchLimit": "35",
+    "rotation": "0.0000,0.0000",
+    "visibleCards": "358"
+  },
+  "sphereTransform": "translateZ(calc(var(--radius) * -1)) rotateX(0deg) rotateY(0deg)",
+  "stats": {
+    "loading:readyMs": {
+      "max": 1827.7,
+      "mean": 1827.7,
+      "p95": 1827.7,
+      "samples": 1,
+      "total": 1827.7
+    },
+    "sphere:dome-motion": {
+      "max": 0.1,
+      "mean": 0.025,
+      "p95": 0,
+      "samples": 4,
+      "total": 0.1
+    },
+    "sphere:update": {
+      "max": 0.2,
+      "mean": 0.1,
+      "p95": 0,
+      "samples": 2,
+      "total": 0.2
+    },
+    "sphere:viewer-background-pause": {
+      "max": 1.7,
+      "mean": 1.65,
+      "p95": 1.6,
+      "samples": 2,
+      "total": 3.3
+    },
+    "sphere:viewer-background-resume": {
+      "max": 26.5,
+      "mean": 26.5,
+      "p95": 26.5,
+      "samples": 1,
+      "total": 26.5
+    },
+    "sphere:warm-render": {
+      "max": 25,
+      "mean": 25,
+      "p95": 25,
+      "samples": 1,
+      "total": 25
+    },
+    "viewer:viewer-init": {
+      "max": 38.1,
+      "mean": 29.65,
+      "p95": 21.2,
+      "samples": 2,
+      "total": 59.3
+    },
+    "viewer:viewer-navigation-ms": {
+      "max": 332.7,
+      "mean": 330.6,
+      "p95": 328.5,
+      "samples": 2,
+      "total": 661.2
+    },
+    "viewer:viewer-navigation-start": {
+      "max": 0.2,
+      "mean": 0.1,
+      "p95": 0,
+      "samples": 2,
+      "total": 0.2
+    },
+    "viewer:viewer-rail-write": {
+      "max": 36,
+      "mean": 36,
+      "p95": 36,
+      "samples": 6,
+      "total": 216
+    },
+    "viewer:viewer-slide-frame": {
+      "max": 1,
+      "mean": 1,
+      "p95": 1,
+      "samples": 35,
+      "total": 35
+    },
+    "viewer:viewer-zoom-write": {
+      "max": 1,
+      "mean": 1,
+      "p95": 1,
+      "samples": 18,
+      "total": 18
+    }
+  },
+  "viewer": {
+    "bgFilter": "none",
+    "controls": "hidden",
+    "fit": 0,
+    "index": "20",
+    "paused": "true",
+    "rootFilter": "blur(16px) saturate(0.8)",
+    "rootWillChange": "opacity",
+    "tint": "rgba(14, 15, 17, 0.56)",
+    "zoom": "1.000"
+  },
+  "viewport": [
+    1280,
+    720
+  ],
+  "visibleCards": 358
+}

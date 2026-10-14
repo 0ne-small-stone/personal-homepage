@@ -1,0 +1,96 @@
+- link "skip to content":
+  - /url: "#main"
+- banner:
+  - link "Astro Cactus":
+    - /url: /
+    - generic: Astro Cactus
+  - navigation "Main":
+    - link "Home":
+      - /url: /
+    - link "About":
+      - /url: /about/
+    - link "Blog":
+      - /url: /posts/
+    - link "Notes":
+      - /url: /notes/
+  - button "search" [expanded]
+  - dialog "search":
+    - search "Search this site":
+      - generic: Search this site
+      - searchbox "Search this site" [active]
+      - generic: Results will appear as you type
+    - button "close":
+    - list "Search results"
+    - generic: ↓
+    - text: navigate
+    - generic: esc
+    - text: clear
+  - switch "Dark Theme" [checked]:
+    - generic: Dark Theme
+  - button "Open main menu" [expanded]:
+    - generic: Open main menu
+- main:
+  - heading "Hello World!" [level=1]
+  - paragraph: Hi, I’m a theme for Astro, a simple starter that you can use to create your website or blog. If you want to know more about how you can customise me, add more posts, and make it your own, click on the GitHub icon link below and it will take you to my repo.
+  - paragraph: Find me on
+  - list:
+    - link "Github":
+      - /url: https://github.com/chrismwilliams/astro-cactus
+      - generic: Github
+  - heading "Pinned Posts" [level=2]
+  - list:
+    - time: 11 Oct 2023
+    - link "Adding Webmentions to Astro Cactus":
+      - /url: /posts/webmentions/
+    - time: 22 Feb 2023
+    - link "A post of Markdown elements":
+      - /url: /posts/markdown-elements/
+  - heading "Posts" [level=2]:
+    - link "Posts":
+      - /url: /posts/
+  - list:
+    - time: 25 Aug 2024
+    - link "Markdown Admonitions":
+      - /url: /posts/markdown-elements/admonitions/
+    - time: 11 Oct 2023
+    - link "Adding Webmentions to Astro Cactus":
+      - /url: /posts/webmentions/
+    - time: 4 Jul 2023
+    - link "Example Cover Image":
+      - /url: /posts/testing/cover-image/
+    - time: 22 Feb 2023
+    - link "A post of Markdown elements":
+      - /url: /posts/markdown-elements/
+    - time: 1 Feb 2023
+    - link "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id":
+      - /url: /posts/testing/long-title/
+    - time: 27 Jan 2023
+    - link "Example OG Social Image":
+      - /url: /posts/testing/social-image/
+  - heading "Notes" [level=2]:
+    - link "Notes":
+      - /url: /notes/
+  - list:
+    - article:
+      - heading "Hello, Welcome" [level=3]:
+        - link "Hello, Welcome":
+          - /url: /notes/welcome/
+      - time: 14/10/24, 11:23
+      - paragraph: Hi, Hello. This is an example note feature included with Astro Cactus 🌵
+      - paragraph: They’re for shorter, more concise posts that you’d like to share. They generally don’t include headings, but hey, it’s entirely up to you!
+- contentinfo:
+  - text: © Chris Williams2026.
+  - generic: 🚀 Astro Cactus 🌵
+  - navigation "Footer":
+    - link "Home":
+      - /url: /
+    - link "About":
+      - /url: /about/
+    - link "Blog":
+      - /url: /posts/
+    - link "Notes":
+      - /url: /notes/
+- status
+- status
+- status
+- status

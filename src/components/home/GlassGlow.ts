@@ -10,6 +10,9 @@ export default class GlassGlow {
   mobile = false;
   coverageRequested = false;
   coverageReady = false;
+  outlineProgress = 1;
+  get nearTexture() { return this.targets[4].texture; }
+  get farTexture() { return this.targets[2].texture; }
   get coverageTexture() { return this.targets[3].texture; }
   private readonly scene = new Scene();
   private readonly mask: Mesh;
@@ -45,10 +48,10 @@ export default class GlassGlow {
     for (let i = 0; i < front.length; i++) front[i] = Math.abs(normals.getZ(i)) > .999 ? 1 : 0;
     geometry.setAttribute('portalFrontCoverage', new Float32BufferAttribute(front, 1));
     const material = new ShaderMaterial({ toneMapped: false,
-      uniforms: { outerPlanes: { value: planes }, halfDepth: { value: geometry.boundingBox!.max.z }, coverageOnly: { value: 0 } },
+      uniforms: { outerPlanes: { value: planes }, halfDepth: { value: geometry.boundingBox!.max.z }, coverageOnly: { value: 0 },outlineProgress:{value:1},heightRange:{value:new Vector3(geometry.boundingBox!.min.y,geometry.boundingBox!.max.y,0)} },
       vertexShader: `attribute float portalFrontCoverage;varying float front;varying vec3 p; varying vec3 n;
         void main(){front=portalFrontCoverage;p=position;n=normal;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
-      fragmentShader: `uniform vec3 outerPlanes[3];uniform float halfDepth;uniform float coverageOnly;varying float front;varying vec3 p;varying vec3 n;
+      fragmentShader: `uniform vec3 outerPlanes[3];uniform float halfDepth;uniform float coverageOnly;uniform float outlineProgress;uniform vec3 heightRange;varying float front;varying vec3 p;varying vec3 n;
         void main(){if(coverageOnly>.5){gl_FragColor=vec4(vec3(0.),front);return;}float outside=100.;float second=100.;
           for(int i=0;i<3;i++){
             float d=max(outerPlanes[i].z-dot(outerPlanes[i].xy,p.xy),0.);
@@ -58,7 +61,9 @@ export default class GlassGlow {
           float distance=min(length(vec2(outside,max(halfDepth-abs(p.z),0.))),length(vec2(outside,second)));
           float edge=exp(-pow(distance/.06,2.));
           float direction=.85+.15*max(dot(normalize(n.xy+vec2(.00001)),normalize(vec2(-.85,.25))),0.);
-          float emission=.72*edge*direction;gl_FragColor=vec4(vec3(emission),front);
+          float h=1.-clamp((p.y-heightRange.x)/(heightRange.y-heightRange.x),0.,1.);
+          float formed=outlineProgress>=1.?1.:smoothstep(h-.2,h+.2,outlineProgress*1.4-.2);
+          float emission=.72*edge*direction*formed;gl_FragColor=vec4(vec3(emission),front);
         }` });
     this.mask = new Mesh(geometry, material);
     this.mask.matrixAutoUpdate = false;
@@ -92,6 +97,7 @@ export default class GlassGlow {
       source.updateWorldMatrix(true, false);
       this.mask.matrix.copy(source.matrixWorld);
       (this.mask.material as ShaderMaterial).uniforms.coverageOnly.value = this.intensity < .0001 ? 1 : 0;
+      (this.mask.material as ShaderMaterial).uniforms.outlineProgress.value=this.outlineProgress;
       gl.xr.enabled = false; gl.shadowMap.autoUpdate = false; gl.toneMapping = NoToneMapping;
       gl.autoClear = true; gl.setClearColor(0x000000, 0);
       // Coverage resolves at CSS pixel resolution with MSAA; diffusion stays small.

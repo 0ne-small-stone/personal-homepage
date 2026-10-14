@@ -6,9 +6,10 @@ import { useAudioSession } from './useAudioSession';
 import VinylSleeve from './VinylSleeve';
 import MusicLibraryHeader from './MusicLibraryHeader';
 import MusicTrackList from './MusicTrackList';
+import MusicAlbumDetail from './MusicAlbumDetail';
 import LibrarySidebar from './LibrarySidebar';
 type CatalogAlbum = { id: string; title: string; artist: string; coverUrl: string; tracks: typeof playlist.tracks };
-import RadioNowPlaying, { MusicIcon, type PlaybackPresentation } from './RadioNowPlaying';
+import RadioNowPlaying, { type PlaybackPresentation } from './RadioNowPlaying';
 import ListeningRoom from './ListeningRoom';
 import type { RadioConfig } from './RadioExperience';
 import RecommendationForm from './RecommendationForm';
@@ -75,18 +76,20 @@ export default function NetEaseMusicCatalog({ config, onMode }: { config: RadioC
     onSeek: audioSession.seek, onVolume: audioSession.setVolume,
   };
   return <section className="music-net-library" aria-label="网易云音乐电台">
-    <MusicLibraryHeader mode="netease" onMode={onMode} query={query} onQuery={setQuery} searchLabel="搜索共享歌单" account={<NetEaseAccount/>} />
+    <MusicLibraryHeader mode="netease" onMode={onMode} query={query} onQuery={setQuery} searchLabel="查找歌曲、歌手或专辑" account={<NetEaseAccount/>} />
     <div className="music-catalog-shell">
       <LibrarySidebar view={view} onView={changeView} source="网易云音乐" />
       <div className="music-catalog-content" tabIndex={0} role="region" aria-label="音乐库内容"><div className="music-catalog-reading">
-        {activeAlbum ? <><button type="button" className="music-library-back" onClick={() => { setAlbumFilter('');setQuery(''); }}><MusicIcon name="back" /><span>返回专辑</span></button><header className="music-album-detail music-net-detail"><div className="music-net-detail-art"><VinylSleeve title={activeAlbum.title} artist={activeAlbum.artist} coverUrl={activeAlbum.coverUrl} selected={activeAlbum.tracks.some(track => track.id === selected?.id)} playing={active && state.playing} action="播放专辑" onSelect={() => select(activeAlbum.tracks[0].id, true)} /></div><div><h2>{activeAlbum.title}</h2><p>{activeAlbum.artist}</p><small>{activeAlbum.tracks.length} 首歌曲</small><div className="music-album-actions"><button type="button" className="radio-primary" onClick={() => select(activeAlbum.tracks[0].id, true)}>播放专辑</button></div></div></header></> : <header className="music-catalog-heading"><h2>{view === 'albums' ? '专辑' : '共享歌单'}</h2><p>Echoes · 陈世先stt · {playlist.tracks.length} 首歌曲</p></header>}
+        {activeAlbum ? <MusicAlbumDetail title={activeAlbum.title} artist={activeAlbum.artist} coverUrl={activeAlbum.coverUrl} trackCount={activeAlbum.tracks.length} onBack={() => { setAlbumFilter('');setQuery(''); }} onPlay={() => select(activeAlbum.tracks[0].id, true)} /> : <header className="music-catalog-heading"><h2>{view === 'albums' ? '专辑' : '歌曲'}</h2><p>{playlist.tracks.length} 首歌曲 · {albums.length} 张专辑</p></header>}
         {view === 'albums' && !activeAlbum ? <ul className="glass-album-grid music-net-albums">{filteredAlbums.map(album => <li key={album.id}><VinylSleeve title={album.title} artist={album.artist} coverUrl={album.coverUrl} selected={album.tracks.some(track => track.id === selected?.id)} playing={active && state.playing && album.tracks.some(track => track.id === selected?.id)} progress={state.duration && active ? state.time / state.duration : 0} action="查看曲目" actionIcon="open" onSelect={() => { setAlbumFilter(album.id);setQuery(''); }} /></li>)}</ul> : <MusicTrackList tracks={tracks} selectedId={selected?.id || ''} onSelect={track => select(track.id, Boolean(activeAlbum))} />}
-        {!tracks.length && <p className="radio-empty-result">没有找到匹配的歌曲。试试其他关键词。</p>}
+        {!tracks.length && <p className="radio-empty-result">{view === 'albums' && !activeAlbum ? '没有找到匹配的专辑。' : '没有找到匹配的歌曲。试试其他关键词。'}</p>}
+        <div className="music-catalog-footer">
         <div className="music-catalog-secondary"><RecommendationForm apiUrl={config.recommendationApi} /><details className="music-source-options"><summary>音源选项</summary><div><a href={config.playlistUrl} target="_blank" rel="noopener noreferrer">打开共享歌单（新窗口）</a><button type="button" className="radio-refresh" aria-expanded={officialOpen} onClick={openOfficial}>使用网易云官方播放器</button><p className="radio-updated">歌单信息读取于 <time dateTime={playlist.fetchedAt}>{new Date(playlist.fetchedAt).toLocaleDateString('zh-CN', { timeZone: 'Asia/Shanghai' })}</time></p></div></details></div>
         {active && state.error && <p className="radio-error" role="alert">{state.error}</p>}
         {active && state.notice && <p className="radio-hint" role="status">{state.notice} <a className="radio-link" href={`https://music.163.com/#/song?id=${selected.id}`} target="_blank" rel="noopener noreferrer">在网易云完整收听（新窗口）</a></p>}
         {officialOpen && <section className="glass-external-player" aria-labelledby="netease-official-heading"><div><h3 ref={officialHeading} id="netease-official-heading" tabIndex={-1}>网易云官方播放器</h3><p>歌曲权限由网易云决定。无法直接播放时，可在这里收听或打开原站。</p>{selected && <a className="radio-link" href={`https://music.163.com/#/song?id=${selected.id}`} target="_blank" rel="noopener noreferrer">打开歌曲（新窗口）</a>}<button type="button" className="radio-refresh" onClick={() => { setOfficialOpen(false);origin.current?.focus(); }}>关闭播放器</button></div><div ref={embed} className="radio-embed" style={{ height: 450 * scale }}><iframe title="Echoes 网易云共享歌单播放器" src={config.playlistEmbedUrl} width="330" height="450" style={{ transform: `scale(${scale})` }} allow="encrypted-media" referrerPolicy="strict-origin-when-cross-origin" /></div></section>}
         <p className="radio-design-credit">专辑与唱片机来源 · <a href={`${import.meta.env.BASE_URL}music/attribution.txt`}>来源与许可</a></p>
+        </div>
       </div></div>
     </div>
     <RadioNowPlaying {...playback} onExpand={() => setRoom(true)} />
