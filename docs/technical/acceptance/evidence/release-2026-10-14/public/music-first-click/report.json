@@ -1,0 +1,120 @@
+{
+  "scope": "Only 390px listening-dialog hydration timing confirmation",
+  "url": "https://0ne-small-stone.github.io/personal-homepage/music/?qa-confirmation=e0a1c0dc",
+  "engine": "headless Microsoft Edge, emulated 390x844 with reduced motion",
+  "startedAt": "2026-10-14T11:21:13.497Z",
+  "states": [
+    {
+      "label": "before-first-click",
+      "elapsedMs": 2827,
+      "readyState": "interactive",
+      "islandExists": true,
+      "islandSSR": true,
+      "islandURL": "/personal-homepage/_astro/RadioLibraryExperience.BbJiY0Io.js",
+      "audioSessionId": null,
+      "audioCount": 1,
+      "dialogOpen": false,
+      "dialogVisible": false,
+      "activeLabel": null,
+      "viewport": 390,
+      "documentWidth": 390
+    },
+    {
+      "label": "500ms-after-first-click",
+      "elapsedMs": 3392,
+      "readyState": "complete",
+      "islandExists": true,
+      "islandSSR": true,
+      "islandURL": "/personal-homepage/_astro/RadioLibraryExperience.BbJiY0Io.js",
+      "audioSessionId": null,
+      "audioCount": 1,
+      "dialogOpen": false,
+      "dialogVisible": false,
+      "activeLabel": "打开黑胶播放页",
+      "viewport": 390,
+      "documentWidth": 390
+    },
+    {
+      "label": "hydration-ready",
+      "elapsedMs": 3523,
+      "readyState": "complete",
+      "islandExists": true,
+      "islandSSR": false,
+      "islandURL": "/personal-homepage/_astro/RadioLibraryExperience.BbJiY0Io.js",
+      "audioSessionId": "8308a2b9-40ec-4f0f-b622-c7a3ac6a4e4d",
+      "audioCount": 1,
+      "dialogOpen": false,
+      "dialogVisible": false,
+      "activeLabel": "打开黑胶播放页",
+      "viewport": 390,
+      "documentWidth": 390
+    },
+    {
+      "label": "hydrated-dialog-open",
+      "elapsedMs": 3675,
+      "readyState": "complete",
+      "islandExists": true,
+      "islandSSR": false,
+      "islandURL": "/personal-homepage/_astro/RadioLibraryExperience.BbJiY0Io.js",
+      "audioSessionId": "8308a2b9-40ec-4f0f-b622-c7a3ac6a4e4d",
+      "audioCount": 1,
+      "dialogOpen": true,
+      "dialogVisible": true,
+      "activeLabel": null,
+      "viewport": 390,
+      "documentWidth": 390
+    },
+    {
+      "label": "after-Escape",
+      "elapsedMs": 4437,
+      "readyState": "complete",
+      "islandExists": true,
+      "islandSSR": false,
+      "islandURL": "/personal-homepage/_astro/RadioLibraryExperience.BbJiY0Io.js",
+      "audioSessionId": "8308a2b9-40ec-4f0f-b622-c7a3ac6a4e4d",
+      "audioCount": 1,
+      "dialogOpen": false,
+      "dialogVisible": false,
+      "activeLabel": "打开黑胶播放页",
+      "viewport": 390,
+      "documentWidth": 390
+    }
+  ],
+  "pageErrors": [],
+  "responses": [
+    {
+      "elapsedMs": 2433,
+      "url": "https://0ne-small-stone.github.io/personal-homepage/_astro/PersistentPlayer.ClRDEtRN.css",
+      "status": 200
+    },
+    {
+      "elapsedMs": 3021,
+      "url": "https://0ne-small-stone.github.io/personal-homepage/_astro/client.Dm6W1rWB.js",
+      "status": 200
+    },
+    {
+      "elapsedMs": 3029,
+      "url": "https://0ne-small-stone.github.io/personal-homepage/_astro/RadioLibraryExperience.BbJiY0Io.js",
+      "status": 200
+    },
+    {
+      "elapsedMs": 3055,
+      "url": "https://0ne-small-stone.github.io/personal-homepage/_astro/PersistentPlayer.BQALVXFA.js",
+      "status": 200
+    }
+  ],
+  "limitations": [
+    "No physical phone tested.",
+    "No audio playback or login backend attempted in this targeted confirmation."
+  ],
+  "browserVersion": "155.0.4283.45",
+  "focusRestored": true,
+  "result": {
+    "passed": true,
+    "firstClickBeforeHydration": true,
+    "firstClickOpenedDialog": false,
+    "hydratedDialogWorks": true,
+    "focusRestored": true
+  },
+  "finishedAt": "2026-10-14T11:21:17.948Z"
+}

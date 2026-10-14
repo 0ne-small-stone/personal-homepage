@@ -1,0 +1,280 @@
+{
+  "baseURL": "http://127.0.0.1:4466/personal-homepage/",
+  "url": "http://127.0.0.1:4466/personal-homepage/music/",
+  "targetKind": "local",
+  "startedAt": "2026-10-14T12:43:53.060Z",
+  "engine": "headless Microsoft Edge; 390x844 emulated viewport; reduced motion",
+  "scope": "SSR disabled preparation state and exactly one first usable expansion click",
+  "states": [
+    {
+      "label": "JS-gated-SSR-preparation",
+      "elapsedMs": 2953,
+      "readyState": "interactive",
+      "islandSSR": true,
+      "regionBusy": "true",
+      "regionText": "抚琴小夜曲\n声音玩具 · 正在准备播放器…\n0:00\n7:59",
+      "controls": [
+        {
+          "tag": "BUTTON",
+          "label": "打开黑胶播放页",
+          "disabled": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "上一首",
+          "disabled": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "播放",
+          "disabled": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "下一首",
+          "disabled": true
+        },
+        {
+          "tag": "INPUT",
+          "label": "播放进度",
+          "disabled": true
+        },
+        {
+          "tag": "INPUT",
+          "label": "音量",
+          "disabled": true
+        }
+      ],
+      "heading": "Echoes",
+      "catalogText": "专辑\n\n18 首歌曲 · 3 张专辑",
+      "audioCount": 1,
+      "audioSessionId": null,
+      "dialogOpen": false,
+      "dialogRect": {
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "scroll": 0,
+        "client": 0
+      },
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390,
+      "activeLabel": null
+    },
+    {
+      "label": "JS-released-controls-ready",
+      "elapsedMs": 3257,
+      "readyState": "complete",
+      "islandSSR": false,
+      "regionBusy": "false",
+      "regionText": "抚琴小夜曲\n声音玩具\n0:00\n7:59",
+      "controls": [
+        {
+          "tag": "BUTTON",
+          "label": "打开黑胶播放页",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "label": "上一首",
+          "disabled": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "播放",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "label": "下一首",
+          "disabled": false
+        },
+        {
+          "tag": "INPUT",
+          "label": "播放进度",
+          "disabled": true
+        },
+        {
+          "tag": "INPUT",
+          "label": "音量",
+          "disabled": false
+        }
+      ],
+      "heading": "Echoes",
+      "catalogText": "专辑\n\n18 首歌曲 · 3 张专辑",
+      "audioCount": 1,
+      "audioSessionId": "f8a64256-d10a-45ea-9be7-a0b544b75cba",
+      "dialogOpen": false,
+      "dialogRect": {
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "scroll": 0,
+        "client": 0
+      },
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390,
+      "activeLabel": null
+    },
+    {
+      "label": "first-usable-click-dialog-open",
+      "elapsedMs": 3411,
+      "readyState": "complete",
+      "islandSSR": false,
+      "regionBusy": "false",
+      "regionText": "抚琴小夜曲\n声音玩具\n0:00\n7:59",
+      "controls": [
+        {
+          "tag": "BUTTON",
+          "label": "打开黑胶播放页",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "label": "上一首",
+          "disabled": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "播放",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "label": "下一首",
+          "disabled": false
+        },
+        {
+          "tag": "INPUT",
+          "label": "播放进度",
+          "disabled": true
+        },
+        {
+          "tag": "INPUT",
+          "label": "音量",
+          "disabled": false
+        }
+      ],
+      "heading": "Echoes",
+      "catalogText": "专辑\n\n18 首歌曲 · 3 张专辑",
+      "audioCount": 1,
+      "audioSessionId": "f8a64256-d10a-45ea-9be7-a0b544b75cba",
+      "dialogOpen": true,
+      "dialogRect": {
+        "left": 0,
+        "right": 390,
+        "width": 390,
+        "scroll": 390,
+        "client": 390
+      },
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390,
+      "activeLabel": null
+    },
+    {
+      "label": "Escape-focus-restored",
+      "elapsedMs": 3784,
+      "readyState": "complete",
+      "islandSSR": false,
+      "regionBusy": "false",
+      "regionText": "抚琴小夜曲\n声音玩具\n0:00\n7:59",
+      "controls": [
+        {
+          "tag": "BUTTON",
+          "label": "打开黑胶播放页",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "label": "上一首",
+          "disabled": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "播放",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "label": "下一首",
+          "disabled": false
+        },
+        {
+          "tag": "INPUT",
+          "label": "播放进度",
+          "disabled": true
+        },
+        {
+          "tag": "INPUT",
+          "label": "音量",
+          "disabled": false
+        }
+      ],
+      "heading": "Echoes",
+      "catalogText": "专辑\n\n18 首歌曲 · 3 张专辑",
+      "audioCount": 1,
+      "audioSessionId": "f8a64256-d10a-45ea-9be7-a0b544b75cba",
+      "dialogOpen": false,
+      "dialogRect": {
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "scroll": 0,
+        "client": 0
+      },
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390,
+      "activeLabel": "打开黑胶播放页"
+    }
+  ],
+  "blockedScripts": [
+    {
+      "url": "http://127.0.0.1:4466/personal-homepage/_astro/ClientRouter.astro_astro_type_script_index_0_lang.C59lK_n5.js",
+      "elapsedMs": 1934
+    },
+    {
+      "url": "http://127.0.0.1:4466/personal-homepage/_astro/page.CVLVNEBK.js",
+      "elapsedMs": 1936
+    },
+    {
+      "url": "http://127.0.0.1:4466/personal-homepage/_astro/RadioLibraryExperience.Ijuq6Mcv.js",
+      "elapsedMs": 2137
+    },
+    {
+      "url": "http://127.0.0.1:4466/personal-homepage/_astro/client.Dm6W1rWB.js",
+      "elapsedMs": 2138
+    },
+    {
+      "url": "http://127.0.0.1:4466/personal-homepage/_astro/PersistentPlayer.BQALVXFA.js",
+      "elapsedMs": 2138
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "mediaRequests": [],
+  "limitations": [
+    "This is an emulated Chromium viewport, not a physical phone.",
+    "No audio playback, account login or third-party iframe is exercised.",
+    "The earlier full matrix and hydration-failure evidence are retained separately."
+  ],
+  "browserVersion": "155.0.4283.45",
+  "navigationCommitMs": 1908,
+  "gateReleasedMs": 3014,
+  "firstUsableExpansionClicks": 1,
+  "focusRestored": true,
+  "result": {
+    "passed": true,
+    "SSRPreparationVisible": true,
+    "SSRControlsDisabled": true,
+    "firstUsableExpansionClicks": 1,
+    "firstUsableClickOpened": true,
+    "focusRestored": true,
+    "audioCount": 1,
+    "mediaRequests": 0
+  },
+  "finishedAt": "2026-10-14T12:43:56.852Z"
+}
