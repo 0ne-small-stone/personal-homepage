@@ -30,10 +30,16 @@ export function installHomeReturn() {
   };
   const restore=(event?:PageTransitionEvent)=>{
     const type=(performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming|undefined)?.type;
-    const returning=event?.persisted||type==='back_forward';
+    // Astro popstate stays in the original document, so navigation timing can
+    // still say "navigate". A saved state on this history entry is authoritative.
+    const returning=event?.persisted||type==='back_forward'||Boolean(history.state?.lsshHome);
     let state:ReturnState|undefined=history.state?.lsshHome;
     if(returning||type==='reload'){
-      try{if(!state&&!location.hash)state=JSON.parse(sessionStorage.getItem(key)||'null')??undefined;}catch{/* Ignore unavailable state. */}
+      // A reload's history snapshot may precede pagehide's latest save. Prefer
+      // that last actual position; browser back keeps its own entry snapshot.
+      try{if(type==='reload')state=JSON.parse(sessionStorage.getItem(key)||'null')??state;
+        else if(!state&&!location.hash)state=JSON.parse(sessionStorage.getItem(key)||'null')??undefined;
+      }catch{/* Ignore unavailable state. */}
     }else state=undefined;
     if(!state&&location.hash){
       const section=chapters.find(chapter=>`#${chapter.id}`===location.hash);
@@ -47,6 +53,6 @@ export function installHomeReturn() {
   };
   const observer=new MutationObserver(applyPending);observer.observe(document.body,{attributes:true,attributeFilter:['class','data-home-status','data-home-motion']});
   document.addEventListener('lssh:home-layout-ready',applyPending);
-  document.addEventListener('click',click);window.addEventListener('pagehide',save);window.addEventListener('pageshow',restore);restore();
-  return()=>{observer.disconnect();delete document.body.dataset.homeRestoring;document.removeEventListener('lssh:home-layout-ready',applyPending);document.removeEventListener('click',click);window.removeEventListener('pagehide',save);window.removeEventListener('pageshow',restore);};
+  document.addEventListener('click',click,true);window.addEventListener('pagehide',save);window.addEventListener('pageshow',restore);restore();
+  return()=>{observer.disconnect();delete document.body.dataset.homeRestoring;document.removeEventListener('lssh:home-layout-ready',applyPending);document.removeEventListener('click',click,true);window.removeEventListener('pagehide',save);window.removeEventListener('pageshow',restore);};
 }

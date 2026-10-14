@@ -1,0 +1,29 @@
+{
+  "data": {
+    "atlasBytes": "1967104",
+    "bands": "32",
+    "convergenceMs": "18742.10000000149",
+    "draws": "194",
+    "engine": "three.js r186",
+    "epoch": "1",
+    "flat": "false",
+    "glass": "true",
+    "gpuRenderer": "ANGLE (Intel, Intel(R) Graphics (0x00007D67) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "medium": "true",
+    "nativeBand": "0",
+    "nativeGroup": "4",
+    "phase": "spectral-tail",
+    "previewMs": "4455.4000000003725",
+    "readyGroups": "15",
+    "renderState": "idle",
+    "source": "true",
+    "sourcePackets": "4096",
+    "stage": "done",
+    "tailDone": "2701",
+    "tailTotal": "2701",
+    "timing": "{\"draws\":194,\"state\":\"idle\",\"jsRenderMs\":55.178333333320914,\"transportMs\":1.382499999878928,\"gpuMs\":37.34558573333334,\"gpuLastMs\":5.967656,\"gpu128Ms\":37.34558573333334,\"gpuMeasurements\":[{\"sourceSamples\":128,\"ms\":38.422603,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":25.563853,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":33.513333,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":21.684113,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":31.209061,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":24.579685,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":31.834166,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":35.209687,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":24.709113,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":36.122812,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":33.642447,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":34.563384,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":22.44854,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":31.804687,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":21.94729,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":23.574999,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":34.08203,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":27.608957,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":37.546093,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":41.47401,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":30.676718,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":36.238436,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":27.581093,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":42.567395,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":36.646197,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":31.621093,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":35.374739,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":26.415311,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":29.790728,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":38.606613,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":30.185415,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":36.604322,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":48.568749,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":29.33578,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":37.504114,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":40.501093,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":35.209738,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":39.627812,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":29.375415,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":30.933957,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":33.013853,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":29.428904,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":29.646353,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":29.933748,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":31.759426,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":32.11302,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":30.073176,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":31.683333,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":29.972342,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":30.022238,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":31.045988,\"phase\":\"native-band\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":514.437708,\"phase\":\"spectral-tail\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":23.446249,\"phase\":\"spectral-tail\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":20.515052,\"phase\":\"spectral-tail\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":5.683072,\"phase\":\"spectral-tail\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":6.188645,\"phase\":\"spectral-tail\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":8.179166,\"phase\":\"spectral-tail\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":7.352499,\"phase\":\"spectral-tail\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":5.367135,\"phase\":\"spectral-tail\",\"epoch\":1},{\"sourceSamples\":128,\"ms\":5.967656,\"phase\":\"spectral-tail\",\"epoch\":1}],\"frameGapMs\":71.19333333333331,\"gpuTimerSupported\":true}",
+    "workerMs": "12.5"
+  },
+  "height": 673,
+  "width": 1106
+}

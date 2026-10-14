@@ -98,7 +98,7 @@ const ready = async (page) => {
   assert.equal(hash(downloaded), expectedHash);
   record('download contains identical PDF bytes', { suggestedFilename: download.suggestedFilename() });
   const popupPromise = page.waitForEvent('popup');
-  await page.getByRole('link', { name: '全屏阅读', exact: true }).click();
+  await page.getByRole('link', { name: /独立阅读器/ }).click();
   const popup = await popupPromise;
   await popup.waitForFunction(() => window.PDFViewerApplication?.pdfDocument?.numPages === 4, null, { timeout: 45000 });
   assert.equal(new URL(popup.url()).searchParams.get('file'), '/personal-homepage/materials/lssh-pdf-reading-check.pdf');
@@ -122,7 +122,7 @@ const ready = async (page) => {
   await rendered(frame);
   await page.screenshot({ path: path.join(output, 'mobile-320.png'), fullPage: true });
   await page.setViewportSize({ width: 1440, height: 1000 });
-  await page.getByRole('link', { name: '全屏阅读', exact: true }).focus();
+  await page.getByRole('link', { name: /独立阅读器/ }).focus();
   await page.keyboard.press('Tab');
   assert.equal(await page.getByRole('link', { name: '下载 PDF', exact: true }).evaluate((node) => node === document.activeElement), true);
   assert.equal(await page.getByRole('link', { name: '下载 PDF', exact: true }).evaluate((node) => getComputedStyle(node).outlineStyle), 'solid');

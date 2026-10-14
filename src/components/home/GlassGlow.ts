@@ -1,4 +1,4 @@
-import { Camera, Color, ExtrudeGeometry, LinearFilter, Mesh, NoColorSpace, NoToneMapping, Scene, ShaderMaterial, UniformsUtils, Vector3, WebGLRenderer, WebGLRenderTarget } from 'three';
+import { Camera, Color, ExtrudeGeometry, Float32BufferAttribute, LinearFilter, Mesh, NoColorSpace, NoToneMapping, Scene, ShaderMaterial, UniformsUtils, Vector3, WebGLRenderer, WebGLRenderTarget } from 'three';
 import { FullScreenQuad } from 'three/addons/postprocessing/Pass.js';
 import { HorizontalBlurShader } from 'three/addons/shaders/HorizontalBlurShader.js';
 import { VerticalBlurShader } from 'three/addons/shaders/VerticalBlurShader.js';
@@ -8,6 +8,9 @@ export default class GlassGlow {
   source: Mesh | null = null;
   intensity = 0;
   mobile = false;
+  coverageRequested = false;
+  coverageReady = false;
+  get coverageTexture() { return this.targets[3].texture; }
   private readonly scene = new Scene();
   private readonly mask: Mesh;
   private readonly targets = [0, 1, 2, 3, 4].map(i => {
@@ -24,7 +27,7 @@ export default class GlassGlow {
     fragmentShader: `uniform sampler2D glow; uniform sampler2D nearGlow; uniform float intensity; varying vec2 vUv;
       void main(){float light=.45*texture2D(nearGlow,vUv).r+.55*texture2D(glow,vUv).r;
         // One continuous field crosses the glass boundary; no sharp coverage cut.
-        float alpha=.20*(1.-exp(-light*3.))*intensity;
+        float alpha=.32*(1.-exp(-light*3.))*intensity;
         gl_FragColor=vec4(vec3(1.),alpha);
         #include <colorspace_fragment>
       }` });
@@ -37,12 +40,16 @@ export default class GlassGlow {
   private error: string | null = null;
 
   constructor(geometry: ExtrudeGeometry, planes: Vector3[]) {
+    const normals = geometry.getAttribute('normal');
+    const front = new Float32Array(normals.count);
+    for (let i = 0; i < front.length; i++) front[i] = Math.abs(normals.getZ(i)) > .999 ? 1 : 0;
+    geometry.setAttribute('portalFrontCoverage', new Float32BufferAttribute(front, 1));
     const material = new ShaderMaterial({ toneMapped: false,
-      uniforms: { outerPlanes: { value: planes }, halfDepth: { value: geometry.boundingBox!.max.z } },
-      vertexShader: `varying vec3 p; varying vec3 n;
-        void main(){p=position;n=normal;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
-      fragmentShader: `uniform vec3 outerPlanes[3];uniform float halfDepth;varying vec3 p;varying vec3 n;
-        void main(){float outside=100.;float second=100.;
+      uniforms: { outerPlanes: { value: planes }, halfDepth: { value: geometry.boundingBox!.max.z }, coverageOnly: { value: 0 } },
+      vertexShader: `attribute float portalFrontCoverage;varying float front;varying vec3 p; varying vec3 n;
+        void main(){front=portalFrontCoverage;p=position;n=normal;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
+      fragmentShader: `uniform vec3 outerPlanes[3];uniform float halfDepth;uniform float coverageOnly;varying float front;varying vec3 p;varying vec3 n;
+        void main(){if(coverageOnly>.5){gl_FragColor=vec4(vec3(0.),front);return;}float outside=100.;float second=100.;
           for(int i=0;i<3;i++){
             float d=max(outerPlanes[i].z-dot(outerPlanes[i].xy,p.xy),0.);
             if(d<outside){second=outside;outside=d;}else{second=min(second,d);}
@@ -51,7 +58,7 @@ export default class GlassGlow {
           float distance=min(length(vec2(outside,max(halfDepth-abs(p.z),0.))),length(vec2(outside,second)));
           float edge=exp(-pow(distance/.06,2.));
           float direction=.85+.15*max(dot(normalize(n.xy+vec2(.00001)),normalize(vec2(-.85,.25))),0.);
-          float emission=.72*edge*direction;gl_FragColor=vec4(vec3(emission),1.);
+          float emission=.72*edge*direction;gl_FragColor=vec4(vec3(emission),front);
         }` });
     this.mask = new Mesh(geometry, material);
     this.mask.matrixAutoUpdate = false;
@@ -62,7 +69,7 @@ export default class GlassGlow {
   render(gl: WebGLRenderer, camera: Camera) {
     this.active = false; this.passes = 0;
     const source = this.source;
-    if (this.disposed || this.error || !source?.visible || this.intensity < .0001) return;
+    if (this.disposed || this.error || !source?.visible || (this.intensity < .0001 && !this.coverageRequested)) return;
     const canvas = gl.domElement;
     // The mobile camera projects a much smaller prism; match diffusion to that
     // scale instead of dissolving its edges across desktop-sized CSS radii.
@@ -84,10 +91,13 @@ export default class GlassGlow {
     try {
       source.updateWorldMatrix(true, false);
       this.mask.matrix.copy(source.matrixWorld);
+      (this.mask.material as ShaderMaterial).uniforms.coverageOnly.value = this.intensity < .0001 ? 1 : 0;
       gl.xr.enabled = false; gl.shadowMap.autoUpdate = false; gl.toneMapping = NoToneMapping;
       gl.autoClear = true; gl.setClearColor(0x000000, 0);
       // Coverage resolves at CSS pixel resolution with MSAA; diffusion stays small.
       gl.setRenderTarget(coverage); gl.render(this.scene, camera); this.passes++;
+      this.coverageReady = true;
+      if (this.intensity < .0001) return;
       // Each Gaussian uses adjacent texels at its own scale. The near field
       // prefilters the far field, so broad diffusion does not stamp sharp copies.
       this.horizontal.uniforms.h.value = 1 / nearWidth;

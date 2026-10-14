@@ -1,16 +1,12 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
-import { stripTypeScriptTypes } from 'node:module';
-import { BoxGeometry, ExtrudeGeometry, Matrix4, Shape, Vector2, Vector3 } from 'three';
+import { BoxGeometry, Matrix4, Vector3 } from 'three';
 import { MAX_INTERFACES, PRISM_INCIDENT_SLOPE, PrismRaySolver, snellDirection } from '../src/components/home/prism-ray.ts';
+import { makeTriangleGeometry } from '../src/components/home/prism-geometry.ts';
 import { PRISM_DISPERSION, PRISM_WAVELENGTHS, prismIOR, sameInterfaceTopology } from '../src/components/home/prism-spectrum.ts';
 
-// Use the actual established geometry without importing a React/TSX surface into Node.
-const component = readFileSync(new URL('../src/components/home/GlassTriangle.tsx', import.meta.url), 'utf8');
-const geometrySource = component.slice(component.indexOf('function roundedTriangle'), component.indexOf('export default function')).replace('export function', 'function');
-const makeGeometry = new Function('ExtrudeGeometry', 'Shape', 'Vector2', 'Vector3', stripTypeScriptTypes(geometrySource) + '\nreturn makeTriangleGeometry();');
-const prism = makeGeometry(ExtrudeGeometry, Shape, Vector2, Vector3);
+// Use the same shared prism geometry as the React scene and spectral worker.
+const prism = makeTriangleGeometry();
 const matrix = new Matrix4().makeScale(.5, .5, .5), start = new Vector3(-12, 0, 0), direction = new Vector3(1, 0, 0);
 const near = (a, b, tolerance = 1e-9) => assert.ok(Math.abs(a - b) < tolerance, `${a} differs from ${b}`);
 const finite = solver => assert.ok([...solver.points.slice(0, solver.count), solver.outputDirection].every(p => p.toArray().every(Number.isFinite)));

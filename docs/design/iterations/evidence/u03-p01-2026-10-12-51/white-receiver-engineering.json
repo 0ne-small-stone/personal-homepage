@@ -1,0 +1,177 @@
+{
+  "date": "2026-10-13",
+  "scope": "P01 / 51 white diagnostic receiving-surface slice",
+  "sourceFiles": {
+    "entry.js": {
+      "bytes": 4636,
+      "sha256": "e4579a63c3f602d106ec39d9920ba06dcf4d02f481cea952a779c5566ad7ddbe"
+    },
+    "index.html": {
+      "bytes": 1554,
+      "sha256": "09b9e5abfc6b75ca335ecc148ef953ec5bab3ff04e770302ab5734bece72df94"
+    },
+    "geometry.js": {
+      "bytes": 1369,
+      "sha256": "d93a2be87d29ee6235c0d861480e0661b84e10e68023284dab814adcf532b081"
+    },
+    "ray.js": {
+      "bytes": 6035,
+      "sha256": "6722b6f1944674460881dfe6a8a3d227dbdcffc0bbbca91dc0f93ae4adcbad54"
+    },
+    "beam-field.js": {
+      "bytes": 10311,
+      "sha256": "50be7483c7883415781d8a0c3c236010282a27c7fc1db7678030bbf04177c285"
+    },
+    "receiver.js": {
+      "bytes": 4558,
+      "sha256": "129b0ff755f4274f333aea8e468c5243e7c2f55df292839f1f4238356d4224f3"
+    },
+    "white-entry.js": {
+      "bytes": 5037,
+      "sha256": "42cd4e452866f6868777f2305599f4a8feaf9c9e38d0860fccee6fad5e110af4"
+    },
+    "white.html": {
+      "bytes": 1707,
+      "sha256": "e6753ab696d1efca596a881d9d2ecb14a2c6e00ce38b1eab3b885de6d5ced0ba"
+    },
+    "check-white.mjs": {
+      "bytes": 2150,
+      "sha256": "fe0e31c86470d87cb31f9abdeca2dd9e2cc560543ec46002035e420729a32e8e"
+    },
+    "check-receiver.mjs": {
+      "bytes": 4697,
+      "sha256": "65e1f33fac6fe6a2c1ad9cc148baa5da95c5cba04404d73101cc06d63ed9fe0a"
+    },
+    "build.mjs": {
+      "bytes": 1116,
+      "sha256": "8b62042c305cca84f1f900dea507c2f3d29ee7629f8aa69d4a67d2c3929d6044"
+    },
+    "server.mjs": {
+      "bytes": 883,
+      "sha256": "1735bbd4c93a98d9d783008914a13fb1a31cdf35d455994a34c8c0ee71388c24"
+    },
+    "package.json": {
+      "bytes": 121,
+      "sha256": "faed77d4b76c9161ee8274853d2e52ddd82142a8170d7c3c8d82d9107a2e1ba4"
+    },
+    "package-lock.json": {
+      "bytes": 1662,
+      "sha256": "b665f7ba175728288c40c533a12b505b836c1c8030e171f926743d169a77064a"
+    }
+  },
+  "generatedWhiteBundle": {
+    "bytes": 1246312,
+    "sha256": "d718ef8a0a95deb775dabc778b97cd47ba88b7b716bb9c8532e8448dbd6f420c",
+    "committed": false
+  },
+  "rootPackageSha256": "98cb9f4a998c542260d5f66cb583b96ed6f9a38a3295b528d53ab04d213d1ab1",
+  "rootLockSha256": "8162ced34fc05c12e8f5f2c67d016640af7e54f8e4fe1f56b5256f60f6926f9c",
+  "applicationCodeChanged": false,
+  "rootDependenciesChanged": false,
+  "sourceSamples": 128,
+  "kernelRadius": 0.009,
+  "receiver": {
+    "center": [
+      3.2,
+      0,
+      -0.7
+    ],
+    "angleRadians": -0.55,
+    "halfWidth": 2,
+    "halfHeight": 1.8,
+    "albedo": 0.65,
+    "virtualDiagnostic": true,
+    "textureBytes": 65536
+  },
+  "physicalChecks": {
+    "existingWhiteTransport": 8,
+    "receivingSurface": 10
+  },
+  "actualBrowser": {
+    "desktop": true,
+    "mobileCssViewport": [
+      390,
+      844
+    ],
+    "mobileCanvas": [
+      390,
+      544
+    ],
+    "errors": [],
+    "earlyFramesRetained": true,
+    "fullObserverRefraction": false,
+    "continuousSpectrum": false,
+    "homepageReplacement": false,
+    "hardwarePerformance": false
+  },
+  "server": {
+    "pid": 33488,
+    "port": 4339,
+    "loopbackOnly": true
+  },
+  "images": {
+    "white-receiver-front.jpg": {
+      "format": "jpeg",
+      "width": 1280,
+      "height": 720,
+      "bytes": 34593,
+      "sha256": "780ad7b7bd54b0974348923c78bbbe1ff4566a03b2aaf01469d0bb2b6a43b7fc"
+    },
+    "white-receiver-mobile.jpg": {
+      "format": "jpeg",
+      "width": 390,
+      "height": 844,
+      "bytes": 26184,
+      "sha256": "15c6d226d8fbb8542528b92d1b71b98a002342cdc9436ebeb38e29ccba854662"
+    },
+    "white-receiver-no-glass.jpg": {
+      "format": "jpeg",
+      "width": 1280,
+      "height": 720,
+      "bytes": 34152,
+      "sha256": "3610be9f6e758c21dc1a32bfad98f0715d50b9fe9f2767a97ecea38c5067b6f6"
+    },
+    "white-receiver-no-medium-early.jpg": {
+      "format": "jpeg",
+      "width": 1280,
+      "height": 720,
+      "bytes": 34542,
+      "sha256": "f1f11cb00b4d0632a0c4015240dd9652ee79cfea12c76168b4d08421e1162a88"
+    },
+    "white-receiver-no-medium.jpg": {
+      "format": "jpeg",
+      "width": 1280,
+      "height": 720,
+      "bytes": 29355,
+      "sha256": "c8be4d8e9e1406804db25df5f786c6cb3986fbe22f81e72895722953dc99b51a"
+    },
+    "white-receiver-no-source.jpg": {
+      "format": "jpeg",
+      "width": 1280,
+      "height": 720,
+      "bytes": 28739,
+      "sha256": "0596483f76194d1a0076d1ded80206ae2fb46f52f10cb1d5613456e0adf34123"
+    },
+    "white-receiver-removed-early.jpg": {
+      "format": "jpeg",
+      "width": 1280,
+      "height": 720,
+      "bytes": 35087,
+      "sha256": "7b9fe074ed6b6e891015f79ae7e27fe5c5af4d988abb3352e66d5f8f1d13d478"
+    },
+    "white-receiver-removed.jpg": {
+      "format": "jpeg",
+      "width": 1280,
+      "height": 720,
+      "bytes": 34440,
+      "sha256": "f7f755876878cd6ea89e2d12dc9a3f8dcf71e1fb1a79de1e50a88cc48ec63c74"
+    },
+    "white-receiver-turned.jpg": {
+      "format": "jpeg",
+      "width": 1280,
+      "height": 720,
+      "bytes": 35102,
+      "sha256": "bd6f3e7d5761839fa5866185bd1a666995dd1d018a960807b9e2b69add248369"
+    }
+  }
+}

@@ -1,5 +1,17 @@
 # 个人主页技术调研来源和候选方案
 
+2026-10-14 P13/T25.24：复用Microsoft [ProtectedData.Protect / DPAPI](https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.protecteddata.protect?view=windowsdesktop-9.0)，按当前Windows用户范围加密本机登录；既有Windows加密辅助脚本增加独立网易云用途标签，上传用途保持原默认值与原熵。实际加密读回、恢复/删除和权限边界见[本片](iterations/t25-p13-2026-10-14-saved-login.md)。
+
+2026-10-14 P13/T25.23：复核已安装API Enhanced4.41.1的`login_qr_key`、`login_qr_create`、`login_qr_check`、`login_status`及标准音源模块。维护者[标准播放源码](https://github.com/NeteaseCloudMusicApiEnhanced/api-enhanced/blob/main/module/song_url_v1.js)和[接口文档入口](https://neteasecloudmusicapienhanced.js.org/)作为技术来源；当前实现明确不启用源码中的解锁分支，个人账号许可只按真实返回验证。实际源码/测试、私有内存索引与本机限定见[本片](iterations/t25-p13-2026-10-14-account-playback.md)。
+
+2026-10-13 T25.11悬窗能力预研：[Chrome Document PiP](https://developer.chrome.com/docs/web-platform/document-picture-in-picture)可承载任意HTML并置顶但不能由站点指定桌面位置；[媒体自动PiP](https://developer.chrome.com/blog/automatic-picture-in-picture-media-playback)从Chrome134起需播放/音频焦点/Media Session回调与浏览器权限等条件。只读核对，不代表IAB/手机或正式运行已通过；站内路由浮层先沿用T25.02，视觉选择与研究边界见[本轮](../design/iterations/u12-p13-2026-10-13-floating-player-research.md)。
+
+## P13持续播放与推歌验证（2026-10-13）
+
+- [Astro持久岛/ClientRouter](https://docs.astro.build/en/guides/view-transitions/)、[Starlight官方组件扩展](https://starlight.astro.build/guides/overriding-components/)：三种布局唯一audio，iframe无法按同方式保持。
+- [Pagefind默认UI](https://pagefind.app/docs/ui-usage/)：复用初始化/destroy；Starlight0.42.5默认DOMContentLoaded在首次客户端进入失效，实际适配page-load和监听销毁，副本含MIT完整许可。
+- [API Enhanced维护仓库](https://github.com/NeteaseCloudMusicApiEnhanced/api-enhanced)、[npm4.41.1](https://www.npmjs.com/package/@neteasecloudmusicapienhanced/api)：MIT，Node24二维码/账号/歌曲/歌单读写通过，未开通用服务/解锁插件；实际10首添加与部署限制见[T22–T24](iterations/t22-t24-p13-2026-10-13-recommendations.md)。
+
 2026-10-14 T09.04修订4：继续复用固定PDF.js6.4.299的PDFDocumentProxy.getPage、PDFPageProxy.getViewport和原生缩放/渲染队列。[官方视口说明](https://mozilla.github.io/pdf.js/api/draft/module-pdfjsLib-PDFPageProxy.html)承接纸张尺寸与旋转，实际契约以已提交版本实读为准；[CSS Grid固定列](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns)和[行尺寸](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-rows)承接独立页数及每组至少一屏。现成Wrapped缺少固定1–4页模式，只补最小布局和输入策略，取当前组最多4页尺寸、异步请求失效保护；手动翻组也读目标尺寸并保持比例。能力缺口、实际测试与边界见[修订4](iterations/t09-04-page-modes-2026-10-14.md)，新增依赖/素材0。
 
 2026-10-13 T09.04修订3：沿用本机固定PDF.js6.4.299的getPageView、PageViewport尺寸/convertToPdfPoint和scrollPageIntoView的XYZ目的地，未更换版本。[官方页视口说明](https://mozilla.github.io/pdf.js/api/draft/module-pdfjsLib-PDFPageProxy.html)提供尺度/比例依据，[官方示例](https://mozilla.github.io/pdf.js/examples/index.html)说明原始viewport与旋转；本站采用固定源码实读而非把在线draft视为当前包契约。[Resize Observer](https://developer.mozilla.org/en-US/docs/Web/API/Resize_Observer_API)观察阅读区尺寸，合并回调以避免反复布局。现成能力不足之处及最小适配范围见[修订3记录](iterations/t09-04-adaptive-2026-10-13.md)；新增依赖与设计资源为0。
@@ -221,15 +233,20 @@ Astro 的交互组件可用于静态主站，但服务端动作和延迟服务�
 
 ### P13 双模式本轮来源（2026-10-11）
 
+2026-10-13播放地址修复：已核对安装版本API Enhanced4.41.1及[标准音质播放模块源码](https://github.com/NeteaseCloudMusicApiEnhanced/api-enhanced/blob/main/module/song_url_v1.js)。实际匿名/无解锁请求的月之暗面10首返回freeTrialInfo结束30秒，Echoes返回完整音源；短期URL再经MIME/MP3头核验，生成索引不提交音频或地址。HTTP200的outer/url返回HTML失败和原页面解码/试听结束均实际留证，见[修复记录](iterations/t25-p13-2026-10-13-netease-playback-fix.md)。
+
+2026-10-13 新外观接入：用户选择与源代码/资产许可统一见设计 REFERENCES REF-09。实际已读取官方公开 `https://music.163.com/api/v6/playlist/detail?id=18476425375`（HTTP200、code200、1首）用于目录快照，清理为歌曲ID/标题/歌手/专辑/时长/HTTPS封面及读取日期，不含账号或音频地址；`tools/music/sync-playlist.mjs` 可重新生成，不宣称已自动更新。指定曲目2016710373的官方 `song/media/outer/url` HEAD 返回audio/mpeg，浏览器实际解码/启动与跳转已验，首次媒体等待超时和后续成功分别记录，不外推所有网易云歌曲或平台接口长期稳定性。`music-metadata` 改为读取内嵌封面，复用已装 sharp 转WebP；私有索引仅标记封面存在，本机 GET/HEAD 按索引ID和回环来源提供图片，生产地址为null，不上传到公开仓库或云盘。
+
 | 来源 | 已核对能力与采用范围 |
 | --- | --- |
 | [洛雪 Scheme URL](https://lxmusic.toside.cn/desktop/scheme-url) | 官方 `lxmusic://music/search` 接收编码JSON关键词；用于直接唤起搜索，下载及最高可用档位仍在洛雪选择 |
 | [洛雪开放API](https://lxmusic.toside.cn/desktop/open-api) | 状态、歌词和播放控制，没有下载文件库读取；未为这项缺口搭建另一套音乐服务器 |
-| [music-metadata](https://github.com/Borewit/music-metadata) | 本轮采用12.1.0，MIT；本地parseFile提取真实标签、时长和格式，skipCovers避免把封面写进清单 |
+| [music-metadata](https://github.com/Borewit/music-metadata) | 本轮采用12.1.0，MIT；本地parseFile提取真实标签、时长和格式。2026-10-13读取内嵌封面并用已装sharp生成私有WebP，不把封面二进制/本机路径写进公开清单 |
 | [Nextcloud 官方同步客户端](https://docs.nextcloud.com/server/latest/user_manual/en/files/desktop_mobile_sync.html) | 优先复用目录同步；目前尚未配置真实账户同步，不把索引工具当成上传器 |
 | [Nextcloud Login Flow v2](https://docs.nextcloud.com/server/latest/developer_manual/client_apis/LoginFlow/index.html) | 使用官方浏览器授权与轮询返回的一次性内存凭证；实际考拉OCS认证失败，未保存长期凭证 |
 | [WebDAV 基础接口](https://docs.nextcloud.com/server/latest/developer_manual/client_apis/WebDAV/basic.html)与[OCS分享接口](https://docs.nextcloud.com/server/latest/developer_manual/client_apis/OCS/ocs-share-api.html) | MKCOL与只读公开分享permissions=1的最小配置工具；本次身份认证前置失败，创建/读回尚未执行 |
 | [Echoes 网易云官方外链播放器](https://music.163.com/outchain/player?type=0&id=18476425375&auto=0&height=430) | 用户指定18476425375；HTTP200、实际歌单标题/曲目及点击后音频206响应分别验证。全部曲目的权限、完整播放及跨页持续播放另验 |
+| [Astro Integration API — astro:server:setup](https://docs.astro.build/en/reference/integrations-reference/#astroserversetup) | 2026-10-12 官方钩子允许向开发服务器添加中间件；仅用于本机已索引音频的 GET/HEAD/Range。实际安装源码 `vite-plugin-astro-server/base.js`、`trailing-slash.js` 表明 middleware 前会剥离 base 并校验尾斜杠，因此公开音频 URL 保留 base 与尾斜杠，处理器匹配剥离后的路径；首次404及修正后的真实FLAC验证留证 |
 
 下载来源沿用用户仓库根`洛雪音乐.txt`中的[音源更新入口](https://github.com/guoyue2010/lxmusic-/releases)，实际应用安装入口采用[洛雪官方发行页](https://github.com/lyswhut/lx-music-desktop/releases)。第三方音源仓库只作为用户提供的跳转链接，未下载、执行其代码或宣称其音源均可用。公开音乐清单不授予音频再分发许可；本轮无音频上传或提交。
 
@@ -240,7 +257,7 @@ Astro 的交互组件可用于静态主站，但服务端动作和延迟服务�
 | [GitHub Actions 事件](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#discussion_comment) | 评论创建、编辑、删除可触发工作流；文件需位于默认分支，相关讨论事件处于公开预览 |
 | [网易云第三方 API 候选](https://github.com/NeteaseCloudMusicApiEnhanced/api-enhanced) | 候选服务端接口，尚未完成本项目账号与运行时验证 |
 | [歌单添加接口源码](https://github.com/NeteaseCloudMusicApiEnhanced/api-enhanced/blob/main/module/playlist_tracks.js) | 可研究歌曲加入歌单的实现；代码存在不代表真实授权和写入一定成功 |
-| [考拉云盘](https://pan.koala-studio.org.cn/) | 用户账号下的音乐文件托管位置；电台音频按需读取，音频文件不进入代码仓库；直链可用性尚未验证 |
+| [考拉云盘](https://pan.koala-studio.org.cn/) | 用户账号下音乐目录与只读分享已创建；2026-10-13真实FLAC/Range206、18首清单和18封面已核验。音频不进入仓库；手机/线上部署另验 |
 
 Waline 曾作为匿名留言候选。当前用户已接受 Giscus，Waline 不再是默认留言方案。
 
@@ -270,6 +287,15 @@ Waline 曾作为匿名留言候选。当前用户已接受 Giscus，Waline 不�
 | [EdgeOne 定价](https://pages.edgeone.ai/pricing) | 部署前重新核对免费额度、收费和区域条件 |
 
 2026-10-07 用户已选择 GitHub Pages；EdgeOne 保留为历史候选。不要把免费额度写成永久承诺，也不要把外部服务对大陆访客的可用性写成已验证结论。
+
+### 考拉专用上传采用依据（2026-10-13）
+
+T25.08歌词：已安装music-metadata的lyrics类型及洛雪同目录LRC作为本地来源；[洛雪官方源文件读取策略](https://github.com/lyswhut/lx-music-desktop/blob/master/src/renderer/utils/music.ts)说明同名LRC优先。[LRCLIB官方接口](https://lrclib.net/docs)实际读取匿名/CORS、时长±2秒、声明客户端与Retry-After规则；本站额外严格校验标题/歌手/专辑，避免错用时间轴。不安装新库、不经第三方代理登录，也不绕过网易云官网浏览限制。
+
+- [Nextcloud File Drop 官方手册](https://docs.nextcloud.com/server/latest/user_manual/en/files/file_drop.html)：复用官方上传专用分享，访客不能查看或改变已有文件。
+- [Nextcloud 33.0.3 FilesDropPlugin 官方源码](https://github.com/nextcloud/server/blob/v33.0.3/apps/dav/lib/Files/Sharing/FilesDropPlugin.php)：文件请求要求 `X-NC-Nickname`，昵称形成子目录，PUT 自动创建路径并保留既有文件；本项目只适配请求头和不可变目录快照，不复制插件源码。
+- [官方公共 WebDAV 接口](https://docs.nextcloud.com/server/latest/developer_manual/client_apis/WebDAV/basic.html)：采用29+公共分享端点、非GET请求的 `X-Requested-With`、上传mtime及SHA256校验头。考拉33.0.3实测只读PROPFIND207、File Request禁列举405、真实音频PUT201/Range206；MKCOL没有昵称400保留为早期协议失败。
+- 成熟客户端优先路线已实试：官方Nextcloud35数字签名/MSI安装成功，但客户端初始化HTTP429，未保存有效账户。用户明确选择File Request替代，无常驻服务端依赖；上传凭据仅Windows当前用户可解密。
 
 ## T13.10 原生正文链接来源（2026-10-09）
 
@@ -308,3 +334,30 @@ Waline 曾作为匿名留言候选。当前用户已接受 Giscus，Waline 不�
 - [Starlight 组件扩展](https://starlight.astro.build/guides/overriding-components/)：在既有 MarkdownContent 扩展中保留原生正文并追加静态导航，本轮不改路由或 loader。已安装 Starlight 0.42.5 / starlight-blog 0.30.0；现有业务 `entryId` 关系仍由上一轮最小适配承接。
 - [Quartz 反向链接](https://quartz.jzhao.xyz/features/backlinks)：借鉴来源链接列表和空列表隐藏。其插件面向 Quartz，本轮已有 Astro/Starlight 工程，因此只参考体验，不引入另一个站点框架或复制源码；同一公开关系的反转约 6 行，无额外依赖。
 - [Astro cacheDir](https://docs.astro.build/en/reference/configuration-reference/#cachedir)：默认缓存位于 `node_modules/.astro`。本机样稿共享依赖 junction 时，首次并行构建出现 51/54 页不一致；已核对安装源码的内容数据缓存路径。验收生成器为自身设置独立 Astro/Vite 缓存，逐快照检查三个来源页与目标列表；重建两份均为 54 页。正式工程的配置未改。
+
+## P01 物理光传输渲染调研（2026-10-12）
+
+> 历史研究与需求证据；当前首页运行范围以56玻璃/柔晕及F02为准，不据此恢复光谱或流体。
+
+入射界面依据：[PBRT 4 镜面反射与透射](https://www.pbr-book.org/4ed/Reflection_Models/Specular_Reflection_and_Transmission)说明波长相关IOR产生各自折射方向，Snell与Fresnel分别描述方向及能量分配；[光谱分布表示](https://www.pbr-book.org/4ed/Radiometry,_Spectra,_and_Color/Representing_Spectral_Distributions)说明多波长采样及能量表示。由此结合本站源码推断：同源有限截面的重叠能量应参与颜色合成，共同入射点的屏幕彩带分层不能代证物理光束截面。此为51诊断与验收依据，不意味着已采用PBRT作为浏览器引擎。
+
+对应 R12、T03.05/T26.02/T27.01。用户否定当前平面光带的渲染机制；已有几何求解测试只证明方向，不能证明辐射传输。以下候选尚未接入首页。
+
+| 候选与原始来源 | 能力、缺口与本轮状态 |
+| --- | --- |
+| [three-gpu-pathtracer](https://github.com/gkjohnson/three-gpu-pathtracer)、[当前包](https://raw.githubusercontent.com/gkjohnson/three-gpu-pathtracer/main/package.json) | MIT，0.0.27，Three ≥0.185、BVH ≥0.9.15；与现有0.186.1版本要求相符。GPU 路径追踪、BSDF、透射。仅在忽略的 `.ci-tmp/optics-engine` 固定安装，未改主站依赖 |
+| [作者待办 #777](https://github.com/gkjohnson/three-gpu-pathtracer/issues/777)、[材质数据结构](https://raw.githubusercontent.com/gkjohnson/three-gpu-pathtracer/main/src/shader/structs/material_struct.glsl.js) | 新WebGPU分支的雾仍列待办，谱渲染、MNEE焦散和介质栈列未来工作；WebGL材质只有单一IOR，不能因Three材质存在dispersion属性就声称引擎支持真实色散 |
+| [WebGL体积雾样本](https://raw.githubusercontent.com/gkjohnson/three-gpu-pathtracer/main/example/fog.js)、[引擎源码](https://raw.githubusercontent.com/gkjohnson/three-gpu-pathtracer/main/src/core/WebGLPathTracer.js) | 旧WebGL支持FogVolumeMaterial与渐进累积；0.0.27已弃用WebGLPathTracer。先用独立白光/玻璃样本验证散射、接收面与收敛；若采用，须固定兼容版本并处理后续维护。未证明适合连续旋转首页 |
+| [Erich Loftis 路径追踪渲染器](https://github.com/erichlof/THREE.js-PathTracing-Renderer)、[体积样本源码](https://raw.githubusercontent.com/erichlof/THREE.js-PathTracing-Renderer/gh-pages/shaders/Volumetric_Rendering_Fragment.glsl)、[CC0许可](https://raw.githubusercontent.com/erichlof/THREE.js-PathTracing-Renderer/gh-pages/LICENSE) | 真实反射/折射与体积路径样本可供算法参考；该体积样本是球体场景、固定IOR，并有明确人为焦散增益与选择性路径，不能不经改造当作本项目物理完整引擎。原站FPS宣称不作为本站真机证据 |
+| [Snellytracer](https://github.com/jamportz/snellytracer) | 仓库原portsmouth地址已重定向；API读回master为a9017c3d4520404445a3a6e0c4f2987de52b01a1。光谱激光、介电模型、fluence累积有针对性，但未找到完整代码许可证，且fluence并非完整散射辐射。只作研究，不复制源码、不列为已采用 |
+| [CAUSTIC//VOLUME](https://github.com/ScottieFox/caustic-volume)、[MIT许可](https://raw.githubusercontent.com/ScottieFox/caustic-volume/main/LICENSE)、[光树](https://raw.githubusercontent.com/ScottieFox/caustic-volume/main/sandbox/src/28_laser.js) | Three r186，光子/激光体积算法可参考；水箱、薄壁玻璃与固定水面近似不能原样替代本站实体棱镜。源代码已读，未运行本项目兼容样本，不列为成熟已验证核心引擎 |
+| [光子点/光子束体积辐射估计论文](https://graphics.ucsd.edu/~henrik/papers/volumetric_radiance_using_photon_points_and_beams.pdf) | 若完整现成引擎确实不能覆盖，作为针对折射体积焦散的算法依据；需保留密度估计、核宽/偏差、介质与观察积分的具体精度边界，不能将路径线条直接命名为物理光子束 |
+| [Mitsuba积分器文档](https://mitsuba.readthedocs.io/en/stable/src/generated/plugins_integrators.html) | 原理/参考渲染候选；当前ptracer文档明确不支持介质，不能仅凭有光子追踪便宣称可同时解决此场景。未安装，不新增服务端运行依赖 |
+
+采用原则：先复用能覆盖需求的完整渲染器；现成谱渲染、体积折射焦散或实时交互确有缺口时，先记录缺口及最小扩展，再施工。光束在空气中可见需要散射介质；调节散射密度必须改变实际传输。渲染应包含Fresnel能量分配、传播衰减、受光遮挡及累积重置，结果由真实GPU画面核对。七色调色板或RGB通道位移仍是显示近似，不能称为连续光谱传输。
+
+51独立WebGL首样实际512 samples：有介质可见白束，无介质白束消失，受光点仍存在；但玻璃后主束仍近似直行，核心目标失败。[完整记录](../design/iterations/u03-p01-2026-10-12-51.md)。[attenuateHit源码](https://raw.githubusercontent.com/gkjohnson/three-gpu-pathtracer/main/src/materials/pathtracing/glsl/attenuate_hit_function.glsl.js)包含折射/PDF待处理注释，透射阴影未改变ray.direction；据此不能直接采用当前候选替换主页。
+
+随后在独立样本复用现有PrismRaySolver与Three实例化/浮点target，最小实现白光局部单散射光子束估计：真实三角面、Fresnel分支、Beer衰减、世界Gaussian密度核与HG相函数/观察积分。8项传输检查与桌面/手机CSS实际画面留证；有玻璃折转、移去后直行。**仍未通过完整白光目标**：观察射线未完整折射、无接收面、有限核偏差与单散射、无连续谱/首页接入。方法候选依据为上表光子束论文，未复制许可未知源码或声称完整物理引擎，参数为诊断值。[51工程记录](../design/iterations/u03-p01-2026-10-12-51-implementation.md)。
+
+2026-10-13白光接收面续片：[PBRT 4 漫反射](https://www.pbr-book.org/4ed/Reflection_Models/Diffuse_Reflection)的Lambert BRDF为反射率/π；[体积传输方程](https://www.pbr-book.org/4ed/Light_Transport_II_Volume_Rendering/The_Equation_of_Transfer)把最近接收面的出射辐射与表面之前的空气积分相加，表面之后的贡献应被遮挡。本片据此在实际光路与有限平面交点估计受光功率，世界Gaussian核包含投影余弦，直接观察段Beer衰减；没有复制PBRT代码。10项接收检查和实际桌面/手机CSS留证，只确认局部接收面因果；观察玻璃折射仍待完成，非完整引擎或首页采用结论，见[51工程记录](../design/iterations/u03-p01-2026-10-12-51-implementation.md)。

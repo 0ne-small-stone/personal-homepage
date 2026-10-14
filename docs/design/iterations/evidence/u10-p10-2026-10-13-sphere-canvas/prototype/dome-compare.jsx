@@ -1,0 +1,10 @@
+import React from 'react';
+import {createRoot} from 'react-dom/client';
+import Upstream from './vendor/DomeGallery.upstream.jsx';
+import Adapted from './vendor/DomeGallery.jsx';
+import {domeProps} from './dome.jsx';
+const mode=new URL(location.href).searchParams.get('mode')==='upstream';
+const Component=mode?Upstream:Adapted;
+const photos=await(await fetch('./manifest.json')).json();
+createRoot(document.getElementById('dome-host')).render(<Component {...domeProps} images={photos.map(photo=>({src:photo.image,full:photo.full,alt:photo.title}))} maxVerticalRotationDeg={mode?0:domeProps.maxVerticalRotationDeg} fullCoverage={!mode}/>);
+document.documentElement.dataset.reference=mode?'upstream':'adapted';

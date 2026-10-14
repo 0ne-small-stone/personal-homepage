@@ -1,25 +1,27 @@
 // SYSTEM 9.2: source coordinates are converted uniformly to the existing scene.
-export const workCount = 4;
-export const sceneUnitScale = .6;
-export const introGap = 100;
+import type { MotionChannel } from './motion-ranges';
+export { introGap, motionRange, workCount } from './motion-ranges';
+export type { MotionChannel } from './motion-ranges';
 
-export type MotionChannel = 'kv' | 'intro' | 'works' | 'event' | 'snap' | 'outro' | 'wall';
+export const sceneUnitScale = .6;
 export interface MotionState {
   height: number;
   scrollY: number;
   velocity: number;
   phase: string;
   raw: Record<MotionChannel, number>;
-  rendered: { progress: number; index: number; background: number; intro: number };
+  rendered: { progress: number; index: number; background: number; intro: number; prepare: number; expand: number; wall: number };
   activeItem: number;
   snapActive: boolean;
+  portalCovered: boolean;
   frame: number;
   time: number;
   initialization: { revision: number; y: number; zoom: number; reason: string };
   cards: { index: number; position: number[]; rotationY: number; scale: number; alpha: number; visible: boolean }[];
   camera: { position: number[]; fov: number; outro?: { raw: number; parallax: number; projection: number }; offset?: number[]; offsetTarget?: number[]; projection?: number[]; inverse?: number[]; perspective?: number[]; orthographic?: number[] } | null;
   glass: { anchor: number[]; quaternion: number[]; scale: number; visible?: boolean; projectedAnchor: number[]; bounds: number[]; centeredLocalBounds: number[] } | null;
-  wall: { raw: number; rise: number; position: number[]; visible: boolean } | null;
+  wall: { raw: number; rise: number; build: number; position: number[]; visible: boolean; revision: number; settled:number;falling:number;drawn:number;rows:number;samples:{id:number;row:number;column:number;x:number;y:number;progress:number}[] } | null;
+  portal: { prepare: number; renderedPrepare: number; expand: number; renderedExpand: number; wall: number; renderedWall: number; build:number;sampleRevision:number;target: number[]; targetReady: boolean; hdr: boolean; homographyValid: boolean; frontCoversCorners: boolean; quad: number[][]; coversCorners: boolean; error: string | null } | null;
   glassRotation: {
     dt: number; rawDt: number; paused: boolean; hover: boolean; reset: string; initialization: number; phase: string;
     pointer: { target: number[]; current: number[]; residual: number[]; active: boolean; revision: number; weight: number };
@@ -29,23 +31,13 @@ export interface MotionState {
   } | null;
 }
 
-export function motionRange(channel: MotionChannel, height: number): [number, number] {
-  const h = height, g = introGap, n = workCount;
-  return {
-    kv: [-h, g], intro: [g, h + g], works: [h + g, (n + 2) * h + g],
-    event: [h + g, (n + 1) * h + g], snap: [2 * h + g, (n + 1) * h + g],
-    outro: [(n + 1) * h + g, (n + 2.5) * h + g],
-    wall: [(n + 2.5) * h + g, (n + 3.5) * h + g],
-  }[channel] as [number, number];
-}
-
 export function createMotionState(): MotionState {
   return {
     height: 900, scrollY: 0, velocity: 0, phase: 'kv',
-    raw: { kv: 0, intro: 0, works: 0, event: 0, snap: 0, outro: 0, wall: 0 },
-    rendered: { progress: 0, index: 0, background: 0, intro: 0 },
-    activeItem: -1, snapActive: false, frame: 0, time: 0,
-    initialization: { revision: 0, y: 0, zoom: 1, reason: 'pending' }, cards: [], camera: null, glass: null, wall: null, glassRotation: null,
+    raw: { kv: 0, intro: 0, works: 0, event: 0, snap: 0, outro: 0, prepare: 0, expand: 0, wall: 0 },
+    rendered: { progress: 0, index: 0, background: 0, intro: 0, prepare: 0, expand: 0, wall: 0 },
+    activeItem: -1, snapActive: false, portalCovered: false, frame: 0, time: 0,
+    initialization: { revision: 0, y: 0, zoom: 1, reason: 'pending' }, cards: [], camera: null, glass: null, wall: null, portal: null, glassRotation: null,
   };
 }
 

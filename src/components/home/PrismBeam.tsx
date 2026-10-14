@@ -1,9 +1,10 @@
 import { useEffect, useMemo, type RefObject } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
-import { BufferAttribute, BufferGeometry, Color, DoubleSide, DynamicDrawUsage, MathUtils, Matrix4, Mesh, ShaderMaterial, Vector2, Vector3, type Camera } from 'three';
+import { BufferAttribute, BufferGeometry, Color, DoubleSide, DynamicDrawUsage, Matrix4, Mesh, ShaderMaterial, Vector2, Vector3, type Camera } from 'three';
 import type { JourneyModel } from './scene-state';
 import { MAX_INTERFACES, PRISM_INCIDENT_SLOPE, PRISM_LIGHT_LAYER, PrismRaySolver } from './prism-ray';
 import { PRISM_WAVELENGTHS, prismIOR, sameInterfaceTopology } from './prism-spectrum';
+import { prismOpticalOpacity } from './prism-visibility';
 
 class SpectrumLight {
   readonly solvers: PrismRaySolver[];
@@ -186,7 +187,7 @@ export default function PrismBeam({ mesh, geometry, model }: { mesh: RefObject<M
     const source = mesh.current;
     if (!source) return;
     if (document.hidden) { beam.suspend(); return; }
-    const intensity = source.visible && model.motion.raw.wall < (.3 / .35) ? 1 - MathUtils.smoothstep(model.motion.rendered.index, 0, .5) : 0;
+    const intensity = source.visible ? prismOpticalOpacity(model.motion.raw.wall) : 0;
     beam.update(source, camera, size.width, size.height, intensity);
   }, -.6);
   return <primitive object={beam.mesh} dispose={null} />;

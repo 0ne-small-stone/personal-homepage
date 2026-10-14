@@ -34,9 +34,9 @@ const fragmentShader = /* glsl */`
     vec3 ray = refract(-view, n, 1.0 / 1.45);
     vec2 displacement = (ray.xy + n.xy * 0.45) * 0.075;
     vec3 transmitted;
-    transmitted.r = texture2D(uScene, clamp(uv + displacement * 1.025, 0.001, 0.999)).r;
-    transmitted.g = texture2D(uScene, clamp(uv + displacement, 0.001, 0.999)).g;
-    transmitted.b = texture2D(uScene, clamp(uv + displacement * 0.975, 0.001, 0.999)).b;
+    // Chromatic separation now comes from wavelength-resolved interface paths,
+    // not channel offsets in the screen-space refraction fallback.
+    transmitted = texture2D(uScene, clamp(uv + displacement, 0.001, 0.999)).rgb;
     float edge = pow(1.0 - abs(dot(n,view)), 4.0);
     vec3 worldView = normalize(vWorldPosition - cameraPosition);
     vec3 reflected = reflect(worldView, normalize(vWorldNormal));

@@ -168,12 +168,15 @@ function restoreSource(visit: ReadingVisit, signal: AbortSignal) {
   }
 }
 
+let transitionFrom: string | null = null;
+
 function activate() {
   controller?.abort();
   controller = new AbortController();
   const { signal } = controller;
   const saved = visits();
-  const referrer = localUrl(document.referrer);
+  const referrer = localUrl(transitionFrom || document.referrer);
+  transitionFrom = null;
   let pending: string | null = null;
   try { pending = sessionStorage.getItem(pendingKey); } catch { /* Ordinary fallback. */ }
   const back = document.querySelector<HTMLAnchorElement>('[data-article-return]');
@@ -222,6 +225,13 @@ function activate() {
   document.addEventListener('click', remember, { capture: true, signal });
 }
 
+document.addEventListener('astro:before-swap', (event) => {
+  // The same-tab transition is a verified source; document.referrer stays stale.
+  transitionFrom = (event as Event & { from?: URL }).from?.href ?? location.href;
+  activeVisitId = undefined;
+  controller?.abort();
+});
+document.addEventListener('astro:page-load', activate);
 window.addEventListener('pageshow', activate);
 // Also refresh when the browser restores history state within the document.
 window.addEventListener('popstate', activate);

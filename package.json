@@ -7,16 +7,25 @@
     "node": ">=24 <25"
   },
   "scripts": {
-    "content:import": "node tools/content/import-learning.mjs",
-    "materials:prepare": "node tools/content/prepare-local-materials.mjs",
     "dev": "astro dev",
     "check": "node tools/content/cms-related-options.mjs --check && astro check",
     "build": "astro build",
     "preview": "astro preview",
-    "cms:sync-related": "node tools/content/cms-related-options.mjs",
     "music:index": "node tools/music/index-library.mjs --auto-lx",
     "music:watch": "node tools/music/index-library.mjs --auto-lx --watch",
-    "music:connect": "node tools/music/connect-cloud.mjs"
+    "music:cloud": "node tools/music/cloud-sync.mjs",
+    "music:cloud-watch": "node tools/music/cloud-sync.mjs --watch",
+    "music:sync": "node tools/music/cloud-sync.mjs --upload",
+    "music:sync-watch": "node tools/music/cloud-sync.mjs --upload --watch",
+    "music:connect": "node tools/music/connect-cloud.mjs",
+    "music:playlist": "node tools/music/sync-playlist.mjs",
+    "music:recommend": "node tools/music/recommendation-service.mjs",
+    "music:preview": "node tools/music/preview-service.mjs",
+    "music:test": "node --test tools/music/audio-session.test.mjs tools/music/recommendations.test.mjs tools/music/netease-playback.test.mjs tools/music/playback-service.test.mjs tools/music/playback-account.test.mjs tools/music/saved-login.test.mjs",
+    "content:import": "node tools/content/import-learning.mjs",
+    "materials:prepare": "node tools/content/prepare-local-materials.mjs",
+    "cms:sync-related": "node tools/content/cms-related-options.mjs",
+    "test:home": "node --test tests/*.test.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "7.3.2",
@@ -33,7 +42,8 @@
     "react-dom": "19.3.0",
     "sharp": "0.35.3",
     "starlight-blog": "0.30.0",
-    "three": "0.186.1"
+    "three": "0.186.1",
+    "three-mesh-bvh": "0.8.3"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
@@ -41,6 +51,7 @@
     "@types/react-dom": "19.3.0",
     "@types/three": "0.186.0",
     "music-metadata": "12.1.0",
-    "typescript": "~5.9.3"
+    "typescript": "~5.9.3",
+    "@neteasecloudmusicapienhanced/api": "4.41.1"
   }
 }

@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-13",
+  "method": "Sharp decodes actual IAB JPEG captures before exploration and after returning to the same canvas coordinates",
+  "inputs": ["loop-before.jpg", "loop-after.jpg"],
+  "crop": {"left": 180, "top": 100, "width": 920, "height": 450},
+  "navigation": {"rightKeyPresses": 72, "leftKeyPresses": 72, "maximumPanX": 64.8},
+  "comparedPixels": 414000,
+  "meanChannelDifference": 0,
+  "scope": "One sampled revisit path in the independent prototype; not a general visual regression or device performance result"
+}

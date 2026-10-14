@@ -1,0 +1,22 @@
+{
+  "data": {
+    "backHits": "256",
+    "convergenceMs": "869.0999999996275",
+    "draws": "46",
+    "engine": "three.js r186",
+    "epoch": "13",
+    "glass": "true",
+    "gpuRenderer": "ANGLE (Intel, Intel(R) Graphics (0x00007D67) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ior": "1.45",
+    "medium": "true",
+    "observerComplete": "true",
+    "observerTiles": "16",
+    "phase": "observer-tile",
+    "photonNodes": "1535",
+    "receiverFlux": "10.62764766561613",
+    "receiverHits": "384",
+    "renderState": "idle",
+    "samples": "128",
+    "timing": "{\"draws\":46,\"state\":\"idle\",\"jsRenderMs\":29.986956521828212,\"transportMs\":12.330769230683263,\"gpuMs\":29.542596695652175,\"gpuLastMs\":0.559061,\"gpu128Ms\":24.965526294117648,\"gpuMeasurements\":[{\"sourceSamples\":48,\"ms\":134.709425,\"phase\":\"source\",\"epoch\":1},{\"sourceSamples\":64,\"ms\":11.914635,\"phase\":\"source\",\"epoch\":2},{\"sourceSamples\":80,\"ms\":17.917135,\"phase\":\"source\",\"epoch\":3},{\"sourceSamples\":112,\"ms\":21.474791,\"phase\":\"source\",\"epoch\":5},{\"sourceSamples\":128,\"ms\":28.099895,\"phase\":\"source\",\"epoch\":6},{\"sourceSamples\":128,\"ms\":15.008072,\"phase\":\"observer-tile-1\",\"epoch\":6},{\"sourceSamples\":128,\"ms\":7.660885,\"phase\":\"observer-tile-6\",\"epoch\":6},{\"sourceSamples\":128,\"ms\":6.00151,\"phase\":\"observer-tile-7\",\"epoch\":6},{\"sourceSamples\":128,\"ms\":9.676718,\"phase\":\"observer-tile-8\",\"epoch\":6},{\"sourceSamples\":128,\"ms\":0.756249,\"phase\":\"observer-tile-13\",\"epoch\":6},{\"sourceSamples\":48,\"ms\":40.284531,\"phase\":\"source\",\"epoch\":7},{\"sourceSamples\":64,\"ms\":28.76526,\"phase\":\"source\",\"epoch\":8},{\"sourceSamples\":128,\"ms\":54.526822,\"phase\":\"source\",\"epoch\":12},{\"sourceSamples\":128,\"ms\":29.339062,\"phase\":\"observer-tile-2\",\"epoch\":12},{\"sourceSamples\":128,\"ms\":25.328853,\"phase\":\"observer-tile-3\",\"epoch\":12},{\"sourceSamples\":128,\"ms\":54.929375,\"phase\":\"observer-tile-1\",\"epoch\":13},{\"sourceSamples\":128,\"ms\":27.335989,\"phase\":\"observer-tile-3\",\"epoch\":13},{\"sourceSamples\":128,\"ms\":43.317552,\"phase\":\"observer-tile-4\",\"epoch\":13},{\"sourceSamples\":128,\"ms\":33.162864,\"phase\":\"observer-tile-8\",\"epoch\":13},{\"sourceSamples\":128,\"ms\":22.760104,\"phase\":\"observer-tile-9\",\"epoch\":13},{\"sourceSamples\":128,\"ms\":32.048125,\"phase\":\"observer-tile-11\",\"epoch\":13},{\"sourceSamples\":128,\"ms\":33.902811,\"phase\":\"observer-tile-15\",\"epoch\":13},{\"sourceSamples\":128,\"ms\":0.559061,\"phase\":\"observer-tile-16\",\"epoch\":13}],\"frameGapMs\":67.65928888888888,\"gpuTimerSupported\":true}"
+  }
+}

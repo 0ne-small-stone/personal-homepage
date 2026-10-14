@@ -4,14 +4,16 @@ import '@fontsource/ibm-plex-sans/latin-400.css';
 import '@fontsource/ibm-plex-sans/latin-500.css';
 import '../styles/home.css';
 import HomeHeader from '../components/home/HomeHeader.astro';
+import { ClientRouter } from 'astro:transitions';
+import PersistentPlayer from '../components/music/PersistentPlayer';
 import { sitePath } from '../lib/paths';
 import { homeChapters } from '../components/home/home-chapters';
 interface Props { title?: string; description?: string; journey?: boolean; }
 const { title = 'Little Stone Still Here', description = '小石的学习、作品、影像与音乐。留下的东西，仍在这里。', journey = false } = Astro.props;
 ---
 <!doctype html>
-<html lang="zh-CN">
-  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content={description} /><meta name="theme-color" content="#000000" /><link rel="icon" href="data:," /><title>{title === 'Little Stone Still Here' ? title : `${title} · Little Stone Still Here`}</title></head>
+<html lang="zh-CN" transition:animate="none">
+  <head><ClientRouter /><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content={description} /><meta name="theme-color" content="#000000" /><link rel="icon" href="data:," /><title>{title === 'Little Stone Still Here' ? title : `${title} · Little Stone Still Here`}</title></head>
   <body class:list={['lssh-home', { 'has-journey': journey }]}>
     {journey && <script is:inline define:vars={{ chapterHashes: homeChapters.map(chapter => `#${chapter.id}`) }}>
       // Gate only a position restore, before the first body paint. No-JS stays native.
@@ -27,5 +29,6 @@ const { title = 'Little Stone Still Here', description = '小石的学习、作�
     <a class="home-skip" href="#main-content">跳到正文</a><HomeHeader journey={journey} />
     <main id="main-content" tabindex="-1"><slot /></main>
     {!journey && <footer class="home-page-footer"><a href={sitePath()}>回到 Little Stone Still Here</a><span>LSSH</span></footer>}
+    <PersistentPlayer client:load transition:persist="lssh-audio" transition:persist-props />
   </body>
 </html>

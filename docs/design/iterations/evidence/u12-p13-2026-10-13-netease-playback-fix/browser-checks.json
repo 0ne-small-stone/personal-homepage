@@ -1,0 +1,187 @@
+[
+  {
+    "label": "brain-damage-start",
+    "media": {
+      "duration": 30,
+      "error": null,
+      "host": "m802.music.126.net",
+      "paused": false,
+      "ready": 4,
+      "session": "c3873a36-1365-4a0c-8115-d95fc64265a0",
+      "time": 0
+    }
+  },
+  {
+    "label": "initial-dialog-open-paused-at8",
+    "media": {
+      "duration": 30,
+      "error": null,
+      "paused": true,
+      "session": "c3873a36-1365-4a0c-8115-d95fc64265a0",
+      "time": 8.032139
+    }
+  },
+  {
+    "label": "final-brain-start",
+    "media": {
+      "duration": 30,
+      "error": null,
+      "paused": true,
+      "ready": 4,
+      "session": "484fe5e6-5d10-4bd6-8898-4a76379e76db",
+      "time": 6.739051
+    }
+  },
+  {
+    "label": "final-room-open",
+    "media": {
+      "duration": 30,
+      "paused": true,
+      "session": "484fe5e6-5d10-4bd6-8898-4a76379e76db",
+      "time": 6.739051
+    }
+  },
+  {
+    "label": "original-page-preview-completed",
+    "media": {
+      "duration": 30,
+      "error": null,
+      "events": [
+        {
+          "event": "timeupdate",
+          "paused": false,
+          "playAttempt": 1,
+          "revision": 1,
+          "time": 29.694676
+        },
+        {
+          "event": "timeupdate",
+          "paused": false,
+          "playAttempt": 1,
+          "revision": 1,
+          "time": 29.947367
+        },
+        {
+          "event": "timeupdate",
+          "paused": true,
+          "playAttempt": 1,
+          "revision": 1,
+          "time": 30
+        },
+        {
+          "event": "pause",
+          "paused": true,
+          "playAttempt": 1,
+          "revision": 1,
+          "time": 30
+        },
+        {
+          "event": "ended",
+          "paused": true,
+          "playAttempt": 1,
+          "revision": 1,
+          "time": 30
+        }
+      ],
+      "paused": true,
+      "ready": 4,
+      "session": "d603c261-a2c5-469c-95fe-5548ea7ca005",
+      "time": 30
+    }
+  },
+  {
+    "label": "release-preview-cross-page",
+    "media": {
+      "duration": 30,
+      "error": null,
+      "paused": false,
+      "ready": 4,
+      "session": "87c83a3e-0a03-4ca3-9b6d-b40cc64f0973",
+      "time": 0.324977
+    }
+  },
+  {
+    "label": "preview-paused",
+    "media": {
+      "paused": true,
+      "session": "87c83a3e-0a03-4ca3-9b6d-b40cc64f0973",
+      "time": 30
+    }
+  },
+  {
+    "label": "preview-resumed",
+    "media": {
+      "paused": true,
+      "session": "87c83a3e-0a03-4ca3-9b6d-b40cc64f0973",
+      "time": 30
+    }
+  },
+  {
+    "label": "final-full-echoes-start",
+    "media": {
+      "duration": 1618.334966,
+      "error": null,
+      "paused": false,
+      "ready": 4,
+      "session": "d1cd043b-18dd-42cf-81ed-ae2d2688e6f4",
+      "time": 0
+    }
+  },
+  {
+    "label": "full-paused",
+    "media": {
+      "duration": 1618.334966,
+      "paused": true,
+      "session": "d1cd043b-18dd-42cf-81ed-ae2d2688e6f4",
+      "time": 36.834537
+    }
+  },
+  {
+    "label": "full-resumed",
+    "media": {
+      "duration": null,
+      "paused": false,
+      "session": "d1cd043b-18dd-42cf-81ed-ae2d2688e6f4",
+      "time": 0
+    }
+  },
+  {
+    "label": "full-resume-settled",
+    "media": {
+      "duration": 1618.334966,
+      "error": null,
+      "paused": false,
+      "ready": 4,
+      "session": "d1cd043b-18dd-42cf-81ed-ae2d2688e6f4",
+      "time": 98.169117
+    }
+  },
+  {
+    "label": "final-preview-pause",
+    "media": {
+      "duration": 30,
+      "paused": true,
+      "time": 0.080054
+    }
+  },
+  {
+    "label": "final-preview-resume",
+    "media": {
+      "duration": 30,
+      "error": null,
+      "paused": false,
+      "time": 0.349846
+    }
+  },
+  {
+    "label": "final-preview-ended-after-seek",
+    "result": {
+      "duration": 30,
+      "ended": true,
+      "error": null,
+      "paused": true,
+      "sessionId": "d1cd043b-18dd-42cf-81ed-ae2d2688e6f4",
+      "time": 30
+    }
+  }
+]

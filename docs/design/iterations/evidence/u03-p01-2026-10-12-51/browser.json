@@ -1,0 +1,103 @@
+{
+  "images": [
+    {
+      "name": "stock-engine-with-volume.png",
+      "bytes": 33086,
+      "width": 1253,
+      "height": 705,
+      "format": "jpeg"
+    },
+    {
+      "name": "stock-engine-without-volume.png",
+      "bytes": 23538,
+      "width": 1253,
+      "height": 705,
+      "format": "jpeg"
+    },
+    {
+      "name": "user-entry-seam.png",
+      "bytes": 2728,
+      "width": 47,
+      "height": 59,
+      "format": "png"
+    },
+    {
+      "name": "white-estimator-front.png",
+      "bytes": 31660,
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg"
+    },
+    {
+      "name": "white-estimator-mobile-early.png",
+      "bytes": 3119,
+      "width": 375,
+      "height": 211,
+      "format": "jpeg"
+    },
+    {
+      "name": "white-estimator-mobile.png",
+      "bytes": 20789,
+      "width": 375,
+      "height": 812,
+      "format": "jpeg"
+    },
+    {
+      "name": "white-estimator-no-glass.png",
+      "bytes": 31079,
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg"
+    },
+    {
+      "name": "white-estimator-no-medium.png",
+      "bytes": 25860,
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg"
+    },
+    {
+      "name": "white-estimator-no-source.png",
+      "bytes": 25905,
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg"
+    },
+    {
+      "name": "white-estimator-turn.png",
+      "bytes": 32236,
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg"
+    }
+  ],
+  "whiteChecks": {
+    "glassOff": "native + actual screenshot straight",
+    "glassOn": "native + actual screenshot down/right",
+    "rotated": "native + actual screenshot new optical path",
+    "zeroMedium": "native + actual screenshot beam gone",
+    "zeroPower": "native + actual screenshot beam gone"
+  },
+  "errors": [],
+  "mobile": {
+    "css": [
+      390,
+      844
+    ],
+    "canvas": [
+      375,
+      604
+    ],
+    "sourceSamples": 128,
+    "segments": 640,
+    "earlyCapturePassed": false
+  },
+  "limits": [
+    "IAB software/device renderer not identified",
+    "no full observer optical path",
+    "no receiving surface",
+    "no full progressive temporal convergence benchmark",
+    "not homepage acceptance"
+  ],
+  "rawScreenshotNaming": "Cua screenshot bytes preserved; .png names may contain JPEG data; format recorded per image"
+}

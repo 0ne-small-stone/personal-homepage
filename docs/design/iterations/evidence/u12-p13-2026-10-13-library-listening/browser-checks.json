@@ -1,0 +1,313 @@
+[
+  {
+    "audio": [
+      {
+        "duration": 479.56,
+        "error": null,
+        "id": "lssh-global-audio",
+        "paused": false,
+        "ready": 4,
+        "session": "dc9a1c02-df5e-4402-b958-f20c28b2c850",
+        "time": 6.529908
+      }
+    ],
+    "dialogs": 1,
+    "overflow": false,
+    "test": "cloud-playing-room"
+  },
+  {
+    "audio": [
+      {
+        "error": null,
+        "id": "lssh-global-audio",
+        "paused": false,
+        "ready": 4,
+        "session": "dc9a1c02-df5e-4402-b958-f20c28b2c850",
+        "time": 35.648449
+      }
+    ],
+    "dialogs": 2,
+    "test": "cd-browse-continuity"
+  },
+  {
+    "audio": [
+      {
+        "error": null,
+        "id": "lssh-global-audio",
+        "paused": false,
+        "ready": 4,
+        "session": "dc9a1c02-df5e-4402-b958-f20c28b2c850",
+        "time": 36.431825
+      }
+    ],
+    "dialogs": 0,
+    "focused": "展开黑胶播放器",
+    "test": "return-library-continuity"
+  },
+  {
+    "audio": [
+      {
+        "paused": false,
+        "session": "dc9a1c02-df5e-4402-b958-f20c28b2c850",
+        "time": 72.42254
+      }
+    ],
+    "rows": 1,
+    "test": "search-single-result",
+    "title": "超级巨星"
+  },
+  {
+    "rows": 0,
+    "test": "search-empty",
+    "text": "没有找到匹配的歌曲。试试其他关键词。"
+  },
+  {
+    "audioCount": 1,
+    "paused": true,
+    "rows": 1,
+    "test": "netease-layout",
+    "title": "Echoes",
+    "turntable": true
+  },
+  {
+    "grid": "146.5px 146.5px",
+    "miniBottom": 832,
+    "scroll": 375,
+    "test": "mobile-library-390",
+    "width": 390
+  },
+  {
+    "dialog": {
+      "bottom": 828,
+      "height": 812,
+      "left": 16,
+      "right": 374,
+      "top": 16,
+      "width": 358,
+      "x": 16,
+      "y": 16
+    },
+    "scroll": 390,
+    "test": "mobile-room-390",
+    "turntable": {
+      "bottom": 419,
+      "height": 314,
+      "left": 33,
+      "right": 347,
+      "top": 105,
+      "width": 314,
+      "x": 33,
+      "y": 105
+    },
+    "width": 390
+  },
+  {
+    "test": "mobile-controls-visible-390",
+    "width": 390
+  },
+  {
+    "bodyHeight": 553,
+    "bodyScroll": 830,
+    "dialog": {
+      "bottom": 828,
+      "height": 812,
+      "left": 16,
+      "right": 374,
+      "top": 16,
+      "width": 358,
+      "x": 16,
+      "y": 16
+    },
+    "footer": {
+      "bottom": 827,
+      "height": 189,
+      "left": 17,
+      "right": 373,
+      "top": 638,
+      "width": 356,
+      "x": 17,
+      "y": 638
+    },
+    "test": "mobile-controls-final-390",
+    "width": 390
+  },
+  {
+    "dialogs": 0,
+    "focus": "展开黑胶播放器",
+    "test": "escape-focus"
+  },
+  {
+    "mini": {
+      "bottom": 728,
+      "height": 124.890625,
+      "left": 12,
+      "right": 293,
+      "top": 603.109375,
+      "width": 281,
+      "x": 12,
+      "y": 603.109375
+    },
+    "scroll": 305,
+    "test": "mobile-library-320",
+    "width": 320
+  },
+  {
+    "audio": [
+      {
+        "duration": 479.56,
+        "error": null,
+        "id": "lssh-global-audio",
+        "paused": false,
+        "ready": 4,
+        "session": "75f91620-b126-4caf-8522-54497fd6eaa8",
+        "time": 60.145628
+      }
+    ],
+    "imgs": [
+      {
+        "complete": true,
+        "width": 500
+      },
+      {
+        "complete": true,
+        "width": 380
+      },
+      {
+        "complete": true,
+        "width": 300
+      }
+    ],
+    "test": "production-seek-playing"
+  },
+  {
+    "audio": [
+      {
+        "error": null,
+        "paused": false,
+        "session": "75f91620-b126-4caf-8522-54497fd6eaa8",
+        "time": 61.028451
+      }
+    ],
+    "focus": "展开黑胶播放器",
+    "test": "production-return-playing"
+  },
+  {
+    "audio": [
+      {
+        "error": null,
+        "id": "lssh-global-audio",
+        "paused": true,
+        "session": "75f91620-b126-4caf-8522-54497fd6eaa8",
+        "time": 110.604178
+      }
+    ],
+    "mini": true,
+    "path": "/personal-homepage/about/",
+    "test": "new-layout-exit-page"
+  },
+  {
+    "audio": [
+      {
+        "error": null,
+        "paused": false,
+        "session": "f7947370-6320-408a-a07f-d3e41f3562c6",
+        "time": 0.014134
+      }
+    ],
+    "test": "final-production-before-navigation"
+  },
+  {
+    "audio": [
+      {
+        "error": null,
+        "paused": false,
+        "session": "f7947370-6320-408a-a07f-d3e41f3562c6",
+        "time": 0.557776
+      }
+    ],
+    "mini": true,
+    "path": "/personal-homepage/about/",
+    "test": "final-production-navigation"
+  },
+  {
+    "audio": [
+      {
+        "error": null,
+        "paused": false,
+        "session": "f7947370-6320-408a-a07f-d3e41f3562c6",
+        "time": 40.642989
+      }
+    ],
+    "mini": true,
+    "test": "final-production-return-from-page"
+  },
+  {
+    "previousDisabled": false,
+    "test": "next-track",
+    "title": "和那些人一样"
+  },
+  {
+    "audio": [
+      {
+        "error": null,
+        "paused": false
+      }
+    ],
+    "nextDisabled": true,
+    "test": "album-queue-boundary",
+    "title": "伟大说谎者"
+  },
+  {
+    "audio": [
+      {
+        "paused": true,
+        "time": 59.112715
+      }
+    ],
+    "player": {
+      "bottom": 832,
+      "height": 124.890625,
+      "left": 12,
+      "right": 363,
+      "top": 707.109375,
+      "width": 351,
+      "x": 12,
+      "y": 707.109375
+    },
+    "scroll": 375,
+    "test": "production-netease-mobile",
+    "width": 390
+  },
+  {
+    "footer": {
+      "bottom": 827,
+      "height": 189,
+      "left": 17,
+      "right": 373,
+      "top": 638,
+      "width": 356,
+      "x": 17,
+      "y": 638
+    },
+    "scroll": 390,
+    "source": "考拉云盘音源",
+    "test": "production-room-mobile",
+    "width": 390
+  },
+  {
+    "link": {
+      "bottom": 358,
+      "height": 44,
+      "left": 266,
+      "right": 342,
+      "top": 314,
+      "width": 76,
+      "x": 266,
+      "y": 314
+    },
+    "scroll": 375,
+    "test": "final-mobile-link-nowrap",
+    "whiteSpace": "nowrap",
+    "width": 390
+  }
+]

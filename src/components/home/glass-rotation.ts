@@ -11,7 +11,9 @@ const sigmoid = (t: number) => {
 const settings = (phase: string) => phase === 'kv'
   ? { target: 0, base: 0, force: 2, scroll: 0, hover: 1 }
   : phase === 'works_intro' || phase === 'works'
-    ? { target: 1, base: .5, force: phase === 'works' ? .1 : .4, scroll: .001, hover: .2 }
+    // Physical spectral transport needs a stable pose to converge. Keep the
+    // existing scroll and pointer response; remove only the idle self-spin.
+    ? { target: 1, base: 0, force: phase === 'works' ? .1 : .4, scroll: .001, hover: .2 }
     : { target: 0, base: 0, force: 2, scroll: 0, hover: 0 };
 
 export class GlassRotation {

@@ -1,0 +1,330 @@
+[
+  {
+    "label": "netease-before-navigation",
+    "result": {
+      "count": 1,
+      "duration": 1618.334966,
+      "error": null,
+      "paused": false,
+      "session": "2c63616b-380c-40bf-bf6f-37028447468d",
+      "time": 0
+    }
+  },
+  {
+    "label": "netease-auto-window",
+    "result": {
+      "count": 1,
+      "error": null,
+      "paused": false,
+      "session": "2c63616b-380c-40bf-bf6f-37028447468d",
+      "time": 6.241319,
+      "window": {
+        "height": 417.1718444824219,
+        "width": 320,
+        "x": 747,
+        "y": 484.5100402832031
+      }
+    }
+  },
+  {
+    "label": "second-route-keeps-session",
+    "result": {
+      "count": 1,
+      "coverLoaded": true,
+      "paused": false,
+      "session": "2c63616b-380c-40bf-bf6f-37028447468d",
+      "time": 22.336265,
+      "viewport": {
+        "height": 923,
+        "width": 1106
+      },
+      "window": {
+        "height": 417.171875,
+        "width": 320,
+        "x": 747,
+        "y": 481.828125
+      }
+    }
+  },
+  {
+    "label": "hide-keeps-playing",
+    "result": {
+      "focused": "打开音乐悬窗：Echoes",
+      "paused": false,
+      "session": "2c63616b-380c-40bf-bf6f-37028447468d",
+      "time": 53.798735,
+      "window": false
+    }
+  },
+  {
+    "label": "floating-pause",
+    "result": {
+      "paused": true,
+      "session": "2c63616b-380c-40bf-bf6f-37028447468d",
+      "time": 54.151111
+    }
+  },
+  {
+    "label": "seek-volume",
+    "result": {
+      "paused": true,
+      "slider": "60",
+      "time": 60
+    }
+  },
+  {
+    "label": "keyboard-window-position",
+    "result": {
+      "height": 417.171875,
+      "width": 320,
+      "x": 723,
+      "y": 413.828125
+    }
+  },
+  {
+    "label": "pointer-drag-clamped",
+    "result": {
+      "height": 417.171875,
+      "width": 320,
+      "x": 24,
+      "y": 24
+    }
+  },
+  {
+    "label": "390px-window-and-continuous-audio",
+    "result": {
+      "count": 1,
+      "pageWidth": 375,
+      "paused": false,
+      "session": "2c63616b-380c-40bf-bf6f-37028447468d",
+      "time": 114.692406,
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "window": {
+        "height": 417.171875,
+        "width": 320,
+        "x": 39,
+        "y": 410.828125
+      }
+    }
+  },
+  {
+    "label": "320px-fit",
+    "result": {
+      "pageWidth": 305,
+      "viewport": {
+        "height": 640,
+        "width": 320
+      },
+      "window": {
+        "height": 385.171875,
+        "width": 288,
+        "x": 16,
+        "y": 238.828125
+      }
+    }
+  },
+  {
+    "label": "short-landscape-fit",
+    "result": {
+      "clientHeight": 300,
+      "playButton": {
+        "height": 56,
+        "width": 56,
+        "x": 128,
+        "y": 266
+      },
+      "scrollHeight": 300,
+      "viewport": {
+        "height": 360,
+        "width": 640
+      },
+      "window": {
+        "height": 300.171875,
+        "width": 320,
+        "x": 24,
+        "y": 35.828125
+      }
+    }
+  },
+  {
+    "label": "hidden-through-starlight-route",
+    "result": {
+      "count": 1,
+      "paused": false,
+      "restore": true,
+      "session": "2c63616b-380c-40bf-bf6f-37028447468d",
+      "time": 171.926269,
+      "window": false
+    }
+  },
+  {
+    "label": "return-music-hides-window-keeps-time",
+    "result": {
+      "count": 1,
+      "paused": false,
+      "session": "2c63616b-380c-40bf-bf6f-37028447468d",
+      "time": 203.835949,
+      "window": false
+    }
+  },
+  {
+    "label": "netease-preview-window",
+    "result": {
+      "duration": 30,
+      "notice": "网易云提供 30 秒试听，完整收听请在网易云打开。",
+      "origin": "https://music.163.com/#/song?id=4238134",
+      "paused": false,
+      "session": "2c63616b-380c-40bf-bf6f-37028447468d",
+      "time": 1.113888
+    }
+  },
+  {
+    "label": "preview-ended-without-auto-next",
+    "result": {
+      "duration": 30,
+      "ended": true,
+      "error": null,
+      "notice": "30 秒试听已结束，完整收听请在网易云打开。",
+      "paused": true,
+      "time": 30,
+      "title": "Brain Damage"
+    }
+  },
+  {
+    "label": "navigation-reload-initial",
+    "result": {
+      "url": "http://127.0.0.1:4348/personal-homepage/about/",
+      "note": "Reload was issued before the preceding SPA navigation settled; final validation starts in a fresh music document."
+    }
+  },
+  {
+    "label": "final-cloud-start",
+    "result": {
+      "count": 1,
+      "duration": 479.56,
+      "error": null,
+      "paused": false,
+      "session": "1f6a4917-66a3-42ac-9dd2-45d17974d447",
+      "time": 0
+    }
+  },
+  {
+    "label": "final-cloud-auto-window",
+    "result": {
+      "count": 1,
+      "duration": 479.56,
+      "error": null,
+      "paused": false,
+      "session": "1f6a4917-66a3-42ac-9dd2-45d17974d447",
+      "time": 0.783352,
+      "title": "抚琴小夜曲"
+    }
+  },
+  {
+    "label": "final-restore-focus",
+    "result": {
+      "focused": "暂停音乐",
+      "paused": false
+    }
+  },
+  {
+    "label": "final-cloud-next",
+    "result": {
+      "count": 1,
+      "duration": 514.813333,
+      "paused": false,
+      "session": "1f6a4917-66a3-42ac-9dd2-45d17974d447",
+      "time": 0.14871,
+      "title": "和那些人一样"
+    }
+  },
+  {
+    "label": "final-volume-escape-focus",
+    "result": {
+      "focused": "调节悬窗音量",
+      "volumeVisible": false
+    }
+  },
+  {
+    "label": "menu-locator-initial",
+    "result": {
+      "issue": "DOM role locator did not match native details summary; retry using the observed accessibility control."
+    }
+  },
+  {
+    "label": "stop-clears-window-and-audio",
+    "result": {
+      "count": 1,
+      "paused": true,
+      "restore": false,
+      "sourceRemoved": true,
+      "window": false
+    }
+  },
+  {
+    "label": "final-cloud-paused-window",
+    "result": {
+      "count": 1,
+      "duration": 479.56,
+      "error": null,
+      "paused": true,
+      "time": 0.941849,
+      "title": "抚琴小夜曲"
+    }
+  },
+  {
+    "label": "final-deliverable",
+    "result": {
+      "count": 1,
+      "coverLoaded": true,
+      "paused": true,
+      "time": 60,
+      "window": {
+        "height": 417.171875,
+        "width": 320,
+        "x": 747,
+        "y": 481.828125
+      }
+    }
+  },
+  {
+    "label": "about-capture-after-viewport-reset",
+    "result": {
+      "note": "About screenshot did not paint page text after viewport reset, while ancestor computed opacity/visibility/color remained visible. Kept as a capture limitation; final delivery uses a visibly rendered SiteLayout page."
+    }
+  },
+  {
+    "label": "final-site-layout-delivery",
+    "result": {
+      "count": 1,
+      "pageTitle": "常用网站",
+      "paused": true,
+      "time": 60,
+      "window": true
+    }
+  },
+  {
+    "label": "final-nav-locator-initial",
+    "result": {
+      "note": "DOM action lost a node while the new home page mounted; retargeted the observed native link."
+    }
+  },
+  {
+    "label": "review-fix-reset-position-keyboard-focus",
+    "result": {
+      "focused": "更多悬窗操作",
+      "menuOpen": false,
+      "paused": true,
+      "tag": "SUMMARY",
+      "window": {
+        "height": 417.171875,
+        "width": 320,
+        "x": 762,
+        "y": 481.828125
+      }
+    }
+  }
+]

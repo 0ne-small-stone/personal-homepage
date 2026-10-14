@@ -1,0 +1,1189 @@
+{
+  "checks": [
+    {
+      "name": "Desktop original aspect and ready",
+      "pass": true,
+      "state": {
+        "data": {
+          "actualCamera": "0.0000,-0.6813,17.7788",
+          "anchorPose": "0.0000,-0.2222,6.1937",
+          "aspectError": "2.220e-16",
+          "axes": "7.792,4.933,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "distance": "-45.00",
+          "flightVelocity": "0.0000",
+          "layoutAspect": "1.579",
+          "orientation": "0.000,0.000",
+          "pan": "0.00,0.00",
+          "portal": "0.0000,0.0000,0.0000",
+          "progress": "0.000",
+          "quaternion": "0.00000,0.00000,0.00000,1.00000",
+          "reduced": "false",
+          "rotationMode": "free",
+          "view": "sphere"
+        },
+        "selected": "",
+        "stage": {
+          "fieldPool": "0",
+          "overview": "133",
+          "photos": "36",
+          "pool": "133"
+        },
+        "viewport": [
+          1280,
+          720
+        ]
+      }
+    },
+    {
+      "name": "Vertical drag crosses a pole without selection",
+      "pass": true,
+      "state": {
+        "data": {
+          "actualCamera": "0.0000,-0.6813,17.7788",
+          "anchorPose": "0.0000,-0.5560,6.1605",
+          "aspectError": "2.220e-16",
+          "axes": "7.792,4.933,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "distance": "-45.00",
+          "flightVelocity": "0.0000",
+          "layoutAspect": "1.579",
+          "orientation": "0.000,-2.240",
+          "pan": "0.00,0.00",
+          "portal": "0.0000,0.0000,0.0000",
+          "progress": "0.000",
+          "quaternion": "-0.90007,0.00000,0.00000,0.43575",
+          "reduced": "false",
+          "rotationMode": "free",
+          "view": "sphere"
+        },
+        "selected": "",
+        "stage": {
+          "fieldPool": "0",
+          "overview": "133",
+          "photos": "36",
+          "pool": "133"
+        },
+        "viewport": [
+          1280,
+          720
+        ]
+      }
+    },
+    {
+      "name": "Opposite vertical drag responds",
+      "pass": true,
+      "state": {
+        "data": {
+          "actualCamera": "0.0000,-0.6813,17.7788",
+          "anchorPose": "0.0000,-1.0393,6.0609",
+          "aspectError": "2.220e-16",
+          "axes": "7.792,4.933,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "distance": "-45.00",
+          "flightVelocity": "0.0000",
+          "layoutAspect": "1.579",
+          "orientation": "0.000,-0.329",
+          "pan": "0.00,0.00",
+          "portal": "0.0000,0.0000,0.0000",
+          "progress": "0.000",
+          "quaternion": "-0.16385,0.00000,0.00000,0.98648",
+          "reduced": "false",
+          "rotationMode": "free",
+          "view": "sphere"
+        },
+        "selected": "",
+        "stage": {
+          "fieldPool": "0",
+          "overview": "133",
+          "photos": "36",
+          "pool": "133"
+        },
+        "viewport": [
+          1280,
+          720
+        ]
+      }
+    },
+    {
+      "name": "Left and right drag both respond",
+      "pass": false,
+      "state": [
+        {
+          "data": {
+            "actualCamera": "0.0000,-0.6813,17.7788",
+            "anchorPose": "1.3017,-0.2189,6.1067",
+            "aspectError": "2.220e-16",
+            "axes": "7.792,4.933,6.200",
+            "camera": "0.00,0.00,-45.00",
+            "distance": "-45.00",
+            "flightVelocity": "0.0000",
+            "layoutAspect": "1.579",
+            "orientation": "-1.924,-0.041",
+            "pan": "0.00,0.00",
+            "portal": "0.0000,0.0000,0.0000",
+            "progress": "0.000",
+            "quaternion": "-0.01785,-0.82036,-0.00808,0.57151",
+            "reduced": "false",
+            "rotationMode": "free",
+            "view": "sphere"
+          },
+          "selected": "",
+          "stage": {
+            "fieldPool": "0",
+            "overview": "133",
+            "photos": "36",
+            "pool": "133"
+          },
+          "viewport": [
+            1280,
+            720
+          ]
+        },
+        {
+          "data": {
+            "actualCamera": "0.0000,-0.6813,17.7788",
+            "anchorPose": "-0.2833,-0.6171,6.1472",
+            "aspectError": "2.220e-16",
+            "axes": "7.792,4.933,6.200",
+            "camera": "0.00,0.00,-45.00",
+            "distance": "-45.00",
+            "flightVelocity": "0.0000",
+            "layoutAspect": "1.579",
+            "orientation": "-0.298,-0.020",
+            "pan": "0.00,0.00",
+            "portal": "0.0000,0.0000,0.0000",
+            "progress": "0.000",
+            "quaternion": "-0.01010,-0.14832,-0.00146,0.98889",
+            "reduced": "false",
+            "rotationMode": "free",
+            "view": "sphere"
+          },
+          "selected": "",
+          "stage": {
+            "fieldPool": "0",
+            "overview": "133",
+            "photos": "36",
+            "pool": "133"
+          },
+          "viewport": [
+            1280,
+            720
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Combined axes retain native ratios",
+      "pass": true,
+      "state": {
+        "data": {
+          "actualCamera": "0.0000,-0.6813,17.7788",
+          "anchorPose": "-0.5672,-0.2399,6.1762",
+          "aspectError": "2.220e-16",
+          "axes": "7.792,4.933,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "distance": "-45.00",
+          "flightVelocity": "0.0000",
+          "layoutAspect": "1.579",
+          "orientation": "-2.205,-1.945",
+          "pan": "0.00,0.00",
+          "portal": "0.0000,0.0000,0.0000",
+          "progress": "0.000",
+          "quaternion": "-0.65379,-0.74460,0.08696,0.10278",
+          "reduced": "false",
+          "rotationMode": "free",
+          "view": "sphere"
+        },
+        "selected": "",
+        "stage": {
+          "fieldPool": "0",
+          "overview": "133",
+          "photos": "36",
+          "pool": "133"
+        },
+        "viewport": [
+          1280,
+          720
+        ]
+      }
+    },
+    {
+      "name": "Select original photo after combined rotation",
+      "pass": true,
+      "state": {
+        "data": {
+          "actualCamera": "0.0000,-0.6813,17.7788",
+          "anchorPose": "0.6289,0.2191,6.1736",
+          "aspectError": "2.220e-16",
+          "axes": "7.792,4.933,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "distance": "-45.00",
+          "flightVelocity": "0.0000",
+          "layoutAspect": "1.579",
+          "orientation": "-2.315,-2.047",
+          "pan": "0.00,0.00",
+          "portal": "0.0000,0.0000,0.0000",
+          "progress": "0.000",
+          "quaternion": "-0.64211,-0.70501,0.27751,-0.11680",
+          "reduced": "false",
+          "rotationMode": "free",
+          "view": "sphere"
+        },
+        "selected": "10",
+        "stage": {
+          "fieldPool": "0",
+          "overview": "133",
+          "photos": "36",
+          "pool": "133"
+        },
+        "viewport": [
+          1280,
+          720
+        ]
+      }
+    },
+    {
+      "name": "Camera enters fixed wall at 40 percent",
+      "pass": true,
+      "state": {
+        "data": {
+          "actualCamera": "0.0000,-0.4139,11.2788",
+          "anchorPose": "0.0001,-0.0009,6.2000",
+          "aspectError": "2.220e-16",
+          "axes": "7.792,4.933,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "detail": "ready",
+          "distance": "-45.00",
+          "fieldCount": "98",
+          "flightVelocity": "0.0000",
+          "layoutAspect": "1.579",
+          "orientation": "-2.343,-2.074",
+          "pan": "0.00,0.00",
+          "portal": "0.0001,-0.0009,6.2000",
+          "progress": "0.393",
+          "quaternion": "-0.62359,-0.67479,0.34576,-0.19037",
+          "reduced": "false",
+          "regions": "32",
+          "rotationMode": "free",
+          "view": "transition"
+        },
+        "selected": "10",
+        "stage": {
+          "fieldPool": "98",
+          "overview": "133",
+          "photos": "36",
+          "pool": "231"
+        },
+        "viewport": [
+          1280,
+          720
+        ]
+      }
+    },
+    {
+      "name": "Entry and wheel flight keep photo and aspect",
+      "pass": false,
+      "state": [
+        {
+          "data": {
+            "actualCamera": "0.0001,-0.0365,2.1063",
+            "anchorPose": "0.0001,-0.0009,6.2000",
+            "aspectError": "2.220e-16",
+            "axes": "7.792,4.933,6.200",
+            "camera": "0.00,0.00,-45.00",
+            "detail": "ready",
+            "distance": "-45.00",
+            "fieldCount": "116",
+            "flightVelocity": "0.0000",
+            "layoutAspect": "1.579",
+            "orientation": "-2.343,-2.074",
+            "pan": "0.00,0.00",
+            "portal": "0.0001,-0.0009,6.2000",
+            "progress": "0.948",
+            "quaternion": "-0.62359,-0.67479,0.34576,-0.19037",
+            "reduced": "false",
+            "regions": "40",
+            "rotationMode": "free",
+            "view": "transition"
+          },
+          "selected": "10",
+          "stage": {
+            "fieldPool": "123",
+            "overview": "133",
+            "photos": "36",
+            "pool": "256"
+          },
+          "viewport": [
+            1280,
+            720
+          ]
+        },
+        {
+          "data": {
+            "actualCamera": "0.0001,-0.0038,-4.2310",
+            "anchorPose": "0.0001,-0.0009,6.2000",
+            "aspectError": "2.220e-16",
+            "axes": "7.792,4.933,6.200",
+            "camera": "0.00,0.00,-95.52",
+            "detail": "ready",
+            "distance": "-95.52",
+            "fieldCount": "122",
+            "flightVelocity": "-2.0969",
+            "layoutAspect": "1.579",
+            "orientation": "-2.343,-2.074",
+            "pan": "0.00,0.00",
+            "portal": "0.0001,-0.0009,6.2000",
+            "progress": "0.996",
+            "quaternion": "-0.62359,-0.67479,0.34576,-0.19037",
+            "reduced": "false",
+            "regions": "49",
+            "rotationMode": "free",
+            "view": "transition"
+          },
+          "selected": "10",
+          "stage": {
+            "fieldPool": "123",
+            "overview": "133",
+            "photos": "36",
+            "pool": "256"
+          },
+          "viewport": [
+            1280,
+            720
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Original photo viewer opens and closes",
+      "pass": true,
+      "state": {
+        "fit": "contain",
+        "open": true,
+        "quaternion": "-0.62359,-0.67479,0.34576,-0.19037",
+        "source": "./media/photo-11-full.webp"
+      }
+    },
+    {
+      "name": "Returning retains the free orientation and chosen photo",
+      "pass": true,
+      "state": {
+        "data": {
+          "actualCamera": "0.0000,-0.6410,16.3998",
+          "anchorPose": "0.0001,-0.0009,6.2000",
+          "aspectError": "2.220e-16",
+          "axes": "7.792,4.933,6.200",
+          "camera": "0.00,0.00,-106.40",
+          "detail": "ready",
+          "distance": "-45.00",
+          "fieldCount": "112",
+          "flightVelocity": "0.0000",
+          "layoutAspect": "1.579",
+          "orientation": "-2.343,-2.074",
+          "pan": "0.00,0.00",
+          "portal": "0.0001,-0.0009,6.2000",
+          "progress": "0.059",
+          "quaternion": "-0.62359,-0.67479,0.34576,-0.19037",
+          "reduced": "false",
+          "regions": "46",
+          "rotationMode": "free",
+          "view": "transition"
+        },
+        "selected": "10",
+        "stage": {
+          "fieldPool": "124",
+          "overview": "133",
+          "photos": "36",
+          "pool": "257"
+        },
+        "viewport": [
+          1280,
+          720
+        ]
+      }
+    },
+    {
+      "name": "Settled entry and subsequent wheel flight",
+      "pass": true,
+      "state": [
+        {
+          "data": {
+            "actualCamera": "0.0001,-0.0009,1.2421",
+            "anchorPose": "0.0001,-0.0009,6.2000",
+            "aspectError": "2.220e-16",
+            "axes": "7.792,4.933,6.200",
+            "camera": "0.00,0.00,-45.00",
+            "detail": "ready",
+            "distance": "-45.00",
+            "fieldCount": "111",
+            "flightVelocity": "0.0000",
+            "layoutAspect": "1.579",
+            "orientation": "-2.343,-2.074",
+            "pan": "0.00,0.00",
+            "portal": "0.0001,-0.0009,6.2000",
+            "progress": "1.000",
+            "quaternion": "-0.62359,-0.67479,0.34576,-0.19037",
+            "reduced": "false",
+            "regions": "39",
+            "rotationMode": "free",
+            "view": "space"
+          },
+          "selected": "10",
+          "stage": {
+            "fieldPool": "124",
+            "overview": "133",
+            "photos": "36",
+            "pool": "257"
+          },
+          "viewport": [
+            1280,
+            720
+          ]
+        },
+        {
+          "data": {
+            "actualCamera": "0.0469,0.0142,-5.8065",
+            "anchorPose": "0.0001,-0.0009,6.2000",
+            "aspectError": "2.220e-16",
+            "axes": "7.792,4.933,6.200",
+            "camera": "0.00,0.00,-108.98",
+            "detail": "ready",
+            "distance": "-108.98",
+            "fieldCount": "118",
+            "flightVelocity": "-1.1486",
+            "layoutAspect": "1.579",
+            "orientation": "-2.343,-2.074",
+            "pan": "0.00,0.00",
+            "portal": "0.0001,-0.0009,6.2000",
+            "progress": "1.000",
+            "quaternion": "-0.62359,-0.67479,0.34576,-0.19037",
+            "reduced": "false",
+            "regions": "47",
+            "rotationMode": "free",
+            "view": "space"
+          },
+          "selected": "10",
+          "stage": {
+            "fieldPool": "124",
+            "overview": "133",
+            "photos": "36",
+            "pool": "257"
+          },
+          "viewport": [
+            1280,
+            720
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Settled return restores sphere orientation",
+      "pass": true,
+      "state": {
+        "data": {
+          "actualCamera": "0.0000,-0.6813,17.7788",
+          "anchorPose": "0.0001,-0.0009,6.2000",
+          "aspectError": "2.220e-16",
+          "axes": "7.792,4.933,6.200",
+          "camera": "0.22,0.07,-115.20",
+          "detail": "ready",
+          "distance": "-45.00",
+          "fieldCount": "114",
+          "flightVelocity": "0.0000",
+          "layoutAspect": "1.579",
+          "orientation": "-2.343,-2.074",
+          "pan": "0.00,0.00",
+          "portal": "0.0001,-0.0009,6.2000",
+          "progress": "0.000",
+          "quaternion": "-0.62359,-0.67479,0.34576,-0.19037",
+          "reduced": "false",
+          "regions": "50",
+          "rotationMode": "free",
+          "view": "sphere"
+        },
+        "selected": "10",
+        "stage": {
+          "fieldPool": "124",
+          "overview": "133",
+          "photos": "36",
+          "pool": "257"
+        },
+        "viewport": [
+          1280,
+          720
+        ]
+      }
+    },
+    {
+      "name": "Unrestricted vertical full revolution and reverse",
+      "pass": false,
+      "state": [
+        {
+          "actualCamera": "0.0000,-0.6813,17.7788",
+          "anchorPose": "0.0000,0.3537,6.1840",
+          "aspectError": "2.220e-16",
+          "axes": "7.792,4.933,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "distance": "-45.00",
+          "flightVelocity": "0.0000",
+          "layoutAspect": "1.579",
+          "orientation": "0.000,-6.400",
+          "pan": "0.00,0.00",
+          "portal": "0.0000,0.0000,0.0000",
+          "progress": "0.000",
+          "quaternion": "0.05837,0.00000,0.00000,-0.99829",
+          "reduced": "true",
+          "rotationMode": "free",
+          "view": "sphere"
+        },
+        {
+          "actualCamera": "0.0000,-0.6813,17.7788",
+          "anchorPose": "0.0000,-0.2222,6.1937",
+          "aspectError": "2.220e-16",
+          "axes": "7.792,4.933,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "distance": "-45.00",
+          "flightVelocity": "0.0000",
+          "layoutAspect": "1.579",
+          "orientation": "0.000,0.000",
+          "pan": "0.00,0.00",
+          "portal": "0.0000,0.0000,0.0000",
+          "progress": "0.000",
+          "quaternion": "-0.00000,0.00000,0.00000,1.00000",
+          "reduced": "true",
+          "rotationMode": "free",
+          "view": "sphere"
+        }
+      ]
+    },
+    {
+      "name": "Unrestricted horizontal full revolution and reverse",
+      "pass": false,
+      "state": [
+        {
+          "actualCamera": "0.0000,-0.6813,17.7788",
+          "anchorPose": "0.9072,-0.2222,6.1515",
+          "aspectError": "2.220e-16",
+          "axes": "7.792,4.933,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "distance": "-45.00",
+          "flightVelocity": "0.0000",
+          "layoutAspect": "1.579",
+          "orientation": "6.400,0.000",
+          "pan": "0.00,0.00",
+          "portal": "0.0000,0.0000,0.0000",
+          "progress": "0.000",
+          "quaternion": "0.00000,-0.05837,-0.00000,-0.99829",
+          "reduced": "true",
+          "rotationMode": "free",
+          "view": "sphere"
+        },
+        {
+          "actualCamera": "0.0000,-0.6813,17.7788",
+          "anchorPose": "0.0000,-0.2222,6.1937",
+          "aspectError": "2.220e-16",
+          "axes": "7.792,4.933,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "distance": "-45.00",
+          "flightVelocity": "0.0000",
+          "layoutAspect": "1.579",
+          "orientation": "-0.000,0.000",
+          "pan": "0.00,0.00",
+          "portal": "0.0000,0.0000,0.0000",
+          "progress": "0.000",
+          "quaternion": "-0.00000,0.00000,0.00000,1.00000",
+          "reduced": "true",
+          "rotationMode": "free",
+          "view": "sphere"
+        }
+      ]
+    },
+    {
+      "name": "Direct opposite horizontal mouse drags",
+      "pass": true,
+      "state": [
+        {
+          "actualCamera": "0.0000,-0.6813,17.7788",
+          "anchorPose": "0.5621,-0.2208,6.1776",
+          "aspectError": "2.220e-16",
+          "axes": "7.792,4.933,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "distance": "-45.00",
+          "flightVelocity": "0.0000",
+          "layoutAspect": "1.579",
+          "orientation": "2.167,0.000",
+          "pan": "0.00,0.00",
+          "portal": "0.0000,0.0000,0.0000",
+          "progress": "0.000",
+          "quaternion": "-0.00000,0.88352,0.00000,0.46839",
+          "reduced": "true",
+          "rotationMode": "free",
+          "view": "sphere"
+        },
+        {
+          "actualCamera": "0.0000,-0.6813,17.7788",
+          "anchorPose": "0.0000,-0.2222,6.1937",
+          "aspectError": "2.220e-16",
+          "axes": "7.792,4.933,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "distance": "-45.00",
+          "flightVelocity": "0.0000",
+          "layoutAspect": "1.579",
+          "orientation": "-0.000,0.000",
+          "pan": "0.00,0.00",
+          "portal": "0.0000,0.0000,0.0000",
+          "progress": "0.000",
+          "quaternion": "-0.00000,0.00000,0.00000,1.00000",
+          "reduced": "true",
+          "rotationMode": "free",
+          "view": "sphere"
+        }
+      ]
+    },
+    {
+      "name": "390 by 844 portrait composition and controls",
+      "pass": true,
+      "state": {
+        "controls": [
+          {
+            "height": 42,
+            "id": "photo-pick",
+            "width": 116,
+            "x": 254,
+            "y": 20
+          },
+          {
+            "height": 34,
+            "id": "return",
+            "width": 74,
+            "x": 296,
+            "y": 66
+          },
+          {
+            "height": 34,
+            "id": "view-photo",
+            "width": 78,
+            "x": 234,
+            "y": 736
+          },
+          {
+            "height": 42,
+            "id": "zoom-out",
+            "width": 42,
+            "x": 20,
+            "y": 778
+          },
+          {
+            "height": 16,
+            "id": "journey",
+            "width": 92,
+            "x": 72,
+            "y": 791
+          },
+          {
+            "height": 42,
+            "id": "zoom-in",
+            "width": 42,
+            "x": 174,
+            "y": 778
+          },
+          {
+            "height": 42,
+            "id": "enter",
+            "width": 88,
+            "x": 224,
+            "y": 778
+          }
+        ],
+        "data": {
+          "actualCamera": "0.0000,-1.3949,26.4147",
+          "anchorPose": "0.0000,0.2830,6.1947",
+          "aspectError": "2.220e-16",
+          "axes": "5.636,6.820,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "distance": "-45.00",
+          "flightVelocity": "0.0000",
+          "layoutAspect": "0.826",
+          "orientation": "0.000,0.000",
+          "pan": "0.00,0.00",
+          "portal": "0.0000,0.0000,0.0000",
+          "progress": "0.000",
+          "quaternion": "0.00000,0.00000,0.00000,1.00000",
+          "reduced": "false",
+          "rotationMode": "free",
+          "view": "sphere"
+        },
+        "overview": "237",
+        "selected": "",
+        "viewport": [
+          390,
+          844
+        ]
+      }
+    },
+    {
+      "name": "Full revolutions restore numeric quaternion despite signed zero",
+      "pass": true,
+      "state": [
+        {
+          "actualCamera": "0.0000,-0.6813,17.7788",
+          "anchorPose": "0.0000,0.3537,6.1840",
+          "aspectError": "2.220e-16",
+          "axes": "7.792,4.933,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "distance": "-45.00",
+          "flightVelocity": "0.0000",
+          "layoutAspect": "1.579",
+          "orientation": "0.000,-6.400",
+          "pan": "0.00,0.00",
+          "portal": "0.0000,0.0000,0.0000",
+          "progress": "0.000",
+          "quaternion": "0.05837,0.00000,0.00000,-0.99829",
+          "reduced": "true",
+          "rotationMode": "free",
+          "view": "sphere"
+        },
+        {
+          "actualCamera": "0.0000,-0.6813,17.7788",
+          "anchorPose": "0.0000,-0.2222,6.1937",
+          "aspectError": "2.220e-16",
+          "axes": "7.792,4.933,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "distance": "-45.00",
+          "flightVelocity": "0.0000",
+          "layoutAspect": "1.579",
+          "orientation": "0.000,0.000",
+          "pan": "0.00,0.00",
+          "portal": "0.0000,0.0000,0.0000",
+          "progress": "0.000",
+          "quaternion": "-0.00000,0.00000,0.00000,1.00000",
+          "reduced": "true",
+          "rotationMode": "free",
+          "view": "sphere"
+        },
+        {
+          "actualCamera": "0.0000,-0.6813,17.7788",
+          "anchorPose": "0.9072,-0.2222,6.1515",
+          "aspectError": "2.220e-16",
+          "axes": "7.792,4.933,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "distance": "-45.00",
+          "flightVelocity": "0.0000",
+          "layoutAspect": "1.579",
+          "orientation": "6.400,0.000",
+          "pan": "0.00,0.00",
+          "portal": "0.0000,0.0000,0.0000",
+          "progress": "0.000",
+          "quaternion": "0.00000,-0.05837,-0.00000,-0.99829",
+          "reduced": "true",
+          "rotationMode": "free",
+          "view": "sphere"
+        },
+        {
+          "actualCamera": "0.0000,-0.6813,17.7788",
+          "anchorPose": "0.0000,-0.2222,6.1937",
+          "aspectError": "2.220e-16",
+          "axes": "7.792,4.933,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "distance": "-45.00",
+          "flightVelocity": "0.0000",
+          "layoutAspect": "1.579",
+          "orientation": "-0.000,0.000",
+          "pan": "0.00,0.00",
+          "portal": "0.0000,0.0000,0.0000",
+          "progress": "0.000",
+          "quaternion": "-0.00000,0.00000,0.00000,1.00000",
+          "reduced": "true",
+          "rotationMode": "free",
+          "view": "sphere"
+        }
+      ]
+    },
+    {
+      "name": "Resize inside space preserves canonical camera and selection",
+      "pass": true,
+      "state": [
+        {
+          "controls": [
+            {
+              "height": 42,
+              "id": "photo-pick",
+              "width": 116,
+              "x": 254,
+              "y": 20
+            },
+            {
+              "height": 34,
+              "id": "return",
+              "width": 74,
+              "x": 296,
+              "y": 66
+            },
+            {
+              "height": 34,
+              "id": "view-photo",
+              "width": 78,
+              "x": 234,
+              "y": 736
+            },
+            {
+              "height": 42,
+              "id": "zoom-out",
+              "width": 42,
+              "x": 20,
+              "y": 778
+            },
+            {
+              "height": 16,
+              "id": "journey",
+              "width": 92,
+              "x": 72,
+              "y": 791
+            },
+            {
+              "height": 42,
+              "id": "zoom-in",
+              "width": 42,
+              "x": 174,
+              "y": 778
+            },
+            {
+              "height": 42,
+              "id": "enter",
+              "width": 88,
+              "x": 224,
+              "y": 778
+            }
+          ],
+          "data": {
+            "actualCamera": "0.0006,1.0854,0.4859",
+            "anchorPose": "0.0006,1.0854,6.1210",
+            "aspectError": "2.220e-16",
+            "axes": "5.636,6.820,6.200",
+            "camera": "0.00,0.00,-45.00",
+            "detail": "ready",
+            "distance": "-45.00",
+            "fieldCount": "54",
+            "flightVelocity": "0.0000",
+            "layoutAspect": "0.826",
+            "orientation": "0.000,-0.160",
+            "pan": "0.00,0.00",
+            "portal": "0.0006,1.0854,6.1210",
+            "progress": "1.000",
+            "quaternion": "-0.19985,-0.12718,0.01020,0.97148",
+            "reduced": "false",
+            "regions": "18",
+            "rotationMode": "free",
+            "view": "space"
+          },
+          "overview": "237",
+          "selected": "10",
+          "viewport": [
+            390,
+            844
+          ]
+        },
+        {
+          "controls": [
+            {
+              "height": 44,
+              "id": "photo-pick",
+              "width": 128,
+              "x": 570,
+              "y": 18
+            },
+            {
+              "height": 42,
+              "id": "return",
+              "width": 90,
+              "x": 714,
+              "y": 19
+            },
+            {
+              "height": 30,
+              "id": "view-photo",
+              "width": 78,
+              "x": 726,
+              "y": 292
+            },
+            {
+              "height": 44,
+              "id": "zoom-out",
+              "width": 44,
+              "x": 472,
+              "y": 328
+            },
+            {
+              "height": 16,
+              "id": "journey",
+              "width": 104,
+              "x": 530,
+              "y": 342
+            },
+            {
+              "height": 44,
+              "id": "zoom-in",
+              "width": 44,
+              "x": 648,
+              "y": 328
+            },
+            {
+              "height": 42,
+              "id": "enter",
+              "width": 100,
+              "x": 704,
+              "y": 329
+            }
+          ],
+          "data": {
+            "actualCamera": "0.0009,0.7276,2.2931",
+            "anchorPose": "0.0006,1.0854,6.1210",
+            "aspectError": "2.220e-16",
+            "axes": "8.409,4.572,6.200",
+            "camera": "0.00,0.00,-45.00",
+            "detail": "ready",
+            "distance": "-45.00",
+            "fieldCount": "128",
+            "flightVelocity": "0.0000",
+            "layoutAspect": "1.839",
+            "orientation": "0.000,-0.160",
+            "pan": "0.00,0.00",
+            "portal": "0.0009,0.7276,6.1210",
+            "progress": "1.000",
+            "quaternion": "-0.19985,-0.12718,0.01020,0.97148",
+            "reduced": "false",
+            "regions": "45",
+            "rotationMode": "free",
+            "view": "space"
+          },
+          "overview": "237",
+          "selected": "10",
+          "viewport": [
+            844,
+            390
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Short landscape reflows native photos and retains selection",
+      "pass": true,
+      "state": {
+        "controls": [
+          {
+            "height": 44,
+            "id": "photo-pick",
+            "width": 128,
+            "x": 570,
+            "y": 18
+          },
+          {
+            "height": 42,
+            "id": "return",
+            "width": 90,
+            "x": 714,
+            "y": 19
+          },
+          {
+            "height": 30,
+            "id": "view-photo",
+            "width": 78,
+            "x": 726,
+            "y": 292
+          },
+          {
+            "height": 44,
+            "id": "zoom-out",
+            "width": 44,
+            "x": 472,
+            "y": 328
+          },
+          {
+            "height": 16,
+            "id": "journey",
+            "width": 104,
+            "x": 530,
+            "y": 342
+          },
+          {
+            "height": 44,
+            "id": "zoom-in",
+            "width": 44,
+            "x": 648,
+            "y": 328
+          },
+          {
+            "height": 42,
+            "id": "enter",
+            "width": 100,
+            "x": 704,
+            "y": 329
+          }
+        ],
+        "data": {
+          "actualCamera": "0.0000,-0.6688,19.2019",
+          "anchorPose": "0.1936,3.7439,3.5551",
+          "aspectError": "2.220e-16",
+          "axes": "8.409,4.572,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "detail": "ready",
+          "distance": "-45.00",
+          "fieldCount": "135",
+          "flightVelocity": "0.0000",
+          "layoutAspect": "1.839",
+          "orientation": "0.000,-0.160",
+          "pan": "0.00,0.00",
+          "portal": "0.0009,0.7276,6.1210",
+          "progress": "0.000",
+          "quaternion": "-0.19985,-0.12718,0.01020,0.97148",
+          "reduced": "false",
+          "regions": "43",
+          "rotationMode": "free",
+          "view": "sphere"
+        },
+        "overview": "117",
+        "selected": "10",
+        "viewport": [
+          844,
+          390
+        ]
+      }
+    },
+    {
+      "name": "Returning to portrait rebuilds layout without image distortion",
+      "pass": true,
+      "state": {
+        "controls": [
+          {
+            "height": 42,
+            "id": "photo-pick",
+            "width": 116,
+            "x": 254,
+            "y": 20
+          },
+          {
+            "height": 34,
+            "id": "return",
+            "width": 74,
+            "x": 296,
+            "y": 66
+          },
+          {
+            "height": 34,
+            "id": "view-photo",
+            "width": 78,
+            "x": 234,
+            "y": 736
+          },
+          {
+            "height": 42,
+            "id": "zoom-out",
+            "width": 42,
+            "x": 20,
+            "y": 778
+          },
+          {
+            "height": 16,
+            "id": "journey",
+            "width": 92,
+            "x": 72,
+            "y": 791
+          },
+          {
+            "height": 42,
+            "id": "zoom-in",
+            "width": 42,
+            "x": 174,
+            "y": 778
+          },
+          {
+            "height": 42,
+            "id": "enter",
+            "width": 88,
+            "x": 224,
+            "y": 778
+          }
+        ],
+        "data": {
+          "actualCamera": "0.0000,-1.3949,26.4147",
+          "anchorPose": "1.1184,6.3827,1.8049",
+          "aspectError": "2.220e-16",
+          "axes": "5.636,6.820,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "detail": "ready",
+          "distance": "-45.00",
+          "fieldCount": "135",
+          "flightVelocity": "0.0000",
+          "layoutAspect": "0.826",
+          "orientation": "0.000,-0.160",
+          "pan": "0.00,0.00",
+          "portal": "0.0009,0.7276,6.1210",
+          "progress": "0.000",
+          "quaternion": "-0.19985,-0.12718,0.01020,0.97148",
+          "reduced": "false",
+          "regions": "43",
+          "rotationMode": "free",
+          "view": "sphere"
+        },
+        "overview": "237",
+        "selected": "10",
+        "viewport": [
+          390,
+          844
+        ]
+      }
+    },
+    {
+      "name": "Reduced motion keeps entry and return operational",
+      "pass": true,
+      "state": {
+        "actualCamera": "0.0000,-0.6813,17.7788",
+        "anchorPose": "0.0000,-0.2222,6.1937",
+        "aspectError": "2.220e-16",
+        "axes": "7.792,4.933,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "detail": "ready",
+        "distance": "-45.00",
+        "fieldCount": "111",
+        "flightVelocity": "0.0000",
+        "layoutAspect": "1.579",
+        "orientation": "-0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,-0.2222,6.1937",
+        "progress": "0.000",
+        "quaternion": "-0.00000,0.00000,0.00000,1.00000",
+        "reduced": "true",
+        "regions": "39",
+        "rotationMode": "free",
+        "view": "sphere"
+      }
+    },
+    {
+      "name": "No automatic rotation in sampled idle interval",
+      "pass": true,
+      "state": {
+        "elapsedMs": 1002,
+        "start": "-0.62359,-0.67479,0.34576,-0.19037",
+        "end": "-0.62359,-0.67479,0.34576,-0.19037"
+      }
+    },
+    {
+      "name": "No browser warning or error in checked tabs",
+      "pass": true,
+      "state": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  ],
+  "notes": [
+    "First horizontal assertion sampled smoothing before its full target angle.",
+    "First flight assertion sampled data-view=transition at progress .996; settled phase was checked separately.",
+    "Full-turn string comparisons rejected signed zero; numeric quaternion restoration was checked separately.",
+    "Portrait iframe button click outside parent viewport timed out; keyboard Enter is the equivalent input used for that case."
+  ]
+}

@@ -1,13 +1,16 @@
 ---
 import '../styles/site.css';
+import { ClientRouter } from 'astro:transitions';
+import PersistentPlayer from '../components/music/PersistentPlayer';
 import { sitePath } from '../lib/paths';
 import PublicDirectory from '../components/PublicDirectory.astro';
 interface Props { title: string; description?: string; }
 const { title, description = '学习、记录与日常。' } = Astro.props;
 ---
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" transition:animate="none">
   <head>
+    <ClientRouter />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
@@ -25,5 +28,6 @@ const { title, description = '学习、记录与日常。' } = Astro.props;
       <p>结构预览 · 内容正在整理</p>
       <div><a href={sitePath('about')}>关于</a><span aria-hidden="true">　/　</span><a href={sitePath('guestbook')}>留言</a></div>
     </footer>
+    <PersistentPlayer client:load transition:persist="lssh-audio" transition:persist-props />
   </body>
 </html>

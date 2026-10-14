@@ -1,0 +1,22 @@
+{
+  "data": {
+    "backHits": "256",
+    "draws": "24",
+    "engine": "three.js r186",
+    "epoch": "10",
+    "glass": "true",
+    "gpuRenderer": "ANGLE (Intel, Intel(R) Graphics (0x00007D67) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ior": "1.45",
+    "medium": "true",
+    "observerComplete": "false",
+    "observerTiles": "14",
+    "phase": "observer-tile",
+    "photonNodes": "1535",
+    "receiverFlux": "10.62764766561613",
+    "receiverHits": "384",
+    "renderState": "running",
+    "residualProbe": "{\"maxRemaining\":0.0625,\"overThreshold\":27,\"capped\":24,\"missed\":3,\"width\":1106,\"height\":673,\"complete\":false}",
+    "samples": "128",
+    "timing": "{\"draws\":24,\"state\":\"running\",\"jsRenderMs\":101.81250000003881,\"transportMs\":16.359999999962746,\"gpuMs\":191.7431475555555,\"gpuLastMs\":0.714947,\"gpu128Ms\":76.18208281818183,\"gpuMeasurements\":[{\"sourceSamples\":48,\"ms\":2364.343071,\"phase\":\"source\",\"epoch\":1},{\"sourceSamples\":64,\"ms\":23.980415,\"phase\":\"source\",\"epoch\":2},{\"sourceSamples\":80,\"ms\":23.979791,\"phase\":\"source\",\"epoch\":3},{\"sourceSamples\":48,\"ms\":57.443125,\"phase\":\"source\",\"epoch\":5},{\"sourceSamples\":64,\"ms\":61.740625,\"phase\":\"source\",\"epoch\":6},{\"sourceSamples\":80,\"ms\":36.597343,\"phase\":\"source\",\"epoch\":7},{\"sourceSamples\":96,\"ms\":45.289375,\"phase\":\"source\",\"epoch\":8},{\"sourceSamples\":128,\"ms\":55.744114,\"phase\":\"observer-tile-1\",\"epoch\":10},{\"sourceSamples\":128,\"ms\":53.727447,\"phase\":\"observer-tile-4\",\"epoch\":10},{\"sourceSamples\":128,\"ms\":181.396302,\"phase\":\"observer-tile-5\",\"epoch\":10},{\"sourceSamples\":128,\"ms\":57.903645,\"phase\":\"observer-tile-6\",\"epoch\":10},{\"sourceSamples\":128,\"ms\":119.112656,\"phase\":\"observer-tile-7\",\"epoch\":10},{\"sourceSamples\":128,\"ms\":79.898593,\"phase\":\"observer-tile-8\",\"epoch\":10},{\"sourceSamples\":128,\"ms\":64.128229,\"phase\":\"observer-tile-9\",\"epoch\":10},{\"sourceSamples\":128,\"ms\":166.975677,\"phase\":\"observer-tile-10\",\"epoch\":10},{\"sourceSamples\":128,\"ms\":37.179687,\"phase\":\"observer-tile-11\",\"epoch\":10},{\"sourceSamples\":128,\"ms\":21.221614,\"phase\":\"observer-tile-12\",\"epoch\":10},{\"sourceSamples\":128,\"ms\":0.714947,\"phase\":\"observer-tile-13\",\"epoch\":10}],\"frameGapMs\":729.4565217391304,\"gpuTimerSupported\":true}"
+  }
+}

@@ -11,8 +11,8 @@ const paths = execFileSync('git', ['ls-files', '--cached', '--others', '--exclud
 const failures = [];
 
 for (const path of new Set(paths)) {
-  if (path.startsWith('大二上学习资源/') || path.startsWith('public/local-materials/')) {
-    failures.push(`${path}: 原始学习资料应保留在本地，请移出 Git 索引。`);
+  if (path.startsWith('大二上学习资源/') || path.startsWith('public/local-materials/') || path.startsWith('图片/') || path.startsWith('.local-tools/') || path.startsWith('.ci-tmp/')) {
+    failures.push(`${path}: 原始资料与私有运行文件应保留在本地，请移出 Git 索引。`);
   }
   if (/(^|\/)\.env(?:\.|$)/u.test(path) && !path.endsWith('.example')) {
     failures.push(`${path}: 环境配置文件不可纳入仓库。`);

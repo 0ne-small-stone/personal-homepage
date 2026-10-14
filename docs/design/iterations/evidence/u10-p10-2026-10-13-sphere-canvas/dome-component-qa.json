@@ -1,0 +1,911 @@
+{
+  "checks": [
+    {
+      "name": "Vertical crossing both pole neighbourhoods",
+      "pass": true,
+      "state": {
+        "dome": {
+          "rotation": "183.3400,0.0000"
+        },
+        "fit": "contain",
+        "selected": "",
+        "stage": {
+          "fieldPool": "0",
+          "overview": "358",
+          "photos": "36",
+          "pool": "358"
+        },
+        "state": {
+          "actualCamera": "0.0000,0.0000,18.6000",
+          "anchorPose": "0.2727,0.2730,-5.8985",
+          "aspectError": "0.000e+0",
+          "axes": "6.200,6.200,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "distance": "-45.00",
+          "domeRadius": "628",
+          "flightVelocity": "0.0000",
+          "imageFit": "contain",
+          "layout": "react-bits-dome",
+          "layoutAspect": "1.778",
+          "orientation": "0.000,-3.200",
+          "pan": "0.00,0.00",
+          "portal": "0.0000,0.0000,0.0000",
+          "progress": "0.000",
+          "quaternion": "-0.99958,0.00000,0.00000,-0.02914",
+          "reduced": "false",
+          "rotationMode": "dome-free",
+          "view": "sphere"
+        }
+      }
+    },
+    {
+      "name": "Vertical complete revolution and inverse",
+      "pass": true,
+      "state": [
+        {
+          "dome": {
+            "rotation": "366.6800,0.0000"
+          },
+          "fit": "contain",
+          "selected": "",
+          "stage": {
+            "fieldPool": "0",
+            "overview": "358",
+            "photos": "36",
+            "pool": "358"
+          },
+          "state": {
+            "actualCamera": "0.0000,0.0000,18.6000",
+            "anchorPose": "-0.2727,-0.2730,5.8985",
+            "aspectError": "0.000e+0",
+            "axes": "6.200,6.200,6.200",
+            "camera": "0.00,0.00,-45.00",
+            "distance": "-45.00",
+            "domeRadius": "628",
+            "flightVelocity": "0.0000",
+            "imageFit": "contain",
+            "layout": "react-bits-dome",
+            "layoutAspect": "1.778",
+            "orientation": "0.000,-6.400",
+            "pan": "0.00,0.00",
+            "portal": "0.0000,0.0000,0.0000",
+            "progress": "0.000",
+            "quaternion": "0.05826,0.00000,0.00000,-0.99830",
+            "reduced": "false",
+            "rotationMode": "dome-free",
+            "view": "sphere"
+          }
+        },
+        {
+          "dome": {
+            "rotation": "-0.0000,0.0000"
+          },
+          "fit": "contain",
+          "selected": "",
+          "stage": {
+            "fieldPool": "0",
+            "overview": "358",
+            "photos": "36",
+            "pool": "358"
+          },
+          "state": {
+            "actualCamera": "0.0000,0.0000,18.6000",
+            "anchorPose": "-0.2727,-0.2730,5.8985",
+            "aspectError": "0.000e+0",
+            "axes": "6.200,6.200,6.200",
+            "camera": "0.00,0.00,-45.00",
+            "distance": "-45.00",
+            "domeRadius": "628",
+            "flightVelocity": "0.0000",
+            "imageFit": "contain",
+            "layout": "react-bits-dome",
+            "layoutAspect": "1.778",
+            "orientation": "0.000,0.000",
+            "pan": "0.00,0.00",
+            "portal": "0.0000,0.0000,0.0000",
+            "progress": "0.000",
+            "quaternion": "0.00000,0.00000,0.00000,1.00000",
+            "reduced": "false",
+            "rotationMode": "dome-free",
+            "view": "sphere"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Horizontal complete revolution and inverse",
+      "pass": true,
+      "state": [
+        {
+          "dome": {
+            "rotation": "-0.0000,6.6800"
+          },
+          "fit": "contain",
+          "selected": "",
+          "stage": {
+            "fieldPool": "0",
+            "overview": "358",
+            "photos": "36",
+            "pool": "358"
+          },
+          "state": {
+            "actualCamera": "0.0000,0.0000,18.6000",
+            "anchorPose": "-0.2727,-0.2730,5.8985",
+            "aspectError": "0.000e+0",
+            "axes": "6.200,6.200,6.200",
+            "camera": "0.00,0.00,-45.00",
+            "distance": "-45.00",
+            "domeRadius": "628",
+            "flightVelocity": "0.0000",
+            "imageFit": "contain",
+            "layout": "react-bits-dome",
+            "layoutAspect": "1.778",
+            "orientation": "0.117,0.000",
+            "pan": "0.00,0.00",
+            "portal": "0.0000,0.0000,0.0000",
+            "progress": "0.000",
+            "quaternion": "0.00000,0.05826,0.00000,0.99830",
+            "reduced": "false",
+            "rotationMode": "dome-free",
+            "view": "sphere"
+          }
+        },
+        {
+          "dome": {
+            "rotation": "-0.0000,0.0000"
+          },
+          "fit": "contain",
+          "selected": "",
+          "stage": {
+            "fieldPool": "0",
+            "overview": "358",
+            "photos": "36",
+            "pool": "358"
+          },
+          "state": {
+            "actualCamera": "0.0000,0.0000,18.6000",
+            "anchorPose": "-0.2727,-0.2730,5.8985",
+            "aspectError": "0.000e+0",
+            "axes": "6.200,6.200,6.200",
+            "camera": "0.00,0.00,-45.00",
+            "distance": "-45.00",
+            "domeRadius": "628",
+            "flightVelocity": "0.0000",
+            "imageFit": "contain",
+            "layout": "react-bits-dome",
+            "layoutAspect": "1.778",
+            "orientation": "0.000,0.000",
+            "pan": "0.00,0.00",
+            "portal": "0.0000,0.0000,0.0000",
+            "progress": "0.000",
+            "quaternion": "0.00000,0.00000,0.00000,1.00000",
+            "reduced": "false",
+            "rotationMode": "dome-free",
+            "view": "sphere"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Actual card click opens original contain viewer",
+      "pass": true,
+      "state": {
+        "fit": "contain",
+        "opened": "true",
+        "selected": "20",
+        "source": "./media/photo-21-full.webp"
+      }
+    },
+    {
+      "name": "Original viewer closes before camera enters and wheel continues flight",
+      "pass": true,
+      "state": [
+        {
+          "dome": {
+            "rotation": "0.0000,0.0000"
+          },
+          "fit": "contain",
+          "selected": "20",
+          "stage": {
+            "fieldPool": "122",
+            "overview": "358",
+            "photos": "36",
+            "pool": "480"
+          },
+          "state": {
+            "actualCamera": "-0.2860,-0.2863,3.9021",
+            "anchorPose": "-0.2860,-0.2863,6.1868",
+            "aspectError": "2.220e-16",
+            "axes": "6.200,6.200,6.200",
+            "camera": "0.00,0.00,-45.00",
+            "detail": "ready",
+            "distance": "-45.00",
+            "domeRadius": "628",
+            "fieldCount": "111",
+            "flightVelocity": "0.0000",
+            "imageFit": "contain",
+            "layout": "react-bits-dome",
+            "layoutAspect": "1.778",
+            "orientation": "0.000,0.000",
+            "pan": "0.00,0.00",
+            "portal": "-0.2860,-0.2863,6.1868",
+            "progress": "1.000",
+            "quaternion": "0.00000,0.00000,0.00000,1.00000",
+            "reduced": "false",
+            "regions": "39",
+            "rotationMode": "dome-free",
+            "view": "space"
+          }
+        },
+        {
+          "dome": {
+            "rotation": "0.0000,0.0000"
+          },
+          "fit": "contain",
+          "selected": "20",
+          "stage": {
+            "fieldPool": "122",
+            "overview": "358",
+            "photos": "36",
+            "pool": "480"
+          },
+          "state": {
+            "actualCamera": "-0.2561,-0.2749,1.1275",
+            "anchorPose": "-0.2860,-0.2863,6.1868",
+            "aspectError": "2.220e-16",
+            "axes": "6.200,6.200,6.200",
+            "camera": "0.00,0.00,-99.65",
+            "detail": "ready",
+            "distance": "-99.65",
+            "domeRadius": "628",
+            "fieldCount": "122",
+            "flightVelocity": "-1.8158",
+            "imageFit": "contain",
+            "layout": "react-bits-dome",
+            "layoutAspect": "1.778",
+            "orientation": "0.000,0.000",
+            "pan": "0.00,0.00",
+            "portal": "-0.2860,-0.2863,6.1868",
+            "progress": "1.000",
+            "quaternion": "0.00000,0.00000,0.00000,1.00000",
+            "reduced": "false",
+            "regions": "50",
+            "rotationMode": "dome-free",
+            "view": "space"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Return keeps Dome orientation and selected photo",
+      "pass": true,
+      "state": {
+        "dome": {
+          "rotation": "0.0000,0.0000"
+        },
+        "fit": "contain",
+        "selected": "20",
+        "stage": {
+          "fieldPool": "124",
+          "overview": "358",
+          "photos": "36",
+          "pool": "482"
+        },
+        "state": {
+          "actualCamera": "0.0000,0.0000,18.6000",
+          "anchorPose": "-0.2860,-0.2863,6.1868",
+          "aspectError": "0.000e+0",
+          "axes": "6.200,6.200,6.200",
+          "camera": "0.39,0.15,-108.82",
+          "detail": "ready",
+          "distance": "-45.00",
+          "domeRadius": "628",
+          "fieldCount": "115",
+          "flightVelocity": "0.0000",
+          "imageFit": "contain",
+          "layout": "react-bits-dome",
+          "layoutAspect": "1.778",
+          "orientation": "0.000,0.000",
+          "pan": "0.00,0.00",
+          "portal": "-0.2860,-0.2863,6.1868",
+          "progress": "0.000",
+          "quaternion": "0.00000,0.00000,0.00000,1.00000",
+          "reduced": "false",
+          "regions": "44",
+          "rotationMode": "dome-free",
+          "view": "sphere"
+        }
+      }
+    },
+    {
+      "name": "Portrait original-gallery layout and controls",
+      "pass": true,
+      "state": {
+        "controls": [
+          {
+            "h": 42,
+            "id": "photo-pick",
+            "w": 116,
+            "x": 254,
+            "y": 20
+          },
+          {
+            "h": 34,
+            "id": "return",
+            "w": 74,
+            "x": 296,
+            "y": 66
+          },
+          {
+            "h": 34,
+            "id": "view-photo",
+            "w": 78,
+            "x": 234,
+            "y": 736
+          },
+          {
+            "h": 42,
+            "id": "zoom-out",
+            "w": 42,
+            "x": 20,
+            "y": 778
+          },
+          {
+            "h": 16,
+            "id": "journey",
+            "w": 92,
+            "x": 72,
+            "y": 791
+          },
+          {
+            "h": 42,
+            "id": "zoom-in",
+            "w": 42,
+            "x": 174,
+            "y": 778
+          },
+          {
+            "h": 42,
+            "id": "enter",
+            "w": 88,
+            "x": 224,
+            "y": 778
+          }
+        ],
+        "fit": "contain",
+        "focus": "BODY",
+        "selected": "",
+        "state": {
+          "actualCamera": "0.0000,0.0000,18.6000",
+          "anchorPose": "-0.2559,-0.2562,5.5351",
+          "aspectError": "0.000e+0",
+          "axes": "6.200,6.200,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "distance": "-45.00",
+          "domeRadius": "600",
+          "flightVelocity": "0.0000",
+          "imageFit": "contain",
+          "layout": "react-bits-dome",
+          "layoutAspect": "0.462",
+          "orientation": "0.000,0.000",
+          "pan": "0.00,0.00",
+          "portal": "0.0000,0.0000,0.0000",
+          "progress": "0.000",
+          "quaternion": "0.00000,0.00000,0.00000,1.00000",
+          "reduced": "false",
+          "rotationMode": "dome-free",
+          "view": "sphere"
+        },
+        "viewport": [
+          390,
+          844
+        ]
+      }
+    },
+    {
+      "name": "Keyboard entry transfers focus and rotating viewport retains camera",
+      "pass": false,
+      "state": [
+        {
+          "controls": [
+            {
+              "h": 42,
+              "id": "photo-pick",
+              "w": 116,
+              "x": 254,
+              "y": 20
+            },
+            {
+              "h": 34,
+              "id": "return",
+              "w": 74,
+              "x": 296,
+              "y": 66
+            },
+            {
+              "h": 34,
+              "id": "view-photo",
+              "w": 78,
+              "x": 234,
+              "y": 736
+            },
+            {
+              "h": 42,
+              "id": "zoom-out",
+              "w": 42,
+              "x": 20,
+              "y": 778
+            },
+            {
+              "h": 16,
+              "id": "journey",
+              "w": 92,
+              "x": 72,
+              "y": 791
+            },
+            {
+              "h": 42,
+              "id": "zoom-in",
+              "w": 42,
+              "x": 174,
+              "y": 778
+            },
+            {
+              "h": 42,
+              "id": "enter",
+              "w": 88,
+              "x": 224,
+              "y": 778
+            }
+          ],
+          "fit": "contain",
+          "focus": "CANVAS",
+          "selected": "20",
+          "state": {
+            "actualCamera": "-0.0348,-0.2863,3.9243",
+            "anchorPose": "-0.2860,-0.2863,6.1868",
+            "aspectError": "2.220e-16",
+            "axes": "6.200,6.200,6.200",
+            "camera": "5.00,0.00,-45.00",
+            "detail": "ready",
+            "distance": "-45.00",
+            "domeRadius": "600",
+            "fieldCount": "56",
+            "flightVelocity": "0.0000",
+            "imageFit": "contain",
+            "layout": "react-bits-dome",
+            "layoutAspect": "0.462",
+            "orientation": "0.000,0.000",
+            "pan": "5.00,0.00",
+            "portal": "-0.2860,-0.2863,6.1868",
+            "progress": "1.000",
+            "quaternion": "0.00000,0.00000,0.00000,1.00000",
+            "reduced": "false",
+            "regions": "19",
+            "rotationMode": "dome-free",
+            "view": "space"
+          },
+          "viewport": [
+            390,
+            844
+          ]
+        },
+        {
+          "controls": [
+            {
+              "h": 44,
+              "id": "photo-pick",
+              "w": 128,
+              "x": 570,
+              "y": 18
+            },
+            {
+              "h": 42,
+              "id": "return",
+              "w": 90,
+              "x": 714,
+              "y": 19
+            },
+            {
+              "h": 30,
+              "id": "view-photo",
+              "w": 78,
+              "x": 726,
+              "y": 292
+            },
+            {
+              "h": 44,
+              "id": "zoom-out",
+              "w": 44,
+              "x": 472,
+              "y": 328
+            },
+            {
+              "h": 16,
+              "id": "journey",
+              "w": 104,
+              "x": 530,
+              "y": 342
+            },
+            {
+              "h": 44,
+              "id": "zoom-in",
+              "w": 44,
+              "x": 648,
+              "y": 328
+            },
+            {
+              "h": 42,
+              "id": "enter",
+              "w": 100,
+              "x": 704,
+              "y": 329
+            }
+          ],
+          "fit": "contain",
+          "focus": "CANVAS",
+          "selected": "20",
+          "state": {
+            "actualCamera": "0.0925,-0.2863,3.9243",
+            "anchorPose": "-0.2860,-0.2863,6.1868",
+            "aspectError": "2.220e-16",
+            "axes": "6.200,6.200,6.200",
+            "camera": "7.53,0.00,-45.00",
+            "detail": "ready",
+            "distance": "-45.00",
+            "domeRadius": "600",
+            "fieldCount": "127",
+            "flightVelocity": "0.0000",
+            "imageFit": "contain",
+            "layout": "react-bits-dome",
+            "layoutAspect": "2.164",
+            "orientation": "0.000,0.000",
+            "pan": "7.53,0.00",
+            "portal": "-0.2860,-0.2863,6.1868",
+            "progress": "1.000",
+            "quaternion": "0.00000,0.00000,0.00000,1.00000",
+            "reduced": "false",
+            "regions": "44",
+            "rotationMode": "dome-free",
+            "view": "space"
+          },
+          "viewport": [
+            844,
+            390
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Landscape return restores gallery and visible keyboard focus",
+      "pass": true,
+      "state": {
+        "controls": [
+          {
+            "h": 44,
+            "id": "photo-pick",
+            "w": 128,
+            "x": 570,
+            "y": 18
+          },
+          {
+            "h": 42,
+            "id": "return",
+            "w": 90,
+            "x": 714,
+            "y": 19
+          },
+          {
+            "h": 30,
+            "id": "view-photo",
+            "w": 78,
+            "x": 726,
+            "y": 292
+          },
+          {
+            "h": 44,
+            "id": "zoom-out",
+            "w": 44,
+            "x": 472,
+            "y": 328
+          },
+          {
+            "h": 16,
+            "id": "journey",
+            "w": 104,
+            "x": 530,
+            "y": 342
+          },
+          {
+            "h": 44,
+            "id": "zoom-in",
+            "w": 44,
+            "x": 648,
+            "y": 328
+          },
+          {
+            "h": 42,
+            "id": "enter",
+            "w": 100,
+            "x": 704,
+            "y": 329
+          }
+        ],
+        "fit": "contain",
+        "focus": "MAIN",
+        "selected": "20",
+        "state": {
+          "actualCamera": "0.0000,0.0000,18.6000",
+          "anchorPose": "-0.2860,-0.2863,6.1868",
+          "aspectError": "0.000e+0",
+          "axes": "6.200,6.200,6.200",
+          "camera": "7.69,0.00,-45.00",
+          "detail": "ready",
+          "distance": "-45.00",
+          "domeRadius": "600",
+          "fieldCount": "137",
+          "flightVelocity": "0.0000",
+          "imageFit": "contain",
+          "layout": "react-bits-dome",
+          "layoutAspect": "2.164",
+          "orientation": "0.000,0.000",
+          "pan": "0.00,0.00",
+          "portal": "-0.2860,-0.2863,6.1868",
+          "progress": "0.000",
+          "quaternion": "0.00000,0.00000,0.00000,1.00000",
+          "reduced": "false",
+          "regions": "46",
+          "rotationMode": "dome-free",
+          "view": "sphere"
+        },
+        "viewport": [
+          844,
+          390
+        ]
+      }
+    },
+    {
+      "name": "Viewport change with settled input preserves canonical camera",
+      "pass": true,
+      "state": [
+        {
+          "controls": [
+            {
+              "h": 44,
+              "id": "photo-pick",
+              "w": 128,
+              "x": 570,
+              "y": 18
+            },
+            {
+              "h": 42,
+              "id": "return",
+              "w": 90,
+              "x": 714,
+              "y": 19
+            },
+            {
+              "h": 30,
+              "id": "view-photo",
+              "w": 78,
+              "x": 726,
+              "y": 292
+            },
+            {
+              "h": 44,
+              "id": "zoom-out",
+              "w": 44,
+              "x": 472,
+              "y": 328
+            },
+            {
+              "h": 16,
+              "id": "journey",
+              "w": 104,
+              "x": 530,
+              "y": 342
+            },
+            {
+              "h": 44,
+              "id": "zoom-in",
+              "w": 44,
+              "x": 648,
+              "y": 328
+            },
+            {
+              "h": 42,
+              "id": "enter",
+              "w": 100,
+              "x": 704,
+              "y": 329
+            }
+          ],
+          "fit": "contain",
+          "focus": "CANVAS",
+          "selected": "20",
+          "state": {
+            "actualCamera": "-0.2860,-0.2863,3.9243",
+            "anchorPose": "-0.2860,-0.2863,6.1868",
+            "aspectError": "2.220e-16",
+            "axes": "6.200,6.200,6.200",
+            "camera": "0.00,0.00,-45.00",
+            "detail": "ready",
+            "distance": "-45.00",
+            "domeRadius": "600",
+            "fieldCount": "128",
+            "flightVelocity": "0.0000",
+            "imageFit": "contain",
+            "layout": "react-bits-dome",
+            "layoutAspect": "2.164",
+            "orientation": "0.000,0.000",
+            "pan": "0.00,0.00",
+            "portal": "-0.2860,-0.2863,6.1868",
+            "progress": "1.000",
+            "quaternion": "0.00000,0.00000,0.00000,1.00000",
+            "reduced": "false",
+            "regions": "45",
+            "rotationMode": "dome-free",
+            "view": "space"
+          },
+          "viewport": [
+            844,
+            390
+          ]
+        },
+        {
+          "controls": [
+            {
+              "h": 42,
+              "id": "photo-pick",
+              "w": 116,
+              "x": 254,
+              "y": 20
+            },
+            {
+              "h": 34,
+              "id": "return",
+              "w": 74,
+              "x": 296,
+              "y": 66
+            },
+            {
+              "h": 34,
+              "id": "view-photo",
+              "w": 78,
+              "x": 234,
+              "y": 736
+            },
+            {
+              "h": 42,
+              "id": "zoom-out",
+              "w": 42,
+              "x": 20,
+              "y": 778
+            },
+            {
+              "h": 16,
+              "id": "journey",
+              "w": 92,
+              "x": 72,
+              "y": 791
+            },
+            {
+              "h": 42,
+              "id": "zoom-in",
+              "w": 42,
+              "x": 174,
+              "y": 778
+            },
+            {
+              "h": 42,
+              "id": "enter",
+              "w": 88,
+              "x": 224,
+              "y": 778
+            }
+          ],
+          "fit": "contain",
+          "focus": "CANVAS",
+          "selected": "20",
+          "state": {
+            "actualCamera": "-0.2860,-0.2863,3.9243",
+            "anchorPose": "-0.2860,-0.2863,6.1868",
+            "aspectError": "2.220e-16",
+            "axes": "6.200,6.200,6.200",
+            "camera": "0.00,0.00,-45.00",
+            "detail": "ready",
+            "distance": "-45.00",
+            "domeRadius": "600",
+            "fieldCount": "54",
+            "flightVelocity": "0.0000",
+            "imageFit": "contain",
+            "layout": "react-bits-dome",
+            "layoutAspect": "0.462",
+            "orientation": "0.000,0.000",
+            "pan": "0.00,0.00",
+            "portal": "-0.2860,-0.2863,6.1868",
+            "progress": "1.000",
+            "quaternion": "0.00000,0.00000,0.00000,1.00000",
+            "reduced": "false",
+            "regions": "18",
+            "rotationMode": "dome-free",
+            "view": "space"
+          },
+          "viewport": [
+            390,
+            844
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Reduced motion closes original viewer and preserves entry/return",
+      "pass": true,
+      "state": {
+        "selected": "10",
+        "state": {
+          "actualCamera": "0.0000,0.0000,18.6000",
+          "anchorPose": "-2.5016,-0.2863,5.6657",
+          "aspectError": "0.000e+0",
+          "axes": "6.200,6.200,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "detail": "ready",
+          "distance": "-45.00",
+          "domeRadius": "628",
+          "fieldCount": "111",
+          "flightVelocity": "0.0000",
+          "imageFit": "contain",
+          "layout": "react-bits-dome",
+          "layoutAspect": "1.778",
+          "orientation": "0.000,0.000",
+          "pan": "0.00,0.00",
+          "portal": "-2.5016,-0.2863,5.6657",
+          "progress": "0.000",
+          "quaternion": "0.00000,0.00000,0.00000,1.00000",
+          "reduced": "true",
+          "regions": "39",
+          "rotationMode": "dome-free",
+          "view": "sphere"
+        }
+      }
+    },
+    {
+      "name": "CSS-only gallery still opens complete photos when 3D space is unavailable",
+      "pass": true,
+      "state": {
+        "disabled": true,
+        "fit": "contain",
+        "images": 358,
+        "opened": "true",
+        "renderer": "css-only"
+      }
+    },
+    {
+      "name": "Upstream first-view geometry and styling match on 170 identical photos",
+      "pass": true,
+      "parameters": {
+        "grayscale": "grayscale(1)",
+        "perspective": "1344px",
+        "radius": "672px"
+      }
+    },
+    {
+      "name": "Final checked browser tabs have no warnings or errors",
+      "pass": true,
+      "state": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  ],
+  "initialIssues": [
+    "Initial source comparison sampled the 300 ms layout transition; stable measurements then matched.",
+    "First background entry wait exceeded 6 seconds; a later read confirmed space without errors.",
+    "A long combined browser script exceeded 30 seconds and reset its bindings; subsequent checks were saved in bounded segments.",
+    "Keyboard arrows originally triggered the gesture library and produced NaN. Pointer keyboard dragging was disabled and finite pointer guards added; full rotations were rechecked.",
+    "A viewport comparison captured pan while it was still easing from 5.00 to 7.53; settled-camera resizing was checked separately."
+  ]
+}

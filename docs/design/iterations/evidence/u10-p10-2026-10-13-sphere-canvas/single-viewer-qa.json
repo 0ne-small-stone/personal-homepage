@@ -1,0 +1,1134 @@
+{
+  "beforeSingle": {
+    "sphere:dome-motion": {
+      "samples": 5,
+      "total": 2.4,
+      "mean": 0.48,
+      "p95": 0.9,
+      "max": 1.4
+    },
+    "sphere:update": {
+      "samples": 4,
+      "total": 1.5,
+      "mean": 0.375,
+      "p95": 0.4,
+      "max": 0.6
+    },
+    "sphere:frameInterval": {
+      "samples": 3,
+      "total": 212.1,
+      "mean": 70.7,
+      "p95": 60.6,
+      "max": 121.1
+    },
+    "transition:frameInterval": {
+      "samples": 44,
+      "total": 1641.9,
+      "mean": 37.316,
+      "p95": 72.7,
+      "max": 127.1
+    },
+    "transition:candidates": {
+      "samples": 44,
+      "total": 35.2,
+      "mean": 0.8,
+      "p95": 1.8,
+      "max": 4.5
+    },
+    "transition:render": {
+      "samples": 44,
+      "total": 117.4,
+      "mean": 2.668,
+      "p95": 1.3,
+      "max": 52.8
+    },
+    "transition:renders": {
+      "samples": 44,
+      "total": 44,
+      "mean": 1,
+      "p95": 1,
+      "max": 1
+    },
+    "transition:drawCalls": {
+      "samples": 44,
+      "total": 1461,
+      "mean": 33.205,
+      "p95": 42,
+      "max": 43
+    },
+    "transition:update": {
+      "samples": 44,
+      "total": 198.2,
+      "mean": 4.505,
+      "p95": 3.8,
+      "max": 57.2
+    },
+    "space:frameInterval": {
+      "samples": 87,
+      "total": 2138.8,
+      "mean": 24.584,
+      "p95": 48.5,
+      "max": 54.5
+    },
+    "space:render": {
+      "samples": 87,
+      "total": 35.3,
+      "mean": 0.406,
+      "p95": 0.7,
+      "max": 1.1
+    },
+    "space:renders": {
+      "samples": 87,
+      "total": 87,
+      "mean": 1,
+      "p95": 1,
+      "max": 1
+    },
+    "space:drawCalls": {
+      "samples": 87,
+      "total": 2994,
+      "mean": 34.414,
+      "p95": 43,
+      "max": 44
+    },
+    "space:update": {
+      "samples": 87,
+      "total": 139.5,
+      "mean": 1.603,
+      "p95": 2.4,
+      "max": 3.3
+    },
+    "space:candidates": {
+      "samples": 82,
+      "total": 46.1,
+      "mean": 0.562,
+      "p95": 1,
+      "max": 1.4
+    }
+  },
+  "afterSinglePerf": {
+    "sphere:dome-motion": {
+      "samples": 5,
+      "total": 1.9,
+      "mean": 0.38,
+      "p95": 0.8,
+      "max": 1
+    },
+    "sphere:update": {
+      "samples": 1,
+      "total": 0.2,
+      "mean": 0.2,
+      "p95": 0.2,
+      "max": 0.2
+    },
+    "transition:frameInterval": {
+      "samples": 41,
+      "total": 1460.3,
+      "mean": 35.617,
+      "p95": 60.6,
+      "max": 72.8
+    },
+    "transition:candidates": {
+      "samples": 41,
+      "total": 21.2,
+      "mean": 0.517,
+      "p95": 0.9,
+      "max": 4
+    },
+    "transition:render": {
+      "samples": 41,
+      "total": 35.1,
+      "mean": 0.856,
+      "p95": 1.3,
+      "max": 9.2
+    },
+    "transition:renders": {
+      "samples": 41,
+      "total": 41,
+      "mean": 1,
+      "p95": 1,
+      "max": 1
+    },
+    "transition:drawCalls": {
+      "samples": 41,
+      "total": 1349,
+      "mean": 32.902,
+      "p95": 42,
+      "max": 43
+    },
+    "transition:update": {
+      "samples": 41,
+      "total": 86.2,
+      "mean": 2.102,
+      "p95": 3,
+      "max": 13
+    },
+    "space:frameInterval": {
+      "samples": 91,
+      "total": 2326.6,
+      "mean": 25.567,
+      "p95": 36.4,
+      "max": 163.5
+    },
+    "space:render": {
+      "samples": 91,
+      "total": 31.6,
+      "mean": 0.347,
+      "p95": 0.7,
+      "max": 0.8
+    },
+    "space:renders": {
+      "samples": 91,
+      "total": 91,
+      "mean": 1,
+      "p95": 1,
+      "max": 1
+    },
+    "space:drawCalls": {
+      "samples": 91,
+      "total": 3189,
+      "mean": 35.044,
+      "p95": 42,
+      "max": 43
+    },
+    "space:update": {
+      "samples": 91,
+      "total": 118.8,
+      "mean": 1.305,
+      "p95": 2.2,
+      "max": 2.4
+    },
+    "space:candidates": {
+      "samples": 88,
+      "total": 37.7,
+      "mean": 0.428,
+      "p95": 0.8,
+      "max": 1.6
+    }
+  },
+  "openingRead": {
+    "portal": "matrix3d(0.200513, 0.0117688, 0, 3.59e-05, 0.006261, 0.187801, 0, 1.95e-05, 0, 0, 1, 0, 759.049, 366.418, 0, 1)"
+  },
+  "desktopViewer": {
+    "image": {
+      "natural": [
+        1201,
+        1600
+      ],
+      "rect": {
+        "h": 520,
+        "w": 390,
+        "x": 445,
+        "y": 128
+      },
+      "src": "./media/photo-15-full.webp"
+    },
+    "portals": 0,
+    "size": [
+      1280,
+      720
+    ],
+    "thumbs": 36,
+    "viewer": {
+      "index": "14",
+      "scenePaused": "true",
+      "state": "open",
+      "zoom": "1.000"
+    }
+  },
+  "desktopZoom": {
+    "image": {
+      "natural": [
+        1201,
+        1600
+      ],
+      "rect": {
+        "h": 1040,
+        "w": 781,
+        "x": 250,
+        "y": -104
+      },
+      "src": "./media/photo-15-full.webp"
+    },
+    "portals": 0,
+    "size": [
+      1280,
+      720
+    ],
+    "thumbs": 36,
+    "viewer": {
+      "index": "14",
+      "scenePaused": "true",
+      "state": "open",
+      "zoom": "2.000"
+    }
+  },
+  "desktopLandscapeViewer": {
+    "image": {
+      "natural": [
+        1600,
+        1200
+      ],
+      "rect": {
+        "h": 520,
+        "w": 693,
+        "x": 293,
+        "y": 128
+      },
+      "src": "./media/photo-01-full.webp"
+    },
+    "portals": 0,
+    "size": [
+      1280,
+      720
+    ],
+    "thumbs": 36,
+    "viewer": {
+      "index": "0",
+      "scenePaused": "true",
+      "state": "open",
+      "zoom": "1.000"
+    }
+  },
+  "backgroundStable": true,
+  "sphereBeforeViewer": {
+    "rotation": "0.0000,27.5010",
+    "size": [
+      1280,
+      720
+    ],
+    "view": {
+      "actualCamera": "0.0000,0.0000,18.6000",
+      "axes": "6.200,6.200,6.200",
+      "camera": "0.00,0.00,-45.00",
+      "distance": "-45.00",
+      "domeRadius": "628",
+      "flightVelocity": "0.0000",
+      "imageFit": "contain",
+      "layout": "react-bits-dome",
+      "layoutAspect": "1.778",
+      "orientation": "0.480,0.000",
+      "pan": "0.00,0.00",
+      "portal": "0.0000,0.0000,0.0000",
+      "progress": "0.000",
+      "quaternion": "0.00000,0.23769,0.00000,0.97134",
+      "reduced": "false",
+      "rotationMode": "dome-limited-pitch",
+      "starfield": "hidden",
+      "view": "sphere"
+    },
+    "wall": {
+      "cells": "120",
+      "clearRadius": "460.06",
+      "curveRadius": "452.06",
+      "feather": "60.00",
+      "gap": "8.00",
+      "offsetX": "-165.786",
+      "offsetY": "0.000",
+      "stagger": "half-step"
+    }
+  },
+  "sphereAfterViewer": {
+    "rotation": "0.0000,27.5010",
+    "size": [
+      1280,
+      720
+    ],
+    "view": {
+      "actualCamera": "0.0000,0.0000,18.6000",
+      "axes": "6.200,6.200,6.200",
+      "camera": "0.00,0.00,-45.00",
+      "distance": "-45.00",
+      "domeRadius": "628",
+      "flightVelocity": "0.0000",
+      "imageFit": "contain",
+      "layout": "react-bits-dome",
+      "layoutAspect": "1.778",
+      "orientation": "0.480,0.000",
+      "pan": "0.00,0.00",
+      "portal": "0.0000,0.0000,0.0000",
+      "progress": "0.000",
+      "quaternion": "0.00000,0.23769,0.00000,0.97134",
+      "reduced": "false",
+      "rotationMode": "dome-limited-pitch",
+      "starfield": "hidden",
+      "view": "sphere",
+      "viewer": "closed"
+    },
+    "wall": {
+      "cells": "120",
+      "clearRadius": "460.06",
+      "curveRadius": "452.06",
+      "feather": "60.00",
+      "gap": "8.00",
+      "offsetX": "-165.786",
+      "offsetY": "0.000",
+      "stagger": "half-step"
+    }
+  },
+  "reverseReturn": {
+    "rotation": "0.0000,27.5010",
+    "size": [
+      1280,
+      720
+    ],
+    "view": {
+      "actualCamera": "0.0000,0.0000,18.6000",
+      "axes": "6.200,6.200,6.200",
+      "camera": "0.00,0.00,-45.00",
+      "distance": "-45.00",
+      "domeRadius": "628",
+      "flightVelocity": "0.0000",
+      "imageFit": "contain",
+      "layout": "react-bits-dome",
+      "layoutAspect": "1.778",
+      "orientation": "0.480,0.000",
+      "pan": "0.00,0.00",
+      "portal": "0.0000,0.0000,0.0000",
+      "progress": "0.000",
+      "quaternion": "0.00000,0.23769,0.00000,0.97134",
+      "reduced": "false",
+      "rotationMode": "dome-limited-pitch",
+      "starfield": "hidden",
+      "view": "sphere",
+      "viewer": "closed"
+    },
+    "wall": {
+      "cells": "120",
+      "clearRadius": "460.06",
+      "curveRadius": "452.06",
+      "feather": "60.00",
+      "gap": "8.00",
+      "offsetX": "-165.786",
+      "offsetY": "0.000",
+      "stagger": "half-step"
+    }
+  },
+  "spaceBeforeViewer": {
+    "rotation": "0.0000,27.5010",
+    "size": [
+      1280,
+      720
+    ],
+    "view": {
+      "actualCamera": "0.3972,-0.2863,0.0464",
+      "anchorPose": "0.3972,-0.2863,6.1806",
+      "aspectError": "2.220e-16",
+      "axes": "6.200,6.200,6.200",
+      "camera": "0.00,0.00,-113.27",
+      "detail": "ready",
+      "distance": "-113.27",
+      "domeRadius": "628",
+      "fieldCount": "30",
+      "fieldLayout": "projection-gap",
+      "fieldRetiring": "0",
+      "flightVelocity": "0.0000",
+      "imageFit": "contain",
+      "layout": "react-bits-dome",
+      "layoutAspect": "1.778",
+      "orientation": "0.480,0.000",
+      "pan": "0.00,0.00",
+      "portal": "0.3972,-0.2863,6.1806",
+      "progress": "1.000",
+      "quaternion": "0.00000,0.23769,0.00000,0.97134",
+      "reduced": "false",
+      "regions": "18",
+      "rotationMode": "dome-limited-pitch",
+      "starfield": "subtle",
+      "view": "space"
+    },
+    "wall": {
+      "cells": "120",
+      "clearRadius": "460.06",
+      "curveRadius": "452.06",
+      "feather": "60.00",
+      "gap": "8.00",
+      "offsetX": "-165.786",
+      "offsetY": "0.000",
+      "stagger": "half-step"
+    }
+  },
+  "spaceAfterViewer": {
+    "rotation": "0.0000,27.5010",
+    "size": [
+      1280,
+      720
+    ],
+    "view": {
+      "actualCamera": "0.3972,-0.2863,0.0464",
+      "anchorPose": "0.3972,-0.2863,6.1806",
+      "aspectError": "2.220e-16",
+      "axes": "6.200,6.200,6.200",
+      "camera": "0.00,0.00,-113.27",
+      "detail": "ready",
+      "distance": "-113.27",
+      "domeRadius": "628",
+      "fieldCount": "30",
+      "fieldLayout": "projection-gap",
+      "fieldRetiring": "0",
+      "flightVelocity": "0.0000",
+      "imageFit": "contain",
+      "layout": "react-bits-dome",
+      "layoutAspect": "1.778",
+      "orientation": "0.480,0.000",
+      "pan": "0.00,0.00",
+      "portal": "0.3972,-0.2863,6.1806",
+      "progress": "1.000",
+      "quaternion": "0.00000,0.23769,0.00000,0.97134",
+      "reduced": "false",
+      "regions": "18",
+      "rotationMode": "dome-limited-pitch",
+      "starfield": "subtle",
+      "view": "space",
+      "viewer": "closed"
+    },
+    "wall": {
+      "cells": "120",
+      "clearRadius": "460.06",
+      "curveRadius": "452.06",
+      "feather": "60.00",
+      "gap": "8.00",
+      "offsetX": "-165.786",
+      "offsetY": "0.000",
+      "stagger": "half-step"
+    }
+  },
+  "spaceViewerRead": {
+    "image": {
+      "natural": [
+        1201,
+        1600
+      ],
+      "rect": {
+        "h": 1040,
+        "w": 780,
+        "x": 250,
+        "y": -104
+      },
+      "src": "./media/photo-13-full.webp"
+    },
+    "portals": 0,
+    "size": [
+      1280,
+      720
+    ],
+    "thumbs": 36,
+    "viewer": {
+      "index": "12",
+      "scenePaused": "true",
+      "state": "open",
+      "zoom": "2.000"
+    }
+  },
+  "phoneViewer": {
+    "controls": [
+      {
+        "rect": {
+          "bottom": 60,
+          "height": 44,
+          "left": 184,
+          "right": 270,
+          "top": 16,
+          "width": 86,
+          "x": 184,
+          "y": 16
+        },
+        "title": "完整显示原图"
+      },
+      {
+        "rect": {
+          "bottom": 60,
+          "height": 44,
+          "left": 278,
+          "right": 322,
+          "top": 16,
+          "width": 44,
+          "x": 278,
+          "y": 16
+        },
+        "title": "放大或缩小"
+      },
+      {
+        "rect": {
+          "bottom": 60,
+          "height": 44,
+          "left": 330,
+          "right": 374,
+          "top": 16,
+          "width": 44,
+          "x": 330,
+          "y": 16
+        },
+        "title": "关闭单图"
+      },
+      {
+        "rect": {
+          "bottom": 824,
+          "height": 44,
+          "left": 16,
+          "right": 60,
+          "top": 780,
+          "width": 44,
+          "x": 16,
+          "y": 780
+        },
+        "title": "上一张"
+      },
+      {
+        "rect": {
+          "bottom": 824,
+          "height": 44,
+          "left": 330,
+          "right": 374,
+          "top": 780,
+          "width": 44,
+          "x": 330,
+          "y": 780
+        },
+        "title": "下一张"
+      }
+    ],
+    "image": {
+      "natural": [
+        1201,
+        1600
+      ],
+      "rect": {
+        "h": 477,
+        "w": 358,
+        "x": 16,
+        "y": 204
+      }
+    },
+    "paused": true,
+    "size": [
+      390,
+      844
+    ],
+    "viewer": {
+      "index": "14",
+      "scenePaused": "true",
+      "state": "open",
+      "zoom": "1.000"
+    }
+  },
+  "resizedViewer": {
+    "controls": [
+      {
+        "rect": {
+          "bottom": 60,
+          "height": 44,
+          "left": 638,
+          "right": 724,
+          "top": 16,
+          "width": 86,
+          "x": 638,
+          "y": 16
+        },
+        "title": "完整显示原图"
+      },
+      {
+        "rect": {
+          "bottom": 60,
+          "height": 44,
+          "left": 732,
+          "right": 776,
+          "top": 16,
+          "width": 44,
+          "x": 732,
+          "y": 16
+        },
+        "title": "放大或缩小"
+      },
+      {
+        "rect": {
+          "bottom": 60,
+          "height": 44,
+          "left": 784,
+          "right": 828,
+          "top": 16,
+          "width": 44,
+          "x": 784,
+          "y": 16
+        },
+        "title": "关闭单图"
+      },
+      {
+        "rect": {
+          "bottom": 217,
+          "height": 44,
+          "left": 14,
+          "right": 58,
+          "top": 173,
+          "width": 44,
+          "x": 14,
+          "y": 173
+        },
+        "title": "上一张"
+      },
+      {
+        "rect": {
+          "bottom": 217,
+          "height": 44,
+          "left": 786,
+          "right": 830,
+          "top": 173,
+          "width": 44,
+          "x": 786,
+          "y": 173
+        },
+        "title": "下一张"
+      }
+    ],
+    "image": {
+      "natural": [
+        1200,
+        1600
+      ],
+      "rect": {
+        "h": 250,
+        "w": 188,
+        "x": 328,
+        "y": 92
+      }
+    },
+    "paused": true,
+    "size": [
+      844,
+      390
+    ],
+    "viewer": {
+      "index": "15",
+      "scenePaused": "true",
+      "state": "open",
+      "zoom": "1.000"
+    }
+  },
+  "finalPhoneViewer": {
+    "controls": [
+      {
+        "rect": {
+          "bottom": 60,
+          "height": 44,
+          "left": 184,
+          "right": 270,
+          "top": 16,
+          "width": 86,
+          "x": 184,
+          "y": 16
+        },
+        "title": "完整显示原图"
+      },
+      {
+        "rect": {
+          "bottom": 60,
+          "height": 44,
+          "left": 278,
+          "right": 322,
+          "top": 16,
+          "width": 44,
+          "x": 278,
+          "y": 16
+        },
+        "title": "放大或缩小"
+      },
+      {
+        "rect": {
+          "bottom": 60,
+          "height": 44,
+          "left": 330,
+          "right": 374,
+          "top": 16,
+          "width": 44,
+          "x": 330,
+          "y": 16
+        },
+        "title": "关闭单图"
+      },
+      {
+        "rect": {
+          "bottom": 824,
+          "height": 44,
+          "left": 16,
+          "right": 60,
+          "top": 780,
+          "width": 44,
+          "x": 16,
+          "y": 780
+        },
+        "title": "上一张"
+      },
+      {
+        "rect": {
+          "bottom": 824,
+          "height": 44,
+          "left": 330,
+          "right": 374,
+          "top": 780,
+          "width": 44,
+          "x": 330,
+          "y": 780
+        },
+        "title": "下一张"
+      }
+    ],
+    "image": {
+      "natural": [
+        1201,
+        1600
+      ],
+      "rect": {
+        "h": 477,
+        "w": 358,
+        "x": 16,
+        "y": 204
+      }
+    },
+    "paused": true,
+    "size": [
+      390,
+      844
+    ],
+    "viewer": {
+      "index": "14",
+      "scenePaused": "true",
+      "state": "open",
+      "zoom": "1.000"
+    }
+  },
+  "smallViewer": {
+    "controls": [
+      {
+        "rect": {
+          "bottom": 60,
+          "height": 44,
+          "left": 114,
+          "right": 200,
+          "top": 16,
+          "width": 86,
+          "x": 114,
+          "y": 16
+        },
+        "title": "完整显示原图"
+      },
+      {
+        "rect": {
+          "bottom": 60,
+          "height": 44,
+          "left": 208,
+          "right": 252,
+          "top": 16,
+          "width": 44,
+          "x": 208,
+          "y": 16
+        },
+        "title": "放大或缩小"
+      },
+      {
+        "rect": {
+          "bottom": 60,
+          "height": 44,
+          "left": 260,
+          "right": 304,
+          "top": 16,
+          "width": 44,
+          "x": 260,
+          "y": 16
+        },
+        "title": "关闭单图"
+      },
+      {
+        "rect": {
+          "bottom": 548,
+          "height": 44,
+          "left": 16,
+          "right": 60,
+          "top": 504,
+          "width": 44,
+          "x": 16,
+          "y": 504
+        },
+        "title": "上一张"
+      },
+      {
+        "rect": {
+          "bottom": 548,
+          "height": 44,
+          "left": 260,
+          "right": 304,
+          "top": 504,
+          "width": 44,
+          "x": 260,
+          "y": 504
+        },
+        "title": "下一张"
+      }
+    ],
+    "image": {
+      "natural": [
+        1201,
+        1600
+      ],
+      "rect": {
+        "h": 356,
+        "w": 267,
+        "x": 26,
+        "y": 126
+      }
+    },
+    "paused": true,
+    "size": [
+      320,
+      568
+    ],
+    "viewer": {
+      "index": "14",
+      "scenePaused": "true",
+      "state": "open",
+      "zoom": "1.000"
+    }
+  },
+  "wheelViewer": {
+    "image": {
+      "natural": [
+        1600,
+        1200
+      ],
+      "rect": {
+        "h": 737,
+        "w": 983,
+        "x": 148,
+        "y": 23
+      },
+      "src": "./media/photo-01-full.webp"
+    },
+    "portals": 0,
+    "size": [
+      1280,
+      720
+    ],
+    "thumbs": 36,
+    "viewer": {
+      "index": "0",
+      "scenePaused": "true",
+      "state": "open",
+      "zoom": "1.418"
+    }
+  },
+  "panViewer": {
+    "image": {
+      "natural": [
+        1600,
+        1200
+      ],
+      "rect": {
+        "h": 520,
+        "w": 693,
+        "x": 259,
+        "y": 128
+      },
+      "src": "./media/photo-01-full.webp"
+    },
+    "portals": 0,
+    "size": [
+      1280,
+      720
+    ],
+    "thumbs": 36,
+    "viewer": {
+      "index": "0",
+      "scenePaused": "true",
+      "state": "open",
+      "zoom": "1.000"
+    }
+  },
+  "finalViewerRead": {
+    "image": {
+      "natural": [
+        1600,
+        1200
+      ],
+      "rect": {
+        "h": 520,
+        "w": 693,
+        "x": 293,
+        "y": 128
+      },
+      "src": "./media/photo-01-full.webp"
+    },
+    "portals": 0,
+    "size": [
+      1280,
+      720
+    ],
+    "thumbs": 36,
+    "viewer": {
+      "index": "0",
+      "scenePaused": "true",
+      "state": "open",
+      "zoom": "1.000"
+    }
+  },
+  "directSpaceViewer": {
+    "image": {
+      "natural": [
+        1201,
+        1600
+      ],
+      "rect": {
+        "h": 520,
+        "w": 390,
+        "x": 445,
+        "y": 128
+      },
+      "src": "./media/photo-27-full.webp"
+    },
+    "portals": 0,
+    "size": [
+      1280,
+      720
+    ],
+    "thumbs": 36,
+    "viewer": {
+      "index": "26",
+      "scenePaused": "true",
+      "state": "open",
+      "zoom": "1.000"
+    }
+  },
+  "directSpaceOrigin": {
+    "rotation": "0.0000,0.0000",
+    "size": [
+      1280,
+      720
+    ],
+    "view": {
+      "actualCamera": "2.9329,1.4113,3.4452",
+      "anchorPose": "2.9368,1.4195,5.2726",
+      "aspectError": "2.220e-16",
+      "axes": "6.200,6.200,6.200",
+      "camera": "0.00,0.00,-45.00",
+      "detail": "ready",
+      "distance": "-45.00",
+      "domeRadius": "628",
+      "fieldCount": "29",
+      "fieldLayout": "projection-gap",
+      "fieldRetiring": "0",
+      "flightVelocity": "0.0000",
+      "imageFit": "contain",
+      "layout": "react-bits-dome",
+      "layoutAspect": "1.778",
+      "orientation": "0.000,0.000",
+      "pan": "0.00,0.00",
+      "portal": "2.9368,1.4195,5.2726",
+      "progress": "1.000",
+      "quaternion": "0.00000,0.00000,0.00000,1.00000",
+      "reduced": "false",
+      "regions": "20",
+      "rotationMode": "dome-limited-pitch",
+      "starfield": "subtle",
+      "view": "space",
+      "viewer": "open"
+    },
+    "wall": {
+      "cells": "120",
+      "clearRadius": "460.06",
+      "curveRadius": "452.06",
+      "feather": "60.00",
+      "gap": "8.00",
+      "offsetX": "0.000",
+      "offsetY": "0.000",
+      "stagger": "half-step"
+    }
+  },
+  "directSpaceReturned": {
+    "rotation": "0.0000,0.0000",
+    "size": [
+      1280,
+      720
+    ],
+    "view": {
+      "actualCamera": "2.9329,1.4113,3.4452",
+      "anchorPose": "2.9368,1.4195,5.2726",
+      "aspectError": "2.220e-16",
+      "axes": "6.200,6.200,6.200",
+      "camera": "0.00,0.00,-45.00",
+      "detail": "ready",
+      "distance": "-45.00",
+      "domeRadius": "628",
+      "fieldCount": "29",
+      "fieldLayout": "projection-gap",
+      "fieldRetiring": "0",
+      "flightVelocity": "0.0000",
+      "imageFit": "contain",
+      "layout": "react-bits-dome",
+      "layoutAspect": "1.778",
+      "orientation": "0.000,0.000",
+      "pan": "0.00,0.00",
+      "portal": "2.9368,1.4195,5.2726",
+      "progress": "1.000",
+      "quaternion": "0.00000,0.00000,0.00000,1.00000",
+      "reduced": "false",
+      "regions": "20",
+      "rotationMode": "dome-limited-pitch",
+      "starfield": "subtle",
+      "view": "space",
+      "viewer": "closed"
+    },
+    "wall": {
+      "cells": "120",
+      "clearRadius": "460.06",
+      "curveRadius": "452.06",
+      "feather": "60.00",
+      "gap": "8.00",
+      "offsetX": "0.000",
+      "offsetY": "0.000",
+      "stagger": "half-step"
+    }
+  },
+  "reducedViewerRead": {
+    "image": {
+      "natural": [
+        1201,
+        1600
+      ],
+      "rect": {
+        "h": 520,
+        "w": 390,
+        "x": 445,
+        "y": 128
+      },
+      "src": "./media/photo-15-full.webp"
+    },
+    "portals": 0,
+    "size": [
+      1280,
+      720
+    ],
+    "thumbs": 36,
+    "viewer": {
+      "index": "14",
+      "reduced": "true",
+      "scenePaused": "true",
+      "state": "open",
+      "zoom": "1.000"
+    }
+  },
+  "reducedClosed": {
+    "inert": false,
+    "portals": 0,
+    "renderer": "css-only",
+    "view": "sphere"
+  },
+  "cancelledRead": {
+    "inert": false,
+    "portals": 0,
+    "viewer": "closed"
+  },
+  "notes": [
+    "1280×720 paired baseline: 3 ArrowRight, enter, 3 W, wait velocity zero. Small sampling and system/gesture timing differences remain.",
+    "Initial loading wait timed out once; subsequent DOM observation showed hidden=true and no app error.",
+    "First arrow icon inherited -30px margin; targeted confirmation then identified black SVG currentColor; explicit palette and margin corrected.",
+    "Responsive helper retained a MutationObserver parameter error; main and reduced preview logs empty."
+  ]
+}

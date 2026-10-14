@@ -67,7 +67,15 @@ export default function BlackFlowLayer({ model, hover, detailed, quiet, visible 
       gl.autoClear = true;
       // Local glass diffusion belongs below the foreground and in the same warp.
       camera.layers.set(0); gl.setRenderTarget(old.target); gl.render(scene, camera);
-      if (!debug.current.foregroundOnly) (scene.userData.lsshGlassGlow as GlassGlow | undefined)?.render(gl, camera);
+      const glassGlow = scene.userData.lsshGlassGlow as GlassGlow | undefined;
+      if (!debug.current.foregroundOnly) glassGlow?.render(gl, camera);
+      if (document.documentElement.dataset.motionDiagnostics === 'true') {
+        const glow = glassGlow?.diagnostics();
+        gl.domElement.dataset.glowActive = String(glow?.active ?? false);
+        gl.domElement.dataset.glowIntensity = Number(glow?.intensity ?? 0).toFixed(3);
+        gl.domElement.dataset.glowPasses = String(glow?.passes ?? 0);
+        gl.domElement.dataset.glowError = String(glow?.error ?? '');
+      }
       if (owned && running && !debug.current.bypass) {
         gl.copyFramebufferToTexture(owned.color);
         gl.setRenderTarget(old.target);
@@ -75,6 +83,9 @@ export default function BlackFlowLayer({ model, hover, detailed, quiet, visible 
         owned.material.uniforms.amount.value = debug.current.forceZero ? 0 : 1;
         if (debug.current.foregroundOnly) gl.clear(); else owned.quad.render(gl);
       }
+      // Wavelength-integrated light is composited over the world scene and
+      // before the foreground cards, using the same renderer/context.
+      (scene.userData.lsshSpectralTransport as { renderOverlay?: (renderer: typeof gl) => void } | undefined)?.renderOverlay?.(gl);
       // World-space light is not captured/refracted again, or hidden by glass depth.
       if (scene.userData.lsshPrismBeam?.active) {
         camera.layers.set(PRISM_LIGHT_LAYER); gl.autoClear = false; gl.render(scene, camera);

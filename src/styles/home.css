@@ -46,7 +46,7 @@
 .home-project-preview strong { font: 500 clamp(2rem, 4vw, 4rem)/1 var(--font-home-display); letter-spacing: -.025em; max-width: 80%; }
 .home-project-preview small { color: #a1a1a1; }
 .home-project-cover { width: 100%; height: auto; object-fit: contain; border-radius: .5rem; }
-.home-works-intro, .home-works-outro, .home-wall-reveal { display: none; }
+.home-works-intro, .home-works-outro, .home-works-expand, .home-wall-reveal { display: none; }
 .home-title-char { display: inline-block; white-space: pre; }
 .home-enhanced:not(.home-quiet) .home-hero { min-height: 0; height: var(--journey-height, 100svh); margin-bottom: 100px; }
 .home-enhanced:not(.home-quiet) .home-hero .home-chapter-viewport { position: fixed; inset: 0; height: var(--journey-height, 100svh); min-height: 0; }
@@ -58,7 +58,8 @@
 .home-enhanced:not(.home-quiet) .home-work-chapter[data-work-active="true"] .home-chapter-content { pointer-events: auto; }
 .home-enhanced:not(.home-quiet) .home-work-chapter[inert] .home-chapter-content { pointer-events: none; }
 .home-enhanced:not(.home-quiet) .home-works-outro { display: block; height: calc(var(--journey-height, 100svh) * 1.5); }
-.home-enhanced:not(.home-quiet) .home-wall-reveal { display: block; height: var(--journey-height, 100svh); }
+.home-enhanced:not(.home-quiet) .home-works-expand { display: block; height: calc(var(--journey-height, 100svh) * 3); pointer-events: none; }
+.home-enhanced:not(.home-quiet) .home-wall-reveal { display: block; height: calc(var(--journey-height, 100svh) * 2); }
 .home-enhanced:not(.home-quiet) .home-work-chapter .home-art { visibility: hidden; }
 @media (min-width: 768px) {
   .home-enhanced:not(.home-quiet) .home-work-chapter .home-chapter-content { max-width: 24rem; }
@@ -79,6 +80,7 @@
 .home-wall .home-chapter-viewport { grid-template-columns: 1fr; align-items: end; padding-top: 10rem; }
 .home-wall .home-chapter-content { width: 100%; max-width: 38rem; isolation: isolate; }
 .home-wall .home-chapter-content::before { content: ''; position: absolute; inset: -.75rem -2rem; z-index: -1; background: #efeeeb; mask-image: linear-gradient(90deg, #000 80%, transparent); }
+.home-enhanced:not(.home-quiet) .home-wall .home-chapter-content::before { display: none; }
 .home-wall h2 { font-size: clamp(4rem, 10vw, 9rem); }
 .home-wall-surface { position: absolute; inset: 0; z-index: 0; background-color: #e8e4dc; background-image: linear-gradient(#bcb9b3 1px, transparent 1px), linear-gradient(90deg, #c8c4bd 1px, transparent 1px), linear-gradient(90deg, #c8c4bd 1px, transparent 1px); background-size: 100% 7rem, 18rem 14rem, 18rem 14rem; background-position: 0 0, 0 0, 9rem 7rem; }
 .home-wall { --color-bg: #e8e4dc; --color-text: #272a2c; --color-muted: #62645d; --color-border: #72746e; color: var(--color-text); }
@@ -96,6 +98,13 @@
 .home-scene-controls button:hover:not(:disabled) { color: #000; background: #ededed; }
 .home-on-wall .home-header, .home-on-wall .home-chapter-index, .home-on-wall .home-scene-controls { color: #272a2c; }
 .home-on-wall .home-chapter-index a[aria-current], .home-on-wall .home-chapter-index a:hover { color: #272a2c; }
+.home-portal-cover .home-header, .home-portal-cover .home-chapter-index, .home-portal-cover .home-scene-controls { color: #ededed; mix-blend-mode: normal; }
+.home-portal-cover .home-header-wall, .home-portal-cover .home-header > nav, .home-portal-cover .home-chapter-index, .home-portal-cover .home-scene-controls { background: rgb(31 31 31 / .96); border-radius: 999px; }
+.home-portal-cover .home-header > nav { padding-inline: .75rem; }
+.home-portal-cover .home-chapter-index, .home-portal-cover .home-scene-controls { padding: .25rem; }
+.home-portal-cover .home-header-wall:hover { background: #353535; color: #ededed; }
+.home-enhanced:not(.home-quiet):not(.home-wall-ready) .home-wall .home-chapter-content { visibility: hidden; }
+.home-portal-cover .home-header, .home-on-wall .home-header { transition: none; }
 .home-destination { padding: 11rem var(--home-gutter) 6rem; min-height: calc(100svh - 8rem); max-width: 65rem; }
 .home-destination h1 { font: 500 clamp(3rem, 7vw, 6.5rem)/1.05 var(--font-home-display); letter-spacing: -.025em; margin: 3rem 0 1.5rem; }
 .home-back { display: inline-flex; min-height: 2.75rem; align-items: center; text-decoration: underline !important; text-underline-offset: .4rem; color: #a1a1a1 !important; }
@@ -104,7 +113,6 @@
 .home-empty p { color: #a1a1a1; max-width: 36rem; }
 .home-guestbook p { max-width: 32rem; }
 .home-discussion-link { display: inline-flex; align-items: center; min-height: 2.75rem; text-decoration: underline !important; text-underline-offset: .4rem; font-size: .875rem; }
-.home-scene-controls .home-quality[aria-pressed="true"] { border-color: currentColor; }
 .home-page-footer { padding: 2rem var(--home-gutter); display: flex; justify-content: space-between; color: #a1a1a1; font-size: .875rem; }
 .home-scene { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
 .lssh-home[data-home-restoring] #main-content,
@@ -130,6 +138,9 @@
 .home-photo-ready .home-photo { opacity: 0; }
 .home-quiet .home-photo { opacity: 1; }
 .lssh-home:not(.home-enhanced) .home-header { background: #000; color: #ededed; }
+.lssh-home.home-quiet .home-header, .lssh-home.home-static .home-header { color: #fff; background: transparent; mix-blend-mode: difference; transition: none; }
+.home-quiet .home-chapter-index, .home-quiet .home-scene-controls, .home-static .home-chapter-index, .home-static .home-scene-controls { color: #fff; mix-blend-mode: difference; }
+.home-quiet .home-chapter-index a, .home-static .home-chapter-index a { color: inherit; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 @media (max-width: 767px) {
   .lssh-home { --home-gutter: 1rem; }
@@ -137,9 +148,6 @@
   .home-brand { font-size: 1.4rem; }
   .home-header > nav { gap: .8rem; }
   .home-header > nav a { font-size: .6875rem; letter-spacing: .015em; }
-  .has-journey .home-header { grid-template-columns: auto 1fr; gap: var(--space-2); }
-  .has-journey .home-header > nav { justify-self: end; }
-  .lssh-home:not(.has-journey) .home-header { flex-wrap: wrap; }
   .home-header-wall { display: none !important; }
   .home-chapter-viewport { min-height: 38rem; padding: 5rem 1rem 6.5rem; grid-template-columns: 1fr; grid-template-rows: 1fr auto; gap: 1.5rem; }
   .home-chapter-content { grid-row: 2; align-self: end; padding-bottom: 0; max-width: 100%; }
@@ -154,11 +162,13 @@
   .home-scene-controls { bottom: .75rem; gap: 0; }
   .home-scene-controls button { padding: 0 .7rem; font-size: .6875rem; }
   .home-scene-controls .home-sound { display: none; }
-  .home-scene-controls .home-quality { display: none; }
   .home-wall .home-chapter-viewport { padding-top: 8rem; }
   .home-wall h2 { font-size: clamp(4rem, 19vw, 6rem); }
   .home-wall-bottom { margin-top: 1rem; gap: 1rem; }
   .home-status { bottom: 4.5rem; }
 }
-@media (max-width: 360px) { .home-header nav { gap: .5rem; } .home-brand { font-size: 1.25rem; } }
+@media (max-width: 360px) { .home-header > nav { gap: .5rem; } .home-brand { font-size: 1.25rem; } }
 @media (prefers-reduced-motion: reduce) { .lssh-home *, .lssh-home *::before, .lssh-home *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+/* Keep the public directory added on main usable with the current home shell. */
+@media (max-width: 767px) { .has-journey .home-header { grid-template-columns: auto 1fr; gap: var(--space-2); } .has-journey .home-header > nav { justify-self: end; } .lssh-home:not(.has-journey) .home-header { flex-wrap: wrap; } }

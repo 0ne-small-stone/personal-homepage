@@ -1,0 +1,24 @@
+{
+  "canvas": {
+    "data": {
+      "draws": "215",
+      "engine": "three.js r186",
+      "epoch": "6",
+      "glass": "true",
+      "medium": "true",
+      "receiverFlux": "9.798486012162181",
+      "receiverHits": "128",
+      "renderState": "running",
+      "samples": "128",
+      "timing": "{\"draws\":215,\"state\":\"running\",\"jsRenderMs\":0.3983333333162591,\"transportMs\":10.983333333279006,\"gpuMs\":174.71518323333333,\"frameGapMs\":177.1266666666667,\"gpuTimerSupported\":true}"
+    },
+    "height": 510,
+    "width": 1280
+  },
+  "performance": "渲染 215 帧 · 计算中 · JS提交 0.4 ms · 光路 11.0 ms · GPU 174.7 ms",
+  "status": "白光单散射估计 · 128 源采样 · 640 传播段 · 128 接收面命中 · epoch 6",
+  "viewport": [
+    1280,
+    720
+  ]
+}

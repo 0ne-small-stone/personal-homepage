@@ -1,0 +1,2344 @@
+[
+  {
+    "label": "source-before",
+    "state": {
+      "focus": null,
+      "opacity": [],
+      "perf": "",
+      "portals": 0,
+      "root": null,
+      "slides": [],
+      "view": {
+        "axes": "6.200,6.200,6.200",
+        "layoutAspect": "0.963",
+        "reduced": "false",
+        "view": "loading"
+      },
+      "viewport": [
+        889,
+        923
+      ]
+    }
+  },
+  {
+    "label": "initial-no-selection-click",
+    "note": "Reload had no selected photo; disabled view button expected."
+  },
+  {
+    "label": "source-selected",
+    "state": {
+      "caption": "影像 21　21 / 36",
+      "focus": "单图浏览",
+      "opacity": [
+        [
+          ".pswp__top-bar",
+          "0.005"
+        ],
+        [
+          ".viewer-rail",
+          "0.005"
+        ],
+        [
+          ".viewer-caption",
+          "0.005"
+        ],
+        [
+          ".pswp__button--arrow",
+          "1"
+        ]
+      ],
+      "perf": "{\"sphere:dome-motion\":{\"samples\":2,\"total\":0.1,\"mean\":0.05,\"p95\":0,\"max\":0.1},\"sphere:update\":{\"samples\":1,\"total\":0.3,\"mean\":0.3,\"p95\":0.3,\"max\":0.3},\"viewer:viewer-init\":{\"samples\":1,\"total\":16.9,\"mean\":16.9,\"p95\":16.9,\"max\":16.9}}",
+      "portals": 1,
+      "root": {
+        "index": "20",
+        "navigation": "idle",
+        "reduced": "false",
+        "scenePaused": "true",
+        "state": "opening",
+        "zoom": "1.000"
+      },
+      "scroller": "translate3d(0px, 0px, 0px)",
+      "slides": [
+        {
+          "hidden": "true",
+          "images": [],
+          "transform": "translate3d(-920px, 0px, 0px)"
+        },
+        {
+          "hidden": "false",
+          "images": [
+            {
+              "alt": "",
+              "complete": true,
+              "rect": "{\"bottom\":750.75,\"height\":522.75,\"left\":96,\"right\":793,\"top\":228,\"width\":697,\"x\":96,\"y\":228}"
+            },
+            {
+              "alt": "影像 21",
+              "complete": false,
+              "rect": "{\"bottom\":751,\"height\":523,\"left\":96,\"right\":793,\"top\":228,\"width\":697,\"x\":96,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(0px, 0px, 0px)"
+        },
+        {
+          "hidden": "true",
+          "images": [],
+          "transform": "translate3d(920px, 0px, 0px)"
+        }
+      ],
+      "view": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "557",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.963",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere",
+        "viewer": "open"
+      },
+      "viewport": [
+        889,
+        923
+      ]
+    }
+  },
+  {
+    "label": "desktop-idle",
+    "state": {
+      "caption": "影像 21　21 / 36",
+      "focus": null,
+      "opacity": [
+        [
+          ".pswp__top-bar",
+          "0"
+        ],
+        [
+          ".viewer-rail",
+          "0"
+        ],
+        [
+          ".viewer-caption",
+          "0"
+        ],
+        [
+          ".pswp__button--arrow",
+          "0"
+        ]
+      ],
+      "perf": "{\"sphere:dome-motion\":{\"samples\":2,\"total\":0.1,\"mean\":0.05,\"p95\":0,\"max\":0.1},\"sphere:update\":{\"samples\":1,\"total\":0.3,\"mean\":0.3,\"p95\":0.3,\"max\":0.3},\"viewer:viewer-init\":{\"samples\":1,\"total\":16.9,\"mean\":16.9,\"p95\":16.9,\"max\":16.9}}",
+      "portals": 0,
+      "root": {
+        "controls": "hidden",
+        "index": "20",
+        "navigation": "idle",
+        "reduced": "false",
+        "scenePaused": "true",
+        "state": "open",
+        "zoom": "1.000"
+      },
+      "scroller": "translate3d(0px, 0px, 0px)",
+      "slides": [
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 20",
+              "complete": true,
+              "rect": "{\"bottom\":751,\"height\":523,\"left\":-824,\"right\":-127,\"top\":228,\"width\":697,\"x\":-824,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(-920px, 0px, 0px)"
+        },
+        {
+          "hidden": "false",
+          "images": [
+            {
+              "alt": "影像 21",
+              "complete": true,
+              "rect": "{\"bottom\":751,\"height\":523,\"left\":96,\"right\":793,\"top\":228,\"width\":697,\"x\":96,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(0px, 0px, 0px)"
+        },
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 22",
+              "complete": true,
+              "rect": "{\"bottom\":750,\"height\":522,\"left\":1016,\"right\":1713,\"top\":228,\"width\":697,\"x\":1016,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(920px, 0px, 0px)"
+        }
+      ],
+      "view": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "557",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.963",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere",
+        "viewer": "open"
+      },
+      "viewport": [
+        889,
+        923
+      ]
+    }
+  },
+  {
+    "label": "mouse-reveal",
+    "state": {
+      "caption": "影像 21　21 / 36",
+      "focus": null,
+      "opacity": [
+        [
+          ".pswp__top-bar",
+          "0.254785"
+        ],
+        [
+          ".viewer-rail",
+          "0.254785"
+        ],
+        [
+          ".viewer-caption",
+          "0.254785"
+        ],
+        [
+          ".pswp__button--arrow",
+          "0.254785"
+        ]
+      ],
+      "perf": "{\"sphere:dome-motion\":{\"samples\":2,\"total\":0.1,\"mean\":0.05,\"p95\":0,\"max\":0.1},\"sphere:update\":{\"samples\":1,\"total\":0.3,\"mean\":0.3,\"p95\":0.3,\"max\":0.3},\"viewer:viewer-init\":{\"samples\":1,\"total\":16.9,\"mean\":16.9,\"p95\":16.9,\"max\":16.9}}",
+      "portals": 0,
+      "root": {
+        "controls": "visible",
+        "index": "20",
+        "navigation": "idle",
+        "reduced": "false",
+        "scenePaused": "true",
+        "state": "open",
+        "zoom": "1.000"
+      },
+      "scroller": "translate3d(0px, 0px, 0px)",
+      "slides": [
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 20",
+              "complete": true,
+              "rect": "{\"bottom\":751,\"height\":523,\"left\":-824,\"right\":-127,\"top\":228,\"width\":697,\"x\":-824,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(-920px, 0px, 0px)"
+        },
+        {
+          "hidden": "false",
+          "images": [
+            {
+              "alt": "影像 21",
+              "complete": true,
+              "rect": "{\"bottom\":751,\"height\":523,\"left\":96,\"right\":793,\"top\":228,\"width\":697,\"x\":96,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(0px, 0px, 0px)"
+        },
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 22",
+              "complete": true,
+              "rect": "{\"bottom\":750,\"height\":522,\"left\":1016,\"right\":1713,\"top\":228,\"width\":697,\"x\":1016,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(920px, 0px, 0px)"
+        }
+      ],
+      "view": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "557",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.963",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere",
+        "viewer": "open"
+      },
+      "viewport": [
+        889,
+        923
+      ]
+    }
+  },
+  {
+    "label": "next-in-progress",
+    "state": {
+      "caption": "影像 21　21 / 36",
+      "focus": null,
+      "opacity": [
+        [
+          ".pswp__top-bar",
+          "1"
+        ],
+        [
+          ".viewer-rail",
+          "1"
+        ],
+        [
+          ".viewer-caption",
+          "1"
+        ],
+        [
+          ".pswp__button--arrow",
+          "1"
+        ]
+      ],
+      "perf": "{\"sphere:dome-motion\":{\"samples\":2,\"total\":0.1,\"mean\":0.05,\"p95\":0,\"max\":0.1},\"sphere:update\":{\"samples\":1,\"total\":0.3,\"mean\":0.3,\"p95\":0.3,\"max\":0.3},\"viewer:viewer-init\":{\"samples\":1,\"total\":16.9,\"mean\":16.9,\"p95\":16.9,\"max\":16.9}}",
+      "portals": 0,
+      "root": {
+        "controls": "visible",
+        "index": "20",
+        "navigation": "next",
+        "reduced": "false",
+        "requestedIndex": "21",
+        "scenePaused": "true",
+        "state": "open",
+        "zoom": "1.000"
+      },
+      "scroller": "translate3d(-913.23px, 0px, 0px)",
+      "slides": [
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 20",
+              "complete": true,
+              "rect": "{\"bottom\":751,\"height\":523,\"left\":-1737.2294921875,\"right\":-1040.2294921875,\"top\":228,\"width\":697,\"x\":-1737.2294921875,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(-920px, 0px, 0px)"
+        },
+        {
+          "hidden": "false",
+          "images": [
+            {
+              "alt": "影像 21",
+              "complete": true,
+              "rect": "{\"bottom\":751,\"height\":523,\"left\":-817.2295532226562,\"right\":-120.22955322265625,\"top\":228,\"width\":697,\"x\":-817.2295532226562,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(0px, 0px, 0px)"
+        },
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 22",
+              "complete": true,
+              "rect": "{\"bottom\":750,\"height\":522,\"left\":102.77044677734375,\"right\":799.7704467773438,\"top\":228,\"width\":697,\"x\":102.77044677734375,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(920px, 0px, 0px)"
+        }
+      ],
+      "view": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "557",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.963",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere",
+        "viewer": "open"
+      },
+      "viewport": [
+        889,
+        923
+      ]
+    }
+  },
+  {
+    "label": "hover-holds-controls",
+    "state": {
+      "caption": "影像 22　22 / 36",
+      "focus": null,
+      "opacity": [
+        [
+          ".pswp__top-bar",
+          "1"
+        ],
+        [
+          ".viewer-rail",
+          "1"
+        ],
+        [
+          ".viewer-caption",
+          "1"
+        ],
+        [
+          ".pswp__button--arrow",
+          "1"
+        ]
+      ],
+      "perf": "{\"sphere:dome-motion\":{\"samples\":2,\"total\":0.1,\"mean\":0.05,\"p95\":0,\"max\":0.1},\"sphere:update\":{\"samples\":1,\"total\":0.3,\"mean\":0.3,\"p95\":0.3,\"max\":0.3},\"viewer:viewer-init\":{\"samples\":1,\"total\":16.9,\"mean\":16.9,\"p95\":16.9,\"max\":16.9},\"viewer:viewer-navigation-start\":{\"samples\":1,\"total\":0.2,\"mean\":0.2,\"p95\":0.2,\"max\":0.2},\"viewer:viewer-slide-frame\":{\"samples\":15,\"total\":15,\"mean\":1,\"p95\":1,\"max\":1},\"viewer:viewer-navigation-ms\":{\"samples\":1,\"total\":322.6,\"mean\":322.6,\"p95\":322.6,\"max\":322.6}}",
+      "portals": 0,
+      "root": {
+        "controls": "visible",
+        "index": "21",
+        "navigation": "idle",
+        "reduced": "false",
+        "requestedIndex": "21",
+        "scenePaused": "true",
+        "state": "open",
+        "zoom": "1.000"
+      },
+      "scroller": "translate3d(-920px, 0px, 0px)",
+      "slides": [
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 23",
+              "complete": true,
+              "rect": "{\"bottom\":751,\"height\":523,\"left\":1016,\"right\":1713,\"top\":228,\"width\":697,\"x\":1016,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(1840px, 0px, 0px)"
+        },
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 21",
+              "complete": true,
+              "rect": "{\"bottom\":751,\"height\":523,\"left\":-824,\"right\":-127,\"top\":228,\"width\":697,\"x\":-824,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(0px, 0px, 0px)"
+        },
+        {
+          "hidden": "false",
+          "images": [
+            {
+              "alt": "影像 22",
+              "complete": true,
+              "rect": "{\"bottom\":750,\"height\":522,\"left\":96,\"right\":793,\"top\":228,\"width\":697,\"x\":96,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(920px, 0px, 0px)"
+        }
+      ],
+      "view": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "557",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.963",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere",
+        "viewer": "open"
+      },
+      "viewport": [
+        889,
+        923
+      ]
+    }
+  },
+  {
+    "label": "rapid-target",
+    "state": {
+      "caption": "影像 22　22 / 36",
+      "focus": "单图浏览",
+      "opacity": [
+        [
+          ".pswp__top-bar",
+          "1"
+        ],
+        [
+          ".viewer-rail",
+          "1"
+        ],
+        [
+          ".viewer-caption",
+          "1"
+        ],
+        [
+          ".pswp__button--arrow",
+          "1"
+        ]
+      ],
+      "perf": "{\"sphere:dome-motion\":{\"samples\":2,\"total\":0.1,\"mean\":0.05,\"p95\":0,\"max\":0.1},\"sphere:update\":{\"samples\":1,\"total\":0.3,\"mean\":0.3,\"p95\":0.3,\"max\":0.3},\"viewer:viewer-init\":{\"samples\":1,\"total\":16.9,\"mean\":16.9,\"p95\":16.9,\"max\":16.9},\"viewer:viewer-navigation-start\":{\"samples\":1,\"total\":0.2,\"mean\":0.2,\"p95\":0.2,\"max\":0.2},\"viewer:viewer-slide-frame\":{\"samples\":15,\"total\":15,\"mean\":1,\"p95\":1,\"max\":1},\"viewer:viewer-navigation-ms\":{\"samples\":1,\"total\":322.6,\"mean\":322.6,\"p95\":322.6,\"max\":322.6}}",
+      "portals": 0,
+      "root": {
+        "controls": "visible",
+        "index": "21",
+        "navigation": "next",
+        "reduced": "false",
+        "requestedIndex": "23",
+        "scenePaused": "true",
+        "state": "open",
+        "zoom": "1.000"
+      },
+      "scroller": "translate3d(-1389.07px, 0px, 0px)",
+      "slides": [
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 23",
+              "complete": true,
+              "rect": "{\"bottom\":751,\"height\":523,\"left\":546.9345703125,\"right\":1243.9345703125,\"top\":228,\"width\":697,\"x\":546.9345703125,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(1840px, 0px, 0px)"
+        },
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 21",
+              "complete": true,
+              "rect": "{\"bottom\":751,\"height\":523,\"left\":-1293.0654296875,\"right\":-596.0654296875,\"top\":228,\"width\":697,\"x\":-1293.0654296875,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(0px, 0px, 0px)"
+        },
+        {
+          "hidden": "false",
+          "images": [
+            {
+              "alt": "影像 22",
+              "complete": true,
+              "rect": "{\"bottom\":750,\"height\":522,\"left\":-373.0654296875,\"right\":323.9345703125,\"top\":228,\"width\":697,\"x\":-373.0654296875,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(920px, 0px, 0px)"
+        }
+      ],
+      "view": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "557",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.963",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere",
+        "viewer": "open"
+      },
+      "viewport": [
+        889,
+        923
+      ]
+    }
+  },
+  {
+    "label": "rapid-settled-keyboard-visible",
+    "state": {
+      "caption": "影像 24　24 / 36",
+      "focus": "单图浏览",
+      "opacity": [
+        [
+          ".pswp__top-bar",
+          "1"
+        ],
+        [
+          ".viewer-rail",
+          "1"
+        ],
+        [
+          ".viewer-caption",
+          "1"
+        ],
+        [
+          ".pswp__button--arrow",
+          "1"
+        ]
+      ],
+      "perf": "{\"sphere:dome-motion\":{\"samples\":2,\"total\":0.1,\"mean\":0.05,\"p95\":0,\"max\":0.1},\"sphere:update\":{\"samples\":1,\"total\":0.3,\"mean\":0.3,\"p95\":0.3,\"max\":0.3},\"viewer:viewer-init\":{\"samples\":1,\"total\":16.9,\"mean\":16.9,\"p95\":16.9,\"max\":16.9},\"viewer:viewer-navigation-start\":{\"samples\":3,\"total\":0.3,\"mean\":0.1,\"p95\":0.1,\"max\":0.2},\"viewer:viewer-slide-frame\":{\"samples\":43,\"total\":43,\"mean\":1,\"p95\":1,\"max\":1},\"viewer:viewer-navigation-ms\":{\"samples\":3,\"total\":968.1,\"mean\":322.7,\"p95\":322.6,\"max\":333.5}}",
+      "portals": 0,
+      "root": {
+        "controls": "visible",
+        "index": "23",
+        "navigation": "idle",
+        "reduced": "false",
+        "requestedIndex": "23",
+        "scenePaused": "true",
+        "state": "open",
+        "zoom": "1.000"
+      },
+      "scroller": "translate3d(-2760px, 0px, 0px)",
+      "slides": [
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 23",
+              "complete": true,
+              "rect": "{\"bottom\":751,\"height\":523,\"left\":-824,\"right\":-127,\"top\":228,\"width\":697,\"x\":-824,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(1840px, 0px, 0px)"
+        },
+        {
+          "hidden": "false",
+          "images": [
+            {
+              "alt": "影像 24",
+              "complete": true,
+              "rect": "{\"bottom\":851,\"height\":723,\"left\":173,\"right\":716,\"top\":128,\"width\":543,\"x\":173,\"y\":128}"
+            }
+          ],
+          "transform": "translate3d(2760px, 0px, 0px)"
+        },
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 25",
+              "complete": true,
+              "rect": "{\"bottom\":750,\"height\":522,\"left\":1016,\"right\":1713,\"top\":228,\"width\":697,\"x\":1016,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(3680px, 0px, 0px)"
+        }
+      ],
+      "view": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "557",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.963",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere",
+        "viewer": "open"
+      },
+      "viewport": [
+        889,
+        923
+      ]
+    }
+  },
+  {
+    "label": "zoom",
+    "state": {
+      "caption": "影像 01　1 / 36",
+      "focus": "查看影像 01",
+      "opacity": [
+        [
+          ".pswp__top-bar",
+          "1"
+        ],
+        [
+          ".viewer-rail",
+          "1"
+        ],
+        [
+          ".viewer-caption",
+          "1"
+        ],
+        [
+          ".pswp__button--arrow",
+          "1"
+        ]
+      ],
+      "perf": "{\"sphere:dome-motion\":{\"samples\":2,\"total\":0.1,\"mean\":0.05,\"p95\":0,\"max\":0.1},\"sphere:update\":{\"samples\":1,\"total\":0.3,\"mean\":0.3,\"p95\":0.3,\"max\":0.3},\"viewer:viewer-init\":{\"samples\":1,\"total\":16.9,\"mean\":16.9,\"p95\":16.9,\"max\":16.9},\"viewer:viewer-navigation-start\":{\"samples\":3,\"total\":0.3,\"mean\":0.1,\"p95\":0.1,\"max\":0.2},\"viewer:viewer-slide-frame\":{\"samples\":43,\"total\":43,\"mean\":1,\"p95\":1,\"max\":1},\"viewer:viewer-navigation-ms\":{\"samples\":3,\"total\":968.1,\"mean\":322.7,\"p95\":322.6,\"max\":333.5}}",
+      "portals": 0,
+      "root": {
+        "controls": "visible",
+        "index": "0",
+        "navigation": "idle",
+        "reduced": "false",
+        "requestedIndex": "0",
+        "scenePaused": "true",
+        "state": "open",
+        "zoom": "2.000"
+      },
+      "scroller": "translate3d(-14720px, 0px, 0px)",
+      "slides": [
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 36",
+              "complete": true,
+              "rect": "{\"bottom\":851,\"height\":723,\"left\":-747,\"right\":-204,\"top\":128,\"width\":543,\"x\":-747,\"y\":128}"
+            }
+          ],
+          "transform": "translate3d(13800px, 0px, 0px)"
+        },
+        {
+          "hidden": "false",
+          "images": [
+            {
+              "alt": "影像 01",
+              "complete": true,
+              "rect": "{\"bottom\":1040,\"height\":1045,\"left\":-252,\"right\":1142,\"top\":-5,\"width\":1394,\"x\":-252,\"y\":-5}"
+            }
+          ],
+          "transform": "translate3d(14720px, 0px, 0px)"
+        },
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 02",
+              "complete": true,
+              "rect": "{\"bottom\":851,\"height\":723,\"left\":1093,\"right\":1635,\"top\":128,\"width\":542,\"x\":1093,\"y\":128}"
+            }
+          ],
+          "transform": "translate3d(15640px, 0px, 0px)"
+        }
+      ],
+      "view": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "557",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.963",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere",
+        "viewer": "open"
+      },
+      "viewport": [
+        889,
+        923
+      ]
+    }
+  },
+  {
+    "label": "fit",
+    "state": {
+      "caption": "影像 01　1 / 36",
+      "focus": "查看影像 01",
+      "opacity": [
+        [
+          ".pswp__top-bar",
+          "1"
+        ],
+        [
+          ".viewer-rail",
+          "1"
+        ],
+        [
+          ".viewer-caption",
+          "1"
+        ],
+        [
+          ".pswp__button--arrow",
+          "1"
+        ]
+      ],
+      "perf": "{\"sphere:dome-motion\":{\"samples\":2,\"total\":0.1,\"mean\":0.05,\"p95\":0,\"max\":0.1},\"sphere:update\":{\"samples\":1,\"total\":0.3,\"mean\":0.3,\"p95\":0.3,\"max\":0.3},\"viewer:viewer-init\":{\"samples\":1,\"total\":16.9,\"mean\":16.9,\"p95\":16.9,\"max\":16.9},\"viewer:viewer-navigation-start\":{\"samples\":3,\"total\":0.3,\"mean\":0.1,\"p95\":0.1,\"max\":0.2},\"viewer:viewer-slide-frame\":{\"samples\":43,\"total\":43,\"mean\":1,\"p95\":1,\"max\":1},\"viewer:viewer-navigation-ms\":{\"samples\":3,\"total\":968.1,\"mean\":322.7,\"p95\":322.6,\"max\":333.5}}",
+      "portals": 0,
+      "root": {
+        "controls": "visible",
+        "index": "0",
+        "navigation": "idle",
+        "reduced": "false",
+        "requestedIndex": "0",
+        "scenePaused": "true",
+        "state": "open",
+        "zoom": "1.000"
+      },
+      "scroller": "translate3d(-14720px, 0px, 0px)",
+      "slides": [
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 36",
+              "complete": true,
+              "rect": "{\"bottom\":851,\"height\":723,\"left\":-747,\"right\":-204,\"top\":128,\"width\":543,\"x\":-747,\"y\":128}"
+            }
+          ],
+          "transform": "translate3d(13800px, 0px, 0px)"
+        },
+        {
+          "hidden": "false",
+          "images": [
+            {
+              "alt": "影像 01",
+              "complete": true,
+              "rect": "{\"bottom\":751,\"height\":523,\"left\":96,\"right\":793,\"top\":228,\"width\":697,\"x\":96,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(14720px, 0px, 0px)"
+        },
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 02",
+              "complete": true,
+              "rect": "{\"bottom\":851,\"height\":723,\"left\":1093,\"right\":1635,\"top\":128,\"width\":542,\"x\":1093,\"y\":128}"
+            }
+          ],
+          "transform": "translate3d(15640px, 0px, 0px)"
+        }
+      ],
+      "view": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "557",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.963",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere",
+        "viewer": "open"
+      },
+      "viewport": [
+        889,
+        923
+      ]
+    }
+  },
+  {
+    "label": "loop-in-progress",
+    "state": {
+      "caption": "影像 36　36 / 36",
+      "focus": "查看影像 36",
+      "opacity": [
+        [
+          ".pswp__top-bar",
+          "1"
+        ],
+        [
+          ".viewer-rail",
+          "1"
+        ],
+        [
+          ".viewer-caption",
+          "1"
+        ],
+        [
+          ".pswp__button--arrow",
+          "1"
+        ]
+      ],
+      "perf": "{\"sphere:dome-motion\":{\"samples\":2,\"total\":0.1,\"mean\":0.05,\"p95\":0,\"max\":0.1},\"sphere:update\":{\"samples\":1,\"total\":0.3,\"mean\":0.3,\"p95\":0.3,\"max\":0.3},\"viewer:viewer-init\":{\"samples\":1,\"total\":16.9,\"mean\":16.9,\"p95\":16.9,\"max\":16.9},\"viewer:viewer-navigation-start\":{\"samples\":5,\"total\":2.2,\"mean\":0.44,\"p95\":0.2,\"max\":1.9},\"viewer:viewer-slide-frame\":{\"samples\":100,\"total\":100,\"mean\":1,\"p95\":1,\"max\":1},\"viewer:viewer-navigation-ms\":{\"samples\":4,\"total\":1324.5,\"mean\":331.125,\"p95\":333.5,\"max\":356.4}}",
+      "portals": 0,
+      "root": {
+        "controls": "visible",
+        "index": "35",
+        "navigation": "next",
+        "reduced": "false",
+        "requestedIndex": "0",
+        "scenePaused": "true",
+        "state": "open",
+        "zoom": "1.000"
+      },
+      "scroller": "translate3d(-14641px, 0px, 0px)",
+      "slides": [
+        {
+          "hidden": "false",
+          "images": [
+            {
+              "alt": "影像 36",
+              "complete": true,
+              "rect": "{\"bottom\":851,\"height\":723,\"left\":-667.9814453125,\"right\":-124.9814453125,\"top\":128,\"width\":543,\"x\":-667.9814453125,\"y\":128}"
+            }
+          ],
+          "transform": "translate3d(13800px, 0px, 0px)"
+        },
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 01",
+              "complete": true,
+              "rect": "{\"bottom\":751,\"height\":523,\"left\":175.0185546875,\"right\":872.0185546875,\"top\":228,\"width\":697,\"x\":175.0185546875,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(14720px, 0px, 0px)"
+        },
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 35",
+              "complete": true,
+              "rect": "{\"bottom\":851,\"height\":723,\"left\":-1587.9814453125,\"right\":-1045.9814453125,\"top\":128,\"width\":542,\"x\":-1587.9814453125,\"y\":128}"
+            }
+          ],
+          "transform": "translate3d(12880px, 0px, 0px)"
+        }
+      ],
+      "view": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "557",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.963",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere",
+        "viewer": "open"
+      },
+      "viewport": [
+        889,
+        923
+      ]
+    }
+  },
+  {
+    "label": "close-during-transition",
+    "state": {
+      "caption": "影像 01　1 / 36",
+      "focus": "单图浏览",
+      "opacity": [
+        [
+          ".pswp__top-bar",
+          "1"
+        ],
+        [
+          ".viewer-rail",
+          "1"
+        ],
+        [
+          ".viewer-caption",
+          "1"
+        ],
+        [
+          ".pswp__button--arrow",
+          "1"
+        ]
+      ],
+      "perf": "{\"sphere:dome-motion\":{\"samples\":2,\"total\":0.1,\"mean\":0.05,\"p95\":0,\"max\":0.1},\"sphere:update\":{\"samples\":1,\"total\":0.3,\"mean\":0.3,\"p95\":0.3,\"max\":0.3},\"viewer:viewer-init\":{\"samples\":1,\"total\":16.9,\"mean\":16.9,\"p95\":16.9,\"max\":16.9},\"viewer:viewer-navigation-start\":{\"samples\":5,\"total\":2.2,\"mean\":0.44,\"p95\":0.2,\"max\":1.9},\"viewer:viewer-slide-frame\":{\"samples\":100,\"total\":100,\"mean\":1,\"p95\":1,\"max\":1},\"viewer:viewer-navigation-ms\":{\"samples\":4,\"total\":1324.5,\"mean\":331.125,\"p95\":333.5,\"max\":356.4}}",
+      "portals": 0,
+      "root": {
+        "controls": "visible",
+        "index": "0",
+        "navigation": "idle",
+        "reduced": "false",
+        "requestedIndex": "0",
+        "scenePaused": "true",
+        "state": "closing",
+        "zoom": "1.000"
+      },
+      "scroller": "translate3d(-14720px, 0px, 0px)",
+      "slides": [
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 36",
+              "complete": true,
+              "rect": "{\"bottom\":851,\"height\":723,\"left\":-747,\"right\":-204,\"top\":128,\"width\":543,\"x\":-747,\"y\":128}"
+            }
+          ],
+          "transform": "translate3d(13800px, 0px, 0px)"
+        },
+        {
+          "hidden": "false",
+          "images": [
+            {
+              "alt": "影像 01",
+              "complete": true,
+              "rect": "{\"bottom\":751,\"height\":523,\"left\":96,\"right\":793,\"top\":228,\"width\":697,\"x\":96,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(14720px, 0px, 0px)"
+        },
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 02",
+              "complete": true,
+              "rect": "{\"bottom\":851,\"height\":723,\"left\":1093,\"right\":1635,\"top\":128,\"width\":542,\"x\":1093,\"y\":128}"
+            }
+          ],
+          "transform": "translate3d(15640px, 0px, 0px)"
+        }
+      ],
+      "view": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "557",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.963",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere",
+        "viewer": "open"
+      },
+      "viewport": [
+        889,
+        923
+      ]
+    }
+  },
+  {
+    "label": "closed-clean",
+    "state": {
+      "focus": "影像 21",
+      "opacity": [],
+      "perf": "{\"sphere:dome-motion\":{\"samples\":4,\"total\":0.2,\"mean\":0.05,\"p95\":0.1,\"max\":0.1},\"sphere:update\":{\"samples\":2,\"total\":0.5,\"mean\":0.25,\"p95\":0.2,\"max\":0.3},\"viewer:viewer-init\":{\"samples\":1,\"total\":16.9,\"mean\":16.9,\"p95\":16.9,\"max\":16.9},\"viewer:viewer-navigation-start\":{\"samples\":6,\"total\":2.3,\"mean\":0.383,\"p95\":0.2,\"max\":1.9},\"viewer:viewer-slide-frame\":{\"samples\":127,\"total\":127,\"mean\":1,\"p95\":1,\"max\":1},\"viewer:viewer-navigation-ms\":{\"samples\":4,\"total\":1324.5,\"mean\":331.125,\"p95\":333.5,\"max\":356.4}}",
+      "portals": 0,
+      "root": null,
+      "slides": [],
+      "view": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "557",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.963",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere",
+        "viewer": "closed"
+      },
+      "viewport": [
+        889,
+        923
+      ]
+    }
+  },
+  {
+    "label": "rotated-source",
+    "state": {
+      "focus": "曲面照片墙，上下左右拖动或方向键旋转",
+      "opacity": [],
+      "perf": "{\"sphere:dome-motion\":{\"samples\":6,\"total\":1.2,\"mean\":0.2,\"p95\":0.1,\"max\":1},\"sphere:update\":{\"samples\":4,\"total\":1,\"mean\":0.25,\"p95\":0.3,\"max\":0.3},\"viewer:viewer-init\":{\"samples\":1,\"total\":16.9,\"mean\":16.9,\"p95\":16.9,\"max\":16.9},\"viewer:viewer-navigation-start\":{\"samples\":6,\"total\":2.3,\"mean\":0.383,\"p95\":0.2,\"max\":1.9},\"viewer:viewer-slide-frame\":{\"samples\":127,\"total\":127,\"mean\":1,\"p95\":1,\"max\":1},\"viewer:viewer-navigation-ms\":{\"samples\":4,\"total\":1324.5,\"mean\":331.125,\"p95\":333.5,\"max\":356.4},\"sphere:frameInterval\":{\"samples\":1,\"total\":24.3,\"mean\":24.3,\"p95\":24.3,\"max\":24.3}}",
+      "portals": 0,
+      "root": null,
+      "slides": [],
+      "view": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "557",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.963",
+        "orientation": "0.160,-0.160",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "-0.07966,0.07966,-0.00639,0.99361",
+        "reduced": "false",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere",
+        "viewer": "closed"
+      },
+      "viewport": [
+        889,
+        923
+      ]
+    }
+  },
+  {
+    "label": "space-before-open",
+    "state": {
+      "focus": "椭球照片与无限影像空间。拖拽旋转或平移，滚轮穿行。方向键平移，W/S前后，Q/E升降，Enter进入，Esc返回。",
+      "opacity": [],
+      "perf": "{\"sphere:dome-motion\":{\"samples\":6,\"total\":1.2,\"mean\":0.2,\"p95\":0.1,\"max\":1},\"sphere:update\":{\"samples\":4,\"total\":1,\"mean\":0.25,\"p95\":0.3,\"max\":0.3},\"viewer:viewer-init\":{\"samples\":1,\"total\":16.9,\"mean\":16.9,\"p95\":16.9,\"max\":16.9},\"viewer:viewer-navigation-start\":{\"samples\":6,\"total\":2.3,\"mean\":0.383,\"p95\":0.2,\"max\":1.9},\"viewer:viewer-slide-frame\":{\"samples\":127,\"total\":127,\"mean\":1,\"p95\":1,\"max\":1},\"viewer:viewer-navigation-ms\":{\"samples\":4,\"total\":1324.5,\"mean\":331.125,\"p95\":333.5,\"max\":356.4},\"sphere:frameInterval\":{\"samples\":1,\"total\":24.3,\"mean\":24.3,\"p95\":24.3,\"max\":24.3},\"transition:frameInterval\":{\"samples\":90,\"total\":1448.1,\"mean\":16.09,\"p95\":24.3,\"max\":72.7},\"transition:candidates\":{\"samples\":90,\"total\":30.3,\"mean\":0.337,\"p95\":0.7,\"max\":4.3},\"transition:render\":{\"samples\":90,\"total\":43.7,\"mean\":0.486,\"p95\":0.7,\"max\":15.3},\"transition:renders\":{\"samples\":90,\"total\":90,\"mean\":1,\"p95\":1,\"max\":1},\"transition:drawCalls\":{\"samples\":90,\"total\":1927,\"mean\":21.411,\"p95\":28,\"max\":31},\"transition:update\":{\"samples\":90,\"total\":110.2,\"mean\":1.224,\"p95\":2,\"max\":20},\"space:frameInterval\":{\"samples\":360,\"total\":2211.5,\"mean\":6.143,\"p95\":6.2,\"max\":24.2},\"space:render\":{\"samples\":361,\"total\":60.6,\"mean\":0.168,\"p95\":0.4,\"max\":0.8},\"space:renders\":{\"samples\":361,\"total\":361,\"mean\":1,\"p95\":1,\"max\":1},\"space:drawCalls\":{\"samples\":361,\"total\":6951,\"mean\":19.255,\"p95\":23,\"max\":25},\"space:update\":{\"samples\":361,\"total\":245.6,\"mean\":0.68,\"p95\":1.4,\"max\":2.3},\"space:candidates\":{\"samples\":335,\"total\":87.4,\"mean\":0.261,\"p95\":0.5,\"max\":1.1}}",
+      "portals": 0,
+      "root": null,
+      "slides": [],
+      "view": {
+        "actualCamera": "0.7033,0.6976,1.6986",
+        "anchorPose": "0.7033,0.6976,6.1204",
+        "aspectError": "2.220e-16",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-111.84",
+        "detail": "ready",
+        "distance": "-111.84",
+        "domeRadius": "557",
+        "fieldCount": "16",
+        "fieldLayout": "projection-gap",
+        "fieldRetiring": "0",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.963",
+        "orientation": "0.160,-0.160",
+        "pan": "0.00,0.00",
+        "portal": "0.7033,0.6976,6.1204",
+        "progress": "1.000",
+        "quaternion": "-0.07966,0.07966,-0.00639,0.99361",
+        "reduced": "false",
+        "regions": "10",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "subtle",
+        "view": "space",
+        "viewer": "closed"
+      },
+      "viewport": [
+        889,
+        923
+      ]
+    }
+  },
+  {
+    "label": "space-open",
+    "state": {
+      "caption": "影像 21　21 / 36",
+      "focus": "单图浏览",
+      "opacity": [
+        [
+          ".pswp__top-bar",
+          "1"
+        ],
+        [
+          ".viewer-rail",
+          "1"
+        ],
+        [
+          ".viewer-caption",
+          "1"
+        ],
+        [
+          ".pswp__button--arrow",
+          "1"
+        ]
+      ],
+      "perf": "{\"sphere:dome-motion\":{\"samples\":6,\"total\":1.2,\"mean\":0.2,\"p95\":0.1,\"max\":1},\"sphere:update\":{\"samples\":4,\"total\":1,\"mean\":0.25,\"p95\":0.3,\"max\":0.3},\"viewer:viewer-init\":{\"samples\":2,\"total\":29.5,\"mean\":14.75,\"p95\":12.6,\"max\":16.9},\"viewer:viewer-navigation-start\":{\"samples\":6,\"total\":2.3,\"mean\":0.383,\"p95\":0.2,\"max\":1.9},\"viewer:viewer-slide-frame\":{\"samples\":127,\"total\":127,\"mean\":1,\"p95\":1,\"max\":1},\"viewer:viewer-navigation-ms\":{\"samples\":4,\"total\":1324.5,\"mean\":331.125,\"p95\":333.5,\"max\":356.4},\"sphere:frameInterval\":{\"samples\":1,\"total\":24.3,\"mean\":24.3,\"p95\":24.3,\"max\":24.3},\"transition:frameInterval\":{\"samples\":90,\"total\":1448.1,\"mean\":16.09,\"p95\":24.3,\"max\":72.7},\"transition:candidates\":{\"samples\":90,\"total\":30.3,\"mean\":0.337,\"p95\":0.7,\"max\":4.3},\"transition:render\":{\"samples\":90,\"total\":43.7,\"mean\":0.486,\"p95\":0.7,\"max\":15.3},\"transition:renders\":{\"samples\":90,\"total\":90,\"mean\":1,\"p95\":1,\"max\":1},\"transition:drawCalls\":{\"samples\":90,\"total\":1927,\"mean\":21.411,\"p95\":28,\"max\":31},\"transition:update\":{\"samples\":90,\"total\":110.2,\"mean\":1.224,\"p95\":2,\"max\":20},\"space:frameInterval\":{\"samples\":360,\"total\":2211.5,\"mean\":6.143,\"p95\":6.2,\"max\":24.2},\"space:render\":{\"samples\":361,\"total\":60.6,\"mean\":0.168,\"p95\":0.4,\"max\":0.8},\"space:renders\":{\"samples\":361,\"total\":361,\"mean\":1,\"p95\":1,\"max\":1},\"space:drawCalls\":{\"samples\":361,\"total\":6951,\"mean\":19.255,\"p95\":23,\"max\":25},\"space:update\":{\"samples\":361,\"total\":245.6,\"mean\":0.68,\"p95\":1.4,\"max\":2.3},\"space:candidates\":{\"samples\":335,\"total\":87.4,\"mean\":0.261,\"p95\":0.5,\"max\":1.1}}",
+      "portals": 0,
+      "root": {
+        "controls": "visible",
+        "index": "20",
+        "navigation": "idle",
+        "reduced": "false",
+        "scenePaused": "true",
+        "state": "open",
+        "zoom": "1.000"
+      },
+      "scroller": "translate3d(0px, 0px, 0px)",
+      "slides": [
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 20",
+              "complete": true,
+              "rect": "{\"bottom\":751,\"height\":523,\"left\":-824,\"right\":-127,\"top\":228,\"width\":697,\"x\":-824,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(-920px, 0px, 0px)"
+        },
+        {
+          "hidden": "false",
+          "images": [
+            {
+              "alt": "",
+              "complete": true,
+              "rect": "{\"bottom\":750.75,\"height\":522.75,\"left\":96,\"right\":793,\"top\":228,\"width\":697,\"x\":96,\"y\":228}"
+            },
+            {
+              "alt": "影像 21",
+              "complete": true,
+              "rect": "{\"bottom\":751,\"height\":523,\"left\":96,\"right\":793,\"top\":228,\"width\":697,\"x\":96,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(0px, 0px, 0px)"
+        },
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 22",
+              "complete": true,
+              "rect": "{\"bottom\":750,\"height\":522,\"left\":1016,\"right\":1713,\"top\":228,\"width\":697,\"x\":1016,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(920px, 0px, 0px)"
+        }
+      ],
+      "view": {
+        "actualCamera": "0.7033,0.6976,1.6986",
+        "anchorPose": "0.7033,0.6976,6.1204",
+        "aspectError": "2.220e-16",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-111.84",
+        "detail": "ready",
+        "distance": "-111.84",
+        "domeRadius": "557",
+        "fieldCount": "16",
+        "fieldLayout": "projection-gap",
+        "fieldRetiring": "0",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.963",
+        "orientation": "0.160,-0.160",
+        "pan": "0.00,0.00",
+        "portal": "0.7033,0.6976,6.1204",
+        "progress": "1.000",
+        "quaternion": "-0.07966,0.07966,-0.00639,0.99361",
+        "reduced": "false",
+        "regions": "10",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "subtle",
+        "view": "space",
+        "viewer": "open"
+      },
+      "viewport": [
+        889,
+        923
+      ]
+    }
+  },
+  {
+    "label": "space-switch",
+    "state": {
+      "caption": "影像 21　21 / 36",
+      "focus": "单图浏览",
+      "opacity": [
+        [
+          ".pswp__top-bar",
+          "1"
+        ],
+        [
+          ".viewer-rail",
+          "1"
+        ],
+        [
+          ".viewer-caption",
+          "1"
+        ],
+        [
+          ".pswp__button--arrow",
+          "1"
+        ]
+      ],
+      "perf": "{\"sphere:dome-motion\":{\"samples\":6,\"total\":1.2,\"mean\":0.2,\"p95\":0.1,\"max\":1},\"sphere:update\":{\"samples\":4,\"total\":1,\"mean\":0.25,\"p95\":0.3,\"max\":0.3},\"viewer:viewer-init\":{\"samples\":2,\"total\":29.5,\"mean\":14.75,\"p95\":12.6,\"max\":16.9},\"viewer:viewer-navigation-start\":{\"samples\":6,\"total\":2.3,\"mean\":0.383,\"p95\":0.2,\"max\":1.9},\"viewer:viewer-slide-frame\":{\"samples\":127,\"total\":127,\"mean\":1,\"p95\":1,\"max\":1},\"viewer:viewer-navigation-ms\":{\"samples\":4,\"total\":1324.5,\"mean\":331.125,\"p95\":333.5,\"max\":356.4},\"sphere:frameInterval\":{\"samples\":1,\"total\":24.3,\"mean\":24.3,\"p95\":24.3,\"max\":24.3},\"transition:frameInterval\":{\"samples\":90,\"total\":1448.1,\"mean\":16.09,\"p95\":24.3,\"max\":72.7},\"transition:candidates\":{\"samples\":90,\"total\":30.3,\"mean\":0.337,\"p95\":0.7,\"max\":4.3},\"transition:render\":{\"samples\":90,\"total\":43.7,\"mean\":0.486,\"p95\":0.7,\"max\":15.3},\"transition:renders\":{\"samples\":90,\"total\":90,\"mean\":1,\"p95\":1,\"max\":1},\"transition:drawCalls\":{\"samples\":90,\"total\":1927,\"mean\":21.411,\"p95\":28,\"max\":31},\"transition:update\":{\"samples\":90,\"total\":110.2,\"mean\":1.224,\"p95\":2,\"max\":20},\"space:frameInterval\":{\"samples\":360,\"total\":2211.5,\"mean\":6.143,\"p95\":6.2,\"max\":24.2},\"space:render\":{\"samples\":361,\"total\":60.6,\"mean\":0.168,\"p95\":0.4,\"max\":0.8},\"space:renders\":{\"samples\":361,\"total\":361,\"mean\":1,\"p95\":1,\"max\":1},\"space:drawCalls\":{\"samples\":361,\"total\":6951,\"mean\":19.255,\"p95\":23,\"max\":25},\"space:update\":{\"samples\":361,\"total\":245.6,\"mean\":0.68,\"p95\":1.4,\"max\":2.3},\"space:candidates\":{\"samples\":335,\"total\":87.4,\"mean\":0.261,\"p95\":0.5,\"max\":1.1}}",
+      "portals": 0,
+      "root": {
+        "controls": "visible",
+        "index": "20",
+        "navigation": "next",
+        "reduced": "false",
+        "requestedIndex": "22",
+        "scenePaused": "true",
+        "state": "open",
+        "zoom": "1.000"
+      },
+      "scroller": "translate3d(-140.15px, 0px, 0px)",
+      "slides": [
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 20",
+              "complete": true,
+              "rect": "{\"bottom\":751,\"height\":523,\"left\":-964.1495361328125,\"right\":-267.1495361328125,\"top\":228,\"width\":697,\"x\":-964.1495361328125,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(-920px, 0px, 0px)"
+        },
+        {
+          "hidden": "false",
+          "images": [
+            {
+              "alt": "",
+              "complete": true,
+              "rect": "{\"bottom\":750.75,\"height\":522.75,\"left\":-44.14952087402344,\"right\":652.8504791259766,\"top\":228,\"width\":697,\"x\":-44.14952087402344,\"y\":228}"
+            },
+            {
+              "alt": "影像 21",
+              "complete": true,
+              "rect": "{\"bottom\":751,\"height\":523,\"left\":-44.14952087402344,\"right\":652.8504791259766,\"top\":228,\"width\":697,\"x\":-44.14952087402344,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(0px, 0px, 0px)"
+        },
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 22",
+              "complete": true,
+              "rect": "{\"bottom\":750,\"height\":522,\"left\":875.8504638671875,\"right\":1572.8504638671875,\"top\":228,\"width\":697,\"x\":875.8504638671875,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(920px, 0px, 0px)"
+        }
+      ],
+      "view": {
+        "actualCamera": "0.7033,0.6976,1.6986",
+        "anchorPose": "0.7033,0.6976,6.1204",
+        "aspectError": "2.220e-16",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-111.84",
+        "detail": "ready",
+        "distance": "-111.84",
+        "domeRadius": "557",
+        "fieldCount": "16",
+        "fieldLayout": "projection-gap",
+        "fieldRetiring": "0",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.963",
+        "orientation": "0.160,-0.160",
+        "pan": "0.00,0.00",
+        "portal": "0.7033,0.6976,6.1204",
+        "progress": "1.000",
+        "quaternion": "-0.07966,0.07966,-0.00639,0.99361",
+        "reduced": "false",
+        "regions": "10",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "subtle",
+        "view": "space",
+        "viewer": "open"
+      },
+      "viewport": [
+        889,
+        923
+      ]
+    }
+  },
+  {
+    "label": "space-closed",
+    "state": {
+      "focus": null,
+      "opacity": [],
+      "perf": "{\"sphere:dome-motion\":{\"samples\":6,\"total\":1.2,\"mean\":0.2,\"p95\":0.1,\"max\":1},\"sphere:update\":{\"samples\":4,\"total\":1,\"mean\":0.25,\"p95\":0.3,\"max\":0.3},\"viewer:viewer-init\":{\"samples\":2,\"total\":29.5,\"mean\":14.75,\"p95\":12.6,\"max\":16.9},\"viewer:viewer-navigation-start\":{\"samples\":6,\"total\":2.3,\"mean\":0.383,\"p95\":0.2,\"max\":1.9},\"viewer:viewer-slide-frame\":{\"samples\":127,\"total\":127,\"mean\":1,\"p95\":1,\"max\":1},\"viewer:viewer-navigation-ms\":{\"samples\":4,\"total\":1324.5,\"mean\":331.125,\"p95\":333.5,\"max\":356.4},\"sphere:frameInterval\":{\"samples\":1,\"total\":24.3,\"mean\":24.3,\"p95\":24.3,\"max\":24.3},\"transition:frameInterval\":{\"samples\":90,\"total\":1448.1,\"mean\":16.09,\"p95\":24.3,\"max\":72.7},\"transition:candidates\":{\"samples\":90,\"total\":30.3,\"mean\":0.337,\"p95\":0.7,\"max\":4.3},\"transition:render\":{\"samples\":90,\"total\":43.7,\"mean\":0.486,\"p95\":0.7,\"max\":15.3},\"transition:renders\":{\"samples\":90,\"total\":90,\"mean\":1,\"p95\":1,\"max\":1},\"transition:drawCalls\":{\"samples\":90,\"total\":1927,\"mean\":21.411,\"p95\":28,\"max\":31},\"transition:update\":{\"samples\":90,\"total\":110.2,\"mean\":1.224,\"p95\":2,\"max\":20},\"space:frameInterval\":{\"samples\":360,\"total\":2211.5,\"mean\":6.143,\"p95\":6.2,\"max\":24.2},\"space:render\":{\"samples\":361,\"total\":60.6,\"mean\":0.168,\"p95\":0.4,\"max\":0.8},\"space:renders\":{\"samples\":361,\"total\":361,\"mean\":1,\"p95\":1,\"max\":1},\"space:drawCalls\":{\"samples\":361,\"total\":6951,\"mean\":19.255,\"p95\":23,\"max\":25},\"space:update\":{\"samples\":361,\"total\":245.6,\"mean\":0.68,\"p95\":1.4,\"max\":2.3},\"space:candidates\":{\"samples\":335,\"total\":87.4,\"mean\":0.261,\"p95\":0.5,\"max\":1.1}}",
+      "portals": 0,
+      "root": null,
+      "slides": [],
+      "view": {
+        "actualCamera": "0.7033,0.6976,1.6986",
+        "anchorPose": "0.7033,0.6976,6.1204",
+        "aspectError": "2.220e-16",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-111.84",
+        "detail": "ready",
+        "distance": "-111.84",
+        "domeRadius": "557",
+        "fieldCount": "16",
+        "fieldLayout": "projection-gap",
+        "fieldRetiring": "0",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.963",
+        "orientation": "0.160,-0.160",
+        "pan": "0.00,0.00",
+        "portal": "0.7033,0.6976,6.1204",
+        "progress": "1.000",
+        "quaternion": "-0.07966,0.07966,-0.00639,0.99361",
+        "reduced": "false",
+        "regions": "10",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "subtle",
+        "view": "space",
+        "viewer": "closed"
+      },
+      "viewport": [
+        889,
+        923
+      ]
+    }
+  },
+  {
+    "label": "phone-open",
+    "state": {
+      "caption": "影像 21　21 / 36",
+      "focus": "单图浏览",
+      "opacity": [
+        [
+          ".pswp__top-bar",
+          "1"
+        ],
+        [
+          ".viewer-rail",
+          "1"
+        ],
+        [
+          ".viewer-caption",
+          "1"
+        ],
+        [
+          ".pswp__button--arrow",
+          "1"
+        ]
+      ],
+      "perf": "{\"sphere:dome-motion\":{\"samples\":6,\"total\":1.2,\"mean\":0.2,\"p95\":0.1,\"max\":1},\"sphere:update\":{\"samples\":4,\"total\":1,\"mean\":0.25,\"p95\":0.3,\"max\":0.3},\"viewer:viewer-init\":{\"samples\":3,\"total\":41.8,\"mean\":13.933,\"p95\":12.6,\"max\":16.9},\"viewer:viewer-navigation-start\":{\"samples\":7,\"total\":2.3,\"mean\":0.329,\"p95\":0.2,\"max\":1.9},\"viewer:viewer-slide-frame\":{\"samples\":134,\"total\":134,\"mean\":1,\"p95\":1,\"max\":1},\"viewer:viewer-navigation-ms\":{\"samples\":4,\"total\":1324.5,\"mean\":331.125,\"p95\":333.5,\"max\":356.4},\"sphere:frameInterval\":{\"samples\":1,\"total\":24.3,\"mean\":24.3,\"p95\":24.3,\"max\":24.3},\"transition:frameInterval\":{\"samples\":90,\"total\":1448.1,\"mean\":16.09,\"p95\":24.3,\"max\":72.7},\"transition:candidates\":{\"samples\":90,\"total\":30.3,\"mean\":0.337,\"p95\":0.7,\"max\":4.3},\"transition:render\":{\"samples\":90,\"total\":43.7,\"mean\":0.486,\"p95\":0.7,\"max\":15.3},\"transition:renders\":{\"samples\":90,\"total\":90,\"mean\":1,\"p95\":1,\"max\":1},\"transition:drawCalls\":{\"samples\":90,\"total\":1927,\"mean\":21.411,\"p95\":28,\"max\":31},\"transition:update\":{\"samples\":90,\"total\":110.2,\"mean\":1.224,\"p95\":2,\"max\":20},\"space:frameInterval\":{\"samples\":363,\"total\":2229.7,\"mean\":6.142,\"p95\":6.2,\"max\":24.2},\"space:render\":{\"samples\":366,\"total\":61,\"mean\":0.167,\"p95\":0.3,\"max\":0.8},\"space:renders\":{\"samples\":366,\"total\":366,\"mean\":1,\"p95\":1,\"max\":1},\"space:drawCalls\":{\"samples\":366,\"total\":7006,\"mean\":19.142,\"p95\":23,\"max\":25},\"space:update\":{\"samples\":365,\"total\":247.6,\"mean\":0.678,\"p95\":1.4,\"max\":2.3},\"space:candidates\":{\"samples\":336,\"total\":87.6,\"mean\":0.261,\"p95\":0.5,\"max\":1.1}}",
+      "portals": 0,
+      "root": {
+        "controls": "visible",
+        "index": "20",
+        "navigation": "idle",
+        "reduced": "false",
+        "scenePaused": "true",
+        "state": "open",
+        "zoom": "1.000"
+      },
+      "scroller": "translate3d(0px, 0px, 0px)",
+      "slides": [
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 20",
+              "complete": true,
+              "rect": "{\"bottom\":576,\"height\":268,\"left\":-388,\"right\":-30,\"top\":308,\"width\":358,\"x\":-388,\"y\":308}"
+            }
+          ],
+          "transform": "translate3d(-404px, 0px, 0px)"
+        },
+        {
+          "hidden": "false",
+          "images": [
+            {
+              "alt": "",
+              "complete": true,
+              "rect": "{\"bottom\":576.5,\"height\":268.5,\"left\":16,\"right\":374,\"top\":308,\"width\":358,\"x\":16,\"y\":308}"
+            },
+            {
+              "alt": "影像 21",
+              "complete": true,
+              "rect": "{\"bottom\":577,\"height\":269,\"left\":16,\"right\":374,\"top\":308,\"width\":358,\"x\":16,\"y\":308}"
+            }
+          ],
+          "transform": "translate3d(0px, 0px, 0px)"
+        },
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 22",
+              "complete": true,
+              "rect": "{\"bottom\":576,\"height\":268,\"left\":420,\"right\":778,\"top\":308,\"width\":358,\"x\":420,\"y\":308}"
+            }
+          ],
+          "transform": "translate3d(404px, 0px, 0px)"
+        }
+      ],
+      "view": {
+        "actualCamera": "0.7033,0.6976,1.6986",
+        "anchorPose": "0.7033,0.6976,6.1204",
+        "aspectError": "2.220e-16",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-111.84",
+        "detail": "ready",
+        "distance": "-111.84",
+        "domeRadius": "557",
+        "fieldCount": "10",
+        "fieldLayout": "projection-gap",
+        "fieldRetiring": "6",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.462",
+        "orientation": "0.160,-0.160",
+        "pan": "0.00,0.00",
+        "portal": "0.7033,0.6976,6.1204",
+        "progress": "1.000",
+        "quaternion": "-0.07966,0.07966,-0.00639,0.99361",
+        "reduced": "false",
+        "regions": "8",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "subtle",
+        "view": "space",
+        "viewer": "open"
+      },
+      "viewport": [
+        390,
+        844
+      ]
+    }
+  },
+  {
+    "label": "phone-idle",
+    "state": {
+      "caption": "影像 21　21 / 36",
+      "focus": "单图浏览",
+      "opacity": [
+        [
+          ".pswp__top-bar",
+          "0"
+        ],
+        [
+          ".viewer-rail",
+          "0"
+        ],
+        [
+          ".viewer-caption",
+          "0"
+        ],
+        [
+          ".pswp__button--arrow",
+          "0"
+        ]
+      ],
+      "perf": "{\"sphere:dome-motion\":{\"samples\":6,\"total\":1.2,\"mean\":0.2,\"p95\":0.1,\"max\":1},\"sphere:update\":{\"samples\":4,\"total\":1,\"mean\":0.25,\"p95\":0.3,\"max\":0.3},\"viewer:viewer-init\":{\"samples\":3,\"total\":41.8,\"mean\":13.933,\"p95\":12.6,\"max\":16.9},\"viewer:viewer-navigation-start\":{\"samples\":7,\"total\":2.3,\"mean\":0.329,\"p95\":0.2,\"max\":1.9},\"viewer:viewer-slide-frame\":{\"samples\":134,\"total\":134,\"mean\":1,\"p95\":1,\"max\":1},\"viewer:viewer-navigation-ms\":{\"samples\":4,\"total\":1324.5,\"mean\":331.125,\"p95\":333.5,\"max\":356.4},\"sphere:frameInterval\":{\"samples\":1,\"total\":24.3,\"mean\":24.3,\"p95\":24.3,\"max\":24.3},\"transition:frameInterval\":{\"samples\":90,\"total\":1448.1,\"mean\":16.09,\"p95\":24.3,\"max\":72.7},\"transition:candidates\":{\"samples\":90,\"total\":30.3,\"mean\":0.337,\"p95\":0.7,\"max\":4.3},\"transition:render\":{\"samples\":90,\"total\":43.7,\"mean\":0.486,\"p95\":0.7,\"max\":15.3},\"transition:renders\":{\"samples\":90,\"total\":90,\"mean\":1,\"p95\":1,\"max\":1},\"transition:drawCalls\":{\"samples\":90,\"total\":1927,\"mean\":21.411,\"p95\":28,\"max\":31},\"transition:update\":{\"samples\":90,\"total\":110.2,\"mean\":1.224,\"p95\":2,\"max\":20},\"space:frameInterval\":{\"samples\":363,\"total\":2229.7,\"mean\":6.142,\"p95\":6.2,\"max\":24.2},\"space:render\":{\"samples\":366,\"total\":61,\"mean\":0.167,\"p95\":0.3,\"max\":0.8},\"space:renders\":{\"samples\":366,\"total\":366,\"mean\":1,\"p95\":1,\"max\":1},\"space:drawCalls\":{\"samples\":366,\"total\":7006,\"mean\":19.142,\"p95\":23,\"max\":25},\"space:update\":{\"samples\":365,\"total\":247.6,\"mean\":0.678,\"p95\":1.4,\"max\":2.3},\"space:candidates\":{\"samples\":336,\"total\":87.6,\"mean\":0.261,\"p95\":0.5,\"max\":1.1}}",
+      "portals": 0,
+      "root": {
+        "controls": "hidden",
+        "index": "20",
+        "navigation": "idle",
+        "reduced": "false",
+        "scenePaused": "true",
+        "state": "open",
+        "zoom": "1.000"
+      },
+      "scroller": "translate3d(0px, 0px, 0px)",
+      "slides": [
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 20",
+              "complete": true,
+              "rect": "{\"bottom\":576,\"height\":268,\"left\":-388,\"right\":-30,\"top\":308,\"width\":358,\"x\":-388,\"y\":308}"
+            }
+          ],
+          "transform": "translate3d(-404px, 0px, 0px)"
+        },
+        {
+          "hidden": "false",
+          "images": [
+            {
+              "alt": "影像 21",
+              "complete": true,
+              "rect": "{\"bottom\":577,\"height\":269,\"left\":16,\"right\":374,\"top\":308,\"width\":358,\"x\":16,\"y\":308}"
+            }
+          ],
+          "transform": "translate3d(0px, 0px, 0px)"
+        },
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 22",
+              "complete": true,
+              "rect": "{\"bottom\":576,\"height\":268,\"left\":420,\"right\":778,\"top\":308,\"width\":358,\"x\":420,\"y\":308}"
+            }
+          ],
+          "transform": "translate3d(404px, 0px, 0px)"
+        }
+      ],
+      "view": {
+        "actualCamera": "0.7033,0.6976,1.6986",
+        "anchorPose": "0.7033,0.6976,6.1204",
+        "aspectError": "2.220e-16",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-111.84",
+        "detail": "ready",
+        "distance": "-111.84",
+        "domeRadius": "557",
+        "fieldCount": "10",
+        "fieldLayout": "projection-gap",
+        "fieldRetiring": "6",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.462",
+        "orientation": "0.160,-0.160",
+        "pan": "0.00,0.00",
+        "portal": "0.7033,0.6976,6.1204",
+        "progress": "1.000",
+        "quaternion": "-0.07966,0.07966,-0.00639,0.99361",
+        "reduced": "false",
+        "regions": "8",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "subtle",
+        "view": "space",
+        "viewer": "open"
+      },
+      "viewport": [
+        390,
+        844
+      ]
+    }
+  },
+  {
+    "label": "idle-keyboard-reveal",
+    "state": {
+      "caption": "影像 21　21 / 36",
+      "focus": "完整显示原图",
+      "opacity": [
+        [
+          ".pswp__top-bar",
+          "0.0713384"
+        ],
+        [
+          ".viewer-rail",
+          "0.0713384"
+        ],
+        [
+          ".viewer-caption",
+          "0.0713384"
+        ],
+        [
+          ".pswp__button--arrow",
+          "0.0713384"
+        ]
+      ],
+      "perf": "{\"sphere:dome-motion\":{\"samples\":6,\"total\":1.2,\"mean\":0.2,\"p95\":0.1,\"max\":1},\"sphere:update\":{\"samples\":4,\"total\":1,\"mean\":0.25,\"p95\":0.3,\"max\":0.3},\"viewer:viewer-init\":{\"samples\":3,\"total\":41.8,\"mean\":13.933,\"p95\":12.6,\"max\":16.9},\"viewer:viewer-navigation-start\":{\"samples\":7,\"total\":2.3,\"mean\":0.329,\"p95\":0.2,\"max\":1.9},\"viewer:viewer-slide-frame\":{\"samples\":134,\"total\":134,\"mean\":1,\"p95\":1,\"max\":1},\"viewer:viewer-navigation-ms\":{\"samples\":4,\"total\":1324.5,\"mean\":331.125,\"p95\":333.5,\"max\":356.4},\"sphere:frameInterval\":{\"samples\":1,\"total\":24.3,\"mean\":24.3,\"p95\":24.3,\"max\":24.3},\"transition:frameInterval\":{\"samples\":90,\"total\":1448.1,\"mean\":16.09,\"p95\":24.3,\"max\":72.7},\"transition:candidates\":{\"samples\":90,\"total\":30.3,\"mean\":0.337,\"p95\":0.7,\"max\":4.3},\"transition:render\":{\"samples\":90,\"total\":43.7,\"mean\":0.486,\"p95\":0.7,\"max\":15.3},\"transition:renders\":{\"samples\":90,\"total\":90,\"mean\":1,\"p95\":1,\"max\":1},\"transition:drawCalls\":{\"samples\":90,\"total\":1927,\"mean\":21.411,\"p95\":28,\"max\":31},\"transition:update\":{\"samples\":90,\"total\":110.2,\"mean\":1.224,\"p95\":2,\"max\":20},\"space:frameInterval\":{\"samples\":363,\"total\":2229.7,\"mean\":6.142,\"p95\":6.2,\"max\":24.2},\"space:render\":{\"samples\":366,\"total\":61,\"mean\":0.167,\"p95\":0.3,\"max\":0.8},\"space:renders\":{\"samples\":366,\"total\":366,\"mean\":1,\"p95\":1,\"max\":1},\"space:drawCalls\":{\"samples\":366,\"total\":7006,\"mean\":19.142,\"p95\":23,\"max\":25},\"space:update\":{\"samples\":365,\"total\":247.6,\"mean\":0.678,\"p95\":1.4,\"max\":2.3},\"space:candidates\":{\"samples\":336,\"total\":87.6,\"mean\":0.261,\"p95\":0.5,\"max\":1.1}}",
+      "portals": 0,
+      "root": {
+        "controls": "visible",
+        "index": "20",
+        "navigation": "idle",
+        "reduced": "false",
+        "scenePaused": "true",
+        "state": "open",
+        "zoom": "1.000"
+      },
+      "scroller": "translate3d(0px, 0px, 0px)",
+      "slides": [
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 20",
+              "complete": true,
+              "rect": "{\"bottom\":576,\"height\":268,\"left\":-388,\"right\":-30,\"top\":308,\"width\":358,\"x\":-388,\"y\":308}"
+            }
+          ],
+          "transform": "translate3d(-404px, 0px, 0px)"
+        },
+        {
+          "hidden": "false",
+          "images": [
+            {
+              "alt": "影像 21",
+              "complete": true,
+              "rect": "{\"bottom\":577,\"height\":269,\"left\":16,\"right\":374,\"top\":308,\"width\":358,\"x\":16,\"y\":308}"
+            }
+          ],
+          "transform": "translate3d(0px, 0px, 0px)"
+        },
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 22",
+              "complete": true,
+              "rect": "{\"bottom\":576,\"height\":268,\"left\":420,\"right\":778,\"top\":308,\"width\":358,\"x\":420,\"y\":308}"
+            }
+          ],
+          "transform": "translate3d(404px, 0px, 0px)"
+        }
+      ],
+      "view": {
+        "actualCamera": "0.7033,0.6976,1.6986",
+        "anchorPose": "0.7033,0.6976,6.1204",
+        "aspectError": "2.220e-16",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-111.84",
+        "detail": "ready",
+        "distance": "-111.84",
+        "domeRadius": "557",
+        "fieldCount": "10",
+        "fieldLayout": "projection-gap",
+        "fieldRetiring": "6",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.462",
+        "orientation": "0.160,-0.160",
+        "pan": "0.00,0.00",
+        "portal": "0.7033,0.6976,6.1204",
+        "progress": "1.000",
+        "quaternion": "-0.07966,0.07966,-0.00639,0.99361",
+        "reduced": "false",
+        "regions": "8",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "subtle",
+        "view": "space",
+        "viewer": "open"
+      },
+      "viewport": [
+        390,
+        844
+      ]
+    }
+  },
+  {
+    "label": "phone-next",
+    "state": {
+      "caption": "影像 21　21 / 36",
+      "focus": "完整显示原图",
+      "opacity": [
+        [
+          ".pswp__top-bar",
+          "1"
+        ],
+        [
+          ".viewer-rail",
+          "1"
+        ],
+        [
+          ".viewer-caption",
+          "1"
+        ],
+        [
+          ".pswp__button--arrow",
+          "1"
+        ]
+      ],
+      "perf": "{\"sphere:dome-motion\":{\"samples\":6,\"total\":1.2,\"mean\":0.2,\"p95\":0.1,\"max\":1},\"sphere:update\":{\"samples\":4,\"total\":1,\"mean\":0.25,\"p95\":0.3,\"max\":0.3},\"viewer:viewer-init\":{\"samples\":3,\"total\":41.8,\"mean\":13.933,\"p95\":12.6,\"max\":16.9},\"viewer:viewer-navigation-start\":{\"samples\":7,\"total\":2.3,\"mean\":0.329,\"p95\":0.2,\"max\":1.9},\"viewer:viewer-slide-frame\":{\"samples\":134,\"total\":134,\"mean\":1,\"p95\":1,\"max\":1},\"viewer:viewer-navigation-ms\":{\"samples\":4,\"total\":1324.5,\"mean\":331.125,\"p95\":333.5,\"max\":356.4},\"sphere:frameInterval\":{\"samples\":1,\"total\":24.3,\"mean\":24.3,\"p95\":24.3,\"max\":24.3},\"transition:frameInterval\":{\"samples\":90,\"total\":1448.1,\"mean\":16.09,\"p95\":24.3,\"max\":72.7},\"transition:candidates\":{\"samples\":90,\"total\":30.3,\"mean\":0.337,\"p95\":0.7,\"max\":4.3},\"transition:render\":{\"samples\":90,\"total\":43.7,\"mean\":0.486,\"p95\":0.7,\"max\":15.3},\"transition:renders\":{\"samples\":90,\"total\":90,\"mean\":1,\"p95\":1,\"max\":1},\"transition:drawCalls\":{\"samples\":90,\"total\":1927,\"mean\":21.411,\"p95\":28,\"max\":31},\"transition:update\":{\"samples\":90,\"total\":110.2,\"mean\":1.224,\"p95\":2,\"max\":20},\"space:frameInterval\":{\"samples\":363,\"total\":2229.7,\"mean\":6.142,\"p95\":6.2,\"max\":24.2},\"space:render\":{\"samples\":366,\"total\":61,\"mean\":0.167,\"p95\":0.3,\"max\":0.8},\"space:renders\":{\"samples\":366,\"total\":366,\"mean\":1,\"p95\":1,\"max\":1},\"space:drawCalls\":{\"samples\":366,\"total\":7006,\"mean\":19.142,\"p95\":23,\"max\":25},\"space:update\":{\"samples\":365,\"total\":247.6,\"mean\":0.678,\"p95\":1.4,\"max\":2.3},\"space:candidates\":{\"samples\":336,\"total\":87.6,\"mean\":0.261,\"p95\":0.5,\"max\":1.1}}",
+      "portals": 0,
+      "root": {
+        "controls": "visible",
+        "index": "20",
+        "navigation": "next",
+        "reduced": "false",
+        "requestedIndex": "21",
+        "scenePaused": "true",
+        "state": "open",
+        "zoom": "1.000"
+      },
+      "scroller": "translate3d(-402.619px, 0px, 0px)",
+      "slides": [
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 20",
+              "complete": true,
+              "rect": "{\"bottom\":576,\"height\":268,\"left\":-790.6187744140625,\"right\":-432.6187744140625,\"top\":308,\"width\":358,\"x\":-790.6187744140625,\"y\":308}"
+            }
+          ],
+          "transform": "translate3d(-404px, 0px, 0px)"
+        },
+        {
+          "hidden": "false",
+          "images": [
+            {
+              "alt": "影像 21",
+              "complete": true,
+              "rect": "{\"bottom\":577,\"height\":269,\"left\":-386.6187744140625,\"right\":-28.6187744140625,\"top\":308,\"width\":358,\"x\":-386.6187744140625,\"y\":308}"
+            }
+          ],
+          "transform": "translate3d(0px, 0px, 0px)"
+        },
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 22",
+              "complete": true,
+              "rect": "{\"bottom\":576,\"height\":268,\"left\":17.3812255859375,\"right\":375.3812255859375,\"top\":308,\"width\":358,\"x\":17.3812255859375,\"y\":308}"
+            }
+          ],
+          "transform": "translate3d(404px, 0px, 0px)"
+        }
+      ],
+      "view": {
+        "actualCamera": "0.7033,0.6976,1.6986",
+        "anchorPose": "0.7033,0.6976,6.1204",
+        "aspectError": "2.220e-16",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-111.84",
+        "detail": "ready",
+        "distance": "-111.84",
+        "domeRadius": "557",
+        "fieldCount": "10",
+        "fieldLayout": "projection-gap",
+        "fieldRetiring": "6",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.462",
+        "orientation": "0.160,-0.160",
+        "pan": "0.00,0.00",
+        "portal": "0.7033,0.6976,6.1204",
+        "progress": "1.000",
+        "quaternion": "-0.07966,0.07966,-0.00639,0.99361",
+        "reduced": "false",
+        "regions": "8",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "subtle",
+        "view": "space",
+        "viewer": "open"
+      },
+      "viewport": [
+        390,
+        844
+      ]
+    }
+  },
+  {
+    "label": "reduced-initial-timeout",
+    "note": "No viewer after startup-time selection; state/log check required."
+  },
+  {
+    "label": "reduced-animation-inspection-limited",
+    "note": "Read-only DOM facade does not expose getAnimations; use state/CSS and pinned code."
+  },
+  {
+    "label": "reduced-next",
+    "state": {
+      "controlsTransition": "0s",
+      "root": {
+        "controls": "visible",
+        "index": "15",
+        "navigation": "idle",
+        "reduced": "true",
+        "requestedIndex": "15",
+        "scenePaused": "true",
+        "state": "open",
+        "zoom": "1.000"
+      },
+      "scroller": "translate3d(-1325px, 0px, 0px)"
+    }
+  },
+  {
+    "label": "reduced-closed",
+    "state": {
+      "inert": false,
+      "portals": 0,
+      "root": false
+    }
+  },
+  {
+    "label": "confirm-keyboard-tool-timeout",
+    "state": {
+      "caption": "影像 15　15 / 36",
+      "focus": "单图浏览",
+      "opacity": [
+        [
+          ".pswp__top-bar",
+          "0"
+        ],
+        [
+          ".viewer-rail",
+          "0"
+        ],
+        [
+          ".viewer-caption",
+          "0"
+        ],
+        [
+          ".pswp__button--arrow",
+          "0"
+        ]
+      ],
+      "perf": "{\"sphere:dome-motion\":{\"samples\":2,\"total\":0.1,\"mean\":0.05,\"p95\":0,\"max\":0.1},\"sphere:update\":{\"samples\":1,\"total\":0.1,\"mean\":0.1,\"p95\":0.1,\"max\":0.1},\"viewer:viewer-init\":{\"samples\":1,\"total\":8,\"mean\":8,\"p95\":8,\"max\":8}}",
+      "portals": 0,
+      "root": {
+        "controls": "hidden",
+        "index": "14",
+        "navigation": "idle",
+        "reduced": "false",
+        "scenePaused": "true",
+        "state": "open",
+        "zoom": "1.000"
+      },
+      "scroller": "translate3d(0px, 0px, 0px)",
+      "slides": [
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 14",
+              "complete": true,
+              "rect": "{\"bottom\":851,\"height\":723,\"left\":-747,\"right\":-205,\"top\":128,\"width\":542,\"x\":-747,\"y\":128}"
+            }
+          ],
+          "transform": "translate3d(-920px, 0px, 0px)"
+        },
+        {
+          "hidden": "false",
+          "images": [
+            {
+              "alt": "影像 15",
+              "complete": true,
+              "rect": "{\"bottom\":851,\"height\":723,\"left\":173,\"right\":716,\"top\":128,\"width\":543,\"x\":173,\"y\":128}"
+            }
+          ],
+          "transform": "translate3d(0px, 0px, 0px)"
+        },
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 16",
+              "complete": true,
+              "rect": "{\"bottom\":851,\"height\":723,\"left\":1093,\"right\":1635,\"top\":128,\"width\":542,\"x\":1093,\"y\":128}"
+            }
+          ],
+          "transform": "translate3d(920px, 0px, 0px)"
+        }
+      ],
+      "view": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "557",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.963",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere",
+        "viewer": "open"
+      },
+      "viewport": [
+        889,
+        923
+      ]
+    }
+  },
+  {
+    "label": "confirm-keyboard-open-after-timeout",
+    "state": {
+      "caption": "影像 15　15 / 36",
+      "focus": "单图浏览",
+      "opacity": [
+        [
+          ".pswp__top-bar",
+          "0"
+        ],
+        [
+          ".viewer-rail",
+          "0"
+        ],
+        [
+          ".viewer-caption",
+          "0"
+        ],
+        [
+          ".pswp__button--arrow",
+          "0"
+        ]
+      ],
+      "perf": "{\"sphere:dome-motion\":{\"samples\":2,\"total\":0.1,\"mean\":0.05,\"p95\":0,\"max\":0.1},\"sphere:update\":{\"samples\":1,\"total\":0.1,\"mean\":0.1,\"p95\":0.1,\"max\":0.1},\"viewer:viewer-init\":{\"samples\":1,\"total\":8,\"mean\":8,\"p95\":8,\"max\":8}}",
+      "portals": 0,
+      "root": {
+        "controls": "hidden",
+        "index": "14",
+        "navigation": "idle",
+        "reduced": "false",
+        "scenePaused": "true",
+        "state": "open",
+        "zoom": "1.000"
+      },
+      "scroller": "translate3d(0px, 0px, 0px)",
+      "slides": [
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 14",
+              "complete": true,
+              "rect": "{\"bottom\":851,\"height\":723,\"left\":-747,\"right\":-205,\"top\":128,\"width\":542,\"x\":-747,\"y\":128}"
+            }
+          ],
+          "transform": "translate3d(-920px, 0px, 0px)"
+        },
+        {
+          "hidden": "false",
+          "images": [
+            {
+              "alt": "影像 15",
+              "complete": true,
+              "rect": "{\"bottom\":851,\"height\":723,\"left\":173,\"right\":716,\"top\":128,\"width\":543,\"x\":173,\"y\":128}"
+            }
+          ],
+          "transform": "translate3d(0px, 0px, 0px)"
+        },
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 16",
+              "complete": true,
+              "rect": "{\"bottom\":851,\"height\":723,\"left\":1093,\"right\":1635,\"top\":128,\"width\":542,\"x\":1093,\"y\":128}"
+            }
+          ],
+          "transform": "translate3d(920px, 0px, 0px)"
+        }
+      ],
+      "view": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "557",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.963",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere",
+        "viewer": "open"
+      },
+      "viewport": [
+        889,
+        923
+      ]
+    },
+    "note": "Enter completed and opened the dialog; tooling press acknowledgement timed out after focus moved. Controls still visible after more than 2.5s."
+  },
+  {
+    "label": "confirm-clean",
+    "state": {
+      "inert": false,
+      "portals": 0,
+      "root": false
+    }
+  },
+  {
+    "label": "confirm-keyboard-open-actual",
+    "note": "Initial Enter acknowledgement timed out and later idle state was hidden; do not count initial keyboard-modality persistence as verified. Tab reveal/keyboard navigation were verified separately."
+  },
+  {
+    "label": "final-load-wait-timeout",
+    "note": "Preparing-space loader exceeded selector deadline; subsequent rendered state inspected."
+  },
+  {
+    "label": "selector-timeout-cause",
+    "note": "Selecting a photo in sphere invokes Dome openIndex and already opens the modal. Subsequent source-button press was blocked by inert source; no keyboard-open failure."
+  },
+  {
+    "label": "native-source-ready",
+    "state": {
+      "inert": false,
+      "viewer": "closed"
+    }
+  },
+  {
+    "label": "confirm-real-keyboard-open",
+    "state": {
+      "caption": "影像 21　21 / 36",
+      "focus": "单图浏览",
+      "opacity": [
+        [
+          ".pswp__top-bar",
+          "1"
+        ],
+        [
+          ".viewer-rail",
+          "1"
+        ],
+        [
+          ".viewer-caption",
+          "1"
+        ],
+        [
+          ".pswp__button--arrow",
+          "1"
+        ]
+      ],
+      "portals": 0,
+      "root": {
+        "controls": "visible",
+        "index": "20",
+        "navigation": "idle",
+        "reduced": "false",
+        "scenePaused": "true",
+        "state": "open",
+        "zoom": "1.000"
+      },
+      "scroller": "translate3d(0px, 0px, 0px)",
+      "slides": [
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 20",
+              "complete": true,
+              "rect": "{\"bottom\":751,\"height\":523,\"left\":-824,\"right\":-127,\"top\":228,\"width\":697,\"x\":-824,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(-920px, 0px, 0px)"
+        },
+        {
+          "hidden": "false",
+          "images": [
+            {
+              "alt": "影像 21",
+              "complete": true,
+              "rect": "{\"bottom\":751,\"height\":523,\"left\":96,\"right\":793,\"top\":228,\"width\":697,\"x\":96,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(0px, 0px, 0px)"
+        },
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 22",
+              "complete": true,
+              "rect": "{\"bottom\":750,\"height\":522,\"left\":1016,\"right\":1713,\"top\":228,\"width\":697,\"x\":1016,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(920px, 0px, 0px)"
+        }
+      ],
+      "view": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "557",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.963",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere",
+        "viewer": "open"
+      },
+      "viewport": [
+        889,
+        923
+      ]
+    }
+  },
+  {
+    "label": "final-idle",
+    "state": {
+      "caption": "影像 21　21 / 36",
+      "focus": "单图浏览",
+      "opacity": [
+        [
+          ".pswp__top-bar",
+          "0"
+        ],
+        [
+          ".viewer-rail",
+          "0"
+        ],
+        [
+          ".viewer-caption",
+          "0"
+        ],
+        [
+          ".pswp__button--arrow",
+          "0"
+        ]
+      ],
+      "portals": 0,
+      "root": {
+        "controls": "hidden",
+        "index": "20",
+        "navigation": "idle",
+        "reduced": "false",
+        "scenePaused": "true",
+        "state": "open",
+        "zoom": "1.000"
+      },
+      "scroller": "translate3d(0px, 0px, 0px)",
+      "slides": [
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 20",
+              "complete": true,
+              "rect": "{\"bottom\":751,\"height\":523,\"left\":-824,\"right\":-127,\"top\":228,\"width\":697,\"x\":-824,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(-920px, 0px, 0px)"
+        },
+        {
+          "hidden": "false",
+          "images": [
+            {
+              "alt": "影像 21",
+              "complete": true,
+              "rect": "{\"bottom\":751,\"height\":523,\"left\":96,\"right\":793,\"top\":228,\"width\":697,\"x\":96,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(0px, 0px, 0px)"
+        },
+        {
+          "hidden": "true",
+          "images": [
+            {
+              "alt": "影像 22",
+              "complete": true,
+              "rect": "{\"bottom\":750,\"height\":522,\"left\":1016,\"right\":1713,\"top\":228,\"width\":697,\"x\":1016,\"y\":228}"
+            }
+          ],
+          "transform": "translate3d(920px, 0px, 0px)"
+        }
+      ],
+      "view": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "557",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.963",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere",
+        "viewer": "open"
+      },
+      "viewport": [
+        889,
+        923
+      ]
+    }
+  },
+  {
+    "label": "final-console",
+    "logs": []
+  }
+]

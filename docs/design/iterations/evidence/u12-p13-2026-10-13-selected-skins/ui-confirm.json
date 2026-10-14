@@ -1,0 +1,31 @@
+{
+  "checks": [
+    {
+      "name": "stable tonearm target pauses real playback; keyboard resumes",
+      "passed": true,
+      "evidence": {
+        "pausedAt": 0.541101
+      }
+    },
+    {
+      "name": "390px tonearm fits while playing/paused and reduced motion stops disc",
+      "passed": true,
+      "evidence": {
+        "width": 390
+      }
+    },
+    {
+      "name": "NetEase mobile art loads and capsule player fits 320px",
+      "passed": true,
+      "evidence": {
+        "width": 320,
+        "iframe": 254
+      }
+    },
+    {
+      "name": "final runtime has no browser errors",
+      "passed": true
+    }
+  ],
+  "errors": []
+}

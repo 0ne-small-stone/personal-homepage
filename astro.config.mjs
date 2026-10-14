@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightBlog from 'starlight-blog';
 import react from '@astrojs/react';
+import { localMusicPlayback } from './tools/music/local-playback.mjs';
 
 // GitHub Pages project sites require this prefix in routes, assets and search.
 const base = '/personal-homepage';
@@ -13,6 +14,7 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'always',
   integrations: [
+    localMusicPlayback(),
     react(),
     starlight({
       title: '个人主页',
@@ -24,6 +26,8 @@ export default defineConfig({
         MarkdownContent: './src/components/KnowledgeContent.astro',
         Head: './src/components/KnowledgeHead.astro',
         SiteTitle: './src/components/KnowledgeSiteTitle.astro',
+        PageFrame: './src/components/knowledge/PageFrame.astro',
+        Search: './src/components/knowledge/Search.astro',
       },
       plugins: [starlightBlog({
         title: '文章',

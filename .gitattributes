@@ -10,3 +10,7 @@
 *.json text eol=lf
 public/pdfjs/** -text
 *.pdf binary
+
+# Preserve upstream license and vendor formatting verbatim.
+docs/**/vendor/** whitespace=-blank-at-eol
+public/music/attribution.txt whitespace=-blank-at-eol

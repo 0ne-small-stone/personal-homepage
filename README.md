@@ -1,5 +1,14 @@
 # 个人主页项目
 
+2026-10-14 当前整合候选：在已上线的学习区与 CMS 基线上合入首页 F02 逐砖展开和音乐电台更新。当前公开站点见[主页](https://0ne-small-stone.github.io/personal-homepage/)与[学习区](https://0ne-small-stone.github.io/personal-homepage/knowledge/)；本轮候选尚在独立验收与发布流程中，新的提交、Actions 和公网结果由发布验收另行记录，不能复用历史上线结论。
+
+- 首页保留中央玻璃三棱体和柔晕，终章在近方形后错落落砖、展开至全屏；取消入射光、光谱/流体和整墙上移。F02 工程结果、独立复核和用户确认分别记录，当前没有用户通过结论，不启动 F03。
+- 学习区保留 main 的内容、筛选、搜索、关联、网页编辑、公开 PDF 与沉浸阅读，不用旧首页工作分支覆盖。
+- 音乐可发布静态曲库、已核验的公共云盘音源和现有单音频播放器；公网曲目数量与实际播放仍需本轮部署回读。网易云账号登录、短期音源续期、推荐审核与歌单写入目前仅在本机服务完成，GitHub Pages 不承载这些接口。
+- 球面相册、无限空间和单图浏览仍是独立设计原型，尚未接入正式相册路由。照片/教材原件、音频、凭据和临时产物保留本机。
+
+本轮文件组织与整合边界见[仓库整合记录](docs/technical/iterations/repository-integration-2026-10-14.md)。下文保留历次交付证据，历史“待接入/未上线”不作为最新状态。
+
 2026-10-13 收口：**已发布 GitHub Pages**，首页与学习区已整合；[正式主页](https://0ne-small-stone.github.io/personal-homepage/)、[学习总览](https://0ne-small-stone.github.io/personal-homepage/knowledge/)、[网页编辑](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Fcontent-editor/collection/writing-notes)。内容分支保存后自动回写关联候选并验证新提交，经PR合并main后发布。正式首页首帧问题已通过独立PR修复，桌面/390px、公网搜索及PDF第三页/侧栏通过；原48内容、教材原件和本地音乐未改或上传。[完整证据](docs/technical/iterations/pages-release-2026-10-12.md)。后文保留各轮历史状态。
 
 这是一个包含知识库、个人作品、照片与音乐互动的个人主页项目。学习资料、博客和数字花园合并为同一个知识库，共享分类、搜索、引用关系和编辑入口。当前工作路线是 Astro 静态主站、GitHub 内容仓库、Giscus 留言，以及音乐同步和未来 AI 所需的按需服务端功能。
@@ -48,6 +57,8 @@ GitHub 的触发方式、各 job 和本地检查命令见[工作流说明](docs/
 开始修改见 [CONTRIBUTING.md](CONTRIBUTING.md)。目录职责、文件命名、分支、提交与 GitHub 设置统一维护在[仓库管理规范](docs/technical/REPOSITORY_CONVENTIONS.md)。
 
 ## 当前状态
+
+**2026-10-12 本机音乐播放修复：**[Echoes 开发入口](http://127.0.0.1:4343/personal-homepage/music/?mode=cloud)可播放洛雪已下载的18首音频，页面明确显示“本机播放 · 考拉云盘待连接”。真实 FLAC 播放、暂停、跳转、模式切换和390px核对通过；生产预览仍需考拉分享地址。命令与状态边界见[接入工具](tools/music/README.md)，证据见[修复记录](docs/design/iterations/u12-p13-2026-10-12-local-playback.md)。
 
 - 2026-10-08 T13.03 发布状态与修改已配置：同一文章的草稿可编辑，保存本轮工作分支自动构建；三份隔离生产快照与 Edge 10 组通过。原文保留草稿，真实托管操作与正式上线仍待验。[体验步骤](docs/technical/CMS_WORKFLOW.md#t1303-文章发布状态与修改)、[本轮证据](docs/technical/iterations/t13-03-2026-10-08.md)。
 
@@ -136,3 +147,5 @@ node tools/ci/dist.mjs --local-preview
 真实迭代记录与证据已放入 `docs/design/iterations/`；基础页面结构通过不代表最终场景视觉或外部服务完成。
 
 设计与技术文档按分类维护；后续提交可通过 GitHub 工作流检查。真实构建、账号接入与发布结果按技术计划的证据记录。
+
+2026-10-13 音乐电台已接通考拉只读音源，现有18首/3专辑/18封面可播放；洛雪已完成下载通过音乐目录专用上传入口自动同步，本机用户登录后后台启动。当前监控 `E:\音乐\声音玩具`，上传后才发布目录快照；音频与上传授权不进入仓库。在线静态部署仍需重新构建发布。运行/停用说明见 [音乐接入工具](tools/music/README.md)，实际授权与证据见 [本轮记录](docs/technical/iterations/t21-p13-2026-10-13-cloud-sync.md)。

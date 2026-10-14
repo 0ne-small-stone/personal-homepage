@@ -4,15 +4,16 @@ import { MathUtils, Matrix4, PerspectiveCamera, Vector2 } from 'three';
 import type { JourneyModel } from './scene-state';
 import { MotionLerper, sceneUnitScale } from './works-motion';
 const sigmoid=(t:number)=>{const f=(x:number)=>1/(1+Math.exp(-6*(x-.5)));return(f(t)-f(0))/(f(1)-f(0));};
-export default function CameraRig({model,mobile:_mobile,quiet}: {model:JourneyModel;mobile:boolean;quiet:boolean}){
+export default function CameraRig({model,mobile:_mobile,quiet,frozen=false}: {model:JourneyModel;mobile:boolean;quiet:boolean;frozen?:boolean}){
   const transition=useRef({from:1,value:1,target:1,start:0});
   const initialized=useRef(-1);
   const dimensions=useRef('');
   const projectionFollow=useRef(new MotionLerper(1)),parallaxFollow=useRef(new MotionLerper(.5));
   const perspective=useRef(new Matrix4()),orthographic=useRef(new Matrix4());
   const offset=useRef(new Vector2()),offsetTarget=useRef(new Vector2());const {camera,size}=useThree();
-  useEffect(()=>{camera.layers.enable(1);return()=>camera.layers.disable(1);},[camera]);
+  useEffect(()=>{camera.layers.enable(1);camera.layers.enable(2);return()=>{camera.layers.disable(1);camera.layers.disable(2);};},[camera]);
   useFrame((_,rawDt)=>{
+    if(frozen)return;
     if(!(camera instanceof PerspectiveCamera))return;
     if(quiet){
       // Freeze input, preserving the same responsive first-screen projection.

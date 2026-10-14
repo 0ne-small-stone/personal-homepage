@@ -1,5 +1,7 @@
 # GitHub 工作流说明
 
+2026-10-14 维护状态：已有首页、学习区和 CMS 的真实 Pages 上线记录，本轮从 main c122144 整合后再发布；下方 2026-10-07/12 的“未上线/待授权”为历史检查。保留 main 当前 workflow 的候选派生、内容测试、全站目录路由、公开 PDF 与发布守卫。发布分支通过面向 main 的 PR 获取三项必需检查，Squash 合并后由默认分支构建与部署；本轮新的 run、SHA、站点检查在发布验收中读回。公网只有静态能力，本机音乐账号/短期音源/推荐后台不由 Pages 执行。
+
 2026-10-12 实际读回：Pages build_type=workflow、来源main、HTTPS开启；main=`ae3928289da1517151be053dd83d67904821735f`尚无根package.json/锁文件/Astro配置/src首页。最近main运行[37597125646](https://github.com/0ne-small-stone/personal-homepage/actions/runs/37597125646)的仓库/语法检查成功，但网站构建与部署均跳过；配置完成不能表述为网站已上线。整合已验证首页和学习分支，经保护分支PR进入main后，现有部署job才具备执行条件。正式网址为 https://0ne-small-stone.github.io/personal-homepage/ ，当前可访问性和大陆体验未验。
 
 学习收尾分支的构建在 `npm run check`之前运行 `npm run cms:sync-related`；仅派生临时检出内的关联候选，不增写权限、不回写仓库。只读修复已通过“源配置41候选、内容42条”的真实远程构建，运行[38040710326](https://github.com/0ne-small-stone/personal-homepage/actions/runs/38040710326)。默认部署仍限main；候选自动回写待单独授权。

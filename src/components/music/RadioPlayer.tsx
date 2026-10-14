@@ -45,7 +45,7 @@ export default function RadioPlayer({ initialCatalog, config }: Props) {
     try {
       const response = await fetch(config.catalogUrl, { cache: 'no-store', credentials: 'omit', signal: controller.signal });
       if (!response.ok) throw new Error('无法读取曲目清单');
-      const next = parseMusicCatalog(await response.json());
+      const next = parseMusicCatalog(await response.json(), import.meta.env.DEV);
       if (!mounted.current) return;
       setCatalog(next);
       setNotice(manual ? `目录已刷新，共 ${next.tracks.length} 首。` : '');
@@ -103,6 +103,7 @@ export default function RadioPlayer({ initialCatalog, config }: Props) {
   }
 
   const activeAlbum = albums.find(([key]) => key === albumFilter)?.[1];
+  const localPlayback = selected?.audioUrl?.startsWith('/') === true;
   return <div className="radio-app">
     <div className="radio-mode" role="group" aria-label="音源模式">
       <button type="button" aria-pressed={mode === 'cloud'} onClick={() => changeMode('cloud')}>考拉云盘</button>
@@ -121,7 +122,8 @@ export default function RadioPlayer({ initialCatalog, config }: Props) {
           <h2>{selected?.title || '把喜欢的声音留在这里。'}</h2>
           {selected && <><p className="radio-artist">{selected.artist}</p><p className="radio-album-name">{selected.album}</p><p className="radio-quality">{qualityLabel(selected)}</p></>}
           {selected?.audioUrl ? <>
-            <audio ref={audio} key={selected.audioUrl} src={selected.audioUrl} controls preload="none" aria-label={`播放 ${selected.title}`} onError={() => setPlayerError('音频暂时无法播放。请检查云盘分享，或打开洛雪收听。')} onEnded={() => {
+            {localPlayback && <p className="radio-playback-source">本机播放 · 考拉云盘待连接</p>}
+            <audio ref={audio} key={selected.audioUrl} src={selected.audioUrl} controls preload="none" aria-label={`播放 ${selected.title}`} onError={() => setPlayerError(localPlayback ? '本机音频暂时无法播放。请确认下载文件仍在，并刷新目录。' : '音频暂时无法播放。请检查云盘分享，或打开洛雪收听。')} onEnded={() => {
               const index = visibleTracks.findIndex(t => t.id === selected.id);
               const next = index >= 0 ? visibleTracks[index + 1] : undefined;
               if (next?.audioUrl) chooseTrack(next);

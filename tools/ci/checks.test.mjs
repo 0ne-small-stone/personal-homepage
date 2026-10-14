@@ -74,3 +74,17 @@ test('本地阅读附件仅在显式预览检查时允许通过', (t) => {
   assert.throws(() => inspectDist(root), /本地预览附件/u);
   assert.equal(inspectDist(root, { localPreview: true }).files, 2);
 });
+
+
+test('发布拒绝本机运行目录、原始照片和登录密文', (t) => {
+  for (const directory of ['.local-tools', '.ci-tmp', '图片']) {
+    const root = fixture(t);
+    writeFileSync(join(root, 'index.html'), '<!doctype html>');
+    mkdirSync(join(root, directory));
+    assert.throws(() => inspectDist(root), /不应发布/u);
+  }
+  const root = fixture(t);
+  writeFileSync(join(root, 'index.html'), '<!doctype html>');
+  writeFileSync(join(root, 'login.dpapi'), 'fixture-only');
+  assert.throws(() => inspectDist(root), /配置或密钥/u);
+});

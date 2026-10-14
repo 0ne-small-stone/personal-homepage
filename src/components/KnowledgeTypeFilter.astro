@@ -151,6 +151,8 @@ const titleOrder = new Map([...entries].sort((a, b) =>
       }, { signal });
       window.addEventListener('popstate', update, { signal });
       window.addEventListener('pageshow', update, { signal });
+      // New elements connect before ClientRouter commits its destination URL.
+      document.addEventListener('astro:page-load', update, { signal });
       update();
       fieldset.hidden = false;
       topicControls.hidden = false;

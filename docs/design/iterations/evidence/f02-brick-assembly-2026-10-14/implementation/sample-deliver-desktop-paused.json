@@ -1,0 +1,183 @@
+{
+  "label": "deliver-desktop-paused",
+  "bundle": "/personal-homepage/_astro/HomeJourney.B2R4dj4a.js",
+  "classes": "lssh-home has-journey home-enhanced home-portal-cover",
+  "contentWidth": 1265,
+  "nav": {
+    "bg": "rgba(31, 31, 31, 0.96)",
+    "blend": "normal",
+    "color": "rgb(237, 237, 237)"
+  },
+  "overflow": false,
+  "sample": {
+    "frame": 4152,
+    "glass": {
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "bounds": [
+        23.91962927658393,
+        -9.771255293507515,
+        1228.7206516929195,
+        727.0848108527223
+      ],
+      "centeredLocalBounds": [
+        -6.263935089111328,
+        -3.526010274887085,
+        -4.824139595031738,
+        6.208978652954102,
+        3.315402030944824,
+        3.4272139072418213
+      ],
+      "projectedAnchor": [
+        632.5,
+        360
+      ],
+      "quaternion": [
+        0.4238074490738311,
+        -0.11942841174371172,
+        -0.05648543199542089,
+        0.896065564872458
+      ],
+      "scale": 0.6856249999999999,
+      "visible": true
+    },
+    "initialization": {
+      "reason": "reload",
+      "revision": 2,
+      "y": 0,
+      "zoom": 1
+    },
+    "phase": "portal",
+    "portal": {
+      "build": 0.383766174316406,
+      "coversCorners": false,
+      "error": null,
+      "expand": 0.825,
+      "frontCoversCorners": false,
+      "hdr": true,
+      "homographyValid": true,
+      "prepare": 1,
+      "quad": [
+        [
+          0.01983811851213437,
+          1.0086356065955966
+        ],
+        [
+          0.0314706957191831,
+          -0.007445684461937531
+        ],
+        [
+          0.9719369717906312,
+          -0.0031350992605461148
+        ],
+        [
+          0.9713041772562344,
+          1.0134621065998182
+        ]
+      ],
+      "renderedExpand": 0.825,
+      "renderedPrepare": 1,
+      "renderedWall": 0,
+      "sampleRevision": 439,
+      "target": [
+        1265,
+        720
+      ],
+      "targetReady": true,
+      "wall": 0
+    },
+    "portalCovered": false,
+    "raw": {
+      "event": 1,
+      "expand": 0.825,
+      "intro": 1,
+      "kv": 1,
+      "outro": 1,
+      "prepare": 1,
+      "snap": 1,
+      "wall": 0,
+      "works": 1
+    },
+    "rendered": {
+      "background": 5,
+      "expand": 0.825,
+      "index": 5,
+      "intro": 1,
+      "prepare": 1,
+      "progress": 1,
+      "wall": 0
+    },
+    "scrollY": 6688,
+    "wall": {
+      "build": 0.383766174316406,
+      "drawn": 45,
+      "falling": 18,
+      "position": [
+        0,
+        0,
+        -1
+      ],
+      "raw": 0,
+      "revision": 439,
+      "rise": 0,
+      "rows": 11,
+      "samples": [
+        {
+          "column": 11,
+          "id": 333,
+          "progress": 1,
+          "row": 14,
+          "x": 0,
+          "y": -2.45
+        },
+        {
+          "column": 11,
+          "id": 356,
+          "progress": 1,
+          "row": 15,
+          "x": 0.565,
+          "y": -1.96
+        },
+        {
+          "column": 11,
+          "id": 379,
+          "progress": 1,
+          "row": 16,
+          "x": 0,
+          "y": -1.47
+        },
+        {
+          "column": 11,
+          "id": 402,
+          "progress": 0.6990345848931194,
+          "row": 17,
+          "x": 0.565,
+          "y": -0.27994818737844396
+        },
+        {
+          "column": 11,
+          "id": 425,
+          "progress": 0.3726456960042307,
+          "row": 18,
+          "x": 0,
+          "y": 2.2565252739424437
+        }
+      ],
+      "settled": 27,
+      "visible": false
+    }
+  },
+  "size": [
+    1280,
+    720
+  ],
+  "status": "ready",
+  "url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1#intro",
+  "wallContent": {
+    "inert": "",
+    "visibility": "hidden"
+  }
+}

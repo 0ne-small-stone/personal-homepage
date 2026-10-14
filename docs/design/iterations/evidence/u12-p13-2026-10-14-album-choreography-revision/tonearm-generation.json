@@ -1,0 +1,21 @@
+{
+  "mode": "built-in imagegen",
+  "useCase": "product-mockup",
+  "prompt": "Use case: product-mockup. Asset type: transparent cutout bitmap for a music player's rotating tonearm, to be composited over a black vinyl record. Create one original photorealistic precision turntable tonearm, top-down orthographic plan view, entire object visible, narrow vertical composition. The circular gimbal pivot sits near the top-right (about x=70%, y=22%), a brushed silver cylindrical counterweight extends upward from the pivot toward the top edge. From the pivot, a slender polished stainless-steel S-shaped tube curves down toward the lower-left, ending in a black anodized perforated headshell and a small black cartridge with a tiny visible stylus at about x=26%, y=93%. Realistic mechanical bearings, fine concentric machining marks, restrained chrome highlights, satin brushed metal, dark black hardware, crisp clean silhouette. Premium professional product photography, physically plausible mechanical assembly, neutral studio lighting, enough silver edge definition for a near-black UI. No platter, no record, no cabinet, no pedestal, no detached parts, no brand, no text, no logos, no colored wires, no background shadow. True transparent background including through openings, not a checkerboard painted into the image. Make the object clearly more detailed and realistic than a low-resolution icon. Render at high resolution with generous small transparent margins.",
+  "transparentBackground": true,
+  "workspaceAsset": "public/music/turntable/tonearm-metal-v1.webp",
+  "processing": "WebP format export via Sharp quality90/alphaQuality100; original dimensions and alpha preserved; no background removal or subject repaint",
+  "width": 1024,
+  "height": 1536,
+  "bytes": 82944,
+  "fullyTransparentPixels": 1384730,
+  "maxAlpha": 254,
+  "pivot": {
+    "x": 738,
+    "y": 309
+  },
+  "stylus": {
+    "x": 220,
+    "y": 1468
+  }
+}

@@ -29,7 +29,7 @@ function getLightContours(geometry: ExtrudeGeometry) {
   return edgePlanes(points);
 }
 
-export default function GlassEdgeLight({ mesh, geometry, model, mobile }: { mesh: RefObject<Mesh | null>; geometry: ExtrudeGeometry; model: JourneyModel; mobile: boolean }) {
+export default function GlassEdgeLight({ mesh, geometry, model, mobile, quiet }: { mesh: RefObject<Mesh | null>; geometry: ExtrudeGeometry; model: JourneyModel; mobile: boolean; quiet: boolean }) {
   const { scene } = useThree();
   const glow = useMemo(() => new GlassGlow(geometry, getLightContours(geometry)), [geometry]);
   useEffect(() => {
@@ -54,8 +54,9 @@ export default function GlassEdgeLight({ mesh, geometry, model, mobile }: { mesh
     // Only the separate, blurred emitter contributes light. No white face overlays.
     glow.source = parent;
     glow.mobile = mobile;
-    glow.intensity = parent.visible && model.motion.raw.wall < (.3 / .35)
-      ? 1 - MathUtils.smoothstep(model.motion.rendered.index, 0, .5) : 0;
+    const open=1-MathUtils.smoothstep(model.motion.rendered.expand,0,.12);
+    const reveal=1-MathUtils.smoothstep(model.motion.rendered.wall,.86,1);
+    glow.intensity = parent.visible ? quiet ? 1 : open*reveal : 0;
   }, -.7);
   return null;
 }

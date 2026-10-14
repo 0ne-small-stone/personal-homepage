@@ -8,18 +8,29 @@ import SceneLighting from './SceneLighting';
 import SceneBackdrop from './SceneBackdrop';
 import WorksScene from './WorksScene';
 import WorksMotionDriver from './WorksMotionDriver';
-import BlackFlowLayer from './BlackFlowLayer';
 import { installWorksMotion } from './home-motion';
 import 'lenis/dist/lenis.css';
 import CameraRig from './CameraRig';
 import RisingWall from './RisingWall';
 import { installHomeReturn } from './home-return';
+import GlassRenderLayer from './GlassRenderLayer';
 
 class SceneBoundary extends Component<{children: ReactNode; onError: () => void}, {failed: boolean}> {
   state = { failed: false };
   static getDerivedStateFromError() { return {failed:true}; }
   componentDidCatch(error: Error) { console.warn('首页场景加载失败：', error.message); this.props.onError(); }
   render() { return this.state.failed ? null : this.props.children; }
+}
+
+function CanvasContextEvents({ onError }: { onError: () => void }) {
+  const { gl } = useThree();
+  useEffect(() => {
+    const canvas = gl.domElement;
+    const lost = (event: Event) => { event.preventDefault(); onError(); };
+    canvas.addEventListener('webglcontextlost', lost);
+    return () => canvas.removeEventListener('webglcontextlost', lost);
+  }, [gl, onError]);
+  return null;
 }
 
 function FirstFrame({ model, onReady }: {model: JourneyModel; onReady: () => void}) {
@@ -29,20 +40,22 @@ function FirstFrame({ model, onReady }: {model: JourneyModel; onReady: () => voi
   useFrame(() => {
     model.lastFrame = performance.now();
     if (frames.current < 3) { frames.current++; invalidate(); }
-    if (frames.current === 3) { frames.current++; onReady(); }
+    if (frames.current === 3) { frames.current++; requestAnimationFrame(onReady); }
   });
   return null;
 }
 
 export default function HomeJourney({wordmarkUrl,albumUrl,projectUrl,neighborUrl}: {wordmarkUrl: string;albumUrl:string;projectUrl:string;neighborUrl:string}) {
   const model = useRef(createJourneyModel()).current;
+  const ownerBody = useRef(document.body);
   const [status,setStatus] = useState<'loading'|'ready'|'fallback'|'error'>(()=>{try{return sessionStorage.getItem('lssh.home.seen')==='true'?'ready':'loading';}catch{return 'loading';}});
   const [paused,setPaused] = useState(false);
+  const [portalPaused,setPortalPaused]=useState(false);
   const [reduced,setReduced] = useState(false);
+  const quiet=reduced||(paused&&!portalPaused);
   const [mobile,setMobile] = useState(false);
   const [hover,setHover] = useState(false);
   const [visible,setVisible] = useState(() => !document.hidden);
-  const [detailed,setDetailed] = useState(true);
   const [attempt,setAttempt] = useState(0);
   const ready = useRef(false);
   const loader = useRef<HTMLDivElement>(null);
@@ -50,6 +63,7 @@ export default function HomeJourney({wordmarkUrl,albumUrl,projectUrl,neighborUrl
   const stopped = useRef(false);
 
   const onReady = () => {
+    if (document.body !== ownerBody.current) return;
     if (ready.current || stopped.current) return;
     ready.current = true;
     document.body.classList.add('home-enhanced');
@@ -60,6 +74,7 @@ export default function HomeJourney({wordmarkUrl,albumUrl,projectUrl,neighborUrl
     try { sessionStorage.setItem('lssh.home.seen','true'); } catch { /* Storage is optional. */ }
   };
   const fallback = (error=false) => {
+    if (document.body !== ownerBody.current) return;
     ready.current = false;
     stopped.current = true;
     setStatus(error ? 'error' : 'fallback');
@@ -70,6 +85,7 @@ export default function HomeJourney({wordmarkUrl,albumUrl,projectUrl,neighborUrl
   };
 
   useEffect(() => {
+    if (new URLSearchParams(location.search).has('opticsDebug')) document.documentElement.dataset.motionDiagnostics = 'true';
     const media = matchMedia('(prefers-reduced-motion: reduce)');
     const touch = matchMedia('(pointer: coarse)');
     const hoverMedia = matchMedia('(hover: hover) and (pointer: fine)');
@@ -81,7 +97,7 @@ export default function HomeJourney({wordmarkUrl,albumUrl,projectUrl,neighborUrl
     const pageHide = () => setVisible(false);
     const pageShow = () => {setVisible(true); model.invalidate();};
     media.addEventListener('change',preference); hoverMedia.addEventListener('change',resize); window.addEventListener('resize',resize); document.addEventListener('visibilitychange',visibility); window.addEventListener('pagehide',pageHide); window.addEventListener('pageshow',pageShow);
-    return () => {media.removeEventListener('change',preference); hoverMedia.removeEventListener('change',resize); window.removeEventListener('resize',resize); document.removeEventListener('visibilitychange',visibility); window.removeEventListener('pagehide',pageHide); window.removeEventListener('pageshow',pageShow); gsap.killTweensOf(loader.current); document.body.classList.remove('home-enhanced','home-static','home-on-wall');};
+    return () => {media.removeEventListener('change',preference); hoverMedia.removeEventListener('change',resize); window.removeEventListener('resize',resize); document.removeEventListener('visibilitychange',visibility); window.removeEventListener('pagehide',pageHide); window.removeEventListener('pageshow',pageShow); gsap.killTweensOf(loader.current); ownerBody.current.classList.remove('home-enhanced','home-static','home-on-wall');};
   }, [model]);
   useEffect(installHomeReturn,[]);
 
@@ -96,8 +112,7 @@ export default function HomeJourney({wordmarkUrl,albumUrl,projectUrl,neighborUrl
     };
     const leave = () => {model.pointer.active=false; model.invalidate();};
     window.addEventListener('pointermove',pointer,{passive:true}); document.documentElement.addEventListener('pointerleave',leave); window.addEventListener('blur',leave);
-    // Public first visits include cold texture/shader loading. Background time
-    // must not consume the startup budget; the native plain-view escape remains.
+    // Keep the validated foreground-only startup budget from main.
     let timer: number | undefined;
     let remaining = 30000;
     let started = performance.now();
@@ -113,29 +128,32 @@ export default function HomeJourney({wordmarkUrl,albumUrl,projectUrl,neighborUrl
   }, [model,attempt]);
 
   useEffect(() => {
-    if(status !== 'ready' || paused || reduced) return;
+    if(status !== 'ready' || quiet) return;
     return installWorksMotion(model);
-  }, [status, paused, reduced, model, attempt]);
+  }, [status, quiet, model, attempt]);
 
   useEffect(()=>{
-    document.body.classList.toggle('home-quiet',paused||reduced);
-    if(paused||reduced)model.progress=0;
+    document.body.classList.toggle('home-quiet',quiet);
+    if(quiet)model.progress=0;
     ScrollTrigger.refresh();model.invalidate();
     return ()=>document.body.classList.remove('home-quiet');
-  },[paused,reduced,model]);
+  },[quiet,model]);
 
-  const togglePaused = () => {setPaused(value=>{try{sessionStorage.setItem('lssh.home.paused',String(!value));}catch{} return !value;}); model.invalidate();};
+  const togglePaused = () => {
+    setPortalPaused(!paused&&model.motion.rendered.prepare>.001);
+    setPaused(value=>{try{sessionStorage.setItem('lssh.home.paused',String(!value));}catch{} return !value;});model.invalidate();
+  };
   const canRender = status !== 'error' && status !== 'fallback';
   return <>
     {canRender && <div className="home-scene" aria-hidden="true"><SceneBoundary key={attempt} onError={()=>fallback(true)}><Canvas frameloop={visible && !paused && !reduced ? 'always' : 'demand'} dpr={mobile ? 1 : [1,1.5]} camera={{position:[0,0,6],fov:40,near:.1,far:50}} gl={{alpha:false,antialias:true,powerPreference:'high-performance'}} onCreated={({gl})=>{
       gl.setClearColor('#000000');
-      const lost=(event:Event)=>{event.preventDefault();fallback(true);};
-      gl.domElement.addEventListener('webglcontextlost',lost,{once:true});
+
     }} fallback={<span>图形不可用</span>}>
-      <Suspense fallback={null}><WorksMotionDriver model={model} /><CameraRig model={model} mobile={mobile} quiet={paused||reduced} /><SceneLighting /><SceneBackdrop model={model} mobile={mobile} /><GlassTriangle model={model} paused={paused||reduced||!visible} mobile={mobile} hover={hover} low={mobile} detailed={detailed} />{!paused&&!reduced&&<Suspense fallback={null}><WorksScene model={model} projectUrl={projectUrl} neighborUrl={neighborUrl} albumUrl={albumUrl} /></Suspense>}<RisingWall model={model} quiet={paused||reduced} /><FirstFrame model={model} onReady={onReady} /><BlackFlowLayer model={model} hover={hover} detailed={detailed} quiet={paused||reduced} visible={visible} /></Suspense>
+      <CanvasContextEvents onError={()=>fallback(true)} />
+      <Suspense fallback={null}><WorksMotionDriver model={model} stopped={paused&&portalPaused} /><CameraRig model={model} mobile={mobile} quiet={quiet} frozen={paused&&portalPaused} /><SceneLighting /><SceneBackdrop model={model} mobile={mobile} /><GlassTriangle model={model} paused={quiet||!visible} frozen={paused&&portalPaused} hover={hover} mobile={mobile} />{!quiet&&<Suspense fallback={null}><WorksScene model={model} projectUrl={projectUrl} neighborUrl={neighborUrl} albumUrl={albumUrl} /></Suspense>}<RisingWall model={model} quiet={quiet} /><FirstFrame model={model} onReady={onReady} /><GlassRenderLayer model={model} quiet={quiet} /></Suspense>
     </Canvas></SceneBoundary></div>}
-    {status === 'loading' && <div ref={loader} className="home-loader" role="status"><img className="home-loader-logo" src={wordmarkUrl} width="768" height="512" alt="Little Stone Still Here" /><p>正在准备光与玻璃</p><button onClick={()=>fallback()}>普通浏览</button></div>}
-    <div className="home-scene-controls"><button className="home-sound" disabled aria-label="环境音尚未配置">声音未配置</button>{canRender&&<button className="home-quality" onClick={()=>{setDetailed(value=>!value);model.invalidate();}} aria-pressed={detailed}>光影细节</button>}<button onClick={togglePaused} disabled={reduced} aria-pressed={paused||reduced}>{reduced ? '减少动画已启用' : paused ? '继续动态' : '暂停动态'}</button>{status === 'error' && attempt < 1 && <button onClick={()=>{document.body.classList.remove('home-static');ready.current=false;stopped.current=false;setStatus('loading');setMessage('');setAttempt(value=>value+1);}}>重试场景</button>}</div>
+    {status === 'loading' && <div ref={loader} className="home-loader" role="status"><img className="home-loader-logo" src={wordmarkUrl} width="768" height="512" alt="Little Stone Still Here" /><p>正在载入空间</p><button onClick={()=>fallback()}>普通浏览</button></div>}
+    <div className="home-scene-controls"><button className="home-sound" disabled aria-label="环境音尚未配置">声音未配置</button><button onClick={togglePaused} disabled={reduced} aria-pressed={paused||reduced}>{reduced ? '减少动画已启用' : paused ? '继续动态' : '暂停动态'}</button>{status === 'error' && attempt < 1 && <button onClick={()=>{document.body.classList.remove('home-static');ready.current=false;stopped.current=false;setStatus('loading');setMessage('');setAttempt(value=>value+1);}}>重试场景</button>}</div>
     <p className="home-status" role="status">{message}</p>
   </>;
 }
