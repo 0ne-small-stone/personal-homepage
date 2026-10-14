@@ -21,11 +21,12 @@
     "music:playlist": "node tools/music/sync-playlist.mjs",
     "music:recommend": "node tools/music/recommendation-service.mjs",
     "music:preview": "node tools/music/preview-service.mjs",
-    "music:test": "node --test tools/music/audio-session.test.mjs tools/music/recommendations.test.mjs tools/music/netease-playback.test.mjs tools/music/playback-service.test.mjs tools/music/playback-account.test.mjs tools/music/saved-login.test.mjs",
+    "music:test": "node --test tools/music/audio-session.test.mjs tools/music/recommendations.test.mjs tools/music/netease-playback.test.mjs tools/music/playback-service.test.mjs tools/music/playback-account.test.mjs tools/music/saved-login.test.mjs tools/music/public-catalog.test.mjs",
     "content:import": "node tools/content/import-learning.mjs",
     "materials:prepare": "node tools/content/prepare-local-materials.mjs",
     "cms:sync-related": "node tools/content/cms-related-options.mjs",
-    "test:home": "node --test tests/*.test.mjs"
+    "test:home": "node --test tests/*.test.mjs",
+    "music:publish-catalog": "node tools/music/export-public-catalog.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "7.3.2",

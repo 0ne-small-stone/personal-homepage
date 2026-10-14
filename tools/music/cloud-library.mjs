@@ -169,18 +169,21 @@ export function snapshotUrls(xml, base) {
     .sort().reverse();
 }
 let remoteCache = { base: '', at: 0, catalog: null };
-export async function loadCloudCatalog() {
+export async function loadCloudCatalog({ request = fetch, configPath = configFile, useCache = true } = {}) {
   try {
-    const config = await readCloudConfig();
-    if (remoteCache.base === config.base && Date.now() - remoteCache.at < 10000) return remoteCache.catalog;
-    const list = await fetch(new URL('LSSH-AutoSync/catalogs/', config.base), { method: 'PROPFIND', headers: { Depth: '1', 'X-Requested-With': 'XMLHttpRequest' }, redirect: 'error', signal: AbortSignal.timeout(8000) });
+    const config = await readCloudConfig(configPath);
+    if (useCache && remoteCache.base === config.base && Date.now() - remoteCache.at < 10000) return remoteCache.catalog;
     let urls = [];
-    if (list.status === 207) urls = snapshotUrls((await boundedBody(list, 2 * 1024 * 1024)).toString('utf8'), config.base).slice(0, 3);
-    else { await list.body?.cancel();if (list.status !== 404) throw new Error('云端目录暂时不可用。'); }
+    // A blocked WebDAV listing must not prevent the public GET fallback.
+    try {
+      const list = await request(new URL('LSSH-AutoSync/catalogs/', config.base), { method: 'PROPFIND', headers: { Depth: '1', 'X-Requested-With': 'XMLHttpRequest' }, redirect: 'error', signal: AbortSignal.timeout(8000) });
+      if (list.status === 207) urls = snapshotUrls((await boundedBody(list, 2 * 1024 * 1024)).toString('utf8'), config.base).slice(0, 3);
+      else await list.body?.cancel();
+    } catch { /* Try the public catalog before the versioned build fallback. */ }
     urls.push(new URL('catalog.json', config.base).href);
     let catalog = null;
     for (const url of urls) {
-    const response = await fetch(url, { cache: 'no-store', redirect: 'error', signal: AbortSignal.timeout(8000) });
+    const response = await request(url, { cache: 'no-store', redirect: 'error', signal: AbortSignal.timeout(8000) });
     if (response.ok && Number(response.headers.get('content-length') || 0) <= 1024 * 1024) {
       const text = (await boundedBody(response, 1024 * 1024)).toString('utf8');
       if (text.length <= 1024 * 1024) {
