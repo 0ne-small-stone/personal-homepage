@@ -1,5 +1,7 @@
 # 文档导航与设计 / 技术对应表
 
+P10 / R06、R12 / U10、U14 / T12、T15、T16、T26、T27：[A Moment Remains正式接入与Pages发布](technical/iterations/t12-p10-2026-10-14-pages.md)。用户确认v17并授权当前相册及36张压缩派生公开，沿用/gallery/，未新增页面/任务编号。
+
 2026-10-14 新增验收入口：[当前集成候选的工程、交互与发布边界](technical/acceptance/updates-2026-10-14.md)。沿用P01/P02/P03/P05/P06/P13/P14/P15/P17及原U/T编号；本地工程/首页定向与音乐限定检查已收口，准备保护PR，远程PR/Pages尚待执行，不覆盖旧release历史。
 
 

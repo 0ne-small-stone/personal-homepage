@@ -31,8 +31,8 @@ Pink Floyd 的启发在本项目中转译为：光的折射对应不同观看方
 | 全站 | Little Stone Still Here（简称 LSSH） | “Wish you were here.” | Wish You Were Here | 小石留下的内容等待另一个人抵达；存在与缺席可以同时被感知 |
 | 首页 | Is There Anybody Out There? | “Can you feel me?” | Hey You | 从询问外面有没有人，进一步试探自己能否被感知 |
 | 学习、博客、数字花园 | Becoming | “Choose your own ground.” | Breathe (In the Air) | 自主选择阅读和思考的立足点，保留理解逐渐形成的过程 |
-| 项目、作品 | Afterimage | “I caught a fleeting glimpse.” | Comfortably Numb | 瞬间无法停留；作品与影像保存曾经看见、经历或试图表达的东西 |
-| 相册、照片（P10） | A Moment Remains | 当前概念介绍“有些瞬间，还没过去。” | 用户指定名称，概念介绍为本站执行稿 | 影像让已经发生的片刻继续停留在观看与记忆中 |
+| 项目、作品 | Afterimage | “I caught a fleeting glimpse.” | Comfortably Numb | 瞬间无法停留；作品保存曾经看见、经历或试图表达的东西 |
+| 相册、照片（P10） | A Moment Remains | 有些瞬间，还没过去。 | 用户指定栏目名；当前概念介绍随v17验收 | 影像让已经发生的片刻继续停留在观看与记忆中 |
 | 常用网站 | Elsewhere | “Beyond the horizon” | High Hopes | 当前页面之外还有影响自己的地方；链接使私人世界保持开放 |
 | 音乐电台 | Echoes | “Two separate glances meet.” | Echoes | 以听歌和推荐承接偶然相遇，让彼此的选择被另一个人接住 |
 | 留言墙 | Outside the Wall | “All alone or in twos” | Outside the Wall | 每条话语来自具体来访者；独自或结伴到达的人让边界开始传递信息 |

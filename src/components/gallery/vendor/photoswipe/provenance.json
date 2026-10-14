@@ -1,0 +1,28 @@
+{
+  "version": "5.4.4",
+  "package": "photoswipe",
+  "tarball": "https://registry.npmjs.org/photoswipe/-/photoswipe-5.4.4.tgz",
+  "tarballShasum": "e045dc036453493188d5c8665b0e8f1000ac4d6e",
+  "license": "MIT",
+  "files": [
+    {
+      "file": "photoswipe.esm.js",
+      "bytes": 189114,
+      "sha256": "8fb6d883c58b0df716d6cb15268058c273e4e6d0b8d17f6ea85b3ce78e417748"
+    },
+    {
+      "file": "photoswipe.css",
+      "bytes": 7423,
+      "sha256": "b0eaaae0b9de064d25e2f18517b9011a526d9b2142376e1c0febd096cebab9f3"
+    },
+    {
+      "file": "LICENSE",
+      "bytes": 1129,
+      "sha256": "2c223af0b21d32240087ee189eb70fd315907b6ade8b561e24265baccd6a98e7"
+    }
+  ],
+  "localModifications": [
+    "Whitespace-only normalization in CSS header comments; upstream file hashes above identify the original package."
+  ],
+  "localCssSha256": "3482c00a79ce64ebbf536719aad0ce132de9eb431070d5b6aaf1fe5bde4496cd"
+}

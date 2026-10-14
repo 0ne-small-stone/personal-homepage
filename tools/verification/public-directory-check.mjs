@@ -12,22 +12,53 @@ const pages = files(root).filter((file) => file.endsWith('.html') &&
 assert(pages.length > 0, 'No website HTML pages found. Run npm run build first.');
 let currentPages = 0;
 let currentLocations = 0;
+let immersiveGalleryPages = 0;
 for (const file of pages) {
   const html = readFileSync(file, 'utf8');
+  const route = relative(root, file).replaceAll('\\', '/').replace(/index\.html$/, '');
+  assert(!html.includes('/personal-homepage/personal-homepage/'), `Repeated base: ${relative(root, file)}`);
+  // The accepted P10 is a full-screen gallery, rather than a directory shell.
+  // Validate its real entry points and published assets; all other pages still
+  // require the unchanged six-link public directory below.
+  if (route === 'gallery/') {
+    assert(html.includes('<title>A Moment Remains · Little Stone Still Here</title>'), 'Missing gallery identity');
+    assert(/rel="canonical" href="https:\/\/0ne-small-stone\.github\.io\/personal-homepage\/gallery\/"/.test(html), 'Invalid gallery canonical/base');
+    assert(/id="experience"/.test(html) && /id="dome-host"/.test(html) && /id="stage"/.test(html), 'Missing gallery interaction hosts');
+    assert(/id="return"[^>]*aria-label="返回总览"/.test(html), 'Missing accessible overview return');
+    assert(!/id="(?:journey|enter|selection|view-photo|zoom-in|zoom-out)"/.test(html), 'Removed gallery toolbar returned');
+    assert(!html.includes('name="astro-view-transitions-enabled"'), 'Gallery must keep its native document lifecycle');
+    const scripts = [...html.matchAll(/<script\b[^>]+src="([^"]+)"/g)].map(match => match[1]);
+    assert(scripts.length > 0 && scripts.every(src => src.startsWith('/personal-homepage/_astro/')), 'Gallery modules need the project base');
+    for (const src of scripts) assert(readFileSync(join(root, src.slice('/personal-homepage/'.length))).length > 0, `Missing gallery module: ${src}`);
+    const photos = JSON.parse(readFileSync(join(root, 'gallery/manifest.json'), 'utf8'));
+    assert.equal(photos.length, 36, 'Published gallery must contain the accepted 36 photographs');
+    assert.equal(new Set(photos.map(photo => photo.id)).size, 36, 'Gallery photo IDs must be unique');
+    const noScript = html.match(/<noscript>[\s\S]*?<\/noscript>/)?.[0];
+    assert(noScript, 'Gallery needs an accessible no-JS photo collection');
+    for (const photo of photos) {
+      assert(photo.width > 0 && photo.height > 0, `Invalid image ratio: ${photo.id}`);
+      for (const key of ['image', 'full']) {
+        assert(/^\.\/media\/photo-\d{2}(?:-full)?\.webp$/.test(photo[key]), `Invalid photo URL: ${photo.id}`);
+        assert(readFileSync(join(root, 'gallery', photo[key].slice(2))).length > 0, `Missing published photo: ${photo.id}/${key}`);
+        assert(noScript.includes(`/personal-homepage/gallery/${photo[key].slice(2)}`), `Missing no-JS photo destination: ${photo.id}/${key}`);
+      }
+    }
+    immersiveGalleryPages++;
+    continue;
+  }
   const nav = html.match(/<nav\b[^>]*aria-label="全站目录"[\s\S]*?<\/nav>/)?.[0];
   assert(nav, `Missing public directory: ${relative(root, file)}`);
   const links = [...nav.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/g)].map((match) => ({
     href: match[1], current: match[0].match(/aria-current="([^"]+)"/)?.[1],
   }));
   assert.deepEqual(links.map((link) => link.href), targets.map((target) => '/personal-homepage/' + target), file);
-  const route = relative(root, file).replaceAll('\\', '/').replace(/index\.html$/, '');
   for (const [i, link] of links.entries()) {
     const expected = route === targets[i] ? 'page' : route.startsWith(targets[i]) ? 'location' : undefined;
     assert.equal(link.current, expected, `${relative(root, file)}: ${link.href}`);
     if (link.current === 'page') currentPages++;
     if (link.current === 'location') currentLocations++;
   }
-  assert(!html.includes('/personal-homepage/personal-homepage/'), `Repeated base: ${relative(root, file)}`);
 }
 assert.equal(currentPages, 6, 'All six section landing pages must exist.');
-console.log(JSON.stringify({ websiteHtml: pages.length, destinations: targets.length, currentPages, currentLocations, result: 'passed' }));
+assert.equal(immersiveGalleryPages, 1, 'The immersive gallery must be built exactly once.');
+console.log(JSON.stringify({ websiteHtml: pages.length, destinations: targets.length, currentPages, currentLocations, immersiveGalleryPages, result: 'passed' }));

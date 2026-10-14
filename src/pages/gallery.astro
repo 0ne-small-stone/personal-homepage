@@ -1,4 +1,52 @@
 ---
-import JourneyPage from '../components/home/JourneyPage.astro';
+import '../components/gallery/style.css';
+import photos from '../../public/gallery/manifest.json';
+import { sitePath } from '../lib/paths';
+const galleryPath = sitePath('gallery');
 ---
-<JourneyPage title="Afterimage / 相册" description="那些目光停留过的地方。" status="个人照片正在整理" detail="首页海岸影像为 Annie Spratt 的 Unsplash 选图样本。正式相册将使用小石自己的照片，当前没有已发布的个人相册。" chapter="album" />
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="有些瞬间，还没过去。旋转照片墙，进入无限影像空间，完整观看每一幅影像。" />
+    <link rel="canonical" href={new URL(galleryPath, Astro.site)} />
+    <link rel="icon" href="data:," />
+    <title>A Moment Remains · Little Stone Still Here</title>
+  </head>
+  <body>
+    <main id="experience" data-view="loading">
+      <div id="stage"></div><div id="dome-host"></div>
+      <div class="shade" aria-hidden="true"></div>
+      <header><div class="header-controls">
+        <button id="return" class="quiet overview-return" aria-label="返回总览" title="返回总览" disabled>
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <circle cx="16" cy="16" r="12" /><ellipse cx="16" cy="16" rx="5.5" ry="12" />
+            <path d="M4 16h24M6 9.3c6 3.5 14 3.5 20 0M6 22.7c6-3.5 14-3.5 20 0" />
+          </svg>
+        </button>
+      </div></header>
+      <section id="loading" class="loading" aria-live="polite">
+        <p id="loading-text">正在展开照片</p>
+        <progress id="load-progress" max="36" value="0" aria-label="图片加载进度"></progress>
+      </section>
+      <section id="fallback" hidden><p>当前浏览器无法开启三维空间，可在这里查看照片。</p><div id="fallback-photos"></div></section>
+      <footer><div class="caption">
+        <h1>A Moment Remains</h1><p class="concept-intro">有些瞬间，还没过去。</p>
+        <output id="mode" class="sr-only" aria-live="polite">椭球总览</output>
+        <p id="hint" class="sr-only">上下左右拖动旋转 · 点击选中 · 滚轮进入</p>
+      </div></footer>
+    </main>
+    <noscript>
+      <style is:inline>#experience{display:none}.gallery-static{min-height:100svh;padding:32px 20px}.gallery-static h1{font-weight:400}.gallery-static p{color:#a1a1a1}.gallery-static-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}.gallery-static img{display:block;width:100%;height:220px;object-fit:contain}</style>
+      <main class="gallery-static">
+        <h1>A Moment Remains</h1><p>有些瞬间，还没过去。</p>
+        <div class="gallery-static-grid">{photos.map(photo => <a href={`${galleryPath}${photo.full.slice(2)}`} aria-label={`查看${photo.title}`}><img src={`${galleryPath}${photo.image.slice(2)}`} alt={photo.title} loading="lazy" /></a>)}</div>
+      </main>
+    </noscript>
+    <!-- A separate document keeps the accepted gallery lifecycle and native history. -->
+    <script>import '../components/gallery/scene.js';</script>
+  </body>
+</html>

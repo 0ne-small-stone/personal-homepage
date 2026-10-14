@@ -1,5 +1,8 @@
 # 个人主页设计复用与素材来源
 
+2026-10-14 P10正式采用：React Bits Dome Gallery固定496968c4117e21278f13917201b7d615bc5e7450、PhotoSwipe5.4.4、Three0.186.1和Infinite Canvas参考承接已验收原型，完整许可与出处在[公开来源登记](../../public/gallery/attribution.txt)。用户授权发布36张WebP派生，原JPEG不公开；组件作为本站应用使用，不发布独立组件库，见[接入记录](../technical/iterations/t12-p10-2026-10-14-pages.md)。
+
+
 ## F03 时序参考与复用（2026-10-14）
 
 按六站提醒规则，本轮提醒并核对 [Anime.js Timeline官方文档](https://animejs.com/documentation/timeline/)：适合讨论轮廓、空间与导航的重叠时序。只参考编排思路，实际复用已有GSAP/Three，不增加Anime依赖或复制案例素材。ALCHE仍为主参考，固定研究和来源沿用F03施工卡；字标、玻璃与局部柔光均沿用批准资产/原几何。实施状态、有限采样缺口及边界见[本轮证据](iterations/evidence/f03-loading-2026-10-14/implementation/README.md)，不将候选图检写为用户通过。
