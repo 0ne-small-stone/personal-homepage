@@ -1,6 +1,6 @@
 # 文档导航与设计 / 技术对应表
 
-2026-10-14 维护入口：[仓库整合记录](technical/iterations/repository-integration-2026-10-14.md)说明本轮 main 与首页/音乐文档的合并边界，沿用 T15/T16 和当前 P/U 编号；实际检查、PR 与部署结果仍在技术计划和发布验收记录维护。
+2026-10-14 维护入口：[仓库整合记录](technical/iterations/repository-integration-2026-10-14.md)说明本轮 main 与首页/音乐文档的合并边界，沿用 T15/T16 和当前 P/U 编号；实际检查、PR 与部署结果统一见[本轮发布验收](technical/acceptance/release-2026-10-14.md)和技术计划；技术验收不代替设计侧的用户审美确认。
 
 P13 / R04、R12 / U12、U14 / T25.25：专辑卡片悬停转动/移开暂停，见[本片](design/iterations/u12-p13-2026-10-14-sleeve-hover.md)。
 
@@ -35,7 +35,8 @@ docs/
     ├── REFERENCES.md         官方文档、候选依赖与平台约束
     ├── HOMEPAGE_ALCHE_HANDOFF.md  首页标杆实现的施工任务单
     ├── GITHUB_WORKFLOW.md    CI、构建与 Pages 接入
-    └── REPOSITORY_CONVENTIONS.md  仓库、目录、命名与提交规则
+    ├── REPOSITORY_CONVENTIONS.md  仓库、目录、命名与提交规则
+    └── acceptance/             综合发布验收与公开浏览器证据
 ```
 
 同名文件承担相同层级的职责：`SPEC.md` 定义目标与边界，`PLAN.md` 定义执行与验收，`REFERENCES.md` 保存来源与候选。设计专用的概念和统一参数由技术规格中的运行时、组件与资源约束承接。

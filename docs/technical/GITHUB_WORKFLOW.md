@@ -119,3 +119,9 @@ export default defineConfig({
 4. [首轮运行](https://github.com/0ne-small-stone/personal-homepage/actions/runs/37596208177)成功后已启用 main 保护；Astro 工程的 [首次 PR 构建](https://github.com/0ne-small-stone/personal-homepage/actions/runs/37598839477) 成功后，必需检查现为 `Repository checks`、`Workflow syntax`、`Astro build`，均绑定实际 GitHub Actions App。设置应用和读回结果见技术计划。
 
 Giscus 授权、CMS 字段、音乐同步与 AI 服务仍由各自技术任务实现。这些服务不因 CI 文件创建而自动接入，也不在本次工作流中使用它们的凭证。
+
+## 公开音乐构建守卫（2026-10-14）
+
+Astro build 在静态构建后执行 `tools/verification/music-catalog-check.mjs`，确认曲库非空、音源与封面均来自已配置的公开分享、产物不含私有字段，再上传 Pages artifact。失败会阻止部署，不能用本机缓存或登录状态证明干净 CI 的可用性。
+
+生产曲库优先使用远端；目录 PROPFIND 失败仍尝试公开 GET，远端缺失或为空时读取 `src/data/music/cloud-catalog.json` 的已验证公开元数据快照。新增公开曲目完成实际播放验证后，执行 `npm run music:publish-catalog` 从 `dist/music/catalog.json` 更新快照，审查差异并走 PR；它不读取私有运行目录，也不上传音频或凭据。网页浏览器不能提供本机账号、续期与推荐服务，这些功能保持待接通说明。
