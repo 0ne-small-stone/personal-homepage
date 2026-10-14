@@ -5,7 +5,7 @@ html[data-reading-immersive] #mainContainer { min-width: 0; }
 html[data-reading-immersive] #viewerContainer { inset: 0 !important; scrollbar-width: none; }
 html[data-reading-immersive] #viewerContainer::-webkit-scrollbar { display: none; }
 html[data-reading-touch] #viewerContainer { touch-action: pan-y pinch-zoom; }
-html[data-reading-immersive] #viewer.scrollWrapped {
+  html[data-reading-immersive][data-reading-columns] #viewer.scrollWrapped {
   display: grid;
   grid-template-columns: repeat(var(--reading-columns, 1), var(--reading-cell-width, max-content));
   grid-auto-rows: minmax(var(--reading-slot-height, 100dvh), max-content);

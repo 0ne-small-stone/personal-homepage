@@ -10,6 +10,7 @@ const { pdf = false } = Astro.props;
 </learning-reading-mode>
 <script>
   import { automaticPdfColumns, fitPdfMode, pdfModeGeometry, pdfModeGroup, type PdfPaperSize } from '../lib/immersivePdfLayout';
+  import { immersivePdfShortcut } from '../lib/immersivePdfShortcuts';
   interface PdfPageView {
     div: HTMLElement;
     scale: number;
@@ -50,6 +51,7 @@ const { pdf = false } = Astro.props;
     private resizing = false;
     private columns?: number;
     private modeChosen = false;
+    private freeFlow = false;
     private groupSizes: PdfPaperSize[] = [];
     private modeFits = false;
     private fitEpoch = 0;
@@ -131,10 +133,10 @@ const { pdf = false } = Astro.props;
       else if (!document.fullscreenEnabled && this.mobile()) this.status.textContent = '此浏览器不支持系统全屏，将铺满网页阅读；右滑退出。';
       else if (!document.fullscreenEnabled) this.status.textContent = '此浏览器不支持网页全屏，无法进入沉浸阅读。';
       else if (this.frame) {
-        const strategy = this.columns
+        const strategy = this.freeFlow ? '当前自由排布，页数随缩放变化。' : this.columns
           ? `当前每组 ${this.columns} 页，缩放不会改变页数。`
           : '进入后自动选择单页或双页，并显示完整页面。';
-        this.status.textContent = strategy + '数字键 1–4 选页数，F 适应整页，方向键/滚轮翻组；Ctrl + 加减号或 Ctrl + 滚轮缩放。电脑 Esc、手机右滑退出。';
+        this.status.textContent = strategy + '数字键 1–4 固定页数，0、5–9 取消固定；F 适应整页（中文输入法也可用）。固定时方向键/滚轮翻组；Ctrl + 加减号或 Ctrl + 滚轮缩放。电脑 Esc、手机右滑退出。';
       } else this.status.textContent = '进入全屏，电脑 Esc 退出，手机右滑退出。';
     }
     private bookmarkPdf(): PdfBookmark | undefined {
@@ -184,7 +186,14 @@ const { pdf = false } = Astro.props;
       this.trackedBus = bus;
     }
     private currentPdfPage() { return this.lastBookmark?.page ?? this.app?.pdfViewer?.currentPageNumber ?? 1; }
+    private clearPdfGeometry() {
+      const root = this.frame?.contentDocument?.documentElement;
+      root?.removeAttribute('data-reading-columns');
+      for (const property of ['--reading-columns', '--reading-cell-width', '--reading-slot-height']) root?.style.removeProperty(property);
+      this.modeFits = false;
+    }
     private applyPdfGeometry(scale = this.app?.pdfViewer?.currentScale ?? 1) {
+      if (this.freeFlow) return;
       const doc = this.frame?.contentDocument, container = doc?.getElementById('viewerContainer');
       if (!doc || !container || !this.columns || !this.groupSizes.length) return;
       const geometry = pdfModeGeometry({ width: container.clientWidth, height: container.clientHeight,
@@ -201,7 +210,7 @@ const { pdf = false } = Astro.props;
       const paper = viewer?.getPageView(page - 1)?.div;
       if (!viewer || !container || !paper) return;
       viewer.scrollPageIntoView({ pageNumber: page });
-      container.scrollTop = Math.max(0, this.modeFits
+      container.scrollTop = Math.max(0, this.modeFits || (this.freeFlow && paper.offsetHeight <= container.clientHeight)
         ? paper.offsetTop + paper.offsetHeight / 2 - container.clientHeight / 2 : paper.offsetTop - 8);
       viewer.update();
     }
@@ -212,21 +221,22 @@ const { pdf = false } = Astro.props;
       const pageNumber = bookmark?.page ?? viewer?.currentPageNumber ?? 1;
       const page = viewer?.getPageView(pageNumber - 1);
       if (!viewer?.pdfDocument || !page || !container || !doc) return;
-      this.columns ??= automaticPdfColumns(container.clientWidth, container.clientHeight,
+      if (!this.freeFlow) this.columns ??= automaticPdfColumns(container.clientWidth, container.clientHeight,
         { width: page.viewport.width, height: page.viewport.height }, viewer.pagesCount);
-      this.columns = Math.min(this.columns, viewer.pagesCount);
+      const columns = Math.min(this.freeFlow ? 1 : this.columns!, viewer.pagesCount);
+      if (!this.freeFlow) this.columns = columns;
       const epoch = ++this.fitEpoch;
       this.resizing = true;
       doc.documentElement.setAttribute('data-reading-layout-pending', '');
       try {
-        const group = pdfModeGroup(pageNumber, viewer.pagesCount, this.columns);
+        const group = pdfModeGroup(pageNumber, viewer.pagesCount, columns);
         const sizes = await Promise.all(group.map(async (number) => {
           const paper = await viewer.pdfDocument!.getPage(number);
           const viewport = paper.getViewport({ scale: 4 / 3, rotation: (paper.rotate + viewer.pagesRotation) % 360 });
           return { width: viewport.width, height: viewport.height };
         }));
         if (!this.active || (fit && !this.automatic) || epoch !== this.fitEpoch) return;
-        const input = { width: container.clientWidth, height: container.clientHeight, sizes, columns: this.columns };
+        const input = { width: container.clientWidth, height: container.clientHeight, sizes, columns };
         const scale = fit ? fitPdfMode(input)?.scale : viewer.currentScale;
         if (!scale || !pdfModeGeometry({ ...input, scale })) throw new Error('Invalid reading area');
         this.groupSizes = sizes;
@@ -266,11 +276,24 @@ const { pdf = false } = Astro.props;
     }
     private choosePdfMode(columns: number) {
       if (!this.frame) return;
+      this.freeFlow = false;
       this.columns = Math.min(columns, this.app?.pdfViewer?.pagesCount ?? columns);
       this.modeChosen = true;
       this.automatic = true;
       this.manualZoom = false;
       void this.fitPdf();
+    }
+    private releasePdfMode() {
+      const bookmark = this.lastBookmark ?? this.bookmarkPdf();
+      this.useManualZoom();
+      this.freeFlow = true;
+      this.columns = undefined;
+      this.modeChosen = false;
+      this.groupSizes = [];
+      this.clearPdfGeometry();
+      this.restorePdfBookmark(bookmark);
+      this.app?.pdfViewer?.update();
+      this.lastBookmark = bookmark;
     }
     private movePdfGroup(direction: number) {
       const viewer = this.app?.pdfViewer;
@@ -289,9 +312,17 @@ const { pdf = false } = Astro.props;
           event.preventDefault(); this.exit();
           return;
         }
-        if (this.frame && !event.ctrlKey && !event.metaKey && !event.altKey) {
-          if (/^[1-4]$/.test(event.key)) { event.preventDefault(); event.stopImmediatePropagation(); this.choosePdfMode(Number(event.key)); return; }
-          if (event.key.toLowerCase() === 'f') { event.preventDefault(); event.stopImmediatePropagation(); this.automatic = true; this.manualZoom = false; void this.fitPdf(); return; }
+        const target = event.target as Element | null;
+        const editing = target?.nodeType === 1 && !!target.closest('input, textarea, select, [contenteditable]:not([contenteditable="false"])');
+        if (this.frame && !editing && !event.ctrlKey && !event.metaKey && !event.altKey) {
+          const shortcut = immersivePdfShortcut(event);
+          if (shortcut) {
+            event.preventDefault(); event.stopImmediatePropagation();
+            if (shortcut.kind === 'mode') this.choosePdfMode(shortcut.columns);
+            else if (shortcut.kind === 'free') this.releasePdfMode();
+            else { this.automatic = true; this.manualZoom = false; void this.fitPdf(); }
+            return;
+          }
           if (this.modeFits && ['ArrowLeft', 'ArrowUp', 'PageUp', 'ArrowRight', 'ArrowDown', 'PageDown'].includes(event.key)) {
             event.preventDefault(); event.stopImmediatePropagation(); this.movePdfGroup(['ArrowLeft', 'ArrowUp', 'PageUp'].includes(event.key) ? -1 : 1); return;
           }
@@ -366,7 +397,8 @@ const { pdf = false } = Astro.props;
         if (this.active) {
           viewer?.update();
           if (this.automatic) await this.fitPdf(this.savedPdf?.bookmark);
-          else { this.applyPdfGeometry(); this.alignPdfGroup(this.savedPdf?.page ?? viewer?.currentPageNumber ?? 1); }
+            else if (this.freeFlow) { this.restorePdfBookmark(this.savedPdf?.bookmark); viewer?.update(); }
+            else { this.applyPdfGeometry(); this.alignPdfGroup(this.savedPdf?.page ?? viewer?.currentPageNumber ?? 1); }
           if (frameDoc) frameDoc.getElementById('viewerContainer')?.focus({ preventScroll: true });
           else {
             const readingFrame = document.querySelector<HTMLElement>('.main-frame');

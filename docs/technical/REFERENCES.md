@@ -1,5 +1,7 @@
 # 个人主页技术调研来源和候选方案
 
+2026-10-14 T09.04修订5：用户中文输入法反馈后，核对[KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code)的物理位置语义与[keydown的IME说明](https://developer.mozilla.org/en-US/docs/Web/API/Element/keydown_event)。仅在沉浸阅读且非输入控件接管物理F/数字，组合键保留；字符key回退。自由排布继续使用本机PDF.js6.4.299的Wrapped原始inline-block/换行CSS，固定网格只在明确列数属性存在时覆盖，不改vendor。没有新依赖或素材；中文事件形状测试与真实OS输入法验证分别记录。
+
 2026-10-14 P13/T25.24：复用Microsoft [ProtectedData.Protect / DPAPI](https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.protecteddata.protect?view=windowsdesktop-9.0)，按当前Windows用户范围加密本机登录；既有Windows加密辅助脚本增加独立网易云用途标签，上传用途保持原默认值与原熵。实际加密读回、恢复/删除和权限边界见[本片](iterations/t25-p13-2026-10-14-saved-login.md)。
 
 2026-10-14 P13/T25.23：复核已安装API Enhanced4.41.1的`login_qr_key`、`login_qr_create`、`login_qr_check`、`login_status`及标准音源模块。维护者[标准播放源码](https://github.com/NeteaseCloudMusicApiEnhanced/api-enhanced/blob/main/module/song_url_v1.js)和[接口文档入口](https://neteasecloudmusicapienhanced.js.org/)作为技术来源；当前实现明确不启用源码中的解锁分支，个人账号许可只按真实返回验证。实际源码/测试、私有内存索引与本机限定见[本片](iterations/t25-p13-2026-10-14-account-playback.md)。

@@ -1,5 +1,7 @@
 # 个人主页技术实现方案
 
+2026-10-14 T09.04修订5：仅适配键盘快捷键与固定/自由状态；KeyboardEvent.code承接输入法下的KeyF/Digit/Numpad，字符key回退。自由态撤固定网格回到原生Wrapped、保留比例与原生书签；fit与异步失效保护沿用，F适配不改变自由状态。无新依赖/渲染器/媒体，现行输入与参数SYSTEM5.3；本片从main c122144隔离实施。
+
 2026-10-14 P13/T25.25：VinylSleeve用CSS暂停/运行既有转动，IntersectionObserver与visibilitychange仅管理可见性，卸载清理；不改媒体所有者、账号或服务接口。见[本片](../design/iterations/u12-p13-2026-10-14-sleeve-hover.md)。
 
 2026-10-14 P13/T25.24：用户明确授权保存个人网易云播放登录，覆盖T25.23仅内存Cookie决定。用Windows DPAPI当前用户加密本机Git忽略文件，启动解密并核对账号；退出/真实失效清除，网络暂不可达保留密文重试。个人音源URL仍内存、匿名索引及管理员授权保持隔离，见[本片](iterations/t25-p13-2026-10-14-saved-login.md)。
