@@ -20,4 +20,4 @@
 
 [本轮原图与验证记录](evidence/u09-p03-framer-overview-2026-10-14/README.md)保存最终桌面/窄屏、状态结果、首次失败、实际边界和源码SHA。check为135文件0错误/0警告、8条既有相册hints；生产构建53页、Pagefind54HTML完成。无新依赖，查询/排序脚本逐字不变。
 
-源码分支codex/becoming-overview-framer，基于main 5eac344。提交/草稿PR在交付归档补记；不合并或部署。初次快速后退后立即操作发生参数丢失，稳定深链返回已通过，该快速路径另行复核。浅色、真机和文字放大未实测；P05/P06外观不推广。
+源码分支codex/becoming-overview-framer，基于main 5eac344。实现提交[df30efd](https://github.com/0ne-small-stone/personal-homepage/commit/df30efde8edbb393c05efdef3e946b1a15165d93)已推送独立分支。草稿PR未创建：GitHub连接器返回403，随后自动审批拒绝读取Git凭证的备用创建方法；该方法未执行，凭证未读取。已请求用户决定是否额外明确授权，此限制不影响本地体验；不合并或部署。初次快速后退后立即操作发生参数丢失，稳定深链返回已通过，该快速路径另行复核。浅色、真机和文字放大未实测；P05/P06外观不推广。
