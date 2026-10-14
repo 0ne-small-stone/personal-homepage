@@ -1,5 +1,7 @@
 # 个人主页技术调研来源和候选方案
 
+2026-10-14 T09.04修订5：用户中文输入法反馈后，核对[KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code)的物理位置语义与[keydown的IME说明](https://developer.mozilla.org/en-US/docs/Web/API/Element/keydown_event)。仅在沉浸阅读且非输入控件接管物理F/数字，组合键保留；字符key回退。自由排布继续使用本机PDF.js6.4.299的Wrapped原始inline-block/换行CSS，固定网格只在明确列数属性存在时覆盖，不改vendor。没有新依赖或素材；中文事件形状测试与真实OS输入法验证分别记录。
+
 2026-10-14 T09.04修订4：继续复用固定PDF.js6.4.299的PDFDocumentProxy.getPage、PDFPageProxy.getViewport和原生缩放/渲染队列。[官方视口说明](https://mozilla.github.io/pdf.js/api/draft/module-pdfjsLib-PDFPageProxy.html)承接纸张尺寸与旋转，实际契约以已提交版本实读为准；[CSS Grid固定列](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns)和[行尺寸](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-rows)承接独立页数及每组至少一屏。现成Wrapped缺少固定1–4页模式，只补最小布局和输入策略，取当前组最多4页尺寸、异步请求失效保护；手动翻组也读目标尺寸并保持比例。能力缺口、实际测试与边界见[修订4](iterations/t09-04-page-modes-2026-10-14.md)，新增依赖/素材0。
 
 2026-10-13 T09.04修订3：沿用本机固定PDF.js6.4.299的getPageView、PageViewport尺寸/convertToPdfPoint和scrollPageIntoView的XYZ目的地，未更换版本。[官方页视口说明](https://mozilla.github.io/pdf.js/api/draft/module-pdfjsLib-PDFPageProxy.html)提供尺度/比例依据，[官方示例](https://mozilla.github.io/pdf.js/examples/index.html)说明原始viewport与旋转；本站采用固定源码实读而非把在线draft视为当前包契约。[Resize Observer](https://developer.mozilla.org/en-US/docs/Web/API/Resize_Observer_API)观察阅读区尺寸，合并回调以避免反复布局。现成能力不足之处及最小适配范围见[修订3记录](iterations/t09-04-adaptive-2026-10-13.md)；新增依赖与设计资源为0。
