@@ -1,5 +1,7 @@
 # 个人主页设计复用与素材来源
 
+2026-10-14 P10正式采用：React Bits Dome Gallery固定496968c4117e21278f13917201b7d615bc5e7450、PhotoSwipe5.4.4、Three0.186.1和Infinite Canvas参考承接已验收原型，完整许可与出处在[公开来源登记](../../public/gallery/attribution.txt)。用户授权发布36张WebP派生，原JPEG不公开；组件作为本站应用使用，不发布独立组件库，见[接入记录](../technical/iterations/t12-p10-2026-10-14-pages.md)。
+
 2026-10-14 T25.18正式替代样本：原有矢量候选不满足写实要求，Technics模型未取得、SME照片再利用未验证。本次内置imagegen生成原创俯视银色曲臂/轴承/配重/黑色唱头透明图，导出`public/music/turntable/tonearm-metal-v1.webp`，重新测量落针坐标。生成提示词/模式/处理/alpha证据见[生成记录](iterations/evidence/u12-p13-2026-10-14-album-choreography-revision/tonearm-generation.json)，接入状态见[修订片](iterations/u12-p13-2026-10-14-album-choreography-revision.md)；未将厂家照片或模型viewer图作为应用素材，生成样本不冒充厂家实拍。
 
 2026-10-14 T25.22六资源站提醒：resource-animejs的[Timeline](https://animejs.com/documentation/timeline/)适合对照收盘→换套→抽盘的顺序衔接，原官方页面已核对；本片用浏览器原生CSS动画与React粗粒度快照完成，未安装Anime.js或复制其代码，参数仍归SYSTEM。
