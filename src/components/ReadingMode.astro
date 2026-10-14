@@ -201,11 +201,12 @@ const { pdf = false } = Astro.props;
       const paper = viewer?.getPageView(page - 1)?.div;
       if (!viewer || !container || !paper) return;
       viewer.scrollPageIntoView({ pageNumber: page });
-      container.scrollTop = Math.max(0, paper.offsetTop + paper.offsetHeight / 2 - container.clientHeight / 2);
+      container.scrollTop = Math.max(0, this.modeFits
+        ? paper.offsetTop + paper.offsetHeight / 2 - container.clientHeight / 2 : paper.offsetTop - 8);
       viewer.update();
     }
-    private async fitPdf(bookmark = this.lastBookmark ?? this.bookmarkPdf()) {
-      if (!this.active || !this.automatic) return;
+    private async fitPdf(bookmark = this.lastBookmark ?? this.bookmarkPdf(), fit = true) {
+      if (!this.active || (fit && !this.automatic)) return;
       const viewer = this.app?.pdfViewer, doc = this.frame?.contentDocument;
       const container = doc?.getElementById('viewerContainer');
       const pageNumber = bookmark?.page ?? viewer?.currentPageNumber ?? 1;
@@ -224,12 +225,13 @@ const { pdf = false } = Astro.props;
           const viewport = paper.getViewport({ scale: 4 / 3, rotation: (paper.rotate + viewer.pagesRotation) % 360 });
           return { width: viewport.width, height: viewport.height };
         }));
-        if (!this.active || !this.automatic || epoch !== this.fitEpoch) return;
-        const layout = fitPdfMode({ width: container.clientWidth, height: container.clientHeight, sizes, columns: this.columns });
-        if (!layout) throw new Error('Invalid reading area');
+        if (!this.active || (fit && !this.automatic) || epoch !== this.fitEpoch) return;
+        const input = { width: container.clientWidth, height: container.clientHeight, sizes, columns: this.columns };
+        const scale = fit ? fitPdfMode(input)?.scale : viewer.currentScale;
+        if (!scale || !pdfModeGeometry({ ...input, scale })) throw new Error('Invalid reading area');
         this.groupSizes = sizes;
-        viewer.currentScaleValue = String(layout.scale);
-        this.applyPdfGeometry(layout.scale);
+        if (fit) viewer.currentScaleValue = String(scale);
+        this.applyPdfGeometry(scale);
         this.alignPdfGroup(pageNumber);
         this.lastBookmark = this.pdfMoved ? this.bookmarkPdf() : this.savedPdf?.bookmark;
       } catch {
@@ -278,7 +280,7 @@ const { pdf = false } = Astro.props;
       if (target < 1 || target > viewer.pagesCount) return;
       this.pdfMoved = true;
       if (this.automatic) void this.fitPdf({ page: target, x: 0, y: 0 });
-      else { this.alignPdfGroup(target); this.lastBookmark = this.bookmarkPdf(); }
+      else void this.fitPdf({ page: target, x: 0, y: 0 }, false);
     }
     private bindInput(doc: Document, signal: AbortSignal) {
       doc.addEventListener('keydown', (event) => {
@@ -356,7 +358,7 @@ const { pdf = false } = Astro.props;
           frameDoc.documentElement.setAttribute('data-reading-immersive', '');
           frameDoc.documentElement.toggleAttribute('data-reading-touch', this.mobileSession);
           viewer.spreadMode = 0;
-          viewer.scrollMode = 2; // Native Wrapped mode: columns follow scale/viewport.
+            viewer.scrollMode = 2; // Native rendering; our grid keeps the chosen columns fixed.
         }
         this.button.setAttribute('aria-pressed', 'true');
         // Keep requestFullscreen in the initiating user gesture.
