@@ -1,0 +1,96 @@
+{
+  "overview": {
+    "canvases": 1,
+    "controls": 0,
+    "h": 720,
+    "images": [
+      {
+        "complete": true,
+        "src": "https://0ne-small-stone.github.io/personal-homepage/gallery/media/photo-01.webp",
+        "w": 640
+      },
+      {
+        "complete": true,
+        "src": "https://0ne-small-stone.github.io/personal-homepage/gallery/media/photo-02.webp",
+        "w": 480
+      },
+      {
+        "complete": true,
+        "src": "https://0ne-small-stone.github.io/personal-homepage/gallery/media/photo-03.webp",
+        "w": 480
+      }
+    ],
+    "photos": "36",
+    "title": "A Moment Remains · Little Stone Still Here",
+    "view": "sphere",
+    "w": 1280
+  },
+  "viewer": {
+    "images": [
+      {
+        "alt": "影像 20",
+        "complete": true,
+        "h": 1200,
+        "w": 1600
+      },
+      {
+        "alt": "影像 21",
+        "complete": true,
+        "h": 1200,
+        "w": 1600
+      },
+      {
+        "alt": "影像 22",
+        "complete": true,
+        "h": 1199,
+        "w": 1600
+      }
+    ],
+    "open": true
+  },
+  "navigation": "on \"查看影像 28\"\n    - button \"查看影像 29\"\n    - button \"查看影像 30\"\n    - button \"查看影像 31\"\n    - button \"查看影像 32\"\n    - button \"查看影像 33\"\n    - button \"查看影像 34\"\n    - button \"查看影像 35\"\n    - button \"查看影像 36\"\n  - generic: 影像 22 22 / 36\n  - status: 100%",
+  "closed": {
+    "canvases": 1,
+    "orientation": "0.000,0.000",
+    "progress": "0.000",
+    "view": "sphere",
+    "viewer": "closed"
+  },
+  "wheel": {
+    "clip": "inset(85.88px 36.16px 144.64px)",
+    "progress": "0.096",
+    "view": "transition"
+  },
+  "space": {
+    "canvases": 1,
+    "photos": "36",
+    "progress": "1.000",
+    "view": "space"
+  },
+  "returned": {
+    "canvases": 1,
+    "clip": "",
+    "progress": "0.000",
+    "view": "sphere"
+  },
+  "phone": {
+    "canvases": 1,
+    "caption": {
+      "bottom": 718,
+      "height": 58.984375,
+      "left": 20,
+      "right": 274.984375,
+      "top": 659.015625,
+      "width": 254.984375,
+      "x": 20,
+      "y": 659.015625
+    },
+    "controls": 0,
+    "h": 844,
+    "photos": "36",
+    "title": "A Moment Remains · Little Stone Still Here",
+    "view": "sphere",
+    "w": 390
+  },
+  "errors": []
+}
