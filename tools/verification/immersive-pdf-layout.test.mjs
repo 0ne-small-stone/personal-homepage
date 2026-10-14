@@ -1,50 +1,64 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { comfortablePdfLayout } from '../../src/lib/immersivePdfLayout.ts';
-
-const paper = { pageWidth: 560, pageHeight: 792, pages: 4 };
-test('ultrawide screens choose readable two-page rows rather than four thumbnails', () => {
-  const layout = comfortablePdfLayout({ ...paper, width: 3440, height: 1440 });
-  assert.equal(layout.columns, 2);
-  assert(layout.scale * paper.pageWidth >= 600);
-  assert(layout.rowWidth < 3440);
-  assert(layout.scale * paper.pageHeight + 32 <= 1440);
+import { automaticPdfColumns, fitPdfMode, pdfModeGeometry, pdfModeGroup } from '../../src/lib/immersivePdfLayout.ts';
+const portrait = { width: 560, height: 792 };
+test('automatic choice applies only to entry, not to zoom', () => {
+  assert.equal(automaticPdfColumns(3440, 1440, portrait, 4), 2);
+  assert.equal(automaticPdfColumns(390, 844, portrait, 4), 1);
+  assert.equal(automaticPdfColumns(1280, 1600, portrait, 4), 1);
+  assert.equal(automaticPdfColumns(1920, 1080, { width: 792, height: 560 }, 4), 1);
 });
-test('short desktop screens keep readable paper width even when vertical scrolling is needed', () => {
-  const layout = comfortablePdfLayout({ ...paper, width: 1280, height: 720 });
-  assert.equal(layout.columns, 2);
-  assert(layout.scale * paper.pageWidth >= 599);
-  assert(layout.scale * paper.pageHeight > 720);
+test('short screens show complete pages instead of enforcing a minimum width', () => {
+  const layout = fitPdfMode({ width: 1280, height: 720, sizes: [portrait, portrait], columns: 2 });
+  assert(layout.fits);
+  assert(layout.scale * portrait.height + 48 <= 720);
+  assert(layout.rowWidth + 16 <= 1280);
 });
-test('portrait viewports and landscape paper use one column', () => {
-  assert.equal(comfortablePdfLayout({ ...paper, width: 1280, height: 1600 }).columns, 1);
-  assert.equal(comfortablePdfLayout({ ...paper, width: 1920, height: 1080, pageWidth: 792, pageHeight: 560 }).columns, 1);
-  assert.equal(comfortablePdfLayout({ ...paper, width: 1920, height: 1080, pages: 1 }).columns, 1);
-});
-test('phone widths fit the paper without horizontal overflow', () => {
-  for (const width of [320, 390, 430, 767]) {
-    const layout = comfortablePdfLayout({ ...paper, width, height: 844 });
-    assert.equal(layout.columns, 1);
-    assert(layout.scale * paper.pageWidth + 36 <= width);
-    assert(layout.rowWidth <= width);
+test('zoom changes paper size but never changes selected column count', () => {
+  for (const columns of [1, 2, 3, 4]) {
+    const input = { width: 1280, height: 720, sizes: [portrait], columns };
+    const fitted = fitPdfMode(input);
+    for (const factor of [0.5, 0.9, 1, 1.1, 3]) {
+      const geometry = pdfModeGeometry({ ...input, scale: fitted.scale * factor });
+      assert.equal(geometry.columns, columns);
+      assert.equal(geometry.slotHeight, 720);
+    }
   }
 });
-test('invalid document or viewport dimensions do not produce an infinite scale', () => {
-  for (const value of [0, -1, NaN, Infinity]) {
-    assert.equal(comfortablePdfLayout({ ...paper, width: value, height: 720 }), undefined);
-    assert.equal(comfortablePdfLayout({ ...paper, width: 1280, height: 720, pageHeight: value }), undefined);
+test('mixed paper sizes all fit, including landscape pages', () => {
+  const sizes = [portrait, { width: 1120, height: 560 }];
+  const layout = fitPdfMode({ width: 1920, height: 1080, sizes, columns: 2 });
+  assert(layout.fits);
+  for (const size of sizes) {
+    assert(size.height * layout.scale + 48 <= 1080);
+    assert(size.width * layout.scale + 34 <= layout.cellWidth);
   }
 });
-test('screen and paper matrix stays finite and inside the viewport', () => {
+test('page groups preserve the current page and handle incomplete final groups', () => {
+  assert.deepEqual(pdfModeGroup(3, 4, 2), [3, 4]);
+  assert.deepEqual(pdfModeGroup(3, 4, 3), [1, 2, 3]);
+  assert.deepEqual(pdfModeGroup(4, 4, 3), [4]);
+  assert.deepEqual(pdfModeGroup(1, 1, 4), [1]);
+});
+test('screen, paper and mode matrix always fits every edge', () => {
+  let combinations = 0;
   for (const width of [320, 390, 768, 1024, 1279, 1280, 1920, 3440]) {
     for (const height of [390, 720, 1080, 1440, 1920]) {
-      for (const dimensions of [[560, 792], [792, 560], [600, 600]]) {
-        const layout = comfortablePdfLayout({ width, height, pageWidth: dimensions[0], pageHeight: dimensions[1], pages: 4 });
-        assert(Number.isFinite(layout.scale));
-        assert(layout.scale > 0);
-        assert(layout.rowWidth <= width);
-        assert(layout.columns === 1 || layout.columns === 2);
+      for (const sizes of [[portrait], [{ width: 792, height: 560 }], [{ width: 600, height: 600 }]]) {
+        for (const columns of [1, 2, 3, 4]) {
+          const layout = fitPdfMode({ width, height, sizes, columns });
+          assert(layout && layout.fits);
+          assert.equal(layout.columns, columns);
+          assert(layout.rowWidth <= width);
+          assert(sizes[0].height * layout.scale + 48 <= height);
+          combinations++;
+        }
       }
     }
   }
+  assert.equal(combinations, 480);
+});
+test('invalid dimensions and modes do not generate a layout', () => {
+  for (const width of [0, -1, NaN, Infinity]) assert.equal(fitPdfMode({ width, height: 720, sizes: [portrait], columns: 2 }), undefined);
+  for (const columns of [0, 5, 1.5]) assert.equal(fitPdfMode({ width: 1280, height: 720, sizes: [portrait], columns }), undefined);
 });
