@@ -1,6 +1,6 @@
 # 文档导航与设计 / 技术对应表
 
-P10 / R06、R12 / U10、U14 / T12、T15、T16、T26、T27：[A Moment Remains正式接入与Pages发布](technical/iterations/t12-p10-2026-10-14-pages.md)。用户确认v17并授权当前相册及36张压缩派生公开，沿用/gallery/，未新增页面/任务编号。
+P10 / R06、R12 / U10、U14 / T12、T15、T16、T26、T27：[A Moment Remains正式接入与Pages发布](technical/iterations/t12-p10-2026-10-14-pages.md)。用户确认v17并授权当前相册及36张压缩派生公开，沿用/gallery/，未新增页面/任务编号；PR #53与Pages成功，入口[A Moment Remains](https://0ne-small-stone.github.io/personal-homepage/gallery/)，公网功能已核对。
 
 2026-10-14 维护入口：[仓库整合记录](technical/iterations/repository-integration-2026-10-14.md)说明本轮 main 与首页/音乐文档的合并边界，沿用 T15/T16 和当前 P/U 编号；实际检查、PR 与部署结果统一见[本轮发布验收](technical/acceptance/release-2026-10-14.md)和技术计划；技术验收不代替设计侧的用户审美确认。
 
