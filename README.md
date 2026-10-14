@@ -1,6 +1,6 @@
 # 个人主页项目
 
-2026-10-14 当前整合候选：在已上线的学习区与 CMS 基线上合入首页 F02 逐砖展开和音乐电台更新。当前公开站点见[主页](https://0ne-small-stone.github.io/personal-homepage/)与[学习区](https://0ne-small-stone.github.io/personal-homepage/knowledge/)；本轮候选尚在独立验收与发布流程中，新的提交、Actions 和公网结果由发布验收另行记录，不能复用历史上线结论。
+2026-10-14 当前整合候选：在已上线的学习区与 CMS 基线上合入首页 F02 逐砖展开和音乐电台更新。当前公开站点见[主页](https://0ne-small-stone.github.io/personal-homepage/)与[学习区](https://0ne-small-stone.github.io/personal-homepage/knowledge/)；首页与学习区已由 PR #48 发布；公网曲库回读暴露空目录，现补发公开曲库与 CI 守卫，新的提交、Actions 和公网结果由发布验收另行记录，不能复用历史上线结论。
 
 - 首页保留中央玻璃三棱体和柔晕，终章在近方形后错落落砖、展开至全屏；取消入射光、光谱/流体和整墙上移。F02 工程结果、独立复核和用户确认分别记录，当前没有用户通过结论，不启动 F03。
 - 学习区保留 main 的内容、筛选、搜索、关联、网页编辑、公开 PDF 与沉浸阅读，不用旧首页工作分支覆盖。

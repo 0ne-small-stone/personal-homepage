@@ -103,6 +103,9 @@ jobs:
       - name: Build static website
         run: npm run build
 
+      - name: Verify published music catalog
+        run: node tools/verification/music-catalog-check.mjs
+
       - name: Verify public directory routes
         run: node tools/verification/public-directory-check.mjs
 
