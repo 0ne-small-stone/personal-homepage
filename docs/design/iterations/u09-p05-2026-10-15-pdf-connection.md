@@ -34,3 +34,7 @@
 先前跨工具调用的全屏快捷键测试失去全屏状态，不计通过；连续同次原生输入已单独验证。只读DOM映射的fullscreenElement为false但原生视口扩到3440×1440，原值保留。教材输入9仅改控件值，未确认第9页渲染；后续原生下一页已确认第2页。手机为视口模拟，右滑手势、实体设备与中文输入法本轮未重测。
 
 工具重置320px视口并立即离页时记录MutationObserver非Node异常；普通阅读/翻页/筛选返回未复现，临时顶层/iframe异常栈诊断未捕获来源，未断言原因或控制台全绿。诊断代码已移除，保留原始日志；此工具边界不计应用通过项。
+
+## 追溯与草稿
+
+本轮实现提交[f1e7347](https://github.com/0ne-small-stone/personal-homepage/commit/f1e7347ca2c1dc0f17b423d6fa391c7fcc87c666)已推送codex/becoming-overview-framer，归入草稿[#57](https://github.com/0ne-small-stone/personal-homepage/pull/57)。最终干净发布构建53页完成且无dist/local-materials目录；259份文档、3722文件边界检查通过。未合并或部署。
