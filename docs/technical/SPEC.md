@@ -469,3 +469,8 @@ Giscus 仍依赖外部托管服务。网易云同步和未来 AI 需要服务端
 ### P03 Becoming 总览外观作用域（2026-10-14）
 
 用户授权Framer/shadcn总览外观首片。复用现有Starlight PageFrame扩展在P03添加页面作用域；现有KnowledgeTypeFilter仅调整展示结构，查询/排序/历史/生命周期机制保持。用CSS覆盖原生目录、搜索和控件，不引入Framer/shadcn框架，P05/P06无新样式作用域。施工与实际检查见[本片](../design/iterations/u09-p03-2026-10-14-framer-overview.md)。
+
+
+### P05 PDF 接入与外观衔接（2026-10-15）
+
+用户要求接入PDF。本轮接续P03，复用现有PDF.js阅读器和materials:prepare，将36份本地原件接入4400本机预览；PDF资料和PDF笔记沿用P03黑底/侧栏选中，保留原生阅读器和既有沉浸快捷键。实际复现同一4400地址下的旧外壳及缺附件，并非跳转旧部署。其他文章/外部笔记、本轮公开发布范围不扩展。[范围与验收](../design/iterations/u09-p05-2026-10-15-pdf-connection.md)。

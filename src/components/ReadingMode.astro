@@ -6,7 +6,10 @@ const { pdf = false } = Astro.props;
   <div class="reading-mode-actions" role="group" aria-label="阅读模式">
     <button type="button" data-focus-mode aria-pressed="false" aria-describedby="reading-mode-help">沉浸阅读</button>
   </div>
+  {pdf ? <details class="reading-mode-help">
+    <summary>阅读快捷键</summary>
   <p id="reading-mode-help" data-reading-status role="status" aria-live="polite">进入全屏，电脑 Esc 退出，手机右滑退出。PDF 可用 Ctrl + 加减号或 Ctrl + 滚轮缩放。</p>
+  </details> : <p id="reading-mode-help" data-reading-status role="status" aria-live="polite">进入全屏，电脑 Esc 退出，手机右滑退出。PDF 可用 Ctrl + 加减号或 Ctrl + 滚轮缩放。</p>}
 </learning-reading-mode>
 <script>
   import { automaticPdfColumns, fitPdfMode, pdfModeGeometry, pdfModeGroup, type PdfPaperSize } from '../lib/immersivePdfLayout';

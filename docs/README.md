@@ -228,3 +228,5 @@ P10 最新独立交互样本：[Dome Gallery照片墙 → 三维无限影像空�
 
 
 P03 / R02、R09、R12 / U09、U13、U14 / T05、T07、T26–T27：[Becoming Framer总览首片](design/iterations/u09-p03-2026-10-14-framer-overview.md)。用户选定Framer整体与shadcn选中，仅本页实施和体验；P05/P06后续另片。
+
+P03/P05 / R02、R09、R12 / U09、U14 / T05、T07–T08、T26–T27：[PDF附件接入与新版外观衔接](design/iterations/u09-p05-2026-10-15-pdf-connection.md)，36份本地原件沿用已有阅读器，不自动公开发布原件。

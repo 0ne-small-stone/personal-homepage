@@ -1,0 +1,956 @@
+{
+  "checks": [
+    {
+      "label": "desktop-connected",
+      "busy": "false",
+      "frame": {
+        "height": 547.1875,
+        "width": 966,
+        "x": 272,
+        "y": 359.796875
+      },
+      "fullscreen": false,
+      "immersive": false,
+      "innerHeight": 720,
+      "innerWidth": 1280,
+      "readingShell": true,
+      "scrollWidth": 1270,
+      "sidebarBackground": "rgb(38, 38, 38)",
+      "status": "共 5 页 · 可翻页、缩放与搜索",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/resources/physics/physics-electrostatics-alt/"
+    },
+    {
+      "label": "immersive-desktop",
+      "busy": "false",
+      "frame": {
+        "height": 720,
+        "width": 1280,
+        "x": 0,
+        "y": 0
+      },
+      "fullscreen": false,
+      "immersive": true,
+      "innerHeight": 720,
+      "innerWidth": 1280,
+      "readingShell": true,
+      "scrollWidth": 1280,
+      "sidebarBackground": "rgb(38, 38, 38)",
+      "status": "共 5 页 · 可翻页、缩放与搜索",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/resources/physics/physics-electrostatics-alt/"
+    },
+    {
+      "label": "immersive-auto",
+      "area": {
+        "height": 720,
+        "width": 1280,
+        "x": 0,
+        "y": 0
+      },
+      "canvas": 3,
+      "columns": "2",
+      "page": "1",
+      "pages": [
+        {
+          "complete": true,
+          "height": 689,
+          "page": "1",
+          "width": 493,
+          "x": 138.5,
+          "y": 14.5
+        },
+        {
+          "complete": true,
+          "height": 689,
+          "page": "2",
+          "width": 493,
+          "x": 648.5,
+          "y": 14.5
+        },
+        {
+          "complete": false,
+          "height": 689,
+          "page": "3",
+          "width": 493,
+          "x": 138.5,
+          "y": 734.5
+        },
+        {
+          "complete": false,
+          "height": 689,
+          "page": "4",
+          "width": 493,
+          "x": 648.5,
+          "y": 734.5
+        },
+        {
+          "complete": false,
+          "height": 689,
+          "page": "5",
+          "width": 493,
+          "x": 138.5,
+          "y": 1454.5
+        }
+      ],
+      "scale": "custom",
+      "toolbarVisible": "none",
+      "total": "/ ⁨5⁩"
+    },
+    {
+      "label": "fixed-one",
+      "area": {
+        "height": 497,
+        "width": 964,
+        "x": 0,
+        "y": 48
+      },
+      "canvas": 3,
+      "columns": null,
+      "page": "1",
+      "pages": [
+        {
+          "complete": false,
+          "height": 1303,
+          "page": "1",
+          "width": 927,
+          "x": 11,
+          "y": 39
+        },
+        {
+          "complete": false,
+          "height": 1303,
+          "page": "2",
+          "width": 927,
+          "x": 11,
+          "y": 1335
+        },
+        {
+          "complete": false,
+          "height": 1303,
+          "page": "3",
+          "width": 927,
+          "x": 11,
+          "y": 2631
+        },
+        {
+          "complete": false,
+          "height": 1303,
+          "page": "4",
+          "width": 927,
+          "x": 11,
+          "y": 3927
+        },
+        {
+          "complete": false,
+          "height": 1303,
+          "page": "5",
+          "width": 927,
+          "x": 11,
+          "y": 5223
+        }
+      ],
+      "scale": "auto",
+      "toolbarVisible": "block",
+      "total": "/ ⁨5⁩"
+    },
+    {
+      "label": "fixed-one-zoom-out",
+      "area": {
+        "height": 497,
+        "width": 964,
+        "x": 0,
+        "y": 48
+      },
+      "canvas": 3,
+      "columns": null,
+      "page": "1",
+      "pages": [
+        {
+          "complete": false,
+          "height": 1140,
+          "page": "1",
+          "width": 811,
+          "x": 69,
+          "y": 39
+        },
+        {
+          "complete": false,
+          "height": 1140,
+          "page": "2",
+          "width": 811,
+          "x": 69,
+          "y": 1172
+        },
+        {
+          "complete": false,
+          "height": 1140,
+          "page": "3",
+          "width": 811,
+          "x": 69,
+          "y": 2305
+        },
+        {
+          "complete": false,
+          "height": 1140,
+          "page": "4",
+          "width": 811,
+          "x": 69,
+          "y": 3438
+        },
+        {
+          "complete": false,
+          "height": 1140,
+          "page": "5",
+          "width": 811,
+          "x": 69,
+          "y": 4571
+        }
+      ],
+      "scale": "1",
+      "toolbarVisible": "block",
+      "total": "/ ⁨5⁩"
+    },
+    {
+      "label": "native-key-one",
+      "busy": "false",
+      "frame": {
+        "height": 1440,
+        "width": 3440,
+        "x": 0,
+        "y": 0
+      },
+      "fullscreen": false,
+      "immersive": true,
+      "innerHeight": 1440,
+      "innerWidth": 3440,
+      "readingShell": true,
+      "scrollWidth": 3440,
+      "sidebarBackground": "rgb(38, 38, 38)",
+      "status": "共 5 页 · 可翻页、缩放与搜索",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/resources/physics/physics-electrostatics-alt/"
+    },
+    {
+      "label": "native-key-one",
+      "area": {
+        "height": 1440,
+        "width": 3440,
+        "x": 0,
+        "y": 0
+      },
+      "canvas": 4,
+      "columns": "1",
+      "page": "1",
+      "pages": [
+        {
+          "complete": true,
+          "height": 1409,
+          "page": "1",
+          "width": 1002,
+          "x": 1219,
+          "y": 14.5
+        },
+        {
+          "complete": false,
+          "height": 1409,
+          "page": "2",
+          "width": 1002,
+          "x": 1219,
+          "y": 1454.5
+        },
+        {
+          "complete": false,
+          "height": 1409,
+          "page": "3",
+          "width": 1002,
+          "x": 1219,
+          "y": 2894.5
+        },
+        {
+          "complete": false,
+          "height": 1409,
+          "page": "4",
+          "width": 1002,
+          "x": 1219,
+          "y": 4334.5
+        },
+        {
+          "complete": false,
+          "height": 1409,
+          "page": "5",
+          "width": 1002,
+          "x": 1219,
+          "y": 5774.5
+        }
+      ],
+      "scale": "custom",
+      "toolbarVisible": "none",
+      "total": "/ ⁨5⁩"
+    },
+    {
+      "label": "native-single-zoom-out",
+      "area": {
+        "height": 497,
+        "width": 964,
+        "x": 0,
+        "y": 48
+      },
+      "canvas": 4,
+      "columns": null,
+      "page": "1",
+      "pages": [
+        {
+          "complete": false,
+          "height": 1140,
+          "page": "1",
+          "width": 811,
+          "x": 69,
+          "y": 39
+        },
+        {
+          "complete": false,
+          "height": 1140,
+          "page": "2",
+          "width": 811,
+          "x": 69,
+          "y": 1172
+        },
+        {
+          "complete": false,
+          "height": 1140,
+          "page": "3",
+          "width": 811,
+          "x": 69,
+          "y": 2305
+        },
+        {
+          "complete": false,
+          "height": 1140,
+          "page": "4",
+          "width": 811,
+          "x": 69,
+          "y": 3438
+        },
+        {
+          "complete": false,
+          "height": 1140,
+          "page": "5",
+          "width": 811,
+          "x": 69,
+          "y": 4571
+        }
+      ],
+      "scale": "1",
+      "toolbarVisible": "block",
+      "total": "/ ⁨5⁩"
+    },
+    {
+      "label": "native-f-fit",
+      "area": {
+        "height": 497,
+        "width": 964,
+        "x": 0,
+        "y": 48
+      },
+      "canvas": 4,
+      "columns": null,
+      "page": "1",
+      "pages": [
+        {
+          "complete": false,
+          "height": 1140,
+          "page": "1",
+          "width": 811,
+          "x": 69,
+          "y": 39
+        },
+        {
+          "complete": false,
+          "height": 1140,
+          "page": "2",
+          "width": 811,
+          "x": 69,
+          "y": 1172
+        },
+        {
+          "complete": false,
+          "height": 1140,
+          "page": "3",
+          "width": 811,
+          "x": 69,
+          "y": 2305
+        },
+        {
+          "complete": false,
+          "height": 1140,
+          "page": "4",
+          "width": 811,
+          "x": 69,
+          "y": 3438
+        },
+        {
+          "complete": false,
+          "height": 1140,
+          "page": "5",
+          "width": 811,
+          "x": 69,
+          "y": 4571
+        }
+      ],
+      "scale": "1",
+      "toolbarVisible": "block",
+      "total": "/ ⁨5⁩"
+    },
+    {
+      "label": "native-fixed-two",
+      "area": {
+        "height": 497,
+        "width": 964,
+        "x": 0,
+        "y": 48
+      },
+      "canvas": 4,
+      "columns": null,
+      "page": "1",
+      "pages": [
+        {
+          "complete": false,
+          "height": 1140,
+          "page": "1",
+          "width": 811,
+          "x": 69,
+          "y": 39
+        },
+        {
+          "complete": false,
+          "height": 1140,
+          "page": "2",
+          "width": 811,
+          "x": 69,
+          "y": 1172
+        },
+        {
+          "complete": false,
+          "height": 1140,
+          "page": "3",
+          "width": 811,
+          "x": 69,
+          "y": 2305
+        },
+        {
+          "complete": false,
+          "height": 1140,
+          "page": "4",
+          "width": 811,
+          "x": 69,
+          "y": 3438
+        },
+        {
+          "complete": false,
+          "height": 1140,
+          "page": "5",
+          "width": 811,
+          "x": 69,
+          "y": 4571
+        }
+      ],
+      "scale": "1",
+      "toolbarVisible": "block",
+      "total": "/ ⁨5⁩"
+    },
+    {
+      "label": "continuous-single",
+      "area": {
+        "height": 1440,
+        "width": 3440,
+        "x": 0,
+        "y": 0
+      },
+      "canvas": 4,
+      "columns": "1",
+      "page": "1",
+      "pages": [
+        {
+          "complete": true,
+          "height": 1409,
+          "page": "1",
+          "width": 1002,
+          "x": 1219,
+          "y": 14.5
+        },
+        {
+          "complete": false,
+          "height": 1409,
+          "page": "2",
+          "width": 1002,
+          "x": 1219,
+          "y": 1454.5
+        },
+        {
+          "complete": false,
+          "height": 1409,
+          "page": "3",
+          "width": 1002,
+          "x": 1219,
+          "y": 2894.5
+        },
+        {
+          "complete": false,
+          "height": 1409,
+          "page": "4",
+          "width": 1002,
+          "x": 1219,
+          "y": 4334.5
+        },
+        {
+          "complete": false,
+          "height": 1409,
+          "page": "5",
+          "width": 1002,
+          "x": 1219,
+          "y": 5774.5
+        }
+      ],
+      "scale": "custom",
+      "toolbarVisible": "none",
+      "total": "/ ⁨5⁩"
+    },
+    {
+      "label": "continuous-single-zoom",
+      "area": {
+        "height": 1440,
+        "width": 3440,
+        "x": 0,
+        "y": 0
+      },
+      "canvas": 4,
+      "columns": "1",
+      "page": "1",
+      "pages": [
+        {
+          "complete": true,
+          "height": 1252,
+          "page": "1",
+          "width": 891,
+          "x": 1274.5,
+          "y": 94
+        },
+        {
+          "complete": false,
+          "height": 1252,
+          "page": "2",
+          "width": 891,
+          "x": 1274.5,
+          "y": 1534
+        },
+        {
+          "complete": false,
+          "height": 1252,
+          "page": "3",
+          "width": 891,
+          "x": 1274.5,
+          "y": 2974
+        },
+        {
+          "complete": false,
+          "height": 1252,
+          "page": "4",
+          "width": 891,
+          "x": 1274.5,
+          "y": 4414
+        },
+        {
+          "complete": false,
+          "height": 1252,
+          "page": "5",
+          "width": 891,
+          "x": 1274.5,
+          "y": 5854
+        }
+      ],
+      "scale": "custom",
+      "toolbarVisible": "none",
+      "total": "/ ⁨5⁩"
+    },
+    {
+      "label": "continuous-single-fit",
+      "area": {
+        "height": 1440,
+        "width": 3440,
+        "x": 0,
+        "y": 0
+      },
+      "canvas": 4,
+      "columns": "1",
+      "page": "1",
+      "pages": [
+        {
+          "complete": true,
+          "height": 1409,
+          "page": "1",
+          "width": 1002,
+          "x": 1219,
+          "y": 14.5
+        },
+        {
+          "complete": false,
+          "height": 1409,
+          "page": "2",
+          "width": 1002,
+          "x": 1219,
+          "y": 1454.5
+        },
+        {
+          "complete": false,
+          "height": 1409,
+          "page": "3",
+          "width": 1002,
+          "x": 1219,
+          "y": 2894.5
+        },
+        {
+          "complete": false,
+          "height": 1409,
+          "page": "4",
+          "width": 1002,
+          "x": 1219,
+          "y": 4334.5
+        },
+        {
+          "complete": false,
+          "height": 1409,
+          "page": "5",
+          "width": 1002,
+          "x": 1219,
+          "y": 5774.5
+        }
+      ],
+      "scale": "custom",
+      "toolbarVisible": "none",
+      "total": "/ ⁨5⁩"
+    },
+    {
+      "label": "continuous-double",
+      "area": {
+        "height": 1440,
+        "width": 3440,
+        "x": 0,
+        "y": 0
+      },
+      "canvas": 4,
+      "columns": "2",
+      "page": "1",
+      "pages": [
+        {
+          "complete": true,
+          "height": 1409,
+          "page": "1",
+          "width": 1002,
+          "x": 709.5,
+          "y": 14.5
+        },
+        {
+          "complete": true,
+          "height": 1409,
+          "page": "2",
+          "width": 1002,
+          "x": 1728.5,
+          "y": 14.5
+        },
+        {
+          "complete": false,
+          "height": 1409,
+          "page": "3",
+          "width": 1002,
+          "x": 709.5,
+          "y": 1454.5
+        },
+        {
+          "complete": false,
+          "height": 1409,
+          "page": "4",
+          "width": 1002,
+          "x": 1728.5,
+          "y": 1454.5
+        },
+        {
+          "complete": false,
+          "height": 1409,
+          "page": "5",
+          "width": 1002,
+          "x": 709.5,
+          "y": 2894.5
+        }
+      ],
+      "scale": "custom",
+      "toolbarVisible": "none",
+      "total": "/ ⁨5⁩"
+    },
+    {
+      "label": "continuous-four",
+      "area": {
+        "height": 1440,
+        "width": 3440,
+        "x": 0,
+        "y": 0
+      },
+      "canvas": 5,
+      "columns": "4",
+      "page": "1",
+      "pages": [
+        {
+          "complete": true,
+          "height": 1180,
+          "page": "1",
+          "width": 839,
+          "x": 16.5,
+          "y": 130
+        },
+        {
+          "complete": true,
+          "height": 1180,
+          "page": "2",
+          "width": 839,
+          "x": 872.5,
+          "y": 130
+        },
+        {
+          "complete": true,
+          "height": 1180,
+          "page": "3",
+          "width": 839,
+          "x": 1728.5,
+          "y": 130
+        },
+        {
+          "complete": true,
+          "height": 1180,
+          "page": "4",
+          "width": 839,
+          "x": 2584.5,
+          "y": 130
+        },
+        {
+          "complete": false,
+          "height": 1180,
+          "page": "5",
+          "width": 839,
+          "x": 16.5,
+          "y": 1570
+        }
+      ],
+      "scale": "custom",
+      "toolbarVisible": "none",
+      "total": "/ ⁨5⁩"
+    },
+    {
+      "label": "continuous-unlocked",
+      "area": {
+        "height": 1440,
+        "width": 3440,
+        "x": 0,
+        "y": 0
+      },
+      "canvas": 5,
+      "columns": null,
+      "page": "1",
+      "pages": [
+        {
+          "complete": false,
+          "height": 1180,
+          "page": "1",
+          "width": 839,
+          "x": 18,
+          "y": -9
+        },
+        {
+          "complete": false,
+          "height": 1180,
+          "page": "2",
+          "width": 839,
+          "x": 873,
+          "y": -9
+        },
+        {
+          "complete": false,
+          "height": 1180,
+          "page": "3",
+          "width": 839,
+          "x": 1728,
+          "y": -9
+        },
+        {
+          "complete": false,
+          "height": 1180,
+          "page": "4",
+          "width": 839,
+          "x": 2583,
+          "y": -9
+        },
+        {
+          "complete": false,
+          "height": 1180,
+          "page": "5",
+          "width": 839,
+          "x": 1300.5,
+          "y": 1187
+        }
+      ],
+      "scale": "custom",
+      "toolbarVisible": "none",
+      "total": "/ ⁨5⁩"
+    },
+    {
+      "label": "continuous-esc-restored",
+      "busy": "false",
+      "frame": {
+        "height": 547.1875,
+        "width": 966,
+        "x": 272,
+        "y": 359.796875
+      },
+      "fullscreen": false,
+      "immersive": false,
+      "innerHeight": 720,
+      "innerWidth": 1280,
+      "readingShell": true,
+      "scrollWidth": 1270,
+      "sidebarBackground": "rgb(38, 38, 38)",
+      "status": "共 5 页 · 可翻页、缩放与搜索",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/resources/physics/physics-electrostatics-alt/"
+    },
+    {
+      "label": "large-book-loaded",
+      "busy": "false",
+      "frame": {
+        "height": 547.1875,
+        "width": 966,
+        "x": 272,
+        "y": 359.796875
+      },
+      "fullscreen": false,
+      "immersive": false,
+      "innerHeight": 720,
+      "innerWidth": 1280,
+      "readingShell": true,
+      "scrollWidth": 1270,
+      "sidebarBackground": "rgb(38, 38, 38)",
+      "status": "共 494 页 · 可翻页、缩放与搜索",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/resources/computer-systems/computer-organization-risc-v-fifth-edition/"
+    },
+    {
+      "label": "filtered-ui-return-fixed",
+      "sort": "title-asc",
+      "status": "计算机系统 · 资料：1 条内容。排序：标题升序。",
+      "topic": "计算机系统",
+      "type": "resource",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/?type=resource&topic=%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F&sort=title-asc"
+    },
+    {
+      "label": "mobile-390-pdf",
+      "busy": "false",
+      "frame": {
+        "height": 641.4375,
+        "width": 340,
+        "x": 20,
+        "y": 413.578125
+      },
+      "fullscreen": false,
+      "immersive": false,
+      "innerHeight": 844,
+      "innerWidth": 390,
+      "readingShell": true,
+      "scrollWidth": 380,
+      "sidebarBackground": "rgb(38, 38, 38)",
+      "status": "共 5 页 · 可翻页、缩放与搜索",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/resources/physics/physics-electrostatics-alt/"
+    },
+    {
+      "label": "mobile-320-pdf",
+      "busy": "false",
+      "frame": {
+        "height": 617.109375,
+        "width": 278,
+        "x": 16,
+        "y": 465.578125
+      },
+      "fullscreen": false,
+      "immersive": false,
+      "innerHeight": 812,
+      "innerWidth": 320,
+      "readingShell": true,
+      "scrollWidth": 310,
+      "sidebarBackground": "rgb(38, 38, 38)",
+      "status": "共 5 页 · 可翻页、缩放与搜索",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/resources/physics/physics-electrostatics-alt/"
+    },
+    {
+      "label": "mobile-320-pdf-note",
+      "busy": "false",
+      "frame": {
+        "height": 617.109375,
+        "width": 278,
+        "x": 16,
+        "y": 465.578125
+      },
+      "fullscreen": false,
+      "immersive": false,
+      "innerHeight": 812,
+      "innerWidth": 320,
+      "readingShell": true,
+      "scrollWidth": 310,
+      "sidebarBackground": "rgb(38, 38, 38)",
+      "status": "共 35 页 · 可翻页、缩放与搜索",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/notes/ads/ads-algorithms-notes/"
+    },
+    {
+      "label": "article-return-smoke",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/blog/article-reading-check/"
+    },
+    {
+      "label": "article-return-native-confirmed",
+      "status": "全部主题 · 文章：1 条内容。排序：按主题（默认）。",
+      "type": "article",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/?type=article"
+    },
+    {
+      "label": "final-pdf-plain-load",
+      "busy": "false",
+      "frame": {
+        "height": 547.1875,
+        "width": 966,
+        "x": 272,
+        "y": 359.796875
+      },
+      "fullscreen": false,
+      "immersive": false,
+      "innerHeight": 720,
+      "innerWidth": 1280,
+      "readingShell": true,
+      "scrollWidth": 1270,
+      "sidebarBackground": "rgb(38, 38, 38)",
+      "status": "共 5 页 · 可翻页、缩放与搜索",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/resources/physics/physics-electrostatics-alt/"
+    }
+  ],
+  "console": [
+    {
+      "level": "error",
+      "message": "Uncaught TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.",
+      "timestamp": "2026-10-15T02:05:46.361Z"
+    },
+    {
+      "level": "error",
+      "message": "Uncaught TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.",
+      "timestamp": "2026-10-15T02:09:19.177Z"
+    }
+  ],
+  "finalRunStarted": "2026-10-15T02:11:43.559Z",
+  "finalPlainRunErrors": [],
+  "notes": [
+    "Early cross-call fullscreen key attempts lost native fullscreen; continuous native sequence passed.",
+    "Mapped fullscreenElement stayed false despite actual native viewport expansion.",
+    "Page input 9 did not confirm page 9; native next confirmed physical page 2 (B).",
+    "320px viewport reset plus immediate navigation reproduced MutationObserver non-Node errors. Temporary top/iframe stack listeners did not capture their origin and were removed.",
+    "First article locator-click return did not navigate and URL wait timed out; subsequent native AX click restored article-filtered overview. Cause not asserted.",
+    "No physical-phone swipe or Chinese IME re-test."
+  ]
+}
