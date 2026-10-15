@@ -1,0 +1,226 @@
+/* Becoming shell: P03, P05 PDF, P06 article. SYSTEM.md §5.2.1–5.2.3. */
+html:has(.becoming-shell) {
+  --becoming-bg: #000;
+  --becoming-surface: #141414;
+  --becoming-active: #262626;
+  --becoming-border: #242424;
+  --becoming-text: #f5f5f5;
+  --becoming-muted: #a3a3a3;
+  --sl-nav-height: 4rem;
+  --sl-sidebar-width: 15rem;
+  --sl-content-width: 60rem;
+  --sl-color-bg: var(--becoming-bg);
+  --sl-color-bg-nav: var(--becoming-bg);
+  --sl-color-bg-sidebar: var(--becoming-bg);
+  --sl-color-black: var(--becoming-bg);
+  --sl-color-white: var(--becoming-text);
+  --sl-color-text: var(--becoming-text);
+  --sl-color-gray-1: var(--becoming-text);
+  --sl-color-gray-2: var(--becoming-muted);
+  --sl-color-gray-5: var(--becoming-border);
+  --sl-color-gray-6: var(--becoming-surface);
+  --sl-color-hairline: var(--becoming-border);
+  --sl-color-hairline-shade: var(--becoming-border);
+  --sl-color-hairline-light: var(--becoming-border);
+  --sl-color-accent: var(--becoming-text);
+  --sl-color-accent-low: var(--becoming-surface);
+  --sl-color-accent-high: var(--becoming-text);
+  --sl-font: var(--font-reading);
+  background: var(--becoming-bg);
+  scrollbar-width: thin;
+  scrollbar-color: var(--becoming-border) var(--becoming-bg);
+}
+html[data-theme='light']:has(.becoming-shell) {
+  --becoming-bg: #fff;
+  --becoming-surface: #f5f5f5;
+  --becoming-active: #e5e5e5;
+  --becoming-border: #e5e5e5;
+  --becoming-text: #171717;
+  --becoming-muted: #525252;
+}
+.becoming-shell { color: var(--becoming-text); background: var(--becoming-bg); font-family: var(--font-reading); }
+.becoming-shell :focus-visible { outline: 2px solid var(--becoming-text); outline-offset: 3px; }
+.becoming-shell .page > .header { padding-inline: 2rem; border-bottom-color: var(--becoming-border); }
+.becoming-shell .header > .header { display: flex; }
+.becoming-shell .site-title { color: var(--becoming-text); font-size: 1.125rem; font-weight: 500; }
+.becoming-shell .site-title-directory { gap: 1rem; }
+.becoming-shell .site-title-directory summary { border-color: var(--becoming-border); background: transparent; font-size: .8125rem; }
+.becoming-shell .social-icons::after { display: none; }
+.becoming-shell .sidebar-pane { background: var(--becoming-bg); border-inline-end: 0; scrollbar-width: thin; scrollbar-color: var(--becoming-border) var(--becoming-bg); }
+.becoming-shell .sidebar-content { padding: 1.5rem; gap: 1.5rem; }
+.becoming-shell .sidebar .top-level > li + li { margin-top: 1.25rem; }
+.becoming-shell .sidebar :is(a, summary) {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: .5rem .75rem;
+  border-radius: 8px;
+  color: var(--becoming-muted);
+  font-size: .875rem;
+  line-height: 1.6;
+  text-decoration: none;
+}
+.becoming-shell .sidebar summary { justify-content: space-between; }
+.becoming-shell .sidebar .large { font-size: .875rem; font-weight: 500; color: inherit; }
+.becoming-shell .sidebar .group-label > .large { color: var(--becoming-text); font-weight: 600; }
+.becoming-shell .sidebar ul ul li { margin-inline-start: .25rem; border-inline-start: 0; padding-inline-start: .25rem; }
+.becoming-shell .sidebar :is(a, summary):hover { background: var(--becoming-surface); color: var(--becoming-text); }
+.becoming-shell .sidebar a[aria-current='page'] { color: var(--becoming-text); background: var(--becoming-active); font-weight: 600; }
+.becoming-shell .sidebar a[aria-current='page'] .large { font-weight: 600; }
+.becoming-shell .main-frame { padding-top: var(--sl-nav-height); }
+.becoming-shell .content-panel { padding-inline: 4rem; }
+.becoming-shell .content-panel:has(h1) { padding-top: 3.5rem; padding-bottom: 0; }
+.becoming-shell .content-panel + .content-panel { border-top: 0; padding-top: .875rem; }
+.becoming-shell .sl-container { max-width: 60rem; margin-inline: 0 auto; }
+.becoming-shell h1 { margin: 0; font: 500 3rem/1.15 var(--font-reading); letter-spacing: -.035em; }
+.becoming-shell .becoming-intro { margin: 0 0 2rem; }
+.becoming-shell .becoming-lede { margin: 0; color: var(--becoming-muted); font-size: 1.125rem; line-height: 1.8; }
+.becoming-shell .becoming-collection-meta { display: flex; align-items: baseline; flex-wrap: wrap; gap: .5rem 1.25rem; margin-top: .75rem; color: var(--becoming-muted); font-size: .8125rem; }
+.becoming-shell .becoming-collection-meta > p { margin: 0; }
+.becoming-shell .becoming-collection-meta > p > span { padding-inline: .375rem; color: var(--becoming-muted); }
+.becoming-shell .becoming-collection-status { max-width: 100%; margin: 0; border: 0; padding: 0; background: none; }
+.becoming-shell .becoming-collection-status summary { min-height: 44px; display: flex; align-items: center; gap: .5rem; cursor: pointer; color: var(--becoming-muted); }
+.becoming-shell .becoming-collection-status summary::before { content: '+'; font-size: 1rem; position: static; width: auto; height: auto; margin: 0; background: none; mask: none; -webkit-mask: none; transform: none; }
+.becoming-shell .becoming-collection-status summary::marker { content: ''; }
+.becoming-shell .becoming-collection-status summary::-webkit-details-marker { display: none; }
+.becoming-shell .becoming-collection-status[open] { flex-basis: 100%; }
+.becoming-shell .becoming-collection-status[open] summary::before { content: '−'; transform: none; }
+.becoming-shell .becoming-collection-status div { border-inline-start: 1px solid var(--becoming-border); padding-inline-start: 1rem; max-width: 46rem; }
+.becoming-shell .becoming-collection-status div > p { margin: 0 0 .5rem; font-size: .875rem; line-height: 1.8; }
+.becoming-shell knowledge-type-filter { margin: 0; }
+.becoming-shell .knowledge-filter-toolbar { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 1rem; padding-block: 0 1.25rem; border-bottom: 1px solid var(--becoming-border); }
+.becoming-shell .knowledge-type-controls { margin: 0; min-width: 0; }
+.becoming-shell .knowledge-type-controls legend { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.becoming-shell .knowledge-type-options { display: inline-flex; flex-wrap: nowrap; gap: 2px; padding: 4px; border-radius: 10px; background: var(--becoming-surface); }
+.becoming-shell .knowledge-type-options > .knowledge-type-option { position: relative; justify-content: center; min-height: 44px; border: 0; border-radius: 8px; padding: .5rem 1rem; font-size: .875rem; font-weight: 400; color: var(--becoming-muted); }
+.becoming-shell .knowledge-type-option input { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.becoming-shell .knowledge-type-option:has(input:checked) { background: var(--becoming-active); color: var(--becoming-text); font-weight: 600; }
+.becoming-shell .knowledge-type-option:hover { color: var(--becoming-text); }
+.becoming-shell .knowledge-type-option:focus-within { outline-color: var(--becoming-text); }
+.becoming-shell :is(.knowledge-topic-controls, .knowledge-sort-controls) { display: flex; flex-wrap: nowrap; gap: .5rem; margin: 0; min-width: 0; }
+.becoming-shell :is(.knowledge-topic-controls, .knowledge-sort-controls) label { font-size: .8125rem; font-weight: 400; color: var(--becoming-muted); white-space: nowrap; }
+.becoming-shell :is(.knowledge-topic-controls, .knowledge-sort-controls) select { width: 10rem; min-width: 0; height: 44px; border-color: var(--becoming-border); border-radius: 8px; padding: .5rem; background: var(--becoming-bg); color: var(--becoming-text); font-size: 1rem; }
+.becoming-shell .knowledge-sort-controls select { width: 8.5rem; }
+.becoming-shell .knowledge-results-caption { position: relative; display: flex; align-items: center; min-height: 44px; gap: .25rem 1rem; margin-block: .75rem .25rem; }
+.becoming-shell .knowledge-results-caption:has([data-clear-filters]:not([hidden])) { padding-inline-end: 5.5rem; }
+.becoming-shell .knowledge-result-status { margin: 0; font-size: .8125rem; line-height: 1.8; color: var(--becoming-muted); }
+.becoming-shell [data-clear-filters] { position: absolute; inset-inline-end: 0; top: 0; min-height: 44px; border: 0; border-radius: 8px; padding: .5rem .75rem; background: transparent; color: var(--becoming-text); font: inherit; font-size: .8125rem; cursor: pointer; }
+.becoming-shell [data-clear-filters]:hover { background: var(--becoming-surface); }
+.becoming-shell .knowledge-list { margin: 0; padding: 0; list-style: none; }
+.becoming-shell .knowledge-list > li { margin: 0; padding: 1.5rem 0; border-top: 0; border-bottom: 1px solid var(--becoming-border); border-radius: 8px; }
+.becoming-shell .knowledge-list > li:hover { background: var(--becoming-surface); }
+.becoming-shell .knowledge-list a { display: flex; align-items: center; min-height: 44px; padding: 0; color: var(--becoming-text); font-size: 1.125rem; font-weight: 500; line-height: 1.6; text-decoration: none; }
+.becoming-shell .knowledge-list a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.becoming-shell .knowledge-list > li > p { margin: .25rem 0 0; color: var(--becoming-muted); font-size: .9375rem; line-height: 1.8; }
+.becoming-shell .knowledge-list > li > .knowledge-meta { margin: .5rem 0 0; color: var(--becoming-muted); font-size: .8125rem; line-height: 1.7; }
+.becoming-shell .knowledge-empty { padding-block: 2rem; color: var(--becoming-muted); }
+.becoming-shell .becoming-overview-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; margin-top: 2rem; padding-bottom: 2rem; }
+.becoming-shell .becoming-overview-footer a { display: inline-flex; align-items: center; min-height: 44px; color: var(--becoming-muted); font-size: .875rem; text-underline-offset: 4px; }
+@media (min-width: 50rem) {
+  .becoming-shell .main-frame { padding-inline-start: 15rem; }
+  .becoming-shell .sidebar-content { padding-top: 7.5rem; }
+  /* One native search instance, visually placed above the desktop classification. */
+  .becoming-shell .header > .sl-flex:not(.title-wrapper):not(.right-group) { position: fixed; top: calc(var(--sl-nav-height) + 2.5rem); left: 1.5rem; width: 12rem; }
+  .becoming-shell .header site-search { width: 100%; }
+  .becoming-shell .header site-search > button { width: 100%; height: 44px; border-color: var(--becoming-border); border-radius: 8px; background: var(--becoming-bg); font-size: .8125rem; }
+}
+@media (max-width: 68.75rem) {
+  .becoming-shell .content-panel { padding-inline: 2rem; }
+  .becoming-shell .knowledge-filter-toolbar { grid-template-columns: 1fr 1fr; }
+  .becoming-shell .knowledge-type-controls { grid-column: 1 / -1; }
+  .becoming-shell :is(.knowledge-topic-controls, .knowledge-sort-controls) select { width: 100%; }
+}
+@media (max-width: 49.999rem) {
+  .becoming-shell .page > .header { padding-inline: 1.25rem; padding-inline-end: calc(1.25rem + var(--sl-menu-button-size) + var(--sl-nav-gap)); }
+  .becoming-shell .content-panel { padding-inline: 1.25rem; }
+  .becoming-shell .content-panel:has(h1) { padding-top: 2rem; }
+  .becoming-shell h1 { font-size: 2.25rem; }
+  .becoming-shell .becoming-lede { font-size: 1rem; }
+  .becoming-shell .becoming-intro { margin-bottom: 1.5rem; }
+  .becoming-shell .becoming-collection-meta { gap: 0 .75rem; margin-top: .5rem; }
+  .becoming-shell .knowledge-filter-toolbar { gap: .75rem; }
+  .becoming-shell .knowledge-type-options { display: flex; width: 100%; }
+  .becoming-shell .knowledge-type-options > .knowledge-type-option { flex: 1; padding-inline: .5rem; }
+  .becoming-shell :is(.knowledge-topic-controls, .knowledge-sort-controls) { flex-wrap: wrap; gap: .25rem; }
+  .becoming-shell :is(.knowledge-topic-controls, .knowledge-sort-controls) label { width: 100%; }
+  .becoming-shell .knowledge-list > li { padding-block: 1.25rem; }
+  .becoming-shell .knowledge-list a { font-size: 1.0625rem; }
+}
+@media (max-width: 22rem) {
+  .becoming-shell :is(.content-panel, .page > .header) { padding-inline: 1rem; }
+  .becoming-shell .page > .header { padding-inline-end: calc(1rem + var(--sl-menu-button-size) + var(--sl-nav-gap)); }
+  .becoming-shell .site-title-directory { gap: .5rem; }
+}
+
+/* The PDF owns the remaining reading width; immersive rules retain precedence. */
+html:not([data-reading-immersive]) .becoming-pdf .content-panel { padding-inline: 2rem; }
+html:not([data-reading-immersive]) .becoming-pdf .content-panel:has(h1) { padding-top: 2rem; }
+html:not([data-reading-immersive]) .becoming-pdf .sl-container { max-width: none; }
+.becoming-pdf h1 { font-size: 2rem; line-height: 1.4; letter-spacing: -.02em; }
+.becoming-pdf learning-reading-mode { display: flex; align-items: start; flex-wrap: wrap; gap: .5rem 1rem; margin-bottom: 1rem; }
+.becoming-pdf learning-reading-mode[hidden] { display: none; }
+.becoming-pdf .reader-bar { color: var(--becoming-muted); font-size: .8125rem; }
+.becoming-pdf .reader-actions a { border-radius: 8px; text-decoration: none; }
+.becoming-pdf .reader-actions a:hover { background: var(--becoming-surface); text-decoration: underline; }
+@media (max-width: 49.999rem) {
+  html:not([data-reading-immersive]) .becoming-pdf .content-panel { padding-inline: 1.25rem; }
+  .becoming-pdf h1 { font-size: 1.5rem; }
+}
+@media (max-width: 22rem) {
+  html:not([data-reading-immersive]) .becoming-pdf .content-panel { padding-inline: 1rem; }
+}
+/* Shared shell selectors are more specific than the legacy immersive reset. */
+html[data-reading-immersive] .becoming-shell .main-frame { padding: 0; }
+html[data-reading-pdf] .becoming-shell pdf-reader iframe { position: fixed; inset: 0; width: 100%; height: 100dvh; min-height: 0; margin: 0; border: 0; border-radius: 0; }
+
+/* P06 reading typography; framework TOC, code and links keep their behavior. */
+html:not([data-reading-immersive]) .becoming-article .main-frame { padding-top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height)); }
+.becoming-article .content-panel { padding-inline: 3rem; }
+.becoming-article .content-panel:has(h1) { padding-top: 3rem; }
+.becoming-article .content-panel + .content-panel { padding-top: 1.25rem; }
+.becoming-article .sl-container { max-width: 44rem; margin-inline: auto; }
+.becoming-article h1 { font-size: 2.5rem; line-height: 1.3; letter-spacing: -.025em; overflow-wrap: anywhere; }
+.becoming-article .sl-markdown-content { font-size: 1.0625rem; line-height: 1.9; }
+.becoming-article .sl-markdown-content :is(h2,h3) { color: var(--becoming-text); letter-spacing: -.015em; }
+.becoming-article .sl-markdown-content h2 { margin-top: 2.75rem; font-size: 1.5rem; line-height: 1.5; font-weight: 600; }
+.becoming-article .sl-markdown-content h3 { font-size: 1.125rem; line-height: 1.6; }
+.becoming-article .sl-markdown-content p { margin-top: 1.25rem; }
+.becoming-article .sl-blog-metadata { color: var(--becoming-muted); font-size: .8125rem; }
+.becoming-article .sl-markdown-content a { text-underline-offset: .2em; }
+.becoming-article .sl-markdown-content blockquote { border-inline-start: 2px solid var(--becoming-border); color: var(--becoming-muted); padding-inline-start: 1.25rem; }
+.becoming-article .starlight-aside--note { border-color: var(--becoming-border); border-radius: 8px; background: var(--becoming-surface); color: var(--becoming-text); }
+.becoming-article .starlight-aside--note .starlight-aside__title { color: var(--becoming-text); }
+.becoming-article .expressive-code { --ec-brdCol: var(--becoming-border); --ec-brdRad: .5rem; }
+.becoming-article .article-reading-actions { display: flex; align-items: start; flex-wrap: wrap; gap: .5rem 1rem; position: sticky; top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height)); z-index: 10; padding-block: .5rem; border-bottom: 1px solid var(--becoming-border); background: var(--becoming-bg); }
+.becoming-article .article-reading-actions .article-navigation { flex: 1 1 20rem; gap: .25rem 1rem; margin: 0; font-size: .8125rem; }
+.becoming-article .article-navigation a { font-weight: 400; color: var(--becoming-muted); text-decoration: none; }
+.becoming-article .article-navigation a:hover { color: var(--becoming-text); text-decoration: underline; }
+.becoming-article .article-reading-actions learning-reading-mode { position: static; padding: 0; margin: 0; border: 0; }
+.becoming-article .related-knowledge { margin-top: 2.5rem; padding-top: 1.5rem; }
+.becoming-article .related-knowledge h2 { font-size: 1.125rem; font-weight: 500; }
+.becoming-article .right-sidebar { border-inline-start: 0; }
+.becoming-article starlight-toc h2 { font-size: .8125rem; font-weight: 500; color: var(--becoming-muted); }
+.becoming-article starlight-toc a { color: var(--becoming-muted); padding: .625rem .75rem; border-radius: 8px; font-size: .8125rem; line-height: 1.6; }
+.becoming-article starlight-toc a[aria-current='true'] { background: var(--becoming-active); color: var(--becoming-text); }
+.becoming-article mobile-starlight-toc .toggle { min-height: 36px; }
+@media (min-width: 72rem) {
+  html:not([data-reading-immersive]) .becoming-article .main-frame { padding-top: var(--sl-nav-height); }
+  .becoming-article .main-pane { flex: 1; width: calc(100% - 13rem); min-width: 0; }
+  .becoming-article .right-sidebar-container { flex: 0 0 13rem; width: 13rem; }
+  .becoming-article .right-sidebar { width: 13rem; padding: 6rem 1.5rem 2rem 0; }
+  .becoming-article .article-reading-actions { top: var(--sl-nav-height); }
+}
+@media (max-width: 68.75rem) { .becoming-article .content-panel { padding-inline: 2rem; } }
+@media (max-width: 49.999rem) {
+  .becoming-article .content-panel { padding-inline: 1.25rem; }
+  .becoming-article .content-panel:has(h1) { padding-top: 2rem; }
+  .becoming-article h1 { font-size: 1.875rem; }
+  .becoming-article .sl-markdown-content { font-size: 1rem; }
+}
+@media (max-width: 22rem) { .becoming-article .content-panel { padding-inline: 1rem; } }
+html[data-reading-immersive] .becoming-article .article-reading-actions { display: none; }
+html[data-reading-immersive] .becoming-article .main-pane { width: 100%; }
+html[data-reading-immersive] .becoming-article .content-panel > .sl-container { max-width: 44rem; margin-inline: auto; }
+
+html:has(.becoming-article):not([data-reading-immersive]) { scroll-padding-top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height) + var(--reading-toolbar-height, 4rem) + 1rem); }
+@media (min-width: 72rem) { html:has(.becoming-article):not([data-reading-immersive]) { scroll-padding-top: calc(var(--sl-nav-height) + var(--reading-toolbar-height, 4rem) + 1rem); } }

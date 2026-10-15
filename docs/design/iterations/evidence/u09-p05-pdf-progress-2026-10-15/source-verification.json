@@ -1,0 +1,72 @@
+{
+  "baseline": "71ae907780b71e7c9869b22bf290844323afdba9",
+  "source": [
+    {
+      "file": "src/components/PdfReader.astro",
+      "sha256": "6380de2600941ca84bea9e93dbe94440fae207120fc1915b3e48626e4f2baba4",
+      "snapshotMatches": {
+        ".ci-tmp/becoming-framer-preview": true,
+        ".ci-tmp/becoming-pdf-release-check": true
+      }
+    },
+    {
+      "file": "src/components/ReadingMode.astro",
+      "sha256": "a5ba4a936197abbb27271645ced0f1add225f1431c2cddd715752d814130ed9e",
+      "snapshotMatches": {
+        ".ci-tmp/becoming-framer-preview": true,
+        ".ci-tmp/becoming-pdf-release-check": true
+      }
+    },
+    {
+      "file": "src/lib/pdf-reading-progress-state.ts",
+      "sha256": "70b66771f906e1ee8eef775177f2e1799eae28e72d2c1a745c0f45dbef18c4c6",
+      "snapshotMatches": {
+        ".ci-tmp/becoming-framer-preview": true,
+        ".ci-tmp/becoming-pdf-release-check": true
+      }
+    },
+    {
+      "file": "src/lib/pdf-reading-progress.ts",
+      "sha256": "7ebc99d2b1075fcd7a33758dc6b13b29720f7b90aa74193c3b55766d34f6e623",
+      "snapshotMatches": {
+        ".ci-tmp/becoming-framer-preview": true,
+        ".ci-tmp/becoming-pdf-release-check": true
+      }
+    },
+    {
+      "file": "tools/content/pdf-reading-progress.test.mjs",
+      "sha256": "1be2daf4b688848be91eb3d46fc4de670b6978ba93e0b6dcd31ea9cf1d0d6621"
+    },
+    {
+      "file": ".github/workflows/site.yml",
+      "sha256": "02c201ac16b1feb92b3bd72eb96af8b4713f8bc17a88b2cc32dfb859be7d5ae3"
+    }
+  ],
+  "unchanged": [
+    {
+      "file": "public/pdfjs/web/viewer.mjs",
+      "unchangedIgnoringLineEndings": true
+    },
+    {
+      "file": "public/pdfjs/build/pdf.mjs",
+      "unchangedIgnoringLineEndings": true
+    },
+    {
+      "file": "src/lib/reading-progress.ts",
+      "unchangedIgnoringLineEndings": true
+    },
+    {
+      "file": "src/lib/reading-progress-state.ts",
+      "unchangedIgnoringLineEndings": true
+    },
+    {
+      "file": "src/lib/immersivePdfLayout.ts",
+      "unchangedIgnoringLineEndings": true
+    },
+    {
+      "file": "src/lib/immersivePdfShortcuts.ts",
+      "unchangedIgnoringLineEndings": true
+    }
+  ],
+  "releaseHasLocalMaterials": false
+}

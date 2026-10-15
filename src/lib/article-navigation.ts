@@ -226,8 +226,12 @@ function activate() {
 }
 
 document.addEventListener('astro:before-swap', (event) => {
-  // The same-tab transition is a verified source; document.referrer stays stale.
-  transitionFrom = (event as Event & { from?: URL }).from?.href ?? location.href;
+  // Filter pushState updates the address without updating Astro's cached from URL.
+  // Before a push/replace swap, location is still the real source; traversal has
+  // already changed the address and must use the framework's previous document.
+  const transition = event as Event & { from?: URL; navigationType?: string };
+  transitionFrom = transition.navigationType === 'traverse'
+    ? transition.from?.href ?? location.href : location.href;
   activeVisitId = undefined;
   controller?.abort();
 });

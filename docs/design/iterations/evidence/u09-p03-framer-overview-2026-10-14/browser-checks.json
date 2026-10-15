@@ -1,0 +1,782 @@
+{
+  "date": "2026-10-14",
+  "preview": "http://127.0.0.1:4400/personal-homepage/knowledge/",
+  "checks": [
+    {
+      "label": "desktop default",
+      "clearVisible": false,
+      "count": 41,
+      "emptyVisible": false,
+      "firstBottom": 592.0625,
+      "firstTop": 437.96875,
+      "height": 720,
+      "kinds": [
+        "resource",
+        "note",
+        "article"
+      ],
+      "overviewScope": true,
+      "scrollWidth": 1265,
+      "scrollY": 0,
+      "searchInstances": 1,
+      "sidebarSelected": {
+        "aria": "page",
+        "background": "rgb(38, 38, 38)",
+        "radius": "8px"
+      },
+      "sort": "default",
+      "status": "全部主题 · 全部：41 条内容。排序：按主题（默认）。",
+      "title": "Becoming",
+      "titles": [
+        "大学物理实验 · 历年回忆卷合集",
+        "大学物理实验 · 知识点盘点",
+        "大学物理Ⅱ · 第 9 章（上）真空中的静电场"
+      ],
+      "topic": "",
+      "type": "all",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/",
+      "width": 1280
+    },
+    {
+      "label": "resource filter",
+      "clearVisible": true,
+      "count": 35,
+      "emptyVisible": false,
+      "firstBottom": 628.671875,
+      "firstTop": 474.578125,
+      "height": 720,
+      "kinds": [
+        "resource"
+      ],
+      "overviewScope": true,
+      "scrollWidth": 1265,
+      "scrollY": 0,
+      "searchInstances": 1,
+      "sidebarSelected": {
+        "aria": "page",
+        "background": "rgb(38, 38, 38)",
+        "radius": "8px"
+      },
+      "sort": "default",
+      "status": "全部主题 · 资料：35 条内容。排序：按主题（默认）。",
+      "title": "Becoming",
+      "titles": [
+        "大学物理实验 · 历年回忆卷合集",
+        "大学物理实验 · 知识点盘点",
+        "大学物理Ⅱ · 第 9 章（上）真空中的静电场"
+      ],
+      "topic": "",
+      "type": "resource",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/?type=resource",
+      "width": 1280
+    },
+    {
+      "label": "article filter",
+      "clearVisible": true,
+      "count": 1,
+      "emptyVisible": false,
+      "firstBottom": 628.671875,
+      "firstTop": 474.578125,
+      "height": 720,
+      "kinds": [
+        "article"
+      ],
+      "overviewScope": true,
+      "scrollWidth": 1265,
+      "scrollY": 0,
+      "searchInstances": 1,
+      "sidebarSelected": {
+        "aria": "page",
+        "background": "rgb(38, 38, 38)",
+        "radius": "8px"
+      },
+      "sort": "default",
+      "status": "全部主题 · 文章：1 条内容。排序：按主题（默认）。",
+      "title": "Becoming",
+      "titles": [
+        "博客阅读验证（功能验证样稿）"
+      ],
+      "topic": "",
+      "type": "article",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/?type=article",
+      "width": 1280
+    },
+    {
+      "label": "note filter",
+      "clearVisible": true,
+      "count": 5,
+      "emptyVisible": false,
+      "firstBottom": 628.671875,
+      "firstTop": 474.578125,
+      "height": 720,
+      "kinds": [
+        "note"
+      ],
+      "overviewScope": true,
+      "scrollWidth": 1265,
+      "scrollY": 0,
+      "searchInstances": 1,
+      "sidebarSelected": {
+        "aria": "page",
+        "background": "rgb(38, 38, 38)",
+        "radius": "8px"
+      },
+      "sort": "default",
+      "status": "全部主题 · 笔记：5 条内容。排序：按主题（默认）。",
+      "title": "Becoming",
+      "titles": [
+        "高级数据结构与算法分析 · 算法笔记（PDF）",
+        "高级数据结构与算法分析 · NoughtQ 的笔记本",
+        "计算机系统 · 小角龙的学习记录"
+      ],
+      "topic": "",
+      "type": "note",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/?type=note",
+      "width": 1280
+    },
+    {
+      "label": "notes plus topic",
+      "clearVisible": true,
+      "count": 3,
+      "emptyVisible": false,
+      "firstBottom": 628.671875,
+      "firstTop": 474.578125,
+      "height": 720,
+      "kinds": [
+        "note"
+      ],
+      "overviewScope": true,
+      "scrollWidth": 1265,
+      "scrollY": 0,
+      "searchInstances": 1,
+      "sidebarSelected": {
+        "aria": "page",
+        "background": "rgb(38, 38, 38)",
+        "radius": "8px"
+      },
+      "sort": "default",
+      "status": "计算机系统 · 笔记：3 条内容。排序：按主题（默认）。",
+      "title": "Becoming",
+      "titles": [
+        "计算机系统 · 小角龙的学习记录",
+        "计算机系统原理 · 复习笔记（RandomStar）",
+        "计算机组成 · lihuamao0810 的第五章笔记"
+      ],
+      "topic": "计算机系统",
+      "type": "note",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/?type=note&topic=%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F",
+      "width": 1280
+    },
+    {
+      "label": "topic plus descending order",
+      "clearVisible": true,
+      "count": 3,
+      "emptyVisible": false,
+      "firstBottom": 628.671875,
+      "firstTop": 474.578125,
+      "height": 720,
+      "kinds": [
+        "note"
+      ],
+      "overviewScope": true,
+      "scrollWidth": 1265,
+      "scrollY": 0,
+      "searchInstances": 1,
+      "sidebarSelected": {
+        "aria": "page",
+        "background": "rgb(38, 38, 38)",
+        "radius": "8px"
+      },
+      "sort": "title-desc",
+      "status": "计算机系统 · 笔记：3 条内容。排序：标题降序。",
+      "title": "Becoming",
+      "titles": [
+        "计算机组成 · lihuamao0810 的第五章笔记",
+        "计算机系统原理 · 复习笔记（RandomStar）",
+        "计算机系统 · 小角龙的学习记录"
+      ],
+      "topic": "计算机系统",
+      "type": "note",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/?type=note&topic=%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F&sort=title-desc",
+      "width": 1280
+    },
+    {
+      "label": "empty combination",
+      "clearVisible": true,
+      "count": 0,
+      "emptyVisible": true,
+      "height": 720,
+      "kinds": [],
+      "overviewScope": true,
+      "scrollWidth": 1265,
+      "scrollY": 0,
+      "searchInstances": 1,
+      "sidebarSelected": {
+        "aria": "page",
+        "background": "rgb(38, 38, 38)",
+        "radius": "8px"
+      },
+      "sort": "title-desc",
+      "status": "计算机系统 · 文章：0 条内容。排序：标题降序。",
+      "title": "Becoming",
+      "titles": [],
+      "topic": "计算机系统",
+      "type": "article",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/?type=article&topic=%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F&sort=title-desc",
+      "width": 1280
+    },
+    {
+      "label": "clear preserves existing sort behavior",
+      "clearVisible": false,
+      "count": 41,
+      "emptyVisible": false,
+      "firstBottom": 547.0625,
+      "firstTop": 392.96875,
+      "height": 720,
+      "kinds": [
+        "resource",
+        "note",
+        "article"
+      ],
+      "overviewScope": true,
+      "scrollWidth": 1265,
+      "scrollY": 45,
+      "searchInstances": 1,
+      "sidebarSelected": {
+        "aria": "page",
+        "background": "rgb(38, 38, 38)",
+        "radius": "8px"
+      },
+      "sort": "title-desc",
+      "status": "全部主题 · 全部：41 条内容。排序：标题降序。",
+      "title": "Becoming",
+      "titles": [
+        "PDF 阅读验证说明（功能样本）",
+        "先秦诸子导读",
+        "计算机组成与设计：硬件软件接口（第 5 版 · RISC-V 版）"
+      ],
+      "topic": "",
+      "type": "all",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/?sort=title-desc",
+      "width": 1280
+    },
+    {
+      "label": "keyboard right selects resource",
+      "clearVisible": true,
+      "count": 35,
+      "emptyVisible": false,
+      "firstBottom": 583.671875,
+      "firstTop": 429.578125,
+      "height": 720,
+      "kinds": [
+        "resource"
+      ],
+      "overviewScope": true,
+      "scrollWidth": 1265,
+      "scrollY": 45,
+      "searchInstances": 1,
+      "sidebarSelected": {
+        "aria": "page",
+        "background": "rgb(38, 38, 38)",
+        "radius": "8px"
+      },
+      "sort": "title-desc",
+      "status": "全部主题 · 资料：35 条内容。排序：标题降序。",
+      "title": "Becoming",
+      "titles": [
+        "PDF 阅读验证说明（功能样本）",
+        "先秦诸子导读",
+        "计算机组成与设计：硬件软件接口（第 5 版 · RISC-V 版）"
+      ],
+      "topic": "",
+      "type": "resource",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/?sort=title-desc&type=resource",
+      "width": 1280
+    },
+    {
+      "label": "browser back restores all and sort",
+      "clearVisible": false,
+      "count": 41,
+      "emptyVisible": false,
+      "firstBottom": 547.0625,
+      "firstTop": 392.96875,
+      "height": 720,
+      "kinds": [
+        "resource",
+        "note",
+        "article"
+      ],
+      "overviewScope": true,
+      "scrollWidth": 1280,
+      "scrollY": 45,
+      "searchInstances": 1,
+      "sidebarSelected": {
+        "aria": "page",
+        "background": "rgb(38, 38, 38)",
+        "radius": "8px"
+      },
+      "sort": "title-desc",
+      "status": "全部主题 · 全部：41 条内容。排序：标题降序。",
+      "title": "Becoming",
+      "titles": [
+        "PDF 阅读验证说明（功能样本）",
+        "先秦诸子导读",
+        "计算机组成与设计：硬件软件接口（第 5 版 · RISC-V 版）"
+      ],
+      "topic": "",
+      "type": "all",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/?sort=title-desc",
+      "width": 1280
+    },
+    {
+      "label": "before PDF reading visit",
+      "clearVisible": true,
+      "count": 2,
+      "emptyVisible": false,
+      "firstBottom": 628.671875,
+      "firstTop": 474.578125,
+      "height": 720,
+      "kinds": [
+        "resource",
+        "article"
+      ],
+      "overviewScope": true,
+      "scrollWidth": 1265,
+      "scrollY": 0,
+      "searchInstances": 1,
+      "sidebarSelected": {
+        "aria": "page",
+        "background": "rgb(38, 38, 38)",
+        "radius": "8px"
+      },
+      "sort": "title-desc",
+      "status": "阅读与整理 · 全部：2 条内容。排序：标题降序。",
+      "title": "Becoming",
+      "titles": [
+        "PDF 阅读验证说明（功能样本）",
+        "博客阅读验证（功能验证样稿）"
+      ],
+      "topic": "阅读与整理",
+      "type": "all",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/?sort=title-desc&topic=%E9%98%85%E8%AF%BB%E4%B8%8E%E6%95%B4%E7%90%86",
+      "width": 1280
+    },
+    {
+      "label": "PDF detail retains its original scope",
+      "background": "#0b0d0f",
+      "overviewScope": false,
+      "reader": true,
+      "returnLinks": [
+        {
+          "href": "/personal-homepage/knowledge/?type=resource",
+          "text": "← 返回学习总览"
+        }
+      ],
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/resources/reading-guide/"
+    },
+    {
+      "label": "first reading return actual result",
+      "clearVisible": true,
+      "count": 35,
+      "emptyVisible": false,
+      "firstBottom": 628.671875,
+      "firstTop": 474.578125,
+      "height": 720,
+      "kinds": [
+        "resource"
+      ],
+      "overviewScope": true,
+      "scrollWidth": 1280,
+      "scrollY": 0,
+      "searchInstances": 1,
+      "sidebarSelected": {
+        "aria": "page",
+        "background": "rgb(38, 38, 38)",
+        "radius": "8px"
+      },
+      "sort": "default",
+      "status": "全部主题 · 资料：35 条内容。排序：按主题（默认）。",
+      "title": "Becoming",
+      "titles": [
+        "大学物理实验 · 历年回忆卷合集",
+        "大学物理实验 · 知识点盘点",
+        "大学物理Ⅱ · 第 9 章（上）真空中的静电场"
+      ],
+      "topic": "",
+      "type": "resource",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/?type=resource",
+      "width": 1280
+    },
+    {
+      "label": "fresh deep link resource reading topic",
+      "clearVisible": true,
+      "count": 1,
+      "emptyVisible": false,
+      "firstBottom": 628.671875,
+      "firstTop": 474.578125,
+      "height": 720,
+      "kinds": [
+        "resource"
+      ],
+      "overviewScope": true,
+      "scrollWidth": 1265,
+      "scrollY": 0,
+      "searchInstances": 1,
+      "sidebarSelected": {
+        "aria": "page",
+        "background": "rgb(38, 38, 38)",
+        "radius": "8px"
+      },
+      "sort": "title-asc",
+      "status": "阅读与整理 · 资料：1 条内容。排序：标题升序。",
+      "title": "Becoming",
+      "titles": [
+        "PDF 阅读验证说明（功能样本）"
+      ],
+      "topic": "阅读与整理",
+      "type": "resource",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/?type=resource&topic=%E9%98%85%E8%AF%BB%E4%B8%8E%E6%95%B4%E7%90%86&sort=title-asc",
+      "width": 1280
+    },
+    {
+      "label": "fresh deep-link PDF return destination",
+      "overviewScope": false,
+      "returnLink": "http://127.0.0.1:4400/personal-homepage/knowledge/?type=resource&topic=%E9%98%85%E8%AF%BB%E4%B8%8E%E6%95%B4%E7%90%86&sort=title-asc",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/resources/reading-guide/"
+    },
+    {
+      "label": "fresh PDF return restores all parameters",
+      "clearVisible": true,
+      "count": 1,
+      "emptyVisible": false,
+      "firstBottom": 511.671875,
+      "firstTop": 357.578125,
+      "height": 720,
+      "kinds": [
+        "resource"
+      ],
+      "overviewScope": true,
+      "scrollWidth": 1280,
+      "scrollY": 117,
+      "searchInstances": 1,
+      "sidebarSelected": {
+        "aria": "page",
+        "background": "rgb(38, 38, 38)",
+        "radius": "8px"
+      },
+      "sort": "title-asc",
+      "status": "阅读与整理 · 资料：1 条内容。排序：标题升序。",
+      "title": "Becoming",
+      "titles": [
+        "PDF 阅读验证说明（功能样本）"
+      ],
+      "topic": "阅读与整理",
+      "type": "resource",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/?type=resource&topic=%E9%98%85%E8%AF%BB%E4%B8%8E%E6%95%B4%E7%90%86&sort=title-asc",
+      "width": 1280
+    },
+    {
+      "label": "Pagefind exact query and results",
+      "query": "博客阅读验证",
+      "results": [
+        {
+          "href": "/personal-homepage/knowledge/blog/article-reading-check/",
+          "text": "博客阅读验证（功能验证样稿）"
+        },
+        {
+          "href": "/personal-homepage/knowledge/blog/article-reading-check/#_top",
+          "text": "博客阅读验证（功能验证样稿）"
+        },
+        {
+          "href": "/personal-homepage/knowledge/blog/article-reading-check/#%E4%BB%8E%E4%B8%80%E4%B8%AA%E5%85%A5%E5%8F%A3%E5%BC%80%E5%A7%8B",
+          "text": "从一个入口开始"
+        },
+        {
+          "href": "/personal-homepage/knowledge/blog/article-reading-check/#%E6%8A%8A%E9%98%85%E8%AF%BB%E8%BF%87%E7%A8%8B%E5%86%99%E6%B8%85%E6%A5%9A",
+          "text": "把阅读过程写清楚"
+        },
+        {
+          "href": "/personal-homepage/knowledge/",
+          "text": "Becoming"
+        },
+        {
+          "href": "/personal-homepage/knowledge/#_top",
+          "text": "Becoming"
+        }
+      ]
+    },
+    {
+      "label": "mobile 390 default",
+      "clearVisible": false,
+      "count": 41,
+      "emptyVisible": false,
+      "firstBottom": 680.453125,
+      "firstTop": 507.359375,
+      "height": 844,
+      "kinds": [
+        "resource",
+        "note",
+        "article"
+      ],
+      "overviewScope": true,
+      "scrollWidth": 375,
+      "scrollY": 0,
+      "searchInstances": 1,
+      "sidebarSelected": {
+        "aria": "page",
+        "background": "rgb(38, 38, 38)",
+        "radius": "8px"
+      },
+      "sort": "default",
+      "status": "全部主题 · 全部：41 条内容。排序：按主题（默认）。",
+      "title": "Becoming",
+      "titles": [
+        "大学物理实验 · 历年回忆卷合集",
+        "大学物理实验 · 知识点盘点",
+        "大学物理Ⅱ · 第 9 章（上）真空中的静电场"
+      ],
+      "topic": "",
+      "type": "all",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/",
+      "width": 390
+    },
+    {
+      "label": "mobile 390 final",
+      "clearVisible": false,
+      "count": 41,
+      "emptyVisible": false,
+      "firstBottom": 677.671875,
+      "firstTop": 504.578125,
+      "height": 844,
+      "kinds": [
+        "resource",
+        "note",
+        "article"
+      ],
+      "overviewScope": true,
+      "scrollWidth": 380,
+      "scrollY": 0,
+      "searchInstances": 1,
+      "sidebarSelected": {
+        "aria": "page",
+        "background": "rgb(38, 38, 38)",
+        "radius": "8px"
+      },
+      "sort": "default",
+      "status": "全部主题 · 全部：41 条内容。排序：按主题（默认）。",
+      "title": "Becoming",
+      "titles": [
+        "大学物理实验 · 历年回忆卷合集",
+        "大学物理实验 · 知识点盘点",
+        "大学物理Ⅱ · 第 9 章（上）真空中的静电场"
+      ],
+      "topic": "",
+      "type": "all",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/",
+      "width": 390
+    },
+    {
+      "label": "mobile classification expanded and focus trap",
+      "physicsLinks": 17,
+      "physicsOpen": true
+    },
+    {
+      "label": "mobile search electrostatics",
+      "query": "静电场",
+      "results": [
+        {
+          "href": "/personal-homepage/knowledge/resources/physics/physics-electrostatics-alt/",
+          "text": "大学物理Ⅱ · 第 9 章（上）真空中的静电场"
+        },
+        {
+          "href": "/personal-homepage/knowledge/resources/physics/physics-electrostatics-alt/#_top",
+          "text": "大学物理Ⅱ · 第 9 章（上）真空中的静电场"
+        },
+        {
+          "href": "/personal-homepage/knowledge/resources/physics/physics-electrostatics-alt/#%E5%86%85%E5%AE%B9%E8%AF%B4%E6%98%8E",
+          "text": "内容说明"
+        },
+        {
+          "href": "/personal-homepage/knowledge/resources/physics/physics-electrostatics-alt/#%E6%9D%A5%E6%BA%90%E4%B8%8E%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF",
+          "text": "来源与文件信息"
+        },
+        {
+          "href": "/personal-homepage/knowledge/resources/physics/physics-chapter-9/",
+          "text": "大学物理Ⅱ · 第 9 章（下）真空中的静电场"
+        },
+        {
+          "href": "/personal-homepage/knowledge/resources/physics/physics-chapter-9/#_top",
+          "text": "大学物理Ⅱ · 第 9 章（下）真空中的静电场"
+        },
+        {
+          "href": "/personal-homepage/knowledge/resources/physics/physics-chapter-9/#%E5%86%85%E5%AE%B9%E8%AF%B4%E6%98%8E",
+          "text": "内容说明"
+        },
+        {
+          "href": "/personal-homepage/knowledge/resources/physics/physics-chapter-9/#%E5%90%8C%E7%A7%91%E7%9B%AE%E5%86%85%E5%AE%B9",
+          "text": "同科目内容"
+        },
+        {
+          "href": "/personal-homepage/knowledge/",
+          "text": "Becoming"
+        },
+        {
+          "href": "/personal-homepage/knowledge/#_top",
+          "text": "Becoming"
+        },
+        {
+          "href": "/personal-homepage/knowledge/resources/physics/physics-chapter-10/",
+          "text": "大学物理Ⅱ · 第 10 章"
+        },
+        {
+          "href": "/personal-homepage/knowledge/resources/physics/physics-chapter-10/#%E5%86%85%E5%AE%B9%E8%AF%B4%E6%98%8E",
+          "text": "内容说明"
+        },
+        {
+          "href": "/personal-homepage/knowledge/resources/physics/physics-chapter-10/#%E5%90%8C%E7%A7%91%E7%9B%AE%E5%86%85%E5%AE%B9",
+          "text": "同科目内容"
+        },
+        {
+          "href": "/personal-homepage/knowledge/resources/physics/physics-chapter-15/",
+          "text": "大学物理Ⅱ · 第 15 章"
+        },
+        {
+          "href": "/personal-homepage/knowledge/resources/physics/physics-chapter-15/#%E5%86%85%E5%AE%B9%E8%AF%B4%E6%98%8E",
+          "text": "内容说明"
+        },
+        {
+          "href": "/personal-homepage/knowledge/resources/physics/physics-chapter-15/#%E5%90%8C%E7%A7%91%E7%9B%AE%E5%86%85%E5%AE%B9",
+          "text": "同科目内容"
+        }
+      ]
+    },
+    {
+      "label": "mobile 320 default",
+      "clearVisible": false,
+      "count": 41,
+      "emptyVisible": false,
+      "firstBottom": 732.640625,
+      "firstTop": 559.546875,
+      "height": 844,
+      "kinds": [
+        "resource",
+        "note",
+        "article"
+      ],
+      "overviewScope": true,
+      "scrollWidth": 310,
+      "scrollY": 0,
+      "searchInstances": 1,
+      "sidebarSelected": {
+        "aria": "page",
+        "background": "rgb(38, 38, 38)",
+        "radius": "8px"
+      },
+      "sort": "default",
+      "status": "全部主题 · 全部：41 条内容。排序：按主题（默认）。",
+      "title": "Becoming",
+      "titles": [
+        "大学物理实验 · 历年回忆卷合集",
+        "大学物理实验 · 知识点盘点",
+        "大学物理Ⅱ · 第 9 章（上）真空中的静电场"
+      ],
+      "topic": "",
+      "type": "all",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/",
+      "width": 320
+    },
+    {
+      "label": "mobile 320 note filter",
+      "clearVisible": true,
+      "count": 5,
+      "emptyVisible": false,
+      "firstBottom": 765.109375,
+      "firstTop": 559.546875,
+      "height": 844,
+      "kinds": [
+        "note"
+      ],
+      "overviewScope": true,
+      "scrollWidth": 310,
+      "scrollY": 0,
+      "searchInstances": 1,
+      "sidebarSelected": {
+        "aria": "page",
+        "background": "rgb(38, 38, 38)",
+        "radius": "8px"
+      },
+      "sort": "default",
+      "status": "全部主题 · 笔记：5 条内容。排序：按主题（默认）。",
+      "title": "Becoming",
+      "titles": [
+        "高级数据结构与算法分析 · 算法笔记（PDF）",
+        "高级数据结构与算法分析 · NoughtQ 的笔记本",
+        "计算机系统 · 小角龙的学习记录"
+      ],
+      "topic": "",
+      "type": "note",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/?type=note",
+      "width": 320
+    },
+    {
+      "label": "desktop final default",
+      "clearVisible": false,
+      "count": 41,
+      "emptyVisible": false,
+      "firstBottom": 612.671875,
+      "firstTop": 458.578125,
+      "height": 720,
+      "kinds": [
+        "resource",
+        "note",
+        "article"
+      ],
+      "overviewScope": true,
+      "scrollWidth": 1270,
+      "scrollY": 0,
+      "searchInstances": 1,
+      "sidebarSelected": {
+        "aria": "page",
+        "background": "rgb(38, 38, 38)",
+        "radius": "8px"
+      },
+      "sort": "default",
+      "status": "全部主题 · 全部：41 条内容。排序：按主题（默认）。",
+      "title": "Becoming",
+      "titles": [
+        "大学物理实验 · 历年回忆卷合集",
+        "大学物理实验 · 知识点盘点",
+        "大学物理Ⅱ · 第 9 章（上）真空中的静电场"
+      ],
+      "topic": "",
+      "type": "all",
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/",
+      "width": 1280
+    },
+    {
+      "label": "collection status disclosure",
+      "open": true,
+      "text": "收录说明已接入 1 份 PDF，其他附件待配置。外部笔记直接进入作者原站，资料原件完整保留。功能样稿用于体验文章阅读，不代表个人经历或正式创作。正式文章尚待添加。"
+    }
+  ],
+  "console": [
+    {
+      "level": "log",
+      "message": "PDF 2779a61d9ebf6978cae6814b4c774f59 [1.4 ReportLab PDF Library - (opensource) / (unspecified)] (PDF.js: 6.4.299 [d0991a0d5])",
+      "timestamp": "2026-10-14T15:30:32.634Z",
+      "url": "http://127.0.0.1:4400/personal-homepage/pdfjs/web/viewer.mjs"
+    },
+    {
+      "level": "log",
+      "message": "PDF 2779a61d9ebf6978cae6814b4c774f59 [1.4 ReportLab PDF Library - (opensource) / (unspecified)] (PDF.js: 6.4.299 [d0991a0d5])",
+      "timestamp": "2026-10-14T15:32:44.714Z",
+      "url": "http://127.0.0.1:4400/personal-homepage/pdfjs/web/viewer.mjs"
+    }
+  ],
+  "captureCaveats": [
+    "Initial combined back/filter/open run lost topic and sort; stable deep-link PDF journey later restored all parameters. Do not count the initial run as passed.",
+    "Native summary roles did not match Playwright button selectors; checks used observed AX controls or summary text.",
+    "Exact note text matched sidebar and filter; filter check was scoped to the main label.",
+    "Early mobile screenshot had search/menu overlap; CSS corrected and final narrow-screen screenshots taken."
+  ]
+}

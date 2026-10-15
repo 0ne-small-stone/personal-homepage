@@ -763,3 +763,8 @@ Moosync本次官网未定位完整界面，仓库Screenshots仍TODO，未作为�
 > 历史研究与需求证据；当前首页运行范围以56玻璃/柔晕及F02为准，不据此恢复光谱或流体。
 
 `p01-entry-seam-51`：用户本对话上传的本站入射交界裁图，原像素复制到[51用户原图](iterations/evidence/u03-p01-2026-10-12-51/user-entry-seam.png)，用于需求定位与前后验收；未调色/重画，不作为页面展示素材。用户否定接缝自然性，覆盖此前50执行者/设计允许保留，不记为用户已确认。设计任务[51](iterations/u03-p01-2026-10-12-51.md)。
+
+
+## Becoming 总览选定参考（2026-10-14）
+
+用户选定[Framer Developers](https://www.framer.com/developers/)的侧栏与内容布局、[shadcn文档](https://ui.shadcn.com/docs)的灰色圆角选中，范围只到P03首片。采用设计规律，不复制原站图像/字体/代码，不引入第二主题或依赖；本站参数由SYSTEM5.2.1管理，实施与实际验收见[本片](iterations/u09-p03-2026-10-14-framer-overview.md)。参考方向获用户选择，不等于本站实现或外观验收通过。

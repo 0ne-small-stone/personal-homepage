@@ -1,0 +1,97 @@
+
+> personal-homepage@0.1.0 build
+> astro build
+
+10:48:41 [WARN] [starlight-blog] It looks like you already have a `MarkdownContent` component override in your Starlight configuration.
+10:48:41 [WARN] [starlight-blog] To use `starlight-blog`, either remove your override or update it to render the content from `starlight-blog/components/MarkdownContent.astro`.
+10:48:41 [vite] Re-optimizing dependencies because vite config has changed
+10:48:42 [content] Syncing content
+10:48:42 [content] Synced content
+10:48:42 [types] Generated 694ms
+10:48:42 [build] output: "static"
+10:48:42 [build] mode: "static"
+10:48:42 [build] directory: C:\Users\asus\.codex\worktrees\t07-01-knowledge-type-filter\个人主页\.ci-tmp\becoming-pdf-release-check\dist\
+10:48:42 [build] Collecting build info...
+10:48:42 [build] ✓ Completed in 861ms.
+10:48:42 [build] Building static entrypoints...
+10:48:43 [vite] ✓ built in 631ms
+10:48:44 [WARN] [vite] [plugin builtin:vite-reporter]
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+10:48:44 [vite] ✓ built in 919ms
+10:48:44 [build] Rearranging server assets...
+
+ generating static routes
+10:48:44 [WARN] [build] Could not render `/404` from route `/[...slug]` as it conflicts with higher priority route `/404`.
+10:48:44   ├─ /404.html (+82ms)
+10:48:44   ├─ /about/index.html (+12ms)
+10:48:44   ├─ /gallery/index.html (+5ms)
+10:48:44   ├─ /guestbook/index.html (+6ms)
+10:48:44   ├─ /knowledge/index.html (+24ms)
+10:48:44   ├─ /links/index.html (+4ms)
+10:48:44   ├─ /music/catalog.json (+463ms)
+10:48:44   ├─ /music/index.html (+114ms)
+10:48:44   ├─ /showcase/index.html (+151ms)
+10:48:45   ├─ /knowledge/blog/tags/功能验证/index.html (+173ms)
+10:48:45   ├─ /knowledge/blog/tags/阅读与整理/index.html (+15ms)
+10:48:45   ├─ /knowledge/blog/index.html (+8ms)
+10:48:45   ├─ /index.html (+13ms)
+10:48:45   ├─ /knowledge/blog/article-reading-check/index.html (+11ms)
+10:48:45   ├─ /knowledge/notes/ads/ads-algorithms-notes/index.html (+7ms)
+10:48:45   ├─ /knowledge/notes/ads/ads-noughtq-notebook/index.html (+7ms)
+10:48:45   ├─ /knowledge/notes/computer-systems/computer-organization-lihuamao-chapter5/index.html (+9ms)
+10:48:45   ├─ /knowledge/notes/computer-systems/computer-system-review/index.html (+8ms)
+10:48:45   ├─ /knowledge/notes/computer-systems/computer-system-zhang-each-notebook/index.html (+7ms)
+10:48:45   ├─ /knowledge/resources/ads/ads-2024-handout/index.html (+7ms)
+10:48:45   ├─ /knowledge/resources/computer-systems/computer-organization-risc-v-fifth-edition/index.html (+9ms)
+10:48:45   ├─ /knowledge/resources/physics-lab/physics-lab-recalled-exams/index.html (+7ms)
+10:48:45   ├─ /knowledge/resources/physics-lab/physics-lab-review/index.html (+8ms)
+10:48:45   ├─ /knowledge/resources/physics/engineering-physics-third-edition/index.html (+11ms)
+10:48:45   ├─ /knowledge/resources/physics/physics-chapter-10/index.html (+8ms)
+10:48:45   ├─ /knowledge/resources/physics/physics-chapter-11/index.html (+7ms)
+10:48:45   ├─ /knowledge/resources/physics/physics-chapter-12/index.html (+9ms)
+10:48:45   ├─ /knowledge/resources/physics/physics-chapter-13/index.html (+7ms)
+10:48:45   ├─ /knowledge/resources/physics/physics-chapter-14/index.html (+7ms)
+10:48:45   ├─ /knowledge/resources/physics/physics-chapter-15/index.html (+9ms)
+10:48:45   ├─ /knowledge/resources/physics/physics-chapter-16/index.html (+8ms)
+10:48:45   ├─ /knowledge/resources/physics/physics-chapter-17/index.html (+18ms)
+10:48:45   ├─ /knowledge/resources/physics/physics-chapter-18/index.html (+8ms)
+10:48:45   ├─ /knowledge/resources/physics/physics-chapter-19/index.html (+7ms)
+10:48:45   ├─ /knowledge/resources/physics/physics-chapter-20/index.html (+10ms)
+10:48:45   ├─ /knowledge/resources/physics/physics-chapter-21/index.html (+9ms)
+10:48:45   ├─ /knowledge/resources/physics/physics-chapter-22/index.html (+8ms)
+10:48:45   ├─ /knowledge/resources/physics/physics-chapter-23/index.html (+6ms)
+10:48:45   ├─ /knowledge/resources/physics/physics-chapter-9/index.html (+5ms)
+10:48:45   ├─ /knowledge/resources/physics/physics-electrostatics-alt/index.html (+4ms)
+10:48:45   ├─ /knowledge/resources/pre-qin-philosophy/pre-qin-philosophers-reader/index.html (+4ms)
+10:48:45   ├─ /knowledge/resources/probability/probability-forliage/index.html (+6ms)
+10:48:45   ├─ /knowledge/resources/probability/probability-lecture-0/index.html (+8ms)
+10:48:45   ├─ /knowledge/resources/probability/probability-lecture-1/index.html (+8ms)
+10:48:45   ├─ /knowledge/resources/probability/probability-lecture-2/index.html (+7ms)
+10:48:45   ├─ /knowledge/resources/probability/probability-lecture-3/index.html (+5ms)
+10:48:45   ├─ /knowledge/resources/probability/probability-lecture-4/index.html (+6ms)
+10:48:45   ├─ /knowledge/resources/probability/probability-lecture-5/index.html (+5ms)
+10:48:45   ├─ /knowledge/resources/probability/probability-lecture-6/index.html (+4ms)
+10:48:45   ├─ /knowledge/resources/probability/probability-lecture-7/index.html (+5ms)
+10:48:45   ├─ /knowledge/resources/probability/probability-lecture-8/index.html (+5ms)
+10:48:45   ├─ /knowledge/resources/probability/probability-lecture-9/index.html (+3ms)
+10:48:45   ├─ /knowledge/resources/probability/probability-tutorial-v1/index.html (+4ms)
+10:48:45   ├─ /knowledge/resources/reading-guide/index.html (+7ms)
+10:48:45 ✓ Completed in 1.48s.
+
+ generating optimized images
+10:48:45   ▶ /_astro/echoes-placeholder.CF27I39E_Z1yWTlh.webp (reused cache entry) (+4ms) (1/4)
+10:48:45   ▶ /_astro/wish-neighbor-placeholder.C3OY0qeQ_Z1reaH4.webp (reused cache entry) (+4ms) (2/4)
+10:48:45   ▶ /_astro/lssh-wordmark.D_xwlUjr_ygeSe.webp (reused cache entry) (+6ms) (3/4)
+10:48:45   ▶ /_astro/the-wall-placeholder.DaiTKZr6_ZIlk3C.webp (reused cache entry) (+6ms) (4/4)
+10:48:45 ✓ Completed in 7ms.
+
+10:48:45 [build] ✓ Completed in 3.15s.
+10:48:45 [starlight:pagefind] Building search index with Pagefind...
+10:48:46 [starlight:pagefind] Found 54 HTML files.
+10:48:46 [starlight:pagefind] Finished building search index in 569ms.
+10:48:46 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
+10:48:46 [build] 53 page(s) built in 4.74s
+10:48:46 [build] Complete!

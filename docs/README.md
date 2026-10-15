@@ -259,3 +259,19 @@ P10 最新独立交互样本：[A Moment Remains：Dome Gallery照片墙 → 三
 | `docs/RESEARCH_REFERENCES.md` | `docs/technical/REFERENCES.md` |
 
 项目根目录保留 `README.md` 和 `AGENTS.md`。本地原始资料目录 `大二上学习资源/` 作为内容来源独立保留，由 `.gitignore` 排除，不随 GitHub 仓库上传；2026-10-07 检查为 38 个文件（36 PDF、2 TXT），共 532,588,263 字节，约 507.9 MiB。根 Astro/Starlight 工程已建立；GitHub 工作流与实际接入进展见技术计划的状态记录。
+
+
+P03 / R02、R09、R12 / U09、U13、U14 / T05、T07、T26–T27：[Becoming Framer总览首片](design/iterations/u09-p03-2026-10-14-framer-overview.md)。用户选定Framer整体与shadcn选中，仅本页实施和体验；P05/P06后续另片。
+
+P03/P05 / R02、R09、R12 / U09、U14 / T05、T07–T08、T26–T27：[PDF附件接入与新版外观衔接](design/iterations/u09-p05-2026-10-15-pdf-connection.md)，36份本地原件沿用已有阅读器，不自动公开发布原件。
+
+P05/P06 / R02、R09、R10、R12 / U09、U14 / T05、T08–T10、T26–T27：[文章阅读外观与快捷键说明撤除](design/iterations/u09-p06-2026-10-15-article-reading.md)，只调整文章阅读、共用操作状态，不新增文章或改变标签设置。
+
+P06 / R02、R09、R12 / U09、U14 / T09、T26–T27：[文章阅读位置自动恢复](design/iterations/u09-p06-2026-10-15-reading-progress.md)，按文章记忆段落位置，不新增页面或设置项。
+
+P05 / R02、R09、R12 / U09、U14 / T08、T26–T27：[PDF页码与阅读位置续读](design/iterations/u09-p05-2026-10-15-pdf-progress.md)，每份PDF独立记忆，不新增页面或设置。
+
+P06 / R09、R10、R12 / U09、U14 / T05、T07、T09、T26–T27：[文章列表外观衔接](design/iterations/u09-p06-2026-10-15-article-list.md)，含现有分页和标签结果外壳，不新增页面类型。
+
+
+P03/P05/P06/P15/P17 / R02、R09、R10、R12、R13 / U09、U13、U14 / T05–T10、T13、T16、T26–T27：[Becoming 功能清单](technical/BECOMING_FEATURES.md)与[2026-10-15 发布记录](technical/iterations/becoming-release-2026-10-15.md)。
