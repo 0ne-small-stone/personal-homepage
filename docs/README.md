@@ -232,3 +232,5 @@ P03 / R02、R09、R12 / U09、U13、U14 / T05、T07、T26–T27：[Becoming Fram
 P03/P05 / R02、R09、R12 / U09、U14 / T05、T07–T08、T26–T27：[PDF附件接入与新版外观衔接](design/iterations/u09-p05-2026-10-15-pdf-connection.md)，36份本地原件沿用已有阅读器，不自动公开发布原件。
 
 P05/P06 / R02、R09、R10、R12 / U09、U14 / T05、T08–T10、T26–T27：[文章阅读外观与快捷键说明撤除](design/iterations/u09-p06-2026-10-15-article-reading.md)，只调整文章阅读、共用操作状态，不新增文章或改变标签设置。
+
+P06 / R02、R09、R12 / U09、U14 / T09、T26–T27：[文章阅读位置自动恢复](design/iterations/u09-p06-2026-10-15-reading-progress.md)，按文章记忆段落位置，不新增页面或设置项。

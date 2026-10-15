@@ -95,7 +95,7 @@ jobs:
         run: npm run check
 
       - name: Test content, homepage and PDF interactions
-        run: node --test tools/content/article-date.test.mjs tools/content/knowledge-links.test.mjs tools/content/cms-auto-sync.test.mjs tests/prism-ray.test.mjs tests/home-motion-ranges.test.mjs tools/verification/immersive-pdf-layout.test.mjs tools/verification/immersive-pdf-shortcuts.test.mjs
+        run: node --test tools/content/reading-progress.test.mjs tools/content/article-date.test.mjs tools/content/knowledge-links.test.mjs tools/content/cms-auto-sync.test.mjs tests/prism-ray.test.mjs tests/home-motion-ranges.test.mjs tools/verification/immersive-pdf-layout.test.mjs tools/verification/immersive-pdf-shortcuts.test.mjs
 
       - name: Test music state and service boundaries
         run: npm run music:test
