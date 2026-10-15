@@ -1,17 +1,20 @@
 ---
 import { sitePath } from '../../lib/paths';
 import PublicDirectory from '../PublicDirectory.astro';
-interface Props { journey?: boolean; }
-const { journey = false } = Astro.props;
-const links = [{ name: 'Becoming', cn: '学习', path: 'knowledge' }, { name: 'Elsewhere', cn: '常用网站', path: 'links' }, { name: 'Someone', cn: '关于小石', path: 'about' }];
+interface Props { journey?: boolean; lang?: 'zh-CN' | 'en'; languageHref?: string; }
+const { journey = false, lang = 'zh-CN', languageHref } = Astro.props;
+const links = [{ name: 'Becoming', cn: '学习', en: 'Learning', path: 'knowledge' }, { name: 'Elsewhere', cn: '常用网站', en: 'Websites', path: 'links' }, { name: 'Someone', cn: '关于小石', en: 'About Little Stone', path: 'about' }];
 ---
-<header class="home-header">
-  <div class="home-header-directory">
+<header class:list={['home-header', { 'has-language-switch': Boolean(languageHref) }]}>
+  {languageHref ? <a class="home-brand" href={sitePath()} aria-label={`Little Stone Still Here · ${lang === 'en' ? 'Home' : '首页'}`}>LSSH</a> : <div class="home-header-directory">
     {!journey && <a class="home-brand" href={sitePath()} aria-label="Little Stone Still Here · 首页">LSSH</a>}
     <PublicDirectory align="start" compact />
-  </div>
-  <nav aria-label="主要导航">
-    {links.map(({ name, cn, path }) => <a id={`nav-${path}`} href={sitePath(path)} data-home-link aria-label={`${name} · ${cn}`}><span data-scramble={name} aria-hidden="true">{name}</span></a>)}
+  </div>}
+  <nav aria-label={lang === 'en' ? 'Main navigation' : '主要导航'}>
+    {links.map(({ name, cn, en, path }) => <a id={`nav-${path}`} href={sitePath(path === 'about' && lang === 'zh-CN' && languageHref ? 'zh/about' : path)} data-home-link aria-label={`${name} · ${lang === 'en' ? en : cn}`}><span data-scramble={name} aria-hidden="true">{name}</span></a>)}
   </nav>
-  <a class="home-header-wall" href={`${sitePath()}#wall`} aria-label="去留言墙"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4V5Z" /></svg><span>The Wall</span></a>
+  {languageHref ? <div class="home-header-actions">
+    <a class="home-header-wall" href={`${sitePath()}#wall`} aria-label={lang === 'en' ? 'Go to The Wall' : '去留言墙'}><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4V5Z" /></svg><span>The Wall</span></a>
+    <a class="home-language-switch" href={languageHref} hreflang={lang === 'en' ? 'zh-CN' : 'en'} data-language-switch aria-label={lang === 'en' ? 'Switch to Chinese' : '切换为英文'} title={lang === 'en' ? 'Switch to Chinese' : '切换为英文'}><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9" /><ellipse cx="12" cy="12" rx="4" ry="9" /><path d="M3 12h18" /></svg></a>
+  </div> : <a class="home-header-wall" href={`${sitePath()}#wall`} aria-label={lang === 'en' ? 'Go to The Wall' : '去留言墙'}><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4V5Z" /></svg><span>The Wall</span></a>}
 </header>

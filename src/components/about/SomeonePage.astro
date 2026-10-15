@@ -1,0 +1,136 @@
+---
+import HomeLayout from '../../layouts/HomeLayout.astro';
+import ContactIcon from './ContactIcon.astro';
+import { profiles, type SomeoneLanguage } from '../../data/profile';
+import { sitePath } from '../../lib/paths';
+import '../../styles/about.css';
+
+interface Props { lang?: SomeoneLanguage; }
+const { lang = 'en' } = Astro.props;
+const profile = profiles[lang];
+const copy = lang === 'en' ? {
+  description: 'Zhang Xuanshi, also known as Little Stone. Software engineering student at Zhejiang University, making software and products, playing music and volunteering.',
+  about: 'About me', greeting: `I'm ${profile.nickname}.`, identity: `${profile.name} · ${profile.major}, ${profile.university}`,
+  talk: "Let's talk", index: 'On this page', home: 'Back home', experience: 'Experience', experienceIntro: 'Code, products and working with people.',
+  practice: 'What I do', skills: 'skills', learning: 'Still learning', life: 'Beyond the screen', traces: 'More of me, here', contact: 'Contact',
+  contactIntro: 'About products, design, music or something you found here.', copied: 'Email copied',
+  copySuccess: 'Email copied. You can paste it into your mail app.', copyFailure: `Could not copy. You can select this address to copy it: ${profile.email}`,
+  githubLabel: 'GitHub profile (opens in a new tab)', emailLabel: `Copy email address: ${profile.email}`, contactLinks: 'Contact links',
+  wall: 'Leave a note on The Wall',
+} : {
+  description: '我是小石，张轩石。浙江大学软件工程学生，做软件、设计产品，也在音乐和志愿服务里留下日常。',
+  about: '关于我', greeting: `我是${profile.nickname}。`, identity: `${profile.name}，${profile.university}${profile.major}学生。`,
+  talk: '聊一聊', index: 'Someone 页内目录', home: '返回首页', experience: '一些经历', experienceIntro: '从代码、产品到人与人之间的协作。',
+  practice: '能力与协作', skills: '相关能力', learning: '仍在学习', life: '生活的另一面', traces: '在这里，继续认识我', contact: '联系',
+  contactIntro: '关于产品、设计、音乐，或者你在这里看到的东西。', copied: '邮箱已复制',
+  copySuccess: '邮箱已复制，可以粘贴到你的邮件应用中。', copyFailure: `复制未成功，请选中这个地址复制：${profile.email}`,
+  githubLabel: 'GitHub 主页（在新标签页打开）', emailLabel: `复制邮箱地址：${profile.email}`, contactLinks: '联系方式',
+  wall: '也可以去留言墙看看',
+};
+
+const sections = [
+  { id: 'experience', label: copy.experience },
+  { id: 'practice', label: copy.practice },
+  { id: 'life', label: copy.life },
+  { id: 'contact', label: copy.contact },
+];
+---
+<HomeLayout title="Someone" lang={lang} description={copy.description} languageHref={sitePath(lang === 'en' ? 'zh/about' : 'about')}>
+  <article class="someone-page" data-copy-label={copy.emailLabel} data-copied={copy.copied} data-copy-success={copy.copySuccess} data-copy-failure={copy.copyFailure}>
+    <section id="intro" class="someone-hero" aria-labelledby="someone-title" data-reading-block>
+      <div class="someone-hero-copy">
+        <p class="someone-page-label">{copy.about}</p>
+        <h1 id="someone-title">Someone</h1>
+        <p class="someone-greeting">{copy.greeting}</p>
+        <p class="someone-identity">{copy.identity}</p>
+        <div class="someone-introduction">{profile.introduction.map(paragraph => <p>{paragraph}</p>)}</div>
+        <a class="someone-button" href="#contact">{copy.talk}<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5" /></svg></a>
+      </div>
+    </section>
+    <div class="someone-reading-layout">
+      <aside class="someone-index">
+        <nav aria-label={copy.index}>{sections.map(section => <a href={`#${section.id}`}>{section.label}</a>)}</nav>
+        <a class="someone-home-link" href={`${sitePath()}#intro`}>{copy.home}</a>
+      </aside>
+      <div class="someone-reading">
+        <section id="experience" class="someone-section" aria-labelledby="experience-title" data-reading-block>
+          <h2 id="experience-title">{copy.experience}</h2>
+          <p class="someone-section-intro">{copy.experienceIntro}</p>
+          <ol class="someone-experiences">
+            {profile.experiences.map(experience => <li id={`experience-${experience.id}`} data-reading-block>
+              <p class="someone-period">{experience.period}</p>
+              <div class="someone-experience-copy"><h3>{experience.title}</h3><p class="someone-role">{experience.role}</p>{experience.paragraphs.map(paragraph => <p>{paragraph}</p>)}</div>
+            </li>)}
+          </ol>
+        </section>
+        <section id="practice" class="someone-section" aria-labelledby="practice-title" data-reading-block>
+          <h2 id="practice-title">{copy.practice}</h2>
+          <div class="someone-capabilities">{profile.capabilities.map(capability => <div><h3>{capability.title}</h3><ul aria-label={`${capability.title} ${copy.skills}`}>{capability.items.map(item => <li>{item}</li>)}</ul><p>{capability.description}</p></div>)}</div>
+          <div class="someone-learning"><h3>{copy.learning}</h3><p>{profile.learning}</p></div>
+        </section>
+        <section id="life" class="someone-section" aria-labelledby="life-title" data-reading-block>
+          <h2 id="life-title">{copy.life}</h2>
+          {profile.life.map(paragraph => <p>{paragraph}</p>)}
+          <div class="someone-traces"><h3>{copy.traces}</h3><ul>{profile.traces.map(trace => <li><a href={sitePath(trace.path)}><span class="someone-trace-name">{trace.name}</span><span class="someone-trace-label">{trace.label}</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5" /></svg></a></li>)}</ul></div>
+        </section>
+        <section id="contact" class="someone-section someone-contact" aria-labelledby="contact-title" data-reading-block>
+          <h2 id="contact-title">{copy.talk}</h2>
+          <p>{copy.contactIntro}</p>
+          <div class="someone-contact-links" role="group" aria-label={copy.contactLinks}>
+            <a class="someone-contact-icon" href={profile.github} target="_blank" rel="noopener noreferrer" aria-label={copy.githubLabel} title={copy.githubLabel}><ContactIcon name="github" /></a>
+            <button class="someone-contact-icon" type="button" data-copy-email={profile.email} aria-label={copy.emailLabel} title={copy.emailLabel} disabled><ContactIcon name="email" /></button>
+          </div>
+          <noscript><p class="someone-copy-fallback">{lang === 'en' ? 'Copy this address manually:' : '可手动复制邮箱：'} {profile.email}</p></noscript>
+          <p class="someone-copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
+          <a class="someone-wall-link" href={sitePath('guestbook')}>{copy.wall}<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5" /></svg></a>
+        </section>
+      </div>
+    </div>
+  </article>
+</HomeLayout>
+
+<script>
+  import { setupSomeoneLanguage } from '../../lib/someone-language';
+  let dispose = () => {};
+  function initializeSomeone() {
+    dispose();
+    dispose = () => {};
+    const page = document.querySelector<HTMLElement>('.someone-page');
+    if (!page) return;
+    const controller = new AbortController();
+    const disposeLanguage = setupSomeoneLanguage(page, controller.signal);
+    let resetTimer: ReturnType<typeof setTimeout> | undefined;
+    dispose = () => { controller.abort(); clearTimeout(resetTimer); disposeLanguage(); };
+    const button = page.querySelector<HTMLButtonElement>('[data-copy-email]');
+    const status = page.querySelector<HTMLElement>('.someone-copy-status');
+    if (!button || !status) return;
+    button.disabled = false;
+    button.addEventListener('click', async () => {
+      if (button.disabled) return;
+      button.disabled = true;
+      try {
+        if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
+        await navigator.clipboard.writeText(button.dataset.copyEmail ?? '');
+        if (controller.signal.aborted) return;
+        button.setAttribute('aria-label', page.dataset.copied ?? '');
+        button.title = page.dataset.copied ?? '';
+        status.textContent = page.dataset.copySuccess ?? '';
+      } catch {
+        if (controller.signal.aborted) return;
+        status.textContent = page.dataset.copyFailure ?? '';
+      } finally {
+        if (!controller.signal.aborted) {
+          button.disabled = false;
+          clearTimeout(resetTimer);
+          resetTimer = setTimeout(() => {
+            button.setAttribute('aria-label', page.dataset.copyLabel ?? '');
+            button.title = page.dataset.copyLabel ?? '';
+          }, 2000);
+        }
+      }
+    }, { signal: controller.signal });
+  }
+  initializeSomeone();
+  document.addEventListener('astro:page-load', initializeSomeone);
+  document.addEventListener('astro:before-swap', () => dispose());
+</script>
