@@ -1,0 +1,143 @@
+{
+  "label": "desktop-reading",
+  "bundle": "/personal-homepage/_astro/HomeJourney.h39_FOLj.js",
+  "classes": "lssh-home has-journey home-enhanced home-wall-ready home-on-wall",
+  "overflow": false,
+  "sample": {
+    "frame": 744,
+    "glass": {
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "bounds": [
+        445.8141614328815,
+        241.61654347672513,
+        819.1858385671185,
+        522.2508017026962
+      ],
+      "centeredLocalBounds": [
+        -1.6766839027404783,
+        -1.45678448677063,
+        -0.4102458655834198,
+        1.6766839027404783,
+        1.45678448677063,
+        0.4102458655834198
+      ],
+      "projectedAnchor": [
+        632.5,
+        360
+      ],
+      "quaternion": [
+        0.4831345516573914,
+        -0.13038417388763104,
+        -0.07301864581623647,
+        0.8626988174082624
+      ],
+      "scale": 0.725,
+      "visible": false
+    },
+    "initialization": {
+      "reason": "deep-link",
+      "revision": 2,
+      "y": 8380,
+      "zoom": 0
+    },
+    "phase": "wall",
+    "portal": null,
+    "portalCovered": true,
+    "raw": {
+      "event": 1,
+      "expand": 1,
+      "intro": 1,
+      "kv": 1,
+      "outro": 1,
+      "prepare": 1,
+      "snap": 1,
+      "wall": 1,
+      "works": 1
+    },
+    "rendered": {
+      "background": 4,
+      "expand": 1,
+      "index": 4,
+      "intro": 1,
+      "prepare": 1,
+      "progress": 1,
+      "wall": 1
+    },
+    "scrollY": 8380,
+    "wall": {
+      "build": 1,
+      "drawn": 130,
+      "falling": 0,
+      "position": [
+        0,
+        0,
+        -1
+      ],
+      "raw": 1,
+      "revision": 2,
+      "rise": 1,
+      "rows": 13,
+      "samples": [
+        {
+          "column": 10,
+          "id": 309,
+          "progress": 1,
+          "row": 13,
+          "x": -0.4802499999999999,
+          "y": -2.4989999999999997
+        },
+        {
+          "column": 10,
+          "id": 332,
+          "progress": 1,
+          "row": 14,
+          "x": -0.9605,
+          "y": -2.0825
+        },
+        {
+          "column": 10,
+          "id": 355,
+          "progress": 1,
+          "row": 15,
+          "x": -0.4802499999999999,
+          "y": -1.666
+        },
+        {
+          "column": 10,
+          "id": 378,
+          "progress": 1,
+          "row": 16,
+          "x": -0.9605,
+          "y": -1.2494999999999998
+        },
+        {
+          "column": 10,
+          "id": 401,
+          "progress": 1,
+          "row": 17,
+          "x": -0.4802499999999999,
+          "y": -0.833
+        },
+        {
+          "column": 10,
+          "id": 424,
+          "progress": 1,
+          "row": 18,
+          "x": -0.9605,
+          "y": -0.4165
+        }
+      ],
+      "settled": 130,
+      "visible": true
+    }
+  },
+  "size": [
+    1280,
+    720
+  ],
+  "y": 8380
+}

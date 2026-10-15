@@ -1,0 +1,109 @@
+{
+  "Url": "http://127.0.0.1:4342/personal-homepage/#links",
+  "DebugUrl": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1#links",
+  "Bundle": "HomeJourney.B46QOkX1.js",
+  "Bytes": 1174388,
+  "SHA256": "ACFB4CDD9ADA074F31375EAEA4BA9AF57972A44734A43C2493499681722C18B8",
+  "Status": "Frozen local upward-assembly candidate, pending independent design review and user acceptance",
+  "SourceHashes": [
+    {
+      "Path": "src/components/home/wall-assembly.ts",
+      "SHA256": "CDD4C80ADB4EB1B3918319DDA9D041751E2AB875F6C9877FF1F29D3CFBA455DE"
+    },
+    {
+      "Path": "src/components/home/RisingWall.tsx",
+      "SHA256": "EA96F3158682FD0364874A98F5B819038715EF9E4F92BDB26A18C43A6161163E"
+    },
+    {
+      "Path": "src/components/home/wall-portal-geometry.ts",
+      "SHA256": "D3483336F4994107798F59989E6511872C03046EB037CDFD5A6DFEF8B09BB3FA"
+    },
+    {
+      "Path": "src/components/home/GlassPortalShape.ts",
+      "SHA256": "8C6FAEB0EFD4902426061E5B5FE50B322F274867C8D1AAEB3F0E1BF625D2528A"
+    },
+    {
+      "Path": "src/components/home/WallPortal.ts",
+      "SHA256": "608D2030C1C5EAFD55525972A98AFF7638406883461BC7ED5C7257FC3A137525"
+    },
+    {
+      "Path": "src/components/home/GlassRenderLayer.tsx",
+      "SHA256": "4CAA87812AB27FE11944BC42D5057F45F05C802F4B16500F0D3458AFB3E40D00"
+    },
+    {
+      "Path": "src/components/home/GlassTriangle.tsx",
+      "SHA256": "A6BCAA17DA84B7E5925E8DB256A09FA8A6D63B62439F435650CFC1FD9ADD82DD"
+    },
+    {
+      "Path": "src/components/home/CameraRig.tsx",
+      "SHA256": "680C2919B5E2C8F904108DF264AF036C909551D844ACD00F20342F3EEC62FC90"
+    },
+    {
+      "Path": "src/components/home/WorksMotionDriver.tsx",
+      "SHA256": "2FFF2BC385951E6DA72F844B2C1AA26F3831E5915B8D10B37FA6D6A5AB2BD1C9"
+    },
+    {
+      "Path": "src/components/home/HomeJourney.tsx",
+      "SHA256": "79E5942532AD48B5A871988EAAAB6EB3600991E4FC7DC489EB9F6F143FBAE9E7"
+    },
+    {
+      "Path": "src/components/home/home-motion.ts",
+      "SHA256": "E1A6FED3EF45A510D61636FE810B79C1A8FA38994B362EC054BE3C47B8B4C56F"
+    },
+    {
+      "Path": "src/components/home/home-return.ts",
+      "SHA256": "E5AEE4FC3639BC680E9DB7837DBD2D9BB454350E04470CC9773E1338E730FE30"
+    },
+    {
+      "Path": "src/components/home/works-motion.ts",
+      "SHA256": "A9BCA1ED2D17FF7A757A5477A44C63B21DD18F4FB0BFDBE7DA3BE88BB995F396"
+    },
+    {
+      "Path": "src/styles/home.css",
+      "SHA256": "E90DCB325A85511259F29C839968A6B0743A88691B6641DA016EA0C6C2EAA3EE"
+    },
+    {
+      "Path": "tests/home-motion-ranges.test.mjs",
+      "SHA256": "FB6D189105C138FC1328C11BDA95ABEED1E2660388BA36B63E21832C324E2377"
+    },
+    {
+      "Path": "src/components/home/prism-geometry.ts",
+      "SHA256": "42C37A53C86B8A4D10D5F1B5C25B5C6FB8D0F193FFE8A13BB6CD7A907E906DAC"
+    },
+    {
+      "Path": "src/components/home/GlassGlow.ts",
+      "SHA256": "37545DF1E9EB708EAD5D3EBA2BCE732A4FF494EA065B06A9BFEB148449F48FD5"
+    },
+    {
+      "Path": "src/components/home/GlassEdgeLight.tsx",
+      "SHA256": "5E26C98E038A1A459CD2AA02BCA207DCD198BBDB78642640A287DEC7DFFC1CB5"
+    },
+    {
+      "Path": "src/components/home/wall-material.ts",
+      "SHA256": "B1F925CF8256EE393FC88992DB0B41F55DA8DF508B2F8E15F41D1ACB165844EE"
+    },
+    {
+      "Path": "src/components/home/motion-ranges.ts",
+      "SHA256": "F12832D00331AE0041062C271BFEA0C034A3EF17D83D178E223FEBBF279630A1"
+    }
+  ],
+  "ChangedFromBC": [
+    "src/components/home/wall-assembly.ts",
+    "src/components/home/RisingWall.tsx",
+    "tests/home-motion-ranges.test.mjs",
+    "src/components/home/wall-material.ts"
+  ],
+  "PreservedFromBC": 16,
+  "Check": "108 files, zero diagnostics, confirmation-check.log",
+  "Build": "15 pages and Pagefind, confirmation-build.log",
+  "Tests": "11/11; tests.log; pure trajectory source unchanged during mask correction",
+  "Detector": "One scoped pass: []",
+  "BrowserSamples": 27,
+  "CurrentBundleSamples": 23,
+  "CurrentAlignedSamples": 16,
+  "InitialSamples": 4,
+  "LaggedOrConvergingSamples": 7,
+  "ViewportReset": true,
+  "Committed": false,
+  "Deployed": false
+}

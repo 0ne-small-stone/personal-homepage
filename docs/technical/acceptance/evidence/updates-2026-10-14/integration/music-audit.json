@@ -1,0 +1,72 @@
+{
+  "baseline": "9cbef0aaa8dc43c82e4b3a8fb402b2725db8356d",
+  "mode": "Read-only root audit; authorized integration only in separate QA worktree",
+  "features": [
+    "T25.26 shared MusicAlbumDetail and independent sleeve translation/rotation layers",
+    "T25.22 record clearance, stationary depth switches and 5820ms shared choreography",
+    "T25.27 local-only LX search/quality/download/completed fingerprint integration",
+    "T25.28 view=discover route state and mounted search panel"
+  ],
+  "publishable": [
+    "Astro/React music UI and offline service messages",
+    "Shared album detail and CSS choreography",
+    "Source-only local LX adapter, fixture tests, license and notice",
+    "Existing public metadata snapshot and CI guard retained"
+  ],
+  "notPublished": [
+    "Actual LX user scripts and authorization",
+    "DPAPI login or private runtime indexes",
+    "Audio files or local completed manifests",
+    "Local search/download/account service as a public backend"
+  ],
+  "integration": {
+    "frozenCopied": 29,
+    "manuallyMerged": [
+      "tools/music/cloud-library.mjs: completedWebFiles while keeping public GET fallback",
+      "tools/music/README.md: new LX section while preserving release documentation"
+    ],
+    "limitedFixes": [
+      "src/pages/music.astro: add music-library island persistence; retain LAN source notice",
+      "src/components/music/LxDownloadPanel.tsx: jobs polling requires ready && (active || downloading)",
+      "tools/music/album-presentation.test.mjs: project-relative import.meta.url entry for an empty fixture cwd"
+    ],
+    "preserved": [
+      "Main RadioNowPlaying readiness",
+      "Main NetEaseAccount unavailable-service handling",
+      "Main music-server snapshot selection",
+      "public-catalog validation/tests/export and deployment guard",
+      "Protected package scripts and full knowledge Astro configuration"
+    ]
+  },
+  "testEvidence": {
+    "firstBatch": "fixture-tests.log",
+    "firstBatchPass": 46,
+    "firstBatchFailure": "album-presentation test harness used relative cwd entryPoints, not an assertion failure",
+    "afterFixAlbumPass": 6,
+    "differentPassedCases": 52,
+    "realService": "not tested; no real source/download/sync/login invoked"
+  },
+  "dependencyFacts": {
+    "rootVsMainDirectVersions": "unchanged",
+    "explicitBuildTool": "esbuild imported by lx-engine-setup and album fixture; should be declared by package owner rather than rely on Astro transitive dependency",
+    "separateLocalRuntime": {
+      "lru-cache": "10.4.3",
+      "crypto-js": "4.2.0",
+      "socks-proxy-agent": "10.1.0",
+      "music-tag-native": "0.2.5",
+      "vm2": "3.12.2",
+      "needle": "3.3.1",
+      "tunnel": "0.0.6"
+    }
+  },
+  "riskBoundaries": [
+    "GitHub Pages cannot run localhost LX/account/admin/playlist-write services. Discover must show true unavailable state.",
+    "User explicitly retains current LAN music source with public warning; external playback is not certified.",
+    "The Node permission fixture covers outside filesystem reads/writes/subprocesses, not a complete internet-facing or multi-user sandbox audit.",
+    "Upstream lxserver NOTICE contains additional research/noncommercial/retention statements; real source and audio are excluded from publishing.",
+    "Cloud tests with default completedDownloads/completedWebFiles were not run because they can inspect private real runtime state; no private audio/index was read.",
+    "Browser URL restore/keyword retention/focus and static404 status1/jobs0 remain to be verified after coordinated build.",
+    "Design discover document remains draft while code exists; plan status must follow actual verification, not infer user aesthetic confirmation."
+  ],
+  "artifactManifest": "manifest.json"
+}

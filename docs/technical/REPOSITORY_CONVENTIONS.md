@@ -1,6 +1,6 @@
 # GitHub 仓库管理、目录与命名规范
 
-更新：2026-10-07。适用于 `0ne-small-stone/personal-homepage`。用户要求按现有规划自主建立个人主页仓库及管理规范；本规范以 [AGENTS.md](../../AGENTS.md)、[技术规格](SPEC.md)、[技术计划](PLAN.md)和[设计与技术对应表](../README.md)为依据。
+更新：2026-10-14（目录职责）；远程设置以实际读回为准。适用于 `0ne-small-stone/personal-homepage`。用户要求按现有规划自主建立个人主页仓库及管理规范；本规范以 [AGENTS.md](../../AGENTS.md)、[技术规格](SPEC.md)、[技术计划](PLAN.md)和[设计与技术对应表](../README.md)为依据。
 
 ## 仓库定位与公开范围
 
@@ -26,6 +26,14 @@ personal-homepage/
 ├── package.json / package-lock.json  网站命令与锁定依赖
 ├── astro.config.mjs / tsconfig.json  静态路径、插件及类型约束
 ├── src/                             页面、布局、内容、主题与少量适配
+│   ├── data/                        允许公开的人物/博客设置/音乐元数据
+│   ├── content/                     原生知识内容与正文素材
+│   └── components/                  首页/知识/音乐等实际复用组件
+├── public/                          允许原样发布的文件
+│   ├── materials/                   登记公开附件
+│   ├── pdfjs/                       固定PDF.js及其原许可
+│   └── music/                       已采用器物素材和署名
+├── tests/                           首页状态/动作等风险测试
 ├── .github/
 │   ├── workflows/site.yml            检查、条件构建及 Pages 发布
 │   ├── dependabot.yml                依赖更新 PR
@@ -36,7 +44,11 @@ personal-homepage/
 │   ├── README.md                     文档导航及 P/R/U/T 对应表
 │   ├── design/                       页面、体验、概念、视觉参数与素材
 │   └── technical/                    架构、任务、来源、CI 与本规范
-└── tools/ci/                         独立安装、锁定的仓库校验工具
+└── tools/
+    ├── ci/                          独立安装、锁定的仓库校验工具
+    ├── content/                     内容/CMS派生和原件导入检查
+    ├── music/                       本机音乐集成、测试与来源许可
+    └── verification/                公开目录/PDF/静态产物回归
 ```
 
 网站按官方 Astro/Starlight 模板建立下列目录；只创建实际需要的路径，不用空目录或半套配置代替可运行工程：
@@ -50,12 +62,17 @@ personal-homepage/
 | `src/assets/` | 交由 Astro 处理的图片等资源 |
 | `src/styles/` | 统一主题与样式；视觉数值以设计 SYSTEM 为唯一文档依据 |
 | `src/lib/` | 框架与插件未覆盖的少量共享适配代码 |
+| `src/data/` | 只含允许公开的结构化资料、设置和曲库元数据；人物原表/音频/凭据/短期音源留在本机 |
+| `tests/` | 首页纯状态、动作等实际风险测试；不同范围测试保留明确入口 |
+| `tools/content/` | 原生内容导入、CMS候选、关联/日期/PDF规则校验，不默认上传本地原件 |
+| `tools/music/` | 本机目录/播放/下载/同步及其测试；源码与运行状态分开，静态部署不启动本机服务 |
+| `tools/verification/` | 公开路由/附件与构建结果核验，不用构建成功代替真实浏览器操作 |
 | `public/` | 必须原样公开的静态文件；进入前核对许可和公开范围 |
 | 根 `package.json` 与锁文件 | 网站依赖及 dev/check/build/preview 四个真实命令 |
 
 `node_modules/`、`dist/`、`.astro/`、`.ci-tmp/`、`.local-tools/`、`public/local-materials/` 为本地产物、私有运行状态或预览附件目录，不提交。不得把本机 DPAPI 登录、短期音源索引、音频或上传授权纳入源码、证据或静态产物。真实功能需要时再建立目录，避免提前建立空数据库、服务端工程或多套主题。
 
-设计与技术继续对应维护 `SPEC.md`、`PLAN.md`、`REFERENCES.md`。设计的 `CONCEPT.md`、`SYSTEM.md` 各自维护空间动作与统一参数；技术的 `GITHUB_WORKFLOW.md` 维护实际流水线。本规范只管理仓库，不另写一套页面设计或数据方案。
+设计与技术继续对应维护 `SPEC.md`、`PLAN.md`、`REFERENCES.md`；文件与P/R/U/T映射只在`docs/README.md`统一维护。设计的迭代/样本证据在`docs/design/iterations/`，技术工程/发布记录在`docs/technical/iterations/`和`docs/technical/acceptance/`。独立原型源可作为设计证据追溯，生成包/原件仍在本机；它们不因进入docs就成为已接入的应用路由。设计的 `CONCEPT.md`、`SYSTEM.md` 各自维护空间动作与统一参数；技术的 `GITHUB_WORKFLOW.md` 维护实际流水线。本规范只管理仓库，不另写一套页面设计或数据方案。
 
 ## 命名与稳定标识
 

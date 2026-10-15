@@ -1,0 +1,131 @@
+{
+  "before": {
+    "desktop": {
+      "caption": {
+        "bottom": 893,
+        "height": 79.4375,
+        "left": 40,
+        "right": 404.265625,
+        "top": 813.5625,
+        "width": 364.265625,
+        "x": 40,
+        "y": 813.5625
+      },
+      "footer": {
+        "bottom": 893,
+        "height": 90,
+        "left": 40,
+        "right": 1966,
+        "top": 803,
+        "width": 1926,
+        "x": 40,
+        "y": 803
+      },
+      "h": 923,
+      "w": 2006
+    },
+    "phone": {
+      "caption": {
+        "bottom": 718,
+        "height": 58.984375,
+        "left": 20,
+        "right": 312,
+        "top": 659.015625,
+        "width": 292,
+        "x": 20,
+        "y": 659.015625
+      },
+      "footer": {
+        "bottom": 820,
+        "height": 160.984375,
+        "left": 20,
+        "right": 370,
+        "top": 659.015625,
+        "width": 350,
+        "x": 20,
+        "y": 659.015625
+      },
+      "gap": "18px",
+      "h": 844,
+      "nav": {
+        "bottom": 820,
+        "height": 84,
+        "left": 20,
+        "right": 312,
+        "top": 736,
+        "width": 292,
+        "x": 20,
+        "y": 736
+      },
+      "w": 390
+    }
+  },
+  "after": {
+    "desktop": {
+      "canvases": 1,
+      "caption": {
+        "bottom": 893,
+        "height": 79.4375,
+        "left": 40,
+        "right": 404.265625,
+        "top": 813.5625,
+        "width": 364.265625,
+        "x": 40,
+        "y": 813.5625
+      },
+      "h": 923,
+      "removed": 0,
+      "view": "sphere",
+      "w": 2006
+    },
+    "phone": {
+      "canvases": 1,
+      "caption": {
+        "bottom": 718,
+        "height": 58.984375,
+        "left": 20,
+        "right": 274.984375,
+        "top": 659.015625,
+        "width": 254.984375,
+        "x": 20,
+        "y": 659.015625
+      },
+      "h": 844,
+      "removed": 0,
+      "view": "sphere",
+      "w": 390
+    }
+  },
+  "viewer": {
+    "images": [
+      {
+        "complete": true,
+        "h": 1200,
+        "w": 1600
+      },
+      {
+        "complete": true,
+        "h": 1200,
+        "w": 1600
+      },
+      {
+        "complete": true,
+        "h": 1199,
+        "w": 1600
+      }
+    ],
+    "open": true,
+    "view": "sphere"
+  },
+  "wheel": {
+    "progress": "0.123",
+    "removed": 0,
+    "view": "transition"
+  },
+  "space": {
+    "progress": "1.000",
+    "removed": 0,
+    "view": "space"
+  },
+  "errors": []
+}

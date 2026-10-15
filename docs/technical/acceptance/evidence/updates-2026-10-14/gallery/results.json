@@ -1,0 +1,53 @@
+{
+  "base": "http://127.0.0.1:4467/personal-homepage/",
+  "checks": [
+    {
+      "name": "1280 home CTA opens existing main immersive gallery",
+      "passed": true,
+      "evidence": {
+        "title": "A Moment Remains · Little Stone Still Here",
+        "phase": "sphere",
+        "images": 478,
+        "canvas": 1,
+        "overflow": false,
+        "router": false
+      }
+    },
+    {
+      "name": "1280 native history returns to home chapter",
+      "passed": true,
+      "evidence": {
+        "url": "http://127.0.0.1:4467/personal-homepage/#album",
+        "canvas": 1,
+        "status": "ready",
+        "audio": 1,
+        "bundle": "/personal-homepage/_astro/HomeJourney.CEHCWL2j.js"
+      }
+    },
+    {
+      "name": "390 home CTA opens existing main immersive gallery",
+      "passed": true,
+      "evidence": {
+        "title": "A Moment Remains · Little Stone Still Here",
+        "phase": "sphere",
+        "images": 448,
+        "canvas": 1,
+        "overflow": false,
+        "router": false
+      }
+    },
+    {
+      "name": "390 native history returns to home chapter",
+      "passed": true,
+      "evidence": {
+        "url": "http://127.0.0.1:4467/personal-homepage/#album",
+        "canvas": 1,
+        "status": "ready",
+        "audio": 1,
+        "bundle": "/personal-homepage/_astro/HomeJourney.CEHCWL2j.js"
+      }
+    }
+  ],
+  "errors": [],
+  "boundary": "Preserve newly merged main gallery unchanged; targeted two-width route/return only, not full gallery controls or audio continuity across standalone document."
+}

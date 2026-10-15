@@ -3,6 +3,7 @@ import { useFrame, useThree } from '@react-three/fiber';
 import { MathUtils, Vector2, Vector3, type ExtrudeGeometry, type Mesh } from 'three';
 import type { JourneyModel } from './scene-state';
 import GlassGlow from './GlassGlow';
+import { smooth01 } from './wall-assembly';
 
 // The three longest segments are the actual straight sides between rounded corners.
 function edgePlanes(points: { p: Vector2 }[]) {
@@ -54,6 +55,7 @@ export default function GlassEdgeLight({ mesh, geometry, model, mobile, quiet }:
     // Only the separate, blurred emitter contributes light. No white face overlays.
     glow.source = parent;
     glow.mobile = mobile;
+    glow.outlineProgress=model.loading.active?smooth01(model.loading.progress/.36):1;
     const open=1-MathUtils.smoothstep(model.motion.rendered.expand,0,.12);
     const reveal=1-MathUtils.smoothstep(model.motion.rendered.wall,.86,1);
     glow.intensity = parent.visible ? quiet ? 1 : open*reveal : 0;

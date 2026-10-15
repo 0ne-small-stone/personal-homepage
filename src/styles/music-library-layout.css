@@ -96,8 +96,6 @@
 .music-listening-room button:disabled { cursor: default; opacity: .45; }
 .music-net-albums { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
 .music-net-albums .vinyl-sleeve { max-width: none; }
-.music-net-detail-art { min-width: 0; }
-.music-net-detail-art .sleeve-caption { display: none; }
 @media (max-width: 900px) {
   .music-catalog-shell { grid-template-columns: minmax(0, 1fr); }
   .music-library-sidebar { flex-direction: row; align-items: center; padding: 12px 20px; gap: 16px; border-right: 0; border-bottom: 1px solid #ffffff0a; }

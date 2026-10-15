@@ -1,0 +1,46 @@
+{
+  "label": "failure-simulation",
+  "bundle": "/personal-homepage/_astro/HomeJourney.BdZlSJh6.js",
+  "canvas": 0,
+  "classes": "lssh-home has-journey home-static home-loading-nav-ready",
+  "loading": {
+    "active": false,
+    "closed": false,
+    "events": [
+      {
+        "phase": "waiting",
+        "time": 83.5
+      },
+      {
+        "phase": "error",
+        "time": 91.29999999701975
+      }
+    ],
+    "phase": "error",
+    "preference": "motion",
+    "preview": "failure",
+    "progress": 1,
+    "reason": "preview-resource-failure",
+    "requested": false,
+    "resources": [
+      "layout"
+    ],
+    "wordmarkDecoded": true
+  },
+  "motion": {},
+  "overflow": false,
+  "pass": {},
+  "size": [
+    390,
+    844
+  ],
+  "status": "error",
+  "url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1&loadingPreview=failure",
+  "wordmark": {
+    "height": 208,
+    "width": 312,
+    "x": -17.59375,
+    "y": 504
+  },
+  "wordmarks": 1
+}

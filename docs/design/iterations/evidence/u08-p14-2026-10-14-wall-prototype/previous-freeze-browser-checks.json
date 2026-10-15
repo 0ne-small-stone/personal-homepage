@@ -1,0 +1,106 @@
+{
+  "bundle": "app-2FWWZM2L.js",
+  "checks": [
+    {
+      "case": "drag after keyboard focus then read and Escape",
+      "drag": {
+        "open": false,
+        "script": "http://127.0.0.1:4360/app-2FWWZM2L.js",
+        "wall": "matrix(1, 0, 0, 1, -755.506, -171.004)"
+      },
+      "before": "matrix(1, 0, 0, 1, -745.223, -164.149)",
+      "after": {
+        "focus": "demo-02",
+        "hash": "",
+        "portals": 0,
+        "wall": "matrix(1, 0, 0, 1, -745.223, -164.149)"
+      },
+      "passed": true
+    },
+    {
+      "case": "rapid Back/Forward",
+      "result": {
+        "hash": "#message/demo-02",
+        "open": true,
+        "phase": "reading"
+      }
+    },
+    {
+      "case": "three keyboard open/close cycles",
+      "results": [
+        {
+          "focus": "demo-02",
+          "open": false,
+          "portals": 0
+        },
+        {
+          "focus": "demo-02",
+          "open": false,
+          "portals": 0
+        },
+        {
+          "focus": "demo-02",
+          "open": false,
+          "portals": 0
+        }
+      ]
+    },
+    {
+      "case": "320 list/long-scroll/close position",
+      "before": {
+        "close": {
+          "bottom": 90,
+          "height": 44,
+          "left": 245,
+          "right": 289,
+          "top": 46,
+          "width": 44,
+          "x": 245,
+          "y": 46
+        },
+        "wall": "matrix(1, 0, 0, 1, -2118, -784)"
+      },
+      "after": {
+        "close": {
+          "bottom": 90,
+          "height": 44,
+          "left": 245,
+          "right": 289,
+          "top": 46,
+          "width": 44,
+          "x": 245,
+          "y": 46
+        },
+        "scrollTop": 364,
+        "wall": "matrix(1, 0, 0, 1, -2118, -784)",
+        "width": 320
+      }
+    },
+    {
+      "case": "reduced motion policy override",
+      "result": {
+        "opacity": "1",
+        "policy": "true",
+        "portals": 0,
+        "systemPreference": false,
+        "transition": "0s"
+      }
+    },
+    {
+      "case": "390 direct/reload",
+      "result": {
+        "id": "demo-22",
+        "phase": "reading",
+        "width": 390
+      }
+    },
+    {
+      "case": "reply is honest service notice",
+      "result": {
+        "frozen": "true",
+        "message": true,
+        "notice": true
+      }
+    }
+  ]
+}

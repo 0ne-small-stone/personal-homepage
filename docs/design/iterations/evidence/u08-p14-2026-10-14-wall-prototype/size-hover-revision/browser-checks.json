@@ -1,0 +1,211 @@
+{
+  "date": "2026-10-14",
+  "entry": "http://127.0.0.1:4360/",
+  "script": "app-MWSFUD6U.js",
+  "checks": [
+    {
+      "label": "desktop-hover",
+      "brickSize": [
+        "204px",
+        "88px"
+      ],
+      "dialogOpen": false,
+      "focus": "leave-button",
+      "hash": "",
+      "overflow": false,
+      "portals": 0,
+      "viewport": [
+        1280,
+        720
+      ],
+      "visibleLabels": [
+        {
+          "authorOpacity": "1",
+          "focusVisible": false,
+          "hover": true,
+          "id": "demo-01",
+          "opacity": "1"
+        }
+      ],
+      "wallMatrix": "matrix(1, 0, 0, 1, -710, -236)"
+    },
+    {
+      "label": "desktop-pointer-left",
+      "brickSize": [
+        "204px",
+        "88px"
+      ],
+      "dialogOpen": false,
+      "focus": "leave-button",
+      "hash": "",
+      "overflow": false,
+      "portals": 0,
+      "viewport": [
+        1280,
+        720
+      ],
+      "visibleLabels": [],
+      "wallMatrix": "matrix(1, 0, 0, 1, -710, -236)"
+    },
+    {
+      "label": "desktop-keyboard-focus",
+      "brickSize": [
+        "204px",
+        "88px"
+      ],
+      "dialogOpen": false,
+      "focus": "demo-17",
+      "hash": "",
+      "overflow": false,
+      "portals": 0,
+      "viewport": [
+        1280,
+        720
+      ],
+      "visibleLabels": [
+        {
+          "authorOpacity": "0.224874",
+          "focusVisible": true,
+          "hover": false,
+          "id": "demo-17",
+          "opacity": "0.224874"
+        }
+      ],
+      "wallMatrix": "matrix(1, 0, 0, 1, -814, 0)"
+    },
+    {
+      "label": "desktop-keyboard-steady",
+      "brickSize": [
+        "204px",
+        "88px"
+      ],
+      "dialogOpen": false,
+      "focus": "demo-17",
+      "hash": "",
+      "overflow": false,
+      "portals": 0,
+      "viewport": [
+        1280,
+        720
+      ],
+      "visibleLabels": [
+        {
+          "authorOpacity": "1",
+          "focusVisible": true,
+          "hover": false,
+          "id": "demo-17",
+          "opacity": "1"
+        }
+      ],
+      "wallMatrix": "matrix(1, 0, 0, 1, -814, 0)"
+    },
+    {
+      "label": "desktop-keyboard-return",
+      "brickSize": [
+        "204px",
+        "88px"
+      ],
+      "dialogOpen": false,
+      "focus": "demo-17",
+      "hash": "",
+      "overflow": false,
+      "phase": "closed",
+      "portals": 0,
+      "viewport": [
+        1280,
+        720
+      ],
+      "visibleLabels": [
+        {
+          "authorOpacity": "0.807496",
+          "focusVisible": true,
+          "hover": false,
+          "id": "demo-17",
+          "opacity": "0.807496"
+        }
+      ],
+      "wallMatrix": "matrix(1, 0, 0, 1, -814, 0)"
+    },
+    {
+      "label": "390px-default",
+      "brickSize": [
+        "176px",
+        "78px"
+      ],
+      "dialogOpen": false,
+      "focus": "",
+      "hash": "",
+      "overflow": false,
+      "portals": 0,
+      "viewport": [
+        390,
+        844
+      ],
+      "visibleLabels": [],
+      "wallMatrix": "matrix(1, 0, 0, 1, -973, -109)"
+    },
+    {
+      "label": "390px-drag-before-read",
+      "brickSize": [
+        "176px",
+        "78px"
+      ],
+      "dialogOpen": false,
+      "focus": "wall-stage",
+      "hash": "",
+      "overflow": false,
+      "portals": 0,
+      "viewport": [
+        390,
+        844
+      ],
+      "visibleLabels": [],
+      "wallMatrix": "matrix(1, 0, 0, 1, -1029.66, -76.2702)"
+    },
+    {
+      "label": "390px-drag-after-close",
+      "brickSize": [
+        "176px",
+        "78px"
+      ],
+      "dialogOpen": false,
+      "focus": "demo-01",
+      "hash": "",
+      "overflow": false,
+      "phase": "closed",
+      "portals": 0,
+      "viewport": [
+        390,
+        844
+      ],
+      "visibleLabels": [],
+      "wallMatrix": "matrix(1, 0, 0, 1, -1029.66, -76.2702)"
+    },
+    {
+      "label": "320px-default",
+      "brickSize": [
+        "176px",
+        "78px"
+      ],
+      "dialogOpen": false,
+      "focus": "",
+      "hash": "",
+      "overflow": false,
+      "portals": 0,
+      "viewport": [
+        320,
+        568
+      ],
+      "visibleLabels": [],
+      "wallMatrix": "matrix(1, 0, 0, 1, -1008, -247)"
+    }
+  ],
+  "comparisons": {
+    "keyboardReturnPosition": true,
+    "dragReadReturnPosition": true
+  },
+  "limits": [
+    "Narrow viewports used desktop mouse, not physical phone touch.",
+    "System reduced-motion, history and long-text regression remain previous-slice evidence."
+  ]
+}

@@ -1,5 +1,21 @@
 # Echoes 音乐接入工具
 
+## 电台内洛雪搜索与下载（2026-10-14，T25.27）
+
+本机入口为 <http://127.0.0.1:61173/personal-homepage/music/?mode=cloud>，点击“找音乐”。无需跳转客户端即可搜索、选择来源实际支持的音质、下载/取消；完成后点“在曲库查看”并播放。下载写入洛雪当前目录，先核验HTTP完整传输、音频格式/时长与所选无损规格，再写标签/封面并原子发布。不会覆盖同名文件或改写洛雪数据库。
+
+```powershell
+node tools/music/lx-engine-setup.mjs
+node tools/music/preview-service.mjs
+```
+
+要求Node24、已安装项目依赖及固定版本上游源码，安装时禁用依赖/上游启动脚本。源码/许可证及独立npm运行目录在 `.local-tools/music/lxserver`、`lx-runtime`；[来源说明](vendor/lxserver-NOTICE.md)。只读洛雪当前音源，本机已授权脚本的SHA256需匹配；换源需重新核对授权，不自动运行其他脚本。受限子进程只读兼容目录，不能写文件、创建子进程或加载原生扩展；来源请求限于已授权的原解析主机。标签写入由父进程完成。
+
+`web-downloads.json`仅在完成后保存路径/大小/mtime指纹及公开曲目信息，Git忽略；临时`.part`不进曲库/考拉。后台同步同时接受洛雪completed与网页完成记录，核验后才发布云端目录。独立61173服务会合并尚未上传的已完成歌曲，提供限定ID/Range本机播放，上传后沿用考拉地址；网易云DPAPI登录仍自动恢复。服务未开启/静态线上页面会显示未连接状态，GitHub Pages不能执行这些本机功能。下载中断不自动续传，可重新搜索/下载。
+
+专项验证：`node --test tools/music/lx-downloads.test.mjs tools/music/lx-service.test.mjs`。2首真实FLAC（129.47秒、16bit/44.1kHz）已下载、封面/标签读回、考拉核验，曲库20首/5张专辑；桌面/390px和实际云端音频播放已测，详见[接入记录](../../docs/technical/iterations/t25-p13-2026-10-14-lx-integration.md)。
+
+
 对应 P13 / R04、R12 / U12 / T20.01、T21.01、T21.04、T25.01、T25.03–04。网站仍为 Astro 静态主站，音频不进入仓库。本地索引使用 music-metadata 12.1.0（MIT）；开发服务器可提供本机播放，生产站点需真实云盘地址。
 
 2026-10-13 已选双模式外观：本地 Vinyl Vue、网易云 GlassMusicPlayer 结构与 CompScout 封套视觉。索引读取真实内嵌封面，复用 sharp 在私有索引旁生成 WebP，只通过本机开发页提供；生产不会复制封面文件或本机路径。来源与完整原许可见 `public/music/attribution.txt`。

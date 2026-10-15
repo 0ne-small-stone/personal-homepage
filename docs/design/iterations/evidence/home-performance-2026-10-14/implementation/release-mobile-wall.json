@@ -1,0 +1,228 @@
+{
+  "time": 1791989415678,
+  "sample": {
+    "canvas": {
+      "height": 844,
+      "width": 375
+    },
+    "loading": {
+      "active": false,
+      "closed": false,
+      "events": [
+        {
+          "phase": "waiting",
+          "time": 207
+        },
+        {
+          "phase": "ready",
+          "time": 2991
+        }
+      ],
+      "phase": "ready",
+      "preference": "motion",
+      "preview": null,
+      "progress": 1,
+      "reason": "",
+      "requested": false,
+      "resources": [
+        "layout",
+        "wordmark",
+        "compiled",
+        "frame"
+      ],
+      "wordmarkDecoded": true
+    },
+    "loop": {
+      "cpuMs": 0.9000000059604645,
+      "delta": 0.016666666666666666,
+      "frame": 22,
+      "loading": false,
+      "mode": "demand",
+      "rawDelta": 1.0045,
+      "renderFrame": 111,
+      "running": false,
+      "snap": false,
+      "time": 22756.20000000298,
+      "transmissionVisible": false,
+      "velocity": 0
+    },
+    "motion": {
+      "frame": 21,
+      "glass": {
+        "anchor": [
+          0,
+          0,
+          0
+        ],
+        "bounds": [
+          39.93199458661669,
+          293.7747749985689,
+          343.1957913589187,
+          558.2457100394824
+        ],
+        "centeredLocalBounds": [
+          -2.6003148555755615,
+          -2.778449535369873,
+          -2.3054680824279785,
+          2.6965525150299072,
+          2.662534236907959,
+          1.15099036693573
+        ],
+        "projectedAnchor": [
+          187.5,
+          422
+        ],
+        "quaternion": [
+          0.4831345516573914,
+          -0.13038417388763104,
+          -0.07301864581623647,
+          0.8626988174082624
+        ],
+        "scale": 0.725,
+        "visible": false
+      },
+      "initialization": {
+        "reason": "reload",
+        "revision": 2,
+        "y": 6580,
+        "zoom": 0
+      },
+      "phase": "wall",
+      "portal": {
+        "build": 1,
+        "coversCorners": true,
+        "error": null,
+        "expand": 1,
+        "frontCoversCorners": true,
+        "hdr": true,
+        "homographyValid": true,
+        "prepare": 1,
+        "quad": [
+          [
+            -0.04,
+            1.04
+          ],
+          [
+            -0.04,
+            -0.04
+          ],
+          [
+            1.04,
+            -0.04
+          ],
+          [
+            1.04,
+            1.04
+          ]
+        ],
+        "renderedExpand": 1,
+        "renderedPrepare": 1,
+        "renderedWall": 0.9414794912622128,
+        "sampleRevision": 3,
+        "target": [
+          375,
+          844
+        ],
+        "targetReady": true,
+        "wall": 1
+      },
+      "portalCovered": true,
+      "raw": {
+        "event": 1,
+        "expand": 1,
+        "intro": 1,
+        "kv": 1,
+        "outro": 1,
+        "prepare": 1,
+        "snap": 1,
+        "wall": 1,
+        "works": 1
+      },
+      "rendered": {
+        "background": 4,
+        "expand": 1,
+        "index": 4,
+        "intro": 1,
+        "prepare": 1,
+        "progress": 1,
+        "wall": 1
+      },
+      "scrollY": 9806,
+      "wall": {
+        "build": 1,
+        "drawn": 162,
+        "falling": 0,
+        "position": [
+          0,
+          0,
+          -1
+        ],
+        "raw": 1,
+        "revision": 3,
+        "rise": 1,
+        "rows": 27,
+        "samples": [
+          {
+            "column": 10,
+            "id": 148,
+            "progress": 1,
+            "row": 6,
+            "x": -0.9605,
+            "y": -5.414499999999999
+          },
+          {
+            "column": 10,
+            "id": 171,
+            "progress": 1,
+            "row": 7,
+            "x": -0.4802499999999999,
+            "y": -4.997999999999999
+          },
+          {
+            "column": 10,
+            "id": 194,
+            "progress": 1,
+            "row": 8,
+            "x": -0.9605,
+            "y": -4.5815
+          },
+          {
+            "column": 10,
+            "id": 217,
+            "progress": 1,
+            "row": 9,
+            "x": -0.4802499999999999,
+            "y": -4.165
+          },
+          {
+            "column": 10,
+            "id": 240,
+            "progress": 1,
+            "row": 10,
+            "x": -0.9605,
+            "y": -3.7485
+          },
+          {
+            "column": 10,
+            "id": 263,
+            "progress": 1,
+            "row": 11,
+            "x": -0.4802499999999999,
+            "y": -3.332
+          }
+        ],
+        "settled": 162,
+        "visible": true
+      }
+    },
+    "scripts": [
+      "/personal-homepage/_astro/HomeJourney.DkmdTjgT.js",
+      "/personal-homepage/_astro/PersistentPlayer.PL4b-D5d.js"
+    ],
+    "size": [
+      375,
+      844
+    ],
+    "status": "ready"
+  }
+}

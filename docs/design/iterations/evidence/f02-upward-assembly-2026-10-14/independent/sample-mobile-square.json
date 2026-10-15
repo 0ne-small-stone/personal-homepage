@@ -1,0 +1,133 @@
+{
+  "label": "mobile-square",
+  "time": "2026-10-14T11:11:32.488Z",
+  "bundle": "/personal-homepage/_astro/HomeJourney.B46QOkX1.js",
+  "focus": "Someone · 关于小石",
+  "sample": {
+    "frame": 6732,
+    "glass": {
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "bounds": [
+        67.39777217235046,
+        301.9936598593722,
+        307.25584561782637,
+        541.957470929887
+      ],
+      "centeredLocalBounds": [
+        -2.719896078109741,
+        -2.910438299179077,
+        -2.51442289352417,
+        2.7662744522094727,
+        2.7779409885406494,
+        1.2523505687713623
+      ],
+      "projectedAnchor": [
+        187.33334350585935,
+        422
+      ],
+      "quaternion": [
+        0.2778937316121749,
+        -0.08824136551016917,
+        -0.025644797669505937,
+        0.9562065047342292
+      ],
+      "scale": 0.5945497630331753,
+      "visible": true
+    },
+    "initialization": {
+      "reason": "reload",
+      "revision": 2,
+      "y": 9100,
+      "zoom": 0
+    },
+    "phase": "portal",
+    "portal": {
+      "build": 1.5920647683449573e-7,
+      "coversCorners": false,
+      "error": null,
+      "expand": 0.42022116903633494,
+      "frontCoversCorners": false,
+      "hdr": true,
+      "homographyValid": true,
+      "prepare": 1,
+      "quad": [
+        [
+          0.1798890754634702,
+          0.6421244482657853
+        ],
+        [
+          0.17993145832373816,
+          0.35788432635278744
+        ],
+        [
+          0.8200804349485105,
+          0.3578962188894369
+        ],
+        [
+          0.8200777772315248,
+          0.6421858031831343
+        ]
+      ],
+      "renderedExpand": 0.42022116903633494,
+      "renderedPrepare": 1,
+      "renderedWall": 0,
+      "sampleRevision": 98,
+      "target": [
+        374,
+        844
+      ],
+      "targetReady": true,
+      "wall": 0
+    },
+    "portalCovered": false,
+    "raw": {
+      "event": 1,
+      "expand": 0.42022116903633494,
+      "intro": 1,
+      "kv": 1,
+      "outro": 1,
+      "prepare": 1,
+      "snap": 1,
+      "wall": 0,
+      "works": 1
+    },
+    "rendered": {
+      "background": 5,
+      "expand": 0.42022116903633494,
+      "index": 5,
+      "intro": 1,
+      "prepare": 1,
+      "progress": 1,
+      "wall": 0
+    },
+    "scrollY": 7494,
+    "wall": {
+      "build": 1.5920647683449573e-7,
+      "drawn": 0,
+      "falling": 0,
+      "position": [
+        0,
+        0,
+        -1
+      ],
+      "raw": 0,
+      "revision": 98,
+      "rise": 0,
+      "rows": 23,
+      "samples": [],
+      "settled": 0,
+      "visible": false
+    }
+  },
+  "scrollWidth": 375,
+  "size": [
+    390,
+    844
+  ],
+  "url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1#wall",
+  "width": 375
+}

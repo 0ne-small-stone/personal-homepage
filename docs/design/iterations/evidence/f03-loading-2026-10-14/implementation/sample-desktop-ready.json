@@ -1,0 +1,125 @@
+{
+  "label": "desktop-ready",
+  "bundle": "/personal-homepage/_astro/HomeJourney.BTFoLron.js",
+  "canvas": 1,
+  "classes": "lssh-home has-journey home-enhanced home-loading-nav-ready",
+  "loading": {
+    "active": false,
+    "closed": false,
+    "phase": "ready",
+    "preference": "motion",
+    "preview": "1",
+    "progress": 1,
+    "reason": "",
+    "resources": [
+      "layout",
+      "compiled",
+      "frame",
+      "wordmark"
+    ],
+    "wordmarkDecoded": true
+  },
+  "motion": {
+    "frame": 6,
+    "glass": {
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "bounds": [
+        486.8814081230664,
+        233.47948812237428,
+        778.1185918769336,
+        486.5205118776257
+      ],
+      "centeredLocalBounds": [
+        -1.6766839027404783,
+        -1.45678448677063,
+        -0.4102458655834198,
+        1.6766839027404783,
+        1.45678448677063,
+        0.4102458655834198
+      ],
+      "projectedAnchor": [
+        632.5,
+        360
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": 0.5,
+      "visible": true
+    },
+    "initialization": {
+      "reason": "layout",
+      "revision": 1,
+      "y": 0,
+      "zoom": 1
+    },
+    "phase": "kv",
+    "portal": null,
+    "portalCovered": false,
+    "raw": {
+      "event": 0,
+      "expand": 0,
+      "intro": 0,
+      "kv": 0.8780487804878049,
+      "outro": 0,
+      "prepare": 0,
+      "snap": 0,
+      "wall": 0,
+      "works": 0
+    },
+    "rendered": {
+      "background": 0,
+      "expand": 0,
+      "index": 0,
+      "intro": 0,
+      "prepare": 0,
+      "progress": 0,
+      "wall": 0
+    },
+    "scrollY": 0,
+    "wall": {
+      "build": 0,
+      "drawn": 0,
+      "falling": 0,
+      "position": [
+        0,
+        0,
+        -1
+      ],
+      "raw": 0,
+      "revision": 1,
+      "rise": 0,
+      "rows": 3,
+      "samples": [],
+      "settled": 0,
+      "visible": false
+    }
+  },
+  "overflow": false,
+  "pass": {
+    "active": false,
+    "copies": 6,
+    "disposed": true,
+    "size": []
+  },
+  "size": [
+    1280,
+    720
+  ],
+  "status": "ready",
+  "url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1&loadingPreview=1",
+  "wordmark": {
+    "height": 264.53125,
+    "width": 396.796875,
+    "x": 8,
+    "y": 213.734375
+  },
+  "wordmarks": 1
+}

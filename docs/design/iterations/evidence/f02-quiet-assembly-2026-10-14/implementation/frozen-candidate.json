@@ -1,0 +1,109 @@
+{
+  "Url": "http://127.0.0.1:4342/personal-homepage/#links",
+  "DebugUrl": "http://127.0.0.1:4342/personal-homepage/?debug=1#links",
+  "Bundle": "HomeJourney.BCioJqmj.js",
+  "Bytes": 1174036,
+  "SHA256": "9D210A639B05A2ECC38A4B99276759809678B5F968BCDA720FC17CD2321F9380",
+  "Status": "Frozen local candidate, pending independent design review and user acceptance",
+  "SourceHashes": [
+    {
+      "Path": "src/components/home/wall-assembly.ts",
+      "SHA256": "567CC09482FC58DCBFBB2F5DACD341488886F611E481C33FB58A2E78B3C1D802"
+    },
+    {
+      "Path": "src/components/home/RisingWall.tsx",
+      "SHA256": "193CC00620A196CAEFC0E4A3312579318E4DC5E3069F831E75437A253DA73105"
+    },
+    {
+      "Path": "src/components/home/wall-portal-geometry.ts",
+      "SHA256": "D3483336F4994107798F59989E6511872C03046EB037CDFD5A6DFEF8B09BB3FA"
+    },
+    {
+      "Path": "src/components/home/GlassPortalShape.ts",
+      "SHA256": "8C6FAEB0EFD4902426061E5B5FE50B322F274867C8D1AAEB3F0E1BF625D2528A"
+    },
+    {
+      "Path": "src/components/home/WallPortal.ts",
+      "SHA256": "608D2030C1C5EAFD55525972A98AFF7638406883461BC7ED5C7257FC3A137525"
+    },
+    {
+      "Path": "src/components/home/GlassRenderLayer.tsx",
+      "SHA256": "4CAA87812AB27FE11944BC42D5057F45F05C802F4B16500F0D3458AFB3E40D00"
+    },
+    {
+      "Path": "src/components/home/GlassTriangle.tsx",
+      "SHA256": "A6BCAA17DA84B7E5925E8DB256A09FA8A6D63B62439F435650CFC1FD9ADD82DD"
+    },
+    {
+      "Path": "src/components/home/CameraRig.tsx",
+      "SHA256": "680C2919B5E2C8F904108DF264AF036C909551D844ACD00F20342F3EEC62FC90"
+    },
+    {
+      "Path": "src/components/home/WorksMotionDriver.tsx",
+      "SHA256": "2FFF2BC385951E6DA72F844B2C1AA26F3831E5915B8D10B37FA6D6A5AB2BD1C9"
+    },
+    {
+      "Path": "src/components/home/HomeJourney.tsx",
+      "SHA256": "79E5942532AD48B5A871988EAAAB6EB3600991E4FC7DC489EB9F6F143FBAE9E7"
+    },
+    {
+      "Path": "src/components/home/home-motion.ts",
+      "SHA256": "E1A6FED3EF45A510D61636FE810B79C1A8FA38994B362EC054BE3C47B8B4C56F"
+    },
+    {
+      "Path": "src/components/home/home-return.ts",
+      "SHA256": "E5AEE4FC3639BC680E9DB7837DBD2D9BB454350E04470CC9773E1338E730FE30"
+    },
+    {
+      "Path": "src/components/home/works-motion.ts",
+      "SHA256": "A9BCA1ED2D17FF7A757A5477A44C63B21DD18F4FB0BFDBE7DA3BE88BB995F396"
+    },
+    {
+      "Path": "src/styles/home.css",
+      "SHA256": "E90DCB325A85511259F29C839968A6B0743A88691B6641DA016EA0C6C2EAA3EE"
+    },
+    {
+      "Path": "tests/home-motion-ranges.test.mjs",
+      "SHA256": "0AC33A5F98D510B06EA9471CC5AB1248AAF8AE7C43F303F7AC3A8B37C2FAFAAA"
+    },
+    {
+      "Path": "src/components/home/prism-geometry.ts",
+      "SHA256": "42C37A53C86B8A4D10D5F1B5C25B5C6FB8D0F193FFE8A13BB6CD7A907E906DAC"
+    },
+    {
+      "Path": "src/components/home/GlassGlow.ts",
+      "SHA256": "37545DF1E9EB708EAD5D3EBA2BCE732A4FF494EA065B06A9BFEB148449F48FD5"
+    },
+    {
+      "Path": "src/components/home/GlassEdgeLight.tsx",
+      "SHA256": "5E26C98E038A1A459CD2AA02BCA207DCD198BBDB78642640A287DEC7DFFC1CB5"
+    },
+    {
+      "Path": "src/components/home/wall-material.ts",
+      "SHA256": "DFF0CBDEAF088053258B235439988C47D68774F02073D61ABB0F355FEDECB165"
+    },
+    {
+      "Path": "src/components/home/motion-ranges.ts",
+      "SHA256": "F12832D00331AE0041062C271BFEA0C034A3EF17D83D178E223FEBBF279630A1"
+    }
+  ],
+  "ChangedFromCQ": [
+    "src/components/home/wall-assembly.ts",
+    "src/components/home/RisingWall.tsx",
+    "src/styles/home.css",
+    "tests/home-motion-ranges.test.mjs",
+    "src/components/home/wall-material.ts",
+    "src/components/home/motion-ranges.ts"
+  ],
+  "PreservedFromCQ": 14,
+  "Check": "107 files, zero diagnostics; compact-check.log before dimension-key string and final CSS-only color adjustment",
+  "Build": "15 pages and Pagefind; reading-build.log final build",
+  "Tests": "11/11; compact-tests.log",
+  "Detector": "Single scoped pass: []",
+  "BrowserSamples": 24,
+  "CurrentBundleSamples": 14,
+  "FinalCssFocusedReadingSamples": 1,
+  "ViewportReset": true,
+  "Committed": false,
+  "Deployed": false
+}

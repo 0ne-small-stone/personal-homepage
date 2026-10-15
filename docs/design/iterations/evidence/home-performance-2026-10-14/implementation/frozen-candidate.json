@@ -1,0 +1,153 @@
+{
+  "Url": "http://127.0.0.1:4342/personal-homepage/",
+  "Bundle": "HomeJourney.DkmdTjgT.js",
+  "Bytes": 1185142,
+  "SHA256": "49D504E588813EE4B2F84CED44C1833E4D9E2927DDBB46870D2962D368105AF5",
+  "Baseline": "HomeJourney.BdZlSJh6.js",
+  "Changed": [
+    "src/components/home/GlassTriangle.tsx",
+    "src/components/home/CameraRig.tsx",
+    "src/components/home/WorksMotionDriver.tsx",
+    "src/components/home/HomeJourney.tsx",
+    "src/components/home/home-motion.ts",
+    "src/components/home/scene-state.ts"
+  ],
+  "Preserved": 22,
+  "Added": [
+    "src/components/home/frame-activity.ts",
+    "src/components/home/HomeFrameLoop.tsx",
+    "tests/home-frame-activity.test.mjs"
+  ],
+  "SourceHashes": [
+    {
+      "Path": "src/components/home/wall-assembly.ts",
+      "SHA256": "543285FF178938040EBF93771EB181BCF7D135764EE6A4EAEB50385D6EC05CDB"
+    },
+    {
+      "Path": "src/components/home/RisingWall.tsx",
+      "SHA256": "FA880CD0BE90C7EC74EF5AD9B1145F63300AD0839CAC06759C92C8C60D26A9D1"
+    },
+    {
+      "Path": "src/components/home/wall-portal-geometry.ts",
+      "SHA256": "D3483336F4994107798F59989E6511872C03046EB037CDFD5A6DFEF8B09BB3FA"
+    },
+    {
+      "Path": "src/components/home/GlassPortalShape.ts",
+      "SHA256": "8C6FAEB0EFD4902426061E5B5FE50B322F274867C8D1AAEB3F0E1BF625D2528A"
+    },
+    {
+      "Path": "src/components/home/WallPortal.ts",
+      "SHA256": "608D2030C1C5EAFD55525972A98AFF7638406883461BC7ED5C7257FC3A137525"
+    },
+    {
+      "Path": "src/components/home/GlassRenderLayer.tsx",
+      "SHA256": "A3EBD7463A60ABEBCAAEF44E9474D22C39C9CD02D2EBBDECD43B59F7DDA62C34"
+    },
+    {
+      "Path": "src/components/home/GlassTriangle.tsx",
+      "SHA256": "F728B7F136319613C2BB905514B9F7857743DC785FC5824476D20E80538554BA"
+    },
+    {
+      "Path": "src/components/home/CameraRig.tsx",
+      "SHA256": "88400028F822A0BE350CF5A0308CB38E8C63106580DDB7A6EACD7B83391612F1"
+    },
+    {
+      "Path": "src/components/home/WorksMotionDriver.tsx",
+      "SHA256": "816AE867E8566804286351FC8BC7447A3626314C17DDC27BD373C028AABDC6B0"
+    },
+    {
+      "Path": "src/components/home/HomeJourney.tsx",
+      "SHA256": "703BA5763668ABBB34B097791088BA63908CE5C9A6F9633C26622EA719667164"
+    },
+    {
+      "Path": "src/components/home/home-motion.ts",
+      "SHA256": "1F5D26318EF10E440670BF605CA85E43A7F3A36AF35A2849F0AF6E227A62ABC7"
+    },
+    {
+      "Path": "src/components/home/home-return.ts",
+      "SHA256": "855A8830BA6CDD378B5D997D810ED0BEE22DF51FB5EB8912B37FD07D352D33DB"
+    },
+    {
+      "Path": "src/components/home/works-motion.ts",
+      "SHA256": "A9BCA1ED2D17FF7A757A5477A44C63B21DD18F4FB0BFDBE7DA3BE88BB995F396"
+    },
+    {
+      "Path": "src/styles/home.css",
+      "SHA256": "3ECB67197855AD6972094BA667B63ECF4A6DDDE54BD36E11EC80B3361EA0686D"
+    },
+    {
+      "Path": "tests/home-motion-ranges.test.mjs",
+      "SHA256": "2F0DE61058E914E76A27601C7EE430133D864F56490F996E9BB21FE46CFD10B6"
+    },
+    {
+      "Path": "src/components/home/prism-geometry.ts",
+      "SHA256": "42C37A53C86B8A4D10D5F1B5C25B5C6FB8D0F193FFE8A13BB6CD7A907E906DAC"
+    },
+    {
+      "Path": "src/components/home/GlassGlow.ts",
+      "SHA256": "9523C45704BCD5AB095EE47C47DB3F87EF35E201586FCCF2278DF6102174368F"
+    },
+    {
+      "Path": "src/components/home/GlassEdgeLight.tsx",
+      "SHA256": "A12966268C7DEC42840A47D0D99BCD5E3AF48ACDB38B6092A2B6A7F5851A9EC4"
+    },
+    {
+      "Path": "src/components/home/wall-material.ts",
+      "SHA256": "DCCDBF415B8DD60D81A69E6CE0D443AB1D1E8E466916A2C0B5E058DA4EADEB82"
+    },
+    {
+      "Path": "src/components/home/motion-ranges.ts",
+      "SHA256": "66747CE7BF9491ACEF3A4880DAC348C9F41EAF0FADEF06D3848E614EF66D118F"
+    },
+    {
+      "Path": "src/components/home/home-chapters.ts",
+      "SHA256": "81BB0917798B247F22153508B9FE5089DE00DB9F08039D985FE18655CD164416"
+    },
+    {
+      "Path": "src/components/home/WorksScene.tsx",
+      "SHA256": "CC84F4903EB008F55908F059B70C58259A79F9718BD9B8A5BC2630F47A8D8D80"
+    },
+    {
+      "Path": "src/pages/index.astro",
+      "SHA256": "A80F9CCD40B5752690BA9E1BCE81B4C175875AF708269A8D399BA936A04BB054"
+    },
+    {
+      "Path": "src/components/home/loading-state.ts",
+      "SHA256": "49BB9FFB2E4594BA9638FD94370B0CEB24464A3F2F477A9C30365D8046D5B869"
+    },
+    {
+      "Path": "src/components/home/LoadingReveal.ts",
+      "SHA256": "FACB7DAE75ADDD2805EAB1AA6DDED8730D45DDD99FC0AAF4D5CB2F1631F543F0"
+    },
+    {
+      "Path": "src/components/home/useHomeLoading.ts",
+      "SHA256": "AA3117CDEFFF5CEBF4B146313BAD8994E6A688C2CC7F0A16BC7EFFF1D19D3276"
+    },
+    {
+      "Path": "src/components/home/scene-state.ts",
+      "SHA256": "689E484EFB53AC499F470D5B760BB225B696D91EFA02DEA80B72D7276DBB4EEF"
+    },
+    {
+      "Path": "tests/home-loading.test.mjs",
+      "SHA256": "6BDEF7DBDCD4C88DA88C29255EAFF1EAB921CB07D5B37B5B79CDD17B95C91BBD"
+    },
+    {
+      "Path": "src/components/home/frame-activity.ts",
+      "SHA256": "98415D80E81D4D5E56078187018785F94766326C756235EAA51CA3D6482C7454"
+    },
+    {
+      "Path": "src/components/home/HomeFrameLoop.tsx",
+      "SHA256": "AB5F3845B9FF8BD0A50E9A2F2366127D2D4C30EAFED5E361B27A5CE76009CF90"
+    },
+    {
+      "Path": "tests/home-frame-activity.test.mjs",
+      "SHA256": "E8AE04F6DFFEC94E7EBB17F2431956E1D96700CB018430099EBA75C6039C7A5D"
+    }
+  ],
+  "Tests": "20/20",
+  "Check": "115 files zero diagnostics",
+  "Build": "15 HTML and Pagefind",
+  "Status": "Frozen local performance candidate; implementation confirmed within documented scope; pending independent review and user device experience",
+  "Committed": false,
+  "Deployed": false
+}

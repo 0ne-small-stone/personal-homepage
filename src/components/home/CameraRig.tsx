@@ -12,7 +12,8 @@ export default function CameraRig({model,mobile:_mobile,quiet,frozen=false}: {mo
   const perspective=useRef(new Matrix4()),orthographic=useRef(new Matrix4());
   const offset=useRef(new Vector2()),offsetTarget=useRef(new Vector2());const {camera,size}=useThree();
   useEffect(()=>{camera.layers.enable(1);camera.layers.enable(2);return()=>{camera.layers.disable(1);camera.layers.disable(2);};},[camera]);
-  useFrame((_,rawDt)=>{
+  useFrame(()=>{
+    const rawDt=model.frameDelta;
     if(frozen)return;
     if(!(camera instanceof PerspectiveCamera))return;
     if(quiet){

@@ -1,0 +1,18 @@
+{
+  "bundle": "app-I5VZAP5C.js",
+  "case": {
+    "case": "final drag and original position restoration",
+    "bundle": "app-I5VZAP5C.js",
+    "drag": {
+      "open": false,
+      "transform": "matrix(1, 0, 0, 1, -776.12, -184.177)"
+    },
+    "before": "matrix(1, 0, 0, 1, -767.684, -178.528)",
+    "after": {
+      "focus": "demo-02",
+      "portals": 0,
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "passed": false
+  }
+}

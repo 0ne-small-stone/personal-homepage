@@ -53,7 +53,7 @@ export default function VinylTurntable({ track, playing, progress, onToggle, onL
       <div className="turntable-sleeve">{artwork(presentation.outgoing)}</div>
       <div className="turntable-platter"><div className="turntable-disc-button">{record(presentation.outgoing)}</div></div>
     </div>}
-    <div key={`new-${presentation.revision}`} className={`turntable-scene ${changing ? 'is-incoming' : ''}`} data-visual-album={presentation.display?.album} onAnimationEnd={event => { if (event.animationName === 'jacket-disc-eject') finish(); }}>
+    <div key={`new-${presentation.revision}`} className={`turntable-scene ${changing ? 'is-incoming' : ''}`} data-visual-album={presentation.display?.album} onAnimationEnd={event => { if (event.animationName === 'jacket-disc-settle') finish(); }}>
       {onLibrary ? <button type="button" className="turntable-sleeve" disabled={changing} aria-label="查看收藏专辑" onClick={onLibrary}>{artwork(presentation.display)}<span className="turntable-sleeve-action">查看专辑</span></button> : <div className="turntable-sleeve">{artwork(presentation.display)}</div>}
       <div className="turntable-platter"><button type="button" className="turntable-disc-button" disabled={changing || !track?.audioUrl} aria-label={playing ? `暂停 ${track?.title}` : `播放 ${track?.title || '当前曲目'}`} onClick={onToggle}>{record(presentation.display)}</button></div>
     </div>

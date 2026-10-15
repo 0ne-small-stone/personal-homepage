@@ -1,0 +1,15 @@
+{
+  "pullRequestAndDeployment": "pending after local acceptance",
+  "date": "2026-10-14",
+  "reportedBy": "root, verified native GitHub API",
+  "forcePush": false,
+  "requiredChecks": [
+    "Repository checks",
+    "Workflow syntax",
+    "Astro build"
+  ],
+  "requiredApprovingReviews": 0,
+  "remoteMain": "9cbef0aaa8dc43c82e4b3a8fb402b2725db8356d",
+  "credentialHandling": "Git credential used in process memory; not output or saved to repository",
+  "strict": true
+}

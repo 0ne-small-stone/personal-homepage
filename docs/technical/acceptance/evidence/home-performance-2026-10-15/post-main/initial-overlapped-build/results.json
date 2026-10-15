@@ -1,0 +1,577 @@
+{
+  "scope": "Targeted integration confirmation after preserving upstream main 5eef32b; no application source change",
+  "checks": [
+    {
+      "name": "1280 latest-main merged homepage remains idle",
+      "passed": false,
+      "initial": {
+        "url": "http://127.0.0.1:4475/personal-homepage/?opticsDebug=1#radio",
+        "lang": "zh-CN",
+        "loop": {
+          "mode": "always",
+          "running": true,
+          "frame": 11,
+          "time": 3003.5999999940395,
+          "velocity": 0,
+          "snap": false,
+          "loading": false,
+          "renderFrame": 149,
+          "transmissionVisible": true,
+          "trackingGlass": true,
+          "rawDelta": 0.06290000000596047,
+          "delta": 0.06290000000596047,
+          "cpuMs": 3.0999999940395355
+        },
+        "backdrop": {
+          "q": 0.5,
+          "weight": 1,
+          "intro": 0,
+          "farOffset": [
+            0,
+            0
+          ],
+          "gridOffset": [
+            0,
+            0
+          ],
+          "light": [
+            0.5,
+            0.3
+          ],
+          "spacing": 104,
+          "farBrightness": 0.52,
+          "fieldPeak": 0.048,
+          "gridPeak": 0.048,
+          "ceiling": 0.1411764705882353,
+          "visible": true,
+          "texture": "24435d01-12b7-45db-a74d-a9684fd7ad14",
+          "textureSize": [
+            1536,
+            864
+          ],
+          "corners": [
+            [
+              -1.12,
+              -1.12,
+              0.9789579158316634
+            ],
+            [
+              1.12,
+              -1.12,
+              0.9789579158316634
+            ],
+            [
+              1.12,
+              1.12,
+              0.9789579158316634
+            ],
+            [
+              -1.12,
+              1.12,
+              0.9789579158316634
+            ]
+          ]
+        },
+        "loading": {
+          "phase": "ready",
+          "active": false,
+          "requested": false,
+          "progress": 1,
+          "resources": [
+            "layout",
+            "wordmark",
+            "compiled",
+            "frame"
+          ],
+          "reason": "",
+          "closed": false,
+          "events": [
+            {
+              "phase": "waiting",
+              "time": 671.9000000059605
+            },
+            {
+              "phase": "ready",
+              "time": 1214.800000011921
+            }
+          ],
+          "preview": null,
+          "wordmarkDecoded": true,
+          "preference": "motion"
+        },
+        "canvas": 1,
+        "audio": 1,
+        "bundle": "/personal-homepage/_astro/HomeJourney.C6MN0nAV.js"
+      },
+      "final": {
+        "url": "http://127.0.0.1:4475/personal-homepage/?opticsDebug=1#radio",
+        "lang": "zh-CN",
+        "loop": {
+          "mode": "demand",
+          "running": false,
+          "frame": 23,
+          "time": 3719.800000011921,
+          "velocity": 0,
+          "snap": false,
+          "loading": false,
+          "renderFrame": 257,
+          "transmissionVisible": true,
+          "trackingGlass": false,
+          "rawDelta": 0.056,
+          "delta": 0.056,
+          "cpuMs": 3
+        },
+        "backdrop": {
+          "q": 0.5,
+          "weight": 1,
+          "intro": 0,
+          "farOffset": [
+            0,
+            0
+          ],
+          "gridOffset": [
+            0,
+            0
+          ],
+          "light": [
+            0.5,
+            0.3
+          ],
+          "spacing": 104,
+          "farBrightness": 0.52,
+          "fieldPeak": 0.048,
+          "gridPeak": 0.048,
+          "ceiling": 0.1411764705882353,
+          "visible": true,
+          "texture": "24435d01-12b7-45db-a74d-a9684fd7ad14",
+          "textureSize": [
+            1536,
+            864
+          ],
+          "corners": [
+            [
+              -1.12,
+              -1.12,
+              0.9789579158316634
+            ],
+            [
+              1.12,
+              -1.12,
+              0.9789579158316634
+            ],
+            [
+              1.12,
+              1.12,
+              0.9789579158316634
+            ],
+            [
+              -1.12,
+              1.12,
+              0.9789579158316634
+            ]
+          ]
+        },
+        "loading": {
+          "phase": "ready",
+          "active": false,
+          "requested": false,
+          "progress": 1,
+          "resources": [
+            "layout",
+            "wordmark",
+            "compiled",
+            "frame"
+          ],
+          "reason": "",
+          "closed": false,
+          "events": [
+            {
+              "phase": "waiting",
+              "time": 671.9000000059605
+            },
+            {
+              "phase": "ready",
+              "time": 1214.800000011921
+            }
+          ],
+          "preview": null,
+          "wordmarkDecoded": true,
+          "preference": "motion"
+        },
+        "canvas": 1,
+        "audio": 1,
+        "bundle": "/personal-homepage/_astro/HomeJourney.C6MN0nAV.js"
+      }
+    },
+    {
+      "name": "1280 published English Someone integration preserves cleanup/return",
+      "passed": false,
+      "about": {
+        "url": "http://127.0.0.1:4475/personal-homepage/about/",
+        "lang": "zh-CN",
+        "loop": null,
+        "backdrop": null,
+        "loading": null,
+        "canvas": 0,
+        "audio": 1
+      },
+      "back": {
+        "url": "http://127.0.0.1:4475/personal-homepage/?opticsDebug=1#radio",
+        "lang": "zh-CN",
+        "loop": {
+          "mode": "always",
+          "running": true,
+          "frame": 16,
+          "time": 8946.40000000596,
+          "velocity": 0,
+          "snap": false,
+          "loading": false,
+          "renderFrame": 194,
+          "transmissionVisible": true,
+          "trackingGlass": true,
+          "rawDelta": 0.06709999999403954,
+          "delta": 0.06709999999403954,
+          "cpuMs": 4.0999999940395355
+        },
+        "backdrop": {
+          "q": 0.5,
+          "weight": 1,
+          "intro": 0,
+          "farOffset": [
+            0,
+            0
+          ],
+          "gridOffset": [
+            0,
+            0
+          ],
+          "light": [
+            0.5,
+            0.3
+          ],
+          "spacing": 104,
+          "farBrightness": 0.52,
+          "fieldPeak": 0.048,
+          "gridPeak": 0.048,
+          "ceiling": 0.1411764705882353,
+          "visible": true,
+          "texture": "f52f8638-cee4-4826-9eb2-67f083164821",
+          "textureSize": [
+            1536,
+            864
+          ],
+          "corners": [
+            [
+              -1.12,
+              -1.12,
+              0.9789579158316634
+            ],
+            [
+              1.12,
+              -1.12,
+              0.9789579158316634
+            ],
+            [
+              1.12,
+              1.12,
+              0.9789579158316634
+            ],
+            [
+              -1.12,
+              1.12,
+              0.9789579158316634
+            ]
+          ]
+        },
+        "loading": {
+          "phase": "ready",
+          "active": false,
+          "requested": false,
+          "progress": 1,
+          "resources": [
+            "layout",
+            "wordmark",
+            "compiled",
+            "frame"
+          ],
+          "reason": "",
+          "closed": false,
+          "events": [
+            {
+              "phase": "waiting",
+              "time": 6793.4000000059605
+            },
+            {
+              "phase": "ready",
+              "time": 7131.5999999940395
+            }
+          ],
+          "preview": null,
+          "wordmarkDecoded": true,
+          "preference": "motion"
+        },
+        "canvas": 1,
+        "audio": 1,
+        "bundle": "/personal-homepage/_astro/HomeJourney.C6MN0nAV.js"
+      }
+    },
+    {
+      "name": "390 latest-main merged homepage remains idle",
+      "passed": true,
+      "initial": {
+        "url": "http://127.0.0.1:4475/personal-homepage/?opticsDebug=1#radio",
+        "lang": "zh-CN",
+        "loop": {
+          "mode": "demand",
+          "running": false,
+          "frame": 13,
+          "time": 2094.800000011921,
+          "velocity": 0,
+          "snap": false,
+          "loading": false,
+          "renderFrame": 167,
+          "transmissionVisible": true,
+          "trackingGlass": false,
+          "rawDelta": 0.03280000001192093,
+          "delta": 0.03280000001192093,
+          "cpuMs": 2.5
+        },
+        "backdrop": {
+          "q": 0.5,
+          "weight": 1,
+          "intro": 0,
+          "farOffset": [
+            0,
+            0
+          ],
+          "gridOffset": [
+            0,
+            0
+          ],
+          "light": [
+            0.5,
+            0.3
+          ],
+          "spacing": 96,
+          "farBrightness": 0.52,
+          "fieldPeak": 0.048,
+          "gridPeak": 0.048,
+          "ceiling": 0.1411764705882353,
+          "visible": true,
+          "texture": "d1647fd3-d041-4618-a2e2-8fae93a7858d",
+          "textureSize": [
+            768,
+            1662
+          ],
+          "corners": [
+            [
+              -1.12,
+              -1.12,
+              0.9789579158316634
+            ],
+            [
+              1.12,
+              -1.12,
+              0.9789579158316634
+            ],
+            [
+              1.12,
+              1.12,
+              0.9789579158316634
+            ],
+            [
+              -1.12,
+              1.12,
+              0.9789579158316634
+            ]
+          ]
+        },
+        "loading": {
+          "phase": "ready",
+          "active": false,
+          "requested": false,
+          "progress": 1,
+          "resources": [
+            "layout",
+            "wordmark",
+            "compiled",
+            "frame"
+          ],
+          "reason": "",
+          "closed": false,
+          "events": [
+            {
+              "phase": "waiting",
+              "time": 330.59999999403954
+            },
+            {
+              "phase": "ready",
+              "time": 638.0999999940395
+            }
+          ],
+          "preview": null,
+          "wordmarkDecoded": true,
+          "preference": "motion"
+        },
+        "canvas": 1,
+        "audio": 1,
+        "bundle": "/personal-homepage/_astro/HomeJourney.C6MN0nAV.js"
+      },
+      "final": {
+        "url": "http://127.0.0.1:4475/personal-homepage/?opticsDebug=1#radio",
+        "lang": "zh-CN",
+        "loop": {
+          "mode": "demand",
+          "running": false,
+          "frame": 13,
+          "time": 2094.800000011921,
+          "velocity": 0,
+          "snap": false,
+          "loading": false,
+          "renderFrame": 167,
+          "transmissionVisible": true,
+          "trackingGlass": false,
+          "rawDelta": 0.03280000001192093,
+          "delta": 0.03280000001192093,
+          "cpuMs": 2.5
+        },
+        "backdrop": {
+          "q": 0.5,
+          "weight": 1,
+          "intro": 0,
+          "farOffset": [
+            0,
+            0
+          ],
+          "gridOffset": [
+            0,
+            0
+          ],
+          "light": [
+            0.5,
+            0.3
+          ],
+          "spacing": 96,
+          "farBrightness": 0.52,
+          "fieldPeak": 0.048,
+          "gridPeak": 0.048,
+          "ceiling": 0.1411764705882353,
+          "visible": true,
+          "texture": "d1647fd3-d041-4618-a2e2-8fae93a7858d",
+          "textureSize": [
+            768,
+            1662
+          ],
+          "corners": [
+            [
+              -1.12,
+              -1.12,
+              0.9789579158316634
+            ],
+            [
+              1.12,
+              -1.12,
+              0.9789579158316634
+            ],
+            [
+              1.12,
+              1.12,
+              0.9789579158316634
+            ],
+            [
+              -1.12,
+              1.12,
+              0.9789579158316634
+            ]
+          ]
+        },
+        "loading": {
+          "phase": "ready",
+          "active": false,
+          "requested": false,
+          "progress": 1,
+          "resources": [
+            "layout",
+            "wordmark",
+            "compiled",
+            "frame"
+          ],
+          "reason": "",
+          "closed": false,
+          "events": [
+            {
+              "phase": "waiting",
+              "time": 330.59999999403954
+            },
+            {
+              "phase": "ready",
+              "time": 638.0999999940395
+            }
+          ],
+          "preview": null,
+          "wordmarkDecoded": true,
+          "preference": "motion"
+        },
+        "canvas": 1,
+        "audio": 1,
+        "bundle": "/personal-homepage/_astro/HomeJourney.C6MN0nAV.js"
+      }
+    },
+    {
+      "name": "390 published English Someone integration preserves cleanup/return",
+      "passed": false,
+      "about": {
+        "url": "http://127.0.0.1:4475/personal-homepage/about/",
+        "lang": "en",
+        "loop": null,
+        "backdrop": null,
+        "loading": null,
+        "canvas": 0,
+        "audio": 0
+      },
+      "back": {
+        "url": "http://127.0.0.1:4475/personal-homepage/?opticsDebug=1#radio",
+        "lang": "zh-CN",
+        "loop": null,
+        "backdrop": null,
+        "loading": {
+          "phase": "error",
+          "active": false,
+          "requested": false,
+          "progress": 1,
+          "resources": [
+            "layout",
+            "wordmark",
+            "compiled",
+            "frame"
+          ],
+          "reason": "ordinary-browsing",
+          "closed": false,
+          "events": [
+            {
+              "phase": "waiting",
+              "time": 72.09999999403954
+            },
+            {
+              "phase": "ready",
+              "time": 928.5
+            },
+            {
+              "phase": "error",
+              "time": 1090
+            }
+          ],
+          "preview": null,
+          "wordmarkDecoded": true,
+          "preference": "motion"
+        },
+        "canvas": 0,
+        "audio": 1,
+        "bundle": "/personal-homepage/_astro/HomeJourney.C6MN0nAV.js"
+      }
+    }
+  ],
+  "errors": [
+    "Could not load /personal-homepage/_astro/echoes-placeholder.CF27I39E_Z1yWTlh.webp: undefined"
+  ]
+}

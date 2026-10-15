@@ -1,0 +1,31 @@
+{
+  "Url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1#album",
+  "BrowserComponentUrl": "/personal-homepage/_astro/HomeJourney.Buuw_zpt.js",
+  "LocalBundle": null,
+  "LocalBytes": 0,
+  "LocalSHA256": null,
+  "LocalMatches": null,
+  "Sources": 23,
+  "SourceDrift": [
+    {
+      "Path": "src/components/home/wall-assembly.ts",
+      "SHA256": "CDD4C80ADB4EB1B3918319DDA9D041751E2AB875F6C9877FF1F29D3CFBA455DE"
+    },
+    {
+      "Path": "src/components/home/RisingWall.tsx",
+      "SHA256": "EA96F3158682FD0364874A98F5B819038715EF9E4F92BDB26A18C43A6161163E"
+    },
+    {
+      "Path": "tests/home-motion-ranges.test.mjs",
+      "SHA256": "629DE69AEC8263585A9FB30169BACB3E8492D1ACF4B94E817D5171120853EF03"
+    },
+    {
+      "Path": "src/components/home/wall-material.ts",
+      "SHA256": "B1F925CF8256EE393FC88992DB0B41F55DA8DF508B2F8E15F41D1ACB165844EE"
+    }
+  ],
+  "HttpBodySHA256": null,
+  "HttpVerification": "Not obtained: sandbox denied localhost socket. Initial attempt returned null bytes/hash and must not be treated as candidate mismatch. Browser verified loaded component URL separately.",
+  "InitialSourceCheck": "23 sources; zero drift at first check before browser capture",
+  "EndState": "Four source changes and original dist bundle unavailable after newer human brick-size request. Loaded browser samples retain Buuw_zpt. No frozen-current-source pass asserted."
+}

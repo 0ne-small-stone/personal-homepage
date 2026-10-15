@@ -1,0 +1,569 @@
+{
+  "base": "http://127.0.0.1:4475/personal-homepage/",
+  "checks": [
+    {
+      "name": "1280 settled wall has zero additional scene/render frames",
+      "passed": true,
+      "durationMs": 6018.800000011921,
+      "initial": {
+        "time": 5420.199999988079,
+        "loop": {
+          "mode": "demand",
+          "running": false,
+          "frame": 7,
+          "time": 3575,
+          "velocity": 0,
+          "snap": false,
+          "loading": false,
+          "renderFrame": 57,
+          "transmissionVisible": false,
+          "trackingGlass": false,
+          "rawDelta": 0.005099999994039536,
+          "delta": 0.005099999994039536,
+          "cpuMs": 2.2000000178813934
+        },
+        "backdrop": {
+          "q": 1,
+          "weight": 0,
+          "intro": 0,
+          "farOffset": [
+            0.0175,
+            0.0075
+          ],
+          "gridOffset": [
+            0.035,
+            0.0125
+          ],
+          "light": [
+            0.27999999999999997,
+            0.36
+          ],
+          "spacing": 104,
+          "farBrightness": 0.52,
+          "fieldPeak": 0.048,
+          "gridPeak": 0.048,
+          "ceiling": 0.1411764705882353,
+          "visible": false,
+          "texture": "9d4f8700-1a58-4a88-8241-d0b8482e5c3e",
+          "textureSize": [
+            1536,
+            864
+          ],
+          "corners": [
+            [
+              -1.5511706124684939,
+              -1.551170612468494,
+              -0.6833667334669339
+            ],
+            [
+              1.5511706124684939,
+              -1.551170612468494,
+              -0.6833667334669339
+            ],
+            [
+              1.5511706124684939,
+              1.551170612468494,
+              -0.6833667334669339
+            ],
+            [
+              -1.5511706124684939,
+              1.551170612468494,
+              -0.6833667334669339
+            ]
+          ]
+        },
+        "wall": {
+          "raw": 1,
+          "rise": 1,
+          "build": 1,
+          "position": [
+            0,
+            0,
+            -1
+          ],
+          "visible": true,
+          "revision": 1,
+          "settled": 130,
+          "falling": 0,
+          "drawn": 130,
+          "rows": 13,
+          "samples": [
+            {
+              "id": 309,
+              "row": 13,
+              "column": 10,
+              "x": -0.48024999999999995,
+              "y": -2.4989999999999997,
+              "progress": 1
+            },
+            {
+              "id": 332,
+              "row": 14,
+              "column": 10,
+              "x": -0.9604999999999999,
+              "y": -2.0825,
+              "progress": 1
+            },
+            {
+              "id": 355,
+              "row": 15,
+              "column": 10,
+              "x": -0.48024999999999995,
+              "y": -1.666,
+              "progress": 1
+            },
+            {
+              "id": 378,
+              "row": 16,
+              "column": 10,
+              "x": -0.9604999999999999,
+              "y": -1.2494999999999998,
+              "progress": 1
+            },
+            {
+              "id": 401,
+              "row": 17,
+              "column": 10,
+              "x": -0.48024999999999995,
+              "y": -0.833,
+              "progress": 1
+            },
+            {
+              "id": 424,
+              "row": 18,
+              "column": 10,
+              "x": -0.9604999999999999,
+              "y": -0.4165,
+              "progress": 1
+            }
+          ]
+        },
+        "visible": true,
+        "ready": true,
+        "inert": false,
+        "summaryColor": "rgb(39, 42, 44)"
+      },
+      "final": {
+        "time": 11439,
+        "loop": {
+          "mode": "demand",
+          "running": false,
+          "frame": 7,
+          "time": 3575,
+          "velocity": 0,
+          "snap": false,
+          "loading": false,
+          "renderFrame": 57,
+          "transmissionVisible": false,
+          "trackingGlass": false,
+          "rawDelta": 0.005099999994039536,
+          "delta": 0.005099999994039536,
+          "cpuMs": 2.2000000178813934
+        },
+        "backdrop": {
+          "q": 1,
+          "weight": 0,
+          "intro": 0,
+          "farOffset": [
+            0.0175,
+            0.0075
+          ],
+          "gridOffset": [
+            0.035,
+            0.0125
+          ],
+          "light": [
+            0.27999999999999997,
+            0.36
+          ],
+          "spacing": 104,
+          "farBrightness": 0.52,
+          "fieldPeak": 0.048,
+          "gridPeak": 0.048,
+          "ceiling": 0.1411764705882353,
+          "visible": false,
+          "texture": "9d4f8700-1a58-4a88-8241-d0b8482e5c3e",
+          "textureSize": [
+            1536,
+            864
+          ],
+          "corners": [
+            [
+              -1.5511706124684939,
+              -1.551170612468494,
+              -0.6833667334669339
+            ],
+            [
+              1.5511706124684939,
+              -1.551170612468494,
+              -0.6833667334669339
+            ],
+            [
+              1.5511706124684939,
+              1.551170612468494,
+              -0.6833667334669339
+            ],
+            [
+              -1.5511706124684939,
+              1.551170612468494,
+              -0.6833667334669339
+            ]
+          ]
+        },
+        "wall": {
+          "raw": 1,
+          "rise": 1,
+          "build": 1,
+          "position": [
+            0,
+            0,
+            -1
+          ],
+          "visible": true,
+          "revision": 1,
+          "settled": 130,
+          "falling": 0,
+          "drawn": 130,
+          "rows": 13,
+          "samples": [
+            {
+              "id": 309,
+              "row": 13,
+              "column": 10,
+              "x": -0.48024999999999995,
+              "y": -2.4989999999999997,
+              "progress": 1
+            },
+            {
+              "id": 332,
+              "row": 14,
+              "column": 10,
+              "x": -0.9604999999999999,
+              "y": -2.0825,
+              "progress": 1
+            },
+            {
+              "id": 355,
+              "row": 15,
+              "column": 10,
+              "x": -0.48024999999999995,
+              "y": -1.666,
+              "progress": 1
+            },
+            {
+              "id": 378,
+              "row": 16,
+              "column": 10,
+              "x": -0.9604999999999999,
+              "y": -1.2494999999999998,
+              "progress": 1
+            },
+            {
+              "id": 401,
+              "row": 17,
+              "column": 10,
+              "x": -0.48024999999999995,
+              "y": -0.833,
+              "progress": 1
+            },
+            {
+              "id": 424,
+              "row": 18,
+              "column": 10,
+              "x": -0.9604999999999999,
+              "y": -0.4165,
+              "progress": 1
+            }
+          ]
+        },
+        "visible": true,
+        "ready": true,
+        "inert": false,
+        "summaryColor": "rgb(39, 42, 44)"
+      }
+    },
+    {
+      "name": "390 settled wall has zero additional scene/render frames",
+      "passed": true,
+      "durationMs": 6018.5999999940395,
+      "initial": {
+        "time": 3566.4000000059605,
+        "loop": {
+          "mode": "demand",
+          "running": false,
+          "frame": 8,
+          "time": 2001.300000011921,
+          "velocity": 0,
+          "snap": false,
+          "loading": false,
+          "renderFrame": 58,
+          "transmissionVisible": false,
+          "trackingGlass": false,
+          "rawDelta": 0.1335,
+          "delta": 0.1335,
+          "cpuMs": 3
+        },
+        "backdrop": {
+          "q": 1,
+          "weight": 0,
+          "intro": 0,
+          "farOffset": [
+            0.0175,
+            0.0075
+          ],
+          "gridOffset": [
+            0.035,
+            0.0125
+          ],
+          "light": [
+            0.38,
+            0.36
+          ],
+          "spacing": 96,
+          "farBrightness": 0.52,
+          "fieldPeak": 0.048,
+          "gridPeak": 0.048,
+          "ceiling": 0.1411764705882353,
+          "visible": false,
+          "texture": "37de4d51-2ea5-452a-9a32-7c6d98f858aa",
+          "textureSize": [
+            768,
+            1662
+          ],
+          "corners": [
+            [
+              -1.2988809766580975,
+              -1.2988809766580975,
+              -0.6833667334669339
+            ],
+            [
+              1.2988809766580975,
+              -1.2988809766580975,
+              -0.6833667334669339
+            ],
+            [
+              1.2988809766580975,
+              1.2988809766580975,
+              -0.6833667334669339
+            ],
+            [
+              -1.2988809766580975,
+              1.2988809766580975,
+              -0.6833667334669339
+            ]
+          ]
+        },
+        "wall": {
+          "raw": 1,
+          "rise": 1,
+          "build": 1,
+          "position": [
+            0,
+            0,
+            -1
+          ],
+          "visible": true,
+          "revision": 1,
+          "settled": 150,
+          "falling": 0,
+          "drawn": 150,
+          "rows": 25,
+          "samples": [
+            {
+              "id": 171,
+              "row": 7,
+              "column": 10,
+              "x": -0.48024999999999995,
+              "y": -4.997999999999999,
+              "progress": 1
+            },
+            {
+              "id": 194,
+              "row": 8,
+              "column": 10,
+              "x": -0.9604999999999999,
+              "y": -4.5815,
+              "progress": 1
+            },
+            {
+              "id": 217,
+              "row": 9,
+              "column": 10,
+              "x": -0.48024999999999995,
+              "y": -4.165,
+              "progress": 1
+            },
+            {
+              "id": 240,
+              "row": 10,
+              "column": 10,
+              "x": -0.9604999999999999,
+              "y": -3.7485,
+              "progress": 1
+            },
+            {
+              "id": 263,
+              "row": 11,
+              "column": 10,
+              "x": -0.48024999999999995,
+              "y": -3.332,
+              "progress": 1
+            },
+            {
+              "id": 286,
+              "row": 12,
+              "column": 10,
+              "x": -0.9604999999999999,
+              "y": -2.9154999999999998,
+              "progress": 1
+            }
+          ]
+        },
+        "visible": true,
+        "ready": true,
+        "inert": false,
+        "summaryColor": "rgb(39, 42, 44)"
+      },
+      "final": {
+        "time": 9585,
+        "loop": {
+          "mode": "demand",
+          "running": false,
+          "frame": 8,
+          "time": 2001.300000011921,
+          "velocity": 0,
+          "snap": false,
+          "loading": false,
+          "renderFrame": 58,
+          "transmissionVisible": false,
+          "trackingGlass": false,
+          "rawDelta": 0.1335,
+          "delta": 0.1335,
+          "cpuMs": 3
+        },
+        "backdrop": {
+          "q": 1,
+          "weight": 0,
+          "intro": 0,
+          "farOffset": [
+            0.0175,
+            0.0075
+          ],
+          "gridOffset": [
+            0.035,
+            0.0125
+          ],
+          "light": [
+            0.38,
+            0.36
+          ],
+          "spacing": 96,
+          "farBrightness": 0.52,
+          "fieldPeak": 0.048,
+          "gridPeak": 0.048,
+          "ceiling": 0.1411764705882353,
+          "visible": false,
+          "texture": "37de4d51-2ea5-452a-9a32-7c6d98f858aa",
+          "textureSize": [
+            768,
+            1662
+          ],
+          "corners": [
+            [
+              -1.2988809766580975,
+              -1.2988809766580975,
+              -0.6833667334669339
+            ],
+            [
+              1.2988809766580975,
+              -1.2988809766580975,
+              -0.6833667334669339
+            ],
+            [
+              1.2988809766580975,
+              1.2988809766580975,
+              -0.6833667334669339
+            ],
+            [
+              -1.2988809766580975,
+              1.2988809766580975,
+              -0.6833667334669339
+            ]
+          ]
+        },
+        "wall": {
+          "raw": 1,
+          "rise": 1,
+          "build": 1,
+          "position": [
+            0,
+            0,
+            -1
+          ],
+          "visible": true,
+          "revision": 1,
+          "settled": 150,
+          "falling": 0,
+          "drawn": 150,
+          "rows": 25,
+          "samples": [
+            {
+              "id": 171,
+              "row": 7,
+              "column": 10,
+              "x": -0.48024999999999995,
+              "y": -4.997999999999999,
+              "progress": 1
+            },
+            {
+              "id": 194,
+              "row": 8,
+              "column": 10,
+              "x": -0.9604999999999999,
+              "y": -4.5815,
+              "progress": 1
+            },
+            {
+              "id": 217,
+              "row": 9,
+              "column": 10,
+              "x": -0.48024999999999995,
+              "y": -4.165,
+              "progress": 1
+            },
+            {
+              "id": 240,
+              "row": 10,
+              "column": 10,
+              "x": -0.9604999999999999,
+              "y": -3.7485,
+              "progress": 1
+            },
+            {
+              "id": 263,
+              "row": 11,
+              "column": 10,
+              "x": -0.48024999999999995,
+              "y": -3.332,
+              "progress": 1
+            },
+            {
+              "id": 286,
+              "row": 12,
+              "column": 10,
+              "x": -0.9604999999999999,
+              "y": -2.9154999999999998,
+              "progress": 1
+            }
+          ]
+        },
+        "visible": true,
+        "ready": true,
+        "inert": false,
+        "summaryColor": "rgb(39, 42, 44)"
+      }
+    }
+  ],
+  "errors": [],
+  "boundary": "Read counters after screenshot and a 1.8s settle window, then a 6s observation without intervening input or screenshot. Initial batch retained one final frame in each short post-capture window; no application mutation."
+}

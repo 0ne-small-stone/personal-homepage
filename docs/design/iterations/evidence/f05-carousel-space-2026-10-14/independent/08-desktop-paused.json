@@ -1,0 +1,119 @@
+{
+  "label": "08-desktop-paused",
+  "time": 1791995235713,
+  "background": {
+    "ceiling": 0.1411764705882353,
+    "corners": [
+      [
+        -1.12,
+        -1.12,
+        0.9779819379017776
+      ],
+      [
+        1.12,
+        -1.12,
+        0.9779819379017776
+      ],
+      [
+        1.12,
+        1.12,
+        0.9779819379017776
+      ],
+      [
+        -1.12,
+        1.12,
+        0.9779819379017776
+      ]
+    ],
+    "farBrightness": 0.52,
+    "farOffset": [
+      -0.0175,
+      -0.0075
+    ],
+    "fieldPeak": 0.048,
+    "gridOffset": [
+      -0.035,
+      -0.0125
+    ],
+    "gridPeak": 0.048,
+    "intro": 1,
+    "light": [
+      0.72,
+      0.36
+    ],
+    "q": 0,
+    "spacing": 104,
+    "texture": "bb854b66-1b1f-405c-ae58-edd4e2cf45e6",
+    "textureSize": [
+      1536,
+      874
+    ],
+    "visible": true,
+    "weight": 0
+  },
+  "bundle": "/personal-homepage/_astro/HomeJourney.BNuf11DH.js",
+  "classes": "lssh-home has-journey home-enhanced home-loading-nav-ready home-quiet",
+  "content": [
+    1265,
+    720
+  ],
+  "loading": {
+    "active": false,
+    "closed": false,
+    "events": [
+      {
+        "phase": "waiting",
+        "time": 170.2000000178814
+      },
+      {
+        "phase": "ready",
+        "time": 1707.600000023842
+      }
+    ],
+    "phase": "ready",
+    "preference": "motion",
+    "preview": null,
+    "progress": 1,
+    "reason": "",
+    "requested": false,
+    "resources": [
+      "layout",
+      "wordmark",
+      "compiled",
+      "frame"
+    ],
+    "wordmarkDecoded": true
+  },
+  "loadingPass": {
+    "active": false,
+    "copies": 0,
+    "disposed": true,
+    "geometryId": "77ad8330-562f-4f34-8829-6acf71f94866",
+    "glassId": "9a3b6fcc-29c8-481c-b582-947da5fdc753",
+    "size": [],
+    "worldDrawn": true
+  },
+  "loop": {
+    "cpuMs": 0.9000000059604645,
+    "delta": 0.05739999997615814,
+    "frame": 2241,
+    "loading": false,
+    "mode": "demand",
+    "rawDelta": 0.05739999997615814,
+    "renderFrame": 20263,
+    "running": false,
+    "snap": false,
+    "time": 114899.40000000596,
+    "trackingGlass": true,
+    "transmissionVisible": true,
+    "velocity": 0
+  },
+  "motion": {},
+  "overflow": false,
+  "size": [
+    1280,
+    720
+  ],
+  "status": "ready",
+  "url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1#radio"
+}

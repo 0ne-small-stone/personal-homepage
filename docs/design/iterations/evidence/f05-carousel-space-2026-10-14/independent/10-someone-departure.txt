@@ -1,0 +1,132 @@
+- link "Skip to content":
+  - /url: "#main-content"
+- banner:
+  - link "Little Stone Still Here · Home":
+    - /url: /personal-homepage/
+    - text: LSSH
+  - navigation "Main navigation":
+    - link "Becoming · Learning":
+      - /url: /personal-homepage/knowledge/
+      - generic: Becoming
+    - link "Elsewhere · Websites":
+      - /url: /personal-homepage/links/
+      - generic: Elsewhere
+    - link "Someone · About Little Stone":
+      - /url: /personal-homepage/about/
+      - generic: Someone
+  - link "Go to The Wall":
+    - /url: /personal-homepage/#wall
+    - generic: The Wall
+  - link "Switch to Chinese":
+    - /url: /personal-homepage/zh/about/
+- main:
+  - article:
+    - region "Someone":
+      - paragraph: About me
+      - heading "Someone" [level=1]
+      - paragraph: I'm Little Stone.
+      - paragraph: Zhang Xuanshi · Software Engineering, Zhejiang University
+      - paragraph: I study software engineering at Zhejiang University and turn ideas into things people can use. My projects bring together software, interface design and hardware, often with people from different disciplines.
+      - paragraph: Little Stone Still Here is where I keep what I learn, what I make and bits of everyday life. I hope these things give you a sense of who I am.
+      - link "Let's talk":
+        - /url: "#contact"
+        - text: Let's talk
+    - complementary:
+      - navigation "On this page":
+        - link "Experience":
+          - /url: "#experience"
+        - link "What I do":
+          - /url: "#practice"
+        - link "Beyond the screen":
+          - /url: "#life"
+        - link "Contact":
+          - /url: "#contact"
+      - link "Back home":
+        - /url: /personal-homepage/#intro
+    - region "Experience":
+      - heading "Experience" [level=2]
+      - paragraph: Code, products and working with people.
+      - list:
+        - paragraph: Aug 2026 — Present
+        - heading "Software development" [level=3]
+        - paragraph: Internet startup project
+        - paragraph: I work on custom platforms and systems for government clients, translating requirements into software and gaining experience with real-world needs.
+        - paragraph: Apr 2026 — Present
+        - heading "Suikong Desk" [level=3]
+        - paragraph: Founder / Product and brand
+        - paragraph: A consumer electronics venture focused on smart desk setups. I handle product definition, brand design, software and hardware project management, and business development.
+        - paragraph: Hardware development stalled after a key team member left. While learning more and looking for new engineering collaborators, I have been working on better knowledge sharing and handovers within the team.
+        - paragraph: Feb 2026 — Present
+        - heading "Independent game" [level=3]
+        - paragraph: Co-initiator / Game design and music
+        - paragraph: I am developing a game for Steam with a team, contributing to game balance, mechanics, audience research and product positioning. I also plan to work on its soundtrack arrangements and sound effects.
+        - paragraph: Nov 2025 — Oct 2026
+        - heading "Power grid inspection robot" [level=3]
+        - paragraph: Zhilian Dianwei project team
+        - paragraph: A robotics project for enterprise and government clients. I worked on the business plan, pitch presentation, and the fabrication and testing of the first enclosure.
+        - paragraph: Volunteering
+        - heading "Shaoguang volunteer team" [level=3]
+        - paragraph: Co-founder / Event planning
+        - paragraph: I helped establish the team and organize more than 40 activities supporting and spending time with older adults across over 10 communities. Through SQTP, we brought volunteering into class activities and involved more than 10 classes from different majors.
+        - paragraph: I care about whether an approach can keep working when someone else takes it forward. During organizational changes, I try to leave both new teams and existing collaborators with work they can continue.
+    - region "What I do":
+      - heading "What I do" [level=2]
+      - heading "Software and making" [level=3]
+      - list "Software and making skills":
+        - listitem: Full-stack development
+        - listitem: Requirements
+        - listitem: 3D printing
+      - paragraph: Connecting software implementation with physical prototypes.
+      - heading "Design and communication" [level=3]
+      - list "Design and communication skills":
+        - listitem: UI/UX design
+        - listitem: Graphic and brand design
+        - listitem: Product positioning
+      - paragraph: Turning a problem into a clear interface and a product people can understand.
+      - heading "Projects and collaboration" [level=3]
+      - list "Projects and collaboration skills":
+        - listitem: Project management
+        - listitem: Cross-disciplinary collaboration
+        - listitem: Finding collaborators
+      - paragraph: Breaking ideas into tasks, bringing the right people together and following through.
+      - heading "Still learning" [level=3]
+      - paragraph: PCB design and mechanical design are areas I am still learning. I want to understand design tradeoffs, spot schedule risks earlier and make sure important decisions are shared across the team.
+    - region "Beyond the screen":
+      - heading "Beyond the screen" [level=2]
+      - paragraph: I love Pink Floyd and things that feel psychedelic, expansive and gentle. I play bass and erhu, sing and arrange music. As a regular band member in the university electric music ensemble, I have played at music festivals on and off campus.
+      - paragraph: Away from the screen, I swim and enjoy ball sports. Making things, listening to music and volunteering are all parts of my everyday life.
+      - heading "More of me, here" [level=3]
+      - list:
+        - link "Becoming Learning and notes":
+          - /url: /personal-homepage/knowledge/
+          - generic: Becoming
+          - generic: Learning and notes
+        - link "Afterimage Projects and work":
+          - /url: /personal-homepage/showcase/
+          - generic: Afterimage
+          - generic: Projects and work
+        - link "A Moment Remains Photos and albums":
+          - /url: /personal-homepage/gallery/
+          - generic: A Moment Remains
+          - generic: Photos and albums
+        - link "Echoes Music radio":
+          - /url: /personal-homepage/music/
+          - generic: Echoes
+          - generic: Music radio
+    - region "Let's talk":
+      - heading "Let's talk" [level=2]
+      - paragraph: About products, design, music or something you found here.
+      - group "Contact links":
+        - link "GitHub profile (opens in a new tab)":
+          - /url: https://github.com/0ne-small-stone
+        - link "Send an email to 3400489513@qq.com":
+          - /url: mailto:3400489513@qq.com
+      - button "Copy email"
+      - status
+      - link "Leave a note on The Wall":
+        - /url: /personal-homepage/guestbook/
+        - text: Leave a note on The Wall
+- contentinfo:
+  - link "Back to Little Stone Still Here":
+    - /url: /personal-homepage/
+  - generic: LSSH

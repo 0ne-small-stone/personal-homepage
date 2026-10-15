@@ -1,0 +1,147 @@
+{
+  "samples": 40,
+  "withVisibleBackground": 33,
+  "coverage": [
+    {
+      "label": "01-desktop-album-direct",
+      "covered": true
+    },
+    {
+      "label": "02-desktop-album-radio-forward",
+      "covered": true
+    },
+    {
+      "label": "03-desktop-connection-settled",
+      "covered": true
+    },
+    {
+      "label": "04-desktop-radio",
+      "covered": true
+    },
+    {
+      "label": "05-desktop-radio-projects-forward",
+      "covered": true
+    },
+    {
+      "label": "06-desktop-projects-settled",
+      "covered": true
+    },
+    {
+      "label": "07-desktop-fast-reverse",
+      "covered": true
+    },
+    {
+      "label": "08-desktop-paused",
+      "covered": true
+    },
+    {
+      "label": "09-desktop-resumed-radio",
+      "covered": true
+    },
+    {
+      "label": "10-desktop-someone-return",
+      "covered": true
+    },
+    {
+      "label": "11-desktop-radio-refresh",
+      "covered": true
+    },
+    {
+      "label": "12-mobile-album",
+      "covered": true
+    },
+    {
+      "label": "14-mobile-radio-settled",
+      "covered": true
+    },
+    {
+      "label": "16-mobile-projects",
+      "covered": true
+    },
+    {
+      "label": "17-mobile-reverse-interrupt",
+      "covered": true
+    },
+    {
+      "label": "23-desktop-outro-reverse",
+      "covered": true
+    },
+    {
+      "label": "24-desktop-projects-return",
+      "covered": true
+    },
+    {
+      "label": "25-desktop-projects-refresh",
+      "covered": true
+    },
+    {
+      "label": "26-desktop-loading-opening",
+      "covered": true
+    },
+    {
+      "label": "27-desktop-loading-complete",
+      "covered": true
+    },
+    {
+      "label": "28-mobile-quiet",
+      "covered": true
+    },
+    {
+      "label": "13-series-0",
+      "covered": true
+    },
+    {
+      "label": "13-series-1",
+      "covered": true
+    },
+    {
+      "label": "13-series-2",
+      "covered": true
+    },
+    {
+      "label": "13-series-3",
+      "covered": true
+    },
+    {
+      "label": "13-series-4",
+      "covered": true
+    },
+    {
+      "label": "13-series-5",
+      "covered": true
+    },
+    {
+      "label": "15-series-0",
+      "covered": true
+    },
+    {
+      "label": "15-series-1",
+      "covered": true
+    },
+    {
+      "label": "15-series-2",
+      "covered": true
+    },
+    {
+      "label": "15-series-3",
+      "covered": true
+    },
+    {
+      "label": "15-series-4",
+      "covered": true
+    },
+    {
+      "label": "15-series-5",
+      "covered": true
+    }
+  ],
+  "overflow": [],
+  "bundles": [
+    "/personal-homepage/_astro/HomeJourney.BNuf11DH.js"
+  ],
+  "contrastLowerBound": {
+    "muted161": 6.00810764886655,
+    "text237": 13.25912650356481
+  },
+  "loadSameGlass": true
+}

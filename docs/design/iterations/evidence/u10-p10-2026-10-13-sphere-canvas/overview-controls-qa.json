@@ -1,0 +1,652 @@
+[
+  {
+    "label": "desktop-overview",
+    "state": {
+      "brandNodes": 0,
+      "comboboxes": 0,
+      "hint": {
+        "hidden": true,
+        "text": "上下左右拖动旋转 · 点击选中 · 滚轮进入"
+      },
+      "intro": "光已离开，影像仍在这里。",
+      "portals": 0,
+      "returnButton": {
+        "disabled": true,
+        "label": "返回总览",
+        "rect": {
+          "bottom": 72,
+          "height": 44,
+          "left": 2243,
+          "right": 2287,
+          "top": 28,
+          "width": 44,
+          "x": 2243,
+          "y": 28
+        },
+        "svg": {
+          "bottom": 64,
+          "height": 28,
+          "left": 2251,
+          "right": 2279,
+          "top": 36,
+          "width": 28,
+          "x": 2251,
+          "y": 36
+        },
+        "title": "返回总览",
+        "visibleText": ""
+      },
+      "title": "Afterimage",
+      "titleRect": {
+        "bottom": 859.5625,
+        "height": 46,
+        "left": 40,
+        "right": 245.859375,
+        "top": 813.5625,
+        "width": 205.859375,
+        "x": 40,
+        "y": 813.5625
+      },
+      "view": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "902",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "2.521",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere"
+      },
+      "viewport": [
+        2327,
+        923
+      ]
+    }
+  },
+  {
+    "label": "rotated-overview",
+    "state": {
+      "brandNodes": 0,
+      "comboboxes": 0,
+      "hint": {
+        "hidden": true,
+        "text": "上下左右拖动旋转 · 点击选中 · 滚轮进入"
+      },
+      "intro": "光已离开，影像仍在这里。",
+      "portals": 0,
+      "returnButton": {
+        "disabled": true,
+        "label": "返回总览",
+        "rect": {
+          "bottom": 72,
+          "height": 44,
+          "left": 2243,
+          "right": 2287,
+          "top": 28,
+          "width": 44,
+          "x": 2243,
+          "y": 28
+        },
+        "svg": {
+          "bottom": 64,
+          "height": 28,
+          "left": 2251,
+          "right": 2279,
+          "top": 36,
+          "width": 28,
+          "x": 2251,
+          "y": 36
+        },
+        "title": "返回总览",
+        "visibleText": ""
+      },
+      "title": "Afterimage",
+      "titleRect": {
+        "bottom": 859.5625,
+        "height": 46,
+        "left": 40,
+        "right": 245.859375,
+        "top": 813.5625,
+        "width": 205.859375,
+        "x": 40,
+        "y": 813.5625
+      },
+      "view": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "902",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "2.521",
+        "orientation": "0.160,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.07991,0.00000,0.99680",
+        "reduced": "false",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere"
+      },
+      "viewport": [
+        2327,
+        923
+      ]
+    }
+  },
+  {
+    "label": "entry-wait-timeout",
+    "state": {
+      "brandNodes": 0,
+      "comboboxes": 0,
+      "hint": {
+        "hidden": true,
+        "text": "继续放大进入 · 反向滚轮收回"
+      },
+      "intro": "光已离开，影像仍在这里。",
+      "portals": 0,
+      "returnButton": {
+        "disabled": false,
+        "label": "返回总览",
+        "rect": {
+          "bottom": 72,
+          "height": 44,
+          "left": 2243,
+          "right": 2287,
+          "top": 28,
+          "width": 44,
+          "x": 2243,
+          "y": 28
+        },
+        "svg": {
+          "bottom": 64,
+          "height": 28,
+          "left": 2251,
+          "right": 2279,
+          "top": 36,
+          "width": 28,
+          "x": 2251,
+          "y": 36
+        },
+        "title": "返回总览",
+        "visibleText": ""
+      },
+      "title": "Afterimage",
+      "titleRect": {
+        "bottom": 859.5625,
+        "height": 46,
+        "left": 40,
+        "right": 245.859375,
+        "top": 813.5625,
+        "width": 205.859375,
+        "x": 40,
+        "y": 813.5625
+      },
+      "view": {
+        "actualCamera": "-0.4343,0.1298,3.6383",
+        "anchorPose": "-0.4356,0.1302,6.1833",
+        "aspectError": "2.220e-16",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "detail": "ready",
+        "distance": "-45.00",
+        "domeRadius": "902",
+        "fieldCount": "37",
+        "fieldLayout": "projection-gap",
+        "fieldRetiring": "7",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "2.521",
+        "orientation": "0.160,-0.160",
+        "pan": "0.00,0.00",
+        "portal": "-0.4356,0.1302,6.1833",
+        "progress": "0.997",
+        "quaternion": "-0.07966,0.07966,-0.00639,0.99361",
+        "reduced": "false",
+        "regions": "23",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "subtle",
+        "view": "transition"
+      },
+      "viewport": [
+        2327,
+        923
+      ]
+    }
+  },
+  {
+    "label": "desktop-space-settled",
+    "state": {
+      "brandNodes": 0,
+      "comboboxes": 0,
+      "hint": {
+        "hidden": true,
+        "text": "拖动平移 · 滚轮穿行 · Esc 返回总览"
+      },
+      "intro": "光已离开，影像仍在这里。",
+      "portals": 0,
+      "returnButton": {
+        "disabled": false,
+        "label": "返回总览",
+        "rect": {
+          "bottom": 72,
+          "height": 44,
+          "left": 2243,
+          "right": 2287,
+          "top": 28,
+          "width": 44,
+          "x": 2243,
+          "y": 28
+        },
+        "svg": {
+          "bottom": 64,
+          "height": 28,
+          "left": 2251,
+          "right": 2279,
+          "top": 36,
+          "width": 28,
+          "x": 2251,
+          "y": 36
+        },
+        "title": "返回总览",
+        "visibleText": ""
+      },
+      "title": "Afterimage",
+      "titleRect": {
+        "bottom": 859.5625,
+        "height": 46,
+        "left": 40,
+        "right": 245.859375,
+        "top": 813.5625,
+        "width": 205.859375,
+        "x": 40,
+        "y": 813.5625
+      },
+      "view": {
+        "actualCamera": "-0.4356,0.1302,3.5921",
+        "anchorPose": "-0.4356,0.1302,6.1833",
+        "aspectError": "2.220e-16",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "detail": "ready",
+        "distance": "-45.00",
+        "domeRadius": "902",
+        "fieldCount": "37",
+        "fieldLayout": "projection-gap",
+        "fieldRetiring": "0",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "2.521",
+        "orientation": "0.160,-0.160",
+        "pan": "0.00,0.00",
+        "portal": "-0.4356,0.1302,6.1833",
+        "progress": "1.000",
+        "quaternion": "-0.07966,0.07966,-0.00639,0.99361",
+        "reduced": "false",
+        "regions": "23",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "subtle",
+        "view": "space"
+      },
+      "viewport": [
+        2327,
+        923
+      ]
+    }
+  },
+  {
+    "label": "single-view-closed",
+    "state": {
+      "brandNodes": 0,
+      "comboboxes": 0,
+      "hint": {
+        "hidden": true,
+        "text": "拖动平移 · 滚轮穿行 · Esc 返回总览"
+      },
+      "intro": "光已离开，影像仍在这里。",
+      "portals": 0,
+      "returnButton": {
+        "disabled": false,
+        "label": "返回总览",
+        "rect": {
+          "bottom": 72,
+          "height": 44,
+          "left": 2243,
+          "right": 2287,
+          "top": 28,
+          "width": 44,
+          "x": 2243,
+          "y": 28
+        },
+        "svg": {
+          "bottom": 64,
+          "height": 28,
+          "left": 2251,
+          "right": 2279,
+          "top": 36,
+          "width": 28,
+          "x": 2251,
+          "y": 36
+        },
+        "title": "返回总览",
+        "visibleText": ""
+      },
+      "title": "Afterimage",
+      "titleRect": {
+        "bottom": 859.5625,
+        "height": 46,
+        "left": 40,
+        "right": 245.859375,
+        "top": 813.5625,
+        "width": 205.859375,
+        "x": 40,
+        "y": 813.5625
+      },
+      "view": {
+        "actualCamera": "-0.4356,0.1302,3.5921",
+        "anchorPose": "-0.4356,0.1302,6.1833",
+        "aspectError": "2.220e-16",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "detail": "ready",
+        "distance": "-45.00",
+        "domeRadius": "902",
+        "fieldCount": "37",
+        "fieldLayout": "projection-gap",
+        "fieldRetiring": "0",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "2.521",
+        "orientation": "0.160,-0.160",
+        "pan": "0.00,0.00",
+        "portal": "-0.4356,0.1302,6.1833",
+        "progress": "1.000",
+        "quaternion": "-0.07966,0.07966,-0.00639,0.99361",
+        "reduced": "false",
+        "regions": "23",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "subtle",
+        "view": "space",
+        "viewer": "closed"
+      },
+      "viewport": [
+        2327,
+        923
+      ]
+    }
+  },
+  {
+    "label": "phone-overview",
+    "state": {
+      "brandNodes": 0,
+      "comboboxes": 0,
+      "hint": {
+        "hidden": true,
+        "text": "拖动平移 · 滚轮穿行 · Esc 返回总览"
+      },
+      "intro": "光已离开，影像仍在这里。",
+      "portals": 0,
+      "returnButton": {
+        "disabled": false,
+        "label": "返回总览",
+        "rect": {
+          "bottom": 64,
+          "height": 44,
+          "left": 326,
+          "right": 370,
+          "top": 20,
+          "width": 44,
+          "x": 326,
+          "y": 20
+        },
+        "svg": {
+          "bottom": 56,
+          "height": 28,
+          "left": 334,
+          "right": 362,
+          "top": 28,
+          "width": 28,
+          "x": 334,
+          "y": 28
+        },
+        "title": "返回总览",
+        "visibleText": ""
+      },
+      "title": "Afterimage",
+      "titleRect": {
+        "bottom": 691.203125,
+        "height": 32.1875,
+        "left": 20,
+        "right": 312,
+        "top": 659.015625,
+        "width": 292,
+        "x": 20,
+        "y": 659.015625
+      },
+      "view": {
+        "actualCamera": "-0.4356,0.1302,3.5921",
+        "anchorPose": "-0.4356,0.1302,6.1833",
+        "aspectError": "2.220e-16",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "detail": "ready",
+        "distance": "-45.00",
+        "domeRadius": "902",
+        "fieldCount": "37",
+        "fieldLayout": "projection-gap",
+        "fieldRetiring": "0",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "2.521",
+        "orientation": "0.160,-0.160",
+        "pan": "0.00,0.00",
+        "portal": "-0.4356,0.1302,6.1833",
+        "progress": "1.000",
+        "quaternion": "-0.07966,0.07966,-0.00639,0.99361",
+        "reduced": "false",
+        "regions": "23",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "subtle",
+        "view": "space",
+        "viewer": "closed"
+      },
+      "viewport": [
+        390,
+        844
+      ]
+    }
+  },
+  {
+    "label": "phone-return-settled",
+    "state": {
+      "brandNodes": 0,
+      "comboboxes": 0,
+      "hint": {
+        "hidden": true,
+        "text": "上下左右拖动旋转 · 点击选中 · 滚轮进入"
+      },
+      "intro": "光已离开，影像仍在这里。",
+      "portals": 0,
+      "returnButton": {
+        "disabled": true,
+        "label": "返回总览",
+        "rect": {
+          "bottom": 64,
+          "height": 44,
+          "left": 326,
+          "right": 370,
+          "top": 20,
+          "width": 44,
+          "x": 326,
+          "y": 20
+        },
+        "svg": {
+          "bottom": 56,
+          "height": 28,
+          "left": 334,
+          "right": 362,
+          "top": 28,
+          "width": 28,
+          "x": 334,
+          "y": 28
+        },
+        "title": "返回总览",
+        "visibleText": ""
+      },
+      "title": "Afterimage",
+      "titleRect": {
+        "bottom": 691.203125,
+        "height": 32.1875,
+        "left": 20,
+        "right": 312,
+        "top": 659.015625,
+        "width": 292,
+        "x": 20,
+        "y": 659.015625
+      },
+      "view": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "anchorPose": "-0.4356,0.1302,6.1833",
+        "aspectError": "2.220e-16",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "detail": "ready",
+        "distance": "-45.00",
+        "domeRadius": "315",
+        "fieldCount": "12",
+        "fieldLayout": "projection-gap",
+        "fieldRetiring": "0",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.462",
+        "orientation": "0.160,-0.160",
+        "pan": "0.00,0.00",
+        "portal": "-0.4356,0.1302,6.1833",
+        "progress": "0.000",
+        "quaternion": "-0.07966,0.07966,-0.00639,0.99361",
+        "reduced": "false",
+        "regions": "9",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere",
+        "viewer": "closed"
+      },
+      "viewport": [
+        390,
+        844
+      ]
+    }
+  },
+  {
+    "label": "css-fallback",
+    "state": {
+      "comboboxes": 0,
+      "intro": "光已离开，影像仍在这里。",
+      "notice": "当前无法进入影像空间，可拖动旋转并查看照片。",
+      "noticeVisible": true,
+      "returnDisabled": true,
+      "title": "Afterimage"
+    }
+  },
+  {
+    "label": "desktop-final",
+    "state": {
+      "brandNodes": 0,
+      "comboboxes": 0,
+      "hint": {
+        "hidden": true,
+        "text": "上下左右拖动旋转 · 点击选中 · 滚轮进入"
+      },
+      "intro": "光已离开，影像仍在这里。",
+      "portals": 0,
+      "returnButton": {
+        "disabled": true,
+        "label": "返回总览",
+        "rect": {
+          "bottom": 72,
+          "height": 44,
+          "left": 2243,
+          "right": 2287,
+          "top": 28,
+          "width": 44,
+          "x": 2243,
+          "y": 28
+        },
+        "svg": {
+          "bottom": 64,
+          "height": 28,
+          "left": 2251,
+          "right": 2279,
+          "top": 36,
+          "width": 28,
+          "x": 2251,
+          "y": 36
+        },
+        "title": "返回总览",
+        "visibleText": ""
+      },
+      "title": "Afterimage",
+      "titleRect": {
+        "bottom": 859.5625,
+        "height": 46,
+        "left": 40,
+        "right": 245.859375,
+        "top": 813.5625,
+        "width": 205.859375,
+        "x": 40,
+        "y": 813.5625
+      },
+      "view": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "anchorPose": "-0.4356,0.1302,6.1833",
+        "aspectError": "2.220e-16",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "detail": "ready",
+        "distance": "-45.00",
+        "domeRadius": "902",
+        "fieldCount": "12",
+        "fieldLayout": "projection-gap",
+        "fieldRetiring": "0",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "2.521",
+        "orientation": "0.160,-0.160",
+        "pan": "0.00,0.00",
+        "portal": "-0.4356,0.1302,6.1833",
+        "progress": "0.000",
+        "quaternion": "-0.07966,0.07966,-0.00639,0.99361",
+        "reduced": "false",
+        "regions": "9",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere",
+        "viewer": "closed"
+      },
+      "viewport": [
+        2327,
+        923
+      ]
+    },
+    "logs": []
+  }
+]

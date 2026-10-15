@@ -30,3 +30,23 @@ Codrops仓库README允许个人/商业项目集成与改造，禁止原样再发
 - Yamaha TT-300：作者说明独立可动唱臂、2k/4k PBR和CC Attribution，但本轮未实际读图，不作为优先审美结论。
 - NicePNG素材作者链不明；Vecteezy候选明确AI Generated及免费许可限制，未作为可直接替换的正式资源。
 - 新两项写实候选研究完成，正式选用/资产制作/落针验证仍未实施；当前应用保持原Vinyl Vue唱臂。
+
+## 当前素材之后的第二组选型
+
+2026-10-14 用户继续问“唱片臂还有更好看的吗”。本轮只提供外观候选/直观对照，不直接覆盖已接入的原创金属图或落针几何；沿用P13/U12/T25.18。
+
+- P13-TONEARM-REF-06：Rega RB3000，[官方产品页](https://www.rega.co.uk/products/rb3000)和[1200×742官方图](https://www.rega.co.uk/assets/uploads/heroes/_gr-1200px/rb3000-hero-01.jpg)实际读图。抛光金属、一体式细长直臂，与当前简约黑灰更相称是执行者建议，不是用户选择。官方明确手工抛光臂管；不引述听感/价格/购买建议。
+- P13-TONEARM-REF-04再次对照：SME M2-9R同一2560×1809官方图实际读回，细银弯管/黑色镂空唱头，偏复古器物方向。
+- P13-TONEARM-REF-05：Ortofon AS-212R，[官方产品页](https://ortofon.com/products/as-212r)和[864×864官方图](https://ortofon.com/cdn/shop/files/AS-212R.png?v=1696234529&width=864)实际加载，银色弯管、黑银紧凑轴承座。该图没有装唱头，不能当作完整播放素材。此前dsc0903图是整台唱机环境照，未作为主对照。
+- Reed 3P实际官方页面及两张900px轴承近照已查看，木管+精密金属配重，但机械座仍复杂且不是完整俯视造型，因此退出本组三个优先候选，不误把页面材质色样的Reed 2A当作3P。
+- 对照页/截图/images.json见[evidence/u12-p13-2026-10-14-tonearm-next](evidence/u12-p13-2026-10-14-tonearm-next/index.html)。Rega在localhost内嵌首次加载失败，改用已成功打开官方图的原生浏览器截图作研究预览，没有下载原始远程图；SME/Ortofon仍官方远程原图。最终三图loaded=true/尺寸读回通过，首批失败如实保留在记录中，不写为全程无问题。
+- 体验：http://127.0.0.1:61173/personal-homepage/music/tonearm-next/。仅新增研究静态页，不构建应用、不重启服务、不改变首页/当前播放器。原厂图的应用再利用许可仍未核验；选定方向后要制作可使用的统一俯视资产、重新校准落针，不把这些侧视研究照片直接当成本站正式素材。
+
+## 艺术化唱臂参考
+
+用户随后询问艺术化处理的唱臂，研究中插入“盘未完全离套就闪到包装前”的修复，后者已优先完成。艺术研究仍沿用T25.18，仅来源/风格比较，不再次换素材。
+
+- P13-TONEARM-REF-07：[Side One作者仓库](https://github.com/mintdotgg/bookshelf)的Three.js器物风格，已重新读回本对话此前真实截图side-one-desktop-playing-test-audio.png；圆润曲臂和整体唱机由三维画面表现。图片为此前合成音频验证场景，不是商业音源证明，斜视/部分遮挡不能视为现成俯视透明唱臂资产。原主项目许可仍未查到，不宣称可直接复制。
+- 原P13-TONEARM-REF-01：[Codrops Interactive Record Player](https://tympanus.net/codrops/2016/06/15/interactive-record-player/)的SVG图形化唱臂，原作者官方InteractiveRecordPlayer_3.jpg实际浏览器加载890×512并查看，紫色曲管/白色枢轴和唱头，明显简化器物细节。不是新增替换，也不将此前用户否决的本站银色矢量适配重新记为选定。
+- Dribbble原作者R P Jadeja《Retro Vibes in 3D》页面描述Spline和风格化光影；网页搜索读到作者描述，但实际浏览器遇到人机验证，未绕过或请求用户处理。Ana Carolina的Vinyl Player同样仅读到原作者说明；未把未实看的图当作已验证推荐。
+- 结论：存在三维器物和图形化两类已实看的艺术方向；结合本站当前黑灰/真实黑胶，优先建议保留材质厚度的半写实三维，方向建议不是用户选用/新素材接入完成。原唱臂保持，具体原创变体或资源取得留待用户进一步选择。

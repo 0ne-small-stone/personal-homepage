@@ -4,12 +4,14 @@ export interface JourneyModel {
   pointer: { x: number; y: number; active: boolean; revision: number };
   invalidate: () => void;
   lastFrame: number;
+  frameDelta: number;
   motion: MotionState;
+  loading: {active:boolean;progress:number;compiled:boolean;frameReady:boolean;onCompiled?:()=>void;onFrame?:()=>void;onSampleError?:()=>void};
   drive?: (time: number, dt: number) => void;
   afterFrame?: (dt: number) => void;
 }
 export function createJourneyModel(): JourneyModel {
-  return { progress: 0, pointer: { x: 0, y: 0, active: false, revision: 0 }, invalidate: () => {}, lastFrame: 0, motion: createMotionState() };
+  return { progress: 0, pointer: { x: 0, y: 0, active: false, revision: 0 }, invalidate: () => {}, lastFrame: 0, frameDelta:1/60, motion: createMotionState(),loading:{active:false,progress:1,compiled:false,frameReady:false} };
 }
 
 export function chapterPose(progress: number) {

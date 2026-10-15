@@ -20,7 +20,7 @@ test('cloud staging never publishes pending or changing downloads', async t => {
   await writeFile(configPath, JSON.stringify({ version: 1, shareUrl: 'https://pan.koala-studio.org.cn/s/testShare', initialImportFiles: [entry] }));
   await writeFile(mapPath, JSON.stringify({ version: 1, directory: root, files: [entry] }));
   await writeFile(catalogPath, JSON.stringify({ version: 1, tracks: [track] }));
-  const options = { directory: destination, configPath, mapPath, catalogPath };
+  const options = { directory: destination, configPath, mapPath, catalogPath, completedFiles: new Set() };
   const remote = (status, length, modified) => async () => new Response(null, { status, headers: { 'Content-Length': String(length), 'Last-Modified': modified } });
   await t.test('only the configured Koala share is accepted', () => {
     assert.equal(cloudBase('https://pan.koala-studio.org.cn/s/testShare'), 'https://pan.koala-studio.org.cn/public.php/dav/files/testShare/');

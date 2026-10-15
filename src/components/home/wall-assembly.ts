@@ -1,6 +1,10 @@
 // F02: one reversible scroll state, no elapsed-time or random brick state.
 export const wallColumns = 23, wallRows = 39;
 export const squareAt = .42, squareShortSide = .64;
+export const brickScale = .85;
+export const wallBrick = {width:1.12*brickScale,height:.48*brickScale,depth:.16*brickScale,
+  stepX:1.13*brickScale,stepY:.49*brickScale,bevel:.020*brickScale,seamDepth:.04*brickScale,seamOffset:.11*brickScale};
+export const brickRiseDistance = .32*brickScale;
 export const clamp01 = (value: number) => Math.max(0, Math.min(1, value));
 export const smooth01 = (value: number) => { const t=clamp01(value); return t*t*(3-2*t); };
 
@@ -22,7 +26,7 @@ export function openingCoordinate(start: number, square: number, end: number, pr
 }
 
 export function brickLanding(row: number, column: number) {
-  return { x:(column-(wallColumns-1)/2)*1.13+(row%2)*.565, y:(row-(wallRows-1)/2)*.49 };
+  return { x:(column-(wallColumns-1)/2)*wallBrick.stepX+(row%2)*wallBrick.stepX/2, y:(row-(wallRows-1)/2)*wallBrick.stepY };
 }
 
 // A stable per-ID score, evaluated from progress rather than a random queue.
@@ -40,10 +44,10 @@ function laneScore(column:number,min:number,max:number) {
 
 /** Only viewport-intersecting rows/columns participate; offscreen final bricks are harmless. */
 export function assemblyLayout(halfWidth: number, halfHeight: number) {
-  const minRow=Math.max(0,Math.ceil((wallRows-1)/2+(-halfHeight-.24)/.49));
-  const maxRow=Math.min(wallRows-1,Math.floor((wallRows-1)/2+(halfHeight+.24)/.49));
-  const minColumn=Math.max(0,Math.ceil((wallColumns-1)/2+(-halfWidth-1.13)/1.13));
-  const maxColumn=Math.min(wallColumns-1,Math.floor((wallColumns-1)/2+(halfWidth+.56)/1.13));
+  const minRow=Math.max(0,Math.ceil((wallRows-1)/2+(-halfHeight-wallBrick.height/2)/wallBrick.stepY));
+  const maxRow=Math.min(wallRows-1,Math.floor((wallRows-1)/2+(halfHeight+wallBrick.height/2)/wallBrick.stepY));
+  const minColumn=Math.max(0,Math.ceil((wallColumns-1)/2+(-halfWidth-wallBrick.stepX)/wallBrick.stepX));
+  const maxColumn=Math.min(wallColumns-1,Math.floor((wallColumns-1)/2+(halfWidth+wallBrick.width/2)/wallBrick.stepX));
   let phaseMin=1,phaseMax=0;
   for(let column=minColumn;column<=maxColumn;column++) {
     const score=laneScore(column,minColumn,maxColumn);phaseMin=Math.min(phaseMin,score);phaseMax=Math.max(phaseMax,score);
@@ -59,16 +63,17 @@ export function brickTiming(row: number,column: number,layout: ReturnType<typeof
   return {start:((row-layout.minRow)+lane+offset)/span,duration:duration/span};
 }
 
-export function brickState(build: number, row: number, column: number, layout: ReturnType<typeof assemblyLayout>, spawnY: number) {
+export function brickState(build: number, row: number, column: number, layout: ReturnType<typeof assemblyLayout>) {
   const landing=brickLanding(row,column);
   const participating=row>=layout.minRow&&row<=layout.maxRow&&column>=layout.minColumn&&column<=layout.maxColumn;
   if (!participating) return {...landing, visible:build>=1, progress:build>=1?1:0,tiltX:0,tiltY:0,z:0,reveal:build>=1?1:0};
   const timing=brickTiming(row,column,layout);
   const p=clamp01((build-timing.start)/timing.duration);
-  const fall=p*p*p*(p*(p*6-15)+10);
+  const rise=p*p*p*(p*(p*6-15)+10);
   const approach=1-smooth01(p),side=brickNoise(row,column,32452843)*2-1;
-  return {x:p===1?landing.x:landing.x+side*.08*Math.sin(Math.PI*p),y:p===1?landing.y:spawnY+(landing.y-spawnY)*fall,
-    visible:p>0,progress:p,tiltX:.14*approach,tiltY:p===1?0:side*.08*approach,z:.18*approach,reveal:smooth01((p-.20)/.70)};
+  // Build from the existing foundation: each brick rises locally, never crosses the empty opening.
+  return {x:p===1?landing.x:landing.x+side*.08*brickScale*Math.sin(Math.PI*p),y:p===1?landing.y:landing.y-brickRiseDistance*(1-rise),
+    visible:p>0,progress:p,tiltX:.14*approach,tiltY:p===1?0:side*.08*approach,z:.18*brickScale*approach,reveal:smooth01((p-.20)/.70)};
 }
 
 // Uniform pixel scale, anchored to the opening floor; never squash brick rows.

@@ -27,6 +27,8 @@ export function installWorksMotion(model: JourneyModel) {
   const containers = sections.map(section => section.querySelector<HTMLElement>('.home-chapter-viewport')!);
   const details = sections.map(section => [...section.querySelectorAll<HTMLElement>('.home-description, .home-cta, .home-chapter-note')]);
   const ctas = sections.map(section => section.querySelector<HTMLAnchorElement>('.home-cta')!);
+  const chapterLinks=[...document.querySelectorAll<HTMLAnchorElement>('.home-chapter-index a')];
+  let lastIdentity=-1,lastIdentityHidden:boolean|undefined,lastChapter='',lastWall:boolean|undefined,lastPortal:boolean|undefined,lastCurrent=-1;
 
   function enableCta(index: number, enabled: boolean) {
     ctas[index].inert = !enabled;
@@ -94,8 +96,8 @@ export function installWorksMotion(model: JourneyModel) {
   const triggers = channels.map(channel => ScrollTrigger.create({
     id: `lssh-${channel}`, start: () => motionRange(channel, model.motion.height)[0],
     end: () => motionRange(channel, model.motion.height)[1],
-    onUpdate: trigger => { model.motion.raw[channel] = trigger.progress; },
-    onRefresh: trigger => { model.motion.raw[channel] = trigger.progress; },
+    onUpdate: trigger => { model.motion.raw[channel] = trigger.progress; model.invalidate(); },
+    onRefresh: trigger => { model.motion.raw[channel] = trigger.progress; model.invalidate(); },
     ...(channel === 'snap' ? { snap: { snapTo: 1 / (workCount - 1), duration: 1, delay: .1, ease: 'power3', directional: false } } : {}),
   }));
   sections.forEach((_, index) => triggers.push(ScrollTrigger.create({
@@ -113,6 +115,7 @@ export function installWorksMotion(model: JourneyModel) {
   const prepare = new MotionLerper(.5), expand = new MotionLerper(1), wall = new MotionLerper(1.5);
   const allLerpers = [progress, center, background, title, prepare, expand, wall];
   let pendingFocus: string | undefined;
+  let lenisTime=0;
   let portalMode = false;
   const phaseAt = (s: number) => {
     const h = model.motion.height;
@@ -143,8 +146,10 @@ export function installWorksMotion(model: JourneyModel) {
     if (index >= 0) show(index, true);
     model.invalidate();
   }
-  model.drive = (time, _dt) => {
-    lenis.raf(time);
+  model.drive = (time, dt) => {
+    // Lenis also computes its delta from its RAF timestamp. Exclude demand-idle
+    // time so the first wheel after a pause does not complete in a single step.
+    lenisTime+=dt*1000;lenis.raf(lenisTime);
     model.motion.time = time; model.motion.frame++;
     model.motion.scrollY = scrollY; model.motion.velocity = lenis.velocity;
     const h = model.motion.height, s = scrollY;
@@ -167,22 +172,25 @@ export function installWorksMotion(model: JourneyModel) {
     model.progress = s < h + introGap ? model.motion.raw.intro : 1;
     const identityProgress = Math.max(0, Math.min(1, s / introGap));
     const identityHidden = s >= introGap;
-    hero.style.opacity = String(1 - identityProgress ** 2 * (3 - 2 * identityProgress));
+    if(identityProgress!==lastIdentity){lastIdentity=identityProgress;hero.style.opacity = String(1 - identityProgress ** 2 * (3 - 2 * identityProgress));}
     // Move only focus that would otherwise remain inside the hidden identity layer.
     if (identityHidden && hero.contains(document.activeElement)) identityFallback.focus({ preventScroll: true });
-    hero.style.visibility = identityHidden ? 'hidden' : 'visible';
-    hero.inert = identityHidden;
-    if (identityHidden) hero.setAttribute('aria-hidden', 'true');
-    else hero.removeAttribute('aria-hidden');
-    const current = s < h + introGap ? 0 : model.motion.activeItem >= 0 ? model.motion.activeItem + 1 : Math.min(4, Math.max(1, Math.round(model.motion.rendered.index)));
-    body.dataset.chapter = s >= motionRange('wall', h)[0] ? 'wall' : s < h + introGap ? 'intro' : sections[Math.max(0, current - 1)]?.id || 'projects';
+    if(identityHidden!==lastIdentityHidden){
+      lastIdentityHidden=identityHidden;hero.style.visibility = identityHidden ? 'hidden' : 'visible';hero.inert = identityHidden;
+      if (identityHidden) hero.setAttribute('aria-hidden', 'true');else hero.removeAttribute('aria-hidden');
+    }
+    const current = s < h + introGap ? 0 : model.motion.activeItem >= 0 ? model.motion.activeItem + 1 : Math.min(workCount, Math.max(1, Math.round(model.motion.rendered.index)));
+    const chapter=s >= motionRange('wall', h)[0] ? 'wall' : s < h + introGap ? 'intro' : sections[Math.max(0, current - 1)]?.id || sections[0]?.id || 'intro';
+    if(chapter!==lastChapter){lastChapter=chapter;body.dataset.chapter=chapter;}
     const onWall = wallReadingReady(renderedExpand,renderedWall,model.motion.portalCovered);
-    body.classList.toggle('home-wall-ready',onWall);
-    wallContent.inert=!onWall;
-    if(onWall)wallContent.removeAttribute('aria-hidden');else wallContent.setAttribute('aria-hidden','true');
-    body.classList.toggle('home-portal-cover', (nextPortalMode || model.motion.rendered.prepare > .001) && !onWall);
-    body.classList.toggle('home-on-wall', onWall);
-    document.querySelectorAll('.home-chapter-index a').forEach((link, index) => index === (body.dataset.chapter === 'wall' ? 5 : current) ? link.setAttribute('aria-current', 'location') : link.removeAttribute('aria-current'));
+    if(onWall!==lastWall){
+      lastWall=onWall;body.classList.toggle('home-wall-ready',onWall);body.classList.toggle('home-on-wall',onWall);wallContent.inert=!onWall;
+      if(onWall)wallContent.removeAttribute('aria-hidden');else wallContent.setAttribute('aria-hidden','true');
+    }
+    const covered=(nextPortalMode || model.motion.rendered.prepare > .001) && !onWall;
+    if(covered!==lastPortal){lastPortal=covered;body.classList.toggle('home-portal-cover',covered);}
+    const currentIndex=chapter==='wall'?workCount+1:current;
+    if(currentIndex!==lastCurrent){lastCurrent=currentIndex;chapterLinks.forEach((link,index)=>index===currentIndex?link.setAttribute('aria-current','location'):link.removeAttribute('aria-current'));}
   };
   model.afterFrame = dt => {
     // Camera and cards have consumed this revision in the same R3F frame.
@@ -205,6 +213,7 @@ export function installWorksMotion(model: JourneyModel) {
         frame: snapshot.frame, scrollY: snapshot.scrollY, phase: snapshot.phase,
         raw: snapshot.raw, rendered: snapshot.rendered, portal: snapshot.portal, portalCovered: snapshot.portalCovered,
         wall: snapshot.wall, glass: snapshot.glass, initialization: snapshot.initialization,
+        cards: snapshot.cards, camera: snapshot.camera,
       });
       document.dispatchEvent(new CustomEvent('lssh:motion', { detail: snapshot }));
     }
@@ -226,6 +235,7 @@ export function installWorksMotion(model: JourneyModel) {
     const target = document.getElementById(url.hash.slice(1)); if (!target) return;
     event.preventDefault(); abortSnap();
     lenis.scrollTo(target.offsetTop, { duration: 1.2, easing: t => Math.min(1, 1.001 - 2 ** (-10 * t)) });
+    model.invalidate();
     const chapterHistory={...history.state};delete chapterHistory.lsshHome;
     history.replaceState(chapterHistory, '', url.hash);
   // Own same-page chapter links before Astro's bubble-phase route handler.
@@ -235,6 +245,7 @@ export function installWorksMotion(model: JourneyModel) {
     if (!section) return; const index = sections.indexOf(section);
     if (index >= 0 && model.motion.activeItem !== index) {
       abortSnap(); lenis.scrollTo(section.offsetTop, { immediate: true, force: true }); show(index, true);
+      model.invalidate();
     }
   }, { signal: controller.signal });
   document.addEventListener('lssh:home-restore', event => {

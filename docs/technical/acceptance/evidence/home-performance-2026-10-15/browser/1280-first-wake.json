@@ -1,0 +1,433 @@
+{
+  "url": "http://127.0.0.1:4475/personal-homepage/?opticsDebug=1#radio",
+  "width": 1280,
+  "height": 720,
+  "y": 2474,
+  "status": "ready",
+  "classes": "lssh-home has-journey home-enhanced home-loading-nav-ready",
+  "visible": true,
+  "motion": {
+    "height": 720,
+    "scrollY": 2474,
+    "velocity": 2.3485166469245087,
+    "phase": "works",
+    "raw": {
+      "kv": 1,
+      "intro": 1,
+      "works": 0.5743055555555555,
+      "event": 0.7657407407407407,
+      "snap": 0.6486111111111111,
+      "outro": 0,
+      "prepare": 0,
+      "expand": 0,
+      "wall": 0
+    },
+    "rendered": {
+      "progress": 0.5724920575801286,
+      "index": 2.09442346518794,
+      "background": 2.2817725880391455,
+      "intro": 1,
+      "prepare": 0,
+      "expand": 0,
+      "wall": 0
+    },
+    "activeItem": 1,
+    "snapActive": false,
+    "portalCovered": false,
+    "frame": 140,
+    "time": 18774.69999998808,
+    "initialization": {
+      "revision": 1,
+      "y": 0,
+      "zoom": 1,
+      "reason": "layout"
+    },
+    "cards": [
+      {
+        "index": 0,
+        "position": [
+          -5.865182541096315,
+          0.6566540791127641,
+          -2.2243233250611314
+        ],
+        "rotationY": -0.6566540791127641,
+        "scale": 0.54,
+        "alpha": 0.9204050271417551,
+        "visible": true
+      },
+      {
+        "index": 1,
+        "position": [
+          -0.6222692371281576,
+          0.05665407911276405,
+          -0.6133637527040606
+        ],
+        "rotationY": -0.05665407911276405,
+        "scale": 0.6486691841774471,
+        "alpha": 1,
+        "visible": true
+      },
+      {
+        "index": 2,
+        "position": [
+          5.192755533714012,
+          -0.5433459208872359,
+          -1.7483037725321413
+        ],
+        "rotationY": 0.5433459208872359,
+        "scale": 0.5513308158225528,
+        "alpha": 0.9889083927505378,
+        "visible": true
+      }
+    ],
+    "camera": {
+      "position": [
+        0.08999961971147218,
+        -0.03333319248573045,
+        6
+      ],
+      "fov": 45.125,
+      "outro": {
+        "raw": 0,
+        "parallax": 0,
+        "projection": 0
+      },
+      "offset": [
+        0.14999936618578696,
+        -0.05555532080955076
+      ],
+      "offsetTarget": [
+        0.15000000000000002,
+        -0.05555555555555558
+      ],
+      "projection": [
+        1.3538162618089529,
+        0,
+        0,
+        0,
+        0,
+        2.4067844654381383,
+        0,
+        0,
+        0,
+        0,
+        -1.0040080160320641,
+        -1,
+        0,
+        0,
+        -0.20040080160320642,
+        0
+      ],
+      "inverse": [
+        0.7386526726040445,
+        0,
+        0,
+        0,
+        0,
+        0.4154921283397751,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -4.99,
+        0,
+        0,
+        -1,
+        5.01
+      ],
+      "perspective": [
+        1.3538162618089529,
+        0,
+        0,
+        0,
+        0,
+        2.4067844654381383,
+        0,
+        0,
+        0,
+        0,
+        -1.0040080160320641,
+        -1,
+        0,
+        0,
+        -0.20040080160320642,
+        0
+      ],
+      "orthographic": [
+        0.234375,
+        0,
+        0,
+        0,
+        0,
+        0.4166666666666667,
+        0,
+        0,
+        0,
+        0,
+        -0.04008016032064128,
+        0,
+        0,
+        0,
+        -1.0040080160320641,
+        1
+      ]
+    },
+    "glass": {
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        -0.24230774083981899,
+        0,
+        0.9701994427586005
+      ],
+      "scale": 0.5,
+      "visible": true,
+      "projectedAnchor": [
+        640,
+        360
+      ],
+      "bounds": [
+        524.7244012928303,
+        251.7252842927779,
+        764.5165849228099,
+        475.3984405237776
+      ],
+      "centeredLocalBounds": [
+        -1.6766839027404785,
+        -1.4567844867706299,
+        -0.4102458655834198,
+        1.6766839027404785,
+        1.4567844867706299,
+        0.4102458655834198
+      ]
+    },
+    "wall": {
+      "raw": 0,
+      "rise": 0,
+      "build": 0,
+      "position": [
+        0,
+        0,
+        -1
+      ],
+      "visible": false,
+      "revision": 1,
+      "settled": 0,
+      "falling": 0,
+      "drawn": 0,
+      "rows": 3,
+      "samples": []
+    },
+    "portal": null,
+    "glassRotation": {
+      "dt": 0.03333333333333333,
+      "rawDt": 0.056099999994039536,
+      "paused": false,
+      "hover": true,
+      "reset": "",
+      "initialization": 1,
+      "phase": "works",
+      "pointer": {
+        "target": [
+          0.30000000000000004,
+          -0.11111111111111116
+        ],
+        "current": [
+          0.30000000000000004,
+          -0.11111111111111116
+        ],
+        "residual": [
+          0,
+          0
+        ],
+        "active": true,
+        "revision": 1,
+        "weight": 0.0010402546634074685
+      },
+      "worksRotate": {
+        "value": 1,
+        "from": 0,
+        "target": 1,
+        "elapsed": 1,
+        "revision": 1
+      },
+      "wBefore": 1,
+      "eulerBefore": [
+        0,
+        0,
+        0
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "velocity": {
+        "raw": 2.3485166469245087,
+        "clamped": 2.3485166469245087,
+        "current": 9.648057462350103
+      },
+      "yIncrement": -0.009648057462350102,
+      "returnFactor": 0.0006666666666666665,
+      "before": [
+        0,
+        -0.23778326122953986,
+        0,
+        0.9713182386216374
+      ],
+      "quaternion": [
+        0,
+        -0.24230774083981899,
+        0,
+        0.9701994427586005
+      ]
+    },
+    "lerpers": {
+      "progress": {
+        "current": 0.5724920575801286,
+        "target": 0.5743055555555555
+      },
+      "index": {
+        "current": 2.09442346518794,
+        "target": 2.1159872921282057
+      },
+      "background": {
+        "current": 0.5704431470097864,
+        "target": 0.5743055555555555
+      },
+      "intro": {
+        "current": 1,
+        "target": 1
+      },
+      "prepare": {
+        "current": 0,
+        "target": 0
+      },
+      "expand": {
+        "current": 0,
+        "target": 0
+      },
+      "wall": {
+        "current": 0,
+        "target": 0
+      }
+    }
+  },
+  "loop": {
+    "mode": "always",
+    "running": true,
+    "frame": 140,
+    "time": 18775.59999999404,
+    "velocity": 2.3485166469245087,
+    "snap": false,
+    "loading": false,
+    "renderFrame": 1339,
+    "transmissionVisible": true,
+    "trackingGlass": true,
+    "rawDelta": 0.056099999994039536,
+    "delta": 0.056099999994039536,
+    "cpuMs": 0.9000000059604645
+  },
+  "backdrop": {
+    "q": 0.54721173259397,
+    "weight": 1,
+    "intro": 0,
+    "farOffset": [
+      0.0016524106407889518,
+      0.0007081759889095506
+    ],
+    "gridOffset": [
+      0.0033048212815779037,
+      0.0011802933148492513
+    ],
+    "light": [
+      0.47922683765865315,
+      0.30053494744668585
+    ],
+    "spacing": 104,
+    "farBrightness": 0.52,
+    "fieldPeak": 0.048,
+    "gridPeak": 0.048,
+    "ceiling": 0.1411764705882353,
+    "visible": true,
+    "texture": "48ad76a6-5ed5-43fc-9f58-27b3d1ced924",
+    "textureSize": [
+      1536,
+      864
+    ],
+    "corners": [
+      [
+        -1.1039630040825208,
+        -1.1125706559404365,
+        0.9792031726003755
+      ],
+      [
+        1.1420818577936587,
+        -1.1402632356507851,
+        0.9785782550609977
+      ],
+      [
+        1.13611880390016,
+        1.1278949888729086,
+        0.9787110292874109
+      ],
+      [
+        -1.0983399020981257,
+        1.0999921129053845,
+        0.9793295175628494
+      ]
+    ]
+  },
+  "loading": {
+    "phase": "ready",
+    "active": false,
+    "requested": true,
+    "progress": 1,
+    "resources": [
+      "layout",
+      "wordmark",
+      "compiled",
+      "frame"
+    ],
+    "reason": "",
+    "closed": false,
+    "events": [
+      {
+        "phase": "waiting",
+        "time": 300.19999998807907
+      },
+      {
+        "phase": "revealing",
+        "time": 669.7999999821186
+      },
+      {
+        "phase": "ready",
+        "time": 1493.4000000059605
+      }
+    ],
+    "preview": null,
+    "wordmarkDecoded": true,
+    "preference": "motion"
+  },
+  "pass": {
+    "active": false,
+    "copies": 4,
+    "size": [],
+    "disposed": true,
+    "glassId": "67776d1e-bf85-42d4-9739-474ba9d62657",
+    "geometryId": "97339b60-0622-4a73-a7b8-165f05cfa0e8",
+    "worldDrawn": true
+  },
+  "canvas": 1,
+  "audio": 1,
+  "wordmarks": 1,
+  "overflow": false,
+  "bundle": "/personal-homepage/_astro/HomeJourney.C6MN0nAV.js",
+  "wallInert": true,
+  "summaryColor": "rgb(237, 237, 237)"
+}

@@ -1,0 +1,331 @@
+{
+  "time": 1791995211944,
+  "background": {
+    "ceiling": 0.1411764705882353,
+    "corners": [
+      [
+        -1.097420378679322,
+        -1.107972438089607,
+        0.9793079922434118
+      ],
+      [
+        1.1488279236492391,
+        -1.1451462619891593,
+        0.978469185590625
+      ],
+      [
+        1.1427865499219652,
+        1.1328172987454406,
+        0.9786034873568672
+      ],
+      [
+        -1.0918379250465,
+        1.095364350443392,
+        0.9794336384772606
+      ]
+    ],
+    "farBrightness": 0.52,
+    "farOffset": [
+      0.0175,
+      0.0075
+    ],
+    "fieldPeak": 0.048,
+    "gridOffset": [
+      0.035,
+      0.0125
+    ],
+    "gridPeak": 0.048,
+    "intro": 0,
+    "light": [
+      0.27999999999999997,
+      0.36
+    ],
+    "q": 1,
+    "spacing": 104,
+    "texture": "bb854b66-1b1f-405c-ae58-edd4e2cf45e6",
+    "textureSize": [
+      1536,
+      874
+    ],
+    "visible": true,
+    "weight": 1
+  },
+  "bundle": "/personal-homepage/_astro/HomeJourney.BNuf11DH.js",
+  "classes": "lssh-home has-journey home-enhanced home-loading-nav-ready",
+  "content": [
+    1265,
+    720
+  ],
+  "loading": {
+    "active": false,
+    "closed": false,
+    "events": [
+      {
+        "phase": "waiting",
+        "time": 170.2000000178814
+      },
+      {
+        "phase": "ready",
+        "time": 1707.600000023842
+      }
+    ],
+    "phase": "ready",
+    "preference": "motion",
+    "preview": null,
+    "progress": 1,
+    "reason": "",
+    "requested": false,
+    "resources": [
+      "layout",
+      "wordmark",
+      "compiled",
+      "frame"
+    ],
+    "wordmarkDecoded": true
+  },
+  "loadingPass": {
+    "active": false,
+    "copies": 0,
+    "disposed": true,
+    "geometryId": "77ad8330-562f-4f34-8829-6acf71f94866",
+    "glassId": "9a3b6fcc-29c8-481c-b582-947da5fdc753",
+    "size": [],
+    "worldDrawn": true
+  },
+  "loop": {
+    "cpuMs": 1.5,
+    "delta": 0.023899999976158146,
+    "frame": 2238,
+    "loading": false,
+    "mode": "demand",
+    "rawDelta": 0.023899999976158146,
+    "renderFrame": 20193,
+    "running": false,
+    "snap": false,
+    "time": 79688,
+    "trackingGlass": false,
+    "transmissionVisible": true,
+    "velocity": 0
+  },
+  "motion": {
+    "camera": {
+      "fov": 45.24505928853755,
+      "inverse": [
+        0.7321560845504432,
+        0,
+        0,
+        0,
+        0,
+        0.4167212497046001,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -4.99,
+        0,
+        0,
+        -1,
+        5.010000000000001
+      ],
+      "offset": [
+        0.20312499999682748,
+        -0.05555555555767453
+      ],
+      "offsetTarget": [
+        0.203125,
+        -0.05555555555555558
+      ],
+      "orthographic": [
+        0.23715415019762845,
+        0,
+        0,
+        0,
+        0,
+        0.4166666666666667,
+        0,
+        0,
+        0,
+        0,
+        -0.04008016032064128,
+        0,
+        0,
+        0,
+        -1.004008016032064,
+        1
+      ],
+      "outro": {
+        "parallax": 0,
+        "projection": 0,
+        "raw": 0
+      },
+      "perspective": [
+        1.365828982509949,
+        0,
+        0,
+        0,
+        0,
+        2.399685642882063,
+        0,
+        0,
+        0,
+        0,
+        -1.004008016032064,
+        -1,
+        0,
+        0,
+        -0.2004008016032064,
+        0
+      ],
+      "position": [
+        0.12187499999809648,
+        -0.03333333333460472,
+        6
+      ],
+      "projection": [
+        1.365828982509949,
+        0,
+        0,
+        0,
+        0,
+        2.399685642882063,
+        0,
+        0,
+        0,
+        0,
+        -1.004008016032064,
+        -1,
+        0,
+        0,
+        -0.2004008016032064,
+        0
+      ]
+    },
+    "cards": [
+      {
+        "alpha": 0.20863016486871555,
+        "index": 0,
+        "position": [
+          -5.960210813504016,
+          1.1999999999999995,
+          -4.815194060432457
+        ],
+        "rotationY": -1.2,
+        "scale": 0.5373186612244898,
+        "visible": true
+      },
+      {
+        "alpha": 0.9617341746387136,
+        "index": 1,
+        "position": [
+          -5.515625927162525,
+          0.6041142857142856,
+          -1.9655221584020108
+        ],
+        "rotationY": -0.6,
+        "scale": 0.5373186612244898,
+        "visible": true
+      },
+      {
+        "alpha": 1,
+        "index": 2,
+        "position": [
+          0,
+          0.008228571428571401,
+          -0.5958857142857142
+        ],
+        "rotationY": 0,
+        "scale": 0.6564958040816326,
+        "visible": true
+      }
+    ],
+    "frame": 2238,
+    "glass": {
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "bounds": [
+        507.5409925806369,
+        251.58518164526848,
+        757.0224731689605,
+        468.5236319218986
+      ],
+      "centeredLocalBounds": [
+        -1.6766839027404783,
+        -1.45678448677063,
+        -0.4102458655834198,
+        1.6766839027404783,
+        1.45678448677063,
+        0.4102458655834198
+      ],
+      "projectedAnchor": [
+        632.5,
+        360
+      ],
+      "quaternion": [
+        -0.00018162841304638944,
+        -0.000060389389803439866,
+        4.974452953827819e-7,
+        0.9999999816819968
+      ],
+      "scale": 0.5,
+      "visible": true
+    },
+    "initialization": {
+      "reason": "deep-link",
+      "revision": 2,
+      "y": 1540,
+      "zoom": 0
+    },
+    "phase": "works_outro",
+    "portal": null,
+    "portalCovered": false,
+    "raw": {
+      "event": 1,
+      "expand": 0,
+      "intro": 1,
+      "kv": 1,
+      "outro": 0,
+      "prepare": 0,
+      "snap": 1,
+      "wall": 0,
+      "works": 0.75
+    },
+    "rendered": {
+      "background": 3,
+      "expand": 0,
+      "index": 3,
+      "intro": 1,
+      "prepare": 0,
+      "progress": 0.75,
+      "wall": 0
+    },
+    "scrollY": 2980,
+    "wall": {
+      "build": 0,
+      "drawn": 0,
+      "falling": 0,
+      "position": [
+        0,
+        0,
+        -1
+      ],
+      "raw": 0,
+      "revision": 1,
+      "rise": 0,
+      "rows": 3,
+      "samples": [],
+      "settled": 0,
+      "visible": false
+    }
+  },
+  "overflow": false,
+  "size": [
+    1280,
+    720
+  ],
+  "status": "ready",
+  "url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1#radio"
+}

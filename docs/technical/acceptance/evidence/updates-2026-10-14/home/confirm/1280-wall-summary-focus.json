@@ -1,0 +1,79 @@
+{
+  "key": "1280-wall-summary-focus",
+  "s": {
+    "url": "http://127.0.0.1:4467/personal-homepage/?opticsDebug=1#wall",
+    "width": 1280,
+    "height": 720,
+    "y": 8380,
+    "classes": "lssh-home has-journey home-enhanced home-loading-nav-ready home-wall-ready home-on-wall",
+    "status": "ready",
+    "canvases": 1,
+    "audio": 1,
+    "overflow": false,
+    "bundle": "/personal-homepage/_astro/HomeJourney.BVNBI4Qs.js",
+    "summary": {
+      "color": "rgb(39, 42, 44)",
+      "border": "rgb(119, 119, 119)",
+      "background": "rgba(0, 0, 0, 0)",
+      "outlineColor": "rgb(39, 42, 44)",
+      "outlineWidth": "2px",
+      "outlineStyle": "solid",
+      "focusVisible": true,
+      "rect": {
+        "x": 44.796875,
+        "y": 32,
+        "width": 70.484375,
+        "height": 44,
+        "top": 32,
+        "right": 115.28125,
+        "bottom": 76,
+        "left": 44.796875
+      }
+    },
+    "panel": {
+      "color": "rgb(237, 237, 237)",
+      "border": "rgb(119, 119, 119)",
+      "background": "rgb(31, 31, 31)",
+      "outlineColor": "rgb(237, 237, 237)",
+      "outlineWidth": "3px",
+      "outlineStyle": "none",
+      "focusVisible": false,
+      "rect": {
+        "x": 44.796875,
+        "y": 84,
+        "width": 320,
+        "height": 342.390625,
+        "top": 84,
+        "right": 364.796875,
+        "bottom": 426.390625,
+        "left": 44.796875
+      }
+    },
+    "open": false,
+    "panelLink": {
+      "color": "rgb(237, 237, 237)",
+      "border": "rgb(237, 237, 237)",
+      "background": "rgba(0, 0, 0, 0)",
+      "outlineColor": "rgb(237, 237, 237)",
+      "outlineWidth": "3px",
+      "outlineStyle": "none",
+      "focusVisible": false,
+      "rect": {
+        "x": 57.796875,
+        "y": 97,
+        "width": 294,
+        "height": 44,
+        "top": 97,
+        "right": 351.796875,
+        "bottom": 141,
+        "left": 57.796875
+      }
+    }
+  },
+  "logs": [
+    {
+      "type": "warning",
+      "message": "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+    }
+  ]
+}

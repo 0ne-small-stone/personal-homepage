@@ -1,0 +1,210 @@
+{
+  "version": 16,
+  "baseline": {
+    "clip": "inset(63.3333px 26.6667px 106.667px)",
+    "dataset": {
+      "actualCamera": "-0.0953,-0.0954,13.8144",
+      "anchorPose": "-0.2860,-0.2863,6.1868",
+      "aspectError": "2.220e-16",
+      "axes": "6.200,6.200,6.200",
+      "camera": "0.00,0.00,-45.00",
+      "detail": "ready",
+      "distance": "-45.00",
+      "domeRadius": "902",
+      "fieldCount": "17",
+      "fieldLayout": "projection-gap",
+      "fieldRetiring": "0",
+      "flightVelocity": "0.0000",
+      "imageFit": "contain",
+      "layout": "react-bits-dome",
+      "layoutAspect": "2.173",
+      "orientation": "0.000,0.000",
+      "pan": "0.00,0.00",
+      "portal": "-0.2860,-0.2863,6.1868",
+      "progress": "0.333",
+      "quaternion": "0.00000,0.00000,0.00000,1.00000",
+      "reduced": "false",
+      "regions": "11",
+      "rotationMode": "dome-limited-pitch",
+      "starfield": "subtle",
+      "view": "transition"
+    },
+    "dpr": 1,
+    "guard": {
+      "bottom": 816.34375,
+      "height": 753.015625,
+      "left": 26.65625,
+      "right": 1979.34375,
+      "top": 63.328125,
+      "width": 1952.6875,
+      "x": 26.65625,
+      "y": 63.328125
+    },
+    "h": 923,
+    "w": 2006
+  },
+  "desktop": {
+    "canvases": 1,
+    "clip": "inset(63.3333px 26.6667px 106.667px)",
+    "dataset": {
+      "actualCamera": "-0.0953,-0.0954,13.8144",
+      "anchorPose": "-0.2860,-0.2863,6.1868",
+      "aspectError": "2.220e-16",
+      "axes": "6.200,6.200,6.200",
+      "camera": "0.00,0.00,-45.00",
+      "detail": "ready",
+      "distance": "-45.00",
+      "domeRadius": "902",
+      "fieldCount": "17",
+      "fieldLayout": "projection-gap",
+      "fieldRetiring": "0",
+      "flightVelocity": "0.0000",
+      "imageFit": "contain",
+      "layout": "react-bits-dome",
+      "layoutAspect": "2.173",
+      "orientation": "0.000,0.000",
+      "pan": "0.00,0.00",
+      "portal": "-0.2860,-0.2863,6.1868",
+      "progress": "0.333",
+      "quaternion": "0.00000,0.00000,0.00000,1.00000",
+      "reduced": "false",
+      "regions": "11",
+      "rotationMode": "dome-limited-pitch",
+      "starfield": "subtle",
+      "view": "transition"
+    },
+    "dpr": 1,
+    "guard": {
+      "bottom": 818.34375,
+      "height": 757.015625,
+      "left": 24.65625,
+      "right": 1981.34375,
+      "top": 61.328125,
+      "width": 1956.6875,
+      "x": 24.65625,
+      "y": 61.328125
+    },
+    "h": 923,
+    "w": 2006
+  },
+  "reverse": {
+    "clip": "inset(71.1276px 29.9484px 119.794px)",
+    "dataset": {
+      "actualCamera": "-0.0719,-0.0720,14.9923",
+      "anchorPose": "-0.2860,-0.2863,6.1868",
+      "aspectError": "2.220e-16",
+      "axes": "6.200,6.200,6.200",
+      "camera": "0.00,0.00,-45.00",
+      "detail": "ready",
+      "distance": "-45.00",
+      "domeRadius": "902",
+      "fieldCount": "8",
+      "fieldLayout": "projection-gap",
+      "fieldRetiring": "0",
+      "flightVelocity": "0.0000",
+      "imageFit": "contain",
+      "layout": "react-bits-dome",
+      "layoutAspect": "2.173",
+      "orientation": "0.000,0.000",
+      "pan": "0.00,0.00",
+      "portal": "-0.2860,-0.2863,6.1868",
+      "progress": "0.251",
+      "quaternion": "0.00000,0.00000,0.00000,1.00000",
+      "reduced": "false",
+      "regions": "6",
+      "rotationMode": "dome-limited-pitch",
+      "starfield": "subtle",
+      "view": "transition"
+    },
+    "guard": {
+      "bottom": 805.21875,
+      "height": 736.09375,
+      "left": 27.9375,
+      "right": 1978.0625,
+      "top": 69.125,
+      "width": 1950.125,
+      "x": 27.9375,
+      "y": 69.125
+    }
+  },
+  "returned": {
+    "clip": "",
+    "guardDisplay": "none",
+    "guardStyle": "",
+    "progress": "0.000",
+    "view": "sphere"
+  },
+  "space": {
+    "canvases": 1,
+    "dome": "hidden",
+    "guard": "none",
+    "progress": "1.000",
+    "view": "space"
+  },
+  "phone": {
+    "canvases": 1,
+    "clip": "inset(74.6667px 13.3333px 153.333px)",
+    "dataset": {
+      "actualCamera": "-0.1508,-0.1510,15.1785",
+      "anchorPose": "-0.4524,-0.4529,9.7850",
+      "aspectError": "0.000e+0",
+      "axes": "6.200,6.200,6.200",
+      "camera": "0.00,0.00,-45.00",
+      "detail": "ready",
+      "distance": "-45.00",
+      "domeRadius": "315",
+      "fieldCount": "2",
+      "fieldLayout": "projection-gap",
+      "fieldRetiring": "0",
+      "flightVelocity": "0.0000",
+      "imageFit": "contain",
+      "layout": "react-bits-dome",
+      "layoutAspect": "0.462",
+      "orientation": "0.000,0.000",
+      "pan": "0.00,0.00",
+      "portal": "-0.4524,-0.4529,9.7850",
+      "progress": "0.333",
+      "quaternion": "0.00000,0.00000,0.00000,1.00000",
+      "reduced": "false",
+      "regions": "2",
+      "rotationMode": "dome-limited-pitch",
+      "starfield": "subtle",
+      "view": "transition"
+    },
+    "dpr": 1,
+    "guard": {
+      "bottom": 692.671875,
+      "height": 620.015625,
+      "left": 11.328125,
+      "right": 378.671875,
+      "top": 72.65625,
+      "width": 367.34375,
+      "x": 11.328125,
+      "y": 72.65625
+    },
+    "h": 844,
+    "w": 390
+  },
+  "edgeSample": {
+    "format": "JPEG screenshots, decoded RGB",
+    "crop": {
+      "x": 600,
+      "width": 780,
+      "y": 816
+    },
+    "baseline": {
+      "meanMaxRGB": 49.94,
+      "maxRGB": 242,
+      "pixelsAbove20": 313
+    },
+    "after": {
+      "meanMaxRGB": 0.85,
+      "maxRGB": 7,
+      "pixelsAbove20": 0
+    }
+  },
+  "limits": [
+    "同视角桌面样本与实际滚轮、390px覆写；未测试所有真实GPU/设备",
+    "截图为有损JPEG，像素值用于同条件对照，不能视为无损RGBA测试"
+  ]
+}

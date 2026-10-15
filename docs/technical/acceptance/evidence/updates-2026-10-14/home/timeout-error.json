@@ -1,0 +1,63 @@
+{
+  "key": "timeout-error",
+  "s": {
+    "url": "http://127.0.0.1:4467/personal-homepage/?opticsDebug=1&loadingPreview=timeout",
+    "title": "Little Stone Still Here",
+    "width": 1280,
+    "height": 720,
+    "y": 0,
+    "classes": "lssh-home has-journey home-static home-loading-nav-ready",
+    "status": "error",
+    "loading": {
+      "phase": "error",
+      "active": false,
+      "requested": false,
+      "progress": 1,
+      "resources": [
+        "layout",
+        "compiled",
+        "frame"
+      ],
+      "reason": "resource-timeout",
+      "closed": false,
+      "events": [
+        {
+          "phase": "waiting",
+          "time": 143.40000000596046
+        },
+        {
+          "phase": "error",
+          "time": 8143.5
+        }
+      ],
+      "preview": "timeout",
+      "wordmarkDecoded": true,
+      "preference": "motion"
+    },
+    "loadingPass": {
+      "active": false,
+      "copies": 4,
+      "size": [],
+      "disposed": true
+    },
+    "canvases": 0,
+    "audioCount": 1,
+    "audioPreserved": null,
+    "overflow": false,
+    "bundle": "/personal-homepage/_astro/HomeJourney.BVNBI4Qs.js",
+    "wordmarks": 1,
+    "motion": null,
+    "wallInert": false,
+    "focus": "",
+    "portrait": null,
+    "copy": null,
+    "copyStatus": null,
+    "retryCount": 1
+  },
+  "logs": [
+    {
+      "type": "warning",
+      "message": "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+    }
+  ]
+}

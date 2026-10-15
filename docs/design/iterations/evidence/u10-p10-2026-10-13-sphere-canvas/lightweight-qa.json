@@ -1,0 +1,1000 @@
+[
+  {
+    "label": "v12-loaded",
+    "data": {
+      "backdrop": "blur(3px)",
+      "canvas": {
+        "height": 720,
+        "width": 1280
+      },
+      "cards": 358,
+      "images": 478,
+      "meta": {
+        "context": "{\"antialias\":true,\"samples\":4}",
+        "gpuTimer": "available"
+      },
+      "sideCells": 120,
+      "stage": {
+        "fieldPool": "0",
+        "overview": "358",
+        "photos": "36",
+        "pool": "358"
+      },
+      "stats": "{\"sphere:dome-motion\":{\"samples\":2,\"total\":0.2,\"mean\":0.1,\"p95\":0,\"max\":0.2},\"loading:readyMs\":{\"samples\":1,\"total\":1627.4,\"mean\":1627.4,\"p95\":1627.4,\"max\":1627.4},\"sphere:update\":{\"samples\":1,\"total\":0.2,\"mean\":0.2,\"p95\":0.2,\"max\":0.2}}",
+      "view": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "628",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "1.778",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere"
+      },
+      "viewport": [
+        1280,
+        720
+      ]
+    }
+  },
+  {
+    "label": "v12-dome-motion",
+    "data": {
+      "backdrop": "blur(3px)",
+      "canvas": {
+        "height": 720,
+        "width": 1280
+      },
+      "cards": 358,
+      "images": 478,
+      "meta": {
+        "context": "{\"antialias\":true,\"samples\":4}",
+        "gpuTimer": "available"
+      },
+      "sideCells": 120,
+      "stage": {
+        "fieldPool": "0",
+        "overview": "358",
+        "photos": "36",
+        "pool": "358"
+      },
+      "stats": "{\"sphere:dome-motion\":{\"samples\":371,\"total\":28.3,\"mean\":0.076,\"p95\":0.2,\"max\":3.5},\"loading:readyMs\":{\"samples\":1,\"total\":1627.4,\"mean\":1627.4,\"p95\":1627.4,\"max\":1627.4},\"sphere:update\":{\"samples\":370,\"total\":116.4,\"mean\":0.315,\"p95\":0.7,\"max\":3.1},\"sphere:frameInterval\":{\"samples\":367,\"total\":10682.2,\"mean\":29.107,\"p95\":36.4,\"max\":84.9}}",
+      "view": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "628",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "1.778",
+        "orientation": "-0.707,0.206",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.09650,-0.34451,-0.03563,0.93313",
+        "reduced": "false",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere"
+      },
+      "viewport": [
+        1280,
+        720
+      ]
+    }
+  },
+  {
+    "label": "v12-enter",
+    "data": {
+      "backdrop": "blur(3px)",
+      "canvas": {
+        "height": 720,
+        "width": 1280
+      },
+      "cards": 358,
+      "images": 478,
+      "meta": {
+        "context": "{\"antialias\":true,\"samples\":4}",
+        "gpuTimer": "available",
+        "renderer": "{\"width\":1280,\"height\":720,\"dpr\":1,\"textures\":36,\"geometries\":2,\"programs\":2}"
+      },
+      "sideCells": 120,
+      "stage": {
+        "fieldPool": "66",
+        "overview": "358",
+        "photos": "36",
+        "pool": "424"
+      },
+      "stats": "{\"sphere:dome-motion\":{\"samples\":5,\"total\":3.1,\"mean\":0.62,\"p95\":0.7,\"max\":2.4},\"loading:readyMs\":{\"samples\":1,\"total\":1593.3,\"mean\":1593.3,\"p95\":1593.3,\"max\":1593.3},\"sphere:update\":{\"samples\":3,\"total\":0.6,\"mean\":0.2,\"p95\":0.1,\"max\":0.4},\"sphere:frameInterval\":{\"samples\":1,\"total\":121.2,\"mean\":121.2,\"p95\":121.2,\"max\":121.2},\"transition:frameInterval\":{\"samples\":43,\"total\":1599.6,\"mean\":37.2,\"p95\":66.6,\"max\":103.1},\"transition:candidates\":{\"samples\":43,\"total\":27.5,\"mean\":0.64,\"p95\":1.3,\"max\":3.7},\"transition:render\":{\"samples\":43,\"total\":103.6,\"mean\":2.409,\"p95\":1.6,\"max\":49.3},\"transition:renders\":{\"samples\":43,\"total\":43,\"mean\":1,\"p95\":1,\"max\":1},\"transition:drawCalls\":{\"samples\":43,\"total\":1461,\"mean\":33.977,\"p95\":44,\"max\":44},\"transition:update\":{\"samples\":43,\"total\":177.9,\"mean\":4.137,\"p95\":4.6,\"max\":55.2},\"transition:gpuRender\":{\"samples\":36,\"total\":41.75,\"mean\":1.16,\"p95\":1.628,\"max\":1.685},\"space:frameInterval\":{\"samples\":6,\"total\":133.3,\"mean\":22.217,\"p95\":24,\"max\":42.4},\"space:render\":{\"samples\":6,\"total\":3.2,\"mean\":0.533,\"p95\":0.6,\"max\":0.6},\"space:renders\":{\"samples\":6,\"total\":6,\"mean\":1,\"p95\":1,\"max\":1},\"space:drawCalls\":{\"samples\":6,\"total\":183,\"mean\":30.5,\"p95\":31,\"max\":31},\"space:update\":{\"samples\":6,\"total\":8.8,\"mean\":1.467,\"p95\":1.8,\"max\":1.8}}",
+      "view": {
+        "actualCamera": "0.3972,-0.2863,3.7436",
+        "anchorPose": "0.3972,-0.2863,6.1806",
+        "aspectError": "2.220e-16",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "detail": "ready",
+        "distance": "-45.00",
+        "domeRadius": "628",
+        "fieldCount": "29",
+        "fieldLayout": "projection-gap",
+        "fieldRetiring": "0",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "1.778",
+        "orientation": "0.480,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.3972,-0.2863,6.1806",
+        "progress": "1.000",
+        "quaternion": "0.00000,0.23769,0.00000,0.97134",
+        "reduced": "false",
+        "regions": "20",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "subtle",
+        "view": "space"
+      },
+      "viewport": [
+        1280,
+        720
+      ]
+    }
+  },
+  {
+    "label": "v12-flight",
+    "data": {
+      "backdrop": "blur(3px)",
+      "canvas": {
+        "height": 720,
+        "width": 1280
+      },
+      "cards": 358,
+      "images": 478,
+      "meta": {
+        "context": "{\"antialias\":true,\"samples\":4}",
+        "gpuTimer": "available",
+        "renderer": "{\"width\":1280,\"height\":720,\"dpr\":1,\"textures\":36,\"geometries\":2,\"programs\":2}"
+      },
+      "sideCells": 120,
+      "stage": {
+        "fieldPool": "66",
+        "overview": "358",
+        "photos": "36",
+        "pool": "424"
+      },
+      "stats": "{\"sphere:dome-motion\":{\"samples\":5,\"total\":3.1,\"mean\":0.62,\"p95\":0.7,\"max\":2.4},\"loading:readyMs\":{\"samples\":1,\"total\":1593.3,\"mean\":1593.3,\"p95\":1593.3,\"max\":1593.3},\"sphere:update\":{\"samples\":3,\"total\":0.6,\"mean\":0.2,\"p95\":0.1,\"max\":0.4},\"sphere:frameInterval\":{\"samples\":1,\"total\":121.2,\"mean\":121.2,\"p95\":121.2,\"max\":121.2},\"transition:frameInterval\":{\"samples\":43,\"total\":1599.6,\"mean\":37.2,\"p95\":66.6,\"max\":103.1},\"transition:candidates\":{\"samples\":43,\"total\":27.5,\"mean\":0.64,\"p95\":1.3,\"max\":3.7},\"transition:render\":{\"samples\":43,\"total\":103.6,\"mean\":2.409,\"p95\":1.6,\"max\":49.3},\"transition:renders\":{\"samples\":43,\"total\":43,\"mean\":1,\"p95\":1,\"max\":1},\"transition:drawCalls\":{\"samples\":43,\"total\":1461,\"mean\":33.977,\"p95\":44,\"max\":44},\"transition:update\":{\"samples\":43,\"total\":177.9,\"mean\":4.137,\"p95\":4.6,\"max\":55.2},\"transition:gpuRender\":{\"samples\":36,\"total\":41.75,\"mean\":1.16,\"p95\":1.628,\"max\":1.685},\"space:frameInterval\":{\"samples\":109,\"total\":2187.2,\"mean\":20.066,\"p95\":24.3,\"max\":55},\"space:render\":{\"samples\":110,\"total\":57.5,\"mean\":0.523,\"p95\":1.1,\"max\":1.5},\"space:renders\":{\"samples\":110,\"total\":110,\"mean\":1,\"p95\":1,\"max\":1},\"space:drawCalls\":{\"samples\":110,\"total\":3727,\"mean\":33.882,\"p95\":41,\"max\":43},\"space:update\":{\"samples\":110,\"total\":187,\"mean\":1.7,\"p95\":2.5,\"max\":4.7},\"space:candidates\":{\"samples\":104,\"total\":50.6,\"mean\":0.487,\"p95\":1.1,\"max\":1.7},\"space:gpuRender\":{\"samples\":60,\"total\":92.18,\"mean\":1.536,\"p95\":3.09,\"max\":4.461}}",
+      "view": {
+        "actualCamera": "0.3972,-0.2863,0.0751",
+        "anchorPose": "0.3972,-0.2863,6.1806",
+        "aspectError": "2.220e-16",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-112.74",
+        "detail": "ready",
+        "distance": "-112.74",
+        "domeRadius": "628",
+        "fieldCount": "29",
+        "fieldLayout": "projection-gap",
+        "fieldRetiring": "0",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "1.778",
+        "orientation": "0.480,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.3972,-0.2863,6.1806",
+        "progress": "1.000",
+        "quaternion": "0.00000,0.23769,0.00000,0.97134",
+        "reduced": "false",
+        "regions": "17",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "subtle",
+        "view": "space"
+      },
+      "viewport": [
+        1280,
+        720
+      ]
+    }
+  },
+  {
+    "label": "v13-loaded",
+    "data": {
+      "backdrop": "blur(3px)",
+      "canvas": {
+        "height": 720,
+        "width": 1280
+      },
+      "cards": 358,
+      "images": 478,
+      "meta": {
+        "context": "{\"antialias\":false,\"samples\":0}",
+        "gpuTimer": "available"
+      },
+      "sideCells": 120,
+      "stage": {
+        "fieldPool": "0",
+        "overview": "358",
+        "photos": "36",
+        "pool": "358"
+      },
+      "stats": "{\"sphere:dome-motion\":{\"samples\":2,\"total\":0,\"mean\":0,\"p95\":0,\"max\":0},\"loading:readyMs\":{\"samples\":1,\"total\":1656.4,\"mean\":1656.4,\"p95\":1656.4,\"max\":1656.4},\"sphere:update\":{\"samples\":1,\"total\":0.1,\"mean\":0.1,\"p95\":0.1,\"max\":0.1}}",
+      "view": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "628",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "1.778",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere"
+      },
+      "viewport": [
+        1280,
+        720
+      ]
+    }
+  },
+  {
+    "label": "v13-motion-visibility",
+    "data": {
+      "backdrop": "blur(3px)",
+      "culled": 207,
+      "moving": "false",
+      "visible": "151"
+    }
+  },
+  {
+    "label": "v13-dome-motion",
+    "data": {
+      "backdrop": "blur(3px)",
+      "canvas": {
+        "height": 720,
+        "width": 1280
+      },
+      "cards": 358,
+      "images": 478,
+      "meta": {
+        "context": "{\"antialias\":false,\"samples\":0}",
+        "gpuTimer": "available"
+      },
+      "sideCells": 120,
+      "stage": {
+        "fieldPool": "0",
+        "overview": "358",
+        "photos": "36",
+        "pool": "358"
+      },
+      "stats": "{\"sphere:dome-motion\":{\"samples\":371,\"total\":25.1,\"mean\":0.068,\"p95\":0.2,\"max\":2.5},\"loading:readyMs\":{\"samples\":1,\"total\":1656.4,\"mean\":1656.4,\"p95\":1656.4,\"max\":1656.4},\"sphere:update\":{\"samples\":370,\"total\":118.9,\"mean\":0.321,\"p95\":0.8,\"max\":1.1},\"sphere:frameInterval\":{\"samples\":367,\"total\":7834.3,\"mean\":21.347,\"p95\":24.4,\"max\":57.432}}",
+      "view": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "628",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "1.778",
+        "orientation": "-1.026,0.282",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.12240,-0.48573,-0.06891,0.86275",
+        "reduced": "false",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere"
+      },
+      "viewport": [
+        1280,
+        720
+      ]
+    }
+  },
+  {
+    "label": "v13-enter",
+    "data": {
+      "backdrop": "blur(3px)",
+      "canvas": {
+        "height": 720,
+        "width": 1280
+      },
+      "cards": 358,
+      "images": 478,
+      "meta": {
+        "context": "{\"antialias\":false,\"samples\":0}",
+        "gpuTimer": "available",
+        "renderer": "{\"width\":1280,\"height\":720,\"dpr\":1,\"textures\":36,\"geometries\":2,\"programs\":2}"
+      },
+      "sideCells": 120,
+      "stage": {
+        "fieldPool": "71",
+        "overview": "358",
+        "photos": "36",
+        "pool": "429"
+      },
+      "stats": "{\"sphere:dome-motion\":{\"samples\":5,\"total\":2.2,\"mean\":0.44,\"p95\":1,\"max\":1.1},\"loading:readyMs\":{\"samples\":1,\"total\":1572.8,\"mean\":1572.8,\"p95\":1572.8,\"max\":1572.8},\"sphere:update\":{\"samples\":4,\"total\":0.8,\"mean\":0.2,\"p95\":0.2,\"max\":0.3},\"sphere:frameInterval\":{\"samples\":2,\"total\":127.3,\"mean\":63.65,\"p95\":12.2,\"max\":115.1},\"transition:frameInterval\":{\"samples\":54,\"total\":1575.4,\"mean\":29.174,\"p95\":66.7,\"max\":99.932},\"transition:candidates\":{\"samples\":54,\"total\":35.2,\"mean\":0.652,\"p95\":1.7,\"max\":3.7},\"transition:render\":{\"samples\":54,\"total\":73.1,\"mean\":1.354,\"p95\":2,\"max\":39.4},\"transition:renders\":{\"samples\":54,\"total\":54,\"mean\":1,\"p95\":1,\"max\":1},\"transition:drawCalls\":{\"samples\":54,\"total\":1879,\"mean\":34.796,\"p95\":44,\"max\":45},\"transition:update\":{\"samples\":54,\"total\":170.2,\"mean\":3.152,\"p95\":7.2,\"max\":47.3},\"transition:gpuRender\":{\"samples\":54,\"total\":68.93,\"mean\":1.277,\"p95\":1.052,\"max\":28.853},\"space:frameInterval\":{\"samples\":17,\"total\":139.3,\"mean\":8.194,\"p95\":12.1,\"max\":24.1},\"space:render\":{\"samples\":17,\"total\":4.5,\"mean\":0.265,\"p95\":0.4,\"max\":0.6},\"space:renders\":{\"samples\":17,\"total\":17,\"mean\":1,\"p95\":1,\"max\":1},\"space:drawCalls\":{\"samples\":17,\"total\":521,\"mean\":30.647,\"p95\":31,\"max\":31},\"space:update\":{\"samples\":17,\"total\":12,\"mean\":0.706,\"p95\":1.1,\"max\":1.8},\"space:gpuRender\":{\"samples\":6,\"total\":5.83,\"mean\":0.972,\"p95\":0.791,\"max\":2.524}}",
+      "view": {
+        "actualCamera": "0.3972,-0.2863,3.7436",
+        "anchorPose": "0.3972,-0.2863,6.1806",
+        "aspectError": "2.220e-16",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "detail": "ready",
+        "distance": "-45.00",
+        "domeRadius": "628",
+        "fieldCount": "29",
+        "fieldLayout": "projection-gap",
+        "fieldRetiring": "0",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "1.778",
+        "orientation": "0.480,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.3972,-0.2863,6.1806",
+        "progress": "1.000",
+        "quaternion": "0.00000,0.23769,0.00000,0.97134",
+        "reduced": "false",
+        "regions": "20",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "subtle",
+        "view": "space"
+      },
+      "viewport": [
+        1280,
+        720
+      ]
+    }
+  },
+  {
+    "label": "v13-flight",
+    "data": {
+      "backdrop": "blur(3px)",
+      "canvas": {
+        "height": 720,
+        "width": 1280
+      },
+      "cards": 358,
+      "images": 478,
+      "meta": {
+        "context": "{\"antialias\":false,\"samples\":0}",
+        "gpuTimer": "available",
+        "renderer": "{\"width\":1280,\"height\":720,\"dpr\":1,\"textures\":36,\"geometries\":2,\"programs\":2}"
+      },
+      "sideCells": 120,
+      "stage": {
+        "fieldPool": "71",
+        "overview": "358",
+        "photos": "36",
+        "pool": "429"
+      },
+      "stats": "{\"sphere:dome-motion\":{\"samples\":5,\"total\":2.2,\"mean\":0.44,\"p95\":1,\"max\":1.1},\"loading:readyMs\":{\"samples\":1,\"total\":1572.8,\"mean\":1572.8,\"p95\":1572.8,\"max\":1572.8},\"sphere:update\":{\"samples\":4,\"total\":0.8,\"mean\":0.2,\"p95\":0.2,\"max\":0.3},\"sphere:frameInterval\":{\"samples\":2,\"total\":127.3,\"mean\":63.65,\"p95\":12.2,\"max\":115.1},\"transition:frameInterval\":{\"samples\":54,\"total\":1575.4,\"mean\":29.174,\"p95\":66.7,\"max\":99.932},\"transition:candidates\":{\"samples\":54,\"total\":35.2,\"mean\":0.652,\"p95\":1.7,\"max\":3.7},\"transition:render\":{\"samples\":54,\"total\":73.1,\"mean\":1.354,\"p95\":2,\"max\":39.4},\"transition:renders\":{\"samples\":54,\"total\":54,\"mean\":1,\"p95\":1,\"max\":1},\"transition:drawCalls\":{\"samples\":54,\"total\":1879,\"mean\":34.796,\"p95\":44,\"max\":45},\"transition:update\":{\"samples\":54,\"total\":170.2,\"mean\":3.152,\"p95\":7.2,\"max\":47.3},\"transition:gpuRender\":{\"samples\":54,\"total\":68.93,\"mean\":1.277,\"p95\":1.052,\"max\":28.853},\"space:frameInterval\":{\"samples\":353,\"total\":2175.2,\"mean\":6.162,\"p95\":6.2,\"max\":24.1},\"space:render\":{\"samples\":354,\"total\":60.1,\"mean\":0.17,\"p95\":0.3,\"max\":0.9},\"space:renders\":{\"samples\":354,\"total\":354,\"mean\":1,\"p95\":1,\"max\":1},\"space:drawCalls\":{\"samples\":354,\"total\":12028,\"mean\":33.977,\"p95\":42,\"max\":43},\"space:update\":{\"samples\":354,\"total\":211.2,\"mean\":0.597,\"p95\":1,\"max\":3.2},\"space:gpuRender\":{\"samples\":344,\"total\":459.05,\"mean\":1.334,\"p95\":1.657,\"max\":3.152},\"space:candidates\":{\"samples\":337,\"total\":63.6,\"mean\":0.189,\"p95\":0.4,\"max\":1.5}}",
+      "view": {
+        "actualCamera": "0.3972,-0.2863,0.1396",
+        "anchorPose": "0.3972,-0.2863,6.1806",
+        "aspectError": "2.220e-16",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-111.55",
+        "detail": "ready",
+        "distance": "-111.55",
+        "domeRadius": "628",
+        "fieldCount": "28",
+        "fieldLayout": "projection-gap",
+        "fieldRetiring": "0",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "1.778",
+        "orientation": "0.480,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.3972,-0.2863,6.1806",
+        "progress": "1.000",
+        "quaternion": "0.00000,0.23769,0.00000,0.97134",
+        "reduced": "false",
+        "regions": "16",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "subtle",
+        "view": "space"
+      },
+      "viewport": [
+        1280,
+        720
+      ]
+    }
+  },
+  {
+    "label": "viewer-open",
+    "data": {
+      "backdrop": "blur(3px)",
+      "canvas": {
+        "height": 720,
+        "width": 1280
+      },
+      "cards": 358,
+      "images": 478,
+      "meta": {
+        "context": "{\"antialias\":false,\"samples\":0}",
+        "gpuTimer": "available",
+        "renderer": "{\"width\":1280,\"height\":720,\"dpr\":1,\"textures\":36,\"geometries\":2,\"programs\":2}"
+      },
+      "sideCells": 120,
+      "stage": {
+        "fieldPool": "71",
+        "overview": "358",
+        "photos": "36",
+        "pool": "429"
+      },
+      "stats": "{\"sphere:dome-motion\":{\"samples\":5,\"total\":2.2,\"mean\":0.44,\"p95\":1,\"max\":1.1},\"loading:readyMs\":{\"samples\":1,\"total\":1572.8,\"mean\":1572.8,\"p95\":1572.8,\"max\":1572.8},\"sphere:update\":{\"samples\":4,\"total\":0.8,\"mean\":0.2,\"p95\":0.2,\"max\":0.3},\"sphere:frameInterval\":{\"samples\":2,\"total\":127.3,\"mean\":63.65,\"p95\":12.2,\"max\":115.1},\"transition:frameInterval\":{\"samples\":54,\"total\":1575.4,\"mean\":29.174,\"p95\":66.7,\"max\":99.932},\"transition:candidates\":{\"samples\":54,\"total\":35.2,\"mean\":0.652,\"p95\":1.7,\"max\":3.7},\"transition:render\":{\"samples\":54,\"total\":73.1,\"mean\":1.354,\"p95\":2,\"max\":39.4},\"transition:renders\":{\"samples\":54,\"total\":54,\"mean\":1,\"p95\":1,\"max\":1},\"transition:drawCalls\":{\"samples\":54,\"total\":1879,\"mean\":34.796,\"p95\":44,\"max\":45},\"transition:update\":{\"samples\":54,\"total\":170.2,\"mean\":3.152,\"p95\":7.2,\"max\":47.3},\"transition:gpuRender\":{\"samples\":54,\"total\":68.93,\"mean\":1.277,\"p95\":1.052,\"max\":28.853},\"space:frameInterval\":{\"samples\":353,\"total\":2175.2,\"mean\":6.162,\"p95\":6.2,\"max\":24.1},\"space:render\":{\"samples\":354,\"total\":60.1,\"mean\":0.17,\"p95\":0.3,\"max\":0.9},\"space:renders\":{\"samples\":354,\"total\":354,\"mean\":1,\"p95\":1,\"max\":1},\"space:drawCalls\":{\"samples\":354,\"total\":12028,\"mean\":33.977,\"p95\":42,\"max\":43},\"space:update\":{\"samples\":354,\"total\":211.2,\"mean\":0.597,\"p95\":1,\"max\":3.2},\"space:gpuRender\":{\"samples\":344,\"total\":459.05,\"mean\":1.334,\"p95\":1.657,\"max\":3.152},\"space:candidates\":{\"samples\":337,\"total\":63.6,\"mean\":0.189,\"p95\":0.4,\"max\":1.5},\"viewer:viewer-init\":{\"samples\":1,\"total\":106.4,\"mean\":106.4,\"p95\":106.4,\"max\":106.4}}",
+      "view": {
+        "actualCamera": "0.3972,-0.2863,0.1396",
+        "anchorPose": "0.3972,-0.2863,6.1806",
+        "aspectError": "2.220e-16",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-111.55",
+        "detail": "ready",
+        "distance": "-111.55",
+        "domeRadius": "628",
+        "fieldCount": "28",
+        "fieldLayout": "projection-gap",
+        "fieldRetiring": "0",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "1.778",
+        "orientation": "0.480,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.3972,-0.2863,6.1806",
+        "progress": "1.000",
+        "quaternion": "0.00000,0.23769,0.00000,0.97134",
+        "reduced": "false",
+        "regions": "16",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "subtle",
+        "view": "space",
+        "viewer": "open"
+      },
+      "viewport": [
+        1280,
+        720
+      ]
+    }
+  },
+  {
+    "label": "viewer-zoom",
+    "data": {
+      "controls": "visible",
+      "index": "11",
+      "navigation": "idle",
+      "reduced": "false",
+      "requestedIndex": "11",
+      "scenePaused": "true",
+      "state": "open",
+      "zoom": "1.000"
+    }
+  },
+  {
+    "label": "viewer-fit",
+    "data": {
+      "controls": "visible",
+      "index": "11",
+      "navigation": "idle",
+      "reduced": "false",
+      "requestedIndex": "11",
+      "scenePaused": "true",
+      "state": "open",
+      "zoom": "1.000"
+    }
+  },
+  {
+    "label": "viewer-paused",
+    "data": {
+      "backdrop": "blur(3px)",
+      "canvas": {
+        "height": 720,
+        "width": 1280
+      },
+      "cards": 358,
+      "images": 478,
+      "meta": {
+        "context": "{\"antialias\":false,\"samples\":0}",
+        "gpuTimer": "available",
+        "renderer": "{\"width\":1280,\"height\":720,\"dpr\":1,\"textures\":36,\"geometries\":2,\"programs\":2}"
+      },
+      "sideCells": 120,
+      "stage": {
+        "fieldPool": "71",
+        "overview": "358",
+        "photos": "36",
+        "pool": "429"
+      },
+      "stats": "{\"sphere:dome-motion\":{\"samples\":5,\"total\":2.2,\"mean\":0.44,\"p95\":1,\"max\":1.1},\"loading:readyMs\":{\"samples\":1,\"total\":1572.8,\"mean\":1572.8,\"p95\":1572.8,\"max\":1572.8},\"sphere:update\":{\"samples\":4,\"total\":0.8,\"mean\":0.2,\"p95\":0.2,\"max\":0.3},\"sphere:frameInterval\":{\"samples\":2,\"total\":127.3,\"mean\":63.65,\"p95\":12.2,\"max\":115.1},\"transition:frameInterval\":{\"samples\":54,\"total\":1575.4,\"mean\":29.174,\"p95\":66.7,\"max\":99.932},\"transition:candidates\":{\"samples\":54,\"total\":35.2,\"mean\":0.652,\"p95\":1.7,\"max\":3.7},\"transition:render\":{\"samples\":54,\"total\":73.1,\"mean\":1.354,\"p95\":2,\"max\":39.4},\"transition:renders\":{\"samples\":54,\"total\":54,\"mean\":1,\"p95\":1,\"max\":1},\"transition:drawCalls\":{\"samples\":54,\"total\":1879,\"mean\":34.796,\"p95\":44,\"max\":45},\"transition:update\":{\"samples\":54,\"total\":170.2,\"mean\":3.152,\"p95\":7.2,\"max\":47.3},\"transition:gpuRender\":{\"samples\":54,\"total\":68.93,\"mean\":1.277,\"p95\":1.052,\"max\":28.853},\"space:frameInterval\":{\"samples\":353,\"total\":2175.2,\"mean\":6.162,\"p95\":6.2,\"max\":24.1},\"space:render\":{\"samples\":354,\"total\":60.1,\"mean\":0.17,\"p95\":0.3,\"max\":0.9},\"space:renders\":{\"samples\":354,\"total\":354,\"mean\":1,\"p95\":1,\"max\":1},\"space:drawCalls\":{\"samples\":354,\"total\":12028,\"mean\":33.977,\"p95\":42,\"max\":43},\"space:update\":{\"samples\":354,\"total\":211.2,\"mean\":0.597,\"p95\":1,\"max\":3.2},\"space:gpuRender\":{\"samples\":344,\"total\":459.05,\"mean\":1.334,\"p95\":1.657,\"max\":3.152},\"space:candidates\":{\"samples\":337,\"total\":63.6,\"mean\":0.189,\"p95\":0.4,\"max\":1.5},\"viewer:viewer-init\":{\"samples\":1,\"total\":106.4,\"mean\":106.4,\"p95\":106.4,\"max\":106.4},\"viewer:viewer-navigation-start\":{\"samples\":1,\"total\":0.2,\"mean\":0.2,\"p95\":0.2,\"max\":0.2},\"viewer:viewer-slide-frame\":{\"samples\":60,\"total\":60,\"mean\":1,\"p95\":1,\"max\":1},\"viewer:viewer-navigation-ms\":{\"samples\":1,\"total\":361.9,\"mean\":361.9,\"p95\":361.9,\"max\":361.9}}",
+      "view": {
+        "actualCamera": "0.3972,-0.2863,0.1396",
+        "anchorPose": "0.3972,-0.2863,6.1806",
+        "aspectError": "2.220e-16",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-111.55",
+        "detail": "ready",
+        "distance": "-111.55",
+        "domeRadius": "628",
+        "fieldCount": "28",
+        "fieldLayout": "projection-gap",
+        "fieldRetiring": "0",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "1.778",
+        "orientation": "0.480,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.3972,-0.2863,6.1806",
+        "progress": "1.000",
+        "quaternion": "0.00000,0.23769,0.00000,0.97134",
+        "reduced": "false",
+        "regions": "16",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "subtle",
+        "view": "space",
+        "viewer": "open"
+      },
+      "viewport": [
+        1280,
+        720
+      ]
+    }
+  },
+  {
+    "label": "viewer-closed",
+    "data": {
+      "backdrop": "blur(3px)",
+      "canvas": {
+        "height": 720,
+        "width": 1280
+      },
+      "cards": 358,
+      "images": 478,
+      "meta": {
+        "context": "{\"antialias\":false,\"samples\":0}",
+        "gpuTimer": "available",
+        "renderer": "{\"width\":1280,\"height\":720,\"dpr\":1,\"textures\":36,\"geometries\":2,\"programs\":2}"
+      },
+      "sideCells": 120,
+      "stage": {
+        "fieldPool": "71",
+        "overview": "358",
+        "photos": "36",
+        "pool": "429"
+      },
+      "stats": "{\"sphere:dome-motion\":{\"samples\":5,\"total\":2.2,\"mean\":0.44,\"p95\":1,\"max\":1.1},\"loading:readyMs\":{\"samples\":1,\"total\":1572.8,\"mean\":1572.8,\"p95\":1572.8,\"max\":1572.8},\"sphere:update\":{\"samples\":4,\"total\":0.8,\"mean\":0.2,\"p95\":0.2,\"max\":0.3},\"sphere:frameInterval\":{\"samples\":2,\"total\":127.3,\"mean\":63.65,\"p95\":12.2,\"max\":115.1},\"transition:frameInterval\":{\"samples\":54,\"total\":1575.4,\"mean\":29.174,\"p95\":66.7,\"max\":99.932},\"transition:candidates\":{\"samples\":54,\"total\":35.2,\"mean\":0.652,\"p95\":1.7,\"max\":3.7},\"transition:render\":{\"samples\":54,\"total\":73.1,\"mean\":1.354,\"p95\":2,\"max\":39.4},\"transition:renders\":{\"samples\":54,\"total\":54,\"mean\":1,\"p95\":1,\"max\":1},\"transition:drawCalls\":{\"samples\":54,\"total\":1879,\"mean\":34.796,\"p95\":44,\"max\":45},\"transition:update\":{\"samples\":54,\"total\":170.2,\"mean\":3.152,\"p95\":7.2,\"max\":47.3},\"transition:gpuRender\":{\"samples\":54,\"total\":68.93,\"mean\":1.277,\"p95\":1.052,\"max\":28.853},\"space:frameInterval\":{\"samples\":353,\"total\":2175.2,\"mean\":6.162,\"p95\":6.2,\"max\":24.1},\"space:render\":{\"samples\":354,\"total\":60.1,\"mean\":0.17,\"p95\":0.3,\"max\":0.9},\"space:renders\":{\"samples\":354,\"total\":354,\"mean\":1,\"p95\":1,\"max\":1},\"space:drawCalls\":{\"samples\":354,\"total\":12028,\"mean\":33.977,\"p95\":42,\"max\":43},\"space:update\":{\"samples\":354,\"total\":211.2,\"mean\":0.597,\"p95\":1,\"max\":3.2},\"space:gpuRender\":{\"samples\":344,\"total\":459.05,\"mean\":1.334,\"p95\":1.657,\"max\":3.152},\"space:candidates\":{\"samples\":337,\"total\":63.6,\"mean\":0.189,\"p95\":0.4,\"max\":1.5},\"viewer:viewer-init\":{\"samples\":1,\"total\":106.4,\"mean\":106.4,\"p95\":106.4,\"max\":106.4},\"viewer:viewer-navigation-start\":{\"samples\":1,\"total\":0.2,\"mean\":0.2,\"p95\":0.2,\"max\":0.2},\"viewer:viewer-slide-frame\":{\"samples\":60,\"total\":60,\"mean\":1,\"p95\":1,\"max\":1},\"viewer:viewer-navigation-ms\":{\"samples\":1,\"total\":361.9,\"mean\":361.9,\"p95\":361.9,\"max\":361.9}}",
+      "view": {
+        "actualCamera": "0.3972,-0.2863,0.1396",
+        "anchorPose": "0.3972,-0.2863,6.1806",
+        "aspectError": "2.220e-16",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-111.55",
+        "detail": "ready",
+        "distance": "-111.55",
+        "domeRadius": "628",
+        "fieldCount": "28",
+        "fieldLayout": "projection-gap",
+        "fieldRetiring": "0",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "1.778",
+        "orientation": "0.480,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.3972,-0.2863,6.1806",
+        "progress": "1.000",
+        "quaternion": "0.00000,0.23769,0.00000,0.97134",
+        "reduced": "false",
+        "regions": "16",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "subtle",
+        "view": "space",
+        "viewer": "closed"
+      },
+      "viewport": [
+        1280,
+        720
+      ]
+    }
+  },
+  {
+    "label": "phone-loaded-final",
+    "data": {
+      "backdrop": "blur(3px)",
+      "canvas": {
+        "height": 844,
+        "width": 390
+      },
+      "cards": 358,
+      "images": 448,
+      "meta": {
+        "context": "{\"antialias\":false,\"samples\":0}",
+        "gpuTimer": "available"
+      },
+      "sideCells": 90,
+      "stage": {
+        "fieldPool": "0",
+        "overview": "358",
+        "photos": "36",
+        "pool": "358"
+      },
+      "stats": "{\"sphere:dome-motion\":{\"samples\":2,\"total\":0,\"mean\":0,\"p95\":0,\"max\":0},\"sphere:warm-render\":{\"samples\":1,\"total\":14.9,\"mean\":14.9,\"p95\":14.9,\"max\":14.9},\"loading:readyMs\":{\"samples\":1,\"total\":1840.6,\"mean\":1840.6,\"p95\":1840.6,\"max\":1840.6},\"sphere:update\":{\"samples\":1,\"total\":0.1,\"mean\":0.1,\"p95\":0.1,\"max\":0.1}}",
+      "view": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "distance": "-45.00",
+        "domeRadius": "315",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.462",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.0000,0.0000,0.0000",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere"
+      },
+      "viewport": [
+        390,
+        844
+      ]
+    }
+  },
+  {
+    "label": "phone-entry-wait",
+    "data": {
+      "backdrop": "blur(3px)",
+      "canvas": {
+        "height": 844,
+        "width": 390
+      },
+      "cards": 358,
+      "images": 448,
+      "meta": {
+        "context": "{\"antialias\":false,\"samples\":0}",
+        "gpuTimer": "available",
+        "renderer": "{\"width\":390,\"height\":844,\"dpr\":1,\"textures\":36,\"geometries\":2,\"programs\":2}"
+      },
+      "sideCells": 90,
+      "stage": {
+        "fieldPool": "22",
+        "overview": "358",
+        "photos": "36",
+        "pool": "380"
+      },
+      "stats": "{\"sphere:dome-motion\":{\"samples\":2,\"total\":0,\"mean\":0,\"p95\":0,\"max\":0},\"sphere:warm-render\":{\"samples\":1,\"total\":14.9,\"mean\":14.9,\"p95\":14.9,\"max\":14.9},\"loading:readyMs\":{\"samples\":1,\"total\":1840.6,\"mean\":1840.6,\"p95\":1840.6,\"max\":1840.6},\"sphere:update\":{\"samples\":1,\"total\":0.1,\"mean\":0.1,\"p95\":0.1,\"max\":0.1},\"transition:candidates\":{\"samples\":33,\"total\":21.1,\"mean\":0.639,\"p95\":1.5,\"max\":4.6},\"transition:render\":{\"samples\":33,\"total\":29,\"mean\":0.879,\"p95\":1.3,\"max\":11.2},\"transition:renders\":{\"samples\":33,\"total\":33,\"mean\":1,\"p95\":1,\"max\":1},\"transition:drawCalls\":{\"samples\":33,\"total\":429,\"mean\":13,\"p95\":17,\"max\":18},\"transition:update\":{\"samples\":33,\"total\":77.8,\"mean\":2.358,\"p95\":5.7,\"max\":13.6},\"transition:gpuRender\":{\"samples\":33,\"total\":44.88,\"mean\":1.36,\"p95\":2.711,\"max\":17.924},\"transition:frameInterval\":{\"samples\":9,\"total\":194.1,\"mean\":21.567,\"p95\":30.4,\"max\":30.5},\"space:render\":{\"samples\":3,\"total\":1.3,\"mean\":0.433,\"p95\":0.4,\"max\":0.6},\"space:renders\":{\"samples\":3,\"total\":3,\"mean\":1,\"p95\":1,\"max\":1},\"space:drawCalls\":{\"samples\":3,\"total\":36,\"mean\":12,\"p95\":12,\"max\":12},\"space:update\":{\"samples\":3,\"total\":3.8,\"mean\":1.267,\"p95\":1.4,\"max\":1.5},\"space:gpuRender\":{\"samples\":2,\"total\":1.06,\"mean\":0.531,\"p95\":0.504,\"max\":0.557}}",
+      "view": {
+        "actualCamera": "-0.2860,-0.2863,4.7374",
+        "anchorPose": "-0.2860,-0.2863,6.1868",
+        "aspectError": "2.220e-16",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "detail": "ready",
+        "distance": "-45.00",
+        "domeRadius": "315",
+        "fieldCount": "11",
+        "fieldLayout": "projection-gap",
+        "fieldRetiring": "0",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.462",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "-0.2860,-0.2863,6.1868",
+        "progress": "1.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "regions": "9",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "subtle",
+        "view": "space"
+      },
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    "logs": []
+  },
+  {
+    "label": "phone-zoom-confirmed",
+    "data": {
+      "controls": "visible",
+      "index": "20",
+      "navigation": "idle",
+      "reduced": "false",
+      "scenePaused": "true",
+      "state": "open",
+      "zoom": "2.000"
+    }
+  },
+  {
+    "label": "phone-viewer-switch",
+    "data": {
+      "controls": "visible",
+      "index": "21",
+      "navigation": "idle",
+      "reduced": "false",
+      "requestedIndex": "21",
+      "scenePaused": "true",
+      "state": "open",
+      "zoom": "1.000"
+    }
+  },
+  {
+    "label": "phone-viewer-return",
+    "data": {
+      "backdrop": "blur(3px)",
+      "canvas": {
+        "height": 844,
+        "width": 390
+      },
+      "cards": 358,
+      "images": 448,
+      "meta": {
+        "context": "{\"antialias\":false,\"samples\":0}",
+        "gpuTimer": "available",
+        "renderer": "{\"width\":390,\"height\":844,\"dpr\":1,\"textures\":36,\"geometries\":2,\"programs\":2}"
+      },
+      "sideCells": 90,
+      "stage": {
+        "fieldPool": "22",
+        "overview": "358",
+        "photos": "36",
+        "pool": "380"
+      },
+      "stats": "{\"sphere:dome-motion\":{\"samples\":2,\"total\":0,\"mean\":0,\"p95\":0,\"max\":0},\"sphere:warm-render\":{\"samples\":1,\"total\":14.9,\"mean\":14.9,\"p95\":14.9,\"max\":14.9},\"loading:readyMs\":{\"samples\":1,\"total\":1840.6,\"mean\":1840.6,\"p95\":1840.6,\"max\":1840.6},\"sphere:update\":{\"samples\":1,\"total\":0.1,\"mean\":0.1,\"p95\":0.1,\"max\":0.1},\"transition:candidates\":{\"samples\":33,\"total\":21.1,\"mean\":0.639,\"p95\":1.5,\"max\":4.6},\"transition:render\":{\"samples\":33,\"total\":29,\"mean\":0.879,\"p95\":1.3,\"max\":11.2},\"transition:renders\":{\"samples\":33,\"total\":33,\"mean\":1,\"p95\":1,\"max\":1},\"transition:drawCalls\":{\"samples\":33,\"total\":429,\"mean\":13,\"p95\":17,\"max\":18},\"transition:update\":{\"samples\":33,\"total\":77.8,\"mean\":2.358,\"p95\":5.7,\"max\":13.6},\"transition:gpuRender\":{\"samples\":33,\"total\":44.88,\"mean\":1.36,\"p95\":2.711,\"max\":17.924},\"transition:frameInterval\":{\"samples\":9,\"total\":194.1,\"mean\":21.567,\"p95\":30.4,\"max\":30.5},\"space:render\":{\"samples\":3,\"total\":1.3,\"mean\":0.433,\"p95\":0.4,\"max\":0.6},\"space:renders\":{\"samples\":3,\"total\":3,\"mean\":1,\"p95\":1,\"max\":1},\"space:drawCalls\":{\"samples\":3,\"total\":36,\"mean\":12,\"p95\":12,\"max\":12},\"space:update\":{\"samples\":3,\"total\":3.8,\"mean\":1.267,\"p95\":1.4,\"max\":1.5},\"space:gpuRender\":{\"samples\":2,\"total\":1.06,\"mean\":0.531,\"p95\":0.504,\"max\":0.557},\"viewer:viewer-init\":{\"samples\":1,\"total\":13.8,\"mean\":13.8,\"p95\":13.8,\"max\":13.8},\"viewer:viewer-navigation-start\":{\"samples\":1,\"total\":0.1,\"mean\":0.1,\"p95\":0.1,\"max\":0.1},\"viewer:viewer-slide-frame\":{\"samples\":46,\"total\":46,\"mean\":1,\"p95\":1,\"max\":1},\"viewer:viewer-navigation-ms\":{\"samples\":1,\"total\":279.1,\"mean\":279.1,\"p95\":279.1,\"max\":279.1}}",
+      "view": {
+        "actualCamera": "-0.2860,-0.2863,4.7374",
+        "anchorPose": "-0.2860,-0.2863,6.1868",
+        "aspectError": "2.220e-16",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "detail": "ready",
+        "distance": "-45.00",
+        "domeRadius": "315",
+        "fieldCount": "11",
+        "fieldLayout": "projection-gap",
+        "fieldRetiring": "0",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "0.462",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "-0.2860,-0.2863,6.1868",
+        "progress": "1.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "regions": "9",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "subtle",
+        "view": "space",
+        "viewer": "closed"
+      },
+      "viewport": [
+        390,
+        844
+      ]
+    }
+  },
+  {
+    "label": "large-budget",
+    "data": {
+      "backdrop": "blur(3px)",
+      "canvas": {
+        "height": 890,
+        "width": 2245
+      },
+      "cards": 358,
+      "images": 448,
+      "meta": {
+        "context": "{\"antialias\":false,\"samples\":0}",
+        "gpuTimer": "available",
+        "renderer": "{\"width\":2245,\"height\":890,\"dpr\":0.9649747636525867,\"textures\":36,\"geometries\":2,\"programs\":2}"
+      },
+      "sideCells": 90,
+      "stage": {
+        "fieldPool": "37",
+        "overview": "358",
+        "photos": "36",
+        "pool": "395"
+      },
+      "stats": "{\"sphere:dome-motion\":{\"samples\":2,\"total\":0,\"mean\":0,\"p95\":0,\"max\":0},\"sphere:warm-render\":{\"samples\":1,\"total\":14.9,\"mean\":14.9,\"p95\":14.9,\"max\":14.9},\"loading:readyMs\":{\"samples\":1,\"total\":1840.6,\"mean\":1840.6,\"p95\":1840.6,\"max\":1840.6},\"sphere:update\":{\"samples\":1,\"total\":0.1,\"mean\":0.1,\"p95\":0.1,\"max\":0.1},\"transition:candidates\":{\"samples\":33,\"total\":21.1,\"mean\":0.639,\"p95\":1.5,\"max\":4.6},\"transition:render\":{\"samples\":33,\"total\":29,\"mean\":0.879,\"p95\":1.3,\"max\":11.2},\"transition:renders\":{\"samples\":33,\"total\":33,\"mean\":1,\"p95\":1,\"max\":1},\"transition:drawCalls\":{\"samples\":33,\"total\":429,\"mean\":13,\"p95\":17,\"max\":18},\"transition:update\":{\"samples\":33,\"total\":77.8,\"mean\":2.358,\"p95\":5.7,\"max\":13.6},\"transition:gpuRender\":{\"samples\":33,\"total\":44.88,\"mean\":1.36,\"p95\":2.711,\"max\":17.924},\"transition:frameInterval\":{\"samples\":9,\"total\":194.1,\"mean\":21.567,\"p95\":30.4,\"max\":30.5},\"space:render\":{\"samples\":5,\"total\":6.8,\"mean\":1.36,\"p95\":0.7,\"max\":4.8},\"space:renders\":{\"samples\":5,\"total\":5,\"mean\":1,\"p95\":1,\"max\":1},\"space:drawCalls\":{\"samples\":5,\"total\":112,\"mean\":22.4,\"p95\":38,\"max\":38},\"space:update\":{\"samples\":4,\"total\":5,\"mean\":1.25,\"p95\":1.4,\"max\":1.5},\"space:gpuRender\":{\"samples\":3,\"total\":1.67,\"mean\":0.558,\"p95\":0.557,\"max\":0.611},\"viewer:viewer-init\":{\"samples\":1,\"total\":13.8,\"mean\":13.8,\"p95\":13.8,\"max\":13.8},\"viewer:viewer-navigation-start\":{\"samples\":1,\"total\":0.1,\"mean\":0.1,\"p95\":0.1,\"max\":0.1},\"viewer:viewer-slide-frame\":{\"samples\":46,\"total\":46,\"mean\":1,\"p95\":1,\"max\":1},\"viewer:viewer-navigation-ms\":{\"samples\":1,\"total\":279.1,\"mean\":279.1,\"p95\":279.1,\"max\":279.1},\"space:candidates\":{\"samples\":1,\"total\":6,\"mean\":6,\"p95\":6,\"max\":6}}",
+      "view": {
+        "actualCamera": "-0.2860,-0.2863,4.7374",
+        "anchorPose": "-0.2860,-0.2863,6.1868",
+        "aspectError": "2.220e-16",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "detail": "ready",
+        "distance": "-45.00",
+        "domeRadius": "315",
+        "fieldCount": "37",
+        "fieldLayout": "projection-gap",
+        "fieldRetiring": "0",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "2.521",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "-0.2860,-0.2863,6.1868",
+        "progress": "1.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "regions": "23",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "subtle",
+        "view": "space",
+        "viewer": "closed"
+      },
+      "viewport": [
+        2327,
+        923
+      ]
+    }
+  },
+  {
+    "label": "large-return",
+    "data": {
+      "backdrop": "blur(3px)",
+      "canvas": {
+        "height": 890,
+        "width": 2245
+      },
+      "cards": 358,
+      "images": 556,
+      "meta": {
+        "context": "{\"antialias\":false,\"samples\":0}",
+        "gpuTimer": "available",
+        "renderer": "{\"width\":2245,\"height\":890,\"dpr\":0.9649747636525867,\"textures\":37,\"geometries\":2,\"programs\":2}"
+      },
+      "sideCells": 198,
+      "stage": {
+        "fieldPool": "169",
+        "overview": "358",
+        "photos": "36",
+        "pool": "527"
+      },
+      "stats": "{\"sphere:dome-motion\":{\"samples\":2,\"total\":0,\"mean\":0,\"p95\":0,\"max\":0},\"sphere:warm-render\":{\"samples\":1,\"total\":14.9,\"mean\":14.9,\"p95\":14.9,\"max\":14.9},\"loading:readyMs\":{\"samples\":1,\"total\":1840.6,\"mean\":1840.6,\"p95\":1840.6,\"max\":1840.6},\"sphere:update\":{\"samples\":2,\"total\":0.1,\"mean\":0.05,\"p95\":0,\"max\":0.1},\"transition:candidates\":{\"samples\":105,\"total\":48.5,\"mean\":0.462,\"p95\":1.1,\"max\":4.6},\"transition:render\":{\"samples\":105,\"total\":146.6,\"mean\":1.396,\"p95\":1,\"max\":85.1},\"transition:renders\":{\"samples\":105,\"total\":105,\"mean\":1,\"p95\":1,\"max\":1},\"transition:drawCalls\":{\"samples\":105,\"total\":6610,\"mean\":62.952,\"p95\":160,\"max\":170},\"transition:update\":{\"samples\":106,\"total\":313.7,\"mean\":2.959,\"p95\":4,\"max\":87.7},\"transition:gpuRender\":{\"samples\":101,\"total\":162.7,\"mean\":1.611,\"p95\":2.875,\"max\":17.924},\"transition:frameInterval\":{\"samples\":82,\"total\":1654.3,\"mean\":20.174,\"p95\":30.4,\"max\":127.2},\"space:render\":{\"samples\":16,\"total\":9.4,\"mean\":0.587,\"p95\":0.7,\"max\":4.8},\"space:renders\":{\"samples\":16,\"total\":16,\"mean\":1,\"p95\":1,\"max\":1},\"space:drawCalls\":{\"samples\":16,\"total\":530,\"mean\":33.125,\"p95\":38,\"max\":38},\"space:update\":{\"samples\":15,\"total\":12.5,\"mean\":0.833,\"p95\":1.4,\"max\":1.5},\"space:gpuRender\":{\"samples\":11,\"total\":20.55,\"mean\":1.868,\"p95\":3.327,\"max\":3.56},\"viewer:viewer-init\":{\"samples\":1,\"total\":13.8,\"mean\":13.8,\"p95\":13.8,\"max\":13.8},\"viewer:viewer-navigation-start\":{\"samples\":1,\"total\":0.1,\"mean\":0.1,\"p95\":0.1,\"max\":0.1},\"viewer:viewer-slide-frame\":{\"samples\":46,\"total\":46,\"mean\":1,\"p95\":1,\"max\":1},\"viewer:viewer-navigation-ms\":{\"samples\":1,\"total\":279.1,\"mean\":279.1,\"p95\":279.1,\"max\":279.1},\"space:candidates\":{\"samples\":1,\"total\":6,\"mean\":6,\"p95\":6,\"max\":6},\"space:frameInterval\":{\"samples\":11,\"total\":127.2,\"mean\":11.564,\"p95\":12.3,\"max\":48.5},\"transition:dome-motion\":{\"samples\":3,\"total\":27,\"mean\":9,\"p95\":1.4,\"max\":25.6},\"sphere:frameInterval\":{\"samples\":1,\"total\":66.7,\"mean\":66.7,\"p95\":66.7,\"max\":66.7}}",
+      "view": {
+        "actualCamera": "0.0000,0.0000,18.6000",
+        "anchorPose": "-0.2860,-0.2863,6.1868",
+        "aspectError": "2.220e-16",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "detail": "ready",
+        "distance": "-45.00",
+        "domeRadius": "902",
+        "fieldCount": "46",
+        "fieldLayout": "projection-gap",
+        "fieldRetiring": "1",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "2.521",
+        "orientation": "0.000,0.000",
+        "pan": "0.00,0.00",
+        "portal": "-0.2860,-0.2863,6.1868",
+        "progress": "0.000",
+        "quaternion": "0.00000,0.00000,0.00000,1.00000",
+        "reduced": "false",
+        "regions": "27",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "hidden",
+        "view": "sphere",
+        "viewer": "closed"
+      },
+      "viewport": [
+        2327,
+        923
+      ]
+    }
+  },
+  {
+    "label": "reduced-css-motion",
+    "data": {
+      "backdrop": "blur(3px)",
+      "canvasCount": 0,
+      "hint": "当前无法进入影像空间，可拖动旋转并查看照片。",
+      "root": {
+        "breakpoint": "desktop",
+        "moving": "false",
+        "pitchLimit": "35",
+        "rotation": "-2.0000,-8.5000",
+        "visibleCards": "154"
+      }
+    }
+  },
+  {
+    "label": "v13-enter-confirm-warmed",
+    "data": {
+      "backdrop": "blur(3px)",
+      "canvas": {
+        "height": 720,
+        "width": 1280
+      },
+      "cards": 358,
+      "images": 478,
+      "meta": {
+        "context": "{\"antialias\":false,\"samples\":0}",
+        "gpuTimer": "available",
+        "renderer": "{\"width\":1280,\"height\":720,\"dpr\":1,\"textures\":36,\"geometries\":2,\"programs\":2}"
+      },
+      "sideCells": 120,
+      "stage": {
+        "fieldPool": "65",
+        "overview": "358",
+        "photos": "36",
+        "pool": "423"
+      },
+      "stats": "{\"sphere:dome-motion\":{\"samples\":5,\"total\":1.4,\"mean\":0.28,\"p95\":0.5,\"max\":0.8},\"sphere:warm-render\":{\"samples\":1,\"total\":15.8,\"mean\":15.8,\"p95\":15.8,\"max\":15.8},\"loading:readyMs\":{\"samples\":1,\"total\":575.1,\"mean\":575.1,\"p95\":575.1,\"max\":575.1},\"sphere:update\":{\"samples\":3,\"total\":0.2,\"mean\":0.067,\"p95\":0.1,\"max\":0.1},\"sphere:frameInterval\":{\"samples\":1,\"total\":66.6,\"mean\":66.6,\"p95\":66.6,\"max\":66.6},\"transition:frameInterval\":{\"samples\":98,\"total\":1424,\"mean\":14.531,\"p95\":24.3,\"max\":53.066},\"transition:candidates\":{\"samples\":98,\"total\":27.6,\"mean\":0.282,\"p95\":0.6,\"max\":2.3},\"transition:render\":{\"samples\":98,\"total\":34.7,\"mean\":0.354,\"p95\":0.6,\"max\":7.7},\"transition:renders\":{\"samples\":98,\"total\":98,\"mean\":1,\"p95\":1,\"max\":1},\"transition:drawCalls\":{\"samples\":98,\"total\":3312,\"mean\":33.796,\"p95\":43,\"max\":44},\"transition:update\":{\"samples\":98,\"total\":102.2,\"mean\":1.043,\"p95\":2.4,\"max\":8.2},\"transition:gpuRender\":{\"samples\":98,\"total\":145.06,\"mean\":1.48,\"p95\":2.293,\"max\":5.512},\"space:frameInterval\":{\"samples\":23,\"total\":151.5,\"mean\":6.587,\"p95\":6.1,\"max\":18.1},\"space:render\":{\"samples\":23,\"total\":2.6,\"mean\":0.113,\"p95\":0.2,\"max\":0.2},\"space:renders\":{\"samples\":23,\"total\":23,\"mean\":1,\"p95\":1,\"max\":1},\"space:drawCalls\":{\"samples\":23,\"total\":705,\"mean\":30.652,\"p95\":31,\"max\":31},\"space:update\":{\"samples\":23,\"total\":7.5,\"mean\":0.326,\"p95\":0.5,\"max\":1.1},\"space:gpuRender\":{\"samples\":22,\"total\":28.65,\"mean\":1.302,\"p95\":1.39,\"max\":1.415}}",
+      "view": {
+        "actualCamera": "0.3972,-0.2863,3.7436",
+        "anchorPose": "0.3972,-0.2863,6.1806",
+        "aspectError": "2.220e-16",
+        "axes": "6.200,6.200,6.200",
+        "camera": "0.00,0.00,-45.00",
+        "detail": "ready",
+        "distance": "-45.00",
+        "domeRadius": "628",
+        "fieldCount": "29",
+        "fieldLayout": "projection-gap",
+        "fieldRetiring": "0",
+        "flightVelocity": "0.0000",
+        "imageFit": "contain",
+        "layout": "react-bits-dome",
+        "layoutAspect": "1.778",
+        "orientation": "0.480,0.000",
+        "pan": "0.00,0.00",
+        "portal": "0.3972,-0.2863,6.1806",
+        "progress": "1.000",
+        "quaternion": "0.00000,0.23769,0.00000,0.97134",
+        "reduced": "false",
+        "regions": "20",
+        "rotationMode": "dome-limited-pitch",
+        "starfield": "subtle",
+        "view": "space"
+      },
+      "viewport": [
+        1280,
+        720
+      ]
+    }
+  },
+  {
+    "label": "final-errors",
+    "logs": []
+  }
+]

@@ -1,0 +1,83 @@
+[
+  {
+    "name": "overview",
+    "old": {
+      "format": "raw",
+      "width": 1280,
+      "height": 720,
+      "channels": 4,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": true,
+      "size": 3686400
+    },
+    "new": {
+      "format": "raw",
+      "width": 1280,
+      "height": 720,
+      "channels": 4,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": true,
+      "size": 3686400
+    },
+    "max": 250,
+    "mean": 1.122080078125,
+    "differentPixels": 292321,
+    "centerMean": 1.0871113320390782
+  },
+  {
+    "name": "viewer",
+    "old": {
+      "format": "raw",
+      "width": 1280,
+      "height": 720,
+      "channels": 4,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": true,
+      "size": 3686400
+    },
+    "new": {
+      "format": "raw",
+      "width": 1280,
+      "height": 720,
+      "channels": 4,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": true,
+      "size": 3686400
+    },
+    "max": 34,
+    "mean": 0.6596652560763889,
+    "differentPixels": 312583,
+    "centerMean": 0.8744712080410821
+  },
+  {
+    "name": "phone",
+    "old": {
+      "format": "raw",
+      "width": 390,
+      "height": 844,
+      "channels": 4,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": true,
+      "size": 1316640
+    },
+    "new": {
+      "format": "raw",
+      "width": 390,
+      "height": 844,
+      "channels": 4,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": true,
+      "size": 1316640
+    },
+    "max": 33,
+    "mean": 0.7124863288370398,
+    "differentPixels": 92605,
+    "centerMean": 0.965230275342635
+  }
+]
