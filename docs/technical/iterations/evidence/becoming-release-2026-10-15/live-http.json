@@ -1,0 +1,61 @@
+{
+  "checkedAt": "2026-10-15T06:57:15.169Z",
+  "release": "4cf7f16594f24b6c946737a856f74a984c56afe8",
+  "results": [
+    {
+      "route": "",
+      "status": 200,
+      "marker": "HomeJourney",
+      "pass": true
+    },
+    {
+      "route": "about/",
+      "status": 200,
+      "marker": "Someone",
+      "pass": true
+    },
+    {
+      "route": "knowledge/blog/",
+      "status": 200,
+      "marker": "becoming-blog",
+      "pass": true
+    },
+    {
+      "route": "knowledge/resources/reading-guide/",
+      "status": 200,
+      "marker": "becoming-pdf",
+      "pass": true
+    },
+    {
+      "route": "knowledge/",
+      "status": 200,
+      "marker": "becoming-overview",
+      "pass": true
+    },
+    {
+      "route": "knowledge/resources/physics/physics-electrostatics-alt/",
+      "status": 200,
+      "marker": "PDF 附件尚未接入",
+      "pass": true
+    },
+    {
+      "route": "knowledge/blog/tags/%E5%8A%9F%E8%83%BD%E9%AA%8C%E8%AF%81/",
+      "status": 200,
+      "marker": "becoming-blog",
+      "pass": true
+    },
+    {
+      "route": "knowledge/blog/article-reading-check/",
+      "status": 200,
+      "marker": "becoming-article",
+      "pass": true
+    },
+    {
+      "route": "materials/lssh-pdf-reading-check.pdf",
+      "status": 200,
+      "bytes": 65959,
+      "sha256": "9e2aac37f32cc56aff3a15434a525659c95096d4481c8739c7ee9471fca953be",
+      "pass": true
+    }
+  ]
+}

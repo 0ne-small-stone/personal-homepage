@@ -1,0 +1,149 @@
+{
+  "pr": {
+    "number": 57,
+    "title": "feat(knowledge): 发布 Becoming 学习、阅读与续读体验",
+    "state": "closed",
+    "draft": false,
+    "merged": true,
+    "mergeable": null,
+    "mergeable_state": "unknown",
+    "head": "c1b30303e05ee49c8c68c024d9a28ab3bdbf1de8",
+    "base": "e953b96a4ee6659b2a94a0a9cce3ad287fd26a62",
+    "merge_sha": "4cf7f16594f24b6c946737a856f74a984c56afe8"
+  },
+  "main": "4cf7f16594f24b6c946737a856f74a984c56afe8",
+  "checks": [
+    {
+      "name": "Refresh CMS candidates",
+      "status": "completed",
+      "conclusion": "skipped",
+      "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38694369909/job/116287986841"
+    },
+    {
+      "name": "Deploy to GitHub Pages",
+      "status": "completed",
+      "conclusion": "skipped",
+      "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38694369909/job/116287986763"
+    },
+    {
+      "name": "Astro build",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38694369909/job/116287566318"
+    },
+    {
+      "name": "Repository checks",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38694369909/job/116287375976"
+    },
+    {
+      "name": "Workflow syntax",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38694369909/job/116287375683"
+    }
+  ],
+  "runs": [
+    {
+      "id": 38694825283,
+      "name": "github_actions in / for actions/setup-node - Update #1628983197",
+      "event": "dynamic",
+      "branch": "main",
+      "sha": "4cf7f16594f24b6c946737a856f74a984c56afe8",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38694825283"
+    },
+    {
+      "id": 38694685725,
+      "name": "Site CI and Pages",
+      "event": "push",
+      "branch": "main",
+      "sha": "4cf7f16594f24b6c946737a856f74a984c56afe8",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38694685725"
+    },
+    {
+      "id": 38694369909,
+      "name": "Site CI and Pages",
+      "event": "pull_request",
+      "branch": "codex/becoming-overview-framer",
+      "sha": "c1b30303e05ee49c8c68c024d9a28ab3bdbf1de8",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38694369909"
+    },
+    {
+      "id": 38672430607,
+      "name": "Site CI and Pages",
+      "event": "push",
+      "branch": "main",
+      "sha": "e953b96a4ee6659b2a94a0a9cce3ad287fd26a62",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38672430607"
+    },
+    {
+      "id": 38672195931,
+      "name": "Site CI and Pages",
+      "event": "pull_request",
+      "branch": "codex/p02-remove-hero-title",
+      "sha": "c694e18e84f4b311f2a82e71650b911de3d603d1",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38672195931"
+    },
+    {
+      "id": 38670728693,
+      "name": "Site CI and Pages",
+      "event": "pull_request",
+      "branch": "dependabot/github_actions/actions-2f4c4b3894",
+      "sha": "18513e22f11ddc55b5176e1c72f53b2285046c0e",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38670728693"
+    },
+    {
+      "id": 38670630401,
+      "name": "github_actions in / for actions/setup-node - Update #1628647847",
+      "event": "dynamic",
+      "branch": "main",
+      "sha": "af666d2edad8b3f2214002c19cabb4f21f6b3dfc",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38670630401"
+    },
+    {
+      "id": 38670514992,
+      "name": "Site CI and Pages",
+      "event": "push",
+      "branch": "main",
+      "sha": "af666d2edad8b3f2214002c19cabb4f21f6b3dfc",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38670514992"
+    },
+    {
+      "id": 38670207286,
+      "name": "Site CI and Pages",
+      "event": "pull_request",
+      "branch": "codex/verify-home-performance-2026-10-15",
+      "sha": "8417e4091d593c10eabb05ac2281978af058ff8c",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38670207286"
+    },
+    {
+      "id": 38669877864,
+      "name": "Site CI and Pages",
+      "event": "push",
+      "branch": "main",
+      "sha": "157d182a85d509abb1afcf835af7e86e2254db87",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38669877864"
+    }
+  ]
+}
