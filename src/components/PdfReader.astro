@@ -24,7 +24,7 @@ const file = `${base}/${relativeFile}`;
 // Let the native viewer restore its fingerprint-keyed page/zoom history.
 const viewer = `${base}/pdfjs/web/viewer.html?file=${encodeURIComponent(file)}&reader=pure-v5`;
 ---
-<pdf-reader class="pdf-reader" aria-label={`${title} PDF 阅读器`} aria-busy={available ? 'true' : 'false'}>
+<pdf-reader data-resource={source.id} class="pdf-reader" aria-label={`${title} PDF 阅读器`} aria-busy={available ? 'true' : 'false'}>
   <div class="reader-bar">
     <p role="status" data-status>{available ? '正在加载 PDF…' : 'PDF 附件尚未接入，暂时无法阅读。'}</p>
     {available && <div class="reader-actions">
@@ -55,6 +55,7 @@ const viewer = `${base}/pdfjs/web/viewer.html?file=${encodeURIComponent(file)}&r
   a:focus-visible, button:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
 </style>
 <script>
+  import { attachPdfReadingProgress } from '../lib/pdf-reading-progress';
   type ViewerEvent = { error?: unknown };
   interface ViewerApplication {
     initializedPromise: Promise<void>;
@@ -65,6 +66,7 @@ const viewer = `${base}/pdfjs/web/viewer.html?file=${encodeURIComponent(file)}&r
   }
   class PdfReader extends HTMLElement {
     private controller?: AbortController;
+    private stopProgress?: () => void;
     connectedCallback() {
       this.controller?.abort();
       this.controller = new AbortController();
@@ -92,6 +94,8 @@ const viewer = `${base}/pdfjs/web/viewer.html?file=${encodeURIComponent(file)}&r
           if (!app) return fail();
           await app.initializedPromise;
           if (signal.aborted) return;
+          this.stopProgress?.();
+          this.stopProgress = attachPdfReadingProgress(this, frame);
           app.eventBus.on('pagerendered', ready, { signal });
           app.eventBus.on('documenterror', fail, { signal });
           if (app.pdfViewer?.getPageView(0)?.renderingState === 3) ready();
@@ -105,7 +109,7 @@ const viewer = `${base}/pdfjs/web/viewer.html?file=${encodeURIComponent(file)}&r
         frame.contentWindow?.location.reload();
       }, { signal });
     }
-    disconnectedCallback() { this.controller?.abort(); }
+    disconnectedCallback() { this.stopProgress?.(); this.controller?.abort(); }
   }
   if (!customElements.get('pdf-reader')) customElements.define('pdf-reader', PdfReader);
 </script>
