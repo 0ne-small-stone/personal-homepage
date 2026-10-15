@@ -1,5 +1,7 @@
 # 个人主页设计实施计划与验收工作流
 
+2026-10-15 P02/U13：用户要求去掉首屏大字Someone，现从最新主站af666d2独立修正中英文共用模板；仅标题层级与对应无用样式，生产与公网结果继续登记在[发布记录](../technical/iterations/t05-p02-2026-10-15-pages.md)。
+
 2026-10-15 首页性能主站验收：BNuf11DH冻结源接入含正式双语Someone的main，148文件0错误/0警告、54页构建与限定交互通过；桌面/窄屏轮播10秒、稳定白墙6秒零新增场景/renderer帧，首次输入唤醒正常。保留F03、F05、三卡及小砖，不启动F06/F07；发布入口[PR #59](https://github.com/0ne-small-stone/personal-homepage/pull/59)，最终Pages与公网结果按真实SHA补录。[本轮验收](../technical/acceptance/home-performance-2026-10-15.md)。下方旧版本状态为过程追溯。
 
 2026-10-15 P02/U13：已确认的无照片双语版由PR #58上线，桌面与390／320px、切换／复制／刷新和首页入口公网验证完成；结果与边界见[发布记录](../technical/iterations/t05-p02-2026-10-15-pages.md)。
