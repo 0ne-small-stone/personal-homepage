@@ -1,0 +1,16 @@
+{
+  "body": {
+    "chapter": "radio",
+    "homeLoading": "{\"phase\":\"ready\",\"active\":false,\"requested\":false,\"progress\":1,\"resources\":[\"layout\",\"wordmark\",\"compiled\",\"frame\"],\"reason\":\"\",\"closed\":false,\"events\":[{\"phase\":\"waiting\",\"time\":338.90000000596046},{\"phase\":\"ready\",\"time\":2239.2999999970198}],\"preview\":null,\"wordmarkDecoded\":true,\"preference\":\"motion\"}",
+    "homeLoadingPass": "{\"active\":false,\"copies\":0,\"size\":[],\"disposed\":true,\"glassId\":\"672ed5de-5d20-47dd-ab24-ef0a8be02c5c\",\"geometryId\":\"530172a3-4774-4a80-ae26-3f31314d610c\",\"worldDrawn\":true}",
+    "homeMotion": "ready",
+    "homeMotionSample": "{\"frame\":2601,\"scrollY\":2260,\"phase\":\"works\",\"raw\":{\"kv\":1,\"intro\":1,\"works\":0.5,\"event\":0.6666666666666666,\"snap\":0.5,\"outro\":0,\"prepare\":0,\"expand\":0,\"wall\":0},\"rendered\":{\"progress\":0.5,\"index\":2,\"background\":2,\"intro\":1,\"prepare\":0,\"expand\":0,\"wall\":0},\"portal\":null,\"portalCovered\":false,\"wall\":{\"raw\":0,\"rise\":0,\"build\":0,\"position\":[0,0,-1],\"visible\":false,\"revision\":1,\"settled\":0,\"falling\":0,\"drawn\":0,\"rows\":3,\"samples\":[]},\"glass\":{\"anchor\":[0,0,0],\"quaternion\":[0,0,0,1],\"scale\":0.5,\"visible\":true,\"projectedAnchor\":[632.5,360],\"bounds\":[507.7909333877295,251.64670018990412,757.2090666122705,468.3532998100959],\"centeredLocalBounds\":[-1.6766839027404785,-1.4567844867706299,-0.4102458655834198,1.6766839027404785,1.4567844867706299,0.4102458655834198]},\"initialization\":{\"revision\":2,\"y\":2260,\"zoom\":0,\"reason\":\"deep-link\"}}",
+    "homeStatus": "ready"
+  },
+  "component": "/personal-homepage/_astro/HomeJourney.BdZlSJh6.js",
+  "url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1#radio",
+  "viewport": [
+    1280,
+    720
+  ]
+}

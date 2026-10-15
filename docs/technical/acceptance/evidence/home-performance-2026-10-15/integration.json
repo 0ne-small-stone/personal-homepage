@@ -1,0 +1,142 @@
+{
+  "baseline": "c6dd2eb60509a067d0875a631539fcdbbc9b1408",
+  "candidate": "HomeJourney.BNuf11DH.js",
+  "scope": "P01 performance + frozen F05 only; main knowledge/gallery/music/Someone preserved",
+  "records": [
+    {
+      "file": "src/components/home/GlassRenderLayer.tsx",
+      "sourceSha": "a3ebd7463a60abebcaaef44e9474d22c39c9cd02d2ebbdecd43b59f7dda62c34",
+      "mainSha": "72538337f5ec669b0aff2c84f53c559590ca9c892519566d67174e83b96f856c",
+      "different": true,
+      "action": "preserved published lifecycle/CSS changes",
+      "finalSha": "72538337f5ec669b0aff2c84f53c559590ca9c892519566d67174e83b96f856c",
+      "adapted": true
+    },
+    {
+      "file": "src/components/home/GlassTriangle.tsx",
+      "sourceSha": "f728b7f136319613c2bb905514b9f7857743dc785fc5824476d20e80538554ba",
+      "mainSha": "a6bcaa17da84b7e5925e8db256a09fa8a6d63b62439f435650cfc1fd9add82dd",
+      "different": true,
+      "action": "frozen candidate",
+      "finalSha": "f728b7f136319613c2bb905514b9f7857743dc785fc5824476d20e80538554ba",
+      "adapted": false
+    },
+    {
+      "file": "src/components/home/CameraRig.tsx",
+      "sourceSha": "88400028f822a0be350cf5a0308cb38e8c63106580ddb7a6eacd7b83391612f1",
+      "mainSha": "680c2919b5e2c8f904108df264af036c909551d844acd00f20342f3eec62fc90",
+      "different": true,
+      "action": "frozen candidate",
+      "finalSha": "88400028f822a0be350cf5a0308cb38e8c63106580ddb7a6eacd7b83391612f1",
+      "adapted": false
+    },
+    {
+      "file": "src/components/home/WorksMotionDriver.tsx",
+      "sourceSha": "816ae867e8566804286351fc8bc7447a3626314c17ddc27bd373c028aabdc6b0",
+      "mainSha": "2fff2bc385951e6da72f844b2c1aa26f3831e5915b8d10b37fa6d6a5ab2bd1c9",
+      "different": true,
+      "action": "frozen candidate",
+      "finalSha": "816ae867e8566804286351fc8bc7447a3626314c17ddc27bd373c028aabdc6b0",
+      "adapted": false
+    },
+    {
+      "file": "src/components/home/HomeJourney.tsx",
+      "sourceSha": "73141c75ce249716e0e06219ad834bbea92b9c335c4fd4b2975cf31475e99fcd",
+      "mainSha": "8b2523e7c3e38b6fe41d1480b93d77a4365096be4225466d344572fb8f66edb1",
+      "different": true,
+      "action": "frozen candidate",
+      "finalSha": "9e9806648b57518419525644a333ae2c493386349e96127057d8f62f59ea5b60",
+      "adapted": true
+    },
+    {
+      "file": "src/components/home/home-motion.ts",
+      "sourceSha": "10a31e3cee8cf094426de1fc84e9008ca4121b6f4e4465d61129c8cec136c37f",
+      "mainSha": "d5fb61dec62057e0a6d31339a52645431ddacf6d95ed83f587ce0c9097bfe0c1",
+      "different": true,
+      "action": "frozen candidate",
+      "finalSha": "10a31e3cee8cf094426de1fc84e9008ca4121b6f4e4465d61129c8cec136c37f",
+      "adapted": false
+    },
+    {
+      "file": "src/styles/home.css",
+      "sourceSha": "3ecb67197855ad6972094ba667b63ecf4a6ddde54bd36e11ec80b3361ea0686d",
+      "mainSha": "99ec8d569f4ebc5330c3c3611924251a0036d525e76b4616fbbca31df2f42295",
+      "different": true,
+      "action": "preserved published lifecycle/CSS changes",
+      "finalSha": "99ec8d569f4ebc5330c3c3611924251a0036d525e76b4616fbbca31df2f42295",
+      "adapted": true
+    },
+    {
+      "file": "src/components/home/useHomeLoading.ts",
+      "sourceSha": "aa3117cdefff5cebf4b146313bad8994e6a688c2cc7f0a16bc7efff1d19d3276",
+      "mainSha": "2b87d7c5bdc7b68b372352280e4153c97f5f1f06135d6a196ca008572f4095ab",
+      "different": true,
+      "action": "preserved published lifecycle/CSS changes",
+      "finalSha": "2b87d7c5bdc7b68b372352280e4153c97f5f1f06135d6a196ca008572f4095ab",
+      "adapted": true
+    },
+    {
+      "file": "src/components/home/scene-state.ts",
+      "sourceSha": "689e484efb53ac499f470d5b760bb225b696d91efa02dea80b72d7276dbb4eef",
+      "mainSha": "f3d8f0b5389e40748f67ed8188b820248be65919d889318e04ea88be3ace1abf",
+      "different": true,
+      "action": "frozen candidate",
+      "finalSha": "689e484efb53ac499f470d5b760bb225b696d91efa02dea80b72d7276dbb4eef",
+      "adapted": false
+    },
+    {
+      "file": "src/components/home/frame-activity.ts",
+      "sourceSha": "60ae89cf570b354db07978e9dd552b50bd927e0b878ef6f583d5b73707d0e12b",
+      "mainSha": null,
+      "different": true,
+      "action": "frozen candidate",
+      "finalSha": "60ae89cf570b354db07978e9dd552b50bd927e0b878ef6f583d5b73707d0e12b",
+      "adapted": false
+    },
+    {
+      "file": "src/components/home/HomeFrameLoop.tsx",
+      "sourceSha": "089e8fdcce56e2d60b8ab4820763ed85fbd953740d20ae045b48a0e088b2cb5f",
+      "mainSha": null,
+      "different": true,
+      "action": "frozen candidate",
+      "finalSha": "630556c552f1f901d75ef595a4ca2077f78f595186ffc9264a5c3f369489fb99",
+      "adapted": true
+    },
+    {
+      "file": "tests/home-frame-activity.test.mjs",
+      "sourceSha": "862d76d4943190ec74814bfcb086a4f6a75ca7c4a0fc472122205ca097cd7371",
+      "mainSha": null,
+      "different": true,
+      "action": "frozen candidate",
+      "finalSha": "862d76d4943190ec74814bfcb086a4f6a75ca7c4a0fc472122205ca097cd7371",
+      "adapted": false
+    },
+    {
+      "file": "src/components/home/SceneBackdrop.tsx",
+      "sourceSha": "72cc3331f66c6210940653866999b8d4729e2c70ca8e2e16863c7e6e9a335b2b",
+      "mainSha": "8601b71ab1bd91c136d7a02f6f058a7c225639d711eea4765f5a934efc0b36aa",
+      "different": true,
+      "action": "frozen candidate",
+      "finalSha": "bf18e06d08087683301e0a68678550e6a9e71bbff50aac57144392d9b12c8a2c",
+      "adapted": true
+    },
+    {
+      "file": "src/components/home/backdrop-state.ts",
+      "sourceSha": "724cf7288a5f043ec42b5df270962a898cc57cbf79c61194125ef6050970015f",
+      "mainSha": null,
+      "different": true,
+      "action": "frozen candidate",
+      "finalSha": "724cf7288a5f043ec42b5df270962a898cc57cbf79c61194125ef6050970015f",
+      "adapted": false
+    },
+    {
+      "file": "tests/home-backdrop.test.mjs",
+      "sourceSha": "78a98a58c8f091f4cd0457a1b679053452a27c76472c5763cdd7256fb4bc5d3d",
+      "mainSha": null,
+      "different": true,
+      "action": "frozen candidate",
+      "finalSha": "78a98a58c8f091f4cd0457a1b679053452a27c76472c5763cdd7256fb4bc5d3d",
+      "adapted": false
+    }
+  ]
+}

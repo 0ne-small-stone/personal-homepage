@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, type ComponentRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { MeshTransmissionMaterial } from '@react-three/drei';
 import { Euler, Quaternion, Vector3, type Mesh } from 'three';
@@ -10,6 +10,7 @@ import GlassPortalShape from './GlassPortalShape';
 
 export default function GlassTriangle({ model, paused, hover, mobile,frozen=false }: { model: JourneyModel; paused: boolean; hover: boolean; mobile: boolean;frozen?:boolean }) {
   const mesh = useRef<Mesh>(null);
+  const transmission = useRef<ComponentRef<typeof MeshTransmissionMaterial>>(null);
   const geometry = useMemo(makeTriangleGeometry, []);
   const portalShape = useMemo(() => new GlassPortalShape(geometry), [geometry]);
   const rotation = useMemo(() => new GlassRotation(), []);
@@ -17,7 +18,8 @@ export default function GlassTriangle({ model, paused, hover, mobile,frozen=fals
   const authoredEuler = useMemo(() => new Euler(), []);
   const { camera, size, scene } = useThree();
   useEffect(() => () => geometry.dispose(), [geometry]);
-  useFrame((_, rawDt) => {
+  useFrame(() => {
+    const rawDt=model.frameDelta;
     if (!mesh.current||frozen) return;
     const diagnostics = rotation.step(model, rawDt, paused, hover);
     // Latest user correction: one central anchor, no chapter-driven side placement.
@@ -34,6 +36,9 @@ export default function GlassTriangle({ model, paused, hover, mobile,frozen=fals
     scene.userData.lsshPortalQuad = portalShape.quad;
     scene.userData.lsshPortalFrontCovered = portalShape.frontCoversCorners;
     mesh.current.visible = paused || (model.motion.rendered.expand < .999 && model.motion.rendered.wall < .9999);
+    // Drei checks material.visible, not the parent's visibility, before its
+    // transmission capture. A covered prism must not render the wall again.
+    if(transmission.current)transmission.current.visible=mesh.current.visible;
     scene.userData.lsshGlassMesh=mesh.current;
     if (document.documentElement.dataset.motionDiagnostics === 'true') {
       model.motion.glassRotation = diagnostics;
@@ -65,6 +70,7 @@ export default function GlassTriangle({ model, paused, hover, mobile,frozen=fals
   },[scene,portalShape]);
   return <mesh ref={mesh} geometry={geometry}>
     <MeshTransmissionMaterial
+      ref={transmission}
       transmission={1}
       ior={1.45}
       roughness={.08}

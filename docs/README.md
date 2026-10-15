@@ -1,5 +1,7 @@
 # 文档导航与设计 / 技术对应表
 
+2026-10-15 首页性能主站验收：BNuf11DH冻结源接入main，144文件0错误/0警告、53页构建与限定交互通过；桌面/窄屏轮播10秒、稳定白墙6秒零新增场景/renderer帧，首次输入唤醒正常。保留F03、F05、三卡及小砖，不启动F06/F07；当前准备保护PR，最终Pages与公网结果按真实SHA补录。[本轮验收](technical/acceptance/home-performance-2026-10-15.md)。下方旧版本状态为过程追溯。
+
 2026-10-14 最终集成：本轮发布入口为[PR #54](https://github.com/0ne-small-stone/personal-homepage/pull/54)，通过保护检查合并main后由Pages部署；最终SHA、Actions和公网回读在PR补记。本地最终工程141文件0错误/0警告、8条沿用相册的提示，53页构建与186项风险测试通过。发布期间同步保留main `5eac344` 的正式相册、36张授权WebP派生及目录契约；桌面/390px首页进入相册与原生后退4/4通过。首页加载/人物/音乐的既有验收边界保持，迷墙仍是独立原型，用户审美与真机性能另记。以下同日准备状态为过程快照。
 
 P10 / R06、R12 / U10、U14 / T12、T15、T16、T26、T27：[A Moment Remains正式接入与Pages发布](technical/iterations/t12-p10-2026-10-14-pages.md)。用户确认v17并授权当前相册及36张压缩派生公开，沿用/gallery/，未新增页面/任务编号；PR #53与Pages成功，入口[A Moment Remains](https://0ne-small-stone.github.io/personal-homepage/gallery/)，公网功能已核对。

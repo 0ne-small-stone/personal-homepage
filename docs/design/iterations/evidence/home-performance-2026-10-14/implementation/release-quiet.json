@@ -1,0 +1,60 @@
+{
+  "time": 1791989725915,
+  "sample": {
+    "canvas": {
+      "height": 844,
+      "width": 375
+    },
+    "loading": {
+      "active": false,
+      "closed": false,
+      "events": [
+        {
+          "phase": "waiting",
+          "time": 169.79999999701977
+        },
+        {
+          "phase": "ready",
+          "time": 1788.7999999970198
+        }
+      ],
+      "phase": "ready",
+      "preference": "quiet",
+      "preview": "reduced",
+      "progress": 1,
+      "reason": "preference",
+      "requested": false,
+      "resources": [
+        "layout",
+        "wordmark",
+        "compiled",
+        "frame"
+      ],
+      "wordmarkDecoded": true
+    },
+    "loop": {
+      "cpuMs": 3,
+      "delta": 0.016666666666666666,
+      "frame": 0,
+      "loading": false,
+      "mode": "demand",
+      "rawDelta": 1.0664000000059604,
+      "renderFrame": 68,
+      "running": false,
+      "snap": false,
+      "time": 2700.29999999702,
+      "transmissionVisible": true,
+      "velocity": 0
+    },
+    "motion": {},
+    "scripts": [
+      "/personal-homepage/_astro/HomeJourney.DkmdTjgT.js",
+      "/personal-homepage/_astro/PersistentPlayer.PL4b-D5d.js"
+    ],
+    "size": [
+      375,
+      844
+    ],
+    "status": "ready"
+  }
+}

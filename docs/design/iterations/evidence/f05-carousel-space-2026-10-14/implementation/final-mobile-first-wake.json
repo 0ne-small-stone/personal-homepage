@@ -1,0 +1,195 @@
+{
+  "background": {
+    "ceiling": 0.1411764705882353,
+    "corners": [
+      [
+        -1.1180707662346487,
+        -1.1152759922242237,
+        0.9790326115421872
+      ],
+      [
+        1.1135991561703071,
+        -1.1136071715494456,
+        0.9790697976933784
+      ],
+      [
+        1.1219381217599986,
+        1.124741390314696,
+        0.9788830528099596
+      ],
+      [
+        -1.1264557946341738,
+        1.1264227562634812,
+        0.9788453072299188
+      ]
+    ],
+    "farBrightness": 0.52,
+    "farOffset": [
+      0.016982226645257666,
+      0.007278097133681855
+    ],
+    "fieldPeak": 0.048,
+    "gridOffset": [
+      0.03396445329051533,
+      0.01213016188946976
+    ],
+    "gridPeak": 0.048,
+    "intro": 0,
+    "light": [
+      0.38355044586109033,
+      0.3565020777464619
+    ],
+    "q": 0.9852064755787904,
+    "spacing": 96,
+    "texture": "02b4890b-57c5-480a-8f55-5b003f285249",
+    "textureSize": [
+      768,
+      1729
+    ],
+    "visible": true,
+    "weight": 1
+  },
+  "bundle": "/personal-homepage/_astro/HomeJourney._ZhzwPha.js",
+  "classes": "lssh-home has-journey home-enhanced home-loading-nav-ready",
+  "loading": {
+    "active": false,
+    "closed": false,
+    "events": [
+      {
+        "phase": "waiting",
+        "time": 624.1000000089407
+      },
+      {
+        "phase": "ready",
+        "time": 2122.1000000089407
+      }
+    ],
+    "phase": "ready",
+    "preference": "motion",
+    "preview": null,
+    "progress": 1,
+    "reason": "",
+    "requested": false,
+    "resources": [
+      "layout",
+      "wordmark",
+      "compiled",
+      "frame"
+    ],
+    "wordmarkDecoded": true
+  },
+  "loadingPass": {
+    "active": false,
+    "copies": 0,
+    "disposed": true,
+    "geometryId": "5d1db80c-6d8d-4cde-8cc6-da60875a2809",
+    "glassId": "2e7b4ee7-b998-44c2-8d13-b9429c237025",
+    "size": [],
+    "worldDrawn": true
+  },
+  "loop": {
+    "cpuMs": 1,
+    "delta": 0.005200000002980232,
+    "frame": 264,
+    "loading": false,
+    "mode": "always",
+    "rawDelta": 0.005200000002980232,
+    "renderFrame": 2427,
+    "running": true,
+    "snap": false,
+    "time": 140391.10000000894,
+    "trackingGlass": true,
+    "transmissionVisible": true,
+    "velocity": -2.7736087539474283
+  },
+  "motion": {
+    "frame": 264,
+    "glass": {
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "bounds": [
+        110.62875228925849,
+        353.7195645426939,
+        266.2939645687292,
+        491.7344633090207
+      ],
+      "centeredLocalBounds": [
+        -1.6766839027404783,
+        -1.45678448677063,
+        -0.4102458655834198,
+        1.6766839027404783,
+        1.45678448677063,
+        0.4102458655834198
+      ],
+      "projectedAnchor": [
+        187.5,
+        422
+      ],
+      "quaternion": [
+        0,
+        0.06963017080177591,
+        0,
+        0.997572874187202
+      ],
+      "scale": 0.5,
+      "visible": true
+    },
+    "initialization": {
+      "reason": "reload",
+      "revision": 2,
+      "y": 3476,
+      "zoom": 0
+    },
+    "phase": "works",
+    "portal": null,
+    "portalCovered": false,
+    "raw": {
+      "event": 0.9012638230647708,
+      "expand": 0,
+      "intro": 1,
+      "kv": 1,
+      "outro": 0,
+      "prepare": 0,
+      "snap": 0.8518957345971564,
+      "wall": 0,
+      "works": 0.6759478672985783
+    },
+    "rendered": {
+      "background": 2.824997312175852,
+      "expand": 0,
+      "index": 2.9704129511575807,
+      "intro": 1,
+      "prepare": 0,
+      "progress": 0.6975282987644063,
+      "wall": 0
+    },
+    "scrollY": 3226,
+    "wall": {
+      "build": 0,
+      "drawn": 0,
+      "falling": 0,
+      "position": [
+        0,
+        0,
+        -1
+      ],
+      "raw": 0,
+      "revision": 1,
+      "rise": 0,
+      "rows": 5,
+      "samples": [],
+      "settled": 0,
+      "visible": false
+    }
+  },
+  "overflow": false,
+  "size": [
+    375,
+    844
+  ],
+  "status": "ready",
+  "url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1#projects"
+}

@@ -1,5 +1,7 @@
 # 个人主页技术实现方案
 
+2026-10-15 首页性能主站验收：BNuf11DH冻结源接入main，144文件0错误/0警告、53页构建与限定交互通过；桌面/窄屏轮播10秒、稳定白墙6秒零新增场景/renderer帧，首次输入唤醒正常。保留F03、F05、三卡及小砖，不启动F06/F07；当前准备保护PR，最终Pages与公网结果按真实SHA补录。[本轮验收](acceptance/home-performance-2026-10-15.md)。下方旧版本状态为过程追溯。
+
 2026-10-14 最终集成：本轮发布入口为[PR #54](https://github.com/0ne-small-stone/personal-homepage/pull/54)，通过保护检查合并main后由Pages部署；最终SHA、Actions和公网回读在PR补记。本地最终工程141文件0错误/0警告、8条沿用相册的提示，53页构建与186项风险测试通过。发布期间同步保留main `5eac344` 的正式相册、36张授权WebP派生及目录契约；桌面/390px首页进入相册与原生后退4/4通过。首页加载/人物/音乐的既有验收边界保持，迷墙仍是独立原型，用户审美与真机性能另记。以下同日准备状态为过程快照。
 
 2026-10-14 P10/T12静态接入：Astro/gallery/独立文档、Vite模块打包原Dome/Three/按需PhotoSwipe，沿用现有锁文件和Pages保护流程。照片派生位于public/gallery/，相对manifest/media与正式base一致；无新框架、后端、账号或服务，见[施工记录](iterations/t12-p10-2026-10-14-pages.md)。

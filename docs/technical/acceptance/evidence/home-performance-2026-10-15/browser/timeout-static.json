@@ -1,0 +1,51 @@
+{
+  "url": "http://127.0.0.1:4475/personal-homepage/?opticsDebug=1&loadingPreview=timeout",
+  "width": 1280,
+  "height": 720,
+  "y": 0,
+  "status": "error",
+  "classes": "lssh-home has-journey home-static home-loading-nav-ready",
+  "visible": true,
+  "motion": null,
+  "loop": null,
+  "backdrop": null,
+  "loading": {
+    "phase": "error",
+    "active": false,
+    "requested": false,
+    "progress": 1,
+    "resources": [
+      "layout",
+      "compiled",
+      "frame"
+    ],
+    "reason": "resource-timeout",
+    "closed": false,
+    "events": [
+      {
+        "phase": "waiting",
+        "time": 126.30000001192093
+      },
+      {
+        "phase": "error",
+        "time": 8127.700000017881
+      }
+    ],
+    "preview": "timeout",
+    "wordmarkDecoded": true,
+    "preference": "motion"
+  },
+  "pass": {
+    "active": false,
+    "copies": 3,
+    "size": [],
+    "disposed": true
+  },
+  "canvas": 0,
+  "audio": 1,
+  "wordmarks": 1,
+  "overflow": false,
+  "bundle": "/personal-homepage/_astro/HomeJourney.C6MN0nAV.js",
+  "wallInert": false,
+  "summaryColor": "rgb(237, 237, 237)"
+}

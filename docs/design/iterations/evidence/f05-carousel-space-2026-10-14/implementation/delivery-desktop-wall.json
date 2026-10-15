@@ -1,0 +1,113 @@
+{
+  "background": {
+    "ceiling": 0.1411764705882353,
+    "corners": [
+      [
+        -1.555759332230507,
+        -1.5557593322305072,
+        -0.6833667334669339
+      ],
+      [
+        1.555759332230507,
+        -1.5557593322305072,
+        -0.6833667334669339
+      ],
+      [
+        1.555759332230507,
+        1.5557593322305072,
+        -0.6833667334669339
+      ],
+      [
+        -1.555759332230507,
+        1.5557593322305072,
+        -0.6833667334669339
+      ]
+    ],
+    "farBrightness": 0.52,
+    "farOffset": [
+      0.0175,
+      0.0075
+    ],
+    "fieldPeak": 0.048,
+    "gridOffset": [
+      0.035,
+      0.0125
+    ],
+    "gridPeak": 0.048,
+    "intro": 0,
+    "light": [
+      0.27999999999999997,
+      0.36
+    ],
+    "q": 1,
+    "spacing": 104,
+    "texture": "090fadc7-71b2-44bf-b1e0-9f713d9d8873",
+    "textureSize": [
+      1536,
+      874
+    ],
+    "visible": false,
+    "weight": 0
+  },
+  "bundle": "/personal-homepage/_astro/HomeJourney.BNuf11DH.js",
+  "classes": "lssh-home has-journey home-enhanced home-loading-nav-ready home-wall-ready home-on-wall",
+  "loading": {
+    "active": false,
+    "closed": false,
+    "events": [
+      {
+        "phase": "waiting",
+        "time": 289.3999999910593
+      },
+      {
+        "phase": "ready",
+        "time": 2205.5999999940395
+      }
+    ],
+    "phase": "ready",
+    "preference": "motion",
+    "preview": null,
+    "progress": 1,
+    "reason": "",
+    "requested": false,
+    "resources": [
+      "layout",
+      "wordmark",
+      "compiled",
+      "frame"
+    ],
+    "wordmarkDecoded": true
+  },
+  "loadingPass": {
+    "active": false,
+    "copies": 0,
+    "disposed": true,
+    "geometryId": "b347e81c-41e7-4cbf-a72b-b148ed94e7e5",
+    "glassId": "6f72bfed-64f2-4d70-9fd1-2a4b4695f611",
+    "size": [],
+    "worldDrawn": true
+  },
+  "loop": {
+    "cpuMs": 1.5999999940395355,
+    "delta": 0.016666666666666666,
+    "frame": 2,
+    "loading": false,
+    "mode": "demand",
+    "rawDelta": 0.4839000000059605,
+    "renderFrame": 28,
+    "running": false,
+    "snap": false,
+    "time": 2213.699999988079,
+    "trackingGlass": false,
+    "transmissionVisible": false,
+    "velocity": 0
+  },
+  "motion": {},
+  "overflow": false,
+  "size": [
+    1265,
+    720
+  ],
+  "status": "ready",
+  "url": "http://127.0.0.1:4342/personal-homepage/?opticsDebug=1#wall"
+}

@@ -1,0 +1,211 @@
+{
+  "candidate": "HomeJourney.BNuf11DH.js",
+  "candidateSha": "9CEDA3C79445602902E5038F3682A6B0781F8B50A361D89F076239406B9773F6",
+  "baseline": "c6dd2eb60509a067d0875a631539fcdbbc9b1408",
+  "records": [
+    {
+      "file": "src/components/home/wall-assembly.ts",
+      "sourceSha": "543285ff178938040ebf93771eb181bcf7d135764ee6a4eaeb50385d6ec05cdb",
+      "mainSha": "543285ff178938040ebf93771eb181bcf7d135764ee6a4eaeb50385d6ec05cdb",
+      "different": false
+    },
+    {
+      "file": "src/components/home/RisingWall.tsx",
+      "sourceSha": "fa880cd0be90c7ec74ef5ad9b1145f63300ad0839cac06759c92c8c60d26a9d1",
+      "mainSha": "fa880cd0be90c7ec74ef5ad9b1145f63300ad0839cac06759c92c8c60d26a9d1",
+      "different": false
+    },
+    {
+      "file": "src/components/home/wall-portal-geometry.ts",
+      "sourceSha": "d3483336f4994107798f59989e6511872c03046eb037cdfd5a6dfef8b09bb3fa",
+      "mainSha": "d3483336f4994107798f59989e6511872c03046eb037cdfd5a6dfef8b09bb3fa",
+      "different": false
+    },
+    {
+      "file": "src/components/home/GlassPortalShape.ts",
+      "sourceSha": "8c6faeb0efd4902426061e5b5fe50b322f274867c8d1aaeb3f0e1bf625d2528a",
+      "mainSha": "8c6faeb0efd4902426061e5b5fe50b322f274867c8d1aaeb3f0e1bf625d2528a",
+      "different": false
+    },
+    {
+      "file": "src/components/home/WallPortal.ts",
+      "sourceSha": "608d2030c1c5eafd55525972a98aff7638406883461bc7ed5c7257fc3a137525",
+      "mainSha": "608d2030c1c5eafd55525972a98aff7638406883461bc7ed5c7257fc3a137525",
+      "different": false
+    },
+    {
+      "file": "src/components/home/GlassRenderLayer.tsx",
+      "sourceSha": "a3ebd7463a60abebcaaef44e9474d22c39c9cd02d2ebbdecd43b59f7dda62c34",
+      "mainSha": "72538337f5ec669b0aff2c84f53c559590ca9c892519566d67174e83b96f856c",
+      "different": true
+    },
+    {
+      "file": "src/components/home/GlassTriangle.tsx",
+      "sourceSha": "f728b7f136319613c2bb905514b9f7857743dc785fc5824476d20e80538554ba",
+      "mainSha": "a6bcaa17da84b7e5925e8db256a09fa8a6d63b62439f435650cfc1fd9add82dd",
+      "different": true
+    },
+    {
+      "file": "src/components/home/CameraRig.tsx",
+      "sourceSha": "88400028f822a0be350cf5a0308cb38e8c63106580ddb7a6eacd7b83391612f1",
+      "mainSha": "680c2919b5e2c8f904108df264af036c909551d844acd00f20342f3eec62fc90",
+      "different": true
+    },
+    {
+      "file": "src/components/home/WorksMotionDriver.tsx",
+      "sourceSha": "816ae867e8566804286351fc8bc7447a3626314c17ddc27bd373c028aabdc6b0",
+      "mainSha": "2fff2bc385951e6da72f844b2c1aa26f3831e5915b8d10b37fa6d6a5ab2bd1c9",
+      "different": true
+    },
+    {
+      "file": "src/components/home/HomeJourney.tsx",
+      "sourceSha": "73141c75ce249716e0e06219ad834bbea92b9c335c4fd4b2975cf31475e99fcd",
+      "mainSha": "8b2523e7c3e38b6fe41d1480b93d77a4365096be4225466d344572fb8f66edb1",
+      "different": true
+    },
+    {
+      "file": "src/components/home/home-motion.ts",
+      "sourceSha": "10a31e3cee8cf094426de1fc84e9008ca4121b6f4e4465d61129c8cec136c37f",
+      "mainSha": "d5fb61dec62057e0a6d31339a52645431ddacf6d95ed83f587ce0c9097bfe0c1",
+      "different": true
+    },
+    {
+      "file": "src/components/home/home-return.ts",
+      "sourceSha": "855a8830ba6cdd378b5d997d810ed0bee22df51fb5eb8912b37fd07d352d33db",
+      "mainSha": "855a8830ba6cdd378b5d997d810ed0bee22df51fb5eb8912b37fd07d352d33db",
+      "different": false
+    },
+    {
+      "file": "src/components/home/works-motion.ts",
+      "sourceSha": "a9bca1ed2d17ff7a757a5477a44c63b21dd18f4fb0bfdbe7da3be88bb995f396",
+      "mainSha": "a9bca1ed2d17ff7a757a5477a44c63b21dd18f4fb0bfdbe7da3be88bb995f396",
+      "different": false
+    },
+    {
+      "file": "src/styles/home.css",
+      "sourceSha": "3ecb67197855ad6972094ba667b63ecf4a6ddde54bd36e11ec80b3361ea0686d",
+      "mainSha": "99ec8d569f4ebc5330c3c3611924251a0036d525e76b4616fbbca31df2f42295",
+      "different": true
+    },
+    {
+      "file": "tests/home-motion-ranges.test.mjs",
+      "sourceSha": "2f0de61058e914e76a27601c7ee430133d864f56490f996e9bb21fe46cfd10b6",
+      "mainSha": "2f0de61058e914e76a27601c7ee430133d864f56490f996e9bb21fe46cfd10b6",
+      "different": false
+    },
+    {
+      "file": "src/components/home/prism-geometry.ts",
+      "sourceSha": "42c37a53c86b8a4d10d5f1b5c25b5c6fb8d0f193ffe8a13bb6cd7a907e906dac",
+      "mainSha": "42c37a53c86b8a4d10d5f1b5c25b5c6fb8d0f193ffe8a13bb6cd7a907e906dac",
+      "different": false
+    },
+    {
+      "file": "src/components/home/GlassGlow.ts",
+      "sourceSha": "9523c45704bcd5ab095ee47c47db3f87ef35e201586fccf2278df6102174368f",
+      "mainSha": "9523c45704bcd5ab095ee47c47db3f87ef35e201586fccf2278df6102174368f",
+      "different": false
+    },
+    {
+      "file": "src/components/home/GlassEdgeLight.tsx",
+      "sourceSha": "a12966268c7dec42840a47d0d99bcd5e3af48acdb38b6092a2b6a7f5851a9ec4",
+      "mainSha": "a12966268c7dec42840a47d0d99bcd5e3af48acdb38b6092a2b6a7f5851a9ec4",
+      "different": false
+    },
+    {
+      "file": "src/components/home/wall-material.ts",
+      "sourceSha": "dccdbf415b8dd60d81a69e6ce0d443ab1d1e8e466916a2c0b5e058da4eadeb82",
+      "mainSha": "dccdbf415b8dd60d81a69e6ce0d443ab1d1e8e466916a2c0b5e058da4eadeb82",
+      "different": false
+    },
+    {
+      "file": "src/components/home/motion-ranges.ts",
+      "sourceSha": "66747ce7bf9491acef3a4880dac348c9f41eaf0fadef06d3848e614ef66d118f",
+      "mainSha": "66747ce7bf9491acef3a4880dac348c9f41eaf0fadef06d3848e614ef66d118f",
+      "different": false
+    },
+    {
+      "file": "src/components/home/home-chapters.ts",
+      "sourceSha": "81bb0917798b247f22153508b9fe5089de00db9f08039d985fe18655cd164416",
+      "mainSha": "81bb0917798b247f22153508b9fe5089de00db9f08039d985fe18655cd164416",
+      "different": false
+    },
+    {
+      "file": "src/components/home/WorksScene.tsx",
+      "sourceSha": "cc84f4903eb008f55908f059b70c58259a79f9718bd9b8a5bc2630f47a8d8d80",
+      "mainSha": "cc84f4903eb008f55908f059b70c58259a79f9718bd9b8a5bc2630f47a8d8d80",
+      "different": false
+    },
+    {
+      "file": "src/pages/index.astro",
+      "sourceSha": "a80f9ccd40b5752690ba9e1bce81b4c175875af708269a8d399ba936a04bb054",
+      "mainSha": "a80f9ccd40b5752690ba9e1bce81b4c175875af708269a8d399ba936a04bb054",
+      "different": false
+    },
+    {
+      "file": "src/components/home/loading-state.ts",
+      "sourceSha": "49bb9ffb2e4594ba9638fd94370b0ceb24464a3f2f477a9c30365d8046d5b869",
+      "mainSha": "49bb9ffb2e4594ba9638fd94370b0ceb24464a3f2f477a9c30365d8046d5b869",
+      "different": false
+    },
+    {
+      "file": "src/components/home/LoadingReveal.ts",
+      "sourceSha": "facb7dae75addd2805eab1aa6dded8730d45ddd99fc0aaf4d5cb2f1631f543f0",
+      "mainSha": "facb7dae75addd2805eab1aa6dded8730d45ddd99fc0aaf4d5cb2f1631f543f0",
+      "different": false
+    },
+    {
+      "file": "src/components/home/useHomeLoading.ts",
+      "sourceSha": "aa3117cdefff5cebf4b146313bad8994e6a688c2cc7f0a16bc7efff1d19d3276",
+      "mainSha": "2b87d7c5bdc7b68b372352280e4153c97f5f1f06135d6a196ca008572f4095ab",
+      "different": true
+    },
+    {
+      "file": "src/components/home/scene-state.ts",
+      "sourceSha": "689e484efb53ac499f470d5b760bb225b696d91efa02dea80b72d7276dbb4eef",
+      "mainSha": "f3d8f0b5389e40748f67ed8188b820248be65919d889318e04ea88be3ace1abf",
+      "different": true
+    },
+    {
+      "file": "tests/home-loading.test.mjs",
+      "sourceSha": "6bdef7dbdcd4c88da88c29255eaff1eab921cb07d5b37b5b79cdd17b95c91bbd",
+      "mainSha": "6bdef7dbdcd4c88da88c29255eaff1eab921cb07d5b37b5b79cdd17b95c91bbd",
+      "different": false
+    },
+    {
+      "file": "src/components/home/frame-activity.ts",
+      "sourceSha": "60ae89cf570b354db07978e9dd552b50bd927e0b878ef6f583d5b73707d0e12b",
+      "mainSha": null,
+      "different": true
+    },
+    {
+      "file": "src/components/home/HomeFrameLoop.tsx",
+      "sourceSha": "089e8fdcce56e2d60b8ab4820763ed85fbd953740d20ae045b48a0e088b2cb5f",
+      "mainSha": null,
+      "different": true
+    },
+    {
+      "file": "tests/home-frame-activity.test.mjs",
+      "sourceSha": "862d76d4943190ec74814bfcb086a4f6a75ca7c4a0fc472122205ca097cd7371",
+      "mainSha": null,
+      "different": true
+    },
+    {
+      "file": "src/components/home/SceneBackdrop.tsx",
+      "sourceSha": "72cc3331f66c6210940653866999b8d4729e2c70ca8e2e16863c7e6e9a335b2b",
+      "mainSha": "8601b71ab1bd91c136d7a02f6f058a7c225639d711eea4765f5a934efc0b36aa",
+      "different": true
+    },
+    {
+      "file": "src/components/home/backdrop-state.ts",
+      "sourceSha": "724cf7288a5f043ec42b5df270962a898cc57cbf79c61194125ef6050970015f",
+      "mainSha": null,
+      "different": true
+    },
+    {
+      "file": "tests/home-backdrop.test.mjs",
+      "sourceSha": "78a98a58c8f091f4cd0457a1b679053452a27c76472c5763cdd7256fb4bc5d3d",
+      "mainSha": null,
+      "different": true
+    }
+  ]
+}

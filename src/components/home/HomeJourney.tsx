@@ -1,8 +1,8 @@
 import { Component, Suspense, useEffect, useRef, useState, type ReactNode } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { Canvas, useThree } from '@react-three/fiber';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { createJourneyModel, type JourneyModel } from './scene-state';
+import { createJourneyModel } from './scene-state';
 import GlassTriangle from './GlassTriangle';
 import SceneLighting from './SceneLighting';
 import SceneBackdrop from './SceneBackdrop';
@@ -15,11 +15,12 @@ import RisingWall from './RisingWall';
 import { installHomeReturn } from './home-return';
 import GlassRenderLayer from './GlassRenderLayer';
 import { initialHomeQuiet, useHomeLoading } from './useHomeLoading';
+import HomeFrameLoop from './HomeFrameLoop';
 
 class SceneBoundary extends Component<{children: ReactNode; onError: () => void}, {failed: boolean}> {
   state = { failed: false };
   static getDerivedStateFromError() { return {failed:true}; }
-  componentDidCatch(error: Error) { console.warn('首页场景加载失败：', error.message); this.props.onError(); }
+  componentDidCatch() { this.props.onError(); }
   render() { return this.state.failed ? null : this.props.children; }
 }
 
@@ -31,17 +32,6 @@ function CanvasContextEvents({ onError }: { onError: () => void }) {
     canvas.addEventListener('webglcontextlost', lost);
     return () => canvas.removeEventListener('webglcontextlost', lost);
   }, [gl, onError]);
-  return null;
-}
-
-function FrameHeartbeat({ model }: {model: JourneyModel}) {
-  const frames = useRef(0);
-  const { invalidate } = useThree();
-  useEffect(() => { model.invalidate = invalidate; return () => {model.invalidate = () => {};}; }, [model,invalidate]);
-  useFrame(() => {
-    model.lastFrame = performance.now();
-    if (frames.current < 3) { frames.current++; invalidate(); }
-  });
   return null;
 }
 
@@ -59,6 +49,7 @@ export default function HomeJourney({wordmarkUrl,albumUrl,projectUrl,neighborUrl
   const loading=useHomeLoading(model,wordmarkUrl,attempt,quiet);
   const status=loading.phase,message=loading.message,fallback=loading.fallback;
   const canRender=status!=='error'&&status!=='fallback';
+
 
   useEffect(() => {
     if (new URLSearchParams(location.search).has('opticsDebug')) document.documentElement.dataset.motionDiagnostics = 'true';
@@ -110,11 +101,12 @@ export default function HomeJourney({wordmarkUrl,albumUrl,projectUrl,neighborUrl
     setPaused(value=>{try{sessionStorage.setItem('lssh.home.paused',String(!value));}catch{} return !value;});model.invalidate();
   };
   return <>
-    {canRender && <div className="home-scene" aria-hidden="true"><SceneBoundary key={attempt} onError={()=>fallback(true)}><Canvas frameloop={visible && !paused && !reduced && status!=='waiting'&&!loading.previewHeld ? 'always' : 'demand'} dpr={mobile ? 1 : [1,1.5]} camera={{position:[0,0,6],fov:40,near:.1,far:50}} gl={{alpha:false,antialias:true,powerPreference:'high-performance'}} onCreated={({gl})=>{
+    {canRender && <div className="home-scene" aria-hidden="true"><SceneBoundary key={attempt} onError={()=>fallback(true)}><Canvas frameloop="demand" dpr={mobile ? 1 : [1,1.5]} camera={{position:[0,0,6],fov:40,near:.1,far:50}} gl={{alpha:false,antialias:true,powerPreference:'high-performance'}} onCreated={({gl})=>{
       gl.setClearColor('#000000');
+
     }} fallback={<span>图形不可用</span>}>
       <CanvasContextEvents onError={()=>fallback(true)} />
-      <Suspense fallback={null}><WorksMotionDriver model={model} stopped={paused&&portalPaused} /><CameraRig model={model} mobile={mobile} quiet={quiet} frozen={paused&&portalPaused} /><SceneLighting /><SceneBackdrop model={model} mobile={mobile} /><GlassTriangle model={model} paused={quiet||!visible||loading.active} frozen={paused&&portalPaused} hover={hover} mobile={mobile} />{!quiet&&<Suspense fallback={null}><WorksScene model={model} projectUrl={projectUrl} neighborUrl={neighborUrl} albumUrl={albumUrl} /></Suspense>}<RisingWall model={model} quiet={quiet} /><FrameHeartbeat model={model} /><GlassRenderLayer model={model} quiet={quiet} /></Suspense>
+      <Suspense fallback={null}><HomeFrameLoop model={model} enabled={visible&&!paused&&!reduced&&status!=='waiting'&&!loading.previewHeld} /><WorksMotionDriver model={model} stopped={paused&&portalPaused} /><CameraRig model={model} mobile={mobile} quiet={quiet} frozen={paused&&portalPaused} /><SceneLighting /><SceneBackdrop model={model} mobile={mobile} quiet={quiet} /><GlassTriangle model={model} paused={quiet||!visible||loading.active} frozen={paused&&portalPaused} hover={hover} mobile={mobile} />{!quiet&&<Suspense fallback={null}><WorksScene model={model} projectUrl={projectUrl} neighborUrl={neighborUrl} albumUrl={albumUrl} /></Suspense>}<RisingWall model={model} quiet={quiet} /><GlassRenderLayer model={model} quiet={quiet} /></Suspense>
     </Canvas></SceneBoundary></div>}
     {loading.active&&<div className="home-loader" aria-label="首页加载"><p role="status">{status==='waiting'?'正在载入':'空间正在显现'}</p><button onClick={()=>fallback()}>普通浏览</button></div>}
     {loading.preview==='1'&&loading.active&&<div className="home-loading-lab" aria-label="本机加载预览"><span>本机加载预览</span><button disabled={!loading.wordmarkDecoded} onClick={loading.start}>开始揭幕</button><button disabled={!loading.wordmarkDecoded} onClick={()=>loading.seek(.16)}>轮廓</button><button disabled={!loading.wordmarkDecoded} onClick={()=>loading.seek(.55)}>展开</button><button disabled={!loading.wordmarkDecoded} onClick={()=>loading.seek(1)}>完成</button></div>}

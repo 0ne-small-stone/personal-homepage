@@ -1,0 +1,122 @@
+{
+  "url": "http://127.0.0.1:4475/personal-homepage/?opticsDebug=1#projects",
+  "width": 390,
+  "height": 844,
+  "y": 3476,
+  "status": "ready",
+  "classes": "lssh-home has-journey home-enhanced home-loading-nav-ready home-quiet",
+  "visible": true,
+  "motion": null,
+  "loop": {
+    "mode": "demand",
+    "running": false,
+    "frame": 422,
+    "time": 26902.09999999404,
+    "velocity": 0,
+    "snap": false,
+    "loading": false,
+    "renderFrame": 3920,
+    "transmissionVisible": true,
+    "trackingGlass": true,
+    "rawDelta": 0.2505,
+    "delta": 0.016666666666666666,
+    "cpuMs": 1.4000000059604645
+  },
+  "backdrop": {
+    "q": 0,
+    "weight": 0,
+    "intro": 1,
+    "farOffset": [
+      -0.0175,
+      -0.0075
+    ],
+    "gridOffset": [
+      -0.035,
+      -0.0125
+    ],
+    "light": [
+      0.62,
+      0.36
+    ],
+    "spacing": 96,
+    "farBrightness": 0.52,
+    "fieldPeak": 0.048,
+    "gridPeak": 0.048,
+    "ceiling": 0.1411764705882353,
+    "visible": true,
+    "texture": "52c0387a-3cb7-4595-8b52-b0cc3298b1d6",
+    "textureSize": [
+      768,
+      1662
+    ],
+    "corners": [
+      [
+        -1.1199999999999999,
+        -1.1199999999999999,
+        0.9779819379017776
+      ],
+      [
+        1.1199999999999999,
+        -1.1199999999999999,
+        0.9779819379017776
+      ],
+      [
+        1.1199999999999999,
+        1.1199999999999999,
+        0.9779819379017776
+      ],
+      [
+        -1.1199999999999999,
+        1.1199999999999999,
+        0.9779819379017776
+      ]
+    ]
+  },
+  "loading": {
+    "phase": "ready",
+    "active": false,
+    "requested": true,
+    "progress": 1,
+    "resources": [
+      "layout",
+      "wordmark",
+      "compiled",
+      "frame"
+    ],
+    "reason": "",
+    "closed": false,
+    "events": [
+      {
+        "phase": "waiting",
+        "time": 169
+      },
+      {
+        "phase": "revealing",
+        "time": 545.5
+      },
+      {
+        "phase": "ready",
+        "time": 1224.0999999940395
+      }
+    ],
+    "preview": null,
+    "wordmarkDecoded": true,
+    "preference": "motion"
+  },
+  "pass": {
+    "active": false,
+    "copies": 4,
+    "size": [],
+    "disposed": true,
+    "glassId": "acdf4f1e-ca99-4a6b-8aab-881d2f94e30f",
+    "geometryId": "9202fab0-dcf4-4c4a-9038-a9c23bdfa385",
+    "worldDrawn": true
+  },
+  "canvas": 1,
+  "audio": 1,
+  "wordmarks": 1,
+  "overflow": false,
+  "bundle": "/personal-homepage/_astro/HomeJourney.C6MN0nAV.js",
+  "wallInert": false,
+  "summaryColor": "rgb(237, 237, 237)"
+}
