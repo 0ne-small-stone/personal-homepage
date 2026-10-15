@@ -48,4 +48,3 @@ export default function useNetEaseCore(){
   const queueTracks=audio.queue.map(track=>metadata.current.get(track.id)||{...track,artistId:'',albumId:'',coverUrl:track.coverUrl||null,duration:0});
   return{audio,route,data,setData,busy,refreshing,refreshPodcasts,error,notice,setNotice,account,liked,jobs,mutationBusy,scroll,previous,go,play,presentation,selected,active,load,mutate,toggleLike,queueTracks,more:()=>setPage(value=>value+1),openCard:(card:NetEaseCard)=>go('detail',{kind:card.kind,id:card.id})};
 }
-

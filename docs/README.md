@@ -275,3 +275,6 @@ P06 / R02、R09、R12 / U09、U14 / T09、T26–T27：[文章阅读位置自动�
 P05 / R02、R09、R12 / U09、U14 / T08、T26–T27：[PDF页码与阅读位置续读](design/iterations/u09-p05-2026-10-15-pdf-progress.md)，每份PDF独立记忆，不新增页面或设置。
 
 P06 / R09、R10、R12 / U09、U14 / T05、T07、T09、T26–T27：[文章列表外观衔接](design/iterations/u09-p06-2026-10-15-article-list.md)，含现有分页和标签结果外壳，不新增页面类型。
+
+
+P03/P05/P06/P15/P17 / R02、R09、R10、R12、R13 / U09、U13、U14 / T05–T10、T13、T16、T26–T27：[Becoming 功能清单](technical/BECOMING_FEATURES.md)与[2026-10-15 发布记录](technical/iterations/becoming-release-2026-10-15.md)。
