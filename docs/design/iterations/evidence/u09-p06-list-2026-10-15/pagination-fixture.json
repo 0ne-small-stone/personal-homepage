@@ -1,0 +1,110 @@
+{
+  "scope": "isolated local production fixture; not canonical content",
+  "samples": [
+    {
+      "file": "src/content/docs/knowledge/blog/pagination-check-01.md",
+      "id": "01",
+      "draft": false,
+      "date": "2026-10-07",
+      "tag": "奇数验证"
+    },
+    {
+      "file": "src/content/docs/knowledge/blog/pagination-check-02.md",
+      "id": "02",
+      "draft": false,
+      "date": "2026-10-06",
+      "tag": "偶数验证"
+    },
+    {
+      "file": "src/content/docs/knowledge/blog/pagination-check-03.md",
+      "id": "03",
+      "draft": false,
+      "date": "2026-10-05",
+      "tag": "奇数验证"
+    },
+    {
+      "file": "src/content/docs/knowledge/blog/pagination-check-04.md",
+      "id": "04",
+      "draft": false,
+      "date": "2026-10-04",
+      "tag": "偶数验证"
+    },
+    {
+      "file": "src/content/docs/knowledge/blog/pagination-check-05.md",
+      "id": "05",
+      "draft": false,
+      "date": "2026-10-03",
+      "tag": "奇数验证"
+    },
+    {
+      "file": "src/content/docs/knowledge/blog/pagination-check-06.md",
+      "id": "06",
+      "draft": false,
+      "date": "2026-10-02",
+      "tag": "偶数验证"
+    },
+    {
+      "file": "src/content/docs/knowledge/blog/pagination-check-07.md",
+      "id": "07",
+      "draft": false,
+      "date": "2026-10-01",
+      "tag": "奇数验证"
+    },
+    {
+      "file": "src/content/docs/knowledge/blog/pagination-check-08.md",
+      "id": "08",
+      "draft": false,
+      "date": "2026-09-30",
+      "tag": "偶数验证"
+    },
+    {
+      "file": "src/content/docs/knowledge/blog/pagination-check-09.md",
+      "id": "09",
+      "draft": false,
+      "date": "2026-09-29",
+      "tag": "奇数验证"
+    },
+    {
+      "file": "src/content/docs/knowledge/blog/pagination-check-10.md",
+      "id": "10",
+      "draft": false,
+      "date": "2026-09-28",
+      "tag": "偶数验证"
+    },
+    {
+      "file": "src/content/docs/knowledge/blog/pagination-check-11.md",
+      "id": "11",
+      "draft": false,
+      "date": "2026-09-27",
+      "tag": "奇数验证"
+    },
+    {
+      "file": "src/content/docs/knowledge/blog/pagination-check-12.md",
+      "id": "12",
+      "draft": true,
+      "date": "2026-09-26",
+      "tag": "草稿分页排除"
+    }
+  ],
+  "sourceArticles": [
+    {
+      "name": "src/content/docs/knowledge/blog/article-reading-check.md",
+      "sha256": "100a7c16d0c86b42d04920da607de8ac2e09523e67851055b4f395d4aa017abf"
+    },
+    {
+      "name": "src/content/docs/knowledge/blog/demo-article-cms-create-check.md",
+      "sha256": "11c0e2065b08a9446709dc16bb4b88382d48a2cb06d11da7f30a4e4ec206235f"
+    },
+    {
+      "name": "src/content/docs/knowledge/blog/editor-draft-check.md",
+      "sha256": "dbe93d7553cf2dc7291ea3562235f3a2491b692e32987a4ee1b637ad0ef81298"
+    },
+    {
+      "name": "src/content/docs/knowledge/blog/reading-example.md",
+      "sha256": "bf0950e25b370830fd7a1a95bddfd9ec2f16c3edbe00cda82014a202f9e1a0db"
+    }
+  ],
+  "originalArticlesUnchanged": true,
+  "pages": 69,
+  "success": true
+}

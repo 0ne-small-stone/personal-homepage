@@ -236,3 +236,5 @@ P05/P06 / R02、R09、R10、R12 / U09、U14 / T05、T08–T10、T26–T27：[文
 P06 / R02、R09、R12 / U09、U14 / T09、T26–T27：[文章阅读位置自动恢复](design/iterations/u09-p06-2026-10-15-reading-progress.md)，按文章记忆段落位置，不新增页面或设置项。
 
 P05 / R02、R09、R12 / U09、U14 / T08、T26–T27：[PDF页码与阅读位置续读](design/iterations/u09-p05-2026-10-15-pdf-progress.md)，每份PDF独立记忆，不新增页面或设置。
+
+P06 / R09、R10、R12 / U09、U14 / T05、T07、T09、T26–T27：[文章列表外观衔接](design/iterations/u09-p06-2026-10-15-article-list.md)，含现有分页和标签结果外壳，不新增页面类型。

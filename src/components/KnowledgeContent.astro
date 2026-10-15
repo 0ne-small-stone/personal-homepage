@@ -4,9 +4,13 @@ import PdfReader from './PdfReader.astro';
 import ArticleNavigation from './ArticleNavigation.astro';
 import RelatedKnowledge from './RelatedKnowledge.astro';
 import ReadingMode from './ReadingMode.astro';
+import BlogListIntro from './knowledge/BlogListIntro.astro';
+import { sitePath } from '../lib/paths';
 const { entry } = Astro.locals.starlightRoute;
 const source = entry.data.source;
+const isBlogList = entry.data.kind !== 'article' && Astro.url.pathname.startsWith(sitePath('knowledge/blog'));
 ---
+{isBlogList && <BlogListIntro />}
 {entry.data.kind === 'article' ? (
   <div class="article-reading-actions">
     <ArticleNavigation kind={entry.data.kind} />

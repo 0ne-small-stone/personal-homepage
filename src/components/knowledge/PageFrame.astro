@@ -3,13 +3,15 @@ import DefaultPageFrame from '@astrojs/starlight/components/PageFrame.astro';
 import PersistentPlayer from '../music/PersistentPlayer';
 import { sitePath } from '../../lib/paths';
 import '../../styles/becoming-overview.css';
+import '../../styles/becoming-blog.css';
 
 const isOverview = Astro.url.pathname.replace(/\/$/, '') === sitePath('knowledge').replace(/\/$/, '');
 const isPdf = Astro.locals.starlightRoute?.entry?.data.source?.format === 'pdf';
 const isArticle = Astro.locals.starlightRoute?.entry?.data.kind === 'article';
+const isBlogList = !isArticle && Astro.url.pathname.startsWith(sitePath('knowledge/blog'));
 ---
-{isOverview || isPdf || isArticle ? (
-  <div class:list={['becoming-shell', { 'becoming-overview': isOverview, 'becoming-pdf': isPdf, 'becoming-article': isArticle }]}>
+{isOverview || isPdf || isArticle || isBlogList ? (
+  <div class:list={['becoming-shell', { 'becoming-overview': isOverview, 'becoming-pdf': isPdf, 'becoming-article': isArticle, 'becoming-blog': isBlogList }]}>
     <DefaultPageFrame>
       <slot name="header" slot="header" />
       <slot name="sidebar" slot="sidebar" />

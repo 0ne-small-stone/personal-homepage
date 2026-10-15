@@ -1,0 +1,31 @@
+---
+import { sitePath } from '../../lib/paths';
+import { blogSettings } from '../../lib/blog-settings';
+
+const posts = Astro.locals.starlightBlog.posts;
+const root = sitePath('knowledge/blog');
+const isTag = Astro.url.pathname.startsWith(`${root}tags/`);
+const examples = posts.filter((post) => post.entry.data.example).length;
+const tags = new Map<string, { label: string; href: string; count: number }>();
+for (const post of posts) {
+  for (const tag of new Map(post.tags.map((tag) => [tag.href, tag])).values()) {
+    const previous = tags.get(tag.href);
+    tags.set(tag.href, { ...tag, count: (previous?.count ?? 0) + 1 });
+  }
+}
+const tagLinks = [...tags.values()].sort((a, b) => a.label.localeCompare(b.label, 'zh-CN'));
+const current = (href: string) => decodeURI(href) === decodeURI(Astro.url.pathname);
+---
+<div class="becoming-blog-intro">
+  {!isTag && <p class="becoming-lede">关于学习、阅读与整理的记录。</p>}
+  <div class="becoming-blog-meta">
+    {!isTag && <p>共 {posts.length} 篇{examples > 0 && <span>其中 {examples} 篇为功能样稿</span>}</p>}
+    <a href={`${sitePath('knowledge')}?type=article`}>学习总览</a>
+  </div>
+  {blogSettings.tagBrowsingEnabled && tagLinks.length > 0 && <nav class="becoming-blog-tags" aria-label="文章标签">
+    <a href={root} aria-current={!isTag ? (current(root) ? 'page' : 'true') : undefined}>全部文章</a>
+    {tagLinks.map((tag) => <a href={tag.href} aria-current={current(tag.href) ? 'page' : undefined}>
+      {tag.label}<span class="becoming-tag-count">{tag.count}</span>
+    </a>)}
+  </nav>}
+</div>
