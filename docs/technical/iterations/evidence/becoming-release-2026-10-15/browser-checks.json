@@ -1,0 +1,21 @@
+{
+  "release": "4cf7f16594f24b6c946737a856f74a984c56afe8",
+  "overview": {
+    "heading": "Becoming",
+    "shell": "becoming-shell becoming-overview",
+    "count": "35 份资料 / 5 篇笔记 / 1 篇功能样稿",
+    "overflow": false
+  },
+  "articleFilter": {
+    "checked": "article",
+    "count": 1,
+    "result": "博客阅读验证（功能验证样稿）"
+  },
+  "pdf": {
+    "shell": "becoming-shell becoming-pdf",
+    "status": "共 4 页 · 可翻页、缩放与搜索",
+    "viewer": "pdfjs/web/viewer.html?file=%2Fpersonal-homepage%2Fmaterials%2Flssh-pdf-reading-check.pdf&reader=pure-v5",
+    "shortcutHelp": false
+  },
+  "boundary": "公网本轮实测总览/文章筛选/PDF加载；续读、沉浸和分页沿用逐片本机证据，未重复全套公网交互。初次两次浏览器调用超时，恢复后刷新读到新页面。"
+}

@@ -1,0 +1,329 @@
+[
+  {
+    "name": "Workflow syntax",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38694685725/job/116288387286",
+    "steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 1,
+        "started_at": "2026-10-15T06:48:56Z",
+        "completed_at": "2026-10-15T06:48:56Z"
+      },
+      {
+        "name": "Pull rhysd/actionlint:1.7.12",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 2,
+        "started_at": "2026-10-15T06:48:56Z",
+        "completed_at": "2026-10-15T06:48:59Z"
+      },
+      {
+        "name": "Check out source",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 3,
+        "started_at": "2026-10-15T06:48:59Z",
+        "completed_at": "2026-10-15T06:49:09Z"
+      },
+      {
+        "name": "Check GitHub Actions syntax and expressions",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 4,
+        "started_at": "2026-10-15T06:49:09Z",
+        "completed_at": "2026-10-15T06:49:10Z"
+      },
+      {
+        "name": "Post Check out source",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 8,
+        "started_at": "2026-10-15T06:49:10Z",
+        "completed_at": "2026-10-15T06:49:10Z"
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 9,
+        "started_at": "2026-10-15T06:49:10Z",
+        "completed_at": "2026-10-15T06:49:10Z"
+      }
+    ]
+  },
+  {
+    "name": "Repository checks",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38694685725/job/116288387809",
+    "steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 1,
+        "started_at": "2026-10-15T06:48:56Z",
+        "completed_at": "2026-10-15T06:48:56Z"
+      },
+      {
+        "name": "Check out source",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 2,
+        "started_at": "2026-10-15T06:48:56Z",
+        "completed_at": "2026-10-15T06:49:06Z"
+      },
+      {
+        "name": "Set up Node.js",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 3,
+        "started_at": "2026-10-15T06:49:06Z",
+        "completed_at": "2026-10-15T06:49:08Z"
+      },
+      {
+        "name": "Install validation tools from lockfile",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 4,
+        "started_at": "2026-10-15T06:49:08Z",
+        "completed_at": "2026-10-15T06:49:10Z"
+      },
+      {
+        "name": "Check tracked files and local documentation links",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 5,
+        "started_at": "2026-10-15T06:49:10Z",
+        "completed_at": "2026-10-15T06:49:12Z"
+      },
+      {
+        "name": "Test project and artifact checks",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 6,
+        "started_at": "2026-10-15T06:49:12Z",
+        "completed_at": "2026-10-15T06:49:13Z"
+      },
+      {
+        "name": "Detect website readiness",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 7,
+        "started_at": "2026-10-15T06:49:13Z",
+        "completed_at": "2026-10-15T06:49:13Z"
+      },
+      {
+        "name": "Post Set up Node.js",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 13,
+        "started_at": "2026-10-15T06:49:13Z",
+        "completed_at": "2026-10-15T06:49:13Z"
+      },
+      {
+        "name": "Post Check out source",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 14,
+        "started_at": "2026-10-15T06:49:13Z",
+        "completed_at": "2026-10-15T06:49:13Z"
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 15,
+        "started_at": "2026-10-15T06:49:13Z",
+        "completed_at": "2026-10-15T06:49:13Z"
+      }
+    ]
+  },
+  {
+    "name": "Astro build",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38694685725/job/116288516837",
+    "steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 1,
+        "started_at": "2026-10-15T06:49:19Z",
+        "completed_at": "2026-10-15T06:49:20Z"
+      },
+      {
+        "name": "Check out source",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 2,
+        "started_at": "2026-10-15T06:49:20Z",
+        "completed_at": "2026-10-15T06:49:31Z"
+      },
+      {
+        "name": "Set up Node.js",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 3,
+        "started_at": "2026-10-15T06:49:31Z",
+        "completed_at": "2026-10-15T06:49:35Z"
+      },
+      {
+        "name": "Install website dependencies from lockfile",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 4,
+        "started_at": "2026-10-15T06:49:35Z",
+        "completed_at": "2026-10-15T06:49:44Z"
+      },
+      {
+        "name": "Refresh derived CMS candidates for validation",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 5,
+        "started_at": "2026-10-15T06:49:44Z",
+        "completed_at": "2026-10-15T06:49:44Z"
+      },
+      {
+        "name": "Check Astro and TypeScript",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 6,
+        "started_at": "2026-10-15T06:49:44Z",
+        "completed_at": "2026-10-15T06:49:58Z"
+      },
+      {
+        "name": "Test content, homepage and PDF interactions",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 7,
+        "started_at": "2026-10-15T06:49:58Z",
+        "completed_at": "2026-10-15T06:50:00Z"
+      },
+      {
+        "name": "Test music state and service boundaries",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 8,
+        "started_at": "2026-10-15T06:50:00Z",
+        "completed_at": "2026-10-15T06:50:02Z"
+      },
+      {
+        "name": "Build static website",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 9,
+        "started_at": "2026-10-15T06:50:02Z",
+        "completed_at": "2026-10-15T06:50:40Z"
+      },
+      {
+        "name": "Verify published music catalog",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 10,
+        "started_at": "2026-10-15T06:50:40Z",
+        "completed_at": "2026-10-15T06:50:40Z"
+      },
+      {
+        "name": "Verify public directory routes",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 11,
+        "started_at": "2026-10-15T06:50:40Z",
+        "completed_at": "2026-10-15T06:50:40Z"
+      },
+      {
+        "name": "Verify static output",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 12,
+        "started_at": "2026-10-15T06:50:40Z",
+        "completed_at": "2026-10-15T06:50:40Z"
+      },
+      {
+        "name": "Verify public PDF assets and reader URLs",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 13,
+        "started_at": "2026-10-15T06:50:40Z",
+        "completed_at": "2026-10-15T06:50:40Z"
+      },
+      {
+        "name": "Save Pages artifact",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 14,
+        "started_at": "2026-10-15T06:50:40Z",
+        "completed_at": "2026-10-15T06:50:43Z"
+      },
+      {
+        "name": "Post Set up Node.js",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 27,
+        "started_at": "2026-10-15T06:50:43Z",
+        "completed_at": "2026-10-15T06:50:43Z"
+      },
+      {
+        "name": "Post Check out source",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 28,
+        "started_at": "2026-10-15T06:50:43Z",
+        "completed_at": "2026-10-15T06:50:43Z"
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 29,
+        "started_at": "2026-10-15T06:50:43Z",
+        "completed_at": "2026-10-15T06:50:43Z"
+      }
+    ]
+  },
+  {
+    "name": "Deploy to GitHub Pages",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38694685725/job/116289022986",
+    "steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 1,
+        "started_at": "2026-10-15T06:50:51Z",
+        "completed_at": "2026-10-15T06:50:52Z"
+      },
+      {
+        "name": "Deploy verified artifact",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 2,
+        "started_at": "2026-10-15T06:50:52Z",
+        "completed_at": "2026-10-15T06:51:06Z"
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 3,
+        "started_at": "2026-10-15T06:51:06Z",
+        "completed_at": "2026-10-15T06:51:06Z"
+      }
+    ]
+  },
+  {
+    "name": "Refresh CMS candidates",
+    "status": "completed",
+    "conclusion": "skipped",
+    "url": "https://github.com/0ne-small-stone/personal-homepage/actions/runs/38694685725/job/116289024515",
+    "steps": []
+  }
+]
