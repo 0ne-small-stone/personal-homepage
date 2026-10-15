@@ -2,6 +2,8 @@
 
 2026-10-15 首页性能主站验收：BNuf11DH冻结源接入main，144文件0错误/0警告、53页构建与限定交互通过；桌面/窄屏轮播10秒、稳定白墙6秒零新增场景/renderer帧，首次输入唤醒正常。保留F03、F05、三卡及小砖，不启动F06/F07；发布入口[PR #59](https://github.com/0ne-small-stone/personal-homepage/pull/59)，最终Pages与公网结果按真实SHA补录。[本轮验收](technical/acceptance/home-performance-2026-10-15.md)。下方旧版本状态为过程追溯。
 
+P02 / R01、R12 / U13、U14 / T02、T05、T16、T26–T27：Someone无照片双语版已由PR #58发布，正式入口和公网证据见[发布记录](technical/iterations/t05-p02-2026-10-15-pages.md)。
+
 P02 / R01、R12 / U13、U14 / T02、T05、T16、T26–T27：用户已确认当前无照片 Someone 双语候选并授权主站发布，英文 about／中文 zh/about、语言图标和邮件复制按[发布记录](technical/iterations/t05-p02-2026-10-15-pages.md)接入。
 
 2026-10-14 最终集成：本轮发布入口为[PR #54](https://github.com/0ne-small-stone/personal-homepage/pull/54)，通过保护检查合并main后由Pages部署；最终SHA、Actions和公网回读在PR补记。本地最终工程141文件0错误/0警告、8条沿用相册的提示，53页构建与186项风险测试通过。发布期间同步保留main `5eac344` 的正式相册、36张授权WebP派生及目录契约；桌面/390px首页进入相册与原生后退4/4通过。首页加载/人物/音乐的既有验收边界保持，迷墙仍是独立原型，用户审美与真机性能另记。以下同日准备状态为过程快照。
