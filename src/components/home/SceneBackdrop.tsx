@@ -1,10 +1,12 @@
 import { useEffect, useMemo, useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
-import { CanvasTexture, SRGBColorSpace, Vector3, type Mesh, type MeshBasicMaterial, MathUtils } from 'three';
+import { CanvasTexture, SRGBColorSpace, ShaderMaterial, Vector2, Vector3, type Mesh, MathUtils } from 'three';
 import type { JourneyModel } from './scene-state';
+import { backdropState } from './backdrop-state';
 
-export default function SceneBackdrop({ model, mobile }: { model: JourneyModel; mobile: boolean }) {
+export default function SceneBackdrop({ model, mobile, quiet }: { model: JourneyModel; mobile: boolean; quiet: boolean }) {
   const ref = useRef<Mesh>(null);
+  const ownerBody=useRef(document.body);
   const { viewport, camera, size } = useThree();
   const aspect = size.width / size.height;
   const width = mobile ? 768 : 1536, height = Math.round(width / aspect);
@@ -71,16 +73,57 @@ export default function SceneBackdrop({ model, mobile }: { model: JourneyModel; 
     return texture;
   }, [width, height, mobile, size.width, size.height]);
   useEffect(() => () => texture.dispose(), [texture]);
+  const material=useMemo(()=>new ShaderMaterial({depthWrite:false,toneMapped:false,
+    uniforms:{original:{value:texture},resolution:{value:new Vector2()},weights:{value:new Vector2(1,0)},
+      farOffset:{value:new Vector2()},gridOffset:{value:new Vector2()},lightCenter:{value:new Vector2()},strength:{value:[.52,.048,.048,36/255]},spacing:{value:104},mobile:{value:0}},
+    vertexShader:'varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',
+    fragmentShader:`varying vec2 vUv;uniform sampler2D original;uniform vec2 resolution;uniform vec2 weights;
+      uniform vec2 farOffset;uniform vec2 gridOffset;uniform vec2 lightCenter;uniform vec4 strength;uniform float spacing;uniform float mobile;
+      void main(){
+        vec2 screen=(vUv-.5)*1.12+.5;screen.y=1.-screen.y;
+        vec3 base=sRGBTransferOETF(texture2D(original,vUv)).rgb*weights.x;
+        if(weights.y>0.){
+          vec2 uv=vUv+vec2(farOffset.x,-farOffset.y)/1.12;
+          vec3 far=sRGBTransferOETF(texture2D(original,uv)).rgb*strength.x;
+          float controls=smoothstep(.04,.16,screen.y)*(1.-smoothstep(.82,.97,screen.y));
+          float title=smoothstep(mix(.38,.43,mobile),mix(.50,.58,mobile),screen.y)*(1.-smoothstep(.88,.98,screen.y));
+          title*=mix(1.-smoothstep(.38,.58,screen.x),1.,mobile);
+          float safe=controls*(1.-.88*title);
+          vec2 d=(screen-lightCenter)/vec2(.40,.58);float field=exp(-2.*dot(d,d));
+          vec2 p=screen-gridOffset;
+          vec2 curve=(p+vec2(.035*cos((p.y-.5)*3.14159265),.035*(p.x-.5)*(p.x-.5)))*resolution;
+          vec2 dist=abs(fract(curve/spacing+.5)-.5)*spacing;
+          float nearest=min(dist.x,dist.y),aa=max(fwidth(nearest),.5);
+          float line=1.-smoothstep(.15,.15+.7*aa,nearest);
+          vec3 space=far*mix(.36,1.,safe)+vec3(field*safe*(strength.y+strength.z*line));
+          base+=min(space,vec3(strength.w))*weights.y;
+        }
+        // Keep the background limit in display values; output linear radiance
+        // for the glass capture and Three's normal display conversion.
+        gl_FragColor=sRGBTransferEOTF(vec4(base,1.));
+        #include <colorspace_fragment>
+      }`}),[texture]);
+  useEffect(()=>()=>{material.dispose();delete ownerBody.current.dataset.homeBackdrop;},[material]);
   useFrame(() => {
     if (!ref.current) return;
-    const fade = 1 - MathUtils.smoothstep(model.progress, .6, 1);
-    ref.current.visible = fade > .001;
-    (ref.current.material as MeshBasicMaterial).opacity = fade;
+    const m=model.motion,state=backdropState(m.rendered.index,m.rendered.intro,m.raw.outro,m.rendered.prepare,model.progress,mobile,quiet);
+    ref.current.visible = state.intro+state.weight > .001;
+    material.uniforms.resolution.value.set(size.width,size.height);
+    material.uniforms.weights.value.set(state.intro,state.weight);
+    material.uniforms.farOffset.value.fromArray(state.farOffset);material.uniforms.gridOffset.value.fromArray(state.gridOffset);
+    material.uniforms.lightCenter.value.fromArray(state.light);material.uniforms.spacing.value=state.spacing;material.uniforms.mobile.value=mobile?1:0;
+    const strength=material.uniforms.strength.value as number[];
+    strength[0]=state.farBrightness;strength[1]=state.fieldPeak;strength[2]=state.gridPeak;strength[3]=state.ceiling;
     const view = viewport.getCurrentViewport(camera, center);
     ref.current.position.copy(center);
     ref.current.scale.set(view.width * overscan, view.height * overscan, 1);
+    if(document.documentElement.dataset.motionDiagnostics==='true') {
+      ref.current.updateMatrixWorld(true);
+      const corners=[[-.5,-.5],[.5,-.5],[.5,.5],[-.5,.5]].map(([x,y])=>new Vector3(x,y,0).applyMatrix4(ref.current!.matrixWorld).project(camera).toArray());
+      ownerBody.current.dataset.homeBackdrop=JSON.stringify({...state,visible:ref.current.visible,texture:texture.uuid,textureSize:[width,height],corners});
+    }
   },-1);
   return <mesh ref={ref} position={[0,0,-2]}>
-    <planeGeometry /><meshBasicMaterial map={texture} transparent depthWrite={false} toneMapped={false} />
+    <planeGeometry /><primitive object={material} attach="material" />
   </mesh>;
 }

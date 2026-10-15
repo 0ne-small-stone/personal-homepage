@@ -1,5 +1,7 @@
 # 个人主页技术实施计划和验收标准
 
+2026-10-15 首页性能主站验收：BNuf11DH冻结源接入含正式双语Someone的main，148文件0错误/0警告、54页构建与限定交互通过；桌面/窄屏轮播10秒、稳定白墙6秒零新增场景/renderer帧，首次输入唤醒正常。保留F03、F05、三卡及小砖，不启动F06/F07；发布入口[PR #59](https://github.com/0ne-small-stone/personal-homepage/pull/59)，最终Pages与公网结果按真实SHA补录。[本轮验收](acceptance/home-performance-2026-10-15.md)。下方旧版本状态为过程追溯。
+
 2026-10-15 P02/T05：PR #58三项保护检查成功后Squash为5eef32b，Pages流程38669319291部署成功；正式英文about／中文zh/about及复制／语言／刷新／首页入口已实测，见[发布记录](iterations/t05-p02-2026-10-15-pages.md)。
 
 2026-10-15 P02/T05：用户确认 Someone 当前候选并授权中英文接入主站及发布。独立分支从最新 main 接续，仅本页与必要导航语言适配；工程／保护检查／Pages 和公网结果按[本片](iterations/t05-p02-2026-10-15-pages.md)补录，其他任务状态不提升。
