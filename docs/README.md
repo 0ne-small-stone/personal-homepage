@@ -1,6 +1,6 @@
 # 文档导航与设计 / 技术对应表
 
-2026-10-15 首页性能主站验收：BNuf11DH冻结源接入main，144文件0错误/0警告、53页构建与限定交互通过；桌面/窄屏轮播10秒、稳定白墙6秒零新增场景/renderer帧，首次输入唤醒正常。保留F03、F05、三卡及小砖，不启动F06/F07；发布入口[PR #59](https://github.com/0ne-small-stone/personal-homepage/pull/59)，最终Pages与公网结果按真实SHA补录。[本轮验收](technical/acceptance/home-performance-2026-10-15.md)。下方旧版本状态为过程追溯。
+2026-10-15 首页性能主站验收：BNuf11DH冻结源接入含正式双语Someone的main，148文件0错误/0警告、54页构建与限定交互通过；桌面/窄屏轮播10秒、稳定白墙6秒零新增场景/renderer帧，首次输入唤醒正常。保留F03、F05、三卡及小砖，不启动F06/F07；发布入口[PR #59](https://github.com/0ne-small-stone/personal-homepage/pull/59)，最终Pages与公网结果按真实SHA补录。[本轮验收](technical/acceptance/home-performance-2026-10-15.md)。下方旧版本状态为过程追溯。
 
 P02 / R01、R12 / U13、U14 / T02、T05、T16、T26–T27：Someone无照片双语版已由PR #58发布，正式入口和公网证据见[发布记录](technical/iterations/t05-p02-2026-10-15-pages.md)。
 

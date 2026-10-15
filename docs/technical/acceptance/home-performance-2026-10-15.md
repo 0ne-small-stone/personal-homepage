@@ -46,3 +46,11 @@ Impeccable检测器对5个目标文件无主发现（[原输出](evidence/home-p
 本地确认完成后执行保护PR；Repository checks、Workflow syntax、Astro build必须在最终SHA全部成功，再Squash与Pages。正式入口：[主页](https://0ne-small-stone.github.io/personal-homepage/)。最终运行、Linux构建包、公网性能窗口和证据在PR补录，发布不提升用户审美状态。
 
 本地仓库守卫4682文件、305份文档通过；CI夹具7/7通过，工作流语法通过。最终CI矩阵目标为92内容/首页/PDF＋95音乐＋7仓库测试，执行结果以PR必需job真实完成状态为准。
+
+## 等待发布期间的 main 同步与最终确认
+
+main先合入5eef32bc122137e451b5c55ad5fc52291cacb7e2（用户授权发布的无照片中英文Someone，PR #58），再合入157d182的公开验收记录（PR #60）。本分支完整保留这两次上游更新；四份首次文档冲突、三份后续状态冲突分别保留有效性能和人物记录。首页12份源码/测试没有为此重做视觉；原关于人物/资料相对main不变的描述指最初c6dd2eb阶段。
+
+合并人物应用后重新check：148文件0错误/0警告、8既有hints；build54页/Pagefind55HTML，655静态文件/32,940,976B；54常规页面/6入口/7当前页＋1沉浸相册契约通过。随后157d182只补文档/JSON，应用未再改变。前文144/53/32,915,191B为初始集成快照，不能混称最终工程。
+
+[最终定向确认](evidence/home-performance-2026-10-15/post-main/results.json)两尺寸4/4：轮播稳定3秒零新增、进入已发布英文Someone清理旧FrameLoop/Backdrop/Canvas，后退恢复ready/单Canvas/单audio且不重播。初次这组采集与构建重叠，读到旧中文页并发生构建清理窗口内的占位纹理404，另有首次等待条件过早；[原件](evidence/home-performance-2026-10-15/post-main/initial-overlapped-build/results.json)保留3false/1pass及1资源错误，不当作已发布产品结论。构建完成后重启本轮私有预览，等待三卡真实就绪且持续demand1.8秒，再完成同组定向确认，未改应用迎合。最终确认pageerror0。
