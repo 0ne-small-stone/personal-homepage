@@ -2,13 +2,13 @@ import { resolveNetEasePlayback, type PlaybackResolution } from './netease-playb
 
 export interface AudioTrack {
   id: string; title: string; artist: string; album: string;
-  coverUrl?: string | null; audioUrl: string; source: 'cloud' | 'netease';
+  coverUrl?: string | null; audioUrl: string; source: 'cloud' | 'netease'; quality?:string;
 }
 export interface AudioState {
   track: AudioTrack | null; queue: AudioTrack[]; playing: boolean; waiting: boolean;
-  time: number; duration: number; volume: number; error: string; notice: string; previewSeconds: number | null;
+  time: number; duration: number; volume: number; error: string; notice: string; previewSeconds: number | null; repeat:'off'|'all'|'one';shuffle:boolean;quality:string;
 }
-const initial: AudioState = { track: null, queue: [], playing: false, waiting: false, time: 0, duration: 0, volume: .75, error: '', notice: '', previewSeconds: null };
+const initial: AudioState = { track: null, queue: [], playing: false, waiting: false, time: 0, duration: 0, volume: .75, error: '', notice: '', previewSeconds: null,repeat:'off',shuffle:false,quality:'standard' };
 const sameTrack = (a: AudioTrack | null, b: AudioTrack) => a?.id === b.id && a.source === b.source && a.audioUrl === b.audioUrl;
 const finite = (value: number) => Number.isFinite(value) && value > 0 ? value : 0;
 const mediaErrorMessage = (source: AudioTrack['source'] | undefined, code?: number) => source === 'netease'
@@ -45,6 +45,7 @@ export function createAudioSession(resolvePlayback?: (track: AudioTrack) => Prom
       ended: () => {
         update({ playing: false });
         if (state.previewSeconds) update({ notice: `${Math.round(state.previewSeconds)} 秒试听已结束，完整收听请在网易云打开。` });
+        else if(state.repeat==='one'){carrier.currentTime=0;void play();}
         else next(1, true);
       },
       error: () => {
@@ -70,7 +71,7 @@ export function createAudioSession(resolvePlayback?: (track: AudioTrack) => Prom
           }, { once: true });
           carrier.src = resolved.url;carrier.load();
         }
-        update({ notice: resolved.notice, previewSeconds: resolved.previewSeconds, waiting: false });
+        update({ notice: resolved.notice, previewSeconds: resolved.previewSeconds, waiting: false,quality:resolved.quality||track.quality||'standard' });
       }
       if (carrier.error) carrier.load();
       await carrier.play();
@@ -108,7 +109,10 @@ export function createAudioSession(resolvePlayback?: (track: AudioTrack) => Prom
   }
   function next(direction: -1 | 1, autoPlay = state.playing) {
     const index = state.queue.findIndex(track => state.track && sameTrack(state.track, track));
-    const target = index >= 0 ? state.queue[index + direction] : undefined;
+    const size=state.queue.length;let targetIndex=index+direction;
+    if(state.shuffle&&size>1&&direction===1)targetIndex=(index+1+Math.floor(Math.random()*(size-1)))%size;
+    else if(state.repeat==='all'&&size)targetIndex=(targetIndex+size)%size;
+    const target = index >= 0 ? state.queue[targetIndex] : undefined;
     if (target) select(target, state.queue, autoPlay);
   }
   function seek(time: number) {
@@ -122,8 +126,9 @@ export function createAudioSession(resolvePlayback?: (track: AudioTrack) => Prom
   function stop() {
     revision++;const carrier = getElement();carrier?.pause();update({ ...initial, volume: state.volume });carrier?.removeAttribute('src');carrier?.load();
   }
+  function setQuality(value:string){if(!['standard','exhigh','lossless','hires'].includes(value))return;const track=state.track;if(track?.source!=='netease'){update({quality:value});return;}revision++;update({quality:value,track:{...track,quality:value},queue:state.queue.map(item=>item.source==='netease'?{...item,quality:value}:item)});void play();}
   return { bind, getSnapshot: () => state, getServerSnapshot: () => initial,
     subscribe: (listener: () => void) => { listeners.add(listener);return () => { listeners.delete(listener); }; },
-    select, play, pause, toggle: () => state.playing || state.waiting ? pause() : void play(), next, seek, setVolume, stop, beginNavigation, finishNavigation };
+    select, play, pause, toggle: () => state.playing || state.waiting ? pause() : void play(), next, seek, setVolume, stop, beginNavigation, finishNavigation,setQuality,setRepeat:(repeat:AudioState['repeat'])=>{if(['off','all','one'].includes(repeat))update({repeat});},setShuffle:(shuffle:boolean)=>update({shuffle:Boolean(shuffle)}) };
 }
 export const audioSession = createAudioSession(resolveNetEasePlayback);

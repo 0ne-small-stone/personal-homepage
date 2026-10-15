@@ -18,6 +18,15 @@ test('QR login verifies a personal account, keeps credentials private and resolv
   assert.equal((await account.index()).tracks[0].status,'full');assert.deepEqual(cookies,['test-account-cookie']);
   account.logout();assert.equal(account.state().authorized,false);assert.equal(account.state().account,null);await assert.rejects(account.index(),/先登录/);
 });
+test('nested playlist write envelopes are unwrapped and an inner failure never becomes success',async()=>{
+  let failed=false;const {account}=setup({playlist_tracks:async()=>({status:200,body:{status:200,body:{code:failed?512:200,message:'PRIVATE_DIAGNOSTIC'},cookie:'PRIVATE_COOKIE'}})});
+  await account.createQr();await account.checkQr();const result=await account.request('playlist_tracks',{pid:'77',tracks:'123',op:'add'},true);assert.equal(result.code,200);assert.equal(result.cookie,undefined);
+  failed=true;await assert.rejects(account.request('playlist_tracks',{pid:'77',tracks:'123',op:'add'},true),error=>!/PRIVATE/.test(error.message));assert.equal(account.state().authorized,true);account.dispose();
+});
+test('only cloud 201 with a valid private song ID may proceed to upload read-back',async()=>{
+  let privateCloud={songId:777};const {account}=setup({cloud:async()=>({body:{code:201,privateCloud}}),like:async()=>({body:{code:201}})});await account.createQr();await account.checkQr();
+  assert.equal((await account.request('cloud',{},true)).code,201);await assert.rejects(account.request('like',{id:'123'},true));privateCloud=null;await assert.rejects(account.request('cloud',{},true));account.dispose();
+});
 test('cancel or logout while account verification is pending prevents a late login',async()=>{
   let finish;const {account}=setup({login_status:()=>new Promise(resolve=>finish=resolve)});
   await account.createQr();const pending=account.checkQr();await new Promise(resolve=>setImmediate(resolve));account.cancel();

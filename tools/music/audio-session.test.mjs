@@ -11,6 +11,15 @@ class FakeAudio extends EventTarget {
   pause() { this.paused = true;this.dispatchEvent(new Event('pause')); }
 }
 const song = (id, source = 'cloud') => ({ id, source, title: id, artist: 'Artist', album: 'Album', audioUrl: `https://example.org/${source}/${id}.flac` });
+test('list repeat wraps only when enabled, one-song repeat restarts without a second audio owner',async()=>{
+  const {session,audio}=setup();const queue=[song('a'),song('b')];session.select(queue[1],queue,true);session.setRepeat('all');audio.dispatchEvent(new Event('ended'));assert.equal(session.getSnapshot().track.id,'a');session.setRepeat('one');audio.currentTime=179;audio.dispatchEvent(new Event('ended'));await Promise.resolve();assert.equal(session.getSnapshot().track.id,'a');assert.equal(audio.currentTime,0);assert.equal(session.getSnapshot().playing,true);
+});
+test('shuffle advances to a different retained track without replacing the queue',()=>{
+  const {session}=setup();const queue=[song('a'),song('b'),song('c')];session.select(queue[0],queue,true);session.setShuffle(true);session.next(1,true);assert.notEqual(session.getSnapshot().track.id,'a');assert.equal(session.getSnapshot().queue.length,3);
+});
+test('quality changes request the selected tier while preserving the real audio position',async()=>{
+  const calls=[];const session=createAudioSession(async track=>{calls.push(track.quality||'standard');return{url:`https://m701.music.126.net/${track.quality||'standard'}.mp3`,previewSeconds:null,notice:'',quality:track.quality||'standard'};});const audio=new FakeAudio();session.bind(audio);session.select(song('a','netease'),[song('a','netease')]);await session.play();audio.currentTime=55;session.setQuality('lossless');await new Promise(resolve=>setImmediate(resolve));audio.dispatchEvent(new Event('loadedmetadata'));assert.equal(audio.currentTime,55);assert.deepEqual(calls,['standard','lossless']);assert.equal(session.getSnapshot().quality,'lossless');
+});
 function setup() { const session = createAudioSession();const audio = new FakeAudio();session.bind(audio);return { session, audio }; }
 
 test('binding the same persistent audio and revisiting a track preserves its clock', async () => {

@@ -51,8 +51,8 @@ export default function RadioLibraryExperience({ initialCatalog, config }: { ini
       setRoom(false);setMode(next);setAlbumFilter('');
       setView(requestedView === 'discover' || url.hash === '#radio-download' ? 'discover' : requestedView === 'songs' ? 'songs' : 'albums');
     };
-    restore();window.addEventListener('popstate', restore);
-    return () => { mounted.current = false;request.current?.abort();window.removeEventListener('popstate', restore); };
+    restore();window.addEventListener('popstate', restore);document.addEventListener('astro:page-load', restore);
+    return () => { mounted.current = false;request.current?.abort();window.removeEventListener('popstate', restore);document.removeEventListener('astro:page-load', restore); };
   }, []);
   useEffect(() => {
     if (mode !== 'cloud') return;

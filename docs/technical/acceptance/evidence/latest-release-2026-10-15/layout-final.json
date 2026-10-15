@@ -1,0 +1,117 @@
+{
+  "checks": [
+    {
+      "name": "1280 fallback player stays inside viewport with LAN notice",
+      "passed": true,
+      "evidence": {
+        "width": 1280,
+        "height": 800,
+        "scrollWidth": 1280,
+        "bottom": 800,
+        "top": 696,
+        "controlHeight": 104,
+        "audio": 1,
+        "warning": "现有考拉音源需要内网访问，外网播放尚未接通。你可以浏览曲库，或打开网易云共享歌单（新窗口）。"
+      }
+    },
+    {
+      "name": "1280 core player stays inside viewport with LAN notice",
+      "passed": true,
+      "evidence": {
+        "width": 1280,
+        "height": 800,
+        "scrollWidth": 1280,
+        "bottom": 776,
+        "top": 692,
+        "controlHeight": 84,
+        "audio": 1,
+        "warning": "现有考拉音源需要内网访问，外网播放尚未接通。你可以浏览曲库，或打开网易云共享歌单（新窗口）。"
+      }
+    },
+    {
+      "name": "390 fallback player stays inside viewport with LAN notice",
+      "passed": true,
+      "evidence": {
+        "width": 390,
+        "height": 844,
+        "scrollWidth": 390,
+        "bottom": 844,
+        "top": 732,
+        "controlHeight": 112,
+        "audio": 1,
+        "warning": "现有考拉音源需要内网访问，外网播放尚未接通。你可以浏览曲库，或打开网易云共享歌单（新窗口）。"
+      }
+    },
+    {
+      "name": "390 core player stays inside viewport with LAN notice",
+      "passed": true,
+      "evidence": {
+        "width": 390,
+        "height": 844,
+        "scrollWidth": 390,
+        "bottom": 826,
+        "top": 762,
+        "controlHeight": 64,
+        "audio": 1,
+        "warning": "现有考拉音源需要内网访问，外网播放尚未接通。你可以浏览曲库，或打开网易云共享歌单（新窗口）。"
+      }
+    },
+    {
+      "name": "320 fallback player stays inside viewport with LAN notice",
+      "passed": true,
+      "evidence": {
+        "width": 320,
+        "height": 844,
+        "scrollWidth": 320,
+        "bottom": 844,
+        "top": 732,
+        "controlHeight": 112,
+        "audio": 1,
+        "warning": "现有考拉音源需要内网访问，外网播放尚未接通。你可以浏览曲库，或打开网易云共享歌单（新窗口）。"
+      }
+    },
+    {
+      "name": "320 core player stays inside viewport with LAN notice",
+      "passed": true,
+      "evidence": {
+        "width": 320,
+        "height": 844,
+        "scrollWidth": 320,
+        "bottom": 826,
+        "top": 762,
+        "controlHeight": 64,
+        "audio": 1,
+        "warning": "现有考拉音源需要内网访问，外网播放尚未接通。你可以浏览曲库，或打开网易云共享歌单（新窗口）。"
+      }
+    },
+    {
+      "name": "Becoming dark theme preserved",
+      "passed": true,
+      "evidence": {
+        "theme": "dark",
+        "bg": "rgb(0, 0, 0)"
+      }
+    }
+  ],
+  "errors": [],
+  "postActions": [
+    "browse",
+    "jobs",
+    "browse",
+    "jobs",
+    "liked-ids",
+    "browse",
+    "browse",
+    "jobs",
+    "browse",
+    "jobs",
+    "liked-ids",
+    "browse",
+    "browse",
+    "jobs",
+    "browse",
+    "jobs",
+    "liked-ids",
+    "browse"
+  ]
+}
