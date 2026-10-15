@@ -17,6 +17,19 @@ for (const file of pages) {
   const html = readFileSync(file, 'utf8');
   const route = relative(root, file).replaceAll('\\', '/').replace(/index\.html$/, '');
   assert(!html.includes('/personal-homepage/personal-homepage/'), `Repeated base: ${relative(root, file)}`);
+  if (route === 'about/' || route === 'zh/about/') {
+    const english = route === 'about/';
+    const other = english ? 'zh/about/' : 'about/';
+    assert(html.includes(`lang="${english ? 'en' : 'zh-CN'}"`), `Incorrect Someone language: ${route}`);
+    const switchLink = html.match(/<a\b[^>]*data-language-switch[^>]*>/)?.[0];
+    assert(switchLink?.includes(`href="/personal-homepage/${other}"`), `Missing reciprocal language link: ${route}`);
+    const article = html.match(/<article\b[^>]*class="someone-page"[\s\S]*?<\/article>/)?.[0];
+    assert(article && !/<img\b|someone-portrait|mailto:|class="someone-copy"/.test(article), `Old portrait or email action returned: ${route}`);
+    assert(article.includes('href="https://github.com/0ne-small-stone"'), `Missing GitHub contact: ${route}`);
+    assert(/<button\b[^>]*data-copy-email="3400489513@qq.com"[^>]*>[\s\S]*?<svg\b/.test(article), `Missing email copy icon: ${route}`);
+    assert(/<noscript>[\s\S]*?3400489513@qq.com[\s\S]*?<\/noscript>/.test(article), `Missing manual email fallback: ${route}`);
+    if (english) assert(!/\p{Script=Han}/u.test(article), 'English Someone contains Chinese copy');
+  }
   // The accepted P10 is a full-screen gallery, rather than a directory shell.
   // Validate its real entry points and published assets; all other pages still
   // require the unchanged six-link public directory below.
@@ -46,19 +59,20 @@ for (const file of pages) {
     immersiveGalleryPages++;
     continue;
   }
-  const nav = html.match(/<nav\b[^>]*aria-label="全站目录"[\s\S]*?<\/nav>/)?.[0];
+  const nav = html.match(/<nav\b[^>]*aria-label="(?:全站目录|Site directory)"[\s\S]*?<\/nav>/)?.[0];
   assert(nav, `Missing public directory: ${relative(root, file)}`);
   const links = [...nav.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/g)].map((match) => ({
     href: match[1], current: match[0].match(/aria-current="([^"]+)"/)?.[1],
   }));
-  assert.deepEqual(links.map((link) => link.href), targets.map((target) => '/personal-homepage/' + target), file);
+  const pageTargets = targets.map(target => target === 'about/' && route === 'zh/about/' ? 'zh/about/' : target);
+  assert.deepEqual(links.map((link) => link.href), pageTargets.map((target) => '/personal-homepage/' + target), file);
   for (const [i, link] of links.entries()) {
-    const expected = route === targets[i] ? 'page' : route.startsWith(targets[i]) ? 'location' : undefined;
+    const expected = route === pageTargets[i] ? 'page' : route.startsWith(pageTargets[i]) ? 'location' : undefined;
     assert.equal(link.current, expected, `${relative(root, file)}: ${link.href}`);
     if (link.current === 'page') currentPages++;
     if (link.current === 'location') currentLocations++;
   }
 }
-assert.equal(currentPages, 6, 'All six section landing pages must exist.');
+assert.equal(currentPages, 7, 'All six section landing pages and Chinese Someone must exist.');
 assert.equal(immersiveGalleryPages, 1, 'The immersive gallery must be built exactly once.');
 console.log(JSON.stringify({ websiteHtml: pages.length, destinations: targets.length, currentPages, currentLocations, immersiveGalleryPages, result: 'passed' }));
