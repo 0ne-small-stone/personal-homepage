@@ -1,0 +1,46 @@
+/* P06 native blog lists. SYSTEM §5.2.4; no list or navigation script. */
+.becoming-blog .right-sidebar-container { display: none; }
+.becoming-blog .main-pane { width: 100%; min-width: 0; }
+.becoming-blog h1 { overflow-wrap: anywhere; }
+.becoming-blog .content-panel:first-of-type { display: block; }
+.becoming-blog .content-panel:has(h1) { padding-bottom: 0; }
+.becoming-blog .becoming-blog-intro { margin: 0 0 .5rem; }
+.becoming-blog .becoming-blog-meta { display: flex; align-items: baseline; flex-wrap: wrap; gap: .25rem 1.5rem; margin-top: .75rem; color: var(--becoming-muted); font-size: .8125rem; }
+.becoming-blog .becoming-blog-meta p { display: flex; flex-wrap: wrap; gap: .25rem 1rem; margin: 0; }
+.becoming-blog .becoming-blog-meta a { display: inline-flex; align-items: center; min-height: 44px; color: var(--becoming-muted); text-underline-offset: 4px; }
+.becoming-blog .becoming-blog-meta a:hover { color: var(--becoming-text); }
+.becoming-blog .becoming-blog-tags { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem; margin: .75rem 0 0; padding-bottom: 1.25rem; border-bottom: 1px solid var(--becoming-border); }
+.becoming-blog .becoming-blog-tags a { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; padding: .5rem .875rem; border-radius: 8px; color: var(--becoming-muted); font-size: .875rem; line-height: 1.6; text-decoration: none; }
+.becoming-blog .becoming-blog-tags a:hover { background: var(--becoming-surface); color: var(--becoming-text); }
+.becoming-blog .becoming-blog-tags a[aria-current] { background: var(--becoming-active); color: var(--becoming-text); font-weight: 600; }
+.becoming-blog .becoming-tag-count { color: var(--becoming-muted); font-size: .75rem; font-variant-numeric: tabular-nums; }
+.becoming-blog .sl-blog-posts { display: flex; flex-direction: column; gap: 0; margin: 0; }
+.becoming-blog .sl-blog-preview { display: flex; flex-direction: column; gap: .75rem; padding: 2rem 0; border-bottom: 1px solid var(--becoming-border); border-radius: 8px; }
+.becoming-blog .sl-blog-preview:hover { background: var(--becoming-surface); }
+.becoming-blog .sl-blog-preview-header { display: flex; flex-direction: column; gap: .5rem; }
+.becoming-blog .sl-blog-preview-link { display: block; margin: 0; color: var(--becoming-text); text-decoration: none; border-radius: 4px; }
+.becoming-blog .sl-blog-preview-link .sl-blog-preview-title { margin: 0; color: var(--becoming-text); font: 500 1.375rem/1.5 var(--font-reading); letter-spacing: -.015em; overflow-wrap: anywhere; }
+.becoming-blog .sl-blog-preview-link:hover .sl-blog-preview-title { text-decoration: underline; text-underline-offset: 5px; }
+.becoming-blog .sl-blog-preview .sl-blog-metadata { order: -1; margin: 0; color: var(--becoming-muted); font-size: .8125rem; }
+.becoming-blog .sl-blog-preview-excerpt { margin: 0; max-width: 70ch; color: var(--becoming-muted); font-size: .9375rem; line-height: 1.8; }
+.becoming-blog .sl-blog-preview-excerpt > :first-child { margin-top: 0; }
+.becoming-blog .sl-blog-preview-excerpt > :last-child { margin-bottom: 0; }
+.becoming-blog .sl-blog-preview-footer { margin: 0; }
+.becoming-blog .sl-blog-tags { display: flex; align-items: baseline; flex-wrap: wrap; gap: .5rem; margin: 0; font-size: .8125rem; }
+.becoming-blog .sl-blog-tags-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.becoming-blog .sl-blog-tags-list { display: flex; flex-wrap: wrap; gap: .25rem; margin: 0; padding: 0; list-style: none; }
+.becoming-blog .sl-blog-tags-list li { margin: 0; }
+.becoming-blog .sl-blog-tag { display: inline-flex; align-items: center; min-height: 44px; margin: 0; padding: .375rem .75rem; border: 0; border-radius: 8px; background: var(--becoming-surface); color: var(--becoming-muted); font-size: .8125rem; text-decoration: none; }
+.becoming-blog .sl-blog-tag:hover { background: var(--becoming-active); color: var(--becoming-text); }
+.becoming-blog .sl-blog-post-count { margin: .75rem 0 0; color: var(--becoming-muted); font-size: .8125rem; font-weight: 400; }
+.becoming-blog .sl-blog-pagination { margin-top: 2rem; padding-bottom: 2rem; }
+.becoming-blog .sl-blog-pagination .card-grid { gap: .75rem; }
+.becoming-blog .sl-blog-pagination .sl-link-card { min-height: 44px; padding: .75rem 1rem; border: 1px solid var(--becoming-border); border-radius: 8px; background: var(--becoming-bg); box-shadow: none; }
+.becoming-blog .sl-blog-pagination .sl-link-card:hover { background: var(--becoming-surface); }
+.becoming-blog .sl-blog-pagination .sl-link-card .title { color: var(--becoming-text); font-size: .875rem; font-weight: 500; }
+@media (max-width: 49.999rem) {
+  .becoming-blog .sl-blog-preview { padding-block: 1.5rem; }
+  .becoming-blog .sl-blog-preview-link .sl-blog-preview-title { font-size: 1.25rem; }
+  .becoming-blog .becoming-blog-tags { gap: .25rem; }
+  .becoming-blog .becoming-blog-tags a { padding-inline: .75rem; }
+}

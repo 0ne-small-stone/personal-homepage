@@ -1,0 +1,76 @@
+{
+  "baseline": "80c539b2bd4c9782522bf314c61c97d9e77f1f94",
+  "source": [
+    {
+      "file": "src/components/knowledge/PageFrame.astro",
+      "sha256": "6a2550b44d47c78f194ccdc6af88f2a97fecdb894410d2d749b6e06973f60964",
+      "snapshotMatches": {
+        ".ci-tmp/becoming-framer-preview": true,
+        ".ci-tmp/becoming-pdf-release-check": true
+      }
+    },
+    {
+      "file": "src/components/KnowledgeContent.astro",
+      "sha256": "2ce97e1443af7d50e46a5cbd09465eff37e9c0c450b26c8f5187e497e7b52049",
+      "snapshotMatches": {
+        ".ci-tmp/becoming-framer-preview": true,
+        ".ci-tmp/becoming-pdf-release-check": true
+      }
+    },
+    {
+      "file": "src/components/knowledge/BlogListIntro.astro",
+      "sha256": "1e4a4f9cb5850fffeb63162a53819d135a876d184fdcc6c67394c4dca9acf93f",
+      "snapshotMatches": {
+        ".ci-tmp/becoming-framer-preview": true,
+        ".ci-tmp/becoming-pdf-release-check": true
+      }
+    },
+    {
+      "file": "src/styles/becoming-blog.css",
+      "sha256": "b594c046ed2a74658d6fd533bb63c125bb900a7b2bba27c036301e19c36fb96e",
+      "snapshotMatches": {
+        ".ci-tmp/becoming-framer-preview": true,
+        ".ci-tmp/becoming-pdf-release-check": true
+      }
+    },
+    {
+      "file": "src/content.config.ts",
+      "sha256": "87959a5ebb62e24030bbf28f5f2827231a68cb2141c5f6a6c6dcd450608cd010",
+      "snapshotMatches": {
+        ".ci-tmp/becoming-framer-preview": true,
+        ".ci-tmp/becoming-pdf-release-check": true
+      }
+    }
+  ],
+  "unchanged": [
+    {
+      "file": "src/content/docs/knowledge/blog/article-reading-check.md",
+      "unchangedIgnoringLineEndings": true
+    },
+    {
+      "file": "src/lib/article-navigation.ts",
+      "unchangedIgnoringLineEndings": true
+    },
+    {
+      "file": "src/lib/reading-progress.ts",
+      "unchangedIgnoringLineEndings": true
+    },
+    {
+      "file": "src/lib/pdf-reading-progress.ts",
+      "unchangedIgnoringLineEndings": true
+    },
+    {
+      "file": "src/components/PdfReader.astro",
+      "unchangedIgnoringLineEndings": true
+    },
+    {
+      "file": "src/components/ReadingMode.astro",
+      "unchangedIgnoringLineEndings": true
+    },
+    {
+      "file": "src/data/blog-settings.json",
+      "unchangedIgnoringLineEndings": true
+    }
+  ],
+  "releaseHasLocalMaterials": false
+}

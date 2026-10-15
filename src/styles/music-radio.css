@@ -1,8 +1,10 @@
 /* T25.12: a fixed library shell with one shared reading and control system. */
 .lssh-home:has(.radio-page) { background: #141416; overflow: hidden; }
 .lssh-home:has(.radio-page) :is(.home-header, .home-page-footer) { display: none; }
-.radio-page { --radio-sidebar: 216px; --radio-reading: 1376px; --radio-player-height: 104px; --radio-scrollbar: 10px; width: 100%; max-width: none; height: 100dvh; min-height: 0; margin: 0; padding: 0; color-scheme: dark; }
-.radio-app { height: 100%; display: flex; flex-direction: column; padding-bottom: calc(var(--radio-player-height) + env(safe-area-inset-bottom)); }
+.radio-page { display:flex;flex-direction:column; --radio-sidebar: 216px; --radio-reading: 1376px; --radio-player-height: 104px; --radio-scrollbar: 10px; width: 100%; max-width: none; height: 100dvh; min-height: 0; margin: 0; padding: 0; color-scheme: dark; }
+.radio-page > .radio-nojs { flex:0 0 auto; }
+.radio-page > astro-island { display:flex;flex:1;flex-direction:column;min-height:0; }
+.radio-app { height: auto; flex:1;min-height:0; display: flex; flex-direction: column; padding-bottom: calc(var(--radio-player-height) + env(safe-area-inset-bottom)); }
 .radio-app > :is(.radio-cloud, .music-net-library) { display: flex; flex-direction: column; align-items: stretch; flex: 1; min-height: 0; min-width: 0; gap: 0; }
 .radio-topline { display: grid; grid-template-columns: var(--radio-sidebar) minmax(0, 1fr); width: 100%; min-width: 0; flex-shrink: 0; min-height: 72px; height: 72px; margin: 0; padding: 0; gap: 0; }
 .radio-heading { gap: 0; padding: 0 12px; height: 100%; background: #19191c; }

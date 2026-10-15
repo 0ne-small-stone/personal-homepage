@@ -1,0 +1,25 @@
+✔ PDF progress preserves page coordinates, zoom and rotation without quantizing the reading point (0.8756ms)
+✔ changed PDFs, invalid pages, malformed data and unsafe numeric values cannot restore stale positions (0.1887ms)
+✔ valid progress round-trips and malformed or out-of-range storage is ignored (1.1597ms)
+✔ default and generic top entries resume, explicit chapters and native history retain their targets (0.1264ms)
+✔ paragraph identity survives inserted blocks and repeated text uses the nearest match (0.1352ms)
+✔ automatic choice applies only to entry, not to zoom (0.5773ms)
+✔ short screens show complete pages instead of enforcing a minimum width (0.2294ms)
+✔ zoom changes paper size but never changes selected column count (0.2244ms)
+✔ mixed paper sizes all fit, including landscape pages (0.1115ms)
+✔ page groups preserve the current page and handle incomplete final groups (0.6437ms)
+✔ screen, paper and mode matrix always fits every edge (1.3113ms)
+✔ invalid dimensions and modes do not generate a layout (0.1366ms)
+✔ F works with IME Process or composing keys via its physical position (0.8652ms)
+✔ main row and numeric keypad retain modes 1 through 4 under an IME (0.1834ms)
+✔ every remaining digit releases the fixed layout, including zero (0.2412ms)
+✔ modified browser commands do not become fit or layout commands (0.1295ms)
+✔ other reading keys remain native PDF navigation (0.2709ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 118.1917

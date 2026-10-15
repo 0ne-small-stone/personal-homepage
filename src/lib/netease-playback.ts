@@ -1,7 +1,7 @@
 import type { AudioTrack } from './audio-session';
 
-export interface PlaybackResolution { url: string; expiresAt?: number; previewSeconds: number | null; notice: string; }
-export interface PlaybackIndex { version: 1; updatedAt: string; tracks: Array<{ id: string; status: 'full' | 'preview' | 'unavailable'; audioUrl: string | null; expiresAt: string; previewSeconds: number | null }> }
+export interface PlaybackResolution { url: string; expiresAt?: number; previewSeconds: number | null; notice: string; quality?:string; }
+export interface PlaybackIndex { version: 1; updatedAt: string; tracks: Array<{ id: string; status: 'full' | 'preview' | 'unavailable'; audioUrl: string | null; expiresAt: string; previewSeconds: number | null;quality?:string }> }
 export function readPlaybackResolution(data: unknown, id: string, now = Date.now()): PlaybackResolution {
   if (!data || typeof data !== 'object' || (data as PlaybackIndex).version !== 1 || !Array.isArray((data as PlaybackIndex).tracks)) throw Error('播放服务返回了无效数据，请稍后重试。');
   const track = (data as PlaybackIndex).tracks.find(item => item && item.id === id);
@@ -15,7 +15,7 @@ export function readPlaybackResolution(data: unknown, id: string, now = Date.now
   if (!['full','preview'].includes(track.status)) throw Error('播放权限无效，请在网易云打开。');
   const previewSeconds = track.status === 'preview' ? track.previewSeconds : null;
   if (track.status === 'preview' && (previewSeconds === null || !Number.isFinite(previewSeconds) || previewSeconds <= 0 || previewSeconds > 120)) throw Error('试听信息无效，请在网易云打开。');
-  return { url: url.href, expiresAt, previewSeconds, notice: previewSeconds ? `网易云提供 ${Math.round(previewSeconds)} 秒试听，完整收听请在网易云打开。` : '' };
+  return { url: url.href, expiresAt, previewSeconds, notice: previewSeconds ? `网易云提供 ${Math.round(previewSeconds)} 秒试听，完整收听请在网易云打开。` : '',...(track.quality?{quality:track.quality}:{}) };
 }
 export async function resolveNetEasePlayback(track: AudioTrack, options: { indexUrl?: string; apiUrl?: string; fetcher?: typeof fetch } = {}): Promise<PlaybackResolution> {
   const env=import.meta.env||{BASE_URL:'/'};const fetcher=options.fetcher||fetch;
@@ -30,7 +30,7 @@ export async function resolveNetEasePlayback(track: AudioTrack, options: { index
   // Account service receives only the selected track ID. Credentials never
   // enter this document, the static index, or browser storage.
   if(!options.indexUrl&&!env.PUBLIC_NETEASE_PLAYBACK_INDEX){
-    const response=await request(options.apiUrl||`${env.BASE_URL}api/music/playback/resolve`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:track.id})});
+    const response=await request(options.apiUrl||`${env.BASE_URL}api/music/playback/resolve`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:track.id,...(track.quality?{quality:track.quality}:{})})});
     if(response.status!==404&&response.status!==405){
       if(response.status===401)throw Error('网易云登录已失效，请重新扫码。');
       if(!response.ok)throw Error('网易云播放服务暂时不可用，请稍后重试。');

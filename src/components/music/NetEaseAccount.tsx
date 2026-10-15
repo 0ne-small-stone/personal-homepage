@@ -20,7 +20,7 @@ export default function NetEaseAccount() {
   const dialog=useRef<HTMLDialogElement>(null);const mounted=useRef(false);const wasAuthorized=useRef(false);
   function apply(data:AccountState) {
     if(wasAuthorized.current&&!data.authorized&&audioSession.getSnapshot().track?.source==='netease')audioSession.stop();
-    wasAuthorized.current=data.authorized;setAccount(data);setService(data.available===true?'ready':'unavailable');
+    const changed=wasAuthorized.current!==data.authorized;wasAuthorized.current=data.authorized;setAccount(data);if(changed)window.dispatchEvent(new Event('netease-account-change'));setService(data.available===true?'ready':'unavailable');
   }
   async function checkAccount(signal?:AbortSignal) {
     const attempt=++statusAttempt.current;

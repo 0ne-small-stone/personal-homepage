@@ -1,0 +1,60 @@
+{
+  "baseline": "dc5339c3cd92770f21d4e0bf207e2dc726f76c05",
+  "source": [
+    {
+      "file": "src/components/KnowledgeHead.astro",
+      "sha256": "187e0d33f99f97e51b6da9741483c3aac5c92637a1c6382cceea9136b2ced4d5",
+      "snapshotMatches": {
+        ".ci-tmp/becoming-framer-preview": true,
+        ".ci-tmp/becoming-pdf-release-check": true
+      }
+    },
+    {
+      "file": "src/lib/reading-progress-state.ts",
+      "sha256": "4e6ba3f916246163a82246df3e1a334d42887bb09c2d1114bdee6616ce42e7d3",
+      "snapshotMatches": {
+        ".ci-tmp/becoming-framer-preview": true,
+        ".ci-tmp/becoming-pdf-release-check": true
+      }
+    },
+    {
+      "file": "src/lib/reading-progress.ts",
+      "sha256": "8b2b46e1897fd96525ee61f9cb1e368eb9fce9a87965bcc42afbf7607f57b916",
+      "snapshotMatches": {
+        ".ci-tmp/becoming-framer-preview": true,
+        ".ci-tmp/becoming-pdf-release-check": true
+      }
+    },
+    {
+      "file": "tools/content/reading-progress.test.mjs",
+      "sha256": "1e1d684dab61f5038cf4747f9a3c0bd933becae775467828afbad9fa8a65a2be"
+    },
+    {
+      "file": ".github/workflows/site.yml",
+      "sha256": "4fff1f34b3b6317e8e512286c40c960c259794b216f8c4824b8b88e9d5ae6c1a"
+    }
+  ],
+  "unchanged": [
+    {
+      "file": "src/components/ReadingMode.astro",
+      "sha256": "f93285be9a18a76cdae8477b733ba937d9b6a184763071e35dcb44f8c9a677b6",
+      "unchangedIgnoringLineEndings": true
+    },
+    {
+      "file": "src/components/PdfReader.astro",
+      "sha256": "7a7ce4feb6e02e6c3c97de8da8524b1edec25932fd5407fb7e87928ff19d507e",
+      "unchangedIgnoringLineEndings": true
+    },
+    {
+      "file": "src/lib/immersivePdfLayout.ts",
+      "sha256": "679fc6446bd2294df86bec46fce02976da644013f96821e79ddb0f17cfa7bfe9",
+      "unchangedIgnoringLineEndings": true
+    },
+    {
+      "file": "src/lib/immersivePdfShortcuts.ts",
+      "sha256": "1278863a9cf0f74c5d22f8dd464b7c3b3e206ec08e7c8f4abe14b299428582e6",
+      "unchangedIgnoringLineEndings": true
+    }
+  ],
+  "releaseHasLocalMaterials": false
+}

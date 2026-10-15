@@ -52,9 +52,11 @@ export const collections = {
           }),
         ]).optional(),
       }),
-    })(context).transform((entry) =>
-      !blogSettings.tagBrowsingEnabled && entry.kind === 'article'
-        ? { ...entry, tags: [] } : entry,
-    ),
+    })(context).transform((entry) => ({
+      ...entry,
+      // Reuse the native excerpt field so lists do not render an entire article.
+      ...(entry.kind === 'article' ? { excerpt: entry.excerpt?.trim() ? entry.excerpt : entry.description } : {}),
+      ...(!blogSettings.tagBrowsingEnabled && entry.kind === 'article' ? { tags: [] } : {}),
+    })),
   }),
 };

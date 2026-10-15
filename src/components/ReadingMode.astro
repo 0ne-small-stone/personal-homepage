@@ -6,9 +6,15 @@ const { pdf = false } = Astro.props;
   <div class="reading-mode-actions" role="group" aria-label="阅读模式">
     <button type="button" data-focus-mode aria-pressed="false" aria-describedby="reading-mode-help">沉浸阅读</button>
   </div>
-  <p id="reading-mode-help" data-reading-status role="status" aria-live="polite">进入全屏，电脑 Esc 退出，手机右滑退出。PDF 可用 Ctrl + 加减号或 Ctrl + 滚轮缩放。</p>
+  <p class="reading-mode-status" id="reading-mode-help" data-reading-status role="status" aria-live="polite">正在准备阅读模式…</p>
 </learning-reading-mode>
+<style>
+  /* Keep availability feedback and the button's accessible description. */
+  .reading-mode-status { position: absolute; width: 1px; height: 1px; padding: 0; margin: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  learning-reading-mode:has(button:disabled) .reading-mode-status { position: static; width: auto; height: auto; margin-top: .5rem; overflow: visible; clip-path: none; white-space: normal; }
+</style>
 <script>
+  import type { PdfReadingPosition } from '../lib/pdf-reading-progress-state';
   import { automaticPdfColumns, fitPdfMode, pdfModeGeometry, pdfModeGroup, type PdfPaperSize } from '../lib/immersivePdfLayout';
   import { immersivePdfShortcut } from '../lib/immersivePdfShortcuts';
   interface PdfPageView {
@@ -84,8 +90,9 @@ const { pdf = false } = Astro.props;
       this.frame = document.querySelector<HTMLIFrameElement>('pdf-reader iframe') ?? undefined;
       this.active = false;
       this.hidden = false;
-      this.resizeObserver = new ResizeObserver(() => document.documentElement.style.setProperty('--reading-toolbar-height', this.offsetHeight + 'px'));
-      this.resizeObserver.observe(this);
+      const toolbar = this.closest<HTMLElement>('.article-reading-actions') ?? this;
+      this.resizeObserver = new ResizeObserver(() => document.documentElement.style.setProperty('--reading-toolbar-height', toolbar.offsetHeight + 'px'));
+      this.resizeObserver.observe(toolbar);
       this.button.addEventListener('click', () => this.enter(), { signal });
       document.addEventListener('fullscreenchange', () => {
         if (this.active && this.nativeFullscreen && !document.fullscreenElement) this.restore();
@@ -113,12 +120,12 @@ const { pdf = false } = Astro.props;
         };
         this.frame.addEventListener('load', bind, { signal });
         bind();
-        const reader = this.frame.closest('pdf-reader')!;
+        const reader = this.frame.closest('pdf-reader');
         this.observer = new MutationObserver(() => {
-          if (this.active && !reader.querySelector<HTMLElement>('[data-error]')?.hidden) this.exit();
+          if (this.active && reader && !reader.querySelector<HTMLElement>('[data-error]')?.hidden) this.exit();
           this.updateAvailability();
         });
-        this.observer.observe(reader, { attributes: true, attributeFilter: ['aria-busy'] });
+        if (reader) this.observer.observe(reader, { attributes: true, attributeFilter: ['aria-busy'] });
       }
       window.addEventListener('pageshow', () => this.updateAvailability(), { signal });
       window.addEventListener('pagehide', () => this.restore(), { signal });
@@ -426,10 +433,18 @@ const { pdf = false } = Astro.props;
       }
       this.restore();
     }
+    pdfReadingPosition(): PdfReadingPosition | undefined {
+      const viewer = this.app?.pdfViewer;
+      const bookmark = this.pdfMoved ? (this.bookmarkPdf() ?? this.lastBookmark) : this.savedPdf?.bookmark;
+      if (!this.active || !viewer || !bookmark || !this.savedPdf) return;
+      return { ...bookmark, scale: this.manualZoom ? String(viewer.currentScaleValue) : String(this.savedPdf.scale),
+        rotation: viewer.pagesRotation, scrollMode: this.savedPdf.scrollMode, spreadMode: this.savedPdf.spreadMode };
+    }
     private restore() {
       if (!this.active) return;
+      if (this.frame) document.dispatchEvent(new Event('lssh:pdf-before-restore'));
       const anchor = this.frame ? undefined : this.readingAnchor(24);
-      const bookmark = this.pdfMoved ? (this.lastBookmark ?? this.bookmarkPdf()) : this.savedPdf?.bookmark;
+      const bookmark = this.pdfMoved ? (this.bookmarkPdf() ?? this.lastBookmark) : this.savedPdf?.bookmark;
       this.active = false;
       this.fitEpoch++;
       if (this.geometryFrame) cancelAnimationFrame(this.geometryFrame);

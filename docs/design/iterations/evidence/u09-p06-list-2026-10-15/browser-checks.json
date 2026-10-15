@@ -1,0 +1,422 @@
+[
+  {
+    "label": "desktop-list",
+    "activeTags": [
+      "全部文章"
+    ],
+    "background": "#000",
+    "contentWidth": 1270,
+    "h1": "文章",
+    "listWidth": 902,
+    "previewBodyHeadings": 0,
+    "previewTitles": [
+      "博客阅读验证（功能验证样稿）"
+    ],
+    "scrollWidth": 1270,
+    "shell": true,
+    "summaries": [
+      "用一篇明确标注的样稿体验文章入口、正文目录、代码复制与返回。"
+    ],
+    "theme": "dark",
+    "url": "http://127.0.0.1:4400/personal-homepage/knowledge/blog/",
+    "width": 1280,
+    "y": 0
+  },
+  {
+    "label": "tag-list",
+    "activeTags": [
+      "功能验证1"
+    ],
+    "background": "#000",
+    "contentWidth": 1270,
+    "h1": "功能验证",
+    "listWidth": 902,
+    "previewBodyHeadings": 0,
+    "previewTitles": [
+      "博客阅读验证（功能验证样稿）"
+    ],
+    "scrollWidth": 1280,
+    "shell": true,
+    "summaries": [
+      "用一篇明确标注的样稿体验文章入口、正文目录、代码复制与返回。"
+    ],
+    "theme": "dark",
+    "url": "http://127.0.0.1:4400/personal-homepage/knowledge/blog/tags/%E5%8A%9F%E8%83%BD%E9%AA%8C%E8%AF%81/",
+    "width": 1280,
+    "y": 0
+  },
+  {
+    "label": "tag-open-article",
+    "position": {
+      "block": "代码块沿用现成渲染器，支持横向滚动与复制。可以复制下面这段 JavaScript，观察复制后的文字是否与代码一致：",
+      "blockHeight": 64.58333587646484,
+      "blockTop": 113.625,
+      "fraction": 0.4238709510509486,
+      "immersive": false,
+      "line": 141,
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/blog/article-reading-check/",
+      "y": 1380.6666259765625
+    },
+    "body": {
+      "code": 1,
+      "headings": 5,
+      "length": 1227
+    }
+  },
+  {
+    "label": "tag-source-return-link",
+    "href": "http://127.0.0.1:4400/personal-homepage/knowledge/blog/tags/%E5%8A%9F%E8%83%BD%E9%AA%8C%E8%AF%81/",
+    "text": [
+      "← 返回标签结果"
+    ]
+  },
+  {
+    "label": "returned-to-tag",
+    "activeTags": [],
+    "background": "#000",
+    "contentWidth": 1270,
+    "h1": "博客阅读验证（功能验证样稿）",
+    "previewBodyHeadings": 0,
+    "previewTitles": [],
+    "scrollWidth": 1270,
+    "shell": false,
+    "summaries": [],
+    "theme": "dark",
+    "url": "http://127.0.0.1:4400/personal-homepage/knowledge/blog/tags/%E5%8A%9F%E8%83%BD%E9%AA%8C%E8%AF%81/",
+    "width": 1280,
+    "y": 1044
+  },
+  {
+    "label": "root-article-ready",
+    "returnHref": "http://127.0.0.1:4400/personal-homepage/knowledge/blog/",
+    "position": {
+      "block": "用自己的话组织说明，保留必要的引用链接。",
+      "blockHeight": 32.29166793823242,
+      "blockTop": 129.6666717529297,
+      "fraction": 0.35096757060517064,
+      "immersive": false,
+      "line": 141,
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/blog/article-reading-check/",
+      "y": 1044
+    },
+    "body": {
+      "code": 1,
+      "h2": 5,
+      "length": 1227
+    }
+  },
+  {
+    "label": "root-return-final",
+    "activeTags": [
+      "全部文章"
+    ],
+    "background": "#000",
+    "contentWidth": 1270,
+    "h1": "文章",
+    "listWidth": 902,
+    "previewBodyHeadings": 0,
+    "previewTitles": [
+      "博客阅读验证（功能验证样稿）"
+    ],
+    "scrollWidth": 1270,
+    "shell": true,
+    "summaries": [
+      "用一篇明确标注的样稿体验文章入口、正文目录、代码复制与返回。"
+    ],
+    "theme": "dark",
+    "url": "http://127.0.0.1:4400/personal-homepage/knowledge/blog/",
+    "width": 1280,
+    "y": 26
+  },
+  {
+    "label": "fixture-page1",
+    "activeTags": [
+      "全部文章"
+    ],
+    "background": "#000",
+    "contentWidth": 1270,
+    "h1": "文章",
+    "listWidth": 902,
+    "previewBodyHeadings": 0,
+    "previewTitles": [
+      "博客阅读验证（功能验证样稿）",
+      "分页验证 01（仅本机样稿）",
+      "分页验证 02（仅本机样稿）",
+      "分页验证 03（仅本机样稿）",
+      "分页验证 04（仅本机样稿）"
+    ],
+    "scrollWidth": 1270,
+    "shell": true,
+    "summaries": [
+      "用一篇明确标注的样稿体验文章入口、正文目录、代码复制与返回。",
+      "仅用于 T07.03 标签与分页验收，不是正式文章。",
+      "仅用于 T07.03 标签与分页验收，不是正式文章。",
+      "仅用于 T07.03 标签与分页验收，不是正式文章。",
+      "仅用于 T07.03 标签与分页验收，不是正式文章。"
+    ],
+    "theme": "dark",
+    "url": "http://127.0.0.1:4411/personal-homepage/knowledge/blog/",
+    "width": 1280,
+    "y": 0
+  },
+  {
+    "label": "fixture-page2",
+    "activeTags": [
+      "全部文章"
+    ],
+    "background": "#000",
+    "contentWidth": 1270,
+    "h1": "文章",
+    "listWidth": 902,
+    "previewBodyHeadings": 0,
+    "previewTitles": [
+      "分页验证 05（仅本机样稿）",
+      "分页验证 06（仅本机样稿）",
+      "分页验证 07（仅本机样稿）",
+      "分页验证 08（仅本机样稿）",
+      "分页验证 09（仅本机样稿）"
+    ],
+    "scrollWidth": 1270,
+    "shell": true,
+    "summaries": [
+      "仅用于 T07.03 标签与分页验收，不是正式文章。",
+      "仅用于 T07.03 标签与分页验收，不是正式文章。",
+      "仅用于 T07.03 标签与分页验收，不是正式文章。",
+      "仅用于 T07.03 标签与分页验收，不是正式文章。",
+      "仅用于 T07.03 标签与分页验收，不是正式文章。"
+    ],
+    "theme": "dark",
+    "url": "http://127.0.0.1:4411/personal-homepage/knowledge/blog/2/",
+    "width": 1280,
+    "y": 0
+  },
+  {
+    "label": "fixture-page3",
+    "activeTags": [
+      "全部文章"
+    ],
+    "background": "#000",
+    "contentWidth": 1270,
+    "h1": "文章",
+    "listWidth": 902,
+    "previewBodyHeadings": 0,
+    "previewTitles": [
+      "分页验证 10（仅本机样稿）",
+      "分页验证 11（仅本机样稿）"
+    ],
+    "scrollWidth": 1270,
+    "shell": true,
+    "summaries": [
+      "仅用于 T07.03 标签与分页验收，不是正式文章。",
+      "仅用于 T07.03 标签与分页验收，不是正式文章。"
+    ],
+    "theme": "dark",
+    "url": "http://127.0.0.1:4411/personal-homepage/knowledge/blog/3/",
+    "width": 1280,
+    "y": 0
+  },
+  {
+    "label": "fixture-pagination-summary",
+    "counts": [
+      5,
+      5,
+      2
+    ],
+    "unique": 12,
+    "draftExcluded": true,
+    "lastHasNext": 0
+  },
+  {
+    "label": "mobile-390",
+    "activeTags": [
+      "全部文章"
+    ],
+    "background": "#000",
+    "contentWidth": 390,
+    "h1": "文章",
+    "listWidth": 350,
+    "previewBodyHeadings": 0,
+    "previewTitles": [
+      "博客阅读验证（功能验证样稿）"
+    ],
+    "scrollWidth": 390,
+    "shell": true,
+    "summaries": [
+      "用一篇明确标注的样稿体验文章入口、正文目录、代码复制与返回。"
+    ],
+    "theme": "dark",
+    "url": "http://127.0.0.1:4400/personal-homepage/knowledge/blog/",
+    "width": 390,
+    "y": 0
+  },
+  {
+    "label": "mobile-menu",
+    "expanded": null
+  },
+  {
+    "label": "mobile-320",
+    "activeTags": [
+      "全部文章"
+    ],
+    "background": "#000",
+    "contentWidth": 310,
+    "h1": "文章",
+    "listWidth": 278,
+    "previewBodyHeadings": 0,
+    "previewTitles": [
+      "博客阅读验证（功能验证样稿）"
+    ],
+    "scrollWidth": 310,
+    "shell": true,
+    "summaries": [
+      "用一篇明确标注的样稿体验文章入口、正文目录、代码复制与返回。"
+    ],
+    "theme": "dark",
+    "url": "http://127.0.0.1:4400/personal-homepage/knowledge/blog/",
+    "width": 320,
+    "y": 0
+  },
+  {
+    "label": "mobile-tag-320",
+    "activeTags": [
+      "功能验证1"
+    ],
+    "background": "#000",
+    "contentWidth": 310,
+    "h1": "功能验证",
+    "listWidth": 278,
+    "previewBodyHeadings": 0,
+    "previewTitles": [
+      "博客阅读验证（功能验证样稿）"
+    ],
+    "scrollWidth": 310,
+    "shell": true,
+    "summaries": [
+      "用一篇明确标注的样稿体验文章入口、正文目录、代码复制与返回。"
+    ],
+    "theme": "dark",
+    "url": "http://127.0.0.1:4400/personal-homepage/knowledge/blog/tags/%E5%8A%9F%E8%83%BD%E9%AA%8C%E8%AF%81/",
+    "width": 320,
+    "y": 0
+  },
+  {
+    "label": "light-theme",
+    "activeTags": [
+      "功能验证1"
+    ],
+    "background": "#fff",
+    "contentWidth": 1270,
+    "h1": "功能验证",
+    "listWidth": 902,
+    "previewBodyHeadings": 0,
+    "previewTitles": [
+      "博客阅读验证（功能验证样稿）"
+    ],
+    "scrollWidth": 1270,
+    "shell": true,
+    "summaries": [
+      "用一篇明确标注的样稿体验文章入口、正文目录、代码复制与返回。"
+    ],
+    "theme": "light",
+    "url": "http://127.0.0.1:4400/personal-homepage/knowledge/blog/tags/%E5%8A%9F%E8%83%BD%E9%AA%8C%E8%AF%81/",
+    "width": 1280,
+    "y": 0
+  },
+  {
+    "label": "keyboard-focus",
+    "focus": "功能验证1",
+    "outline": "rgb(245, 245, 245) solid 2px"
+  },
+  {
+    "label": "tag-final-article-source",
+    "href": "http://127.0.0.1:4400/personal-homepage/knowledge/blog/tags/%E5%8A%9F%E8%83%BD%E9%AA%8C%E8%AF%81/",
+    "text": [
+      "← 返回标签结果"
+    ],
+    "position": {
+      "block": "阅读时可以先看目录，再选择关心的部分。桌面目录放在正文旁，手机目录使用框架原生的展开入口。章节链接可以单独分享；直接打开文章地址也能读到完整内容。",
+      "blockHeight": 64.58333587646484,
+      "blockTop": 81.125,
+      "fraction": 0.927096737686778,
+      "immersive": false,
+      "line": 141,
+      "url": "http://127.0.0.1:4400/personal-homepage/knowledge/blog/article-reading-check/",
+      "y": 707.3333129882812
+    }
+  },
+  {
+    "label": "tag-return-final",
+    "activeTags": [
+      "功能验证1"
+    ],
+    "background": "#000",
+    "contentWidth": 1270,
+    "h1": "功能验证",
+    "listWidth": 902,
+    "previewBodyHeadings": 0,
+    "previewTitles": [
+      "博客阅读验证（功能验证样稿）"
+    ],
+    "scrollWidth": 1270,
+    "shell": true,
+    "summaries": [
+      "用一篇明确标注的样稿体验文章入口、正文目录、代码复制与返回。"
+    ],
+    "theme": "dark",
+    "url": "http://127.0.0.1:4400/personal-homepage/knowledge/blog/tags/%E5%8A%9F%E8%83%BD%E9%AA%8C%E8%AF%81/",
+    "width": 1280,
+    "y": 16.66666603088379
+  },
+  {
+    "label": "final-list",
+    "activeTags": [
+      "全部文章"
+    ],
+    "background": "#000",
+    "contentWidth": 1270,
+    "h1": "文章",
+    "listWidth": 902,
+    "previewBodyHeadings": 0,
+    "previewTitles": [
+      "博客阅读验证（功能验证样稿）"
+    ],
+    "scrollWidth": 1270,
+    "shell": true,
+    "summaries": [
+      "用一篇明确标注的样稿体验文章入口、正文目录、代码复制与返回。"
+    ],
+    "theme": "dark",
+    "url": "http://127.0.0.1:4400/personal-homepage/knowledge/blog/",
+    "width": 1280,
+    "y": 0
+  },
+  {
+    "label": "final-controls",
+    "h1Size": "48px",
+    "rightSidebarDisplay": "none",
+    "selectedSidebar": [
+      {
+        "background": "rgb(38, 38, 38)",
+        "text": "全部文章"
+      }
+    ],
+    "tagTargets": [
+      {
+        "height": 44,
+        "text": "全部文章"
+      },
+      {
+        "height": 44,
+        "text": "功能验证1"
+      },
+      {
+        "height": 44,
+        "text": "阅读与整理1"
+      }
+    ]
+  },
+  {
+    "label": "console",
+    "errors": []
+  }
+]

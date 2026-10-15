@@ -1,0 +1,595 @@
+[
+  {
+    "label": "baseline",
+    "before": {
+      "fraction": 0,
+      "immersive": false,
+      "page": 3,
+      "pageHeight": 1010,
+      "pageTop": 2043,
+      "rotation": null,
+      "scrollLeft": 0,
+      "scrollTop": 12,
+      "viewerHeight": 593,
+      "viewerTop": 48,
+      "zoom": "auto"
+    },
+    "after": {
+      "fraction": 0.01089108910891089,
+      "immersive": false,
+      "page": 1,
+      "pageHeight": 1010,
+      "pageTop": 37,
+      "rotation": null,
+      "scrollLeft": 0,
+      "scrollTop": 12,
+      "viewerHeight": 593,
+      "viewerTop": 48,
+      "zoom": "auto"
+    }
+  },
+  {
+    "label": "normal-mid-page-before",
+    "fraction": 0.5217821782178218,
+    "immersive": false,
+    "page": 3,
+    "pageHeight": 1010,
+    "pageTop": -479,
+    "rotation": null,
+    "scrollLeft": 0,
+    "scrollTop": 2534,
+    "viewerHeight": 593,
+    "viewerTop": 48,
+    "zoom": "1.25"
+  },
+  {
+    "label": "normal-refresh",
+    "before": {
+      "fraction": 0.5217821782178218,
+      "immersive": false,
+      "page": 3,
+      "pageHeight": 1010,
+      "pageTop": -479,
+      "rotation": null,
+      "scrollLeft": 0,
+      "scrollTop": 2534,
+      "viewerHeight": 593,
+      "viewerTop": 48,
+      "zoom": "1.25"
+    },
+    "after": {
+      "fraction": 0.5217821782178218,
+      "immersive": false,
+      "page": 3,
+      "pageHeight": 1010,
+      "pageTop": -479,
+      "rotation": null,
+      "scrollLeft": 0,
+      "scrollTop": 2534,
+      "viewerHeight": 593,
+      "viewerTop": 48,
+      "zoom": "1.25"
+    },
+    "samePage": true,
+    "pixelDelta": 0
+  },
+  {
+    "label": "closed-tab-reopen",
+    "before": {
+      "fraction": 0.5217821782178218,
+      "immersive": false,
+      "page": 3,
+      "pageHeight": 1010,
+      "pageTop": -479,
+      "rotation": null,
+      "scrollLeft": 0,
+      "scrollTop": 2534,
+      "viewerHeight": 497,
+      "viewerTop": 48,
+      "zoom": "1.25"
+    },
+    "after": {
+      "fraction": 0.5217821782178218,
+      "immersive": false,
+      "page": 3,
+      "pageHeight": 1010,
+      "pageTop": -479,
+      "rotation": null,
+      "scrollLeft": 0,
+      "scrollTop": 2534,
+      "viewerHeight": 497,
+      "viewerTop": 48,
+      "zoom": "1.25"
+    },
+    "samePage": true,
+    "pixelDelta": 0
+  },
+  {
+    "label": "immersive-before-close",
+    "fraction": 0.10778816199376948,
+    "immersive": true,
+    "page": 3,
+    "pageHeight": 1605,
+    "pageTop": -173,
+    "rotation": null,
+    "scrollLeft": 0,
+    "scrollTop": 1802,
+    "viewerHeight": 1440,
+    "viewerTop": 0,
+    "zoom": "2"
+  },
+  {
+    "label": "immersive-close-comparison",
+    "before": {
+      "fraction": 0.10778816199376948,
+      "immersive": true,
+      "page": 3,
+      "pageHeight": 1605,
+      "pageTop": -173,
+      "rotation": null,
+      "scrollLeft": 0,
+      "scrollTop": 1802,
+      "viewerHeight": 1440,
+      "viewerTop": 0,
+      "zoom": "2"
+    },
+    "after": {
+      "fraction": 0.5221183800623053,
+      "immersive": false,
+      "page": 3,
+      "pageHeight": 1605,
+      "pageTop": -790,
+      "rotation": null,
+      "scrollLeft": 9,
+      "scrollTop": 4035,
+      "viewerHeight": 482,
+      "viewerTop": 48,
+      "zoom": "2"
+    },
+    "samePage": true,
+    "fractionDelta": 0.41433021806853576
+  },
+  {
+    "label": "physics-before",
+    "fraction": 0.30217519106408,
+    "immersive": false,
+    "page": 4,
+    "pageHeight": 1701,
+    "pageTop": -466,
+    "rotation": null,
+    "scrollLeft": 9,
+    "scrollTop": 5597,
+    "viewerHeight": 578,
+    "viewerTop": 48,
+    "zoom": "1.5"
+  },
+  {
+    "label": "separate-resource-sample",
+    "page": 3,
+    "zoom": "1.25",
+    "pass": true
+  },
+  {
+    "label": "separate-resource-physics",
+    "before": {
+      "fraction": 0.30217519106408,
+      "immersive": false,
+      "page": 4,
+      "pageHeight": 1701,
+      "pageTop": -466,
+      "rotation": null,
+      "scrollLeft": 9,
+      "scrollTop": 5597,
+      "viewerHeight": 578,
+      "viewerTop": 48,
+      "zoom": "1.5"
+    },
+    "after": {
+      "fraction": 0.30217519106408,
+      "immersive": false,
+      "page": 4,
+      "pageHeight": 1701,
+      "pageTop": -466,
+      "rotation": null,
+      "scrollLeft": 9,
+      "scrollTop": 5597,
+      "viewerHeight": 578,
+      "viewerTop": 48,
+      "zoom": "1.5"
+    },
+    "samePage": true,
+    "pixelDelta": 0
+  },
+  {
+    "label": "fixed-immersive-before-close",
+    "fraction": 0.10778816199376948,
+    "immersive": true,
+    "page": 3,
+    "pageHeight": 1605,
+    "pageTop": -173,
+    "rotation": null,
+    "scrollLeft": 0,
+    "scrollTop": 1802,
+    "viewerHeight": 1440,
+    "viewerTop": 0,
+    "zoom": "2"
+  },
+  {
+    "label": "fixed-immersive-comparison",
+    "before": {
+      "fraction": 0.10778816199376948,
+      "immersive": true,
+      "page": 3,
+      "pageHeight": 1605,
+      "pageTop": -173,
+      "rotation": null,
+      "scrollLeft": 0,
+      "scrollTop": 1802,
+      "viewerHeight": 1440,
+      "viewerTop": 0,
+      "zoom": "2"
+    },
+    "after": {
+      "fraction": 0.005607476635514018,
+      "immersive": false,
+      "page": 3,
+      "pageHeight": 1605,
+      "pageTop": 39,
+      "rotation": null,
+      "scrollLeft": 9,
+      "scrollTop": 3206,
+      "viewerHeight": 482,
+      "viewerTop": 48,
+      "zoom": "2"
+    },
+    "samePage": true,
+    "fractionDelta": -0.10218068535825546
+  },
+  {
+    "label": "unload-immersive-before-close",
+    "fraction": 0,
+    "immersive": true,
+    "page": 3,
+    "pageHeight": 1605,
+    "pageTop": 352,
+    "rotation": null,
+    "scrollLeft": 0,
+    "scrollTop": 1277,
+    "viewerHeight": 1440,
+    "viewerTop": 0,
+    "zoom": "2"
+  },
+  {
+    "label": "unload-immersive-comparison",
+    "before": {
+      "fraction": 0,
+      "immersive": true,
+      "page": 3,
+      "pageHeight": 1605,
+      "pageTop": 352,
+      "rotation": null,
+      "scrollLeft": 0,
+      "scrollTop": 1277,
+      "viewerHeight": 1440,
+      "viewerTop": 0,
+      "zoom": "2"
+    },
+    "after": {
+      "fraction": 0.005607476635514018,
+      "immersive": false,
+      "page": 3,
+      "pageHeight": 1605,
+      "pageTop": 39,
+      "rotation": null,
+      "scrollLeft": 9,
+      "scrollTop": 3206,
+      "viewerHeight": 482,
+      "viewerTop": 48,
+      "zoom": "2"
+    },
+    "samePage": true,
+    "fractionDelta": 0.005607476635514018
+  },
+  {
+    "label": "cropped-immersive-before-close",
+    "fraction": 0.10778816199376948,
+    "immersive": true,
+    "page": 3,
+    "pageHeight": 1605,
+    "pageTop": -173,
+    "rotation": null,
+    "scrollLeft": 0,
+    "scrollTop": 1802,
+    "viewerHeight": 1440,
+    "viewerTop": 0,
+    "zoom": "2"
+  },
+  {
+    "label": "cropped-immersive-comparison",
+    "before": {
+      "fraction": 0.10778816199376948,
+      "immersive": true,
+      "page": 3,
+      "pageHeight": 1605,
+      "pageTop": -173,
+      "rotation": null,
+      "scrollLeft": 0,
+      "scrollTop": 1802,
+      "viewerHeight": 1440,
+      "viewerTop": 0,
+      "zoom": "2"
+    },
+    "after": {
+      "fraction": 0.005607476635514018,
+      "immersive": false,
+      "page": 3,
+      "pageHeight": 1605,
+      "pageTop": 39,
+      "rotation": null,
+      "scrollLeft": 9,
+      "scrollTop": 3206,
+      "viewerHeight": 482,
+      "viewerTop": 48,
+      "zoom": "2"
+    },
+    "samePage": true,
+    "fractionDelta": -0.10218068535825546
+  },
+  {
+    "label": "diagnostic-esc",
+    "before": {
+      "fraction": 0.10778816199376948,
+      "immersive": true,
+      "page": 3,
+      "pageHeight": 1605,
+      "pageTop": -173,
+      "rotation": null,
+      "scrollLeft": 0,
+      "scrollTop": 1802,
+      "viewerHeight": 1440,
+      "viewerTop": 0,
+      "zoom": "2"
+    },
+    "after": {
+      "fraction": 0.10778816199376948,
+      "immersive": false,
+      "page": 3,
+      "pageHeight": 1605,
+      "pageTop": -125,
+      "rotation": null,
+      "scrollLeft": 0,
+      "scrollTop": 3370,
+      "viewerHeight": 482,
+      "viewerTop": 48,
+      "zoom": "2"
+    }
+  },
+  {
+    "label": "final-immersive-before-close",
+    "fraction": 0.10778816199376948,
+    "immersive": true,
+    "page": 3,
+    "pageHeight": 1605,
+    "pageTop": -173,
+    "rotation": null,
+    "scrollLeft": 0,
+    "scrollTop": 1802,
+    "viewerHeight": 1440,
+    "viewerTop": 0,
+    "zoom": "2"
+  },
+  {
+    "label": "final-immersive-comparison",
+    "before": {
+      "fraction": 0.10778816199376948,
+      "immersive": true,
+      "page": 3,
+      "pageHeight": 1605,
+      "pageTop": -173,
+      "rotation": null,
+      "scrollLeft": 0,
+      "scrollTop": 1802,
+      "viewerHeight": 1440,
+      "viewerTop": 0,
+      "zoom": "2"
+    },
+    "after": {
+      "fraction": 0.10778816199376948,
+      "immersive": false,
+      "page": 3,
+      "pageHeight": 1605,
+      "pageTop": -125,
+      "rotation": null,
+      "scrollLeft": 9,
+      "scrollTop": 3370,
+      "viewerHeight": 482,
+      "viewerTop": 48,
+      "zoom": "2"
+    },
+    "samePage": true,
+    "fractionDelta": 0
+  },
+  {
+    "label": "xy-before-refresh",
+    "fraction": 0.13271028037383178,
+    "immersive": false,
+    "page": 3,
+    "pageHeight": 1605,
+    "pageTop": -165,
+    "rotation": null,
+    "scrollLeft": 89,
+    "scrollTop": 3410,
+    "viewerHeight": 578,
+    "viewerTop": 48,
+    "zoom": "2"
+  },
+  {
+    "label": "xy-refresh-comparison",
+    "before": {
+      "fraction": 0.13271028037383178,
+      "immersive": false,
+      "page": 3,
+      "pageHeight": 1605,
+      "pageTop": -165,
+      "rotation": null,
+      "scrollLeft": 89,
+      "scrollTop": 3410,
+      "viewerHeight": 578,
+      "viewerTop": 48,
+      "zoom": "2"
+    },
+    "after": {
+      "fraction": 0.13271028037383178,
+      "immersive": false,
+      "page": 3,
+      "pageHeight": 1605,
+      "pageTop": -165,
+      "rotation": null,
+      "scrollLeft": 89,
+      "scrollTop": 3410,
+      "viewerHeight": 578,
+      "viewerTop": 48,
+      "zoom": "2"
+    },
+    "samePage": true,
+    "verticalDelta": 0,
+    "horizontalDelta": 0
+  },
+  {
+    "label": "mobile-reopen-comparison",
+    "before": {
+      "fraction": 0.13271028037383178,
+      "immersive": false,
+      "page": 3,
+      "pageHeight": 1605,
+      "pageTop": -165,
+      "rotation": null,
+      "scrollLeft": 89,
+      "scrollTop": 3410,
+      "viewerHeight": 578,
+      "viewerTop": 48,
+      "zoom": "2"
+    },
+    "after": {
+      "fraction": 0.13271028037383178,
+      "immersive": false,
+      "page": 3,
+      "pageHeight": 1605,
+      "pageTop": -117,
+      "rotation": null,
+      "scrollLeft": 89,
+      "scrollTop": 3410,
+      "viewerHeight": 528,
+      "viewerTop": 96,
+      "zoom": "2"
+    },
+    "viewport": {
+      "height": 844,
+      "width": 380
+    },
+    "samePage": true,
+    "fractionDelta": 0
+  },
+  {
+    "label": "fixed-two-fit-regression",
+    "columns": "2",
+    "immersive": true,
+    "loading": false
+  },
+  {
+    "label": "after-esc-regression",
+    "fraction": 0.13271028037383178,
+    "immersive": false,
+    "page": 3,
+    "pageHeight": 1605,
+    "pageTop": -165,
+    "rotation": null,
+    "scrollLeft": 0,
+    "scrollTop": 3410,
+    "viewerHeight": 578,
+    "viewerTop": 48,
+    "zoom": "2"
+  },
+  {
+    "label": "final-restored-after-esc-refresh",
+    "fraction": 0.13271028037383178,
+    "immersive": false,
+    "page": 3,
+    "pageHeight": 1605,
+    "pageTop": -165,
+    "rotation": null,
+    "scrollLeft": 0,
+    "scrollTop": 3410,
+    "viewerHeight": 578,
+    "viewerTop": 48,
+    "zoom": "2"
+  },
+  {
+    "label": "final-console",
+    "errors": [
+      {
+        "level": "error",
+        "message": "Uncaught TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.",
+        "timestamp": "2026-10-15T03:39:25.979Z"
+      }
+    ]
+  },
+  {
+    "label": "guard-final-route-return",
+    "position": {
+      "fraction": 0.13271028037383178,
+      "immersive": false,
+      "page": 3,
+      "pageHeight": 1605,
+      "pageTop": -165,
+      "rotation": null,
+      "scrollLeft": 0,
+      "scrollTop": 3410,
+      "viewerHeight": 482,
+      "viewerTop": 48,
+      "zoom": "2"
+    },
+    "errors": [
+      {
+        "level": "error",
+        "message": "Uncaught TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.",
+        "timestamp": "2026-10-15T03:48:23.227Z"
+      }
+    ]
+  },
+  {
+    "label": "observer-stack-diagnostic",
+    "logs": []
+  },
+  {
+    "label": "actual-click-return-final",
+    "position": {
+      "fraction": 0.13271028037383178,
+      "immersive": false,
+      "page": 3,
+      "pageHeight": 1605,
+      "pageTop": -165,
+      "rotation": null,
+      "scrollLeft": 0,
+      "scrollTop": 3410,
+      "viewerHeight": 482,
+      "viewerTop": 48,
+      "zoom": "2"
+    },
+    "errors": []
+  },
+  {
+    "label": "final-deliverable",
+    "fraction": 0.13271028037383178,
+    "immersive": false,
+    "page": 3,
+    "pageHeight": 1605,
+    "pageTop": -165,
+    "rotation": null,
+    "scrollLeft": 0,
+    "scrollTop": 3410,
+    "viewerHeight": 578,
+    "viewerTop": 48,
+    "zoom": "2"
+  }
+]

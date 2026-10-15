@@ -1,5 +1,7 @@
 # 个人主页技术实现方案
 
+2026-10-15 P13/T25.29–36正式整合约束：音乐核心以本站React/同一audioSession及现有SDK4.41.1实现；同源Node预览服务通过白名单DTO处理搜索/推荐/分类播客/个人曲库、账号权限播放和原下载边界。节目保留programId/radioId/mainSong.id的各自用途，下载核对节目主音频；推荐按真实类别及简介筛选，有限候选、5分钟分类快照、手动刷新仅绕过当前分类并合并并发，失败保留列表。凭证、DPAPI、短期URL、原音频与后台运行状态不进入静态产物。正式Pages不运行Node后台，检测成功才加载核心UI，失败保留已发布共享歌单与原站入口；公共目录构建仍保留版本化快照回退。[集成与边界](acceptance/latest-release-2026-10-15.md)。
+
 2026-10-15 首页性能主站验收：BNuf11DH冻结源接入含正式双语Someone的main，148文件0错误/0警告、54页构建与限定交互通过；桌面/窄屏轮播10秒、稳定白墙6秒零新增场景/renderer帧，首次输入唤醒正常。保留F03、F05、三卡及小砖，不启动F06/F07；发布入口[PR #59](https://github.com/0ne-small-stone/personal-homepage/pull/59)，最终Pages与公网结果按真实SHA补录。[本轮验收](acceptance/home-performance-2026-10-15.md)。下方旧版本状态为过程追溯。
 
 2026-10-15 P02：Someone 英文 about／中文 zh/about 共用静态模板与资料。HomeLayout／HomeHeader 的可选语言参数仅由本页传入，复用主站 ClientRouter 与持久播放器；页尾公共目录保留六入口、正确 aria-current 并本地化。原生语言链接增强一次性阅读位置，邮件图标调用 Clipboard API，切页清理事件与计时，失败／无脚本有手动地址；无新依赖。见[发布记录](iterations/t05-p02-2026-10-15-pages.md)。
@@ -491,3 +493,33 @@ Giscus 仍依赖外部托管服务。网易云同步和未来 AI 需要服务端
 2026-10-11 48源角度切片：只更新PrismBeam/prism-ray固定源方向与只读诊断，复用45求解器与47光层，无新依赖/target。参数由设计SYSTEM9.3.15维护，实际记录见[48](../design/iterations/u03-p01-2026-10-11-48-implementation.md)。后续色散以此固定斜向源重新验证。
 
 2026-10-11 46实际色散：复用45纯Snell求解及ThreeBufferGeometry/ShaderMaterial，在现有R3F循环内共享真实几何的不可变三角缓存，七波长独立状态和有限TIR。matrixWorld不变不重求交；显示近裁面与物理分开。相邻色带核对真实界面族，不用相同事件串当完整拓扑；通道无效即时撤旧输出。层2只在最终default target绘制，普通/增强透射快照排除，前景层仍最后。一个geometry/material/draw，无新依赖/target，离页统一释放。参数归设计SYSTEM9.3.13，具体证据/CPU/缓冲见[46工程记录](../design/iterations/u03-p01-2026-10-11-46-implementation.md)。
+
+
+### P03 Becoming 总览外观作用域（2026-10-14）
+
+用户授权Framer/shadcn总览外观首片。复用现有Starlight PageFrame扩展在P03添加页面作用域；现有KnowledgeTypeFilter仅调整展示结构，查询/排序/历史/生命周期机制保持。用CSS覆盖原生目录、搜索和控件，不引入Framer/shadcn框架，P05/P06无新样式作用域。施工与实际检查见[本片](../design/iterations/u09-p03-2026-10-14-framer-overview.md)。
+
+
+### P05 PDF 接入与外观衔接（2026-10-15）
+
+用户要求接入PDF。本轮接续P03，复用现有PDF.js阅读器和materials:prepare，将36份本地原件接入4400本机预览；PDF资料和PDF笔记沿用P03黑底/侧栏选中，保留原生阅读器和既有沉浸快捷键。实际复现同一4400地址下的旧外壳及缺附件，并非跳转旧部署。其他文章/外部笔记、本轮公开发布范围不扩展。[范围与验收](../design/iterations/u09-p05-2026-10-15-pdf-connection.md)。
+
+
+### P06 文章阅读页与快捷键说明撤除（2026-10-15）
+
+用户要求文章阅读页接续Becoming的Framer/shadcn风格，并明确移除截图中的“阅读快捷键”说明。P06沿用共同外壳，优化正文排版、原生目录和阅读操作行；P05/P06撤可见说明但保留既有快捷键及无障碍状态，加载/不可用原因仍可见。其他列表、标签配置及首页不扩展。范围和实际验收见[本片](../design/iterations/u09-p06-2026-10-15-article-reading.md)。
+
+
+### P06 再次打开恢复阅读位置（2026-10-15）
+
+用户要求第二次打开直接停在上次退出的位置。文章按稳定entryId在同一浏览器本地保存段落及段内位置，普通阅读和沉浸离开均保存；默认地址及通用#_top入口自动续读，明确章节深链和浏览器前进/后退继续使用指定位置。无恢复按钮或额外说明，PDF沿用原生记忆。范围与验收见[本片](../design/iterations/u09-p06-2026-10-15-reading-progress.md)。
+
+
+### P05 PDF页码与阅读位置续读（2026-10-15）
+
+用户要求PDF再次打开直接恢复上次退出时的页码和页内阅读位置。P05的PDF资料/笔记按资源ID和PDF指纹独立记忆PDF坐标、普通阅读缩放/旋转及外层阅读位置；沉浸关闭前取最后阅读点，重开以普通阅读布局续读。无恢复按钮或额外提示。沿用PDF.js渲染、XYZ定位和既有沉浸输入，明确PDF内部章节深链优先，存储不可用不影响普通阅读。范围P05/R02、R09、R12/U09、U14/T08、T26–T27。[本片](../design/iterations/u09-p05-2026-10-15-pdf-progress.md)。
+
+
+### P06 文章列表外观衔接（2026-10-15）
+
+用户要求文章列表页接续已确认的Becoming Framer/shadcn外观。P06文章根列表、分页及标签匹配列表统一现有黑灰外壳、原生侧栏/搜索和标题排版；日期、标题、短摘要、标签构成轻量条目。用现有description作为未单独指定excerpt时的原生列表摘要，保留作者明确excerpt；正文不截断、不改路径/日期/正文。标签开关、原生分页和文章返回/续读保持。范围P06/R09、R10、R12/U09、U14/T05、T07、T09、T26–T27，无新依赖或设计素材。[本片](../design/iterations/u09-p06-2026-10-15-article-list.md)。

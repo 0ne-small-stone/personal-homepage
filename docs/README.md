@@ -1,5 +1,7 @@
 # 文档导航与设计 / 技术对应表
 
+2026-10-15 最新功能整合验收：保留主站e953b96（含首页性能、双语Someone及撤除重复标题），接入Becoming列表/文章与PDF续读，以及P13核心音乐/分类播客/手动刷新。公网无音乐后台时保留共享歌单快照、账号不可用反馈和内网音源说明；服务可用时延迟加载新版。文章/PDF进度仅同源本机浏览器，不保证跨设备。正式发布、实际测试与边界统一见[本轮验收](technical/acceptance/latest-release-2026-10-15.md)。墙AF01、Someone局部流体和首页F04仍属独立候选/待办，本轮未接入，也不启动F06/F07。旧日期状态为历史。
+
 2026-10-15 首页性能主站验收：BNuf11DH冻结源接入含正式双语Someone的main，148文件0错误/0警告、54页构建与限定交互通过；桌面/窄屏轮播10秒、稳定白墙6秒零新增场景/renderer帧，首次输入唤醒正常。保留F03、F05、三卡及小砖，不启动F06/F07；发布入口[PR #59](https://github.com/0ne-small-stone/personal-homepage/pull/59)，最终Pages与公网结果按真实SHA补录。[本轮验收](technical/acceptance/home-performance-2026-10-15.md)。下方旧版本状态为过程追溯。
 
 P02 / R01、R12 / U13、U14 / T02、T05、T16、T26–T27：Someone无照片双语版已由PR #58发布，正式入口和公网证据见[发布记录](technical/iterations/t05-p02-2026-10-15-pages.md)。
@@ -133,6 +135,7 @@ P10 最新独立交互样本：[A Moment Remains：Dome Gallery照片墙 → 三
 | P13 悬窗大小与工具带 | R04、R12 | U12、U14；[两态悬窗](design/iterations/u12-p13-2026-10-13-floating-sizes.md) | T25.15；大封面/迷你、控件避让封面 |
 | P13 本地壳宽修复 | R04、R12 | U12；[右侧空白修复](design/iterations/u12-p13-2026-10-13-width-repair.md) | T25.13；旧grid/flex交叉轴残留本地修复/执行者验证完成，内部阅读栅格保持 |
 | P13 排版重整 | R04、R12 | U12；[参考驱动布局](design/iterations/u12-p13-2026-10-13-elegant-layout.md) | T25.12；共享展示组件/固定壳/独立内容滚动本地接入/执行者验证完成，媒体与悬窗边界保持，用户审美另验 |
+| P13 核心曲库/分类播客/刷新 | R04、R12 | U12、U14；[正式整合](design/iterations/u12-p13-2026-10-15-main-integration.md) | T25.29–36、T26–T27；服务检测/共享歌单回退与[发布验收](technical/acceptance/latest-release-2026-10-15.md)，个人后台与静态站分别验收 |
 | P13 跨页悬窗 | R04、R12 | U12、U14；[大封面选择/实际接入](design/iterations/u12-p13-2026-10-13-floating-player-research.md) | T25.11；承接T25.02，本站浮层本机接入/执行者验证完成；系统PiP、真机与部署另验 |
 | P13 全屏精简 | R04、R12 | U12；[封面/栅格/毛玻璃/精简](design/iterations/u12-p13-2026-10-13-radio-simplify.md) | T25.10；沿用现有音乐组件、媒体与资源，无新外部能力 |
 | P13 唱片细节 | R04、R12 | U12；[唱臂/封面/材质](design/iterations/u12-p13-2026-10-13-vinyl-detail.md) | T25.09；统一落针几何、真实封面圆标与黑胶表面 |
@@ -259,3 +262,16 @@ P10 最新独立交互样本：[A Moment Remains：Dome Gallery照片墙 → 三
 | `docs/RESEARCH_REFERENCES.md` | `docs/technical/REFERENCES.md` |
 
 项目根目录保留 `README.md` 和 `AGENTS.md`。本地原始资料目录 `大二上学习资源/` 作为内容来源独立保留，由 `.gitignore` 排除，不随 GitHub 仓库上传；2026-10-07 检查为 38 个文件（36 PDF、2 TXT），共 532,588,263 字节，约 507.9 MiB。根 Astro/Starlight 工程已建立；GitHub 工作流与实际接入进展见技术计划的状态记录。
+
+
+P03 / R02、R09、R12 / U09、U13、U14 / T05、T07、T26–T27：[Becoming Framer总览首片](design/iterations/u09-p03-2026-10-14-framer-overview.md)。用户选定Framer整体与shadcn选中，仅本页实施和体验；P05/P06后续另片。
+
+P03/P05 / R02、R09、R12 / U09、U14 / T05、T07–T08、T26–T27：[PDF附件接入与新版外观衔接](design/iterations/u09-p05-2026-10-15-pdf-connection.md)，36份本地原件沿用已有阅读器，不自动公开发布原件。
+
+P05/P06 / R02、R09、R10、R12 / U09、U14 / T05、T08–T10、T26–T27：[文章阅读外观与快捷键说明撤除](design/iterations/u09-p06-2026-10-15-article-reading.md)，只调整文章阅读、共用操作状态，不新增文章或改变标签设置。
+
+P06 / R02、R09、R12 / U09、U14 / T09、T26–T27：[文章阅读位置自动恢复](design/iterations/u09-p06-2026-10-15-reading-progress.md)，按文章记忆段落位置，不新增页面或设置项。
+
+P05 / R02、R09、R12 / U09、U14 / T08、T26–T27：[PDF页码与阅读位置续读](design/iterations/u09-p05-2026-10-15-pdf-progress.md)，每份PDF独立记忆，不新增页面或设置。
+
+P06 / R09、R10、R12 / U09、U14 / T05、T07、T09、T26–T27：[文章列表外观衔接](design/iterations/u09-p06-2026-10-15-article-list.md)，含现有分页和标签结果外壳，不新增页面类型。

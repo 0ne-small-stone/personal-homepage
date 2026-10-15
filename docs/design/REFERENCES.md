@@ -1,5 +1,7 @@
 # 个人主页设计复用与素材来源
 
+2026-10-15 P13核心曲库参考[MeloX](https://github.com/youshen2/MeloX)桌面组织与[MeiloX](https://github.com/NEORUAA/MeiloX)手机组织。仅参照界面关系，以本站React/CSS实现，未复制Swift/Android代码、SF字体、封面或原站截图；原黑胶组件和许可继续保留。原项目GPL及其他资产许可各自成立，不能据界面参考推断音乐/图片授权。菜单使用浏览器原生Popover，参数与采用边界见[集成记录](iterations/u12-p13-2026-10-15-main-integration.md)。
+
 2026-10-14 P10正式采用：React Bits Dome Gallery固定496968c4117e21278f13917201b7d615bc5e7450、PhotoSwipe5.4.4、Three0.186.1和Infinite Canvas参考承接已验收原型，完整许可与出处在[公开来源登记](../../public/gallery/attribution.txt)。用户授权发布36张WebP派生，原JPEG不公开；组件作为本站应用使用，不发布独立组件库，见[接入记录](../technical/iterations/t12-p10-2026-10-14-pages.md)。
 
 
@@ -763,3 +765,8 @@ Moosync本次官网未定位完整界面，仓库Screenshots仍TODO，未作为�
 > 历史研究与需求证据；当前首页运行范围以56玻璃/柔晕及F02为准，不据此恢复光谱或流体。
 
 `p01-entry-seam-51`：用户本对话上传的本站入射交界裁图，原像素复制到[51用户原图](iterations/evidence/u03-p01-2026-10-12-51/user-entry-seam.png)，用于需求定位与前后验收；未调色/重画，不作为页面展示素材。用户否定接缝自然性，覆盖此前50执行者/设计允许保留，不记为用户已确认。设计任务[51](iterations/u03-p01-2026-10-12-51.md)。
+
+
+## Becoming 总览选定参考（2026-10-14）
+
+用户选定[Framer Developers](https://www.framer.com/developers/)的侧栏与内容布局、[shadcn文档](https://ui.shadcn.com/docs)的灰色圆角选中，范围只到P03首片。采用设计规律，不复制原站图像/字体/代码，不引入第二主题或依赖；本站参数由SYSTEM5.2.1管理，实施与实际验收见[本片](iterations/u09-p03-2026-10-14-framer-overview.md)。参考方向获用户选择，不等于本站实现或外观验收通过。

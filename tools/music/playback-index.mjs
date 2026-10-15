@@ -14,17 +14,18 @@ async function verifyAudio(url) {
   const reader=response.body?.getReader();if(!reader)return false;
   const first=await reader.read();await reader.cancel();
   const bytes=first.value||[];
-  const mp3=bytes[0]===0x49&&bytes[1]===0x44&&bytes[2]===0x33 || bytes[0]===0xff&&(bytes[1]&0xe0)===0xe0;
-  return Boolean(mp3 && (type.startsWith('audio/')||type==='application/octet-stream'));
+  const audio=bytes[0]===0x49&&bytes[1]===0x44&&bytes[2]===0x33 || bytes[0]===0xff&&(bytes[1]&0xe0)===0xe0 || Buffer.from(bytes.slice(0,4)).toString()==='fLaC' || Buffer.from(bytes.slice(0,4)).toString()==='OggS' || Buffer.from(bytes.slice(4,8)).toString()==='ftyp';
+  return Boolean(audio && (type.startsWith('audio/')||type==='application/octet-stream'));
 }
-export async function fetchPlaybackIndex({ cookie = {}, sdk = api, verify = verifyAudio, now = Date.now } = {}) {
+export async function fetchPlaybackIndex({ cookie = {}, sdk = api, verify = verifyAudio, now = Date.now, ids:requestedIds, level='standard' } = {}) {
   const playlist=JSON.parse(await readFile(path.resolve(project,'src/data/music/netease-playlist.json'),'utf8'));
-  const ids=playlist.tracks.map(track=>track.id);
+  const ids=requestedIds||playlist.tracks.map(track=>track.id);
   if(!ids.length||ids.length>500||!ids.every(id=>/^[1-9]\d{0,19}$/.test(id)))throw Error('Invalid playlist IDs');
+  if(!['standard','exhigh','lossless','hires','jyeffect','sky','jymaster'].includes(level))throw Error('Invalid quality');
   // Only standard platform playback; cookie comes from the dedicated local
   // listening login, never the recommendation administrator or unlock module.
   let result;
-  try{result=await sdk.song_url_v1({id:ids.join(','),level:'standard',cookie,crypto:'eapi',unblock:false,e_r:false,timeout:15000});}
+  try{result=await sdk.song_url_v1({id:ids.join(','),level,cookie,crypto:'eapi',unblock:false,e_r:false,timeout:15000});}
   catch(cause){const error=Error('NetEase resolver unavailable');error.auth=[301,302,401,403].includes(Number(cause?.body?.code||cause?.code));throw error;}
   if(result.body?.code!==200||!Array.isArray(result.body.data)){const error=Error('NetEase resolver unavailable');error.auth=[301,302,401,403].includes(Number(result.body?.code));throw error;}
   const tracks=[];
@@ -34,7 +35,7 @@ export async function fetchPlaybackIndex({ cookie = {}, sdk = api, verify = veri
     if(url&&item.code===200){try{usable=await verify(url);}catch{}}
     const trial=item?.freeTrialInfo;const previewSeconds=trial && Number.isFinite(trial.end) && Number.isFinite(trial.start) ? trial.end-trial.start : null;
     const expiresAt=new Date(now()+Math.min(600,Math.max(60,(Number(item?.expi)||1200)-30))*1000).toISOString();
-    tracks.push({id,status:usable?previewSeconds?'preview':'full':'unavailable',audioUrl:usable?url:null,expiresAt,previewSeconds});
+    tracks.push({id,status:usable?previewSeconds?'preview':'full':'unavailable',audioUrl:usable?url:null,expiresAt,previewSeconds,quality:String(item?.level||level)});
   }
   return {version:1,updatedAt:new Date(now()).toISOString(),tracks};
 }
