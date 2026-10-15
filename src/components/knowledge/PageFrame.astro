@@ -6,9 +6,10 @@ import '../../styles/becoming-overview.css';
 
 const isOverview = Astro.url.pathname.replace(/\/$/, '') === sitePath('knowledge').replace(/\/$/, '');
 const isPdf = Astro.locals.starlightRoute?.entry?.data.source?.format === 'pdf';
+const isArticle = Astro.locals.starlightRoute?.entry?.data.kind === 'article';
 ---
-{isOverview || isPdf ? (
-  <div class:list={['becoming-shell', { 'becoming-overview': isOverview, 'becoming-pdf': isPdf }]}>
+{isOverview || isPdf || isArticle ? (
+  <div class:list={['becoming-shell', { 'becoming-overview': isOverview, 'becoming-pdf': isPdf, 'becoming-article': isArticle }]}>
     <DefaultPageFrame>
       <slot name="header" slot="header" />
       <slot name="sidebar" slot="sidebar" />

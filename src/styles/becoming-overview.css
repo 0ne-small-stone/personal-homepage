@@ -1,4 +1,4 @@
-/* P03 and P05 PDF shell. Values: docs/design/SYSTEM.md §5.2.1–5.2.2. */
+/* Becoming shell: P03, P05 PDF, P06 article. SYSTEM.md §5.2.1–5.2.3. */
 html:has(.becoming-shell) {
   --becoming-bg: #000;
   --becoming-surface: #141414;
@@ -159,9 +159,6 @@ html:not([data-reading-immersive]) .becoming-pdf .sl-container { max-width: none
 .becoming-pdf h1 { font-size: 2rem; line-height: 1.4; letter-spacing: -.02em; }
 .becoming-pdf learning-reading-mode { display: flex; align-items: start; flex-wrap: wrap; gap: .5rem 1rem; margin-bottom: 1rem; }
 .becoming-pdf learning-reading-mode[hidden] { display: none; }
-.becoming-pdf .reading-mode-help { margin: 0; border: 0; padding: 0; background: transparent; flex: 1 1 12rem; }
-.becoming-pdf .reading-mode-help summary { display: flex; align-items: center; min-height: 44px; cursor: pointer; color: var(--becoming-muted); font-size: .8125rem; }
-.becoming-pdf .reading-mode-help p { margin-top: .5rem; }
 .becoming-pdf .reader-bar { color: var(--becoming-muted); font-size: .8125rem; }
 .becoming-pdf .reader-actions a { border-radius: 8px; text-decoration: none; }
 .becoming-pdf .reader-actions a:hover { background: var(--becoming-surface); text-decoration: underline; }
@@ -175,3 +172,55 @@ html:not([data-reading-immersive]) .becoming-pdf .sl-container { max-width: none
 /* Shared shell selectors are more specific than the legacy immersive reset. */
 html[data-reading-immersive] .becoming-shell .main-frame { padding: 0; }
 html[data-reading-pdf] .becoming-shell pdf-reader iframe { position: fixed; inset: 0; width: 100%; height: 100dvh; min-height: 0; margin: 0; border: 0; border-radius: 0; }
+
+/* P06 reading typography; framework TOC, code and links keep their behavior. */
+html:not([data-reading-immersive]) .becoming-article .main-frame { padding-top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height)); }
+.becoming-article .content-panel { padding-inline: 3rem; }
+.becoming-article .content-panel:has(h1) { padding-top: 3rem; }
+.becoming-article .content-panel + .content-panel { padding-top: 1.25rem; }
+.becoming-article .sl-container { max-width: 44rem; margin-inline: auto; }
+.becoming-article h1 { font-size: 2.5rem; line-height: 1.3; letter-spacing: -.025em; overflow-wrap: anywhere; }
+.becoming-article .sl-markdown-content { font-size: 1.0625rem; line-height: 1.9; }
+.becoming-article .sl-markdown-content :is(h2,h3) { color: var(--becoming-text); letter-spacing: -.015em; }
+.becoming-article .sl-markdown-content h2 { margin-top: 2.75rem; font-size: 1.5rem; line-height: 1.5; font-weight: 600; }
+.becoming-article .sl-markdown-content h3 { font-size: 1.125rem; line-height: 1.6; }
+.becoming-article .sl-markdown-content p { margin-top: 1.25rem; }
+.becoming-article .sl-blog-metadata { color: var(--becoming-muted); font-size: .8125rem; }
+.becoming-article .sl-markdown-content a { text-underline-offset: .2em; }
+.becoming-article .sl-markdown-content blockquote { border-inline-start: 2px solid var(--becoming-border); color: var(--becoming-muted); padding-inline-start: 1.25rem; }
+.becoming-article .starlight-aside--note { border-color: var(--becoming-border); border-radius: 8px; background: var(--becoming-surface); color: var(--becoming-text); }
+.becoming-article .starlight-aside--note .starlight-aside__title { color: var(--becoming-text); }
+.becoming-article .expressive-code { --ec-brdCol: var(--becoming-border); --ec-brdRad: .5rem; }
+.becoming-article .article-reading-actions { display: flex; align-items: start; flex-wrap: wrap; gap: .5rem 1rem; position: sticky; top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height)); z-index: 10; padding-block: .5rem; border-bottom: 1px solid var(--becoming-border); background: var(--becoming-bg); }
+.becoming-article .article-reading-actions .article-navigation { flex: 1 1 20rem; gap: .25rem 1rem; margin: 0; font-size: .8125rem; }
+.becoming-article .article-navigation a { font-weight: 400; color: var(--becoming-muted); text-decoration: none; }
+.becoming-article .article-navigation a:hover { color: var(--becoming-text); text-decoration: underline; }
+.becoming-article .article-reading-actions learning-reading-mode { position: static; padding: 0; margin: 0; border: 0; }
+.becoming-article .related-knowledge { margin-top: 2.5rem; padding-top: 1.5rem; }
+.becoming-article .related-knowledge h2 { font-size: 1.125rem; font-weight: 500; }
+.becoming-article .right-sidebar { border-inline-start: 0; }
+.becoming-article starlight-toc h2 { font-size: .8125rem; font-weight: 500; color: var(--becoming-muted); }
+.becoming-article starlight-toc a { color: var(--becoming-muted); padding: .625rem .75rem; border-radius: 8px; font-size: .8125rem; line-height: 1.6; }
+.becoming-article starlight-toc a[aria-current='true'] { background: var(--becoming-active); color: var(--becoming-text); }
+.becoming-article mobile-starlight-toc .toggle { min-height: 36px; }
+@media (min-width: 72rem) {
+  html:not([data-reading-immersive]) .becoming-article .main-frame { padding-top: var(--sl-nav-height); }
+  .becoming-article .main-pane { flex: 1; width: calc(100% - 13rem); min-width: 0; }
+  .becoming-article .right-sidebar-container { flex: 0 0 13rem; width: 13rem; }
+  .becoming-article .right-sidebar { width: 13rem; padding: 6rem 1.5rem 2rem 0; }
+  .becoming-article .article-reading-actions { top: var(--sl-nav-height); }
+}
+@media (max-width: 68.75rem) { .becoming-article .content-panel { padding-inline: 2rem; } }
+@media (max-width: 49.999rem) {
+  .becoming-article .content-panel { padding-inline: 1.25rem; }
+  .becoming-article .content-panel:has(h1) { padding-top: 2rem; }
+  .becoming-article h1 { font-size: 1.875rem; }
+  .becoming-article .sl-markdown-content { font-size: 1rem; }
+}
+@media (max-width: 22rem) { .becoming-article .content-panel { padding-inline: 1rem; } }
+html[data-reading-immersive] .becoming-article .article-reading-actions { display: none; }
+html[data-reading-immersive] .becoming-article .main-pane { width: 100%; }
+html[data-reading-immersive] .becoming-article .content-panel > .sl-container { max-width: 44rem; margin-inline: auto; }
+
+html:has(.becoming-article):not([data-reading-immersive]) { scroll-padding-top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height) + var(--reading-toolbar-height, 4rem) + 1rem); }
+@media (min-width: 72rem) { html:has(.becoming-article):not([data-reading-immersive]) { scroll-padding-top: calc(var(--sl-nav-height) + var(--reading-toolbar-height, 4rem) + 1rem); } }

@@ -1,0 +1,39 @@
+{
+  "baseline": "0fac52e25ceb9030a99bc965b75f2bbd54bb7997",
+  "hashes": [
+    {
+      "file": "src/components/knowledge/PageFrame.astro",
+      "sha256": "e23c9967826ea6fe46df797267efbece893b69132dfc467c80fd3ff8c85e1229"
+    },
+    {
+      "file": "src/components/KnowledgeContent.astro",
+      "sha256": "3c74baf01066c727c4c2f1a6e725f26a6dc35b023bb20d3947cfb024ee60d925"
+    },
+    {
+      "file": "src/components/ReadingMode.astro",
+      "sha256": "f93285be9a18a76cdae8477b733ba937d9b6a184763071e35dcb44f8c9a677b6"
+    },
+    {
+      "file": "src/styles/becoming-overview.css",
+      "sha256": "507c59ba8785fa2f1442f67bc581d001100967d8f9cc9e1770248f8b9f269f46"
+    }
+  ],
+  "unchangedChecks": [
+    {
+      "file": "src/lib/immersivePdfLayout.ts",
+      "unchanged": true
+    },
+    {
+      "file": "src/lib/immersivePdfShortcuts.ts",
+      "unchanged": true
+    },
+    {
+      "file": "src/lib/article-navigation.ts",
+      "unchanged": true
+    },
+    {
+      "file": "src/components/PdfReader.astro",
+      "unchanged": true
+    }
+  ]
+}
