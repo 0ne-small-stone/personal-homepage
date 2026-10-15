@@ -1,0 +1,100 @@
+[
+  {
+    "bodyHan": false,
+    "directory": [
+      {
+        "current": null,
+        "href": "/personal-homepage/knowledge/"
+      },
+      {
+        "current": null,
+        "href": "/personal-homepage/showcase/"
+      },
+      {
+        "current": null,
+        "href": "/personal-homepage/links/"
+      },
+      {
+        "current": null,
+        "href": "/personal-homepage/music/"
+      },
+      {
+        "current": "page",
+        "href": "/personal-homepage/about/"
+      },
+      {
+        "current": null,
+        "href": "/personal-homepage/guestbook/"
+      }
+    ],
+    "icons": [
+      {
+        "svg": 1,
+        "tag": "A"
+      },
+      {
+        "svg": 1,
+        "tag": "BUTTON"
+      }
+    ],
+    "lang": "en",
+    "photos": 0,
+    "scroll": 1265,
+    "stage": "local-en",
+    "width": 1265
+  },
+  {
+    "audio": 1,
+    "hash": "#life",
+    "lang": "zh-CN",
+    "path": "/personal-homepage/zh/about/",
+    "stage": "local-zh-switch",
+    "status": ""
+  },
+  {
+    "lang": "zh-CN",
+    "scroll": 375,
+    "stage": "local-zh-390",
+    "status": "邮箱已复制，可以粘贴到你的邮件应用中。",
+    "svg": 1,
+    "width": 375
+  },
+  {
+    "current": "/personal-homepage/zh/about/",
+    "panel": {
+      "bottom": 760.171875,
+      "height": 342,
+      "left": -170.453125,
+      "right": 117.546875,
+      "top": 418.171875,
+      "width": 288,
+      "x": -170.453125,
+      "y": 418.171875
+    },
+    "scroll": 305,
+    "stage": "local-zh-320",
+    "width": 305
+  },
+  {
+    "panel": {
+      "bottom": 760.171875,
+      "height": 342,
+      "left": 16,
+      "right": 304,
+      "top": 418.171875,
+      "width": 288,
+      "x": 16,
+      "y": 418.171875
+    },
+    "scroll": 305,
+    "stage": "local-zh-320-fixed",
+    "width": 305
+  },
+  {
+    "bodyHan": false,
+    "lang": "en",
+    "scroll": 305,
+    "stage": "local-en-320-keyboard-switch",
+    "width": 305
+  }
+]

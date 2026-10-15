@@ -1,5 +1,7 @@
 # 个人主页技术实现方案
 
+2026-10-15 P02：Someone 英文 about／中文 zh/about 共用静态模板与资料。HomeLayout／HomeHeader 的可选语言参数仅由本页传入，复用主站 ClientRouter 与持久播放器；页尾公共目录保留六入口、正确 aria-current 并本地化。原生语言链接增强一次性阅读位置，邮件图标调用 Clipboard API，切页清理事件与计时，失败／无脚本有手动地址；无新依赖。见[发布记录](iterations/t05-p02-2026-10-15-pages.md)。
+
 2026-10-14 最终集成：本轮发布入口为[PR #54](https://github.com/0ne-small-stone/personal-homepage/pull/54)，通过保护检查合并main后由Pages部署；最终SHA、Actions和公网回读在PR补记。本地最终工程141文件0错误/0警告、8条沿用相册的提示，53页构建与186项风险测试通过。发布期间同步保留main `5eac344` 的正式相册、36张授权WebP派生及目录契约；桌面/390px首页进入相册与原生后退4/4通过。首页加载/人物/音乐的既有验收边界保持，迷墙仍是独立原型，用户审美与真机性能另记。以下同日准备状态为过程快照。
 
 2026-10-14 P10/T12静态接入：Astro/gallery/独立文档、Vite模块打包原Dome/Three/按需PhotoSwipe，沿用现有锁文件和Pages保护流程。照片派生位于public/gallery/，相对manifest/media与正式base一致；无新框架、后端、账号或服务，见[施工记录](iterations/t12-p10-2026-10-14-pages.md)。

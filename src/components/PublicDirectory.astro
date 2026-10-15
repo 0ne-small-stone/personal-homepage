@@ -1,26 +1,30 @@
 ---
 import { siteSections, sectionCurrent } from '../lib/site-navigation';
 import { sitePath } from '../lib/paths';
-interface Props { align?: 'start' | 'end'; compact?: boolean; }
-const { align = 'end', compact = false } = Astro.props;
+interface Props { align?: 'start' | 'end'; compact?: boolean; lang?: 'zh-CN' | 'en'; placement?: 'below' | 'above'; }
+const { align = 'end', compact = false, lang = 'zh-CN', placement = 'below' } = Astro.props;
+const english = lang === 'en';
+const directoryLabel = english ? 'Site directory' : '全站目录';
+const englishLabels = { knowledge: 'Learning', showcase: 'Showcase', links: 'Websites', music: 'Music', about: 'About me', guestbook: 'Guestbook' };
+const chineseSomeone = Astro.url.pathname.endsWith('/zh/about/');
 ---
 <public-directory data-pagefind-ignore>
-  <details class:list={['public-directory', { 'align-start': align === 'start' }]}>
-    <summary aria-label={compact ? '全站目录' : undefined}>{compact ? '目录' : '全站目录'}<span class="directory-indicator" aria-hidden="true"></span></summary>
+  <details class:list={['public-directory', { 'align-start': align === 'start', 'opens-above': placement === 'above' }]}>
+    <summary aria-label={compact ? directoryLabel : undefined}>{compact ? (english ? 'Directory' : '目录') : directoryLabel}<span class="directory-indicator" aria-hidden="true"></span></summary>
     <div class="directory-panel">
-      <nav aria-label="全站目录">
+      <nav aria-label={directoryLabel}>
         <ul>
           {siteSections.map(({ label, path }) => {
-            const href = sitePath(path);
+            const href = sitePath(path === 'about' && chineseSomeone ? 'zh/about' : path);
             const current = sectionCurrent(Astro.url.pathname, href);
             return <li><a href={href} aria-current={current}>
-              <span>{label}</span>
-              {current && <span class="current-label" aria-hidden="true">{current === 'page' ? '当前页' : '当前栏目'}</span>}
+              <span>{english ? englishLabels[path] : label}</span>
+              {current && <span class="current-label" aria-hidden="true">{english ? (current === 'page' ? 'Current page' : 'Current section') : (current === 'page' ? '当前页' : '当前栏目')}</span>}
             </a></li>;
           })}
         </ul>
       </nav>
-      <button type="button" data-directory-close hidden>关闭目录</button>
+      <button type="button" data-directory-close hidden>{english ? 'Close directory' : '关闭目录'}</button>
     </div>
   </details>
 </public-directory>
@@ -75,6 +79,8 @@ const { align = 'end', compact = false } = Astro.props;
   details[open] .directory-indicator::after { content: '−'; }
   .directory-panel { position: absolute; inset-inline-end: 0; top: calc(100% + var(--space-2)); z-index: 100; width: min(20rem, calc(100vw - var(--space-6))); max-height: calc(100dvh - 8rem); overflow-y: auto; padding: var(--space-3); border: 1px solid var(--directory-border); border-radius: 1rem; background: var(--directory-bg); color: var(--directory-text); }
   .align-start .directory-panel { inset-inline-start: 0; inset-inline-end: auto; }
+  .opens-above { position: relative; }
+  .opens-above .directory-panel { top: auto; bottom: calc(100% + var(--space-2)); }
   ul { list-style: none; padding: 0; margin: 0; }
   .directory-panel a { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); min-height: var(--target-min); padding: var(--space-2) var(--space-3); border-radius: 0.625rem; color: var(--directory-text); font-size: 1rem; text-decoration: none; }
   .directory-panel a[aria-current] { font-weight: 600; text-decoration: underline; text-underline-offset: 0.3em; }
