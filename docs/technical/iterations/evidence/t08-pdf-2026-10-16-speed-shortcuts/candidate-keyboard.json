@@ -1,0 +1,70 @@
+{
+  "scope": "native IAB keyboard; English key input",
+  "nativeModeChecks": [
+    {
+      "key": "1",
+      "columns": "1",
+      "pending": false
+    },
+    {
+      "key": "2",
+      "columns": "2",
+      "pending": false
+    },
+    {
+      "key": "3",
+      "columns": "3",
+      "pending": false
+    },
+    {
+      "key": "4",
+      "columns": "4",
+      "pending": false
+    }
+  ],
+  "reducedState": {
+    "columns": "4",
+    "scale": "0.39999999999999997"
+  },
+  "fittedState": {
+    "columns": "4",
+    "pages": [
+      {
+        "bottom": 816.1667175292969,
+        "left": 16.5,
+        "page": "1",
+        "right": 421.8333435058594,
+        "top": 250.83334350585935
+      },
+      {
+        "bottom": 816.1667175292969,
+        "left": 439.5,
+        "page": "2",
+        "right": 844.8333435058594,
+        "top": 250.83334350585935
+      },
+      {
+        "bottom": 816.1667175292969,
+        "left": 862.5,
+        "page": "3",
+        "right": 1267.8333435058594,
+        "top": 250.83334350585935
+      },
+      {
+        "bottom": 816.1667175292969,
+        "left": 1285.5,
+        "page": "4",
+        "right": 1690.8333435058594,
+        "top": 250.83334350585935
+      }
+    ],
+    "scale": "0.6529333333333334"
+  },
+  "free0": null,
+  "free9": null,
+  "exited": true,
+  "boundaries": [
+    "Chinese IME Process/legacy/keyup paths verified by regression fixtures; OS IME not switched.",
+    "Native browser fullscreen tested through the real immersion button; locator.press on the remote old page exited fullscreen and was not counted as a passed mode test."
+  ]
+}
