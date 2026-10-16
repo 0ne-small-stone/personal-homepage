@@ -26,3 +26,7 @@ Thumbs.db
 # Checksum-pinned learning attachments are prepared from the separate asset release.
 /public/materials/source-*.pdf
 /public/materials/*.download-*
+
+# Generated PDF.js runtime; fixed upstream sources retain their licenses.
+public/pdfjs/build/*.min.mjs
+public/pdfjs/web/viewer.min.mjs

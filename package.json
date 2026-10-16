@@ -8,6 +8,8 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "predev": "npm run pdf:prepare",
+    "pdf:prepare": "node tools/content/prepare-pdfjs.mjs",
     "check": "node tools/content/cms-related-options.mjs --check && astro check",
     "build": "astro build",
     "preview": "astro preview",
@@ -28,7 +30,7 @@
     "test:home": "node --test tests/*.test.mjs",
     "music:publish-catalog": "node tools/music/export-public-catalog.mjs",
     "materials:fetch": "node tools/content/prepare-public-materials.mjs",
-    "prebuild": "npm run materials:fetch"
+    "prebuild": "npm run pdf:prepare && npm run materials:fetch"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "7.3.2",

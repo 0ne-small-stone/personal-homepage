@@ -22,7 +22,7 @@ if (source.file) {
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const file = `${base}/${relativeFile}`;
 // Let the native viewer restore its fingerprint-keyed page/zoom history.
-const viewer = `${base}/pdfjs/web/viewer.html?file=${encodeURIComponent(file)}&reader=pure-v5`;
+const viewer = `${base}/pdfjs/web/viewer.html?file=${encodeURIComponent(file)}&reader=pure-v6`;
 ---
 <pdf-reader data-resource={source.id} class="pdf-reader" aria-label={`${title} PDF 阅读器`} aria-busy={available ? 'true' : 'false'}>
   <div class="reader-bar">
@@ -37,7 +37,7 @@ const viewer = `${base}/pdfjs/web/viewer.html?file=${encodeURIComponent(file)}&r
       <p>PDF 未能加载，请重试或下载原文件阅读。</p>
       <button type="button" data-retry>重新加载</button>
     </div>
-    <iframe src={viewer} title={`${title} · ${source.pages} 页 PDF`} data-pages={source.pages} loading="eager" allowfullscreen></iframe>
+    <iframe src={viewer} title={`${title} · ${source.pages} 页 PDF`} data-pages={source.pages} data-bytes={source.bytes} loading="eager" allowfullscreen></iframe>
     <noscript><p>内嵌阅读器需要 JavaScript。<a href={file}>直接打开 PDF 原文件</a>，可使用浏览器自带阅读器。</p></noscript>
   </>}
 </pdf-reader>

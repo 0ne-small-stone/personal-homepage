@@ -16,7 +16,7 @@ const { pdf = false } = Astro.props;
 <script>
   import type { PdfReadingPosition } from '../lib/pdf-reading-progress-state';
   import { automaticPdfColumns, fitPdfMode, pdfModeGeometry, pdfModeGroup, type PdfPaperSize } from '../lib/immersivePdfLayout';
-  import { immersivePdfShortcut } from '../lib/immersivePdfShortcuts';
+  import { bindImmersivePdfInput } from '../lib/immersivePdfInput';
   interface PdfPageView {
     div: HTMLElement;
     scale: number;
@@ -313,6 +313,11 @@ const { pdf = false } = Astro.props;
       else void this.fitPdf({ page: target, x: 0, y: 0 }, false);
     }
     private bindInput(doc: Document, signal: AbortSignal) {
+      bindImmersivePdfInput(doc, { signal, active: () => this.active && !!this.frame, run: (shortcut) => {
+        if (shortcut.kind === 'mode') this.choosePdfMode(shortcut.columns);
+        else if (shortcut.kind === 'free') this.releasePdfMode();
+        else { this.automatic = true; this.manualZoom = false; void this.fitPdf(); }
+      } });
       doc.addEventListener('keydown', (event) => {
         if (!this.active) return;
         if (event.key === 'Escape') {
@@ -322,14 +327,6 @@ const { pdf = false } = Astro.props;
         const target = event.target as Element | null;
         const editing = target?.nodeType === 1 && !!target.closest('input, textarea, select, [contenteditable]:not([contenteditable="false"])');
         if (this.frame && !editing && !event.ctrlKey && !event.metaKey && !event.altKey) {
-          const shortcut = immersivePdfShortcut(event);
-          if (shortcut) {
-            event.preventDefault(); event.stopImmediatePropagation();
-            if (shortcut.kind === 'mode') this.choosePdfMode(shortcut.columns);
-            else if (shortcut.kind === 'free') this.releasePdfMode();
-            else { this.automatic = true; this.manualZoom = false; void this.fitPdf(); }
-            return;
-          }
           if (this.modeFits && ['ArrowLeft', 'ArrowUp', 'PageUp', 'ArrowRight', 'ArrowDown', 'PageDown'].includes(event.key)) {
             event.preventDefault(); event.stopImmediatePropagation(); this.movePdfGroup(['ArrowLeft', 'ArrowUp', 'PageUp'].includes(event.key) ? -1 : 1); return;
           }
