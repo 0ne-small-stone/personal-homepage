@@ -14,6 +14,8 @@ source:
   author: "吴一航（wyy）"
   bytes: 4688055
   pages: 177
+  file: materials/source-ads-2024-handout.pdf
+  sha256: 523abadae6f067a5d432198d066217a050819cadc14bc32cf3764bc2240e8be2
 ---
 
 ## 内容说明

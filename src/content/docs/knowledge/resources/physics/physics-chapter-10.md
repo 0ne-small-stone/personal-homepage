@@ -13,6 +13,8 @@ source:
   format: pdf
   bytes: 591375
   pages: 8
+  file: materials/source-physics-chapter-10.pdf
+  sha256: 43e1ecc3550f57d3ed94452369c512e49a58dadda03fd8d8c8853a79033737ec
 ---
 
 ## 内容说明

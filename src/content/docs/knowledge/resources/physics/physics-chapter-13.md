@@ -13,6 +13,8 @@ source:
   format: pdf
   bytes: 406366
   pages: 3
+  file: materials/source-physics-chapter-13.pdf
+  sha256: 0edc35427475141ea549491092b887ee6f3cb71282257c01a4cc47ffedf0346d
 ---
 
 ## 内容说明

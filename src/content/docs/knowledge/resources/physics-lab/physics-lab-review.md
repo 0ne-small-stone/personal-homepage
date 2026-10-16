@@ -13,6 +13,8 @@ source:
   format: pdf
   bytes: 2642484
   pages: 17
+  file: materials/source-physics-lab-review.pdf
+  sha256: ea47cca07214c34915949de2e34d3d96f4600bb067ff88628639ed9a7abb210c
 ---
 
 ## 内容说明

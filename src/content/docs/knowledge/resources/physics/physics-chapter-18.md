@@ -13,6 +13,8 @@ source:
   format: pdf
   bytes: 378617
   pages: 4
+  file: materials/source-physics-chapter-18.pdf
+  sha256: e0b9286ee014a898148371e86d26fcd7cae1e83f91ef951dde1391bbade8b0b4
 ---
 
 ## 内容说明

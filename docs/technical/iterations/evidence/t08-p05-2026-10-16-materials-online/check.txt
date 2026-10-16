@@ -1,0 +1,54 @@
+
+> personal-homepage@0<workspace>1<workspace>0 check
+> node tools/content/cms-related-options<workspace>mjs --check && astro check
+
+CMS 关联候选：41 条已发布内容，三类共用稳定 ID；检查通过。
+19:21:02 [vite] Re-optimizing dependencies because vite config has changed
+19:21:04 [content] Syncing content
+19:21:04 [content] Astro config changed
+19:21:04 [content] Content config changed
+19:21:04 [content] Clearing content store
+19:21:05 [content] Synced content
+19:21:05 [types] Generated 2<workspace>33s
+19:21:05 [check] Getting diagnostics for Astro files in C:\Users\asus\<workspace>codex\worktrees\t07-01-knowledge-type-filter\个人主页<workspace><workspace><workspace>
+[96msrc/components/gallery/dome<workspace>jsx[0m:[93m1[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'React' is declared but its value is never read<workspace>
+
+[7m1[0m import React from 'react';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/components/gallery/scene<workspace>js[0m:[93m30[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'turn' is declared but its value is never read<workspace>
+
+[7m30[0m const turn = new THREE<workspace>Quaternion();
+[7m  [0m [93m      ~~~~[0m
+[96msrc/components/gallery/scene<workspace>js[0m:[93m22[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'Z_AXIS' is declared but its value is never read<workspace>
+
+[7m22[0m const Z_AXIS = new THREE<workspace>Vector3(0, 0, 1);
+[7m  [0m [93m      ~~~~~~[0m
+
+[96msrc/components/gallery/single-viewer<workspace>js[0m:[93m73[0m:[93m20[0m - [93mwarning[0m[90m ts(6133): [0m'index' is declared but its value is never read<workspace>
+
+[7m73[0m         for(const [index,photo] of photos<workspace>entries()){
+[7m  [0m [93m                   ~~~~~[0m
+[96msrc/components/gallery/single-viewer<workspace>js[0m:[93m67[0m:[93m18[0m - [93mwarning[0m[90m ts(6133): [0m's' is declared but its value is never read<workspace>
+
+[7m67[0m   function addUI(s,pswp){
+[7m  [0m [93m                 ~[0m
+
+[96msrc/components/gallery/vendor/photoswipe/photoswipe<workspace>esm<workspace>js[0m:[93m227[0m:[93m43[0m - [93mwarning[0m[90m ts(6385): [0m'vendor' is deprecated<workspace>
+
+[7m227[0m   return !!(navigator<workspace>vendor && navigator<workspace>vendor<workspace>match(/apple/i));
+[7m   [0m [93m                                          ~~~~~~[0m
+[96msrc/components/gallery/vendor/photoswipe/photoswipe<workspace>esm<workspace>js[0m:[93m227[0m:[93m23[0m - [93mwarning[0m[90m ts(6385): [0m'vendor' is deprecated<workspace>
+
+[7m227[0m   return !!(navigator<workspace>vendor && navigator<workspace>vendor<workspace>match(/apple/i));
+[7m   [0m [93m                      ~~~~~~[0m
+[96msrc/components/gallery/vendor/photoswipe/photoswipe<workspace>esm<workspace>js[0m:[93m157[0m:[93m10[0m - [93mwarning[0m[90m ts(80006): [0mThis may be converted to an async function<workspace>
+
+[7m157[0m function decodeImage(img) {
+[7m   [0m [93m         ~~~~~~~~~~~[0m
+
+Result (153 files): 
+- 0 errors
+- 0 warnings
+- 8 hints
+

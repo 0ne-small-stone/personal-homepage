@@ -14,6 +14,8 @@ source:
   author: "Forliage（原文件标注）"
   bytes: 268599
   pages: 35
+  file: materials/source-probability-forliage.pdf
+  sha256: b04782740d0ac1bf78e5931f8f329ca2f24d89e03646facdbe2b448dac51f045
 ---
 
 ## 内容说明

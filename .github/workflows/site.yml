@@ -86,6 +86,9 @@ jobs:
       - name: Install website dependencies from lockfile
         run: npm ci --no-audit --no-fund
 
+      - name: Prepare checksum-pinned public learning PDFs
+        run: npm run materials:fetch
+
       - name: Refresh derived CMS candidates for validation
         # CMS writes content but does not regenerate this native select list.
         # Derive it only in this read-only checkout; no token writes back.
@@ -95,7 +98,7 @@ jobs:
         run: npm run check
 
       - name: Test content, homepage and PDF interactions
-        run: node --test tools/content/pdf-reading-progress.test.mjs tools/content/reading-progress.test.mjs tools/content/article-date.test.mjs tools/content/knowledge-links.test.mjs tools/content/cms-auto-sync.test.mjs tests/prism-ray.test.mjs tests/home-motion-ranges.test.mjs tools/verification/immersive-pdf-layout.test.mjs tools/verification/immersive-pdf-shortcuts.test.mjs tests/home-loading.test.mjs tests/home-frame-activity.test.mjs tests/home-backdrop.test.mjs
+        run: node --test tools/content/public-materials.test.mjs tools/content/pdf-reading-progress.test.mjs tools/content/reading-progress.test.mjs tools/content/article-date.test.mjs tools/content/knowledge-links.test.mjs tools/content/cms-auto-sync.test.mjs tests/prism-ray.test.mjs tests/home-motion-ranges.test.mjs tools/verification/immersive-pdf-layout.test.mjs tools/verification/immersive-pdf-shortcuts.test.mjs tests/home-loading.test.mjs tests/home-frame-activity.test.mjs tests/home-backdrop.test.mjs
 
       - name: Test music state and service boundaries
         run: npm run music:test

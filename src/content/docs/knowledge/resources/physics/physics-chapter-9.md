@@ -13,6 +13,8 @@ source:
   format: pdf
   bytes: 442258
   pages: 4
+  file: materials/source-physics-chapter-9.pdf
+  sha256: 75ef449b81f3b37886a29031ce927861688bc6e1f9642c4824ecec35c53c4cf9
 ---
 
 ## 内容说明

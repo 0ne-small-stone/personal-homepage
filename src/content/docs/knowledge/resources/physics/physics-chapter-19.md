@@ -13,6 +13,8 @@ source:
   format: pdf
   bytes: 197079
   pages: 1
+  file: materials/source-physics-chapter-19.pdf
+  sha256: 623ea5d15042e3c35fc3e5ac70d92ddf762d60d2f996545ad0540d3eb1bac874
 ---
 
 ## 内容说明

@@ -22,3 +22,7 @@ Thumbs.db
 # Local CI tool downloads and temporary verification fixtures.
 /.local-tools/
 /.ci-tmp/
+
+# Checksum-pinned learning attachments are prepared from the separate asset release.
+/public/materials/source-*.pdf
+/public/materials/*.download-*

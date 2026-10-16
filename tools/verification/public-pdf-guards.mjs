@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, unlinkSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { inspectPublicPdfs } from './public-pdf-check.mjs';
 
@@ -29,4 +29,8 @@ rejected('unsafe file path', paths[0], (data) => data.toString().replace('materi
 rejected('stale byte metadata', paths[0], (data) => data.toString().replace('bytes: 65959', 'bytes: 65958'), /size mismatch/);
 rejected('missing public checksum', paths[0], (data) => data.toString().replace(/^  sha256:.*\r?\n/m, ''), /missing public checksum/);
 rejected('missing public attachment', paths[0], (data) => data.toString().replace('materials/lssh-pdf-reading-check.pdf', 'materials/missing-file.pdf'), /ENOENT/);
+put('dist/materials/unregistered-original.pdf', Buffer.from('%PDF-private'));
+assert.throws(() => inspectPublicPdfs(root), /Unregistered public PDF/);
+unlinkSync(join(root, 'dist/materials/unregistered-original.pdf'));
+checks.push({ name: 'unregistered public attachment', result: 'rejected as expected' });
 console.log(JSON.stringify({ result: 'passed', groups: checks.length, checks }));

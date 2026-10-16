@@ -14,6 +14,8 @@ source:
   author: "诸葛向彬、陆赟豪、金洪英（原文件名标注）"
   bytes: 186298673
   pages: 654
+  file: materials/source-engineering-physics-third-edition.pdf
+  sha256: 0fd4d655a6731eedf9f567ffe8da3c85f381a2112a1146a13b2e6083c8ee108b
 ---
 
 ## 内容说明

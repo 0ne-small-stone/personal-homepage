@@ -13,6 +13,8 @@ source:
   format: pdf
   bytes: 379453
   pages: 3
+  file: materials/source-physics-chapter-22.pdf
+  sha256: abdebd0bec86b0af4752140fc58d81a5e41e057f1905055105213736cf865dd5
 ---
 
 ## 内容说明

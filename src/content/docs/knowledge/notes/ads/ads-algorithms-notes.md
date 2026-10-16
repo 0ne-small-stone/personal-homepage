@@ -13,6 +13,8 @@ source:
   format: pdf
   bytes: 52613705
   pages: 35
+  file: materials/source-ads-algorithms-notes.pdf
+  sha256: 3838b7c6820d94958870f30328e968f7ac0c1d3d6e52a0da8a6dd4f06b38e699
 ---
 
 ## 内容说明
