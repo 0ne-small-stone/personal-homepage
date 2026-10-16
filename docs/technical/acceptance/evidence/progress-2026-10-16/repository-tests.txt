@@ -1,0 +1,23 @@
+
+> test
+> node --test checks.test.mjs
+
+✔ 文档阶段明确跳过网站，但不把半成品工程当作文档阶段 (4.5998ms)
+✔ 完整工程必须具有 Astro 和实际检查、构建命令 (24.6621ms)
+✔ 发布拒绝空产物，允许实际静态页面 (2.4128ms)
+✔ 产物中混入原始资料或环境配置时阻止上传 (4.4508ms)
+one.md
+3:1-3:17 warning Cannot find heading for `#不存在` in `two.md` missing-heading-in-file remark-validate-links:missing-heading-in-file
+
+⚠ 1 warning
+✔ 文档校验能够拒绝其他文件中的失效中文章节锚点 (43.6104ms)
+✔ 本地阅读附件仅在显式预览检查时允许通过 (2.5552ms)
+✔ 发布拒绝本机运行目录、原始照片和登录密文 (6.5584ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 461.263

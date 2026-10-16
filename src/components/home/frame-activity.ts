@@ -17,3 +17,8 @@ export class FrameActivity {
 
 // R3F demand delta includes idle time; never feed that pause into the lerpers.
 export const activeFrameDelta = (dt: number, resuming: boolean) => resuming && dt > .25 ? 1 / 60 : dt;
+
+// GSAP keeps _dp after kill(). isActive() can still report true against that
+// former timeline's stopped clock; only an attached tween can animate a snap.
+export const hasActiveSnap = (tween: { parent: unknown; isActive(): boolean } | 0 | undefined) =>
+  Boolean(tween && tween.parent && tween.isActive());

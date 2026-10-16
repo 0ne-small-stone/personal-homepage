@@ -1,0 +1,115 @@
+/* P12 only. Numeric decisions live in docs/design/SYSTEM.md, section 12. */
+.lssh-home:has(.elsewhere-page) .home-header { position: absolute; inset: 24px max(24px, calc((100vw - 1200px) / 2)) auto; min-height: 72px; padding: 12px 24px; border: 1px solid #333; border-radius: 999px; background: #131313; gap: 24px; }
+.lssh-home:has(.elsewhere-page) .home-brand { font-size: 24px; }
+.lssh-home:has(.elsewhere-page) .home-header nav a { min-width: 44px; justify-content: center; font-family: var(--font-home-body); letter-spacing: 0; font-size: 14px; color: #a1a1a1; }
+.lssh-home:has(.elsewhere-page) .home-header #nav-links { color: #ededed; text-decoration: underline; text-underline-offset: 7px; }
+.lssh-home:has(.elsewhere-page) .home-header-wall { border-color: #777; }
+.elsewhere-page { width: min(100% - 96px, 1200px); margin: 0 auto; padding-top: 136px; font-family: var(--font-home-body); }
+.elsewhere-page [hidden] { display: none !important; }
+.elsewhere-page button { cursor: pointer; color: inherit; }
+.elsewhere-intro { display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; gap: 48px; margin-bottom: 32px; }
+.elsewhere-intro h1 { margin: 0 0 20px; font: 500 clamp(48px, 6vw, 72px)/1.05 var(--font-home-display); letter-spacing: -.045em; }
+.elsewhere-title-dot { color: #a1a1a1; }
+.elsewhere-lead { margin: 0 0 8px; font-size: 22px; line-height: 1.5; letter-spacing: -.025em; }
+.elsewhere-description { margin: 0; color: #a1a1a1; font-size: 16px; line-height: 1.8; }
+.elsewhere-orbit { position: relative; height: 166px; isolation: isolate; }
+.elsewhere-orbit::before { content: ''; position: absolute; inset: 0 -10px; z-index: -1; background: radial-gradient(ellipse, rgb(255 255 255 / .075), transparent 68%); }
+.elsewhere-orbit-line { position: absolute; width: 94%; height: 92px; top: 68px; left: 3%; border: 1px solid #333; border-radius: 50%; transform: rotate(-13deg); }
+.elsewhere-orbit-mark { display: grid; place-items: center; position: absolute; width: 76px; height: 76px; border-radius: 50%; background: #1f1f1f; border: 1px solid #414141; color: #ededed; box-shadow: 0 12px 36px rgb(0 0 0 / .28); font: 400 30px/1 var(--font-home-display); }
+.elsewhere-orbit-mark svg { width: 34px; height: 34px; }
+.mark-code { left: 0; top: 84px; transform: rotate(-18deg); }
+.mark-type { left: 18%; top: 30px; background: #ededed; color: #000; border-color: #ededed; width: 94px; height: 94px; font-size: 44px; transform: rotate(-8deg); }
+.mark-globe { left: 42%; top: 74px; z-index: 2; width: 88px; height: 88px; transform: rotate(12deg); }
+.mark-record { left: 62%; top: 18px; transform: rotate(-12deg); }
+.mark-spark { right: 0; top: 74px; background: #d4d4d4; color: #000; transform: rotate(12deg); }
+.elsewhere-categories { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 28px; }
+.elsewhere-category { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 104px; gap: 6px; padding: 12px 8px; background: #161616; border: 1px solid #333; border-radius: 20px; text-align: center; transition: background 180ms, border-color 180ms, color 180ms; }
+.elsewhere-category > span:first-of-type { font-size: 14px; }
+.elsewhere-category-note { color: #a1a1a1; font-size: 12px; }
+.elsewhere-category[aria-pressed='true'] { background: #ededed; border-color: #ededed; color: #000; }
+.elsewhere-category[aria-pressed='true'] .elsewhere-category-note { color: #444; }
+.elsewhere-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+.elsewhere-search { display: flex; align-items: center; min-width: 0; width: min(100%, 480px); height: 52px; border: 1px solid #777; border-radius: 999px; padding: 0 6px 0 18px; gap: 12px; }
+.elsewhere-search > svg { flex: 0 0 20px; color: #a1a1a1; width: 20px; height: 20px; }
+.elsewhere-search:focus-within { outline: 2px solid #ededed; outline-offset: 4px; }
+.elsewhere-search input { font: inherit; font-size: 16px; min-width: 0; flex: 1; width: 100%; border: 0; color: #ededed; background: transparent; outline: 0; }
+.elsewhere-search input:focus-visible { outline: 0; }
+.elsewhere-search input::placeholder { color: #a1a1a1; opacity: 1; }
+.elsewhere-search input::-webkit-search-cancel-button { -webkit-appearance: none; }
+.elsewhere-clear-query { border: 0; display: grid; place-items: center; background: transparent; border-radius: 50%; width: 44px; height: 44px; flex: 0 0 44px; padding: 10px; }
+.elsewhere-filter-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.elsewhere-all, .elsewhere-reset, .elsewhere-empty-reset { min-height: 44px; border: 1px solid #777; border-radius: 999px; padding: 10px 18px; background: transparent; font-size: 14px; white-space: nowrap; }
+.elsewhere-all[aria-pressed='true'] { background: #ededed; color: #000; border-color: #ededed; }
+.elsewhere-reset { border-color: transparent; color: #a1a1a1 !important; }
+.elsewhere-directory-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; }
+.elsewhere-directory-heading h2 { font-size: 24px; line-height: 1.4; font-weight: 500; letter-spacing: -.025em; margin: 0; }
+.elsewhere-count { font-size: 13px; color: #a1a1a1; margin: 0; white-space: nowrap; }
+.elsewhere-external-note { color: #a1a1a1; font-size: 13px; margin: 8px 0 24px; }
+.elsewhere-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.elsewhere-card { min-width: 0; scroll-margin-top: 24px; background: #161616; border: 1px solid #333; border-radius: 24px; transition: background 180ms, border-color 180ms; }
+.elsewhere-card-link { display: flex; flex-direction: column; height: 100%; padding: 24px; border-radius: inherit; }
+.elsewhere-card-top { display: grid; grid-template-columns: auto minmax(0, 1fr) 20px; align-items: center; margin-bottom: 20px; gap: 16px; }
+.elsewhere-site-mark { display: grid; place-items: center; width: 56px; height: 56px; border: 1px solid #444; border-radius: 16px; background: #242424; }
+.elsewhere-site-mark svg { display: block; width: 32px; height: 32px; }
+.elsewhere-external-arrow { width: 20px; height: 20px; color: #a1a1a1; transition: transform 180ms; }
+.elsewhere-card h3 { font-size: 20px; font-weight: 500; line-height: 1.4; margin: 0; overflow-wrap: anywhere; }
+.elsewhere-card-description { color: #a1a1a1; font-size: 15px; line-height: 1.75; margin: 0 0 24px; }
+.elsewhere-card-bottom { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-top: auto; }
+.elsewhere-domain { color: #a1a1a1; font-size: 13px; overflow-wrap: anywhere; }
+.elsewhere-featured { color: #ededed; font-size: 12px; white-space: nowrap; }
+.elsewhere-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 12px; padding: 48px 24px; border: 1px solid #333; border-radius: 24px; background: linear-gradient(135deg, #161616, #0b0b0b); min-height: 240px; }
+.elsewhere-empty-icon { color: #a1a1a1; display: grid; place-items: center; margin-bottom: 4px; }
+.elsewhere-empty-icon svg { width: 32px; height: 32px; }
+.elsewhere-empty h3 { margin: 0; font-size: 20px; font-weight: 500; }
+.elsewhere-empty p { margin: 0; color: #a1a1a1; font-size: 15px; line-height: 1.7; }
+.elsewhere-empty-reset { margin-top: 8px; }
+.elsewhere-end { margin-top: 64px; padding: 24px 0; border-top: 1px solid #242424; display: flex; justify-content: space-between; align-items: baseline; gap: 24px; color: #a1a1a1; font-size: 13px; }
+.elsewhere-end a { display: inline-flex; align-items: center; min-height: 44px; }
+.elsewhere-noscript { color: #a1a1a1; font-size: 14px; }
+@media (hover: hover) {
+  .elsewhere-category:hover:not([aria-pressed='true']), .elsewhere-card:hover { background: #242424; border-color: #777; }
+  .elsewhere-card:hover .elsewhere-external-arrow { transform: translate(2px, -2px); }
+  .elsewhere-clear-query:hover { background: #333; }
+}
+@media (max-width: 1000px) {
+  .elsewhere-page { width: calc(100% - 64px); }
+  .elsewhere-intro { grid-template-columns: 1.3fr 1fr; gap: 24px; }
+  .elsewhere-orbit { transform: scale(.86); transform-origin: center; }
+  .elsewhere-orbit-mark { width: 64px; height: 64px; }
+  .mark-type { width: 80px; height: 80px; }
+  .elsewhere-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .lssh-home:has(.elsewhere-page) .home-header { inset: 16px 16px auto; min-height: 64px; padding: 8px 12px; gap: 8px; }
+  .lssh-home:has(.elsewhere-page) .home-brand { font-size: 20px; }
+  .lssh-home:has(.elsewhere-page) .home-header nav { gap: 12px; }
+  .lssh-home:has(.elsewhere-page) .home-header nav a { font-size: 11px; }
+  .elsewhere-page { width: calc(100% - 40px); padding-top: 120px; }
+  .elsewhere-intro { display: block; margin-bottom: 28px; }
+  .elsewhere-intro h1 { margin-bottom: 16px; font-size: 52px; }
+  .elsewhere-lead { font-size: 18px; }
+  .elsewhere-description { font-size: 15px; max-width: 23em; margin-top: 8px; }
+  .elsewhere-orbit { display: none; }
+  .elsewhere-categories { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-bottom: 24px; }
+  .elsewhere-category { min-height: 80px; border-radius: 16px; gap: 8px; padding: 12px 4px; }
+  .elsewhere-category > svg { width: 22px; height: 22px; }
+  .elsewhere-category > span:first-of-type { font-size: 13px; }
+  .elsewhere-category-note { display: none; }
+  .elsewhere-toolbar { flex-direction: column; align-items: stretch; gap: 16px; margin-bottom: 28px; }
+  .elsewhere-search { width: 100%; }
+  .elsewhere-filter-actions { gap: 4px; justify-content: space-between; }
+  .elsewhere-directory-heading h2 { font-size: 22px; }
+  .elsewhere-grid { grid-template-columns: 1fr; gap: 12px; }
+  .elsewhere-card-top { margin-bottom: 20px; }
+  .elsewhere-card-link { padding: 24px; }
+  .elsewhere-end { margin-top: 40px; gap: 16px; font-size: 12px; }
+}
+@media (max-width: 360px) {
+  .elsewhere-page { width: calc(100% - 32px); }
+  .lssh-home:has(.elsewhere-page) .home-header { gap: 4px; }
+  .lssh-home:has(.elsewhere-page) .home-header nav { gap: 8px; }
+  .lssh-home:has(.elsewhere-page) .home-header nav a { font-size: 10px; }
+  .elsewhere-intro h1 { font-size: 48px; }
+  .elsewhere-lead { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) { .elsewhere-page *, .elsewhere-page *::before, .elsewhere-page *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }

@@ -19,7 +19,24 @@ const unique=items=>items.filter((item,index,list)=>list.findIndex(other=>other.
 function interleave(groups){const rows=[];for(let index=0;index<Math.max(0,...groups.map(group=>group.length));index++)for(const group of groups)if(group[index])rows.push(group[index]);return unique(rows);}
 
 export function createPodcastDiscovery({request,identity,asCard,now=Date.now}){
-  const cache=new Map();let owner;
+  const cache=new Map();const batches=new Map();let owner;
+  function chooseBatch(category,data,rotate,shownIds){
+    const pool=unique([...data.cards,...data.popular]);const previous=batches.get(category);
+    let selected=data.cards.length?data.cards:pool.slice(0,12);let seen=new Set(previous?.seen||[]);let changed=false;
+    const previousIds=new Set(shownIds.length?shownIds:previous?.data.cards.map(item=>item.id)||[]);
+    if(rotate&&previousIds.size){
+      const alternatives=pool.filter(item=>!previousIds.has(item.id));
+      if(!alternatives.length)return{...(previous?.data||data),warnings:data.warnings,batchChanged:false};
+      const unseen=alternatives.filter(item=>!seen.has(item.id));
+      if(!unseen.length)seen=new Set();
+      selected=unique([...unseen,...alternatives,...pool]).slice(0,12);
+      changed=selected.some(item=>!previousIds.has(item.id));
+    }else if(rotate){changed=selected.length>0;}
+    const selectedIds=new Set(selected.map(item=>item.id));
+    const result={...data,cards:selected,popular:pool.filter(item=>!selectedIds.has(item.id)),batchChanged:changed};
+    for(const item of [...selected,...result.popular.slice(0,24)])seen.add(item.id);
+    batches.set(category,{data:result,seen});return result;
+  }
   async function collect(category){
     const types=sources[category];
     const requests=types.flatMap(type=>[
@@ -42,16 +59,17 @@ export function createPodcastDiscovery({request,identity,asCard,now=Date.now}){
     const rest=unique([...recommendations.slice(12),...interleave(popular)]).filter(item=>!cards.some(card=>card.id===item.id));
     return{cards,popular:rest,warnings:results.some(result=>result.status==='rejected')?['部分分类推荐暂时不可用，可以重试。']:[]};
   }
-  return async function discover(category='all',offset=0,refresh=false){
+  return async function discover(category='all',offset=0,refresh=false,shownIds=[]){
     if(typeof category!=='string'||!Object.hasOwn(sources,category))throw Error('播客分类无效。');
     if(refresh&&offset!==0)throw Error('请从第一页刷新播客推荐。');
-    const currentOwner=identity();if(owner!==currentOwner){cache.clear();owner=currentOwner;}
+    const currentOwner=identity();if(owner!==currentOwner){cache.clear();batches.clear();owner=currentOwner;}
     let entry=cache.get(category);
     if(!entry||entry.expiresAt<=now()||refresh&&!entry.pending){
-      entry={expiresAt:now()+300000,pending:true,promise:collect(category)};cache.set(category,entry);
+      const selectionOwner=owner;
+      entry={expiresAt:now()+300000,pending:true,promise:collect(category).then(data=>selectionOwner===owner?chooseBatch(category,data,refresh,shownIds):data)};cache.set(category,entry);
       entry.promise.then(result=>{entry.pending=false;if(result.warnings.length&&cache.get(category)===entry)cache.delete(category);},()=>{entry.pending=false;if(cache.get(category)===entry)cache.delete(category);});
     }
     const data=await entry.promise;
-    return{cards:offset===0?data.cards:[],popular:data.popular.slice(offset,offset+24),more:offset+24<data.popular.length,warnings:data.warnings};
+    return{cards:offset===0?data.cards:[],popular:data.popular.slice(offset,offset+24),more:offset+24<data.popular.length,warnings:data.warnings,batchChanged:data.batchChanged};
   };
 }

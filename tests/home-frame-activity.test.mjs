@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {FrameActivity,activeFrameDelta} from '../src/components/home/frame-activity.ts';
+import {gsap} from 'gsap';
+import {FrameActivity,activeFrameDelta,hasActiveSnap} from '../src/components/home/frame-activity.ts';
 
 test('input stays awake through delayed snapping, then a stationary scene sleeps',()=>{
   const clock=new FrameActivity();clock.wake(100);
@@ -27,4 +28,24 @@ test('the first demand frame excludes idle wall-clock time from interpolation',(
   assert.equal(activeFrameDelta(45,true),1/60);
   assert.equal(activeFrameDelta(1/50,true),1/50);
   assert.equal(activeFrameDelta(.5,false),.5);
+});
+
+test('an interrupted real GSAP snap cannot keep the render loop busy through its former parent clock',()=>{
+  const tween=gsap.to({y:0},{y:1,duration:1,ease:'none'});
+  gsap.globalTimeline.time(tween.startTime()+.1);
+  assert.equal(hasActiveSnap(tween),true);
+  tween.kill();gsap.ticker.sleep();
+  assert.equal(tween.parent,null);
+  assert.equal(tween.isActive(),true,'pinned GSAP regression fixture no longer exhibits the stale-parent condition');
+  assert.equal(hasActiveSnap(tween),false);
+  const activity=new FrameActivity();activity.advance(0,[1],false);
+  assert.equal(activity.advance(2000,[1],hasActiveSnap(tween)),false);
+});
+
+test('cancelled snaps pause before removal; absent or paused snaps are not active',()=>{
+  const tween=gsap.to({y:0},{y:1,duration:1,ease:'none'});
+  gsap.globalTimeline.time(tween.startTime()+.1);
+  tween.pause().kill();gsap.ticker.sleep();
+  assert.equal(tween.isActive(),false);assert.equal(hasActiveSnap(tween),false);
+  assert.equal(hasActiveSnap(0),false);assert.equal(hasActiveSnap(undefined),false);
 });

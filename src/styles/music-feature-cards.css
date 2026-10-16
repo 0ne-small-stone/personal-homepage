@@ -1,0 +1,123 @@
+/* P13 / T25.39: the selected “间隙” collection, with real text and existing routes. */
+.ne-entry-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 288px));
+  gap: 20px;
+  padding: 7px;
+  margin: -7px;
+}
+
+.netease-app .ne-entry {
+  --entry-padding: clamp(18px, 7cqw, 24px);
+  container-type: inline-size;
+  position: relative;
+  display: block;
+  isolation: isolate;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  aspect-ratio: 1;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 16px;
+  background: #101012;
+  box-shadow: none;
+  text-align: left;
+  color: #ededed;
+  scroll-snap-align: start;
+}
+
+.ne-entry-art {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  aspect-ratio: 1;
+  pointer-events: none;
+}
+
+.ne-entry-art img {
+  position: absolute;
+  width: var(--entry-image-width);
+  max-width: none;
+  height: auto;
+  left: var(--entry-image-left);
+  top: var(--entry-image-top);
+  user-select: none;
+  transition: transform 200ms ease-out;
+}
+
+.ne-entry::before, .ne-entry::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.ne-entry::before { z-index: 1; background: #fff; opacity: 0; transition: opacity 200ms ease-out; }
+.ne-entry::after { background: linear-gradient(transparent, #1010120f 70%, #101012b8); }
+
+.ne-entry-copy {
+  position: absolute;
+  z-index: 2;
+  left: var(--entry-padding);
+  right: calc(var(--entry-padding) + 48px);
+  bottom: 7.5%;
+  display: grid;
+  gap: 4px;
+  pointer-events: none;
+}
+.ne-entry-copy strong { color: #ededed; font-size: clamp(20px, 7.5cqw, 24px); font-weight: 600; line-height: 1.25; letter-spacing: -.025em; white-space: nowrap; }
+.ne-entry-caption { color: #a1a1a1; font-size: clamp(12px, 4.5cqw, 14px); line-height: 1.5; white-space: nowrap; }
+.ne-entry-compact { display: none; }
+
+.ne-entry-indicator {
+  position: absolute;
+  z-index: 2;
+  right: var(--entry-padding);
+  bottom: calc(13.6% - 16px);
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ffffff14;
+  color: #ededed;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease-out;
+}
+.netease-app .ne-entry-indicator svg { width: 18px; height: 18px; stroke-width: 1.8; }
+.netease-app .ne-entry:focus-visible { outline: 2px solid #bfbfc4; outline-offset: 5px; }
+.ne-entry:focus-visible .ne-entry-art img { transform: translateY(-4px); }
+.ne-entry:focus-visible::before { opacity: .018; }
+.ne-entry:focus-visible .ne-entry-indicator { opacity: 1; }
+
+@media (hover: hover) and (pointer: fine) {
+  .ne-entry:hover .ne-entry-art img { transform: translateY(-4px); }
+  .ne-entry:hover::before { opacity: .018; }
+  .ne-entry:hover .ne-entry-indicator { opacity: 1; }
+}
+
+@media (min-width: 701px) and (max-width: 1100px) {
+  .ne-entry-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(240px, 1fr); gap: 16px; overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-inline: 7px; scrollbar-width: thin; }
+}
+
+@media (max-width: 700px) {
+  .ne-entry-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 168px; gap: 12px; overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-inline: 7px; scrollbar-width: none; }
+  .netease-app .ne-entry { --entry-padding: 16px; aspect-ratio: 1; border-radius: 16px; }
+  .ne-entry-art img { width: var(--entry-mobile-image-width); left: var(--entry-mobile-image-left); top: var(--entry-mobile-image-top); }
+  .ne-entry-copy { bottom: 8px; right: 44px; }
+  .ne-entry-copy strong { font-size: 19px; line-height: 26px; }
+  .ne-entry-caption { display: none; }
+  .ne-entry-compact { display: block; color: #a1a1a1; font-size: 12px; line-height: 18px; white-space: nowrap; }
+  .ne-entry-indicator { width: 24px; height: 24px; bottom: 26px; background: transparent; color: #a1a1a1; opacity: 1; }
+  .netease-app .ne-entry-indicator svg { width: 18px; height: 18px; }
+}
+
+@media (max-width: 360px) { .ne-entry-grid { grid-auto-columns: 156px; } }
+@media (hover: none) and (min-width: 701px) { .ne-entry-indicator { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .ne-entry-art img, .ne-entry::before, .ne-entry-indicator { transition: none; }
+  .ne-entry:hover .ne-entry-art img, .ne-entry:focus-visible .ne-entry-art img { transform: none; }
+}

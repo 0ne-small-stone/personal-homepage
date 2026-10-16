@@ -1,0 +1,441 @@
+{
+  "scope": "Targeted confirmation after the first script used the previous refresh accessible name; no application source change",
+  "checks": [
+    {
+      "name": "1280 keyboard opens existing heart route",
+      "passed": true
+    },
+    {
+      "name": "1280 current visible IDs are excluded on real batch refresh",
+      "passed": true
+    },
+    {
+      "name": "1280 exhausted candidates retain original batch",
+      "passed": true
+    },
+    {
+      "name": "1280 failed batch has one recoverable message",
+      "passed": true
+    },
+    {
+      "name": "1280 missing artwork keeps accessible daily entry",
+      "passed": true
+    },
+    {
+      "name": "390 keyboard opens existing heart route",
+      "passed": true
+    },
+    {
+      "name": "390 current visible IDs are excluded on real batch refresh",
+      "passed": true
+    },
+    {
+      "name": "390 exhausted candidates retain original batch",
+      "passed": true
+    },
+    {
+      "name": "390 failed batch has one recoverable message",
+      "passed": true
+    },
+    {
+      "name": "390 missing artwork keeps accessible daily entry",
+      "passed": true
+    },
+    {
+      "name": "320 keyboard opens existing heart route",
+      "passed": true
+    },
+    {
+      "name": "320 current visible IDs are excluded on real batch refresh",
+      "passed": true
+    },
+    {
+      "name": "320 exhausted candidates retain original batch",
+      "passed": true
+    },
+    {
+      "name": "320 failed batch has one recoverable message",
+      "passed": true
+    },
+    {
+      "name": "320 missing artwork keeps accessible daily entry",
+      "passed": true
+    },
+    {
+      "name": "Elsewhere real keyboard category activation",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "requests": [
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "liked-ids"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "browse",
+      "view": "heart",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "podcasts",
+      "page": 0,
+      "category": "knowledge"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "liked-ids"
+    },
+    {
+      "action": "browse",
+      "view": "podcasts",
+      "page": 0,
+      "category": "knowledge"
+    },
+    {
+      "action": "browse",
+      "view": "podcasts",
+      "page": 0,
+      "category": "knowledge",
+      "refresh": true,
+      "shownIds": [
+        "4001"
+      ]
+    },
+    {
+      "action": "browse",
+      "view": "podcasts",
+      "page": 0,
+      "category": "knowledge",
+      "refresh": true,
+      "shownIds": [
+        "4002"
+      ]
+    },
+    {
+      "action": "browse",
+      "view": "podcasts",
+      "page": 0,
+      "category": "knowledge",
+      "refresh": true,
+      "shownIds": [
+        "4002"
+      ]
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "liked-ids"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "browse",
+      "view": "daily",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "liked-ids"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "browse",
+      "view": "heart",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "podcasts",
+      "page": 0,
+      "category": "knowledge"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "liked-ids"
+    },
+    {
+      "action": "browse",
+      "view": "podcasts",
+      "page": 0,
+      "category": "knowledge"
+    },
+    {
+      "action": "browse",
+      "view": "podcasts",
+      "page": 0,
+      "category": "knowledge",
+      "refresh": true,
+      "shownIds": [
+        "4001"
+      ]
+    },
+    {
+      "action": "browse",
+      "view": "podcasts",
+      "page": 0,
+      "category": "knowledge",
+      "refresh": true,
+      "shownIds": [
+        "4002"
+      ]
+    },
+    {
+      "action": "browse",
+      "view": "podcasts",
+      "page": 0,
+      "category": "knowledge",
+      "refresh": true,
+      "shownIds": [
+        "4002"
+      ]
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "liked-ids"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "browse",
+      "view": "daily",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "liked-ids"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "browse",
+      "view": "heart",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "podcasts",
+      "page": 0,
+      "category": "knowledge"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "liked-ids"
+    },
+    {
+      "action": "browse",
+      "view": "podcasts",
+      "page": 0,
+      "category": "knowledge"
+    },
+    {
+      "action": "browse",
+      "view": "podcasts",
+      "page": 0,
+      "category": "knowledge",
+      "refresh": true,
+      "shownIds": [
+        "4001"
+      ]
+    },
+    {
+      "action": "browse",
+      "view": "podcasts",
+      "page": 0,
+      "category": "knowledge",
+      "refresh": true,
+      "shownIds": [
+        "4002"
+      ]
+    },
+    {
+      "action": "browse",
+      "view": "podcasts",
+      "page": 0,
+      "category": "knowledge",
+      "refresh": true,
+      "shownIds": [
+        "4002"
+      ]
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "liked-ids"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "browse",
+      "view": "daily",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    }
+  ]
+}

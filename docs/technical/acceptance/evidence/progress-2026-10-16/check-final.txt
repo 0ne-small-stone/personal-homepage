@@ -1,0 +1,52 @@
+
+> personal-homepage@0.1.0 check
+> node tools/content/cms-related-options.mjs --check && astro check
+
+CMS 关联候选：41 条已发布内容，三类共用稳定 ID；检查通过。
+23:43:39 [vite] Re-optimizing dependencies because vite config has changed
+23:43:40 [content] Syncing content
+23:43:40 [content] Astro config changed
+23:43:40 [content] Clearing content store
+23:43:40 [content] Synced content
+23:43:40 [types] Generated 1.63s
+23:43:40 [check] Getting diagnostics for Astro files in <QA_WORKSPACE>...
+[96msrc/components/gallery/dome.jsx[0m:[93m1[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'React' is declared but its value is never read.
+
+[7m1[0m import React from 'react';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/components/gallery/scene.js[0m:[93m30[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'turn' is declared but its value is never read.
+
+[7m30[0m const turn = new THREE.Quaternion();
+[7m  [0m [93m      ~~~~[0m
+[96msrc/components/gallery/scene.js[0m:[93m22[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'Z_AXIS' is declared but its value is never read.
+
+[7m22[0m const Z_AXIS = new THREE.Vector3(0, 0, 1);
+[7m  [0m [93m      ~~~~~~[0m
+
+[96msrc/components/gallery/single-viewer.js[0m:[93m73[0m:[93m20[0m - [93mwarning[0m[90m ts(6133): [0m'index' is declared but its value is never read.
+
+[7m73[0m         for(const [index,photo] of photos.entries()){
+[7m  [0m [93m                   ~~~~~[0m
+[96msrc/components/gallery/single-viewer.js[0m:[93m67[0m:[93m18[0m - [93mwarning[0m[90m ts(6133): [0m's' is declared but its value is never read.
+
+[7m67[0m   function addUI(s,pswp){
+[7m  [0m [93m                 ~[0m
+
+[96msrc/components/gallery/vendor/photoswipe/photoswipe.esm.js[0m:[93m227[0m:[93m43[0m - [93mwarning[0m[90m ts(6385): [0m'vendor' is deprecated.
+
+[7m227[0m   return !!(navigator.vendor && navigator.vendor.match(/apple/i));
+[7m   [0m [93m                                          ~~~~~~[0m
+[96msrc/components/gallery/vendor/photoswipe/photoswipe.esm.js[0m:[93m227[0m:[93m23[0m - [93mwarning[0m[90m ts(6385): [0m'vendor' is deprecated.
+
+[7m227[0m   return !!(navigator.vendor && navigator.vendor.match(/apple/i));
+[7m   [0m [93m                      ~~~~~~[0m
+[96msrc/components/gallery/vendor/photoswipe/photoswipe.esm.js[0m:[93m157[0m:[93m10[0m - [93mwarning[0m[90m ts(80006): [0mThis may be converted to an async function.
+
+[7m157[0m function decodeImage(img) {
+[7m   [0m [93m         ~~~~~~~~~~~[0m
+
+Result (165 files):
+- 0 errors
+- 0 warnings
+- 8 hints

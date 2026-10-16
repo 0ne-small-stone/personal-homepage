@@ -27,10 +27,12 @@
     "content:import": "node tools/content/import-learning.mjs",
     "materials:prepare": "node tools/content/prepare-local-materials.mjs",
     "cms:sync-related": "node tools/content/cms-related-options.mjs",
-    "test:home": "node --test tests/*.test.mjs",
+    "test:home": "node --test tests/home-*.test.mjs tests/prism-ray.test.mjs",
     "music:publish-catalog": "node tools/music/export-public-catalog.mjs",
     "materials:fetch": "node tools/content/prepare-public-materials.mjs",
-    "prebuild": "npm run pdf:prepare && npm run materials:fetch"
+    "prebuild": "npm run pdf:prepare && npm run materials:fetch",
+    "music:start": "pwsh -NoProfile -File tools/music/start-preview.ps1",
+    "test:links": "node --test tests/website-directory.test.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "7.3.2",

@@ -1,0 +1,52 @@
+{
+  "base": "f8e9b5c",
+  "selected": [
+    "src/components/home/home-motion.ts",
+    "src/components/home/frame-activity.ts",
+    "tests/home-frame-activity.test.mjs",
+    "src/components/home/copy-state.ts",
+    "tests/home-copy.test.mjs",
+    "src/data/websites.ts",
+    "src/styles/links.css",
+    "src/pages/links.astro",
+    "tests/website-directory.test.mjs",
+    "src/lib/netease-core.ts",
+    "src/components/links/DirectoryIcon.astro",
+    "src/components/links/website-directory.ts",
+    "src/components/links/WebsiteDirectory.astro",
+    "src/components/links/WebsiteIcon.astro",
+    "src/components/music/NetEaseCoreExperience.tsx",
+    "src/components/music/NetEaseFeatureCards.tsx",
+    "src/components/music/useNetEaseCore.ts",
+    "tools/music/netease-core.mjs",
+    "tools/music/netease-core.test.mjs",
+    "tools/music/podcast-discovery.mjs",
+    "tools/music/start-preview.ps1",
+    "public/music/features/interval-daily.webp",
+    "public/music/features/interval-heart.webp",
+    "public/music/features/interval-roam.webp",
+    "src/styles/music-feature-cards.css",
+    "src/styles/music-netease-core.css"
+  ],
+  "preserved": [
+    "src/components/music/LxDownloadPanel.tsx",
+    "src/components/music/NetEaseAccount.tsx",
+    "src/components/music/NetEaseMusicCatalog.tsx",
+    "tools/music/album-presentation.test.mjs",
+    "tools/music/cloud-library.mjs",
+    "tools/music/cloud-library.test.mjs",
+    "tools/music/README.md"
+  ],
+  "adaptations": [
+    "Keep Object.hasOwn route guard",
+    "Preserve main public catalog/account/download/layout lifecycle safeguards"
+  ],
+  "excluded": [
+    "F06",
+    "Afterimage spatial candidate",
+    "Wall AF01",
+    "Someone fluid",
+    "F04",
+    "F07"
+  ]
+}
