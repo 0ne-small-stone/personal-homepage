@@ -62,7 +62,7 @@ const viewer = `${base}/pdfjs/web/viewer.html?file=${encodeURIComponent(file)}&r
     eventBus: {
       on(name: string, callback: (event: ViewerEvent) => void, options: { signal: AbortSignal }): void;
     };
-    pdfViewer?: { getPageView(index: number): { renderingState: number } | undefined };
+    pdfViewer?: { currentPageNumber: number; getPageView(index: number): { renderingState: number } | undefined };
   }
   class PdfReader extends HTMLElement {
     private controller?: AbortController;
@@ -98,7 +98,9 @@ const viewer = `${base}/pdfjs/web/viewer.html?file=${encodeURIComponent(file)}&r
           this.stopProgress = attachPdfReadingProgress(this, frame);
           app.eventBus.on('pagerendered', ready, { signal });
           app.eventBus.on('documenterror', fail, { signal });
-          if (app.pdfViewer?.getPageView(0)?.renderingState === 3) ready();
+          // Cached resume can finish painting before iframe load; inspect the visible page.
+          const viewer = app.pdfViewer;
+          if (viewer?.getPageView(viewer.currentPageNumber - 1)?.renderingState === 3) ready();
         } catch { fail(); }
       }, { signal });
       frame.addEventListener('error', fail, { signal });
