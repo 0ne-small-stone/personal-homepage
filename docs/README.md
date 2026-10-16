@@ -275,3 +275,6 @@ P06 / R09、R10、R12 / U09、U14 / T05、T07、T09、T26–T27：[文章列表�
 
 
 P03/P05/P06/P15/P17 / R02、R09、R10、R12、R13 / U09、U13、U14 / T05–T10、T13、T16、T26–T27：[Becoming 功能清单](technical/BECOMING_FEATURES.md)与[2026-10-15 发布记录](technical/iterations/becoming-release-2026-10-15.md)。
+
+
+P03/P05 / R02、R09、R12 / U09、U14 / T06、T08、T16、T26–T27：[学习资料线上接入候选与明确公开范围](technical/LEARNING_MATERIALS_PUBLICATION.md)。当前本机准备，未获公开上传许可，未上线。

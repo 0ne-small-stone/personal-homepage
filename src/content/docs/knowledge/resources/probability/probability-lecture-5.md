@@ -14,6 +14,8 @@ source:
   author: "Savia"
   bytes: 377610
   pages: 5
+  file: materials/source-probability-lecture-5.pdf
+  sha256: d964b824b215c8af141853d818232ed6a0d6e0b9397bbadf9619900c5c695042
 ---
 
 ## 内容说明

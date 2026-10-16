@@ -13,6 +13,8 @@ source:
   format: pdf
   bytes: 166821
   pages: 1
+  file: materials/source-physics-chapter-11.pdf
+  sha256: ebfc319732093904203b3c0d9624f8c17cfa732edb502a55c8eb13698d59ada8
 ---
 
 ## 内容说明

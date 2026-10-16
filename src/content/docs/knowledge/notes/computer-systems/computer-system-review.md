@@ -14,6 +14,8 @@ source:
   author: "RandomStar（原文件标注）"
   bytes: 3846477
   pages: 62
+  file: materials/source-computer-system-review.pdf
+  sha256: 6537ce077af7e147201641a8f818912e04c614858ab3e841e43d1497d30e36c1
 ---
 
 ## 内容说明

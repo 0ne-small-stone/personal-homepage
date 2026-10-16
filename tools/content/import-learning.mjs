@@ -6,6 +6,8 @@ import { fileURLToPath } from 'node:url';
 const root = fileURLToPath(new URL('../../', import.meta.url));
 const catalog = JSON.parse(readFileSync(join(root, 'docs/technical/content/learning-materials.json'), 'utf8'));
 const sources = new Map(catalog.sources.map((source) => [source.id, source]));
+const publicManifest = JSON.parse(readFileSync(join(root, 'docs/technical/content/public-learning-materials.json'), 'utf8'));
+const publicPdfs = new Map(publicManifest.files.map((asset) => [asset.sourceId, asset]));
 const ids = new Set();
 const routes = new Set();
 const route = (entry) => `knowledge/${entry.kind === 'resource' ? 'resources' : 'notes'}/${entry.category}/${entry.slug}`;
@@ -47,7 +49,14 @@ for (const entry of catalog.entries) {
   ];
   if (entry.author) lines.push(`  author: ${quote(entry.author)}`);
   if (entry.url) lines.push(`  url: ${quote(entry.url)}`);
-  else lines.push(`  bytes: ${source.bytes}`, `  pages: ${source.pages}`);
+  else {
+    lines.push(`  bytes: ${source.bytes}`, `  pages: ${source.pages}`);
+    const asset = publicPdfs.get(entry.sourceId);
+    if (asset) {
+      if (asset.bytes !== source.bytes || asset.sha256 !== source.sha256 || asset.file !== `materials/${source.id}.pdf`) throw new Error('Public PDF identity mismatch.');
+      lines.push(`  file: ${asset.file}`, `  sha256: ${asset.sha256}`);
+    }
+  }
   lines.push('---', '', `## ${entry.url ? '笔记入口' : '内容说明'}`, '', entry.description, '');
   if (entry.url) {
     lines.push(`这是一条外部笔记收藏，作者为 **${entry.author}**；正文在原站阅读。`, '', `[访问原站笔记](${entry.url})`, '');

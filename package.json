@@ -26,7 +26,9 @@
     "materials:prepare": "node tools/content/prepare-local-materials.mjs",
     "cms:sync-related": "node tools/content/cms-related-options.mjs",
     "test:home": "node --test tests/*.test.mjs",
-    "music:publish-catalog": "node tools/music/export-public-catalog.mjs"
+    "music:publish-catalog": "node tools/music/export-public-catalog.mjs",
+    "materials:fetch": "node tools/content/prepare-public-materials.mjs",
+    "prebuild": "npm run materials:fetch"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "7.3.2",

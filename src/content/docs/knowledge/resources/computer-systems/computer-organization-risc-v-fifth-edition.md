@@ -14,6 +14,8 @@ source:
   author: "David A. Patterson 等（原文件名标注）"
   bytes: 216380449
   pages: 494
+  file: materials/source-computer-organization-risc-v-fifth-edition.pdf
+  sha256: b94ae45977f755eb0a3c7693c278e9e5f02353b872e8d148eee2f9c9e0d20549
 ---
 
 ## 内容说明

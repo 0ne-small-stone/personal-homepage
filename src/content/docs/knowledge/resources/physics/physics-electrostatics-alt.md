@@ -13,6 +13,8 @@ source:
   format: pdf
   bytes: 883189
   pages: 5
+  file: materials/source-physics-electrostatics-alt.pdf
+  sha256: b59d0a47d86b35d0328a53856af8f6cc8ebc820ad16cad0d7a9221fdec1d7f29
 ---
 
 ## 内容说明

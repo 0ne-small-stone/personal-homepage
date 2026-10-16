@@ -14,6 +14,8 @@ source:
   author: "沐梓（原文件标注）"
   bytes: 2098617
   pages: 23
+  file: materials/source-physics-lab-recalled-exams.pdf
+  sha256: 680bbbc70fbc5a10bf0a4bde39783e6b7840e69a82339d73bad5b443858c0658
 ---
 
 ## 内容说明

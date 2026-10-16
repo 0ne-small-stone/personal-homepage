@@ -13,6 +13,8 @@ source:
   format: pdf
   bytes: 1756391
   pages: 67
+  file: materials/source-probability-tutorial-v1.pdf
+  sha256: b6fb3fb9ffa0a7d1d53a17447133719bfa9abfac87da29431600a71763077759
 ---
 
 ## 内容说明

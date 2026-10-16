@@ -44,6 +44,13 @@ export function inspectPublicPdfs(root = process.cwd(), output = join(root, 'dis
     results.push({ entryId: entry.entryId, route, file: source.file, pages: source.pages, bytes: original.byteLength, sha256: hash(published) });
   }
   assert(results.length > 0, 'No published public PDFs found.');
+  const registered = new Set(results.map(result => result.file));
+  for (const base of [join(root, 'public'), output]) {
+    const materials = join(base, 'materials');
+    if (existsSync(materials)) for (const path of files(materials).filter(path => /\.pdf$/i.test(path))) {
+      assert(registered.has(relative(base, path).replaceAll('\\', '/')), 'Unregistered public PDF: ' + relative(base, path));
+    }
+  }
   return { publicPdfs: results.length, containsLocalPreviewPdfs: existsSync(join(output, 'local-materials')), result: 'passed', files: results };
 }
 

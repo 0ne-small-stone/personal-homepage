@@ -13,6 +13,8 @@ source:
   format: pdf
   bytes: 599973
   pages: 7
+  file: materials/source-physics-chapter-14.pdf
+  sha256: 6957675edb1571e96b5e2581a846067093f8627bcf45e3a4908e409d0ec0990f
 ---
 
 ## 内容说明

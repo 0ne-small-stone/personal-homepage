@@ -13,6 +13,8 @@ source:
   format: pdf
   bytes: 275732
   pages: 2
+  file: materials/source-physics-chapter-21.pdf
+  sha256: 385e2ff6ac10633ebaa60575fbf0b2ccd05ad166dfd11bcf6d008accd42c7087
 ---
 
 ## 内容说明

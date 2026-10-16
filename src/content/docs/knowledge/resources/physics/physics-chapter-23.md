@@ -13,6 +13,8 @@ source:
   format: pdf
   bytes: 228854
   pages: 1
+  file: materials/source-physics-chapter-23.pdf
+  sha256: 3774832a995438f184cff562d60eaafd3677b6d1f5b87ae301c1a8dd7ebca097
 ---
 
 ## 内容说明

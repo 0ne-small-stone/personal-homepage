@@ -13,6 +13,8 @@ source:
   format: pdf
   bytes: 313677
   pages: 3
+  file: materials/source-physics-chapter-20.pdf
+  sha256: 71cc1a97f00d93be870e0b2b7bdbe42e01ada60b7de218056ed760b9fa340e34
 ---
 
 ## 内容说明

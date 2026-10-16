@@ -14,6 +14,8 @@ source:
   author: "何善蒙（原文件名标注）"
   bytes: 51404780
   pages: 349
+  file: materials/source-pre-qin-philosophers-reader.pdf
+  sha256: 71c2dd4d6618d63da39d7fd301afab3f3bc22cf6315fd8097bef3fabc23c5360
 ---
 
 ## 内容说明
