@@ -1,0 +1,51 @@
+{
+  "base": "http://127.0.0.1:4486/personal-homepage/",
+  "checks": [
+    {
+      "name": "latest reader cache version and removed extra collapse",
+      "passed": true
+    },
+    {
+      "name": "native sidebar toggle opens sidebar",
+      "passed": true
+    },
+    {
+      "name": "sidebar Escape closes and restores native toggle focus",
+      "passed": false,
+      "evidence": {
+        "hidden": false,
+        "active": "viewsManagerSelectorButton",
+        "keys": [
+          {
+            "key": "Escape",
+            "prevented": false,
+            "capture": true,
+            "expanded": []
+          }
+        ],
+        "scripts": [
+          "http://127.0.0.1:4486/personal-homepage/pdfjs/web/lssh-controls.mjs?v=sidebar-v2"
+        ]
+      }
+    },
+    {
+      "name": "page and zoom reading progress remains available",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "page": 3,
+          "x": -13.500000000000002,
+          "y": 595.2756,
+          "scale": "1.25",
+          "rotation": 0,
+          "scrollMode": 0,
+          "spreadMode": 0,
+          "version": 1,
+          "fingerprint": "2779a61d9ebf6978cae6814b4c774f59",
+          "frameTop": 359.796875
+        }
+      }
+    }
+  ],
+  "errors": []
+}

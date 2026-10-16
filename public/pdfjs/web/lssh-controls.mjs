@@ -14,5 +14,5 @@ if (panel && toggle) {
     event.preventDefault();
     event.stopPropagation();
     collapse();
-  });
+  }, { capture: true });
 }

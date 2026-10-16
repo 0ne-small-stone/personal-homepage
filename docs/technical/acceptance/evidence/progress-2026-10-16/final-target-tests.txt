@@ -1,0 +1,37 @@
+✔ 只包含用户提供的11个原始地址，保留深路径及语言参数 (2.0443ms)
+✔ 名称、用途、域名、标签与全角输入均可查找，未知分类降级 (5.221ms)
+✔ 真实SSR页面有11个完整外链，单一主标题和原生分类锚点 (42.5543ms)
+✔ 搜索与分类组合保留关键词，零结果可清除并归焦 (37.1791ms)
+✔ 深链恢复组合；全部网站保持查询，Escape只清查询 (32.2797ms)
+✔ 浏览器后退恢复分类，保留Astro历史字段 (29.182ms)
+✔ 空格支持分类；卸载与重进不会遗留输入或历史监听 (29.1801ms)
+✔ native keydown + keyup executes each 1–4/F command once (2.0867ms)
+✔ an IME obscured/missing keydown falls back to keyup, including legacy keyCode (0.366ms)
+✔ physical IME keys and all cancellation digits remain supported (0.6262ms)
+✔ visible fields keep typing; hidden toolbar focus cannot swallow reading keys (0.285ms)
+✔ outside immersion/modifier commands and detached frames stay untouched (0.3205ms)
+✔ on-demand settings apply after preferences and before viewer initialize continues (3.995ms)
+✔ cached restored page completes the outer reader without a replayed render event (2.0138ms)
+✔ an unfinished restored page waits for rendering even if the first page finished (0.5377ms)
+✔ PDF progress preserves page coordinates, zoom and rotation without quantizing the reading point (1.738ms)
+✔ changed PDFs, invalid pages, malformed data and unsafe numeric values cannot restore stale positions (0.6935ms)
+✔ automatic choice applies only to entry, not to zoom (0.8768ms)
+✔ short screens show complete pages instead of enforcing a minimum width (0.3894ms)
+✔ zoom changes paper size but never changes selected column count (0.2881ms)
+✔ mixed paper sizes all fit, including landscape pages (0.1605ms)
+✔ page groups preserve the current page and handle incomplete final groups (1.0695ms)
+✔ screen, paper and mode matrix always fits every edge (2.0452ms)
+✔ invalid dimensions and modes do not generate a layout (0.2583ms)
+✔ F works with IME Process or composing keys via its physical position (1.4986ms)
+✔ main row and numeric keypad retain modes 1 through 4 under an IME (0.3295ms)
+✔ every remaining digit releases the fixed layout, including zero (0.2259ms)
+✔ modified browser commands do not become fit or layout commands (0.1742ms)
+✔ other reading keys remain native PDF navigation (0.1564ms)
+ℹ tests 29
+ℹ suites 0
+ℹ pass 29
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1363.6781
