@@ -1,6 +1,6 @@
 # GitHub 仓库管理、目录与命名规范
 
-更新：2026-10-14（目录职责）；远程设置以实际读回为准。适用于 `0ne-small-stone/personal-homepage`。用户要求按现有规划自主建立个人主页仓库及管理规范；本规范以 [AGENTS.md](../../AGENTS.md)、[技术规格](SPEC.md)、[技术计划](PLAN.md)和[设计与技术对应表](../README.md)为依据。
+更新：2026-10-15（目录职责与发布边界）；远程设置以实际读回为准。适用于 `0ne-small-stone/personal-homepage`。用户要求按现有规划自主建立个人主页仓库及管理规范；本规范以 [AGENTS.md](../../AGENTS.md)、[技术规格](SPEC.md)、[技术计划](PLAN.md)和[设计与技术对应表](../README.md)为依据。
 
 ## 仓库定位与公开范围
 
@@ -104,13 +104,13 @@ P、R、U、T 编号沿用现有文档；P04、P07 已停用，不重新分配�
 4. 每个实现切片使用可定位的提交；PR 写明 P/R/U/T 编号、本轮目标、变更后的行为、复现入口/步骤、真实验证和未完成项，计划记录引用对应提交/PR与下一步。
 5. 必需检查通过、分支更新到最新 `main`、讨论解决后，以 Squash 合并并自动删除远程工作分支。
 
-分支格式为 `<类型>/<编号或范围>-<说明>`：`feature/t07-knowledge-overview`、`fix/pdf-download`、`design/u03-prism-motion`、`docs/repository-conventions`、`content/first-note`、`chore/update-ci-tools`。
+Codex工作分支统一使用 `codex/<编号或范围>-<说明>`；其他人工分支沿用 `<类型>/<编号或范围>-<说明>`：`feature/t07-knowledge-overview`、`fix/pdf-download`、`design/u03-prism-motion`、`docs/repository-conventions`、`content/first-note`、`chore/update-ci-tools`。
 
 提交和 PR 标题使用 `<类型>(<范围>): <中文说明>`，例如 `docs(repository): 建立目录与命名规范`、`fix(knowledge): 修复资料下载地址`。类型采用 feat、fix、docs、style、refactor、test、chore；style 表示代码格式，视觉功能变化按 feat/fix 描述。每次提交有完整意义，不使用“最终版2”“update”等难以定位的名称。
 
 单人维护要求 PR 与检查，但不强制第二人批准，避免作者无法批准自己的 PR。多人协作后再调整审批人数及 CODEOWNERS。任何人（含管理员）不得常规直接推送、强制推送或删除 `main`；回退通过 `git revert` 的新 PR 完成。[分支保护](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)
 
-未来 Pages CMS 默认采用工作分支及 PR；若托管版不支持受保护分支流程，先验证其能力并调整集成，不能为了接入直接关闭主分支保护。CMS 接入仍属于 T13，当前尚未配置。
+Pages CMS 已接入编辑与候选派生，正式发布仍采用工作分支及 PR；若托管版不支持受保护分支流程，先验证其能力并调整集成，不能为了接入直接关闭主分支保护。CMS 接入仍属于 T13，当前尚未配置。
 
 ## GitHub 功能与标签
 

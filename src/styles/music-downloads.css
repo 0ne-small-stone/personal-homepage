@@ -11,7 +11,7 @@
 .lx-job-heading strong{min-width:0;flex:1}
 .lx-job-heading>span{flex-shrink:0}
 @media(min-width:1200px){.lx-workspace{grid-template-columns:minmax(0,1fr) 280px;grid-template-areas:"search downloads" "results downloads";column-gap:32px}}
-@media(max-width:600px){.music-library-sidebar nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%;gap:4px}.music-library-sidebar nav button{justify-content:center;gap:8px;padding-inline:8px;font-size:13px;white-space:nowrap}.music-library-sidebar nav button svg{width:20px;height:20px;flex-shrink:0}.lx-content .lx-page-heading h2{font-size:26px;line-height:32px}}
+@media(max-width:600px){.radio-page .music-library-sidebar nav:has(>button:nth-child(3)){display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%;gap:4px}.radio-page .music-library-sidebar nav:has(>button:nth-child(3)) button{justify-content:center;gap:8px;padding-inline:8px;font-size:13px;white-space:nowrap}.radio-page .music-library-sidebar nav:has(>button:nth-child(3)) button svg{width:20px;height:20px;flex-shrink:0}.lx-content .lx-page-heading h2{font-size:26px;line-height:32px}}
 .lx-content .lx-search :is(input,select,button),.lx-content .lx-result-actions :is(select,button){height:44px;box-sizing:border-box;line-height:20px}
 .lx-connect-retry{justify-self:start}
 .lx-content h2,.lx-content h3,.lx-content p{margin:0}.lx-content h2{font-size:24px;font-weight:500;line-height:1.3}.lx-content h3{font-size:18px;font-weight:500}.lx-content header p{margin-top:8px;color:#b4b4bb;font-size:14px;line-height:1.6;max-width:65ch}

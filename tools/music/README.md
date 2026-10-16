@@ -117,3 +117,8 @@ node tools/music/index-library.mjs --auto-lx --share-url 'https://pan.koala-stud
 全站音频由HomeLayout、SiteLayout和Starlight同名持久React岛承载。站内导航、前进后退保留同一个audio；页面组件不负责销毁音频。刷新/关闭标签页/前往外站会终止当前文档的音频；网易云官方iframe不能在本站持久搬运。手机浏览器的后台/锁屏调度需真机另验。
 
 网易云短期播放索引：`node tools/music/playback-index.mjs`生成一次，`node tools/music/playback-index.mjs --watch`每2分钟刷新。默认写入上述被忽略的构建目录，可用`MUSIC_PREVIEW_DIR`指定；构建会清除索引，构建完成后须重新生成。工具请求平台实际许可的标准音质地址，检查官方CDN、MIME/MP3头，保留试听提示，未启用账号解锁或替代音源。地址最多缓存10分钟，不写入正式曲目快照或Git。当前用独立刷新进程维持已授权服务；下一次正常启动`music:recommend`会自动启动同一刷新模块。正式静态部署需要另外配置短期索引刷新能力，当前本机通过不代表线上已接通。
+
+
+## 2026-10-15 核心曲库与正式网站边界
+
+同源Node音乐预览增加搜索/推荐、个人曲库、分类播客、手动刷新及节目下载核对。官方SDK白名单和单audio继续复用，账号Cookie/DPAPI/下载文件不纳入静态产物。NetEaseMusicCatalog先探测服务，成功后延迟加载核心UI；不可用则展示SharedPlaylistCatalog共享歌单及重试，不把本机账号后台当成Pages功能。保留公网内网音源提示、原站入口及公共catalog版本快照。界面/服务/测试源码各守原目录，来源与检查见docs/technical/acceptance/latest-release-2026-10-15.md。

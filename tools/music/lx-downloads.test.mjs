@@ -58,3 +58,17 @@ test('existing destination is preserved and a failed duplicate leaves no tempora
   const result=await service.search('kw','song');service.download(result.tracks[0].id,'flac');assert.equal((await waitFor(service)).status,'failed');assert.equal(await readFile(path.join(directory,name),'utf8'),'original');
   assert.equal((await completedWebFiles(manifest)).length,0);assert.deepEqual(await readdir(directory),[name]);
 });
+
+test('native downloads preserve verified metadata and publish a full licensed file without the LX resolver',async t=>{
+  const {service,manifest}=await fixture(t);let resolutions=0;
+  const track={id:'123',title:'Episode',artist:'Host',album:'Podcast',duration:60,coverUrl:null};
+  service.downloadNative(track,'lossless',async()=>{resolutions++;return{tracks:[{id:'123',status:'full',audioUrl:'https://example.com/full?token=PRIVATE'}]};});
+  const job=await waitFor(service);assert.equal(job.status,'completed');assert.equal(job.provider,'netease');assert.equal(job.title,'Episode');assert.equal(resolutions,1);
+  const [file]=await completedWebFiles(manifest);assert.equal(file.track.title,'Episode');assert.equal(file.track.album,'Podcast');assert.equal(file.track.artist,'Host');assert.equal(file.provider,'netease');assert.doesNotMatch(await readFile(manifest,'utf8'),/PRIVATE|token/);
+});
+
+test('native trial audio never starts transfer or creates a completion record',async t=>{
+  let transfers=0;const {service,manifest,directory}=await fixture(t,{request:async()=>{transfers++;throw Error('must not transfer');}});
+  service.downloadNative({id:'123',title:'Song',artist:'Artist',album:'Album',duration:240},'standard',async()=>({tracks:[{id:'123',status:'preview',audioUrl:'https://example.com/trial',previewSeconds:30}]}));
+  const job=await waitFor(service);assert.equal(job.status,'failed');assert.match(job.error,/完整下载/);assert.equal(transfers,0);assert.equal((await completedWebFiles(manifest)).length,0);assert.deepEqual(await readdir(directory),[]);
+});

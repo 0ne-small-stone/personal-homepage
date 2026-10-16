@@ -1,5 +1,7 @@
 # 个人主页设计复用与素材来源
 
+2026-10-15 P13核心曲库参考[MeloX](https://github.com/youshen2/MeloX)桌面组织与[MeiloX](https://github.com/NEORUAA/MeiloX)手机组织。仅参照界面关系，以本站React/CSS实现，未复制Swift/Android代码、SF字体、封面或原站截图；原黑胶组件和许可继续保留。原项目GPL及其他资产许可各自成立，不能据界面参考推断音乐/图片授权。菜单使用浏览器原生Popover，参数与采用边界见[集成记录](iterations/u12-p13-2026-10-15-main-integration.md)。
+
 2026-10-14 P10正式采用：React Bits Dome Gallery固定496968c4117e21278f13917201b7d615bc5e7450、PhotoSwipe5.4.4、Three0.186.1和Infinite Canvas参考承接已验收原型，完整许可与出处在[公开来源登记](../../public/gallery/attribution.txt)。用户授权发布36张WebP派生，原JPEG不公开；组件作为本站应用使用，不发布独立组件库，见[接入记录](../technical/iterations/t12-p10-2026-10-14-pages.md)。
 
 

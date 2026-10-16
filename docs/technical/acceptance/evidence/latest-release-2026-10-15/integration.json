@@ -1,0 +1,43 @@
+{
+  "frozenAt": "2026-10-15T06:30:47.964Z",
+  "selected": [
+    "src/components/music/NetEaseCoreExperience.tsx",
+    "src/components/music/RadioLibraryExperience.tsx",
+    "src/components/music/RadioNowPlaying.tsx",
+    "src/components/music/useNetEaseCore.ts",
+    "tools/music/audio-session.test.mjs",
+    "tools/music/lx-downloads.mjs",
+    "tools/music/lx-downloads.test.mjs",
+    "tools/music/netease-core.mjs",
+    "tools/music/netease-core.test.mjs",
+    "tools/music/netease-upload.mjs",
+    "tools/music/netease-upload.test.mjs",
+    "tools/music/playback-account.mjs",
+    "tools/music/playback-account.test.mjs",
+    "tools/music/playback-index.mjs",
+    "tools/music/podcast-discovery.mjs",
+    "tools/music/preview-service.mjs",
+    "src/styles/music-downloads.css",
+    "src/styles/music-netease-core.css",
+    "src/styles/persistent-player.css",
+    "src/lib/netease-core.ts",
+    "src/lib/netease-playback.ts",
+    "src/lib/audio-session.ts"
+  ],
+  "preserved": [
+    "src/components/music/LxDownloadPanel.tsx",
+    "src/components/music/NetEaseAccount.tsx",
+    "src/components/music/NetEaseMusicCatalog.tsx",
+    "tools/music/album-presentation.test.mjs",
+    "tools/music/cloud-library.mjs",
+    "tools/music/cloud-library.test.mjs",
+    "tools/music/README.md",
+    "src/lib/music-server.ts",
+    "src/layouts/SiteLayout.astro",
+    "src/pages/music.astro"
+  ],
+  "adapters": [
+    "backend availability chooses lazy core or existing shared playlist",
+    "NetEaseAccount emits identity changes while retaining public service safeguards"
+  ]
+}

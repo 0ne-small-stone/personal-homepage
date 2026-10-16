@@ -77,10 +77,12 @@ export async function completedWebFiles(manifest=webManifest) {
 export function createLxDownloads({engine=createLxEngine(),settings=currentLxSettings,manifest=webManifest,request=publicResponse,tagger,parseAudio=parseFile}={}) {
   const cache=new Map(),jobs=new Map();let queue=Promise.resolve(),disposed=false,restored=false;
   const clean=text=>String(text||'').slice(0,500);
-  const publicJob=job=>({id:job.id,resultId:job.resultId,title:job.song.name,artist:job.song.singer,quality:job.quality,status:job.status,received:job.received,total:job.total,error:job.error||'',trackId:job.trackId||''});
+  const publicJob=job=>({id:job.id,resultId:job.resultId,title:job.song.name,artist:job.song.singer,quality:job.quality,status:job.status,received:job.received,total:job.total,error:job.error||'',trackId:job.trackId||'',provider:job.provider||'lx'});
+  async function restoreJobs(){
+    if(!restored){restored=true;for(const entry of await completedWebFiles(manifest))if(entry.source&&entry.quality){const job={id:entry.id,resultId:'',song:{name:entry.track.title,singer:entry.track.artist,songmid:entry.songmid},source:entry.source,provider:entry.provider||'lx',quality:entry.quality,status:'completed',received:entry.size,total:entry.size,trackId:entry.id,controller:new AbortController()};jobs.set(job.id,job);}}
+  }
   async function status(){
-    const sources=await engine.status();
-    if(!restored){restored=true;for(const entry of await completedWebFiles(manifest))if(entry.source&&entry.quality){const job={id:entry.id,resultId:'',song:{name:entry.track.title,singer:entry.track.artist,songmid:entry.songmid},source:entry.source,quality:entry.quality,status:'completed',received:entry.size,total:entry.size,trackId:entry.id,controller:new AbortController()};jobs.set(job.id,job);}}
+    const sources=await engine.status();await restoreJobs();
     return {ready:true,platforms:Object.entries(platforms).filter(([id])=>sources[id]).map(([id,name])=>({id,name})),jobs:[...jobs.values()].map(publicJob)};
   }
   async function search(source,keyword,page=1){
@@ -98,7 +100,9 @@ export function createLxDownloads({engine=createLxEngine(),settings=currentLxSet
   async function finish(job){
     let temporary,handle;
     try {
-      job.status='resolving';const audio=await engine.resolve(job.source,job.song,job.quality);
+      job.status='resolving';let audio;
+      if(job.nativeResolve){const index=await job.nativeResolve();const track=index.tracks?.find(item=>item.id===String(job.song.songmid));if(track?.status!=='full'||!track.audioUrl)throw Error('音源未提供完整下载，请在网易云确认权限。');audio={url:track.audioUrl};}
+      else audio=await engine.resolve(job.source,job.song,job.quality);
       if(job.controller.signal.aborted)throw new Error('cancelled');
       const config=await settings();const directory=await realpath(config.directory);
       temporary=path.join(directory,`.lssh-${job.id}.part`);handle=await open(temporary,'wx');
@@ -134,7 +138,7 @@ export function createLxDownloads({engine=createLxEngine(),settings=currentLxSet
       if(cover){await mkdir(path.join(path.dirname(manifest),'web-covers'),{recursive:true});await sharp(cover).webp({quality:85}).toFile(path.join(path.dirname(manifest),'web-covers',`${id}.webp`));}
       let prior;try{prior=JSON.parse(await readFile(manifest,'utf8'));}catch{}
       const files=prior?.directory===directory&&Array.isArray(prior.files)?prior.files.filter(file=>file.id!==id):[];
-      files.push({id,relative,size:info.size,mtimeMs:info.mtimeMs,status:'completed',source:job.source,songmid:String(job.song.songmid),quality:job.quality,track});
+      files.push({id,relative,size:info.size,mtimeMs:info.mtimeMs,status:'completed',source:job.source,songmid:String(job.song.songmid),quality:job.quality,provider:job.provider||'lx',track});
       await mkdir(path.dirname(manifest),{recursive:true});const output=await open(`${manifest}.tmp`,'w');await output.writeFile(JSON.stringify({version:1,directory,files}));await output.close();await rename(`${manifest}.tmp`,manifest);
       job.trackId=id;job.status='completed';
     }catch(error){job.status=job.controller.signal.aborted?'cancelled':'failed';job.error=job.status==='cancelled'?'':error.code==='EEXIST'?'同音质的文件已存在，没有覆盖。':/^音源|^音频|^暂不支持/.test(error.message)?error.message:'下载未完成，请重试。';}
@@ -150,7 +154,13 @@ export function createLxDownloads({engine=createLxEngine(),settings=currentLxSet
     while(jobs.size>100){const old=[...jobs.values()].find(job=>['failed','cancelled','completed'].includes(job.status));if(!old)break;jobs.delete(old.id);}
     queue=queue.then(()=>job.controller.signal.aborted?job.status='cancelled':finish(job));return publicJob(job);
   }
-  return {status,search,download,jobs:()=>[...jobs.values()].map(publicJob),cancel:id=>{const job=jobs.get(id);if(job&&!['completed','failed','cancelled'].includes(job.status)){job.controller.abort();if(job.status==='queued')job.status='cancelled';}},dispose:()=>{disposed=true;for(const job of jobs.values())job.controller.abort();engine.dispose();}};
+  function downloadNative(track,level,nativeResolve){
+    const qualities={standard:'128k',exhigh:'320k',lossless:'flac',hires:'hires'};if(!qualities[level]||!nativeResolve)throw Error('音质不可用。');
+    const id=`netease:${track.id}:${level}`;
+    cache.set(id,{provider:'netease',source:'wy',song:{songmid:track.id,name:track.title,singer:track.artist,albumName:track.album,img:track.coverUrl,interval:String(track.duration)},qualities:[qualities[level]],nativeResolve});
+    return download(id,qualities[level]);
+  }
+  return {status,search,download,downloadNative,restoreJobs,jobs:()=>[...jobs.values()].map(publicJob),cancel:id=>{const job=jobs.get(id);if(job&&!['completed','failed','cancelled'].includes(job.status)){job.controller.abort();if(job.status==='queued')job.status='cancelled';}},dispose:()=>{disposed=true;for(const job of jobs.values())job.controller.abort();engine.dispose();}};
 }
 export async function webAudioMiddleware(req,res,next) {
   const match=/^\/personal-homepage\/music\/local-(audio|cover)\/([a-f0-9]{24})\/$/.exec(new URL(req.url,'http://localhost').pathname);if(!match)return next();

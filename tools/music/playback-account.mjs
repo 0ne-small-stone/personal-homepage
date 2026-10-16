@@ -1,12 +1,12 @@
 import api from '@neteasecloudmusicapienhanced/api';
 import {createPlaybackIndexService,fetchPlaybackIndex} from './playback-index.mjs';
 
-const bodyOf=result=>result?.body||result;
+const bodyOf=result=>{let body=result?.body||result;for(let depth=0;depth<3&&body?.code===undefined&&body?.body;depth++)body=body.body;return body;};
 export function createPlaybackAccount({sdk=api,now=Date.now,resolve=cookie=>fetchPlaybackIndex({cookie}),store=null}={}) {
   let cookie='';let profile=null;let key='';let expiresAt=0;let revision=0;let qrRevision=0;let lastVerified=0;
   let saved=false;let restoring=Boolean(store);let persistenceError='';let mutations=Promise.resolve();
   const privateIndex=createPlaybackIndexService('',{load:async()=>null,update:()=>resolve(cookie),now});
-  const state=()=>({available:true,local:true,authorized:Boolean(cookie&&profile),account:profile?{nickname:profile.nickname}:null,saved,restoring,persistenceError});
+  const state=()=>({available:true,local:true,authorized:Boolean(cookie&&profile),account:profile?{...profile}:null,saved,restoring,persistenceError});
   const mutate=operation=>{const job=mutations.then(operation,operation);mutations=job.catch(()=>{});return job;};
   function cancel(){qrRevision++;key='';expiresAt=0;}
   function reset(){revision++;cancel();cookie='';profile=null;lastVerified=0;privateIndex.invalidate();}
@@ -21,7 +21,8 @@ export function createPlaybackAccount({sdk=api,now=Date.now,resolve=cookie=>fetc
     catch(cause){const error=Error('暂时无法核对网易云登录，请稍后重试。');error.auth=[301,302,401,403].includes(Number(cause?.body?.code||cause?.code));throw error;}
     const data=result?.data||result;const next=data?.profile;
     if(Number(data?.code)!==200||!/^[1-9]\d{0,19}$/.test(String(next?.userId||''))){const error=Error('网易云登录已失效，请重新扫码。');error.auth=true;throw error;}
-    return {nickname:String(next.nickname||'网易云账号').slice(0,100)};
+    let avatarUrl=null;try{const url=new URL(next.avatarUrl);if(url.protocol==='https:'&&/^p\d+\.music\.126\.net$/.test(url.hostname))avatarUrl=url.href;}catch{}
+    return {id:String(next.userId),nickname:String(next.nickname||'网易云账号').slice(0,100),avatarUrl};
   }
   async function createQr() {
     await ready;
@@ -92,5 +93,20 @@ export function createPlaybackAccount({sdk=api,now=Date.now,resolve=cookie=>fetc
   const ready=restore().catch(()=>{restoring=false;persistenceError='暂时无法恢复保存的登录，请重试。';});
   async function retryRestore(){await ready;if(!cookie&&store)await restore();}
   async function prepare(){await ready;if(saved&&!cookie)await retryRestore();if(saved&&!cookie){const error=Error('暂时无法恢复已保存的登录，请重试。');error.persistence=true;throw error;}}
-  return{state,createQr,checkQr,cancel,logout,index,remember,ready:()=>ready,retryRestore,prepare,dispose:reset};
+  async function request(method,args={},personal=false){
+    await prepare();if(personal&&!state().authorized){const error=Error('请先登录网易云。');error.auth=true;throw error;}
+    if(typeof sdk[method]!=='function')throw Error('当前服务不支持此功能。');
+    const expected=revision;let body;
+    try{body=bodyOf(await sdk[method]({...args,cookie:cookie||{},timeout:15000,e_r:false,unblock:false}));}
+    catch(cause){const error=Error('网易云服务暂时不可用，请重试。');error.auth=[301,302,401].includes(Number(cause?.body?.code));throw error;}
+    if(expected!==revision)throw Error('账号已变化，请重新加载。');
+    const publishedCloud=method==='cloud'&&Number(body?.code)===201&&/^[1-9]\d{0,19}$/.test(String(body?.privateCloud?.songId||''));
+    if(!body||Number(body.code)!==200&&!publishedCloud){const error=Error(Number(body?.code)===301?'请先登录网易云。':'网易云暂未返回内容，请稍后重试。');error.auth=[301,302,401].includes(Number(body?.code));throw error;}
+    return body;
+  }
+  async function resolveTrack(id,level='standard'){
+    await prepare();const expected=revision;const result=await fetchPlaybackIndex({cookie:cookie||{},sdk,ids:[id],level});
+    if(expected!==revision)throw Error('账号已变化，请重新播放。');return result;
+  }
+  return{state,createQr,checkQr,cancel,logout,index,remember,request,resolveTrack,ready:()=>ready,retryRestore,prepare,dispose:reset};
 }

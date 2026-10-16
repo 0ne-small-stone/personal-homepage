@@ -1,5 +1,7 @@
 # 个人主页技术实现方案
 
+2026-10-15 P13/T25.29–36正式整合约束：音乐核心以本站React/同一audioSession及现有SDK4.41.1实现；同源Node预览服务通过白名单DTO处理搜索/推荐/分类播客/个人曲库、账号权限播放和原下载边界。节目保留programId/radioId/mainSong.id的各自用途，下载核对节目主音频；推荐按真实类别及简介筛选，有限候选、5分钟分类快照、手动刷新仅绕过当前分类并合并并发，失败保留列表。凭证、DPAPI、短期URL、原音频与后台运行状态不进入静态产物。正式Pages不运行Node后台，检测成功才加载核心UI，失败保留已发布共享歌单与原站入口；公共目录构建仍保留版本化快照回退。[集成与边界](acceptance/latest-release-2026-10-15.md)。
+
 2026-10-15 首页性能主站验收：BNuf11DH冻结源接入含正式双语Someone的main，148文件0错误/0警告、54页构建与限定交互通过；桌面/窄屏轮播10秒、稳定白墙6秒零新增场景/renderer帧，首次输入唤醒正常。保留F03、F05、三卡及小砖，不启动F06/F07；发布入口[PR #59](https://github.com/0ne-small-stone/personal-homepage/pull/59)，最终Pages与公网结果按真实SHA补录。[本轮验收](acceptance/home-performance-2026-10-15.md)。下方旧版本状态为过程追溯。
 
 2026-10-15 P02：Someone 英文 about／中文 zh/about 共用静态模板与资料。HomeLayout／HomeHeader 的可选语言参数仅由本页传入，复用主站 ClientRouter 与持久播放器；页尾公共目录保留六入口、正确 aria-current 并本地化。原生语言链接增强一次性阅读位置，邮件图标调用 Clipboard API，切页清理事件与计时，失败／无脚本有手动地址；无新依赖。见[发布记录](iterations/t05-p02-2026-10-15-pages.md)。

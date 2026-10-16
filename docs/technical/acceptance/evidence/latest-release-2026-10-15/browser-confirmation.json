@@ -1,0 +1,452 @@
+{
+  "base": "http://127.0.0.1:4485/personal-homepage/",
+  "engine": "Microsoft Edge with SwiftShader; emulated viewports; all core API calls isolated fixtures",
+  "checks": [
+    {
+      "name": "1280 public service fallback retains real shared playlist",
+      "passed": true,
+      "evidence": {
+        "count": 2,
+        "width": 1280,
+        "scrollWidth": 1280,
+        "audio": 1,
+        "canvases": 0
+      }
+    },
+    {
+      "name": "1280 unavailable public account cannot initiate login",
+      "passed": true,
+      "evidence": {
+        "disabled": true
+      }
+    },
+    {
+      "name": "1280 knowledge overview content and responsive layout",
+      "passed": true,
+      "evidence": {
+        "items": 41,
+        "width": 1280,
+        "scrollWidth": 1280,
+        "audio": 1,
+        "canvases": 0
+      }
+    },
+    {
+      "name": "1280 overview filters stay usable",
+      "passed": true
+    },
+    {
+      "name": "1280 native article list title and summary",
+      "passed": true,
+      "evidence": {
+        "h1": "文章",
+        "excerpt": "用一篇明确标注的样稿体验文章入口、正文目录、代码复制与返回。",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "audio": 1,
+        "canvases": 0
+      }
+    },
+    {
+      "name": "1280 native tag route returns correct article",
+      "passed": true
+    },
+    {
+      "name": "1280 article refresh restores local reading position",
+      "passed": true,
+      "evidence": {
+        "saved": {
+          "top": 1087,
+          "record": {
+            "version": 1,
+            "block": 12,
+            "signature": "2e48c94b",
+            "fraction": 0.525399129172714,
+            "gap": 0,
+            "ratio": 0.4929705215419501,
+            "start": false,
+            "heading": "把阅读过程写清楚"
+          }
+        },
+        "resumed": 1087,
+        "article": "http://127.0.0.1:4485/personal-homepage/knowledge/blog/article-reading-check/"
+      }
+    },
+    {
+      "name": "1280 connected core category and layout",
+      "passed": true,
+      "evidence": {
+        "width": 1280,
+        "scrollWidth": 1280,
+        "audio": 1,
+        "canvases": 0
+      }
+    },
+    {
+      "name": "1280 podcast manual refresh preserves category",
+      "passed": true
+    },
+    {
+      "name": "1280 failed refresh retains prior cards",
+      "passed": true
+    },
+    {
+      "name": "1280 subscriptions transition avoids false empty state",
+      "passed": true
+    },
+    {
+      "name": "1280 track action popover keyboard restores focus",
+      "passed": true
+    },
+    {
+      "name": "1280 download dialog opens without account writes",
+      "passed": true
+    },
+    {
+      "name": "390 public service fallback retains real shared playlist",
+      "passed": true,
+      "evidence": {
+        "count": 2,
+        "width": 390,
+        "scrollWidth": 390,
+        "audio": 1,
+        "canvases": 0
+      }
+    },
+    {
+      "name": "390 unavailable public account cannot initiate login",
+      "passed": true,
+      "evidence": {
+        "disabled": true
+      }
+    },
+    {
+      "name": "390 knowledge overview content and responsive layout",
+      "passed": true,
+      "evidence": {
+        "items": 41,
+        "width": 390,
+        "scrollWidth": 390,
+        "audio": 1,
+        "canvases": 0
+      }
+    },
+    {
+      "name": "390 overview filters stay usable",
+      "passed": true
+    },
+    {
+      "name": "390 native article list title and summary",
+      "passed": true,
+      "evidence": {
+        "h1": "文章",
+        "excerpt": "用一篇明确标注的样稿体验文章入口、正文目录、代码复制与返回。",
+        "width": 390,
+        "scrollWidth": 390,
+        "audio": 1,
+        "canvases": 0
+      }
+    },
+    {
+      "name": "390 native tag route returns correct article",
+      "passed": true
+    },
+    {
+      "name": "390 article refresh restores local reading position",
+      "passed": true,
+      "evidence": {
+        "saved": {
+          "top": 1469,
+          "record": {
+            "version": 1,
+            "block": 13,
+            "signature": "3db86793",
+            "fraction": 0.5344473007712083,
+            "gap": 0,
+            "ratio": 0.509009009009009,
+            "start": false,
+            "heading": "把阅读过程写清楚"
+          }
+        },
+        "resumed": 1469,
+        "article": "http://127.0.0.1:4485/personal-homepage/knowledge/blog/article-reading-check/"
+      }
+    },
+    {
+      "name": "390 connected core category and layout",
+      "passed": true,
+      "evidence": {
+        "width": 390,
+        "scrollWidth": 390,
+        "audio": 1,
+        "canvases": 0
+      }
+    },
+    {
+      "name": "390 podcast manual refresh preserves category",
+      "passed": true
+    },
+    {
+      "name": "390 failed refresh retains prior cards",
+      "passed": true
+    },
+    {
+      "name": "390 subscriptions transition avoids false empty state",
+      "passed": true
+    },
+    {
+      "name": "390 track action popover keyboard restores focus",
+      "passed": true
+    },
+    {
+      "name": "390 download dialog opens without account writes",
+      "passed": true
+    },
+    {
+      "name": "320 public service fallback retains real shared playlist",
+      "passed": true,
+      "evidence": {
+        "count": 2,
+        "width": 320,
+        "scrollWidth": 320,
+        "audio": 1,
+        "canvases": 0
+      }
+    },
+    {
+      "name": "320 unavailable public account cannot initiate login",
+      "passed": true,
+      "evidence": {
+        "disabled": true
+      }
+    },
+    {
+      "name": "320 knowledge overview content and responsive layout",
+      "passed": true,
+      "evidence": {
+        "items": 41,
+        "width": 320,
+        "scrollWidth": 320,
+        "audio": 1,
+        "canvases": 0
+      }
+    },
+    {
+      "name": "320 overview filters stay usable",
+      "passed": true
+    },
+    {
+      "name": "320 native article list title and summary",
+      "passed": true,
+      "evidence": {
+        "h1": "文章",
+        "excerpt": "用一篇明确标注的样稿体验文章入口、正文目录、代码复制与返回。",
+        "width": 320,
+        "scrollWidth": 320,
+        "audio": 1,
+        "canvases": 0
+      }
+    },
+    {
+      "name": "320 native tag route returns correct article",
+      "passed": true
+    },
+    {
+      "name": "320 article refresh restores local reading position",
+      "passed": true,
+      "evidence": {
+        "saved": {
+          "top": 1651,
+          "record": {
+            "version": 1,
+            "block": 15,
+            "signature": "d1968c57",
+            "fraction": 0,
+            "gap": 18.25,
+            "ratio": 0.527644614892937,
+            "start": false,
+            "heading": "把阅读过程写清楚"
+          }
+        },
+        "resumed": 1651,
+        "article": "http://127.0.0.1:4485/personal-homepage/knowledge/blog/article-reading-check/"
+      }
+    },
+    {
+      "name": "320 connected core category and layout",
+      "passed": true,
+      "evidence": {
+        "width": 320,
+        "scrollWidth": 320,
+        "audio": 1,
+        "canvases": 0
+      }
+    },
+    {
+      "name": "320 podcast manual refresh preserves category",
+      "passed": true
+    },
+    {
+      "name": "320 failed refresh retains prior cards",
+      "passed": true
+    },
+    {
+      "name": "320 subscriptions transition avoids false empty state",
+      "passed": true
+    },
+    {
+      "name": "320 track action popover keyboard restores focus",
+      "passed": true
+    },
+    {
+      "name": "320 download dialog opens without account writes",
+      "passed": true
+    },
+    {
+      "name": "public PDF page and zoom persist after refresh",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "page": 3,
+          "x": -82.50000000000001,
+          "y": 595.2756,
+          "scale": "1.25",
+          "rotation": 0,
+          "scrollMode": 0,
+          "spreadMode": 0,
+          "version": 1,
+          "fingerprint": "2779a61d9ebf6978cae6814b4c774f59",
+          "frameTop": 359.796875
+        },
+        "after": "3"
+      }
+    },
+    {
+      "name": "1280 published homepage remains idle",
+      "passed": true,
+      "evidence": {
+        "first": {
+          "mode": "demand",
+          "running": false,
+          "frame": 7,
+          "time": 3165.2999999821186,
+          "velocity": 0,
+          "snap": false,
+          "loading": false,
+          "renderFrame": 113,
+          "transmissionVisible": true,
+          "trackingGlass": false,
+          "rawDelta": 0.11340000000596047,
+          "delta": 0.11340000000596047,
+          "cpuMs": 3.2999999821186066
+        },
+        "last": {
+          "mode": "demand",
+          "running": false,
+          "frame": 7,
+          "time": 3165.2999999821186,
+          "velocity": 0,
+          "snap": false,
+          "loading": false,
+          "renderFrame": 113,
+          "transmissionVisible": true,
+          "trackingGlass": false,
+          "rawDelta": 0.11340000000596047,
+          "delta": 0.11340000000596047,
+          "cpuMs": 3.2999999821186066
+        }
+      }
+    },
+    {
+      "name": "1280 latest Someone and cleanup retained",
+      "passed": true
+    },
+    {
+      "name": "1280 homepage return still wakes without replay",
+      "passed": true
+    },
+    {
+      "name": "390 published homepage remains idle",
+      "passed": true,
+      "evidence": {
+        "first": {
+          "mode": "demand",
+          "running": false,
+          "frame": 10,
+          "time": 2966.2000000178814,
+          "velocity": 0,
+          "snap": false,
+          "loading": false,
+          "renderFrame": 140,
+          "transmissionVisible": true,
+          "trackingGlass": false,
+          "rawDelta": 0.054200000017881396,
+          "delta": 0.054200000017881396,
+          "cpuMs": 3.5999999940395355
+        },
+        "last": {
+          "mode": "demand",
+          "running": false,
+          "frame": 10,
+          "time": 2966.2000000178814,
+          "velocity": 0,
+          "snap": false,
+          "loading": false,
+          "renderFrame": 140,
+          "transmissionVisible": true,
+          "trackingGlass": false,
+          "rawDelta": 0.054200000017881396,
+          "delta": 0.054200000017881396,
+          "cpuMs": 3.5999999940395355
+        }
+      }
+    },
+    {
+      "name": "390 latest Someone and cleanup retained",
+      "passed": true
+    },
+    {
+      "name": "390 homepage return still wakes without replay",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "postActions": [
+    "browse",
+    "jobs",
+    "browse",
+    "jobs",
+    "liked-ids",
+    "browse",
+    "browse",
+    "browse",
+    "browse",
+    "jobs",
+    "jobs",
+    "search",
+    "browse",
+    "jobs",
+    "browse",
+    "jobs",
+    "liked-ids",
+    "browse",
+    "browse",
+    "browse",
+    "browse",
+    "jobs",
+    "jobs",
+    "search",
+    "browse",
+    "jobs",
+    "browse",
+    "jobs",
+    "liked-ids",
+    "browse",
+    "browse",
+    "browse",
+    "browse",
+    "jobs",
+    "jobs",
+    "search"
+  ]
+}
