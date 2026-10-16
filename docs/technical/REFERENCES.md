@@ -1,5 +1,7 @@
 # 个人主页技术调研来源和候选方案
 
+2026-10-16仓库整合只复用既有Node24/Astro/React/GSAP和固定网易云SDK；站点数据为用户11个精确URL，搜索NFKC/多词匹配。PDF授权/Release清单沿main f8e9b5c，原件与许可边界不扩大。F05真实GSAP取消引用回归、P13分页/换批和本机失败反馈由实际源码与测试核对，见[验收](acceptance/progress-2026-10-16.md)。
+
 2026-10-15 P13沿用锁定的@neteasecloudmusicapienhanced/api4.41.1与music-metadata12.1.0，无新增依赖。节目/账号/下载契约由本机SDK模块及现有核心测试校验，不复制另一套账号、播放器或解锁服务。MeloX/MeiloX只作界面组织参考；本轮工程与隔离浏览器验证见[验收记录](acceptance/latest-release-2026-10-15.md)，不把替身响应称为真实平台写入或公网完整播放。
 
 2026-10-14 P13/T25.27、T21.05：核对[LX 官方开放 API](https://lxmusic.toside.cn/desktop/open-api)仅有播放器控制/状态/歌词，[官方同步服务](https://github.com/lyswhut/lx-music-sync-server)仅同步列表；[Any Listen](https://github.com/any-listen/any-listen)未确认所需下载流程。本机验证选[XCQ0607/lxserver 固定源码](https://github.com/XCQ0607/lxserver/tree/5e2c8cc4c823eb41ea84a1d93fe6af220157d12b)的 musicSdk/VM2，package2.1.1；不运行完整服务器，只补同源适配/完成标记。Apache-2.0与README补充条款一并保留，范围与真实下载证据见[本片](iterations/t25-p13-2026-10-14-lx-integration.md)及[许可说明](../../tools/music/vendor/lxserver-NOTICE.md)。

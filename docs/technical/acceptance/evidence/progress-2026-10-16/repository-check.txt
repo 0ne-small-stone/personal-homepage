@@ -1,0 +1,14 @@
+
+> check
+> npm run check:files && npm run check:docs
+
+
+> check:files
+> node files.mjs
+
+仓库文件检查通过：4932 个文件。原始资料、环境配置与生成目录按 .gitignore 排除。
+
+> check:docs
+> node docs.mjs
+
+文档链接与章节锚点检查通过：329 份文档。

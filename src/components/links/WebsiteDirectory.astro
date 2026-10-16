@@ -1,0 +1,72 @@
+---
+import HomeLayout from '../../layouts/HomeLayout.astro';
+import DirectoryIcon from './DirectoryIcon.astro';
+import WebsiteIcon from './WebsiteIcon.astro';
+import { websiteCategories, websites, websiteDomain, websiteSearchText, validateWebsites, type Website } from '../../data/websites';
+import '../../styles/links.css';
+interface Props { entries?: readonly Website[]; }
+const { entries = websites } = Astro.props;
+validateWebsites(entries);
+const ordered = [...entries].sort((a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured)));
+---
+<HomeLayout title="Elsewhere · 常用网站" description="常去的地方，也有新的发现。小石的课程、校园、影像与音乐网址收藏。">
+  <div class="elsewhere-page" data-website-directory>
+    <section class="elsewhere-intro" aria-labelledby="elsewhere-title">
+      <div class="elsewhere-intro-copy">
+        <h1 id="elsewhere-title">Elsewhere<span class="elsewhere-title-dot">.</span></h1>
+        <p class="elsewhere-lead">常去的地方，也有新的发现。</p>
+        <p class="elsewhere-description">课程、音乐与日常。把值得再来的地方，收在一起。</p>
+      </div>
+      <div class="elsewhere-orbit" aria-hidden="true">
+        <span class="elsewhere-orbit-line"></span>
+        <span class="elsewhere-orbit-mark mark-code">{'{ }'}</span>
+        <span class="elsewhere-orbit-mark mark-type">Aa</span>
+        <span class="elsewhere-orbit-mark mark-globe"><DirectoryIcon name="globe" /></span>
+        <span class="elsewhere-orbit-mark mark-record"><DirectoryIcon name="record" /></span>
+        <span class="elsewhere-orbit-mark mark-spark"><DirectoryIcon name="spark" /></span>
+      </div>
+    </section>
+    <nav class="elsewhere-categories" aria-label="按用途浏览" data-category-nav>
+      {websiteCategories.map(category => <a class="elsewhere-category" href={entries.some(entry => entry.category === category.id) ? `#websites-${category.id}` : '#directory-title'} data-category={category.id}>
+        <DirectoryIcon name={category.icon} /><span>{category.name}</span><span class="elsewhere-category-note">{category.note}</span>
+      </a>)}
+    </nav>
+    <section class="elsewhere-directory" aria-labelledby="directory-title">
+      <div class="elsewhere-toolbar" data-enhanced-only hidden>
+        <form class="elsewhere-search" role="search" aria-label="查找收藏的网站">
+          <label class="sr-only" for="website-search">搜索网站名称、用途或域名</label>
+          <DirectoryIcon name="search" />
+          <input id="website-search" name="q" type="search" placeholder="搜索名称、用途或域名" maxlength="160" autocomplete="off" enterkeyhint="search" />
+          <button class="elsewhere-clear-query" type="button" data-clear-query aria-label="清空搜索" hidden><DirectoryIcon name="close" /></button>
+        </form>
+        <div class="elsewhere-filter-actions"><button class="elsewhere-all" type="button" data-all aria-pressed="true">全部网站</button><button class="elsewhere-reset" type="button" data-reset hidden>清除条件</button></div>
+      </div>
+      <div class="elsewhere-directory-heading"><h2 id="directory-title" data-results-heading>收藏的网站</h2><p class="elsewhere-count" role="status" aria-live="polite" aria-atomic="true" data-result-count>{entries.length} 个网站</p></div>
+      <p class="elsewhere-external-note" id="external-note">网站在新标签页打开。</p>
+      <div class="elsewhere-grid" data-results>
+        {ordered.map((entry, index) => <article class="elsewhere-card" id={ordered.findIndex(site => site.category === entry.category) === index ? `websites-${entry.category}` : `website-${entry.id}`} data-website-card data-category-id={entry.category} data-search-text={websiteSearchText(entry)}>
+              <a href={entry.url} target="_blank" rel="noopener noreferrer" aria-describedby="external-note" class="elsewhere-card-link">
+                <div class="elsewhere-card-top"><span class="elsewhere-site-mark" aria-hidden="true"><WebsiteIcon name={entry.icon} /></span><h3>{entry.name}</h3><DirectoryIcon name="arrow" class="elsewhere-external-arrow" /></div>
+                <p class="elsewhere-card-description">{entry.description}</p>
+                <div class="elsewhere-card-bottom"><span class="elsewhere-domain">{websiteDomain(entry.url)}</span>{entry.featured && <span class="elsewhere-featured">常用</span>}</div>
+              </a>
+            </article>)}
+      </div>
+      <div class="elsewhere-empty" data-empty hidden={entries.length > 0}>
+        <span class="elsewhere-empty-icon" aria-hidden="true"><DirectoryIcon name="globe" /></span><h3 data-empty-title>还没有收录网站</h3><p data-empty-copy>收藏的网址会在这里按分类整理。</p><button type="button" class="elsewhere-empty-reset" data-empty-reset hidden>查看全部网站</button>
+      </div>
+      <noscript><p class="elsewhere-noscript">当前显示全部网站，可通过上方分类跳转浏览。</p></noscript>
+    </section>
+    <div class="elsewhere-end"><span>一个出口，也是一种遇见。</span><a href="#elsewhere-title">回到顶部</a></div>
+  </div>
+</HomeLayout>
+<script>
+  import { mountWebsiteDirectory } from './website-directory';
+  let cleanup: (() => void) | undefined;
+  document.addEventListener('astro:page-load', () => {
+    cleanup?.();
+    const root = document.querySelector<HTMLElement>('[data-website-directory]');
+    cleanup = root ? mountWebsiteDirectory(root) : undefined;
+  });
+  document.addEventListener('astro:before-swap', () => { cleanup?.(); cleanup = undefined; });
+</script>

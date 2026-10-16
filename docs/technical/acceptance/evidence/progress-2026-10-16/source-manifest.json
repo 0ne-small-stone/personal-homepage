@@ -1,0 +1,734 @@
+{
+  "at": "2026-10-16T15:26:22.272Z",
+  "main": "f8e9b5c",
+  "files": [
+    {
+      "path": "src/components/home/home-motion.ts",
+      "bytes": 15207,
+      "sha256": "3be5b3a811f4afb9d4604a01d1858f457433196e4c83e718bd67d8d680020230",
+      "changed": true,
+      "previousSha256": "10a31e3cee8cf094426de1fc84e9008ca4121b6f4e4465d61129c8cec136c37f"
+    },
+    {
+      "path": "src/components/home/frame-activity.ts",
+      "bytes": 1205,
+      "sha256": "d069880f420ba30a17a8a64463b5a5a50d927495b3981460d6e80ecd69b99f88",
+      "changed": true,
+      "previousSha256": "60ae89cf570b354db07978e9dd552b50bd927e0b878ef6f583d5b73707d0e12b"
+    },
+    {
+      "path": "tests/home-frame-activity.test.mjs",
+      "bytes": 2585,
+      "sha256": "30d9a53d97473eebcbcd2f5492ba0a51b67397d23a83eeb7929cb3886341c69c",
+      "changed": true,
+      "previousSha256": "862d76d4943190ec74814bfcb086a4f6a75ca7c4a0fc472122205ca097cd7371"
+    },
+    {
+      "path": "src/components/home/copy-state.ts",
+      "bytes": 731,
+      "sha256": "3692a5bd3e5d0ac9264fbbaa4325240ff8427a2830cf63d45c64895075b54b53",
+      "changed": true,
+      "previousSha256": null
+    },
+    {
+      "path": "tests/home-copy.test.mjs",
+      "bytes": 2313,
+      "sha256": "1c34936042eb41f5e05505a0058346f7ade26bde4fe16f9f3ff58e908564f4f7",
+      "changed": true,
+      "previousSha256": null
+    },
+    {
+      "path": "src/data/websites.ts",
+      "bytes": 5542,
+      "sha256": "589d4024be3743cd48d48ec4e72dec7c6476c54e11025b94905c8d85285065cb",
+      "changed": true,
+      "previousSha256": null
+    },
+    {
+      "path": "src/styles/links.css",
+      "bytes": 10518,
+      "sha256": "f19e425b7bcacbb8a5337f82f64bb4cca642581d17daf7554cf4805be816ae4e",
+      "changed": true,
+      "previousSha256": null
+    },
+    {
+      "path": "src/pages/links.astro",
+      "bytes": 108,
+      "sha256": "e2da46b9aa487de71b86e76610faf767c4bb0a83c87ba6b5798b83c25e5de4a2",
+      "changed": true,
+      "previousSha256": "bdb6d75fc8baffca7e279a4cde9a6ee554c3f866cf4b29be41c1daa8e13630a5"
+    },
+    {
+      "path": "tests/website-directory.test.mjs",
+      "bytes": 6212,
+      "sha256": "9b1504113ba36ab46a5c28921ec88661e7f29046d67b070aa512c1b068c2507c",
+      "changed": true,
+      "previousSha256": null
+    },
+    {
+      "path": "src/lib/netease-core.ts",
+      "bytes": 3535,
+      "sha256": "b68a977f7d1181965c878c1e48f3c3914fc9352579dfaef71ae9e44e43d7541d",
+      "changed": true,
+      "previousSha256": "96db036c8f687c1819cea9db8be2650397e72693d0557427428b873023574f42"
+    },
+    {
+      "path": "src/components/links/DirectoryIcon.astro",
+      "bytes": 976,
+      "sha256": "5050d0e79bd3d4f6f02d7cc7387e21b8ebbf26614bea0f2bf96295f8a546afd1",
+      "changed": true,
+      "previousSha256": null
+    },
+    {
+      "path": "src/components/links/website-directory.ts",
+      "bytes": 4798,
+      "sha256": "6385178150c3fde05c343895268a476588eb6b815b096fc32268894e511c8783",
+      "changed": true,
+      "previousSha256": null
+    },
+    {
+      "path": "src/components/links/WebsiteDirectory.astro",
+      "bytes": 5642,
+      "sha256": "bb51b7cbed2c0d765b2a0a887e14fc410fb21501e88f5a305f7b9cc8ea69584a",
+      "changed": true,
+      "previousSha256": null
+    },
+    {
+      "path": "src/components/links/WebsiteIcon.astro",
+      "bytes": 2351,
+      "sha256": "8a33c524f5ffe8c432c55896fc5a4745c4c410582ab6a6ddad712f92cbd1c79f",
+      "changed": true,
+      "previousSha256": null
+    },
+    {
+      "path": "src/components/music/AlbumArtwork.tsx",
+      "bytes": 568,
+      "sha256": "fd37b63d5690c0fdce39aa7b64d9c3cb3cf97d80df2b340fc5c3c886b1f917e4",
+      "changed": false,
+      "previousSha256": "fd37b63d5690c0fdce39aa7b64d9c3cb3cf97d80df2b340fc5c3c886b1f917e4"
+    },
+    {
+      "path": "src/components/music/AlbumSwitcher.tsx",
+      "bytes": 8029,
+      "sha256": "5b3e6cf41738084217f37a194df5ef7efb3f48b344f537932d94261b00eab7a9",
+      "changed": false,
+      "previousSha256": "5b3e6cf41738084217f37a194df5ef7efb3f48b344f537932d94261b00eab7a9"
+    },
+    {
+      "path": "src/components/music/FloatingMusicPlayer.tsx",
+      "bytes": 10373,
+      "sha256": "b13132a6c914ef0609b6ebce6c0d51e6986e8330b55907993fb5710ca272aa27",
+      "changed": false,
+      "previousSha256": "b13132a6c914ef0609b6ebce6c0d51e6986e8330b55907993fb5710ca272aa27"
+    },
+    {
+      "path": "src/components/music/JewelCaseScene.tsx",
+      "bytes": 7933,
+      "sha256": "fa585a8f501b400bb500fbabeeb76a1d0dea7c782a4d41402869dc7a5c7a9623",
+      "changed": false,
+      "previousSha256": "fa585a8f501b400bb500fbabeeb76a1d0dea7c782a4d41402869dc7a5c7a9623"
+    },
+    {
+      "path": "src/components/music/LibrarySidebar.tsx",
+      "bytes": 1432,
+      "sha256": "ccecc5d61d83b1d91655ab599b56a678b9118a3bef01f90bcd364971df324afb",
+      "changed": false,
+      "previousSha256": "ccecc5d61d83b1d91655ab599b56a678b9118a3bef01f90bcd364971df324afb"
+    },
+    {
+      "path": "src/components/music/ListeningRoom.tsx",
+      "bytes": 2933,
+      "sha256": "588e8ea2272a02dc7bcd454b6cea09d0db9126596bb3f50d493a373965d6d13d",
+      "changed": false,
+      "previousSha256": "588e8ea2272a02dc7bcd454b6cea09d0db9126596bb3f50d493a373965d6d13d"
+    },
+    {
+      "path": "src/components/music/LocalMusicCatalog.tsx",
+      "bytes": 4955,
+      "sha256": "3caaaf9d80bd2cb8344c616bbd9c3cc8118ba2e2eb00bbbcf3a4582de796083c",
+      "changed": false,
+      "previousSha256": "3caaaf9d80bd2cb8344c616bbd9c3cc8118ba2e2eb00bbbcf3a4582de796083c"
+    },
+    {
+      "path": "src/components/music/LocalRadioLibrary.tsx",
+      "bytes": 4662,
+      "sha256": "f6e095625ce29df6e7a029217ec4e3db3a6b9eb0958ae7dc90d93e6735aa98ae",
+      "changed": false,
+      "previousSha256": "f6e095625ce29df6e7a029217ec4e3db3a6b9eb0958ae7dc90d93e6735aa98ae"
+    },
+    {
+      "path": "src/components/music/LxDownloadPanel.tsx",
+      "bytes": 9881,
+      "sha256": "3287d8a7814e59085f01774129c61b23d7147794cf4bf86ae28077e1e0b22637",
+      "changed": true,
+      "previousSha256": "b4d9edb0740ae7f581758bba7d6ed8d67ead07c94fa857583ec7d365ba1e5a89"
+    },
+    {
+      "path": "src/components/music/LyricPanel.tsx",
+      "bytes": 8128,
+      "sha256": "fd2b8c08ced382fc7caceab0a512c581d90be638a95adbf4a8283f6b5a03ae21",
+      "changed": false,
+      "previousSha256": "fd2b8c08ced382fc7caceab0a512c581d90be638a95adbf4a8283f6b5a03ae21"
+    },
+    {
+      "path": "src/components/music/MusicAlbumDetail.tsx",
+      "bytes": 887,
+      "sha256": "c0e5ebe712977e5edcedc1aa30aa281b0df270cc8b8ddbc8dc18d40f218573e1",
+      "changed": false,
+      "previousSha256": "c0e5ebe712977e5edcedc1aa30aa281b0df270cc8b8ddbc8dc18d40f218573e1"
+    },
+    {
+      "path": "src/components/music/MusicLibraryHeader.tsx",
+      "bytes": 1368,
+      "sha256": "34ed3886d84a7744d4d19f753f3c592503ff357c1f01bd8d6fa7a64b6131e2e5",
+      "changed": false,
+      "previousSha256": "34ed3886d84a7744d4d19f753f3c592503ff357c1f01bd8d6fa7a64b6131e2e5"
+    },
+    {
+      "path": "src/components/music/MusicTrackList.tsx",
+      "bytes": 1602,
+      "sha256": "8cc906043a47318903d117095f01559fbdfbe48611db3c5d257940fc67960a5f",
+      "changed": false,
+      "previousSha256": "8cc906043a47318903d117095f01559fbdfbe48611db3c5d257940fc67960a5f"
+    },
+    {
+      "path": "src/components/music/NetEaseAccount.tsx",
+      "bytes": 8218,
+      "sha256": "374ee665cd91bcf7004451849dc6e1d90c75f91b07c9834bfc6bd7f28a327d27",
+      "changed": true,
+      "previousSha256": "51018a987c9c4420627f83daca1e22f28826765e5964be968c7977a08664c68c"
+    },
+    {
+      "path": "src/components/music/NetEaseCoreExperience.tsx",
+      "bytes": 29873,
+      "sha256": "49294fa9608a09edd28e976f9dc141df2e724e74a7c0c85e71884ebdbbe31b02",
+      "changed": true,
+      "previousSha256": "ffc4cb052cc16fb5519cfd33916ed126bb9872dca34fa9a055cab22110128261"
+    },
+    {
+      "path": "src/components/music/NetEaseFeatureCards.tsx",
+      "bytes": 2563,
+      "sha256": "480dce57a6ccddf5cbce6fc62fc3daa9c3f2c750a599e087502b7c7ccef17261",
+      "changed": true,
+      "previousSha256": null
+    },
+    {
+      "path": "src/components/music/NetEaseLibrary.tsx",
+      "bytes": 9543,
+      "sha256": "9da92afa8f0076f0d4ea4619d7bb018d97bed3fad3277aa93f7be370940f477d",
+      "changed": false,
+      "previousSha256": "9da92afa8f0076f0d4ea4619d7bb018d97bed3fad3277aa93f7be370940f477d"
+    },
+    {
+      "path": "src/components/music/NetEaseMusicCatalog.tsx",
+      "bytes": 304,
+      "sha256": "403e60d7548d5c56f45da8eb71ccf7297a8a716acee98a01e9a291b37ecbd291",
+      "changed": true,
+      "previousSha256": "fc303c9a057807a0759e6305ace0408bddd4023520c7c2136cb04b96bd7b0189"
+    },
+    {
+      "path": "src/components/music/PersistentPlayer.tsx",
+      "bytes": 3420,
+      "sha256": "a7340190250680649bb1e83e577243ea0b0662c64407348542b42bede0a12e25",
+      "changed": false,
+      "previousSha256": "a7340190250680649bb1e83e577243ea0b0662c64407348542b42bede0a12e25"
+    },
+    {
+      "path": "src/components/music/RadioExperience.tsx",
+      "bytes": 13294,
+      "sha256": "b7f0a25a0239bd62c96071d3ba8dc510d45c3f6ae74048542a472dfe62ed798a",
+      "changed": false,
+      "previousSha256": "b7f0a25a0239bd62c96071d3ba8dc510d45c3f6ae74048542a472dfe62ed798a"
+    },
+    {
+      "path": "src/components/music/RadioLibraryExperience.tsx",
+      "bytes": 7279,
+      "sha256": "a373aca0efce77c97ba04462127f50be9ff50f69914183ea5ee57a3bf81d3dc6",
+      "changed": false,
+      "previousSha256": "a373aca0efce77c97ba04462127f50be9ff50f69914183ea5ee57a3bf81d3dc6"
+    },
+    {
+      "path": "src/components/music/RadioNowPlaying.tsx",
+      "bytes": 3399,
+      "sha256": "1873a472ec5dd929f8d23d2d6b7d4491eaa6ed852e503ae7618a5da4ccb21e79",
+      "changed": false,
+      "previousSha256": "1873a472ec5dd929f8d23d2d6b7d4491eaa6ed852e503ae7618a5da4ccb21e79"
+    },
+    {
+      "path": "src/components/music/RadioPlayer.tsx",
+      "bytes": 12977,
+      "sha256": "b4542b394633db6223e833359ac40832e3e87e4c3b30ad3a51d96593777e333b",
+      "changed": false,
+      "previousSha256": "b4542b394633db6223e833359ac40832e3e87e4c3b30ad3a51d96593777e333b"
+    },
+    {
+      "path": "src/components/music/RecommendationForm.tsx",
+      "bytes": 5844,
+      "sha256": "49b488740eff3b1ddfbe1aec668797b3ae5d151864cb7304fb909db960c2e3a7",
+      "changed": false,
+      "previousSha256": "49b488740eff3b1ddfbe1aec668797b3ae5d151864cb7304fb909db960c2e3a7"
+    },
+    {
+      "path": "src/components/music/useAudioSession.ts",
+      "bytes": 253,
+      "sha256": "e764beaff5a4e64c36163c4f82a12856ed20c50804d4a94a6d39a46438f58091",
+      "changed": false,
+      "previousSha256": "e764beaff5a4e64c36163c4f82a12856ed20c50804d4a94a6d39a46438f58091"
+    },
+    {
+      "path": "src/components/music/useNetEaseCore.ts",
+      "bytes": 11291,
+      "sha256": "6103318e9c6f09e47b94dcfde67342b6de8087c7400b95fa1794be52fac5a8c4",
+      "changed": true,
+      "previousSha256": "2218574c3c84469533939d9ecd5f869efce6028700efc846ba9bf63b79121dc0"
+    },
+    {
+      "path": "src/components/music/VinylSleeve.tsx",
+      "bytes": 2355,
+      "sha256": "77ce4d1c30e16a024a64b706c0a18178403a2b5029c1cbed724a26aba6fb611d",
+      "changed": false,
+      "previousSha256": "77ce4d1c30e16a024a64b706c0a18178403a2b5029c1cbed724a26aba6fb611d"
+    },
+    {
+      "path": "src/components/music/VinylTurntable.tsx",
+      "bytes": 5672,
+      "sha256": "feb02f474a3114c8e45e8072cec29fd05bd0277ce5df826bd4455d44902c81bd",
+      "changed": false,
+      "previousSha256": "feb02f474a3114c8e45e8072cec29fd05bd0277ce5df826bd4455d44902c81bd"
+    },
+    {
+      "path": "tools/music/album-presentation.test.mjs",
+      "bytes": 3237,
+      "sha256": "77655dbc5726e10d98a369a525efe0da9cfadaf71d0b62ec9376291a35d531e5",
+      "changed": true,
+      "previousSha256": "f7de7d5b36611bf2793a54ee7d2ebf41276b1f12fc8777183be4868bf31bf2c1"
+    },
+    {
+      "path": "tools/music/audio-session.test.mjs",
+      "bytes": 10956,
+      "sha256": "fe2bd0449f8929e469a9b8bcc4425350de8790f6ad75d19e5c4bd08b63b2b310",
+      "changed": false,
+      "previousSha256": "fe2bd0449f8929e469a9b8bcc4425350de8790f6ad75d19e5c4bd08b63b2b310"
+    },
+    {
+      "path": "tools/music/cloud-library.mjs",
+      "bytes": 11823,
+      "sha256": "21a05c5fc54273e7bdc498cb8771af16cd18ff1c26c251d84501d0bec8261937",
+      "changed": true,
+      "previousSha256": "28305b99e02e7ff196ac31a968cbef754c02b40c0e6c2ef5465e208156df327f"
+    },
+    {
+      "path": "tools/music/cloud-library.test.mjs",
+      "bytes": 10321,
+      "sha256": "df409290b52bf893254e4dad88ab930a49240eb3bbb0c89f89309a6bf420dafa",
+      "changed": true,
+      "previousSha256": "0935dd20363c50b0cf571cc933fb9cab7d0c66374f7d6450e76b122d76639db9"
+    },
+    {
+      "path": "tools/music/cloud-sync.mjs",
+      "bytes": 1057,
+      "sha256": "e37951a2db7c70dec907bbf0c057319509d05d6c3e3927e9093c260a4436d6ee",
+      "changed": false,
+      "previousSha256": "e37951a2db7c70dec907bbf0c057319509d05d6c3e3927e9093c260a4436d6ee"
+    },
+    {
+      "path": "tools/music/cloud-upload.mjs",
+      "bytes": 3555,
+      "sha256": "208451fe553b91ca01d69eac8fe64f047a8cee7d2cbf62402e6f732e639d26a4",
+      "changed": false,
+      "previousSha256": "208451fe553b91ca01d69eac8fe64f047a8cee7d2cbf62402e6f732e639d26a4"
+    },
+    {
+      "path": "tools/music/connect-cloud.mjs",
+      "bytes": 5435,
+      "sha256": "6e7fbfa0db338d831f13a603aa9340857ddf005440beede883645f7d639df618",
+      "changed": false,
+      "previousSha256": "6e7fbfa0db338d831f13a603aa9340857ddf005440beede883645f7d639df618"
+    },
+    {
+      "path": "tools/music/index-library.mjs",
+      "bytes": 8434,
+      "sha256": "a373eb69cbd407cd702e50a96e5f2dea54c1cf69ad9a747dbefa22a154ae053d",
+      "changed": false,
+      "previousSha256": "a373eb69cbd407cd702e50a96e5f2dea54c1cf69ad9a747dbefa22a154ae053d"
+    },
+    {
+      "path": "tools/music/local-playback.mjs",
+      "bytes": 6786,
+      "sha256": "d5512bace3987a11e4a5ccdeea6e1a67cc38cef80ef77f45240c625b376fdc71",
+      "changed": false,
+      "previousSha256": "d5512bace3987a11e4a5ccdeea6e1a67cc38cef80ef77f45240c625b376fdc71"
+    },
+    {
+      "path": "tools/music/local-playback.test.mjs",
+      "bytes": 6707,
+      "sha256": "5e42128dfbad0c0097fa1408f7d6429546cf9761e4258c7d467a97ea33a01a92",
+      "changed": false,
+      "previousSha256": "5e42128dfbad0c0097fa1408f7d6429546cf9761e4258c7d467a97ea33a01a92"
+    },
+    {
+      "path": "tools/music/lx-downloads.mjs",
+      "bytes": 15864,
+      "sha256": "18ea6ad00b9c4865e54e7b9de4a89e2f56ea22e58f65bfec7cd6de3e9e935996",
+      "changed": false,
+      "previousSha256": "18ea6ad00b9c4865e54e7b9de4a89e2f56ea22e58f65bfec7cd6de3e9e935996"
+    },
+    {
+      "path": "tools/music/lx-downloads.test.mjs",
+      "bytes": 7960,
+      "sha256": "0412327e28d2e2a901781861b4ca5497d3713865ca2ad074cb23bfcfd75fa9f1",
+      "changed": false,
+      "previousSha256": "0412327e28d2e2a901781861b4ca5497d3713865ca2ad074cb23bfcfd75fa9f1"
+    },
+    {
+      "path": "tools/music/lx-engine-entry.mjs",
+      "bytes": 782,
+      "sha256": "c647f9a68a9079ef47dda4f36efc7c91f81c182fbecc0e3938b7947ec61fc011",
+      "changed": false,
+      "previousSha256": "c647f9a68a9079ef47dda4f36efc7c91f81c182fbecc0e3938b7947ec61fc011"
+    },
+    {
+      "path": "tools/music/lx-engine-setup.mjs",
+      "bytes": 1862,
+      "sha256": "27838e367366c1e44497e5a5bd82def35c4c7a9a19f3b9a915049fee07c90034",
+      "changed": false,
+      "previousSha256": "27838e367366c1e44497e5a5bd82def35c4c7a9a19f3b9a915049fee07c90034"
+    },
+    {
+      "path": "tools/music/lx-engine.mjs",
+      "bytes": 3187,
+      "sha256": "b5a32de3405d55753ba9e2b68549db3535d7788f7184f10d55827bc31c1eba31",
+      "changed": false,
+      "previousSha256": "b5a32de3405d55753ba9e2b68549db3535d7788f7184f10d55827bc31c1eba31"
+    },
+    {
+      "path": "tools/music/lx-engine.test.mjs",
+      "bytes": 814,
+      "sha256": "d5f4627e1ca6c336e56c80edc885b670a86b1726707e94b25e6cda987cee62c3",
+      "changed": false,
+      "previousSha256": "d5f4627e1ca6c336e56c80edc885b670a86b1726707e94b25e6cda987cee62c3"
+    },
+    {
+      "path": "tools/music/lx-permission-fixture.mjs",
+      "bytes": 457,
+      "sha256": "356126ba049ecc14b638f19e6af6421d1090ccb3ba3df3f2945cc963fdcd19e1",
+      "changed": false,
+      "previousSha256": "356126ba049ecc14b638f19e6af6421d1090ccb3ba3df3f2945cc963fdcd19e1"
+    },
+    {
+      "path": "tools/music/lx-runtime-package.json",
+      "bytes": 229,
+      "sha256": "39baccdeb8127819a7058fe936f4bcdf474c7a74a9752e1bb861e687f3b34a75",
+      "changed": false,
+      "previousSha256": "39baccdeb8127819a7058fe936f4bcdf474c7a74a9752e1bb861e687f3b34a75"
+    },
+    {
+      "path": "tools/music/lx-service.test.mjs",
+      "bytes": 2221,
+      "sha256": "3c5520f84d7c77765ca8f0534d6f9c6eceec450302471996988e3488f53dad96",
+      "changed": false,
+      "previousSha256": "3c5520f84d7c77765ca8f0534d6f9c6eceec450302471996988e3488f53dad96"
+    },
+    {
+      "path": "tools/music/lx-worker.mjs",
+      "bytes": 1870,
+      "sha256": "9f8985e7eb904ecb249fe34f11e4742bb92bab89f28dee3016273edffc03a98a",
+      "changed": false,
+      "previousSha256": "9f8985e7eb904ecb249fe34f11e4742bb92bab89f28dee3016273edffc03a98a"
+    },
+    {
+      "path": "tools/music/lyrics.test.mjs",
+      "bytes": 2205,
+      "sha256": "548d53a150a56656add981e91763f57cee752e0c231a4a51c5d4dc2838282f63",
+      "changed": false,
+      "previousSha256": "548d53a150a56656add981e91763f57cee752e0c231a4a51c5d4dc2838282f63"
+    },
+    {
+      "path": "tools/music/netease-adapter.mjs",
+      "bytes": 3804,
+      "sha256": "ef6f4e31c0f575614382e7f2d087eee688ea240fc3d6377658a749d390ed0b26",
+      "changed": false,
+      "previousSha256": "ef6f4e31c0f575614382e7f2d087eee688ea240fc3d6377658a749d390ed0b26"
+    },
+    {
+      "path": "tools/music/netease-core.mjs",
+      "bytes": 13111,
+      "sha256": "7813cc7c0da327d8bb9f51639aac13058e38bc32ecec5d4513817b272a9eb928",
+      "changed": true,
+      "previousSha256": "5683b3e5bea2856849149617ef3f48b2502a4295b31b027aeb1514ec38bc4da5"
+    },
+    {
+      "path": "tools/music/netease-core.test.mjs",
+      "bytes": 20295,
+      "sha256": "d73a7d94dddfb327f17a741a8dd1e4eb8ed1aad274f3a36cf73aff39219c8120",
+      "changed": true,
+      "previousSha256": "da3d6bb222f94259dbea6c2c50f827a26053708a984c038b6a50caca2a7bab68"
+    },
+    {
+      "path": "tools/music/netease-playback.test.mjs",
+      "bytes": 3567,
+      "sha256": "9b4d8190bdd9f2e72bf0b50486b57c521c2db9c8e545f5a3ec8007493189195e",
+      "changed": false,
+      "previousSha256": "9b4d8190bdd9f2e72bf0b50486b57c521c2db9c8e545f5a3ec8007493189195e"
+    },
+    {
+      "path": "tools/music/netease-upload.mjs",
+      "bytes": 592,
+      "sha256": "8744251cb471425cad5678b8264b6cda2aa60175d9418866159f144208c9dcb3",
+      "changed": false,
+      "previousSha256": "8744251cb471425cad5678b8264b6cda2aa60175d9418866159f144208c9dcb3"
+    },
+    {
+      "path": "tools/music/netease-upload.test.mjs",
+      "bytes": 3830,
+      "sha256": "57e29c19f2054c3454fe9296292a02f16d31d6b8ac91e6896a3742f833321fac",
+      "changed": false,
+      "previousSha256": "57e29c19f2054c3454fe9296292a02f16d31d6b8ac91e6896a3742f833321fac"
+    },
+    {
+      "path": "tools/music/playback-account.mjs",
+      "bytes": 8374,
+      "sha256": "704e40b1ef584cf0a7c1620e83c2f2c12a91574a8ef5539b5820f3174a4425b9",
+      "changed": false,
+      "previousSha256": "704e40b1ef584cf0a7c1620e83c2f2c12a91574a8ef5539b5820f3174a4425b9"
+    },
+    {
+      "path": "tools/music/playback-account.test.mjs",
+      "bytes": 7058,
+      "sha256": "842bbdf1c3ad758a7a556f8cc41275517396ed3cc9fb627ab301a8582e41008d",
+      "changed": false,
+      "previousSha256": "842bbdf1c3ad758a7a556f8cc41275517396ed3cc9fb627ab301a8582e41008d"
+    },
+    {
+      "path": "tools/music/playback-index.mjs",
+      "bytes": 6315,
+      "sha256": "5324f9d75b9f67aba6485ae507a2f5cb4d35c2424d0fd51d4b42504d00cd0112",
+      "changed": false,
+      "previousSha256": "5324f9d75b9f67aba6485ae507a2f5cb4d35c2424d0fd51d4b42504d00cd0112"
+    },
+    {
+      "path": "tools/music/playback-service.test.mjs",
+      "bytes": 2935,
+      "sha256": "81204707fc2ec18c6db250755eefe2074fa6eb1ffc289d1f6ce320c446b7870b",
+      "changed": false,
+      "previousSha256": "81204707fc2ec18c6db250755eefe2074fa6eb1ffc289d1f6ce320c446b7870b"
+    },
+    {
+      "path": "tools/music/podcast-discovery.mjs",
+      "bytes": 5402,
+      "sha256": "10ca8d44bef3f50c71bd797dba646407c95e440920706110ae6732f94ecf0d61",
+      "changed": true,
+      "previousSha256": "84a6c0107796b0f45d11df0e9fd6fdacd1422dc0d2dc94359bf6ee5c1f947896"
+    },
+    {
+      "path": "tools/music/preview-service.mjs",
+      "bytes": 11718,
+      "sha256": "947b207df9c04086346069037104f32cb0ed85ad45f4d60ea6b5e6527c017e10",
+      "changed": false,
+      "previousSha256": "947b207df9c04086346069037104f32cb0ed85ad45f4d60ea6b5e6527c017e10"
+    },
+    {
+      "path": "tools/music/README.md",
+      "bytes": 19781,
+      "sha256": "3670923557bdc00485c6a682dabd8420d6a1fe01ab81a46d9c6eb8703333876d",
+      "changed": true,
+      "previousSha256": "d648073094b973790d83d3c36ede8069829bc57fbdbbc80063a28a76aa94d6d5"
+    },
+    {
+      "path": "tools/music/recommendation-admin.css",
+      "bytes": 1262,
+      "sha256": "6d77f3883a895949a03f23f503ebf4cfc2da2a8c61008193c3d34193afb1a9d0",
+      "changed": false,
+      "previousSha256": "6d77f3883a895949a03f23f503ebf4cfc2da2a8c61008193c3d34193afb1a9d0"
+    },
+    {
+      "path": "tools/music/recommendation-admin.html",
+      "bytes": 1235,
+      "sha256": "ac43625cf34071ea910ed43b82cfc7733b5889680a251bb39945cdb12b05735c",
+      "changed": false,
+      "previousSha256": "ac43625cf34071ea910ed43b82cfc7733b5889680a251bb39945cdb12b05735c"
+    },
+    {
+      "path": "tools/music/recommendation-admin.js",
+      "bytes": 3703,
+      "sha256": "88cae28b164bc7f91d8ae681c2ed5d9fd1cfde04798dc23ac2b84dca36143c38",
+      "changed": false,
+      "previousSha256": "88cae28b164bc7f91d8ae681c2ed5d9fd1cfde04798dc23ac2b84dca36143c38"
+    },
+    {
+      "path": "tools/music/recommendation-service.mjs",
+      "bytes": 5544,
+      "sha256": "e486ae3ac3ccead972ffbbc53ab9900c56fcf115b3ddca1584a14fca2a1d8159",
+      "changed": false,
+      "previousSha256": "e486ae3ac3ccead972ffbbc53ab9900c56fcf115b3ddca1584a14fca2a1d8159"
+    },
+    {
+      "path": "tools/music/recommendations.mjs",
+      "bytes": 6170,
+      "sha256": "a164c535819f1417cd2e6c329f1c10e2bdc79c2a1caf5cf234bc295bcf3c75c9",
+      "changed": false,
+      "previousSha256": "a164c535819f1417cd2e6c329f1c10e2bdc79c2a1caf5cf234bc295bcf3c75c9"
+    },
+    {
+      "path": "tools/music/recommendations.test.mjs",
+      "bytes": 3803,
+      "sha256": "cfce0bf19ec71e796028439333245e0cfb36907b8aa6c86e1fdfab07d564dad5",
+      "changed": false,
+      "previousSha256": "cfce0bf19ec71e796028439333245e0cfb36907b8aa6c86e1fdfab07d564dad5"
+    },
+    {
+      "path": "tools/music/saved-login.mjs",
+      "bytes": 1889,
+      "sha256": "0c635004c7f2aa23182c198b976cf4190b77ae21b30d1c68a24d210f95b68279",
+      "changed": false,
+      "previousSha256": "0c635004c7f2aa23182c198b976cf4190b77ae21b30d1c68a24d210f95b68279"
+    },
+    {
+      "path": "tools/music/saved-login.test.mjs",
+      "bytes": 5244,
+      "sha256": "660d03bc15b08176037bacb49d7cacd63113a0a1a13d6ad767b33b65dba5b516",
+      "changed": false,
+      "previousSha256": "660d03bc15b08176037bacb49d7cacd63113a0a1a13d6ad767b33b65dba5b516"
+    },
+    {
+      "path": "tools/music/start-preview.ps1",
+      "bytes": 1446,
+      "sha256": "a7880cd8fcede83b264d3b6795a3759415f87fef73a0504efcc7f9260d6ed875",
+      "changed": true,
+      "previousSha256": null
+    },
+    {
+      "path": "tools/music/start-sync.ps1",
+      "bytes": 324,
+      "sha256": "f2355f63ea55a96072bd2b9f2ec90f4b47c53846b422cc33e2f026625ca190f2",
+      "changed": false,
+      "previousSha256": "f2355f63ea55a96072bd2b9f2ec90f4b47c53846b422cc33e2f026625ca190f2"
+    },
+    {
+      "path": "tools/music/sync-playlist.mjs",
+      "bytes": 2963,
+      "sha256": "7ab7e625b98b5bd5019de17c0f7aaf9cf051b52c14911162172ee1fec4300fdb",
+      "changed": false,
+      "previousSha256": "7ab7e625b98b5bd5019de17c0f7aaf9cf051b52c14911162172ee1fec4300fdb"
+    },
+    {
+      "path": "tools/music/sync-service.mjs",
+      "bytes": 2589,
+      "sha256": "52e7a4afc778515577bd0b83eda035c022e2acbdaeb52d4911e8edfc2a3b04b7",
+      "changed": false,
+      "previousSha256": "52e7a4afc778515577bd0b83eda035c022e2acbdaeb52d4911e8edfc2a3b04b7"
+    },
+    {
+      "path": "tools/music/turntable.test.mjs",
+      "bytes": 2064,
+      "sha256": "c7da4c0772e3daabc2669673bca651fde5cd99a8a90d9b6928b36c9b7bf6bd33",
+      "changed": false,
+      "previousSha256": "c7da4c0772e3daabc2669673bca651fde5cd99a8a90d9b6928b36c9b7bf6bd33"
+    },
+    {
+      "path": "tools/music/vendor/lxserver-LICENSE",
+      "bytes": 11356,
+      "sha256": "4a1946819f24b20b3144360151a4dc1ed1b8e407bfb11045a74884abd6816100",
+      "changed": false,
+      "previousSha256": "4a1946819f24b20b3144360151a4dc1ed1b8e407bfb11045a74884abd6816100"
+    },
+    {
+      "path": "tools/music/vendor/lxserver-NOTICE.md",
+      "bytes": 1130,
+      "sha256": "a021954d1a71db0f5c5733c0df274adea9fa07a55c6b894577c39f544c7f4f60",
+      "changed": false,
+      "previousSha256": "a021954d1a71db0f5c5733c0df274adea9fa07a55c6b894577c39f544c7f4f60"
+    },
+    {
+      "path": "tools/music/windows-secret.mjs",
+      "bytes": 2088,
+      "sha256": "1cafb7a4a519c17442734c333dd9e981cff1426b55bd3b84818bc861f7b86dd9",
+      "changed": false,
+      "previousSha256": "1cafb7a4a519c17442734c333dd9e981cff1426b55bd3b84818bc861f7b86dd9"
+    },
+    {
+      "path": "tools/music/windows-secret.ps1",
+      "bytes": 925,
+      "sha256": "e1db38500452d6376ff92759d152b6dfdbc678a1d5627337ea5c4529613e7033",
+      "changed": false,
+      "previousSha256": "e1db38500452d6376ff92759d152b6dfdbc678a1d5627337ea5c4529613e7033"
+    },
+    {
+      "path": "public/music/features/interval-daily.webp",
+      "bytes": 24070,
+      "sha256": "21303caf1444597f214e216ede14e79cb09b57a9007ed6f9a150b4d66da12ed1",
+      "changed": true,
+      "previousSha256": null
+    },
+    {
+      "path": "public/music/features/interval-heart.webp",
+      "bytes": 25750,
+      "sha256": "8cf9e7ded8af84f9d368a4bbebc2333b715f5078cb6c153dc1d5e09dfd3516bb",
+      "changed": true,
+      "previousSha256": null
+    },
+    {
+      "path": "public/music/features/interval-roam.webp",
+      "bytes": 24730,
+      "sha256": "0e6eac3f92227cc23ec62d028a2d5ee5bc69fbb94b93088dfd8531ab68d75d15",
+      "changed": true,
+      "previousSha256": null
+    },
+    {
+      "path": "src/styles/music-feature-cards.css",
+      "bytes": 4333,
+      "sha256": "db965d7fe3c029d4b92e42c60222f9b7bba37dcdadba5734b81a0abb77a81e76",
+      "changed": true,
+      "previousSha256": null
+    },
+    {
+      "path": "src/styles/music-netease-core.css",
+      "bytes": 37061,
+      "sha256": "df865f8a25e7aa493dd7072057e5e5a9797586be7b94063164ba31daa7b87717",
+      "changed": true,
+      "previousSha256": "9d360fddb6cfd941d92b83cea965b2d1af656d0ee7a55b2e0c03f12bc53052a8"
+    }
+  ],
+  "f05": [
+    {
+      "path": "src/components/home/home-motion.ts",
+      "bytes": 15207,
+      "sha256": "3be5b3a811f4afb9d4604a01d1858f457433196e4c83e718bd67d8d680020230",
+      "changed": true,
+      "previousSha256": "10a31e3cee8cf094426de1fc84e9008ca4121b6f4e4465d61129c8cec136c37f",
+      "matchesFrozenF05": true
+    },
+    {
+      "path": "src/components/home/frame-activity.ts",
+      "bytes": 1205,
+      "sha256": "d069880f420ba30a17a8a64463b5a5a50d927495b3981460d6e80ecd69b99f88",
+      "changed": true,
+      "previousSha256": "60ae89cf570b354db07978e9dd552b50bd927e0b878ef6f583d5b73707d0e12b",
+      "matchesFrozenF05": true
+    },
+    {
+      "path": "tests/home-frame-activity.test.mjs",
+      "bytes": 2585,
+      "sha256": "30d9a53d97473eebcbcd2f5492ba0a51b67397d23a83eeb7929cb3886341c69c",
+      "changed": true,
+      "previousSha256": "862d76d4943190ec74814bfcb086a4f6a75ca7c4a0fc472122205ca097cd7371",
+      "matchesFrozenF05": true
+    },
+    {
+      "path": "src/components/home/copy-state.ts",
+      "bytes": 731,
+      "sha256": "3692a5bd3e5d0ac9264fbbaa4325240ff8427a2830cf63d45c64895075b54b53",
+      "changed": true,
+      "previousSha256": null,
+      "matchesFrozenF05": true
+    },
+    {
+      "path": "tests/home-copy.test.mjs",
+      "bytes": 2313,
+      "sha256": "1c34936042eb41f5e05505a0058346f7ade26bde4fe16f9f3ff58e908564f4f7",
+      "changed": true,
+      "previousSha256": null,
+      "matchesFrozenF05": true
+    }
+  ]
+}

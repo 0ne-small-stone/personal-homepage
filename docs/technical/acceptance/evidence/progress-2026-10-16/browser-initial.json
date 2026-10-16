@@ -1,0 +1,710 @@
+{
+  "base": "http://127.0.0.1:4486/personal-homepage/",
+  "engine": "Edge / software WebGL; emulated CSS viewports; music APIs isolated fixtures, no real account writes",
+  "checks": [
+    {
+      "name": "1280 eleven sites, original SVG and responsive layout",
+      "passed": true,
+      "evidence": {
+        "all": 11,
+        "width": 1280,
+        "scrollWidth": 1280,
+        "audio": 1
+      }
+    },
+    {
+      "name": "1280 NFKC search and live URL",
+      "passed": true
+    },
+    {
+      "name": "1280 combined empty state resets and restores focus",
+      "passed": true
+    },
+    {
+      "name": "1280 category survives refresh",
+      "passed": true
+    },
+    {
+      "name": "1280 cross-page return preserves filter and one audio",
+      "passed": true
+    },
+    {
+      "name": "1280 three interval assets and square cards",
+      "passed": true,
+      "evidence": {
+        "cards": [
+          {
+            "w": 288,
+            "h": 288
+          },
+          {
+            "w": 288,
+            "h": 288
+          },
+          {
+            "w": 288,
+            "h": 288
+          }
+        ],
+        "width": 1280,
+        "scrollWidth": 1280,
+        "audio": 1
+      }
+    },
+    {
+      "name": "1280 removed home charts remain absent",
+      "passed": true
+    },
+    {
+      "name": "1280 existing daily route preserved",
+      "passed": true
+    },
+    {
+      "name": "1280 existing heart route preserved",
+      "passed": true
+    },
+    {
+      "name": "1280 existing fm route preserved",
+      "passed": true
+    },
+    {
+      "name": "1280 controls stay in viewport with LAN notice",
+      "passed": true,
+      "evidence": {
+        "bottom": {
+          "x": 270.078125,
+          "y": 692,
+          "width": 953.84375,
+          "height": 84
+        }
+      }
+    },
+    {
+      "name": "1280 music fixture",
+      "passed": false,
+      "evidence": {
+        "error": "TimeoutError: locator.click: Timeout 18000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '刷新推荐', exact: true })\u001b[22m\n"
+      }
+    },
+    {
+      "name": "390 eleven sites, original SVG and responsive layout",
+      "passed": true,
+      "evidence": {
+        "all": 11,
+        "width": 390,
+        "scrollWidth": 390,
+        "audio": 1
+      }
+    },
+    {
+      "name": "390 NFKC search and live URL",
+      "passed": true
+    },
+    {
+      "name": "390 combined empty state resets and restores focus",
+      "passed": true
+    },
+    {
+      "name": "390 category survives refresh",
+      "passed": true
+    },
+    {
+      "name": "390 cross-page return preserves filter and one audio",
+      "passed": true
+    },
+    {
+      "name": "390 three interval assets and square cards",
+      "passed": true,
+      "evidence": {
+        "cards": [
+          {
+            "w": 168,
+            "h": 168
+          },
+          {
+            "w": 168,
+            "h": 168
+          },
+          {
+            "w": 168,
+            "h": 168
+          }
+        ],
+        "width": 390,
+        "scrollWidth": 390,
+        "audio": 1
+      }
+    },
+    {
+      "name": "390 removed home charts remain absent",
+      "passed": true
+    },
+    {
+      "name": "390 existing daily route preserved",
+      "passed": true
+    },
+    {
+      "name": "390 existing heart route preserved",
+      "passed": true
+    },
+    {
+      "name": "390 existing fm route preserved",
+      "passed": true
+    },
+    {
+      "name": "390 controls stay in viewport with LAN notice",
+      "passed": true,
+      "evidence": {
+        "bottom": {
+          "x": 12,
+          "y": 762,
+          "width": 366,
+          "height": 64
+        }
+      }
+    },
+    {
+      "name": "390 music fixture",
+      "passed": false,
+      "evidence": {
+        "error": "TimeoutError: locator.click: Timeout 18000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '刷新推荐', exact: true })\u001b[22m\n"
+      }
+    },
+    {
+      "name": "320 eleven sites, original SVG and responsive layout",
+      "passed": true,
+      "evidence": {
+        "all": 11,
+        "width": 320,
+        "scrollWidth": 320,
+        "audio": 1
+      }
+    },
+    {
+      "name": "320 NFKC search and live URL",
+      "passed": true
+    },
+    {
+      "name": "320 combined empty state resets and restores focus",
+      "passed": true
+    },
+    {
+      "name": "320 category survives refresh",
+      "passed": true
+    },
+    {
+      "name": "320 cross-page return preserves filter and one audio",
+      "passed": true
+    },
+    {
+      "name": "320 three interval assets and square cards",
+      "passed": true,
+      "evidence": {
+        "cards": [
+          {
+            "w": 156,
+            "h": 156
+          },
+          {
+            "w": 156,
+            "h": 156
+          },
+          {
+            "w": 156,
+            "h": 156
+          }
+        ],
+        "width": 320,
+        "scrollWidth": 320,
+        "audio": 1
+      }
+    },
+    {
+      "name": "320 removed home charts remain absent",
+      "passed": true
+    },
+    {
+      "name": "320 existing daily route preserved",
+      "passed": true
+    },
+    {
+      "name": "320 existing heart route preserved",
+      "passed": true
+    },
+    {
+      "name": "320 existing fm route preserved",
+      "passed": true
+    },
+    {
+      "name": "320 controls stay in viewport with LAN notice",
+      "passed": true,
+      "evidence": {
+        "bottom": {
+          "x": 8,
+          "y": 762,
+          "width": 304,
+          "height": 64
+        }
+      }
+    },
+    {
+      "name": "320 music fixture",
+      "passed": false,
+      "evidence": {
+        "error": "TimeoutError: locator.click: Timeout 18000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '刷新推荐', exact: true })\u001b[22m\n"
+      }
+    },
+    {
+      "name": "Elsewhere without JavaScript retains all original external links",
+      "passed": true
+    },
+    {
+      "name": "1280 both copy handoffs remain singular during real forward/reverse navigation",
+      "passed": true,
+      "evidence": {
+        "samples": 56,
+        "min": 1.0000023472313333,
+        "max": 3
+      }
+    },
+    {
+      "name": "1280 interrupted snapping settles for at least 30 seconds",
+      "passed": true,
+      "evidence": {
+        "elapsed": 30516,
+        "first": {
+          "mode": "demand",
+          "running": false,
+          "frame": 330,
+          "time": 31245.5,
+          "velocity": 0,
+          "snap": false,
+          "loading": false,
+          "renderFrame": 3020,
+          "transmissionVisible": true,
+          "trackingGlass": false,
+          "rawDelta": 0.08270000000298024,
+          "delta": 0.08270000000298024,
+          "cpuMs": 1.3999999910593033
+        },
+        "last": {
+          "mode": "demand",
+          "running": false,
+          "frame": 330,
+          "time": 31245.5,
+          "velocity": 0,
+          "snap": false,
+          "loading": false,
+          "renderFrame": 3020,
+          "transmissionVisible": true,
+          "trackingGlass": false,
+          "rawDelta": 0.08270000000298024,
+          "delta": 0.08270000000298024,
+          "cpuMs": 1.3999999910593033
+        },
+        "snap": false
+      }
+    },
+    {
+      "name": "1280 first wheel wakes scene",
+      "passed": true
+    },
+    {
+      "name": "1280 pause stays semantic",
+      "passed": true
+    },
+    {
+      "name": "1280 homepage cleanup into integrated navigation",
+      "passed": true
+    },
+    {
+      "name": "1280 homepage return keeps F03 replay gate",
+      "passed": true
+    },
+    {
+      "name": "390 both copy handoffs remain singular during real forward/reverse navigation",
+      "passed": true,
+      "evidence": {
+        "samples": 56,
+        "min": 1,
+        "max": 3
+      }
+    },
+    {
+      "name": "390 interrupted snapping settles for at least 30 seconds",
+      "passed": true,
+      "evidence": {
+        "elapsed": 30508,
+        "first": {
+          "mode": "demand",
+          "running": false,
+          "frame": 400,
+          "time": 19665.09999999404,
+          "velocity": 0,
+          "snap": false,
+          "loading": false,
+          "renderFrame": 3650,
+          "transmissionVisible": true,
+          "trackingGlass": false,
+          "rawDelta": 0.032599999994039536,
+          "delta": 0.032599999994039536,
+          "cpuMs": 1.5999999940395355
+        },
+        "last": {
+          "mode": "demand",
+          "running": false,
+          "frame": 400,
+          "time": 19665.09999999404,
+          "velocity": 0,
+          "snap": false,
+          "loading": false,
+          "renderFrame": 3650,
+          "transmissionVisible": true,
+          "trackingGlass": false,
+          "rawDelta": 0.032599999994039536,
+          "delta": 0.032599999994039536,
+          "cpuMs": 1.5999999940395355
+        },
+        "snap": false
+      }
+    },
+    {
+      "name": "390 first wheel wakes scene",
+      "passed": true
+    },
+    {
+      "name": "390 pause stays semantic",
+      "passed": true
+    },
+    {
+      "name": "390 homepage cleanup into integrated navigation",
+      "passed": true
+    },
+    {
+      "name": "390 homepage return keeps F03 replay gate",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "requests": [
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "liked-ids"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "browse",
+      "view": "daily",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "heart",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "fm",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "podcasts",
+      "page": 0,
+      "category": "knowledge"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "liked-ids"
+    },
+    {
+      "action": "browse",
+      "view": "podcasts",
+      "page": 0,
+      "category": "knowledge"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "liked-ids"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "browse",
+      "view": "daily",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "heart",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "fm",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "podcasts",
+      "page": 0,
+      "category": "knowledge"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "liked-ids"
+    },
+    {
+      "action": "browse",
+      "view": "podcasts",
+      "page": 0,
+      "category": "knowledge"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "liked-ids"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "browse",
+      "view": "daily",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "heart",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "fm",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "home",
+      "page": 0,
+      "category": "all"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "browse",
+      "view": "podcasts",
+      "page": 0,
+      "category": "knowledge"
+    },
+    {
+      "action": "jobs"
+    },
+    {
+      "action": "liked-ids"
+    },
+    {
+      "action": "browse",
+      "view": "podcasts",
+      "page": 0,
+      "category": "knowledge"
+    }
+  ],
+  "sampleTrace": "browser-copy-trace.jsonl",
+  "samplesCount": 112,
+  "rawLocalSha256": "32f8f0acb14872ae40c6b0569c875fb054320cdddd37359ad904bdd8e8158045",
+  "traceBoundary": "Selected copy/scroll/frame evidence retained as JSONL; complete shader/geometry diagnostics remain in the ignored local raw result. No original result was deleted."
+}

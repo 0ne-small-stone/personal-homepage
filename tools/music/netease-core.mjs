@@ -16,7 +16,7 @@ export function createNetEaseCore({account,downloads}) {
   const discoverPodcasts=createPodcastDiscovery({request:call,identity:()=>String(account.state().account?.id||''),asCard:row=>card(row,'dj')});
   async function details(ids){if(!ids.length)return[];const data=await call('song_detail',{ids:ids.map(musicId).slice(0,500).join(',')});const byId=new Map(songs(data.songs).map(track=>[track.id,track]));return ids.map(String).map(id=>byId.get(id)).filter(Boolean);}
   async function playlistDetail(id,offset=0){const data=await call('playlist_detail',{id:musicId(id)});const info=data.playlist;if(!info)throw Error('歌单暂时不可用。');const ids=(info.trackIds||[]).map(row=>String(row.id));const tracks=await details(ids.slice(offset,offset+100));return{title:text(info.name),subtitle:text(info.creator?.nickname),description:text(info.description),coverUrl:cover(info.coverImgUrl),kind:'playlist',id:String(info.id),ownerId:String(info.creator?.userId||''),subscribed:Boolean(info.subscribed),tracks,total:ids.length,more:offset+100<ids.length};}
-  async function library(view,offset,category,refresh=false){
+  async function library(view,offset,category,refresh=false,shownIds=[]){
     const uid=account.state().account?.id;
     if(personalViews.has(view)&&!account.state().authorized){const error=Error('登录后查看你的音乐库。');error.auth=true;throw error;}
     if(view==='home'){
@@ -28,7 +28,7 @@ export function createNetEaseCore({account,downloads}) {
     if(view==='charts'){const data=await call('toplist');return{cards:cards(data.list)};}
     if(view==='new-albums'){const data=await call('album_new',{limit:24,offset,area:'ALL'});return{cards:cards(data.albums,'album'),more:offset+24<Number(data.total||0)};}
     if(view==='radio'){const data=await call('dj_recommend');return{cards:cards(data.djRadios,'dj')};}
-    if(view==='podcasts')return discoverPodcasts(category,offset,refresh);
+    if(view==='podcasts')return discoverPodcasts(category,offset,refresh,shownIds);
     if(view==='daily'){const data=await call('recommend_songs',{},true);return{tracks:songs(data.data?.dailySongs),title:'每日推荐'};}
     if(view==='fm'){const data=await call('personal_fm_mode',{mode:'EXPLORE',limit:30},true);return{tracks:songs(data.data),title:'私人漫游',more:true};}
     if(view==='heart'){const playlists=await call('user_playlist',{uid,limit:100},true);const liked=playlists.playlist?.find(item=>String(item.creator?.userId)===uid);if(!liked)throw Error('先收藏几首歌曲，再开启心动模式。');const seed=await playlistDetail(String(liked.id));if(!seed.tracks.length)throw Error('先收藏几首歌曲，再开启心动模式。');const data=await call('playmode_intelligence_list',{id:seed.tracks[offset%seed.tracks.length].id,pid:liked.id,count:1},true);return{tracks:await details((data.data||[]).map(row=>String(row.id))),title:'心动模式',more:true};}
@@ -43,7 +43,11 @@ export function createNetEaseCore({account,downloads}) {
   }
   async function handle(input){
     const offset=page(input.page)*(['liked','cloud'].includes(input.view)?100:['playlists','albums','artists','podcast-subscriptions'].includes(input.view)?30:24);
-    if(input.action==='browse')return library(input.view,offset,input.category,input.refresh===true);
+    if(input.action==='browse'){
+      const shownIds=input.view==='podcasts'&&input.refresh===true?input.shownIds??[]:[];
+      if(!Array.isArray(shownIds)||shownIds.length>12)throw Error('当前播客批次无效。');
+      return library(input.view,offset,input.category,input.refresh===true,shownIds.map(musicId));
+    }
     if(input.action==='search'){
       if(typeof input.keyword!=='string'||!input.keyword.trim()||input.keyword.length>200)throw Error('请输入歌曲、歌手或专辑。');
       const types={song:1,album:10,artist:100,playlist:1000,dj:1009};if(!types[input.kind])throw Error('搜索类型无效。');

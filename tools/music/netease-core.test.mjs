@@ -59,6 +59,37 @@ test('personal podcast subscriptions retain authentication and their independent
   const account={state:()=>({authorized:true,account:{id:'9'}}),request:async(method,args,personal)=>{assert.equal(method,'dj_sublist');assert.deepEqual(args,{limit:30,offset:30});assert.equal(personal,true);return{djRadios:[{id:4,name:'Subscribed'}],hasMore:true};}};
   const data=await createNetEaseCore({account}).handle({action:'browse',view:'podcast-subscriptions',page:1});assert.equal(data.cards[0].id,'4');assert.equal(data.more,true);
 });
+
+test('unchanged upstream podcasts rotate unseen recommendations, keep pages unique and isolate category and account batches',async()=>{
+  let calls=0;let owner='one';const radio=(id,type)=>({id:type*1000+id,name:'Podcast '+id,categoryId:type,programCount:5});
+  const discover=createPodcastDiscovery({identity:()=>owner,asCard:row=>card(row,'dj'),request:async(method,args)=>{calls++;const type=args.type||args.cateId;return{djRadios:Array.from({length:method==='dj_recommend_type'?12:90},(_,i)=>radio(i+1,type))};}});
+  const initial=await discover('knowledge');const humanity=await discover('humanities');const previouslyVisible=new Set([...initial.cards,...initial.popular].map(item=>item.id));
+  const [next,concurrent]=await Promise.all([discover('knowledge',0,true),discover('knowledge',0,true)]);
+  assert.equal(calls,6);assert.equal(next.batchChanged,true);assert.equal(next.cards.length,12);assert.ok(next.cards.every(item=>!previouslyVisible.has(item.id)));assert.deepEqual(next.cards,concurrent.cards);
+  const pageTwo=await discover('knowledge',24);const all=[...next.cards,...next.popular,...pageTwo.popular];assert.equal(new Set(all.map(item=>item.id)).size,all.length);assert.deepEqual((await discover('knowledge')).cards,next.cards);assert.equal(calls,6);
+  const third=await discover('knowledge',0,true);assert.ok(third.cards.every(item=>!previouslyVisible.has(item.id)&&!next.cards.some(previous=>previous.id===item.id)));assert.deepEqual((await discover('humanities')).cards,humanity.cards);
+  owner='two';assert.deepEqual((await discover('knowledge')).cards,initial.cards);
+});
+
+test('small podcast pools report no new batch instead of shuffling the same cards, and exhausted pools cycle without repeating the previous set',async()=>{
+  for(const count of [0,5,12,20]){
+    const discover=createPodcastDiscovery({identity:()=>'',asCard:row=>card(row,'dj'),request:async()=>({djRadios:Array.from({length:count},(_,i)=>({id:i+1,name:'Podcast '+i,categoryId:11,programCount:5}))})});
+    const initial=await discover('knowledge');const next=await discover('knowledge',0,true);
+    if(count<=12){assert.equal(next.batchChanged,false);assert.deepEqual(next.cards,initial.cards);}else{assert.equal(next.batchChanged,true);assert.ok(next.cards.some(item=>!initial.cards.some(previous=>previous.id===item.id)));const third=await discover('knowledge',0,true);assert.equal(third.batchChanged,true);assert.ok(third.cards.some(item=>!next.cards.some(previous=>previous.id===item.id)));}
+  }
+});
+
+test('failed podcast batch changes retain selection history and recovery still chooses other podcasts',async()=>{
+  let offline=false;const discover=createPodcastDiscovery({identity:()=>'',asCard:row=>card(row,'dj'),request:async()=>{if(offline)throw Error('offline');return{djRadios:Array.from({length:50},(_,i)=>({id:i+1,name:'Podcast '+i,categoryId:11,programCount:5}))};}});
+  const initial=await discover('knowledge');offline=true;await assert.rejects(discover('knowledge',0,true),/推荐暂时不可用/);offline=false;const next=await discover('knowledge',0,true);assert.equal(next.batchChanged,true);assert.ok(next.cards.every(item=>!initial.cards.some(previous=>previous.id===item.id)));
+});
+
+test('podcast batch changes avoid the visible cards even after a backend restart and bound the supplied IDs',async()=>{
+  const account={state:()=>({authorized:false}),request:async(_method,args)=>{assert.equal(Object.hasOwn(args,'shownIds'),false);return{djRadios:Array.from({length:30},(_,i)=>({id:i+1,name:'Podcast '+i,categoryId:11,programCount:5}))};}};
+  const input={action:'browse',view:'podcasts',category:'knowledge'};const first=await createNetEaseCore({account}).handle(input);const restarted=createNetEaseCore({account});
+  const next=await restarted.handle({...input,refresh:true,shownIds:first.cards.map(item=>item.id)});assert.equal(next.batchChanged,true);assert.ok(next.cards.some(item=>!first.cards.some(previous=>previous.id===item.id)));
+  await assert.rejects(restarted.handle({...input,refresh:true,shownIds:'1,2'}),/批次无效/);await assert.rejects(restarted.handle({...input,refresh:true,shownIds:Array(13).fill('1')}),/批次无效/);await assert.rejects(restarted.handle({...input,refresh:true,shownIds:['invalid']}),/编号无效/);
+});
 test('cloud deletion requires explicit confirmation and bounded IDs, with no raw SDK response',async()=>{const {core,calls}=fixture();await assert.rejects(core.handle({action:'cloud-delete',id:'123'}),/确认/);await assert.rejects(core.handle({action:'like',id:'123;DROP',enabled:true}));assert.deepEqual(await core.handle({action:'cloud-delete',id:'123',confirmed:true}),{ok:true});assert.equal(calls[0].method,'user_cloud_del');});
 test('downloads use only authorized official song resolution and reject unknown quality',async()=>{const {core}=fixture();assert.deepEqual(await core.handle({action:'download',id:'123',quality:'lossless'}),{title:'Song 123',quality:'lossless'});await assert.rejects(core.handle({action:'download',id:'123',quality:'custom'}));});
 

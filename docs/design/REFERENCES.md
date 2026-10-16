@@ -1,9 +1,10 @@
 # 个人主页设计复用与素材来源
 
+2026-10-16 Elsewhere沿用户选择的[TOOOLS.design](https://www.toools.design/)布局组织，11个站点图标为本地原创内容SVG，不冒充官方品牌；P13三张间隙WebP按已选原创图样压缩派生，未复制第三方封面/字体/原生应用源码。实际整合与来源边界见[本轮记录](../technical/acceptance/progress-2026-10-16.md)，具体视觉结果不以构建通过代替用户审美。
+
 2026-10-15 P13核心曲库参考[MeloX](https://github.com/youshen2/MeloX)桌面组织与[MeiloX](https://github.com/NEORUAA/MeiloX)手机组织。仅参照界面关系，以本站React/CSS实现，未复制Swift/Android代码、SF字体、封面或原站截图；原黑胶组件和许可继续保留。原项目GPL及其他资产许可各自成立，不能据界面参考推断音乐/图片授权。菜单使用浏览器原生Popover，参数与采用边界见[集成记录](iterations/u12-p13-2026-10-15-main-integration.md)。
 
 2026-10-14 P10正式采用：React Bits Dome Gallery固定496968c4117e21278f13917201b7d615bc5e7450、PhotoSwipe5.4.4、Three0.186.1和Infinite Canvas参考承接已验收原型，完整许可与出处在[公开来源登记](../../public/gallery/attribution.txt)。用户授权发布36张WebP派生，原JPEG不公开；组件作为本站应用使用，不发布独立组件库，见[接入记录](../technical/iterations/t12-p10-2026-10-14-pages.md)。
-
 
 ## F03 时序参考与复用（2026-10-14）
 
@@ -71,7 +72,6 @@ Guillaume Azadian About 文本可读但浏览器持续加载，排除视觉主�
 
 2026-10-13 P13悬窗参考：P13-MINI-REF-02 Apple Music大封面已由用户选择，并完成本站组件适配；Spotify/Sleeve/Cider保留调研记录。只借布局/交互，未复制宣传图或引入播放器框架，现有真实封面与原生音频保持。来源及实际证据见[本片](iterations/u12-p13-2026-10-13-floating-player-research.md)。
 
-
 文档对应（2026-10-07 整理）：本文件为设计侧 `REFERENCES.md`，对应[技术调研与候选方案](../technical/REFERENCES.md)。本文维护体验参考、素材许可与改造范围，技术侧维护依赖能力和运行条件；职责与任务映射见[文档对应表](../README.md)。
 
 更新日期：2026-10-07。本文为[整体页面与交互设计](SPEC.md)提供可追溯的设计参考、组件候选和素材来源。未列实际采用及验证记录的代码、素材仍为候选，不能视为已接入项目或正式页面。
@@ -129,7 +129,6 @@ T09.03 的阅读资源见[本轮清单](#t0903-文章阅读资源清单)；下�
 复用取舍：本机 Starlight 0.42.5 的 `dist/user-components/Tabs.astro` 提供面板切换和可选 localStorage 同步，并未提供同一列表按类型及 URL 参数筛选。若把“全部”和三个类型分别作为面板会复制条目。因此保留同一批静态列表，以原生单选和 [Astro 客户端脚本／自定义元素](https://docs.astro.build/en/guides/client-side-scripts/#web-components-with-custom-elements)补最小筛选与历史恢复逻辑；组件连接时注册事件、移除时释放。本轮不接入 React、额外 UI 库或新路由方案。Starlight 和 Astro 的版本及许可见[技术采用记录](../technical/REFERENCES.md#t01-工程采用记录2026-10-07)。
 
 采用状态：上述五项已在 T07.01 实际使用；本地生产构建与浏览器验证通过，截图和限制见[U09 局部记录](iterations/u09-p03-t07-01-2026-10-07-01.md)。用户体验待反馈。
-
 
 ## ALCHE 首页标杆与采用边界
 
@@ -765,7 +764,6 @@ Moosync本次官网未定位完整界面，仓库Screenshots仍TODO，未作为�
 > 历史研究与需求证据；当前首页运行范围以56玻璃/柔晕及F02为准，不据此恢复光谱或流体。
 
 `p01-entry-seam-51`：用户本对话上传的本站入射交界裁图，原像素复制到[51用户原图](iterations/evidence/u03-p01-2026-10-12-51/user-entry-seam.png)，用于需求定位与前后验收；未调色/重画，不作为页面展示素材。用户否定接缝自然性，覆盖此前50执行者/设计允许保留，不记为用户已确认。设计任务[51](iterations/u03-p01-2026-10-12-51.md)。
-
 
 ## Becoming 总览选定参考（2026-10-14）
 

@@ -4,6 +4,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { introGap, workCount, motionRange, MotionLerper, type MotionChannel } from './works-motion';
 import type { JourneyModel } from './scene-state';
 import { wallReadingReady } from './wall-assembly';
+import { workCopyState } from './copy-state';
+import { hasActiveSnap } from './frame-activity';
 
 export function installWorksMotion(model: JourneyModel) {
   gsap.registerPlugin(ScrollTrigger);
@@ -13,21 +15,11 @@ export function installWorksMotion(model: JourneyModel) {
   const identityFallback = document.querySelector<HTMLAnchorElement>('.home-chapter-index a[href="#intro"]')!;
   const wallContent=document.querySelector<HTMLElement>('#wall .home-chapter-content')!;
   const controller = new AbortController();
-  const timelines = new Map<number, gsap.core.Timeline>();
   const headings = sections.map(section => section.querySelector<HTMLHeadingElement>('h2')!);
-  const originals = headings.map(heading => heading.textContent!);
-  const characters = headings.map((heading, index) => {
-    heading.setAttribute('aria-label', originals[index]);
-    heading.replaceChildren(...Array.from(originals[index], char => {
-      const span = document.createElement('span'); span.textContent = char; span.setAttribute('aria-hidden', 'true');
-      span.className = 'home-title-char'; return span;
-    }));
-    return [...heading.children];
-  });
   const containers = sections.map(section => section.querySelector<HTMLElement>('.home-chapter-viewport')!);
-  const details = sections.map(section => [...section.querySelectorAll<HTMLElement>('.home-description, .home-cta, .home-chapter-note')]);
   const ctas = sections.map(section => section.querySelector<HTMLAnchorElement>('.home-cta')!);
   const chapterLinks=[...document.querySelectorAll<HTMLAnchorElement>('.home-chapter-index a')];
+  const copyCache: (ReturnType<typeof workCopyState> | undefined)[] = [];
   let lastIdentity=-1,lastIdentityHidden:boolean|undefined,lastChapter='',lastWall:boolean|undefined,lastPortal:boolean|undefined,lastCurrent=-1;
 
   function enableCta(index: number, enabled: boolean) {
@@ -36,62 +28,36 @@ export function installWorksMotion(model: JourneyModel) {
     else ctas[index].setAttribute('aria-hidden', 'true');
   }
 
-  function hide(index: number, immediate = false) {
-    timelines.get(index)?.kill();
-    enableCta(index, false);
-    sections[index].inert = true;
-    sections[index].setAttribute('aria-hidden', 'true');
-    sections[index].dataset.workActive = 'false';
-    if (model.motion.activeItem === index) model.motion.activeItem = -1;
-    if (immediate) {
-      gsap.set(containers[index], { autoAlpha: 0 });
-      gsap.set(characters[index], { y: 10, opacity: 0 });
-      gsap.set(details[index], { opacity: 0 });
-      return;
-    }
-    const tl = gsap.timeline({ onComplete: () => { sections[index].dataset.workVisible = 'false'; } });
-    tl.to(characters[index], { y: -10, opacity: 0, duration: .4, ease: 'power2.in', stagger: .001 }, 0)
-      .to(details[index], { opacity: 0, duration: .3 }, 0)
-      .to(containers[index], { autoAlpha: 0, duration: .5, ease: 'power2.inOut' }, 0);
-    timelines.set(index, tl);
-  }
-
-  function show(index: number, keyboard = false) {
-    if (model.motion.activeItem === index && !keyboard) return;
-    if (model.motion.activeItem >= 0 && model.motion.activeItem !== index) hide(model.motion.activeItem);
-    timelines.get(index)?.kill();
-    enableCta(index, false);
-    const wasHidden = Number(gsap.getProperty(containers[index], 'opacity')) < .001;
-    if (wasHidden) gsap.set(characters[index], { y: 10, opacity: 0 });
-    sections[index].dataset.workVisible = 'true';
-    sections[index].dataset.workActive = 'true';
-    sections[index].inert = false; sections[index].removeAttribute('aria-hidden');
-    model.motion.activeItem = index;
-    gsap.set(containers[index], { visibility: 'visible' });
-    if (keyboard) {
-      gsap.set(containers[index], { opacity: 1 });
-      gsap.set(characters[index], { y: 0, opacity: 1 });
-      gsap.set(details[index], { opacity: 1 });
-      enableCta(index, true); return;
-    }
-    const tl = gsap.timeline();
-    tl.to(containers[index], { opacity: 1, duration: .3, ease: 'power2.out' }, 0)
-      .to(characters[index], { y: 0, opacity: 1, duration: .7, ease: 'power4.out', stagger: .01 }, 0)
-      .to(details[index], { opacity: 1, duration: .5, ease: 'power2.out', onUpdate: () => {
-        // The section/title enter first. Its CTA stays inert throughout the delay;
-        // killing this timeline also cancels any pending gate update on reversal.
-        enableCta(index, model.motion.activeItem === index && !sections[index].inert &&
-          Number(gsap.getProperty(ctas[index], 'opacity')) > 0 &&
-          Number(gsap.getProperty(containers[index], 'opacity')) > 0);
-      } }, .3);
-    timelines.set(index, tl);
+  function syncCopy() {
+    model.motion.activeItem = -1;
+    sections.forEach((section, index) => {
+      const state = workCopyState(model.motion.rendered.index, index,
+        model.motion.raw.prepare > 0 || model.motion.rendered.prepare > .001);
+      const previous = copyCache[index];
+      if (state.visible) model.motion.activeItem = index;
+      if (!previous || previous.opacity !== state.opacity) containers[index].style.opacity = String(state.opacity);
+      if (!previous || previous.y !== state.y) headings[index].style.transform = `translateY(${state.y}px)`;
+      if (!previous || previous.visible !== state.visible) {
+        containers[index].style.visibility = state.visible ? 'visible' : 'hidden';
+        section.dataset.workVisible = String(state.visible);
+      }
+      if (!previous || previous.interactive !== state.interactive) {
+        if (!state.interactive && section.contains(document.activeElement)) chapterLinks[index + 1]?.focus({ preventScroll: true });
+        section.inert = !state.interactive;
+        if (state.interactive) section.removeAttribute('aria-hidden');
+        else section.setAttribute('aria-hidden', 'true');
+        section.dataset.workActive = String(state.interactive);
+        enableCta(index, state.interactive);
+      }
+      copyCache[index] = state;
+    });
   }
 
   const measure = () => {
     model.motion.height = innerHeight;
     body.style.setProperty('--journey-height', `${innerHeight}px`);
   };
-  measure(); sections.forEach((_, index) => hide(index, true));
+  measure();
   const channels: MotionChannel[] = ['kv', 'intro', 'works', 'event', 'snap', 'outro', 'prepare', 'expand', 'wall'];
   const triggers = channels.map(channel => ScrollTrigger.create({
     id: `lssh-${channel}`, start: () => motionRange(channel, model.motion.height)[0],
@@ -100,12 +66,6 @@ export function installWorksMotion(model: JourneyModel) {
     onRefresh: trigger => { model.motion.raw[channel] = trigger.progress; model.invalidate(); },
     ...(channel === 'snap' ? { snap: { snapTo: 1 / (workCount - 1), duration: 1, delay: .1, ease: 'power3', directional: false } } : {}),
   }));
-  sections.forEach((_, index) => triggers.push(ScrollTrigger.create({
-    id: `lssh-item-${index}`, start: () => (1.5 + index) * model.motion.height + introGap,
-    end: () => (2.5 + index) * model.motion.height + introGap,
-    onEnter: () => show(index), onEnterBack: () => show(index),
-    onLeave: () => hide(index), onLeaveBack: () => hide(index),
-  })));
 
   const lenis = new Lenis({ lerp: .1, smoothWheel: true, syncTouch: false, autoRaf: false,
     prevent: node => node.matches('input, textarea, select, [contenteditable], [data-lenis-prevent], .home-guestbook'),
@@ -116,7 +76,6 @@ export function installWorksMotion(model: JourneyModel) {
   const allLerpers = [progress, center, background, title, prepare, expand, wall];
   let pendingFocus: string | undefined;
   let lenisTime=0;
-  let portalMode = false;
   const phaseAt = (s: number) => {
     const h = model.motion.height;
     return s <= introGap ? 'kv' : s < h + introGap ? 'works_intro' : s < (workCount + 1) * h + introGap ? 'works' : s < (workCount + 2.5) * h + introGap ? 'works_outro' : s < motionRange('wall', h)[0] ? 'portal' : 'wall';
@@ -141,9 +100,7 @@ export function installWorksMotion(model: JourneyModel) {
       prepare: model.motion.raw.prepare, expand: model.motion.raw.expand, wall: model.motion.raw.wall };
     model.motion.scrollY = s; model.motion.phase = phaseAt(s); model.motion.snapActive = false;
     model.motion.initialization = { revision: model.motion.initialization.revision + 1, y: s, zoom: s <= introGap ? 1 : 0, reason };
-    sections.forEach((_, index) => hide(index, true));
-    const index = sections.findIndex((_, i) => s >= (1.5 + i) * h + introGap && s < (2.5 + i) * h + introGap);
-    if (index >= 0) show(index, true);
+    syncCopy();
     model.invalidate();
   }
   model.drive = (time, dt) => {
@@ -163,11 +120,10 @@ export function installWorksMotion(model: JourneyModel) {
       background: background.read(model.motion.raw.works) * (workCount + 1), intro: title.read(model.motion.raw.intro),
       prepare: prepare.read(model.motion.raw.prepare), expand: renderedExpand, wall: renderedWall };
     const nextPortalMode = model.motion.raw.prepare > 0;
-    if (nextPortalMode && !portalMode) sections.forEach((_, index) => hide(index, true));
-    portalMode = nextPortalMode;
+    syncCopy();
     // ScrollTrigger uses numeric 0 after completion/interruption, not only undefined.
     const snapTween = triggers[4].getTween(true);
-    model.motion.snapActive = Boolean(snapTween && snapTween.isActive());
+    model.motion.snapActive = hasActiveSnap(snapTween);
     // Legacy progress fades the intro only; assembly consumes shared rendered state.
     model.progress = s < h + introGap ? model.motion.raw.intro : 1;
     const identityProgress = Math.max(0, Math.min(1, s / introGap));
@@ -221,7 +177,7 @@ export function installWorksMotion(model: JourneyModel) {
   };
   function abortSnap() {
     const tween = triggers[4].getTween(true);
-    if (tween) tween.kill();
+    if (tween) tween.pause().kill();
   }
   window.addEventListener('wheel', abortSnap, { passive: true, signal: controller.signal });
   window.addEventListener('touchstart', abortSnap, { passive: true, signal: controller.signal });
@@ -244,8 +200,7 @@ export function installWorksMotion(model: JourneyModel) {
     const section = event.target instanceof Element ? event.target.closest<HTMLElement>('[data-work-item]') : null;
     if (!section) return; const index = sections.indexOf(section);
     if (index >= 0 && model.motion.activeItem !== index) {
-      abortSnap(); lenis.scrollTo(section.offsetTop, { immediate: true, force: true }); show(index, true);
-      model.invalidate();
+      initialize(section.offsetTop, 'keyboard');
     }
   }, { signal: controller.signal });
   document.addEventListener('lssh:home-restore', event => {
@@ -263,12 +218,11 @@ export function installWorksMotion(model: JourneyModel) {
     delete (window as Window & { __lsshHomeMotion?: unknown }).__lsshHomeMotion;
     body.classList.remove('home-portal-cover', 'home-on-wall','home-wall-ready');
     wallContent.inert=false;wallContent.removeAttribute('aria-hidden');
-    timelines.forEach(timeline => timeline.kill());
     sections.forEach((section, index) => {
       section.inert = false; section.removeAttribute('aria-hidden'); delete section.dataset.workActive; delete section.dataset.workVisible;
       enableCta(index, true);
-      gsap.set(containers[index], { clearProps: 'all' }); gsap.set(details[index], { clearProps: 'all' });
-      headings[index].textContent = originals[index]; headings[index].removeAttribute('aria-label');
+      containers[index].style.removeProperty('opacity'); containers[index].style.removeProperty('visibility');
+      headings[index].style.removeProperty('transform');
     });
     hero.inert = false; hero.removeAttribute('aria-hidden');
     hero.style.removeProperty('opacity'); hero.style.removeProperty('visibility');

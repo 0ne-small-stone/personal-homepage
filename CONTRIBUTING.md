@@ -6,7 +6,7 @@
 
 1. 从最新 main 建立短期分支，一次解决一个清楚的问题。
 2. 优先复用框架或插件；调整需求时先更新对应规格，完成后在 PLAN 记录实际证据。
-3. 执行下面的仓库检查。网站工程建立后，按改动追加类型检查、生产构建或实际交互验证。
+3. 执行下面的仓库检查。按改动运行类型检查、生产构建或实际交互验证；导航状态测试读取dist，安排在构建之后。
 4. 使用 PR 模板写明改动、关联编号、验证和限制；必需检查通过后 Squash 合并。
 
 ```powershell
@@ -21,7 +21,11 @@ npm --prefix tools/ci test
 npm ci --no-audit --no-fund
 npm run check
 npm run build
+npm run test:home
+npm run test:links
 node tools/ci/dist.mjs
 ```
 
 本地开发用 `npm run dev`，生产预览用 `npm run preview`；地址带 `/personal-homepage/` 前缀。开发模式下 Pagefind 提示未构建属于原生行为，搜索验收使用生产构建后的预览。不要提交本地原始学习资料、凭证、生成目录或私密草稿。素材采用前查明来源与许可。
+
+2026-10-16公开学习附件按固定Release清单准备；build首次需下载约508MiB的36份授权PDF并核对SHA256，预留产物/缓存空间。原始资料不纳入Git；网站静态产物预算仍900MiB。目录、公开与未完成候选状态见根README和最新验收记录。
