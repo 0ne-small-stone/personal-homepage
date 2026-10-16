@@ -29,3 +29,10 @@
 ### P05 36份PDF公开范围已明确授权（2026-10-16）
 
 用户针对具体文件、公开GitHub Release目的地与全体访客阅读/下载范围回复“ok 允许”。现授权清单中全部36份PDF公开上传并通过既有PR/Pages流程上线，不含两个TXT或其他本机数据。原先自动审批拒绝为授权前历史；继续原候选，不更换公开范围、不重复询问。发布成功仍以资产校验、三项PR检查、Pages任务及正式阅读入口为准。
+
+
+## 获准后的上传与整合
+
+36份PDF已全部上传并由GitHub返回匹配的大小/SHA256，固定资产版本learning-materials-2026-10-16已公开，release ID 414907203。详见[完整资产读回](evidence/t08-p05-2026-10-16-materials-online/approved/release-assets.json)。已整合正式main 586345e，保留其音乐等栏目更新；本片未改PDFReader、ReadingMode、续读运行源或首页/音乐实现。
+
+初次新建集成验证副本遇本机ENOSPC，已仅清理已结束的旧发布快照与被materials路径替代的local-materials生成副本，先移除node_modules junction，保留原件和4416预览。继续对干净快照校验，失败不计为成功。正式上线仍须三项必需检查、main Pages任务及公网读回；完成结果记录于本次PR描述与交付证据。

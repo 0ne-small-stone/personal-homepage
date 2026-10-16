@@ -1,4 +1,4 @@
-# 学习资料线上接入候选
+# 学习资料线上接入与明确公开范围
 
 2026-10-16 · P03/P05 / R02、R09、R12 / U09、U14 / T06、T08、T16、T26–T27。
 
@@ -15,7 +15,7 @@
 ## 具体文件与目的地
 
 - 本地来源：项目的“大二上学习资源”目录，36份PDF，共532,587,967字节（507.92 MiB）；两个TXT不会作为附件上传。
-- 拟用公开目的地：本仓库[附件版本](https://github.com/0ne-small-stone/personal-homepage/releases/tag/learning-materials-2026-10-16)；尚未创建，不是当前可下载地址。网站正式目录为https://0ne-small-stone.github.io/personal-homepage/materials/。
+- 拟用公开目的地：本仓库[附件版本](https://github.com/0ne-small-stone/personal-homepage/releases/tag/learning-materials-2026-10-16)；36个附件已按用户明确授权公开，大小及服务端SHA256全部匹配。网站正式目录为https://0ne-small-stone.github.io/personal-homepage/materials/。
 - 资产仅存单独的Release；构建从固定URL拉取，逐份核对字节数/SHA256后进入public/materials，PDF.js使用本站同源路径。失败、缺失、损坏或清单外PDF均阻止发布，不回退成空附件页。
 - 代码仓库单文件50MiB、静态产物900MiB预算保持；未把公开上传等同于第三方资料获得新许可。原作者与原来源记录继续保留。
 
@@ -68,3 +68,8 @@
 - 通过现有PR三项必需检查后合并main，再观察Pages部署。公网至少验证用户当前物理实验23页文件和一份超过50MiB的大文件的加载/范围请求；明确区分本机完成与已上线。
 
 实际本机结果及后续授权/发布状态在[T08本片记录](iterations/t08-p05-2026-10-16-materials-online.md)登记。
+
+
+## 授权后的附件结果
+
+固定附件版本已公开，共36个PDF、532,587,967字节，服务端SHA256与已获准清单逐项一致。原始文件和两个TXT保持；网站同源阅读由本次PR构建并发布。资产读回见[公开附件验证](iterations/evidence/t08-p05-2026-10-16-materials-online/approved/release-assets.json)。正式网站结果以PR与Pages任务为准。
