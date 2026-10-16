@@ -1,0 +1,110 @@
+
+> personal-homepage@0<workspace>1<workspace>0 prebuild
+> npm run materials:fetch
+
+
+> personal-homepage@0<workspace>1<workspace>0 materials:fetch
+> node tools/content/prepare-public-materials<workspace>mjs
+
+{"verifiedMaterials":36,"bytes":532587967,"cached":36,"staged":0,"downloaded":0}
+
+> personal-homepage@0<workspace>1<workspace>0 build
+> astro build
+
+19:22:09 [WARN] [starlight-blog] It looks like you already have a `MarkdownContent` component override in your Starlight configuration<workspace>
+19:22:09 [WARN] [starlight-blog] To use `starlight-blog`, either remove your override or update it to render the content from `starlight-blog/components/MarkdownContent<workspace>astro`<workspace>
+19:22:09 [vite] Re-optimizing dependencies because vite config has changed
+19:22:11 [content] Syncing content
+19:22:11 [content] Astro config changed
+19:22:11 [content] Content config changed
+19:22:11 [content] Clearing content store
+19:22:12 [content] Synced content
+19:22:12 [types] Generated 2<workspace>58s
+19:22:12 [build] output: "static"
+19:22:12 [build] mode: "static"
+19:22:12 [build] directory: <workspace>\<workspace>ci-tmp\learning-materials-preview-2026-10-16\dist\
+19:22:12 [build] Collecting build info<workspace><workspace><workspace>
+19:22:12 [build] ✓ Completed in 2<workspace>93s<workspace>
+19:22:12 [build] Building static entrypoints<workspace><workspace><workspace>
+19:22:13 [vite] ✓ built in 1<workspace>06s
+19:22:15 [WARN] [vite] [plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification<workspace> Consider:
+- Using dynamic import() to code-split the application
+- Use build<workspace>rolldownOptions<workspace>output<workspace>codeSplitting to improve chunking: https://rolldown<workspace>rs/reference/OutputOptions<workspace>codeSplitting
+- Adjust chunk size limit for this warning via build<workspace>chunkSizeWarningLimit<workspace>
+19:22:15 [vite] ✓ built in 2<workspace>38s
+19:22:15 [build] Rearranging server assets<workspace><workspace><workspace>
+
+ generating static routes 
+19:22:15 [WARN] [build] Could not render `/404` from route `/[<workspace><workspace><workspace>slug]` as it conflicts with higher priority route `/404`<workspace>
+19:22:15   ├─ /404<workspace>html (+86ms) 
+19:22:15   ├─ /about/index<workspace>html (+15ms) 
+19:22:15   ├─ /gallery/index<workspace>html (+6ms) 
+19:22:15   ├─ /guestbook/index<workspace>html (+8ms) 
+19:22:15   ├─ /knowledge/index<workspace>html (+33ms) 
+19:22:16   ├─ /links/index<workspace>html (+7ms) 
+19:22:16   ├─ /music/catalog<workspace>json (+653ms) 
+19:22:16   ├─ /music/index<workspace>html (+28ms) 
+19:22:16   ├─ /showcase/index<workspace>html (+9ms) 
+19:22:16   ├─ /zh/about/index<workspace>html (+8ms) 
+19:22:16   ├─ /knowledge/blog/tags/功能验证/index<workspace>html (+19ms) 
+19:22:16   ├─ /knowledge/blog/tags/阅读与整理/index<workspace>html (+9ms) 
+19:22:16   ├─ /knowledge/blog/index<workspace>html (+9ms) 
+19:22:16   ├─ /index<workspace>html (+12ms) 
+19:22:16   ├─ /knowledge/blog/article-reading-check/index<workspace>html (+9ms) 
+19:22:16   ├─ /knowledge/notes/ads/ads-algorithms-notes/index<workspace>html (+137ms) 
+19:22:16   ├─ /knowledge/notes/ads/ads-noughtq-notebook/index<workspace>html (+8ms) 
+19:22:16   ├─ /knowledge/notes/computer-systems/computer-organization-lihuamao-chapter5/index<workspace>html (+8ms) 
+19:22:16   ├─ /knowledge/notes/computer-systems/computer-system-review/index<workspace>html (+21ms) 
+19:22:16   ├─ /knowledge/notes/computer-systems/computer-system-zhang-each-notebook/index<workspace>html (+8ms) 
+19:22:16   ├─ /knowledge/resources/ads/ads-2024-handout/index<workspace>html (+33ms) 
+19:22:16   ├─ /knowledge/resources/computer-systems/computer-organization-risc-v-fifth-edition/index<workspace>html (+400ms) 
+19:22:17   ├─ /knowledge/resources/physics-lab/physics-lab-recalled-exams/index<workspace>html (+20ms) 
+19:22:17   ├─ /knowledge/resources/physics-lab/physics-lab-review/index<workspace>html (+18ms) 
+19:22:17   ├─ /knowledge/resources/physics/engineering-physics-third-edition/index<workspace>html (+436ms) 
+19:22:17   ├─ /knowledge/resources/physics/physics-chapter-10/index<workspace>html (+15ms) 
+19:22:17   ├─ /knowledge/resources/physics/physics-chapter-11/index<workspace>html (+12ms) 
+19:22:17   ├─ /knowledge/resources/physics/physics-chapter-12/index<workspace>html (+15ms) 
+19:22:17   ├─ /knowledge/resources/physics/physics-chapter-13/index<workspace>html (+14ms) 
+19:22:17   ├─ /knowledge/resources/physics/physics-chapter-14/index<workspace>html (+15ms) 
+19:22:17   ├─ /knowledge/resources/physics/physics-chapter-15/index<workspace>html (+13ms) 
+19:22:17   ├─ /knowledge/resources/physics/physics-chapter-16/index<workspace>html (+14ms) 
+19:22:17   ├─ /knowledge/resources/physics/physics-chapter-17/index<workspace>html (+14ms) 
+19:22:17   ├─ /knowledge/resources/physics/physics-chapter-18/index<workspace>html (+11ms) 
+19:22:17   ├─ /knowledge/resources/physics/physics-chapter-19/index<workspace>html (+13ms) 
+19:22:17   ├─ /knowledge/resources/physics/physics-chapter-20/index<workspace>html (+12ms) 
+19:22:18   ├─ /knowledge/resources/physics/physics-chapter-21/index<workspace>html (+14ms) 
+19:22:18   ├─ /knowledge/resources/physics/physics-chapter-22/index<workspace>html (+12ms) 
+19:22:18   ├─ /knowledge/resources/physics/physics-chapter-23/index<workspace>html (+14ms) 
+19:22:18   ├─ /knowledge/resources/physics/physics-chapter-9/index<workspace>html (+12ms) 
+19:22:18   ├─ /knowledge/resources/physics/physics-electrostatics-alt/index<workspace>html (+14ms) 
+19:22:18   ├─ /knowledge/resources/pre-qin-philosophy/pre-qin-philosophers-reader/index<workspace>html (+112ms) 
+19:22:18   ├─ /knowledge/resources/probability/probability-forliage/index<workspace>html (+17ms) 
+19:22:18   ├─ /knowledge/resources/probability/probability-lecture-0/index<workspace>html (+15ms) 
+19:22:18   ├─ /knowledge/resources/probability/probability-lecture-1/index<workspace>html (+14ms) 
+19:22:18   ├─ /knowledge/resources/probability/probability-lecture-2/index<workspace>html (+14ms) 
+19:22:18   ├─ /knowledge/resources/probability/probability-lecture-3/index<workspace>html (+12ms) 
+19:22:18   ├─ /knowledge/resources/probability/probability-lecture-4/index<workspace>html (+14ms) 
+19:22:18   ├─ /knowledge/resources/probability/probability-lecture-5/index<workspace>html (+16ms) 
+19:22:18   ├─ /knowledge/resources/probability/probability-lecture-6/index<workspace>html (+13ms) 
+19:22:18   ├─ /knowledge/resources/probability/probability-lecture-7/index<workspace>html (+15ms) 
+19:22:18   ├─ /knowledge/resources/probability/probability-lecture-8/index<workspace>html (+29ms) 
+19:22:18   ├─ /knowledge/resources/probability/probability-lecture-9/index<workspace>html (+14ms) 
+19:22:18   ├─ /knowledge/resources/probability/probability-tutorial-v1/index<workspace>html (+14ms) 
+19:22:18   ├─ /knowledge/resources/reading-guide/index<workspace>html (+9ms) 
+19:22:18 ✓ Completed in 2<workspace>69s<workspace>
+
+ generating optimized images 
+19:22:18   ▶ /_astro/echoes-placeholder<workspace>CF27I39E_Z1yWTlh<workspace>webp (reused cache entry) (+5ms) (1/4)
+19:22:18   ▶ /_astro/the-wall-placeholder<workspace>DaiTKZr6_ZIlk3C<workspace>webp (reused cache entry) (+5ms) (2/4)
+19:22:18   ▶ /_astro/wish-neighbor-placeholder<workspace>C3OY0qeQ_Z1reaH4<workspace>webp (reused cache entry) (+5ms) (3/4)
+19:22:18   ▶ /_astro/lssh-wordmark<workspace>D_xwlUjr_ygeSe<workspace>webp (reused cache entry) (+6ms) (4/4)
+19:22:18 ✓ Completed in 8ms<workspace>
+
+19:22:18 [build] ✓ Completed in 6<workspace>38s<workspace>
+19:22:18 [starlight:pagefind] Building search index with Pagefind<workspace><workspace><workspace>
+19:22:19 [starlight:pagefind] Found 55 HTML files<workspace>
+19:22:19 [starlight:pagefind] Finished building search index in 0<workspace>91s<workspace>
+19:22:19 [@astrojs/sitemap] `sitemap-index<workspace>xml` created at `dist`
+19:22:19 [build] 54 page(s) built in 10<workspace>25s
+19:22:19 [build] Complete!

@@ -1,0 +1,28 @@
+{
+  "scope": "localhost-only",
+  "preview": "http://127.0.0.1:4416/personal-homepage/knowledge/resources/physics-lab/physics-lab-recalled-exams/",
+  "exams": {
+    "status": "共 23 页 · 可翻页、缩放与搜索",
+    "verifiedPage": 3,
+    "actualPageTop": 38.33333587646485,
+    "afterRefresh": {
+      "page": 3,
+      "actualPageTop": 37.66666793823242
+    }
+  },
+  "largeBook": {
+    "bytes": 216380449,
+    "pages": 494,
+    "status": "共 494 页 · 可翻页、缩放与搜索",
+    "rendered": true,
+    "consoleErrors": [
+      "Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'."
+    ]
+  },
+  "boundaries": [
+    "初次工具跨iframe DOM读取不可用，改用frameLocator读取可见控件。",
+    "原生页码框fill/Enter只改了输入显示，未作翻页通过；改用两次原生下一页并核对实际第3页位置及截图。",
+    "大教材已渲染，但出现一次已知观察器异常，本片未修改阅读运行源、未定位来源，不记作控制台全绿。",
+    "只验证本机，未上传任何PDF、未创建附件Release或线上PR、未部署；手机/全套沉浸未重测。"
+  ]
+}
