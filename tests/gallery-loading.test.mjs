@@ -32,7 +32,9 @@ test('Dome card placement retains the preview source and canonical identity',asy
  const file=ts.createSourceFile('DomeGallery.jsx',source,ts.ScriptTarget.Latest,true,ts.ScriptKind.JSX);
  const node=file.statements.find(node=>ts.isFunctionDeclaration(node)&&node.name?.text==='buildItems');assert(node);
  const build=vm.runInNewContext('('+node.getText(file)+')');
- const photos=Array.from({length:36},(_,i)=>({src:'photo-'+i+'.webp',full:'photo-'+i+'-full.webp',preview:'photo-'+i+'-preview.webp',alt:'Photo '+i}));
- const cards=build(photos,34,true);assert(cards.length>36);assert.equal(new Set(cards.map(card=>card.src)).size,36);
- for(const card of cards){const photo=photos.find(photo=>photo.src===card.src);assert.equal(card.preview,photo.preview);assert.equal(card.full,photo.full);assert.equal(card.alt,photo.alt);}
+ for(const count of [36,101]){
+  const photos=Array.from({length:count},(_,i)=>({src:'photo-'+i+'.webp',full:'photo-'+i+'-full.webp',preview:'photo-'+i+'-preview.webp',alt:'Photo '+i}));
+  const cards=build(photos,34,true);assert.equal(cards.length,build(photos.slice(0,36),34,true).length);assert.equal(new Set(cards.map(card=>card.src)).size,count);
+  for(const card of cards){const photo=photos.find(photo=>photo.src===card.src);assert.equal(card.preview,photo.preview);assert.equal(card.full,photo.full);assert.equal(card.alt,photo.alt);}
+ }
 });

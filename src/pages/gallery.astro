@@ -30,7 +30,7 @@ const galleryPath = sitePath('gallery');
       </div></header>
       <section id="loading" class="loading" aria-live="polite">
         <p id="loading-text">正在展开照片</p>
-        <progress id="load-progress" max="36" value="0" aria-label="图片加载进度"></progress>
+        <progress id="load-progress" max={photos.length} value="0" aria-label="图片加载进度"></progress>
       </section>
       <section id="fallback" hidden><p>当前浏览器无法开启三维空间，可在这里查看照片。</p><div id="fallback-photos"></div></section>
       <footer><div class="caption">
