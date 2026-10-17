@@ -62,7 +62,7 @@ export async function prepareFastPdfs(root, assets, { check = false, profiles = 
         }
         if (indices.size > 512)
             throw Error('First-page PDF mirror budget exceeded');
-        const source = await fs.open(original, 'r'), parts = [];
+        const source = await fs.open(original, 'r'), parts = [], packed = indices.size > 128 ? [] : null;
         try {
             for (const index of [...indices].sort((a, b) => a - b)) {
                 const length = Math.min(chunk, asset.bytes - index * chunk), data = Buffer.alloc(length), read = await source.read(data, 0, length, index * chunk);
@@ -71,6 +71,7 @@ export async function prepareFastPdfs(root, assets, { check = false, profiles = 
                 const sha256 = createHash('sha256').update(data).digest('hex');
                 await put(path.join(out, index + '.bin'), data);
                 parts.push({ index, bytes: length, sha256 });
+                packed?.push(data);
                 files++;
                 bytes += length;
             }
@@ -78,7 +79,15 @@ export async function prepareFastPdfs(root, assets, { check = false, profiles = 
         finally {
             await source.close();
         }
-        const metadata = Buffer.from(JSON.stringify({ schemaVersion: 1, source: asset.file, sha256: asset.sha256, bytes: asset.bytes, chunkSize: chunk, parts }) + '\n');
+        let bundle;
+        if (packed) {
+            const data = Buffer.concat(packed);
+            if (data.length > 32 * 1024 * 1024) throw Error('PDF first-render bundle exceeds memory budget');
+            bundle = { file: 'first-render-v1.bin', bytes: data.length, sha256: createHash('sha256').update(data).digest('hex') };
+            await put(path.join(out, bundle.file), data);
+            files++; bytes += data.length;
+        }
+        const metadata = Buffer.from(JSON.stringify({ schemaVersion: 1, source: asset.file, sha256: asset.sha256, bytes: asset.bytes, chunkSize: chunk, parts, ...(bundle ? { bundle } : {}) }) + '\n');
         await put(path.join(out, 'index.json'), metadata);
         files++;
         bytes += metadata.length;

@@ -17,7 +17,7 @@
         let worker, activeRange, sequence = 0;
         const supportsFast = bytes >= 4 * 1024 * 1024 && /^[a-f0-9]{64}$/.test(sha256 || '') && !!lib?.PDFDataRangeTransport && !!window.crypto?.subtle;
         const lifetime = supportsFast ? new AbortController() : null;
-        const rangeModule = supportsFast ? import('./lssh-range.mjs?v=1').catch(() => null) : Promise.resolve(null);
+        const rangeModule = supportsFast ? import('./lssh-range.mjs?v=2').catch(() => null) : Promise.resolve(null);
         const file = params.get('file');
         let initialOffer;
         function reportFailure(error) {
