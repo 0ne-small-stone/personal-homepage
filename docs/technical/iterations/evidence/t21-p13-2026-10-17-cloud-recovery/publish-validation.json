@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-17",
+  "base": "339674b6ac697550a4caa468f54aa4c9b7804199",
+  "branch": "codex/cloud-playback-recovery-2026-10-17",
+  "applicationChanges": [
+    "tools/music/local-playback.mjs",
+    "tools/music/preview-service.mjs",
+    "tools/music/local-playback.test.mjs",
+    "src/components/music/RadioLibraryExperience.tsx"
+  ],
+  "repository": { "files": 5008, "documents": 332, "validatorTests": 8, "actionlint": "passed" },
+  "typecheck": { "files": 166, "errors": 0, "warnings": 0, "existingGalleryHints": 3 },
+  "musicTests": { "tests": 127, "passed": 127, "failed": 0, "skipped": 0 },
+  "build": { "pages": 54, "searchHtml": 55, "files": 1276, "bytes": 626963254 },
+  "guards": {
+    "publicMusicTracks": 24,
+    "publicMusicAlbums": 9,
+    "publicPdfs": 37,
+    "galleryPreviews": 36,
+    "routes": "passed",
+    "privatePathsInMusicHtml": false,
+    "publicSourceLimitationNoticeRetained": true,
+    "persistedMusicLibraryRetained": true
+  },
+  "scope": "Local playback recovery; no private audio, credentials or other work-in-progress candidates published. Public Koala availability remains external."
+}

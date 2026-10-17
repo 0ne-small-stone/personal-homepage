@@ -11,12 +11,15 @@ import playlist from '../../src/data/music/netease-playlist.json' with {type:'js
 import {createLxDownloads,completedWebFiles,webAudioMiddleware} from './lx-downloads.mjs';
 import {createNetEaseCore,musicId} from './netease-core.mjs';
 import {verifyCloudUpload} from './netease-upload.mjs';
+import {localAudioMiddleware,localAudioUrls} from './local-playback.mjs';
 
 const project=fileURLToPath(new URL('../../',import.meta.url));
 const base='/personal-homepage';
 const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.webp':'image/webp','.png':'image/png','.jpg':'image/jpeg','.woff2':'font/woff2','.txt':'text/plain; charset=utf-8'};
 export function createMusicPreview({root=resolve(project,'.local-tools/music/library-layout-dist'), playback=createPlaybackIndexService(resolve(project,'.local-tools/music/playback-runtime')), account=createPlaybackAccount(), downloads=null}={}) {
   const netease=createNetEaseCore({account,downloads});
+  const localManifest=resolve(project,'.local-tools/music/audio-map.json');
+  const localAudio=localAudioMiddleware({base,manifestFile:localManifest,fallthroughIfMissing:true});
   // Playback addresses are runtime data, outside the directory Astro rebuilds.
   const server=createServer(async(req,res)=>{
     const send=(status,data)=>{res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});res.end(JSON.stringify(data));};
@@ -95,12 +98,14 @@ export function createMusicPreview({root=resolve(project,'.local-tools/music/lib
       if(!['GET','HEAD'].includes(req.method)){send(405,{error:'只支持读取。'});return;}
       if(pathname.startsWith(`${base}/music/local-`)) {
         if((req.headers.origin&&req.headers.origin!==origin)||req.headers['sec-fetch-site']==='cross-site'){send(403,{error:'仅允许电台读取。'});return;}
-        let next=false;await webAudioMiddleware(req,res,()=>{next=true;});if(!next)return;
+        let next=false;await localAudio(req,res,()=>{next=true;});if(!next)return;
+        next=false;await webAudioMiddleware(req,res,()=>{next=true;});if(!next)return;
       }
       if(downloads&&pathname===`${base}/music/catalog.json`) {
         let catalog;try{catalog=JSON.parse(await readFile(resolve(project,'.local-tools/music/cloud-library/catalog.json'),'utf8'));}catch{catalog=JSON.parse(await readFile(resolve(root,'music/catalog.json'),'utf8'));}
         const files=await completedWebFiles();const ids=new Set(catalog.tracks.map(track=>track.id));
-        send(200,{...catalog,tracks:[...catalog.tracks,...files.filter(entry=>!ids.has(entry.id)).map(entry=>entry.track)]});return;
+        const combined={...catalog,tracks:[...catalog.tracks,...files.filter(entry=>!ids.has(entry.id)).map(entry=>entry.track)]};
+        send(200,await localAudioUrls(combined,base,localManifest,{preferLocal:true}));return;
       }
       if(pathname===`${base}/music/netease-playback.json`){
         try{send(200,await playback.get());}catch{send(503,{error:'网易云播放服务暂时不可用，请稍后重试。'});}
