@@ -19,10 +19,12 @@ export function bindImmersivePdfInput(doc: Document, options: {
   };
   const down = (event: KeyboardEvent) => {
     if (options.signal.aborted) return;
-    handled.add(identity(event));
-    if (options.signal.aborted || !options.active() || editing(event)) return;
+    if (!options.active() || editing(event) || event.ctrlKey || event.metaKey || event.altKey) { handled.add(identity(event)); return; }
     const shortcut = immersivePdfShortcut(event);
-    if (!shortcut) return;
+    // An unrecognized IME keydown is not a handled command: its keyup may
+    // supply the first usable F/digit identity.
+    if (!shortcut) { handled.delete(identity(event)); return; }
+    handled.add(identity(event));
     event.preventDefault(); event.stopImmediatePropagation();
     options.run(shortcut);
   };

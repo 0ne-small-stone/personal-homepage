@@ -15,13 +15,13 @@ function fixture(){
  }
  return {send,runs,controller,listeners:()=>getEventListeners(target,'keydown').length+getEventListeners(target,'keyup').length,setActive:value=>{active=value;}};
 }
-test('native keydown + keyup executes each 1–4/F command once',()=>{
+test('native keydown + keyup executes each 1–5/F command once',()=>{
  const f=fixture();
- for(const value of ['1','2','3','4','f']){
+ for(const value of ['1','2','3','4','5','f']){
   const event={key:value,code:value==='f'?'KeyF':`Digit${value}`};
   assert.equal(f.send('keydown',event).defaultPrevented,true);f.send('keyup',event);
  }
- assert.deepEqual(f.runs,[1,2,3,4].map(columns=>({kind:'mode',columns})).concat({kind:'fit'}));
+ assert.deepEqual(f.runs,[1,2,3,4,5].map(columns=>({kind:'mode',columns})).concat({kind:'fit'}));
 });
 test('an IME obscured/missing keydown falls back to keyup, including legacy keyCode',()=>{
  const f=fixture();
@@ -51,4 +51,11 @@ test('outside immersion/modifier commands and detached frames stay untouched',()
  f.send('keydown',{...key,ctrlKey:true});f.send('keyup',key);
  f.controller.abort();assert.equal(f.listeners(),0);f.send('keydown',key);f.send('keyup',key);
  assert.equal(f.runs.length,0);
+});
+
+test('unrecognized IME keydown cannot suppress its recognized F keyup',()=>{
+ const f=fixture();
+ f.send('keydown',{key:'Process',code:'Unidentified',keyCode:229,isComposing:true});
+ f.send('keyup',{key:'Process',code:'Unidentified',keyCode:70});
+ assert.deepEqual(f.runs,[{kind:'fit'}]);
 });
