@@ -38,10 +38,10 @@ See https://github.com/adobe-type-tools/cmap-resources
 <script src="../build/pdf.min.mjs" type="module"></script>
 
     <link rel="stylesheet" href="viewer.css" />
-    <link rel="stylesheet" href="lssh-theme.css?v=sidebar-v6" />
+    <link rel="stylesheet" href="lssh-theme.css?v=sidebar-back-v1" />
 
   <script src="viewer.min.mjs" type="module"></script>
-  <script src="lssh-controls.mjs?v=sidebar-v3" type="module"></script>
+  <script src="lssh-controls.mjs?v=sidebar-back-v1" type="module"></script>
   </head>
 
   <body tabindex="0">
@@ -58,12 +58,13 @@ See https://github.com/adobe-type-tools/cmap-resources
                   class="toolbarButton"
                   type="button"
                   tabindex="0"
-                  data-l10n-id="pdfjs-toggle-views-manager-button1"
+                  title="打开 PDF 侧栏"
+                  aria-label="打开 PDF 侧栏"
                   aria-expanded="false"
                   aria-haspopup="true"
                   aria-controls="viewsManager"
                 >
-                  <span data-l10n-id="pdfjs-toggle-views-manager-button1-label"></span>
+                  <span>打开 PDF 侧栏</span>
                 </button>
                 <div
                   id="viewsManager"

@@ -3,6 +3,20 @@ const panel = document.getElementById('viewsManager');
 const toggle = document.getElementById('viewsManagerToggleButton');
 
 if (panel && toggle) {
+  const syncToggleLabel = () => {
+    const label = toggle.getAttribute('aria-expanded') === 'true'
+      ? '返回 PDF 正文'
+      : '打开 PDF 侧栏';
+    toggle.title = label;
+    toggle.setAttribute('aria-label', label);
+    toggle.querySelector('span').textContent = label;
+  };
+  syncToggleLabel();
+  // Native PDF.js owns visibility and aria-expanded, including saved sidebar state.
+  new MutationObserver(syncToggleLabel).observe(toggle, {
+    attributes: true,
+    attributeFilter: ['aria-expanded'],
+  });
   const collapse = () => {
     if (panel.hidden) return;
     toggle.click();
