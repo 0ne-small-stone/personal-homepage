@@ -1,5 +1,9 @@
 # 设计与技术文档对应表
 
+P13考拉故障的本机播放恢复：沿用R04/R12、U12、T21/T25.22，受控索引/Range及来源提示的改动、真实播放与动画验证见[恢复记录](technical/iterations/t21-p13-2026-10-17-cloud-playback-recovery.md)。公开静态站与本机服务分别验收。
+
+P10 / R06 / U10 / T12、T14、T16：[2026-10-17图库增量同步](technical/iterations/t14-p10-2026-10-17-gallery-sync.md)，36张保留、65张新增，现有UI/UX及分级图片加载保持。
+
 当前项目状态与发布证据见[2026-10-16进度验收](technical/acceptance/progress-2026-10-16.md)。本文统一维护文件职责和P/R/U/T映射；实际进度在两侧PLAN与验收记录，不在入口反复追加历史播报。原入口更新已移至[导航历史](technical/iterations/docs-navigation-history-2026-10-16.md)，旧链接已按新目录调整。
 
 本轮接续P01/F05修正、P12/Elsewhere及P13/T25.37–39；PDF/知识、相册和Someone沿用最新main。F06/Afterimage等候选的真实缺口在本轮记录分列。
