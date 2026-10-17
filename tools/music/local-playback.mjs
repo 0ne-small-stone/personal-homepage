@@ -19,16 +19,43 @@ async function loadManifest(file) {
     Number.isSafeInteger(item.size) && item.size > 0 && Number.isFinite(item.mtimeMs)) };
 }
 
-export async function localAudioUrls(catalog, base, manifestFile = defaultManifest) {
+export async function localAudioUrls(catalog, base, manifestFile = defaultManifest, { preferLocal = false } = {}) {
   try {
     const manifest = await loadManifest(manifestFile);
-    const ids = new Set(manifest.files.map(file => file.id));
+    let audioFiles = manifest.files;
+    let coverFiles = manifest.files.filter(file => file.cover === true);
+    if (preferLocal) {
+      const root = await realpath(manifest.directory).catch(() => null);
+      const coverRoot = await realpath(path.join(path.dirname(manifestFile), 'covers')).catch(() => null);
+      const verified = await Promise.all(manifest.files.map(async entry => {
+        let audio = false, cover = false;
+        if (root) try {
+          const file = await realpath(path.resolve(root, entry.relative));
+          const relative = path.relative(root, file);
+          if (relative && relative !== '..' && !relative.startsWith(`..${path.sep}`) && !path.isAbsolute(relative) && mimeTypes.has(path.extname(file).toLowerCase())) {
+            const info = await stat(file);
+            audio = info.isFile() && info.size === entry.size && info.mtimeMs === entry.mtimeMs;
+          }
+        } catch { /* Keep the original cloud URL when the local file is unavailable. */ }
+        if (coverRoot && entry.cover === true) try {
+          const file = await realpath(path.join(coverRoot, `${entry.id}.webp`));
+          if (path.relative(coverRoot, file) === `${entry.id}.webp`) {
+            const info = await stat(file);
+            cover = info.isFile() && info.size > 0 && info.size <= 2 * 1024 * 1024;
+          }
+        } catch { /* Artwork can independently retain its original URL. */ }
+        return { entry, audio, cover };
+      }));
+      audioFiles = verified.filter(item => item.audio).map(item => item.entry);
+      coverFiles = verified.filter(item => item.cover).map(item => item.entry);
+    }
+    const ids = new Set(audioFiles.map(file => file.id));
     const prefix = `${base.replace(/\/$/, '')}/music/local-audio/`;
-    const covers = new Set(manifest.files.filter(file => file.cover === true).map(file => file.id));
+    const covers = new Set(coverFiles.map(file => file.id));
     const coverPrefix = `${base.replace(/\/$/, '')}/music/local-cover/`;
     return { ...catalog, tracks: catalog.tracks.map(track => ({ ...track,
-      audioUrl: track.audioUrl || (ids.has(track.id) ? `${prefix}${track.id}/` : null),
-      coverUrl: track.coverUrl || (covers.has(track.id) ? `${coverPrefix}${track.id}/` : null),
+      audioUrl: preferLocal && ids.has(track.id) ? `${prefix}${track.id}/` : track.audioUrl || (ids.has(track.id) ? `${prefix}${track.id}/` : null),
+      coverUrl: preferLocal && covers.has(track.id) ? `${coverPrefix}${track.id}/` : track.coverUrl || (covers.has(track.id) ? `${coverPrefix}${track.id}/` : null),
     })) };
   } catch { return catalog; }
 }
@@ -57,7 +84,7 @@ export function byteRange(header, size) {
 }
 
 /** Only installed on the local Vite development server; never in a static build. */
-export function localAudioMiddleware({ base, manifestFile = defaultManifest }) {
+export function localAudioMiddleware({ base, manifestFile = defaultManifest, fallthroughIfMissing = false }) {
   const prefix = `${base.replace(/\/$/, '')}/music/local-audio/`;
   const coverPrefix = `${base.replace(/\/$/, '')}/music/local-cover/`;
   return async (req, res, next) => {
@@ -74,7 +101,7 @@ export function localAudioMiddleware({ base, manifestFile = defaultManifest }) {
     try {
       const manifest = await loadManifest(manifestFile);
       const entry = manifest.files.find(file => file.id === id);
-      if (!entry) { res.statusCode = 404; res.end(); return; }
+      if (!entry) { if (fallthroughIfMissing) return next();res.statusCode = 404; res.end(); return; }
       if (coverRequest) {
         if (entry.cover !== true) { res.statusCode = 404; res.end(); return; }
         const coverRoot = await realpath(path.join(path.dirname(manifestFile), 'covers'));
@@ -106,7 +133,7 @@ export function localAudioMiddleware({ base, manifestFile = defaultManifest }) {
       res.on('close', () => stream.destroy());
       stream.on('error', () => { if (!res.headersSent) { res.statusCode = 404; res.removeHeader('Content-Length'); res.end(); } else res.destroy(); });
       stream.pipe(res);
-    } catch { res.statusCode = 404; res.end(); }
+    } catch (error) { if (fallthroughIfMissing && error.code === 'ENOENT' && error.path === manifestFile) return next();res.statusCode = 404; res.end(); }
   };
 }
 

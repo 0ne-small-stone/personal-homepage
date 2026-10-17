@@ -83,7 +83,7 @@ export default function RadioLibraryExperience({ initialCatalog, config }: { ini
   const playback: PlaybackPresentation = {
     track: selected, playing: active && state.playing, waiting: active && state.waiting,
     time: active ? state.time : 0, duration: active ? state.duration : 0, volume: state.volume,
-    source: selected?.audioUrl ? selected.audioUrl.startsWith('/') ? '本机下载 · 等待考拉同步' : '考拉云盘音源' : '音源待连接',
+    source: selected?.audioUrl ? selected.audioUrl.startsWith('/') ? '本机收藏音源' : '考拉云盘音源' : '音源待连接',
     canPrevious: trackIndex > 0, canNext: trackIndex >= 0 && trackIndex < playbackQueue.length - 1,
     onToggle: () => { if (active) audioSession.toggle();else if (selected) chooseTrack(selected, true); },
     onPrevious: () => { if (active) audioSession.next(-1, true);else { const track = catalog.tracks.find(track => track.id === playbackQueue[trackIndex - 1]?.id);if (track) chooseTrack(track, true); } },

@@ -85,10 +85,40 @@ test('local music HTTP playback and private-file boundaries', async t => {
       }
       assert.equal((await fetch(url, { method: 'POST' })).status, 405);
     });
+    await t.test('cloud outages use the verified original audio and artwork without exposing paths', async () => {
+      const remote = value => `https://pan.koala-studio.org.cn/public.php/dav/files/share/tracks/${value}.flac`;
+      const catalog = { version: 1, tracks: [id, outsideId, 'c'.repeat(24)].map(value => ({ id: value, title: 'Cloud song', audioUrl: remote(value), coverUrl: `https://example.com/${value}.webp` })) };
+      const mapped = await localAudioUrls(catalog, '/personal-homepage', manifestFile, { preferLocal: true });
+      assert.equal(mapped.tracks[0].audioUrl, new URL(url).pathname);
+      assert.equal(mapped.tracks[0].coverUrl, new URL(coverUrl).pathname);
+      assert.equal(mapped.tracks[1].audioUrl, remote(outsideId), 'directory escapes must retain the remote URL');
+      assert.equal(mapped.tracks[2].audioUrl, remote('c'.repeat(24)), 'unavailable files must retain the remote URL');
+      assert.equal(await (await fetch(origin + mapped.tracks[0].audioUrl)).text(), '0123456789abcdef');
+      assert.deepEqual(Buffer.from(await (await fetch(origin + mapped.tracks[0].coverUrl)).arrayBuffer()), cover);
+      assert.ok(!JSON.stringify(mapped).includes(directory));
+      assert.equal(parseMusicCatalog(mapped).tracks[0].audioUrl, null, 'production still strips local playback URLs');
+    });
+    await t.test('new web downloads can fall through without bypassing indexed file boundaries', async () => {
+      let fallthrough = 0;
+      const local = localAudioMiddleware({ base: '/personal-homepage', manifestFile, fallthroughIfMissing: true });
+      const combined = http.createServer((req, res) => local(req, res, () => { fallthrough++;res.statusCode = 404;res.end(); }));
+      await new Promise(resolve => combined.listen(0, '127.0.0.1', resolve));
+      const combinedOrigin = `http://127.0.0.1:${combined.address().port}`;
+      try {
+        assert.equal((await fetch(`${combinedOrigin}/personal-homepage/music/local-audio/${'c'.repeat(24)}/`)).status, 404);
+        assert.equal(fallthrough, 1);
+        assert.equal((await fetch(`${combinedOrigin}/personal-homepage/music/local-audio/${outsideId}/`)).status, 404);
+        assert.equal((await fetch(`${combinedOrigin}/personal-homepage/music/local-audio/${id}/`, { headers: { Origin: 'https://example.com' } })).status, 403);
+        assert.equal(fallthrough, 1, 'unsafe requests never reach another file handler');
+      } finally { await new Promise(resolve => combined.close(resolve)); }
+    });
     await t.test('changed downloads are unavailable until reindexed', async () => {
       await writeFile(file, 'changed download bytes');
       assert.equal((await fetch(url)).status, 409);
       assert.equal((await fetch(url)).headers.get('cache-control'), 'no-store');
+      const remote = 'https://example.com/original.flac';
+      const mapped = await localAudioUrls({ version: 1, tracks: [{ id, audioUrl: remote }] }, '/personal-homepage', manifestFile, { preferLocal: true });
+      assert.equal(mapped.tracks[0].audioUrl, remote);
     });
     await t.test('public catalog contains no private paths; production strips local URLs', async () => {
       const catalog = { version: 1, updatedAt: null, tracks: [{ id, title: 'Test', audioUrl: null }] };
