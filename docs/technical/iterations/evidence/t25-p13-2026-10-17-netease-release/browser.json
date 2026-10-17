@@ -1,0 +1,70 @@
+[
+  {
+    "audio": 1,
+    "busy": false,
+    "ghost": "false",
+    "selected": 1,
+    "status": "已装入 · 每日推荐",
+    "url": "http://127.0.0.1:4346/personal-homepage/music/?mode=netease"
+  },
+  {
+    "audio": 1,
+    "title": "每日推荐",
+    "url": "http://127.0.0.1:4346/personal-homepage/music/?mode=netease&view=daily",
+    "warning": "在线音乐服务尚未接通。每日推荐、账号和站内播放需要音乐服务，你可以在网易云继续收听 Echoes 共享歌单。 当前显示共享歌单快照。重试连接在网易云收听"
+  },
+  {
+    "busy": false,
+    "ghost": "false",
+    "selected": 1,
+    "status": "已装入 · 心动模式",
+    "url": "http://127.0.0.1:4346/personal-homepage/music/?mode=netease&view=home"
+  },
+  {
+    "rows": 11,
+    "snapshot": true,
+    "url": "http://127.0.0.1:4346/personal-homepage/music/?mode=netease&view=detail&kind=playlist&id=18476425375"
+  },
+  {
+    "audio": 1,
+    "notice": "在线音乐服务尚未接通。每日推荐、账号和站内播放需要音乐服务，你可以在网易云继续收听 Echoes 共享歌单。",
+    "source": null,
+    "stage": "unavailable-play"
+  },
+  {
+    "result": "EclipsePink FloydThe Dark Side of the Moon2:09收藏歌曲添加到歌单下载歌曲",
+    "rows": 1,
+    "stage": "snapshot-search"
+  },
+  {
+    "audio": 1,
+    "pageWidth": 390,
+    "stage": "mobile-390",
+    "stationWidth": 350,
+    "width": 390
+  },
+  {
+    "audio": 1,
+    "pageWidth": 320,
+    "stage": "mobile-320",
+    "stationWidth": 288,
+    "width": 320
+  },
+  {
+    "audio": 1,
+    "editButtons": 0,
+    "rows": 11,
+    "stage": "final-static-detail",
+    "volumeFill": "--range-fill: 75%;"
+  },
+  {
+    "stage": "volume-min",
+    "style": "--range-fill: 0%;",
+    "value": "0"
+  },
+  {
+    "stage": "volume-max",
+    "style": "--range-fill: 100%;",
+    "value": "1"
+  }
+]

@@ -1,123 +1,91 @@
-/* P13 / T25.39: the selected “间隙” collection, with real text and existing routes. */
-.ne-entry-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 288px));
-  gap: 20px;
-  padding: 7px;
-  margin: -7px;
-}
-
-.netease-app .ne-entry {
-  --entry-padding: clamp(18px, 7cqw, 24px);
-  container-type: inline-size;
-  position: relative;
-  display: block;
-  isolation: isolate;
-  width: 100%;
-  min-width: 0;
-  min-height: 0;
-  aspect-ratio: 1;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
-  border: 0;
-  border-radius: 16px;
-  background: #101012;
-  box-shadow: none;
-  text-align: left;
-  color: #ededed;
-  scroll-snap-align: start;
-}
-
-.ne-entry-art {
-  position: absolute;
-  inset: 0 auto auto 0;
-  width: 100%;
-  aspect-ratio: 1;
-  pointer-events: none;
-}
-
-.ne-entry-art img {
-  position: absolute;
-  width: var(--entry-image-width);
-  max-width: none;
-  height: auto;
-  left: var(--entry-image-left);
-  top: var(--entry-image-top);
-  user-select: none;
-  transition: transform 200ms ease-out;
-}
-
-.ne-entry::before, .ne-entry::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-.ne-entry::before { z-index: 1; background: #fff; opacity: 0; transition: opacity 200ms ease-out; }
-.ne-entry::after { background: linear-gradient(transparent, #1010120f 70%, #101012b8); }
-
-.ne-entry-copy {
-  position: absolute;
-  z-index: 2;
-  left: var(--entry-padding);
-  right: calc(var(--entry-padding) + 48px);
-  bottom: 7.5%;
-  display: grid;
-  gap: 4px;
-  pointer-events: none;
-}
-.ne-entry-copy strong { color: #ededed; font-size: clamp(20px, 7.5cqw, 24px); font-weight: 600; line-height: 1.25; letter-spacing: -.025em; white-space: nowrap; }
-.ne-entry-caption { color: #a1a1a1; font-size: clamp(12px, 4.5cqw, 14px); line-height: 1.5; white-space: nowrap; }
-.ne-entry-compact { display: none; }
-
-.ne-entry-indicator {
-  position: absolute;
-  z-index: 2;
-  right: var(--entry-padding);
-  bottom: calc(13.6% - 16px);
-  display: grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #ffffff14;
-  color: #ededed;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 200ms ease-out;
-}
-.netease-app .ne-entry-indicator svg { width: 18px; height: 18px; stroke-width: 1.8; }
-.netease-app .ne-entry:focus-visible { outline: 2px solid #bfbfc4; outline-offset: 5px; }
-.ne-entry:focus-visible .ne-entry-art img { transform: translateY(-4px); }
-.ne-entry:focus-visible::before { opacity: .018; }
-.ne-entry:focus-visible .ne-entry-indicator { opacity: 1; }
-
+/* P13 / T25.41: one restrained metal radio, three physical mode selectors. */
+.cassette-station { width: 100%; max-width: 960px; }
+.cassette-radio { display: grid; grid-template-columns: minmax(110px, .7fr) minmax(0, 2fr); gap: 20px 28px; padding: 24px; border-radius: 20px; background: linear-gradient(165deg, #38383b 0%, #242426 62%, #2b2b2e); box-shadow: inset 0 1px 0 #ffffff25, inset 0 -2px 0 #0008, 0 12px 28px #0003; }
+.cassette-radio-header { grid-column: 1 / -1; display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.cassette-brand { color: #e2e2e5; font-size: 19px; font-weight: 600; letter-spacing: -.04em; line-height: 24px; }
+.cassette-status { display: flex; align-items: center; gap: 7px; color: #bdbdc2; font-size: 12px; line-height: 20px; }
+.cassette-status i { width: 4px; height: 4px; border-radius: 50%; background: #747479; }
+.cassette-status i.is-ready { background: #dfdfe2; box-shadow: 0 0 5px #ffffff35; }
+.cassette-speaker { position: relative; width: 100%; max-width: 180px; aspect-ratio: 1; align-self: center; justify-self: center; margin-bottom: 34px; border-radius: 50%; background: #171719; box-shadow: 0 1px 0 #ffffff1c, 0 -2px 4px #0006, inset 0 0 0 5px #1b1b1d, inset 0 0 0 6px #ffffff08; }
+.cassette-speaker::before { content: ''; position: absolute; inset: 9px; border-radius: inherit; background: radial-gradient(circle at center, #000 1.1px, transparent 1.3px) 0 0 / 5px 5px, radial-gradient(circle, #28282a, #161618 76%); opacity: .95; }
+.cassette-speaker span { position: absolute; inset: 32%; border-radius: inherit; box-shadow: 0 0 24px #0005; background: radial-gradient(circle at 40% 35%, #2c2c2e88, #11111366); }
+.cassette-deck { min-width: 0; }
+.cassette-bay { position: relative; display: grid; place-items: center; height: 210px; isolation: isolate; border-radius: 10px; background: #101012; box-shadow: 0 1px 0 #ffffff20, inset 0 2px 6px #000b; transition: box-shadow 180ms ease; }
+.cassette-bay.is-over { box-shadow: 0 0 0 2px #bdbdc2, inset 0 2px 6px #000b; }
+.cassette-slot { display: block; position: relative; width: 72%; max-width: 294px; aspect-ratio: 1.6; z-index: 1; }
+.cassette-empty-spindles { position: absolute; top: 58.5%; left: 24.5%; right: 24.5%; height: 14px; transform: translateY(-50%); display: flex; align-items: center; justify-content: space-between; }
+.cassette-empty-spindles i { width: 14px; height: 14px; border-radius: 50%; background: #3a3a3d; box-shadow: inset 0 0 0 4px #212123, 0 1px 2px #000; }
+.cassette-bay-prompt { position: absolute; bottom: 24px; color: #b5b5bb; font-size: 12px; letter-spacing: .04em; }
+.cassette-glass { position: absolute; z-index: 2; inset: 0; border-radius: inherit; pointer-events: none; background: linear-gradient(145deg, #ffffff0e, #ffffff03 37%, transparent 38%, #ffffff02 72%, #0002); box-shadow: inset 0 0 0 1px #ffffff0a; transform-origin: center bottom; transition: transform 250ms ease, opacity 250ms ease; }
+.cassette-bay.is-changing .cassette-glass { transform: perspective(600px) rotateX(-7deg); opacity: .35; }
+.cassette-deck-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 14px; }
+.cassette-instruction { color: #bdbdc2; font-size: 12px; line-height: 18px; }
+.cassette-keys { display: flex; flex: 0 0 auto; gap: 8px; }
+.netease-app .cassette-key { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 44px; min-width: 76px; margin: 0; padding: 0 13px; border: 0; border-radius: 6px; background: linear-gradient(#424246, #333336); box-shadow: inset 0 1px 0 #ffffff20, 0 2px 0 #18181a; color: #e1e1e5; font: inherit; font-size: 12px; line-height: 18px; transition: background 150ms ease, box-shadow 150ms ease, transform 150ms ease; }
+.netease-app .cassette-key-play { background: linear-gradient(#d6d6d9, #bdbdc2); color: #242426; box-shadow: inset 0 1px 0 #ffffff80, 0 2px 0 #79797e; }
+.netease-app .cassette-key svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.netease-app .cassette-key:disabled { opacity: .42; cursor: default; }
+.netease-app .cassette-key:not(:disabled):active { transform: translateY(1px); box-shadow: inset 0 1px 2px #0005; }
+.netease-app .cassette-key:focus-visible, .netease-app .cassette-choice:focus-visible { outline: 2px solid #d6d6db; outline-offset: 5px; }
+.cassette-shelf { display: grid; grid-template-columns: repeat(3, minmax(0, 210px)); justify-content: center; gap: 28px; margin: 22px -10px -10px; padding: 10px; }
+.netease-app .cassette-choice { min-width: 0; padding: 0; margin: 0; border: 0; border-radius: 8px; color: #bdbdc2; background: none; text-align: center; font: inherit; touch-action: pan-x; user-select: none; -webkit-user-select: none; cursor: grab; scroll-snap-align: start; }
+.netease-app .cassette-choice:active { cursor: grabbing; }
+.netease-app .cassette-choice:disabled { cursor: default; }
+.cassette-choice-case { position: relative; display: block; aspect-ratio: 1.6; border-radius: 7px; }
+.cassette-choice-caption { display: block; margin-top: 12px; color: #b3b3b8; font-size: 12px; line-height: 18px; white-space: nowrap; }
+.cassette-loaded-note { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 6px; border: 1px dashed #ffffff26; border-radius: inherit; opacity: 0; pointer-events: none; }
+.cassette-loaded-note strong { color: #bdbdc2; font-weight: 500; font-size: 13px; line-height: 18px; }
+.cassette-loaded-note > span { color: #98989e; font-size: 11px; line-height: 16px; }
+.cassette-choice.is-selected .cassette-body, .cassette-choice.is-moving .cassette-body { opacity: 0; }
+.cassette-choice.is-selected .cassette-loaded-note { opacity: 1; }
+.cassette-choice.is-moving:not(.is-selected) .cassette-choice-case { box-shadow: inset 0 0 0 1px #ffffff0a; }
+.cassette-body, .cassette-body * { box-sizing: border-box; }
+.cassette-body { container-type: inline-size; position: relative; display: block; width: 100%; aspect-ratio: 1.6; overflow: hidden; border-radius: 5% / 8%; background: linear-gradient(160deg, #3c3c3f, #252527 62%, #303033); box-shadow: inset 0 0 0 1px #ffffff1b, inset 0 -2px 0 #0007, 0 5px 10px #0004; }
+.cassette-body::after { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; background: repeating-linear-gradient(0deg, #ffffff02 0 1px, transparent 1px 3px); }
+.cassette-label { position: absolute; left: 7%; right: 7%; top: 9%; height: 36%; border-radius: 3px; background: linear-gradient(135deg, #c7c7ca, #b0b0b4); box-shadow: inset 0 1px 1px #ffffff2b, 0 0 0 1px #0005; }
+.cassette-label strong { position: absolute; top: 18%; left: 6%; max-width: 70%; color: #202022; font-size: clamp(11px, 6.2cqw, 18px); font-weight: 600; line-height: 1.3; letter-spacing: .02em; white-space: nowrap; }
+.cassette-label-rule { position: absolute; left: 6%; right: 27%; bottom: 17%; height: 1px; background: #55555c55; }
+.cassette-badge { position: absolute; top: 12%; right: 4%; height: 72%; aspect-ratio: 1; overflow: hidden; border-radius: 2px; background: #161618; }
+.cassette-badge img { position: absolute; max-width: none; height: auto; mix-blend-mode: lighten; filter: grayscale(1); pointer-events: none; user-select: none; }
+.cassette-window { position: absolute; display: flex; align-items: center; justify-content: space-between; left: 13%; right: 13%; top: 43%; height: 31%; padding: 0 3%; overflow: hidden; border-radius: 100px; background: #101012; box-shadow: inset 0 1px 3px #000, 0 1px 0 #ffffff16; }
+.cassette-body .cassette-spool { position: relative; z-index: 1; width: 26%; height: auto; flex-shrink: 0; aspect-ratio: 1; border-radius: 50%; background: #b2b2b6; color: #3a3a3f; fill: none; stroke: currentColor; stroke-width: 1.6; }
+.cassette-tape { position: absolute; inset: 28% 22%; background: #282427; box-shadow: inset 0 1px 0 #555157; }
+.cassette-head { position: absolute; bottom: -1%; left: 21%; right: 21%; height: 20%; display: flex; align-items: center; justify-content: space-around; padding: 0 15%; clip-path: polygon(13% 0, 87% 0, 100% 100%, 0 100%); background: #202022; box-shadow: inset 0 1px 1px #ffffff15; }
+.cassette-head i { width: 8%; height: 20%; border-radius: 2px; background: #0d0d0f; box-shadow: 0 1px 0 #ffffff13; }
+.cassette-screw { position: absolute; width: 2.5%; aspect-ratio: 1; border-radius: 50%; background: #1a1a1c; box-shadow: inset 0 0 0 1px #ffffff10, 0 1px 0 #ffffff0d; }
+.cassette-screw::before { content: ''; position: absolute; left: 20%; right: 20%; top: 48%; height: 1px; background: #77777c80; transform: rotate(-35deg); }
+.screw-tl { top: 4%; left: 3%; } .screw-tr { top: 4%; right: 3%; } .screw-bl { bottom: 5%; left: 3%; } .screw-br { bottom: 5%; right: 3%; }
+.cassette-flight { position: fixed; z-index: 10000; top: 0; left: 0; visibility: hidden; transform-origin: 0 0; pointer-events: none; }
+.cassette-flight[data-active='true'] .cassette-spool { animation: cassette-wind 650ms ease-out both; }
+@keyframes cassette-wind { to { transform: rotate(160deg); } }
 @media (hover: hover) and (pointer: fine) {
-  .ne-entry:hover .ne-entry-art img { transform: translateY(-4px); }
-  .ne-entry:hover::before { opacity: .018; }
-  .ne-entry:hover .ne-entry-indicator { opacity: 1; }
+  .netease-app .cassette-key:not(:disabled):hover { filter: brightness(1.08); }
+  .cassette-choice:not(:disabled):not(.is-selected):hover .cassette-spool { animation: cassette-wind 1300ms cubic-bezier(.22,1,.36,1) both; }
+  .cassette-choice:not(:disabled):not(.is-selected):hover .cassette-body { box-shadow: inset 0 0 0 1px #ffffff2a, inset 0 -2px 0 #0007, 0 7px 14px #0005; }
 }
-
-@media (min-width: 701px) and (max-width: 1100px) {
-  .ne-entry-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(240px, 1fr); gap: 16px; overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-inline: 7px; scrollbar-width: thin; }
-}
-
 @media (max-width: 700px) {
-  .ne-entry-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 168px; gap: 12px; overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-inline: 7px; scrollbar-width: none; }
-  .netease-app .ne-entry { --entry-padding: 16px; aspect-ratio: 1; border-radius: 16px; }
-  .ne-entry-art img { width: var(--entry-mobile-image-width); left: var(--entry-mobile-image-left); top: var(--entry-mobile-image-top); }
-  .ne-entry-copy { bottom: 8px; right: 44px; }
-  .ne-entry-copy strong { font-size: 19px; line-height: 26px; }
-  .ne-entry-caption { display: none; }
-  .ne-entry-compact { display: block; color: #a1a1a1; font-size: 12px; line-height: 18px; white-space: nowrap; }
-  .ne-entry-indicator { width: 24px; height: 24px; bottom: 26px; background: transparent; color: #a1a1a1; opacity: 1; }
-  .netease-app .ne-entry-indicator svg { width: 18px; height: 18px; }
+  .cassette-radio { grid-template-columns: 64px minmax(0, 1fr); gap: 16px 14px; padding: 16px; border-radius: 16px; }
+  .cassette-radio-header { align-items: center; }
+  .cassette-brand { font-size: 17px; }
+  .cassette-status { font-size: 11px; }
+  .cassette-speaker { margin-bottom: 78px; }
+  .cassette-speaker::before { inset: 5px; background-size: 4px 4px, auto; }
+  .cassette-bay { height: 142px; border-radius: 7px; }
+  .cassette-slot { width: 88%; max-width: 220px; }
+  .cassette-bay-prompt { bottom: 15px; font-size: 11px; }
+  .cassette-deck-footer { flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+  .cassette-instruction { width: 100%; font-size: 11px; }
+  .cassette-keys { width: 100%; gap: 8px; }
+  .netease-app .cassette-key { flex: 1; min-width: 0; padding-inline: 8px; }
+  .cassette-shelf { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 156px; justify-content: start; gap: 16px; overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-inline: 10px; scrollbar-width: none; margin-top: 16px; }
+  .cassette-choice-caption { font-size: 11px; margin-top: 10px; }
 }
-
-@media (max-width: 360px) { .ne-entry-grid { grid-auto-columns: 156px; } }
-@media (hover: none) and (min-width: 701px) { .ne-entry-indicator { opacity: 1; } }
+@media (max-width: 360px) {
+  .cassette-radio { grid-template-columns: 48px minmax(0, 1fr); padding: 14px; gap: 14px 12px; }
+  .cassette-bay { height: 132px; }
+  .cassette-shelf { grid-auto-columns: 148px; }
+}
 @media (prefers-reduced-motion: reduce) {
-  .ne-entry-art img, .ne-entry::before, .ne-entry-indicator { transition: none; }
-  .ne-entry:hover .ne-entry-art img, .ne-entry:focus-visible .ne-entry-art img { transform: none; }
+  .cassette-glass, .cassette-bay, .netease-app .cassette-key { transition: none; }
+  .cassette-choice .cassette-spool, .cassette-flight .cassette-spool { animation: none !important; }
 }
