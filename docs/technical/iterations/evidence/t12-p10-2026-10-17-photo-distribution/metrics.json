@@ -1,0 +1,482 @@
+{
+  "sphere": {
+    "36": {
+      "before": {
+        "pairsUnder35": 56,
+        "minimumAngle": 11.17699811354845
+      },
+      "after": {
+        "pairsUnder35": 0,
+        "minimumAngle": 46.05449000736165
+      },
+      "setupMedianMs": 60.32139999999998,
+      "setupMaxMs": 75.01799999999992,
+      "counts": [
+        9,
+        10
+      ]
+    },
+    "101": {
+      "before": {
+        "pairsUnder35": 6,
+        "minimumAngle": 11.78447650283243
+      },
+      "after": {
+        "pairsUnder35": 0,
+        "minimumAngle": 60.007961180010994
+      },
+      "setupMedianMs": 3.6538000000000466,
+      "setupMaxMs": 4.14530000000002,
+      "counts": [
+        3,
+        4
+      ]
+    }
+  },
+  "space": {
+    "views": 36,
+    "beforeRepeats": 98,
+    "afterRepeats": 0,
+    "beforeCandidates": 885,
+    "afterCandidates": 812
+  },
+  "spaceSamples": [
+    {
+      "aspect": 0.46208530805687204,
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "z": -45
+      },
+      "before": 9,
+      "after": 9,
+      "beforeRepeats": 0,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 0.46208530805687204,
+      "camera": {
+        "x": 67,
+        "y": 100.97651817694758,
+        "z": -102
+      },
+      "before": 7,
+      "after": 7,
+      "beforeRepeats": 0,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 0.46208530805687204,
+      "camera": {
+        "x": 134,
+        "y": 109.11569121908181,
+        "z": -159
+      },
+      "before": 9,
+      "after": 9,
+      "beforeRepeats": 0,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 0.46208530805687204,
+      "camera": {
+        "x": 201,
+        "y": 16.934400967184065,
+        "z": -216
+      },
+      "before": 10,
+      "after": 10,
+      "beforeRepeats": 0,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 0.46208530805687204,
+      "camera": {
+        "x": 268,
+        "y": -90.81629943695138,
+        "z": -273
+      },
+      "before": 13,
+      "after": 13,
+      "beforeRepeats": 0,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 0.46208530805687204,
+      "camera": {
+        "x": 335,
+        "y": -115.07091295957662,
+        "z": -330
+      },
+      "before": 12,
+      "after": 12,
+      "beforeRepeats": 0,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 0.46208530805687204,
+      "camera": {
+        "x": 402,
+        "y": -33.5298597838711,
+        "z": -387
+      },
+      "before": 8,
+      "after": 8,
+      "beforeRepeats": 0,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 0.46208530805687204,
+      "camera": {
+        "x": 469,
+        "y": 78.8383918462547,
+        "z": -444
+      },
+      "before": 8,
+      "after": 8,
+      "beforeRepeats": 0,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 0.46208530805687204,
+      "camera": {
+        "x": 536,
+        "y": 118.72298959480581,
+        "z": -501
+      },
+      "before": 6,
+      "after": 5,
+      "beforeRepeats": 1,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 0.46208530805687204,
+      "camera": {
+        "x": 603,
+        "y": 49.45421822901079,
+        "z": -558
+      },
+      "before": 8,
+      "after": 8,
+      "beforeRepeats": 0,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 0.46208530805687204,
+      "camera": {
+        "x": 670,
+        "y": -65.28253330672437,
+        "z": -615
+      },
+      "before": 9,
+      "after": 8,
+      "beforeRepeats": 1,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 0.46208530805687204,
+      "camera": {
+        "x": 737,
+        "y": -119.99882478608441,
+        "z": -672
+      },
+      "before": 9,
+      "after": 9,
+      "beforeRepeats": 0,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 1.7777777777777777,
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "z": -45
+      },
+      "before": 26,
+      "after": 26,
+      "beforeRepeats": 2,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 1.7777777777777777,
+      "camera": {
+        "x": 67,
+        "y": 100.97651817694758,
+        "z": -102
+      },
+      "before": 31,
+      "after": 27,
+      "beforeRepeats": 4,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 1.7777777777777777,
+      "camera": {
+        "x": 134,
+        "y": 109.11569121908181,
+        "z": -159
+      },
+      "before": 32,
+      "after": 32,
+      "beforeRepeats": 0,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 1.7777777777777777,
+      "camera": {
+        "x": 201,
+        "y": 16.934400967184065,
+        "z": -216
+      },
+      "before": 32,
+      "after": 23,
+      "beforeRepeats": 9,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 1.7777777777777777,
+      "camera": {
+        "x": 268,
+        "y": -90.81629943695138,
+        "z": -273
+      },
+      "before": 29,
+      "after": 26,
+      "beforeRepeats": 4,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 1.7777777777777777,
+      "camera": {
+        "x": 335,
+        "y": -115.07091295957662,
+        "z": -330
+      },
+      "before": 32,
+      "after": 30,
+      "beforeRepeats": 2,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 1.7777777777777777,
+      "camera": {
+        "x": 402,
+        "y": -33.5298597838711,
+        "z": -387
+      },
+      "before": 26,
+      "after": 26,
+      "beforeRepeats": 2,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 1.7777777777777777,
+      "camera": {
+        "x": 469,
+        "y": 78.8383918462547,
+        "z": -444
+      },
+      "before": 28,
+      "after": 26,
+      "beforeRepeats": 2,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 1.7777777777777777,
+      "camera": {
+        "x": 536,
+        "y": 118.72298959480581,
+        "z": -501
+      },
+      "before": 24,
+      "after": 23,
+      "beforeRepeats": 1,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 1.7777777777777777,
+      "camera": {
+        "x": 603,
+        "y": 49.45421822901079,
+        "z": -558
+      },
+      "before": 21,
+      "after": 20,
+      "beforeRepeats": 3,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 1.7777777777777777,
+      "camera": {
+        "x": 670,
+        "y": -65.28253330672437,
+        "z": -615
+      },
+      "before": 28,
+      "after": 26,
+      "beforeRepeats": 4,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 1.7777777777777777,
+      "camera": {
+        "x": 737,
+        "y": -119.99882478608441,
+        "z": -672
+      },
+      "before": 31,
+      "after": 28,
+      "beforeRepeats": 4,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 2.4,
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "z": -45
+      },
+      "before": 32,
+      "after": 30,
+      "beforeRepeats": 3,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 2.4,
+      "camera": {
+        "x": 67,
+        "y": 100.97651817694758,
+        "z": -102
+      },
+      "before": 37,
+      "after": 30,
+      "beforeRepeats": 7,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 2.4,
+      "camera": {
+        "x": 134,
+        "y": 109.11569121908181,
+        "z": -159
+      },
+      "before": 39,
+      "after": 36,
+      "beforeRepeats": 5,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 2.4,
+      "camera": {
+        "x": 201,
+        "y": 16.934400967184065,
+        "z": -216
+      },
+      "before": 36,
+      "after": 29,
+      "beforeRepeats": 7,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 2.4,
+      "camera": {
+        "x": 268,
+        "y": -90.81629943695138,
+        "z": -273
+      },
+      "before": 36,
+      "after": 33,
+      "beforeRepeats": 5,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 2.4,
+      "camera": {
+        "x": 335,
+        "y": -115.07091295957662,
+        "z": -330
+      },
+      "before": 42,
+      "after": 39,
+      "beforeRepeats": 6,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 2.4,
+      "camera": {
+        "x": 402,
+        "y": -33.5298597838711,
+        "z": -387
+      },
+      "before": 33,
+      "after": 33,
+      "beforeRepeats": 2,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 2.4,
+      "camera": {
+        "x": 469,
+        "y": 78.8383918462547,
+        "z": -444
+      },
+      "before": 35,
+      "after": 33,
+      "beforeRepeats": 3,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 2.4,
+      "camera": {
+        "x": 536,
+        "y": 118.72298959480581,
+        "z": -501
+      },
+      "before": 37,
+      "after": 34,
+      "beforeRepeats": 3,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 2.4,
+      "camera": {
+        "x": 603,
+        "y": 49.45421822901079,
+        "z": -558
+      },
+      "before": 32,
+      "after": 28,
+      "beforeRepeats": 5,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 2.4,
+      "camera": {
+        "x": 670,
+        "y": -65.28253330672437,
+        "z": -615
+      },
+      "before": 39,
+      "after": 33,
+      "beforeRepeats": 7,
+      "afterRepeats": 0
+    },
+    {
+      "aspect": 2.4,
+      "camera": {
+        "x": 737,
+        "y": -119.99882478608441,
+        "z": -672
+      },
+      "before": 39,
+      "after": 35,
+      "beforeRepeats": 6,
+      "afterRepeats": 0
+    }
+  ],
+  "wall": {
+    "photoCount": 101,
+    "localWindow": "8x8",
+    "unique": 64
+  }
+}

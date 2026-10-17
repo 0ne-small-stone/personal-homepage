@@ -1,5 +1,7 @@
 // A bounded, repeating photo grid in the otherwise empty sides of Dome Gallery.
+import { createWallPhotoPicker } from './photo-distribution.js';
 export function createSideWall(main,photos,radius){
+  const pickPhoto=createWallPhotoPicker(photos.length);
   const wall=document.createElement('div');wall.className='side-photo-wall';wall.setAttribute('aria-hidden','true');
   const track=document.createElement('div');track.className='side-photo-track';wall.append(track);main.append(wall);
   let cells=[],cols=0,rows=0,pitch=0,lastX=0,lastY=0,offsetX=0,offsetY=0,shiftX=NaN,shiftY=NaN,progress=0;
@@ -39,7 +41,7 @@ export function createSideWall(main,photos,radius){
     if(!pitch)return;
     const sx=Math.floor(offsetX/pitch),sy=Math.floor(offsetY/pitch);
     if(sx!==shiftX||sy!==shiftY){
-      for(const {row,col,img,cell} of cells){const worldRow=row-sy;const key=worldRow*7+(col-sx)*11;const photo=photos[((key%photos.length)+photos.length)%photos.length];const src=photo.preview||photo.image;if(img.getAttribute('src')!==src)img.src=src;cell.style.transform=worldRow%2?`translateX(${pitch*.5}px)`:'';}
+      for(const {row,col,img,cell} of cells){const worldRow=row-sy;const photo=photos[pickPhoto(worldRow,col-sx)];const src=photo.preview||photo.image;if(img.getAttribute('src')!==src)img.src=src;cell.style.transform=worldRow%2?`translateX(${pitch*.5}px)`:'';}
       shiftX=sx;shiftY=sy;
     }
     track.style.transform=`translate3d(${offsetX-sx*pitch-pitch*2}px,${offsetY-sy*pitch-pitch}px,0)`;

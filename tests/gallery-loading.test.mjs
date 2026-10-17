@@ -1,4 +1,5 @@
 import test from'node:test';import assert from'node:assert/strict';import{getEventListeners}from'node:events';import{loadSpaceImages,waitForOverview}from'../src/components/gallery/loading.js';
+import {distributeDomePhotos} from '../src/components/gallery/photo-distribution.js';
 test('space image loading is bounded, ordered and isolates a failed image',async()=>{
  let active=0,peak=0;
  class Image{set src(value){if(!value)return;active++;peak=Math.max(peak,active);setTimeout(()=>{active--;value==='bad'?this.onerror?.():this.onload?.();},2);this.value=value;}}
@@ -31,7 +32,7 @@ test('Dome card placement retains the preview source and canonical identity',asy
  const source=fs.readFileSync(new URL('../src/components/gallery/vendor/DomeGallery.jsx',import.meta.url),'utf8');
  const file=ts.createSourceFile('DomeGallery.jsx',source,ts.ScriptTarget.Latest,true,ts.ScriptKind.JSX);
  const node=file.statements.find(node=>ts.isFunctionDeclaration(node)&&node.name?.text==='buildItems');assert(node);
- const build=vm.runInNewContext('('+node.getText(file)+')');
+ const build=vm.runInNewContext('('+node.getText(file)+')',{distributeDomePhotos});
  for(const count of [36,101]){
   const photos=Array.from({length:count},(_,i)=>({src:'photo-'+i+'.webp',full:'photo-'+i+'-full.webp',preview:'photo-'+i+'-preview.webp',alt:'Photo '+i}));
   const cards=build(photos,34,true);assert.equal(cards.length,build(photos.slice(0,36),34,true).length);assert.equal(new Set(cards.map(card=>card.src)).size,count);

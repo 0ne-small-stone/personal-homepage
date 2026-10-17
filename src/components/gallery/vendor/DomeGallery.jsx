@@ -6,6 +6,7 @@
 
 import { useEffect, useMemo, useRef, useCallback } from 'react';
 import { probe } from '../performance-probe.js';
+import { distributeDomePhotos } from '../photo-distribution.js';
 import { useGesture } from '@use-gesture/react';
 import './DomeGallery.css';
 
@@ -96,20 +97,7 @@ function buildItems(pool, seg, fullCoverage) {
     return { src: image.src || '', alt: image.alt || '', full:image.full || image.src || '', preview:image.preview || image.src || '' };
   });
 
-  const usedImages = Array.from({ length: totalSlots }, (_, i) => normalizedImages[i % normalizedImages.length]);
-
-  for (let i = 1; i < usedImages.length; i++) {
-    if (usedImages[i].src === usedImages[i - 1].src) {
-      for (let j = i + 1; j < usedImages.length; j++) {
-        if (usedImages[j].src !== usedImages[i].src) {
-          const tmp = usedImages[i];
-          usedImages[i] = usedImages[j];
-          usedImages[j] = tmp;
-          break;
-        }
-      }
-    }
-  }
+  const usedImages = distributeDomePhotos(coords, seg, normalizedImages.length).map(i => normalizedImages[i]);
 
   return coords.map((c, i) => ({
     ...c,

@@ -1,0 +1,385 @@
+{
+  "elapsedMs": 25760,
+  "before": {
+    "sphere:dome-motion": {
+      "samples": 4,
+      "total": 1.6,
+      "mean": 0.4,
+      "p95": 0.1,
+      "max": 1.5
+    },
+    "loading:readyMs": {
+      "samples": 1,
+      "total": 1092,
+      "mean": 1092,
+      "p95": 1092,
+      "max": 1092
+    },
+    "sphere:update": {
+      "samples": 5,
+      "total": 0.8,
+      "mean": 0.16,
+      "p95": 0.2,
+      "max": 0.2
+    },
+    "sphere:frameInterval": {
+      "samples": 2,
+      "total": 175.6,
+      "mean": 87.8,
+      "p95": 42.3,
+      "max": 133.3
+    },
+    "sphere:warm-render": {
+      "samples": 1,
+      "total": 50.7,
+      "mean": 50.7,
+      "p95": 50.7,
+      "max": 50.7
+    },
+    "sphere:viewer-background-pause": {
+      "samples": 1,
+      "total": 0.2,
+      "mean": 0.2,
+      "p95": 0.2,
+      "max": 0.2
+    },
+    "viewer:viewer-zoom-write": {
+      "samples": 1,
+      "total": 1,
+      "mean": 1,
+      "p95": 1,
+      "max": 1
+    },
+    "viewer:viewer-rail-write": {
+      "samples": 2,
+      "total": 3,
+      "mean": 1.5,
+      "p95": 1,
+      "max": 2
+    },
+    "viewer:viewer-init": {
+      "samples": 1,
+      "total": 16.8,
+      "mean": 16.8,
+      "p95": 16.8,
+      "max": 16.8
+    },
+    "viewer:viewer-navigation-start": {
+      "samples": 1,
+      "total": 0.2,
+      "mean": 0.2,
+      "p95": 0.2,
+      "max": 0.2
+    },
+    "viewer:viewer-slide-frame": {
+      "samples": 29,
+      "total": 29,
+      "mean": 1,
+      "p95": 1,
+      "max": 1
+    },
+    "viewer:viewer-navigation-ms": {
+      "samples": 1,
+      "total": 330,
+      "mean": 330,
+      "p95": 330,
+      "max": 330
+    },
+    "sphere:viewer-background-resume": {
+      "samples": 1,
+      "total": 0.2,
+      "mean": 0.2,
+      "p95": 0.2,
+      "max": 0.2
+    },
+    "transition:candidates": {
+      "samples": 63,
+      "total": 28.7,
+      "mean": 0.456,
+      "p95": 0.8,
+      "max": 4.1
+    },
+    "transition:render": {
+      "samples": 63,
+      "total": 31.5,
+      "mean": 0.5,
+      "p95": 1.1,
+      "max": 2.2
+    },
+    "transition:renders": {
+      "samples": 63,
+      "total": 63,
+      "mean": 1,
+      "p95": 1,
+      "max": 1
+    },
+    "transition:drawCalls": {
+      "samples": 63,
+      "total": 2017,
+      "mean": 32.016,
+      "p95": 42,
+      "max": 43
+    },
+    "transition:update": {
+      "samples": 63,
+      "total": 115.3,
+      "mean": 1.83,
+      "p95": 2.7,
+      "max": 15.1
+    },
+    "transition:frameInterval": {
+      "samples": 62,
+      "total": 1399.6,
+      "mean": 22.574,
+      "p95": 36.2,
+      "max": 72.9
+    },
+    "transition:gpuRender": {
+      "samples": 63,
+      "total": 62.5,
+      "mean": 0.992,
+      "p95": 1.564,
+      "max": 2.989
+    },
+    "space:frameInterval": {
+      "samples": 237,
+      "total": 2205.6,
+      "mean": 9.306,
+      "p95": 12.2,
+      "max": 36.4
+    },
+    "space:render": {
+      "samples": 238,
+      "total": 55.8,
+      "mean": 0.234,
+      "p95": 0.4,
+      "max": 0.7
+    },
+    "space:renders": {
+      "samples": 238,
+      "total": 238,
+      "mean": 1,
+      "p95": 1,
+      "max": 1
+    },
+    "space:drawCalls": {
+      "samples": 238,
+      "total": 7274,
+      "mean": 30.563,
+      "p95": 39,
+      "max": 42
+    },
+    "space:update": {
+      "samples": 238,
+      "total": 192.2,
+      "mean": 0.808,
+      "p95": 1.2,
+      "max": 2.2
+    },
+    "space:gpuRender": {
+      "samples": 185,
+      "total": 121.64,
+      "mean": 0.658,
+      "p95": 0.795,
+      "max": 0.884
+    },
+    "space:candidates": {
+      "samples": 219,
+      "total": 62.2,
+      "mean": 0.284,
+      "p95": 0.4,
+      "max": 1.4
+    }
+  },
+  "after": {
+    "sphere:dome-motion": {
+      "samples": 4,
+      "total": 1.6,
+      "mean": 0.4,
+      "p95": 0.1,
+      "max": 1.5
+    },
+    "loading:readyMs": {
+      "samples": 1,
+      "total": 1092,
+      "mean": 1092,
+      "p95": 1092,
+      "max": 1092
+    },
+    "sphere:update": {
+      "samples": 5,
+      "total": 0.8,
+      "mean": 0.16,
+      "p95": 0.2,
+      "max": 0.2
+    },
+    "sphere:frameInterval": {
+      "samples": 2,
+      "total": 175.6,
+      "mean": 87.8,
+      "p95": 42.3,
+      "max": 133.3
+    },
+    "sphere:warm-render": {
+      "samples": 1,
+      "total": 50.7,
+      "mean": 50.7,
+      "p95": 50.7,
+      "max": 50.7
+    },
+    "sphere:viewer-background-pause": {
+      "samples": 1,
+      "total": 0.2,
+      "mean": 0.2,
+      "p95": 0.2,
+      "max": 0.2
+    },
+    "viewer:viewer-zoom-write": {
+      "samples": 1,
+      "total": 1,
+      "mean": 1,
+      "p95": 1,
+      "max": 1
+    },
+    "viewer:viewer-rail-write": {
+      "samples": 2,
+      "total": 3,
+      "mean": 1.5,
+      "p95": 1,
+      "max": 2
+    },
+    "viewer:viewer-init": {
+      "samples": 1,
+      "total": 16.8,
+      "mean": 16.8,
+      "p95": 16.8,
+      "max": 16.8
+    },
+    "viewer:viewer-navigation-start": {
+      "samples": 1,
+      "total": 0.2,
+      "mean": 0.2,
+      "p95": 0.2,
+      "max": 0.2
+    },
+    "viewer:viewer-slide-frame": {
+      "samples": 29,
+      "total": 29,
+      "mean": 1,
+      "p95": 1,
+      "max": 1
+    },
+    "viewer:viewer-navigation-ms": {
+      "samples": 1,
+      "total": 330,
+      "mean": 330,
+      "p95": 330,
+      "max": 330
+    },
+    "sphere:viewer-background-resume": {
+      "samples": 1,
+      "total": 0.2,
+      "mean": 0.2,
+      "p95": 0.2,
+      "max": 0.2
+    },
+    "transition:candidates": {
+      "samples": 63,
+      "total": 28.7,
+      "mean": 0.456,
+      "p95": 0.8,
+      "max": 4.1
+    },
+    "transition:render": {
+      "samples": 63,
+      "total": 31.5,
+      "mean": 0.5,
+      "p95": 1.1,
+      "max": 2.2
+    },
+    "transition:renders": {
+      "samples": 63,
+      "total": 63,
+      "mean": 1,
+      "p95": 1,
+      "max": 1
+    },
+    "transition:drawCalls": {
+      "samples": 63,
+      "total": 2017,
+      "mean": 32.016,
+      "p95": 42,
+      "max": 43
+    },
+    "transition:update": {
+      "samples": 63,
+      "total": 115.3,
+      "mean": 1.83,
+      "p95": 2.7,
+      "max": 15.1
+    },
+    "transition:frameInterval": {
+      "samples": 62,
+      "total": 1399.6,
+      "mean": 22.574,
+      "p95": 36.2,
+      "max": 72.9
+    },
+    "transition:gpuRender": {
+      "samples": 63,
+      "total": 62.5,
+      "mean": 0.992,
+      "p95": 1.564,
+      "max": 2.989
+    },
+    "space:frameInterval": {
+      "samples": 237,
+      "total": 2205.6,
+      "mean": 9.306,
+      "p95": 12.2,
+      "max": 36.4
+    },
+    "space:render": {
+      "samples": 238,
+      "total": 55.8,
+      "mean": 0.234,
+      "p95": 0.4,
+      "max": 0.7
+    },
+    "space:renders": {
+      "samples": 238,
+      "total": 238,
+      "mean": 1,
+      "p95": 1,
+      "max": 1
+    },
+    "space:drawCalls": {
+      "samples": 238,
+      "total": 7274,
+      "mean": 30.563,
+      "p95": 39,
+      "max": 42
+    },
+    "space:update": {
+      "samples": 238,
+      "total": 192.2,
+      "mean": 0.808,
+      "p95": 1.2,
+      "max": 2.2
+    },
+    "space:gpuRender": {
+      "samples": 185,
+      "total": 121.64,
+      "mean": 0.658,
+      "p95": 0.795,
+      "max": 0.884
+    },
+    "space:candidates": {
+      "samples": 219,
+      "total": 62.2,
+      "mean": 0.284,
+      "p95": 0.4,
+      "max": 1.4
+    }
+  }
+}

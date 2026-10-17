@@ -26,7 +26,7 @@ export function projectFieldFrame(plane,camera,aspect,imageAspect=1){
   return {left:Math.max(-1,x-halfWidth),right:Math.min(1,x+halfWidth),bottom:Math.max(-1,y-halfHeight),top:Math.min(1,y+halfHeight)};
 }
 
-export function fieldCandidates(camera, aspect, anchorImage, imageAspect=()=>1,getChunk=chunkPlanes) {
+export function fieldCandidates(camera, aspect, anchorImage, imageAspect=()=>1,getChunk=chunkPlanes,photoCount=0) {
   const center = [camera.x, camera.y, camera.z].map(v => Math.floor(v / CHUNK_SIZE));
   const planes = [];
   const tangent = Math.tan(Math.PI / 6);
@@ -46,13 +46,15 @@ export function fieldCandidates(camera, aspect, anchorImage, imageAspect=()=>1,g
   if (camera.z > 2 && camera.z < FADE_END && Math.abs(camera.x) < camera.z * tangent * aspect + 50 && Math.abs(camera.y) < camera.z * tangent + 50) {
     planes.push({key:'anchor',x:0,y:0,z:0,height:ENTRY_PHOTO_HEIGHT,media:anchorImage,score:-1});
   }
-  const accepted=[],frames=[],gapY=.04,gapX=gapY/aspect;
+  const accepted=[],frames=[],usedPhotos=new Set(),gapY=.04,gapX=gapY/aspect;
   // Keep the original world positions. Only suppress projected collisions.
   for(const plane of planes.sort((a,b)=>(a.key==='anchor'?-1:b.key==='anchor'?1:(camera.z-a.z)-(camera.z-b.z))||a.score-b.score||a.key.localeCompare(b.key))){
+    const photo=plane.key==='anchor'?anchorImage:plane.media%photoCount;
+    if(photoCount&&usedPhotos.has(photo))continue;
     const frame=projectFieldFrame(plane,camera,aspect,imageAspect(plane));
     if(frame.left>=frame.right||frame.bottom>=frame.top)continue;
     if(frames.some(other=>frame.left<other.right+gapX&&frame.right>other.left-gapX&&frame.bottom<other.top+gapY&&frame.top>other.bottom-gapY))continue;
-    accepted.push(plane);frames.push(frame);if(accepted.length>=96)break;
+    accepted.push(plane);frames.push(frame);usedPhotos.add(photo);if(accepted.length>=96)break;
   }
   return accepted;
 }
@@ -60,7 +62,7 @@ export function fieldCandidates(camera, aspect, anchorImage, imageAspect=()=>1,g
 // Keep only the current 7×7×7 region window; crossing a chunk retains its neighbours.
 export function createFieldQuery(){
   const chunks=new Map();let currentCenter='';
-  return (camera,aspect,anchorImage,imageAspect)=>{
+  return (camera,aspect,anchorImage,imageAspect,photoCount)=>{
     const center=[camera.x,camera.y,camera.z].map(v=>Math.floor(v/CHUNK_SIZE));
     const key=center.join(',');
     if(key!==currentCenter){
@@ -72,6 +74,6 @@ export function createFieldQuery(){
       for(const id of chunks.keys())if(!wanted.has(id))chunks.delete(id);
       currentCenter=key;
     }
-    return fieldCandidates(camera,aspect,anchorImage,imageAspect,(x,y,z)=>chunks.get(`${x},${y},${z}`));
+    return fieldCandidates(camera,aspect,anchorImage,imageAspect,(x,y,z)=>chunks.get(`${x},${y},${z}`),photoCount);
   };
 }
