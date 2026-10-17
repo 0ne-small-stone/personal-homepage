@@ -32,4 +32,6 @@
 - `npm run check`：167 文件，0 错误、0 警告、3 项既有 PhotoSwipe 提示。浏览器只加载纯导航工具，Zod 留在构建端，公开脚本无 ZodError/ZodObject。
 - 浏览器实际输入“代码”显示 1 站，导航至英文资料，再切中文，现有内容与语言入口正常；本次 4390 页面无控制台 error。[证据](evidence/cms-native-data-2026-10-17/README.md)。
 
-托管 CMS 新表单、Save 与分支读回仍待验。以上不是已上线或后台保存通过。
+托管 CMS 已实际显示三个新编辑入口：英文姓名预填 Zhang Xuanshi，中文姓名预填张轩石；常用网站有 11 个完整地址字段，分类与图标显示已有值。英文 GitHub 地址临时加尾斜杠 → Save → 刷新读回 → 恢复原地址 → Save → 刷新读回，实际产生 8f15a35 / 10b2985 两次 CMS 提交。Git 快进读回后，两种语言与网站全部值仍与迁移前深比较一致。
+
+仅英文资料执行了实际 Save，中文与网站是表单读回；网站未额外写入。当前候选分支的[英文资料后台](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Freuse-cms-2026-10-17/file/profile-en)、[中文资料后台](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Freuse-cms-2026-10-17/file/profile-zh)、[常用网站后台](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Freuse-cms-2026-10-17/file/websites)均保留。尚未合并主线、更新正式内容编辑分支或发布。
