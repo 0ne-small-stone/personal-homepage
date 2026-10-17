@@ -1,5 +1,7 @@
 # 个人主页设计复用与素材来源
 
+2026-10-17 P13/T25.41：用户已选黑灰金属收录机＋三盒磁带。机身/带壳/喇叭/带轮为原创CSS/SVG精确几何，磁带标记沿原GEN-03–05 WebP，不复制外部硬件品牌/照片。按六站提醒提供[Anime.js Timeline](https://animejs.com/documentation/timeline/)作装带→闭门与退带时序对照；实际原生Pointer Events/Web Animations，无新依赖或外部代码。既有音乐/账号/播放许可边界保持。
+
 2026-10-16 Elsewhere沿用户选择的[TOOOLS.design](https://www.toools.design/)布局组织，11个站点图标为本地原创内容SVG，不冒充官方品牌；P13三张间隙WebP按已选原创图样压缩派生，未复制第三方封面/字体/原生应用源码。实际整合与来源边界见[本轮记录](../technical/acceptance/progress-2026-10-16.md)，具体视觉结果不以构建通过代替用户审美。
 
 2026-10-15 P13核心曲库参考[MeloX](https://github.com/youshen2/MeloX)桌面组织与[MeiloX](https://github.com/NEORUAA/MeiloX)手机组织。仅参照界面关系，以本站React/CSS实现，未复制Swift/Android代码、SF字体、封面或原站截图；原黑胶组件和许可继续保留。原项目GPL及其他资产许可各自成立，不能据界面参考推断音乐/图片授权。菜单使用浏览器原生Popover，参数与采用边界见[集成记录](iterations/u12-p13-2026-10-15-main-integration.md)。
