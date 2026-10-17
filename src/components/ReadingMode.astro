@@ -15,7 +15,7 @@ const { pdf = false } = Astro.props;
 </style>
 <script>
   import type { PdfReadingPosition } from '../lib/pdf-reading-progress-state';
-  import { automaticPdfColumns, fitPdfMode, pdfModeGeometry, pdfModeGroup, type PdfPaperSize } from '../lib/immersivePdfLayout';
+  import { adaptivePdfGeometry, automaticPdfColumns, fitPdfMode, pdfModeGeometry, pdfModeGroup, type PdfPaperSize } from '../lib/immersivePdfLayout';
   import { bindImmersivePdfInput } from '../lib/immersivePdfInput';
   interface PdfPageView {
     div: HTMLElement;
@@ -143,7 +143,7 @@ const { pdf = false } = Astro.props;
         const strategy = this.freeFlow ? '当前自由排布，页数随缩放变化。' : this.columns
           ? `当前每组 ${this.columns} 页，缩放不会改变页数。`
           : '进入后自动选择单页或双页，并显示完整页面。';
-        this.status.textContent = strategy + '数字键 1–4 固定页数，0、5–9 取消固定；F 适应整页（中文输入法也可用）。固定时方向键/滚轮翻组；Ctrl + 加减号或 Ctrl + 滚轮缩放。电脑 Esc、手机右滑退出。';
+        this.status.textContent = strategy + '数字键 1–5 固定页数，0、6–9 取消固定；F 适应整页（中文输入法也可用）。固定时方向键/滚轮翻组；Ctrl + 加减号或 Ctrl + 滚轮缩放。电脑 Esc、手机右滑退出。';
       } else this.status.textContent = '进入全屏，电脑 Esc 退出，手机右滑退出。';
     }
     private bookmarkPdf(): PdfBookmark | undefined {
@@ -200,16 +200,17 @@ const { pdf = false } = Astro.props;
       this.modeFits = false;
     }
     private applyPdfGeometry(scale = this.app?.pdfViewer?.currentScale ?? 1) {
-      if (this.freeFlow) return;
       const doc = this.frame?.contentDocument, container = doc?.getElementById('viewerContainer');
-      if (!doc || !container || !this.columns || !this.groupSizes.length) return;
-      const geometry = pdfModeGeometry({ width: container.clientWidth, height: container.clientHeight,
-        columns: this.columns, sizes: this.groupSizes, scale });
+      if (!doc || !container || !this.groupSizes.length) return;
+      const input = { width: container.clientWidth, height: container.clientHeight, sizes: this.groupSizes, scale };
+      const geometry = this.freeFlow
+        ? adaptivePdfGeometry({ ...input, pages: this.app?.pdfViewer?.pagesCount ?? 1 })
+        : this.columns ? pdfModeGeometry({ ...input, columns: this.columns }) : undefined;
       if (!geometry) return;
-      doc.documentElement.style.setProperty('--reading-columns', String(this.columns));
+      doc.documentElement.style.setProperty('--reading-columns', String(geometry.columns));
       doc.documentElement.style.setProperty('--reading-cell-width', geometry.cellWidth + 'px');
       doc.documentElement.style.setProperty('--reading-slot-height', geometry.slotHeight + 'px');
-      doc.documentElement.dataset.readingColumns = String(this.columns);
+      doc.documentElement.dataset.readingColumns = String(geometry.columns);
       this.modeFits = geometry.fits;
     }
     private alignPdfGroup(page: number) {
@@ -296,11 +297,19 @@ const { pdf = false } = Astro.props;
       this.freeFlow = true;
       this.columns = undefined;
       this.modeChosen = false;
-      this.groupSizes = [];
-      this.clearPdfGeometry();
+      this.applyPdfGeometry();
       this.restorePdfBookmark(bookmark);
       this.app?.pdfViewer?.update();
       this.lastBookmark = bookmark;
+    }
+    private resetPdfFit() {
+      if (!this.active || !this.frame) return;
+      // Cancel pending resize/manual work; F must fit even after free flow/zoom.
+      this.useManualZoom();
+      this.automatic = true;
+      this.manualZoom = false;
+      const page = this.app?.pdfViewer?.currentPageNumber ?? this.currentPdfPage();
+      void this.fitPdf({ page, x: 0, y: 0 });
     }
     private movePdfGroup(direction: number) {
       const viewer = this.app?.pdfViewer;
@@ -316,7 +325,7 @@ const { pdf = false } = Astro.props;
       bindImmersivePdfInput(doc, { signal, active: () => this.active && !!this.frame, run: (shortcut) => {
         if (shortcut.kind === 'mode') this.choosePdfMode(shortcut.columns);
         else if (shortcut.kind === 'free') this.releasePdfMode();
-        else { this.automatic = true; this.manualZoom = false; void this.fitPdf(); }
+        else this.resetPdfFit();
       } });
       doc.addEventListener('keydown', (event) => {
         if (!this.active) return;
