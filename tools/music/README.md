@@ -124,6 +124,10 @@ node tools/music/index-library.mjs --auto-lx --share-url 'https://pan.koala-stud
 同源Node音乐预览增加搜索/推荐、个人曲库、分类播客、手动刷新及节目下载核对。官方SDK白名单和单audio继续复用，账号Cookie/DPAPI/下载文件不纳入静态产物。NetEaseMusicCatalog先探测服务，成功后延迟加载核心UI；不可用则展示SharedPlaylistCatalog共享歌单及重试，不把本机账号后台当成Pages功能。保留公网内网音源提示、原站入口及公共catalog版本快照。界面/服务/测试源码各守原目录，来源与检查见docs/technical/acceptance/latest-release-2026-10-15.md。
 
 
+## 2026-10-17 考拉故障时的本机恢复
+
+本机音乐预览优先选择私有索引中目录内、大小/修改时间匹配的原始下载文件与已缓存封面，通过原同源local-audio/local-cover提供播放、封面与Range；缺失或变化的文件保留原公开URL。新完成的网页下载继续使用原完成清单与处理器。界面显示「本机收藏音源」，不把考拉已上传的收藏误报为等待同步。静态构建仍剔除本机地址，下载文件/索引/凭据不进入Git或Pages；考拉502时公网音频仍需上游恢复。验证见[恢复记录](../../docs/technical/iterations/t21-p13-2026-10-17-cloud-playback-recovery.md)。
+
 ## 2026-10-16 增量与启动
 
 Windows本机可用 `npm run music:start` 后台启动/复用现有回环服务，无启动项或新凭证；源码入口tools/music/start-preview.ps1。推荐刷新优先换入同分类其他候选，仍按快照稳定分页、合并并发、账号隔离，无替代项保留当前内容。三张原创间隙WebP仅用于核心主页入口，原黑胶/账号/下载不重做。公网无服务仍保留原共享歌单与内网提示，静态Pages不运行个人账号后台。实际范围与验证见docs/technical/acceptance/progress-2026-10-16.md。
