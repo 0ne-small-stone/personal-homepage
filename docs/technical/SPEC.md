@@ -1,5 +1,7 @@
 # 个人主页技术实现方案
 
+2026-10-17 技术复用优化获用户授权。第一片在独立工作树接入 TanStack Query 管理音乐远程读取、分页、取消和缓存，身份隔离与手动换批规则见[实施记录](iterations/reuse-optimization-2026-10-17.md)。验证前不更新当前音乐候选或发布状态。
+
 2026-10-17 P05/P10加载优化：按用户反馈审查PDF和照片墙的资源、依赖、初始化、生命周期与失败恢复，先实测再改；保持原功能/构图、沿既有框架，无新依赖或其他候选整合。[范围及验收](iterations/pdf-gallery-performance-2026-10-17.md)。
 
 2026-10-16整合边界：F05仅接home-motion/frame-activity/copy-state及对应测试，保持main渲染/加载生命周期。Elsewhere共用类型化11站数据与SSR/浏览器筛选、当前URL恢复/清理；P13接续分类换批、连接错误反馈及三张原创入口，公共catalog/账号/下载降级沿main。F06与Afterimage等未完成候选不接入。[进度与验收](acceptance/progress-2026-10-16.md)。

@@ -11,6 +11,8 @@ import NetEaseFeatureCards from './NetEaseFeatureCards';
 import RecommendationForm from './RecommendationForm';
 import {MusicIcon} from './RadioNowPlaying';
 import type {RadioConfig} from './RadioExperience';
+import { QueryClientProvider } from '@tanstack/react-query';
+import { createMusicQueryClient } from '../../lib/music-query';
 import '../../styles/music-netease-core.css';
 
 function Icon({name}:{name:string}){const paths:Record<string,ReactNode>={home:<><path d="m3 10 9-7 9 7v10H3Z"/><path d="M9 20v-7h6v7"/></>,search:<><circle cx="10" cy="10" r="6.5"/><path d="m15 15 6 6"/></>,discover:<><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></>,radio:<><path d="M5 5a10 10 0 0 0 0 14M19 5a10 10 0 0 1 0 14M8 8a6 6 0 0 0 0 8m8-8a6 6 0 0 1 0 8M12 13v7"/><circle cx="12" cy="10" r="2"/></>,liked:<path d="M12 21 3.8 13A5.5 5.5 0 0 1 12 5.8 5.5 5.5 0 0 1 20.2 13Z"/>,playlists:<><path d="M3 5h13M3 10h13M3 15h8m6 3V8l4-1"/><ellipse cx="14.5" cy="19" rx="2.5" ry="2"/></>,albums:<><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/></>,artists:<><circle cx="12" cy="7" r="4"/><path d="M4 22v-3a8 8 0 0 1 16 0v3"/></>,podcasts:<><rect x="8" y="2" width="8" height="13" rx="4"/><path d="M5 10a7 7 0 0 0 14 0M12 17v5m-4 0h8"/></>,downloads:<><circle cx="12" cy="12" r="9"/><path d="M12 6v12m-4-4 4 4 4-4"/></>,cloud:<path d="M6 19a5 5 0 0 1-1-9 7 7 0 0 1 14-1 5 5 0 0 1-1 10Z"/>,history:<><circle cx="12" cy="12" r="9"/><path d="M12 6v6H7"/></>,more:<><circle cx="4" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="20" cy="12" r="1"/></>,menu:<path d="M4 6h16M4 12h16M4 18h16"/>,refresh:<><path d="M20 7v5h-5"/><path d="M20 12a8 8 0 1 0-2 5M20 7l-3-3"/></>,close:<path d="m6 6 12 12M18 6 6 18"/>,queue:<path d="M3 5h15M3 10h15M3 15h8m4 0 6 4-6 3Z"/>};return<svg viewBox="0 0 24 24" aria-hidden="true">{paths[name]||paths.albums}</svg>;}
@@ -30,6 +32,12 @@ function TrackActions({title,children}:{title:string;children:ReactNode}){
 const qualityNames:Record<string,string>={'128k':'标准 · 128 kbps','320k':'高品质 · 320 kbps',flac:'无损 · FLAC',hires:'Hi-Res'};
 
 export default function NetEaseCoreExperience({config,onMode}:{config:RadioConfig;onMode:(mode:'cloud'|'netease')=>void}){
+  const [client] = useState(createMusicQueryClient);
+  useEffect(() => () => client.clear(), [client]);
+  return <QueryClientProvider client={client}><NetEaseCoreContent config={config} onMode={onMode}/></QueryClientProvider>;
+}
+
+function NetEaseCoreContent({config,onMode}:{config:RadioConfig;onMode:(mode:'cloud'|'netease')=>void}){
   const core=useNetEaseCore();const {route,data,busy,error,notice,account,liked,jobs,mutationBusy,go,play,load,mutate,presentation,selected}=core;
   const searchInput=useRef<HTMLInputElement>(null);
   const [room,setRoom]=useState(false);const [keyword,setKeyword]=useState('');const [searchKind,setSearchKind]=useState<NetEaseKind>('song');
