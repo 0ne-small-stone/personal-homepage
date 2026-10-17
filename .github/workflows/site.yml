@@ -103,6 +103,9 @@ jobs:
       - name: Test music state and service boundaries
         run: npm run music:test
 
+      - name: Test CMS editable public data
+        run: node --test tools/content/public-data.test.mjs
+
       - name: Build static website
         run: npm run build
 

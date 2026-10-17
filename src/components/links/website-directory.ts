@@ -1,4 +1,4 @@
-import { matchesWebsite, readWebsiteFilter, websiteCategories } from '../../data/websites';
+import { matchesWebsite, readWebsiteFilter, websiteCategories } from '../../lib/website-directory';
 export function mountWebsiteDirectory(root: HTMLElement, view: Window = window): () => void {
   const input = root.querySelector<HTMLInputElement>('#website-search')!;
   const categories = [...root.querySelectorAll<HTMLAnchorElement>('[data-category]')];

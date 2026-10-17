@@ -1,4 +1,4 @@
-# Native article, resource and note editors, plus the fixed article validation entry.
+# Native public profile, website, article, resource and note editors.
 media:
   - name: article-images
     label: 文章图片（公开仓库）
@@ -20,6 +20,129 @@ media:
     extensions: [png, jpg, jpeg, webp, avif]
     rename: random
 content:
+  - name: profile-en
+    label: 个人资料 · English
+    type: file
+    path: src/data/profile-en.json
+    format: json
+    operations: { create: false, rename: false, delete: false }
+    commit:
+      templates:
+        update: 'content(profile): 更新英文公开资料'
+    fields: &publicProfileFields
+      - { name: name, label: 姓名, type: string, required: true }
+      - { name: nickname, label: 昵称, type: string, required: true }
+      - { name: university, label: 学校, type: string, required: true }
+      - { name: major, label: 专业, type: string, required: true }
+      - name: email
+        label: 公开邮箱
+        type: string
+        required: true
+        description: '只填写可公开信息。Save 写入公开仓库，需 PR 合并和部署后更新网站；不要在这里填写私人资料。'
+      - name: github
+        label: GitHub 地址
+        type: string
+        required: true
+        pattern: { regex: '^https://[^\s]+$', message: 填写完整 HTTPS 地址 }
+      - { name: introduction, label: 自我介绍（分段）, type: text, list: true, required: true }
+      - name: experiences
+        label: 经历
+        type: object
+        list:
+          collapsible: { collapsed: true, summary: '{fields.title}' }
+        fields:
+          - name: id
+            label: 稳定标识
+            type: string
+            required: true
+            description: '使用唯一小写英文、数字和短横线；已发布的标识用于段落锚点，请保持不变。'
+            pattern: { regex: '^[a-z0-9]+(?:-[a-z0-9]+)*$', message: 使用小写英文、数字和短横线 }
+          - { name: period, label: 时间, type: string, required: true }
+          - { name: title, label: 标题, type: string, required: true }
+          - { name: role, label: 角色, type: string, required: true }
+          - { name: paragraphs, label: 说明（分段）, type: text, list: true, required: true }
+      - name: capabilities
+        label: 能力与协作
+        type: object
+        list:
+          collapsible: { collapsed: true, summary: '{fields.title}' }
+        fields:
+          - { name: title, label: 标题, type: string, required: true }
+          - { name: items, label: 关键词, type: string, list: true, required: true }
+          - { name: description, label: 说明, type: text, required: true }
+      - { name: learning, label: 正在学习, type: text, required: true }
+      - { name: life, label: 日常（分段）, type: text, list: true, required: true }
+      - name: traces
+        label: 栏目入口
+        type: object
+        list:
+          collapsible: { collapsed: true, summary: '{fields.name}' }
+        fields:
+          - { name: name, label: 名称, type: string, required: true }
+          - { name: label, label: 说明, type: string, required: true }
+          - name: path
+            label: 目标栏目
+            type: select
+            required: true
+            options:
+              values:
+                - { value: knowledge, label: 学习与笔记 }
+                - { value: showcase, label: 项目与作品 }
+                - { value: gallery, label: 照片与相册 }
+                - { value: music, label: 音乐 }
+  - name: profile-zh
+    label: 个人资料 · 中文
+    type: file
+    path: src/data/profile-zh-CN.json
+    format: json
+    operations: { create: false, rename: false, delete: false }
+    commit:
+      templates:
+        update: 'content(profile): 更新中文公开资料'
+    fields: *publicProfileFields
+  - name: websites
+    label: 常用网站
+    type: file
+    path: src/data/websites.json
+    format: json
+    list: true
+    operations: { create: false, rename: false, delete: false }
+    commit:
+      templates:
+        update: 'content(links): 更新常用网站'
+    fields:
+      - name: id
+        label: 稳定标识
+        type: string
+        required: true
+        description: '只添加你希望公开的网址。保存后需 PR 合并及部署；标识使用唯一小写英文、数字和短横线。'
+        pattern: { regex: '^[a-z0-9]+(?:-[a-z0-9]+)*$', message: 使用小写英文、数字和短横线 }
+      - { name: name, label: 名称, type: string, required: true }
+      - name: url
+        label: 原站完整地址
+        type: string
+        required: true
+        description: '保留深层路径与必要查询参数，不填写带账号或密码的地址。'
+        pattern: { regex: '^https?://[^\s]+$', message: 填写完整 HTTP 或 HTTPS 地址 }
+      - { name: description, label: 用途说明, type: text, required: true }
+      - name: category
+        label: 分类
+        type: select
+        required: true
+        options:
+          values:
+            - { value: learning, label: 课程与学习 }
+            - { value: campus, label: 校园入口 }
+            - { value: media, label: 影像与音乐 }
+            - { value: work, label: 工作与协作 }
+      - { name: tags, label: 搜索关键词, type: string, list: true }
+      - name: icon
+        label: 图标
+        type: select
+        required: true
+        options:
+          values: [guitar, graduation, compass, lecture, terminal, television, koala, index, ice, code-book, circuit]
+      - { name: featured, label: 优先显示, type: boolean, default: false }
   - name: blog-settings
     label: 博客设置
     type: file
