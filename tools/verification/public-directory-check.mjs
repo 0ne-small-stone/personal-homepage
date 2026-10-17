@@ -44,14 +44,14 @@ for (const file of pages) {
     assert(scripts.length > 0 && scripts.every(src => src.startsWith('/personal-homepage/_astro/')), 'Gallery modules need the project base');
     for (const src of scripts) assert(readFileSync(join(root, src.slice('/personal-homepage/'.length))).length > 0, `Missing gallery module: ${src}`);
     const photos = JSON.parse(readFileSync(join(root, 'gallery/manifest.json'), 'utf8'));
-    assert.equal(photos.length, 36, 'Published gallery must contain the accepted 36 photographs');
-    assert.equal(new Set(photos.map(photo => photo.id)).size, 36, 'Gallery photo IDs must be unique');
+    assert.equal(photos.length, 101, 'Published gallery must contain the synchronized 101 photographs');
+    assert.equal(new Set(photos.map(photo => photo.id)).size, photos.length, 'Gallery photo IDs must be unique');
     const noScript = html.match(/<noscript>[\s\S]*?<\/noscript>/)?.[0];
     assert(noScript, 'Gallery needs an accessible no-JS photo collection');
     for (const photo of photos) {
       assert(photo.width > 0 && photo.height > 0, `Invalid image ratio: ${photo.id}`);
       for (const key of ['image', 'full']) {
-        assert(/^\.\/media\/photo-\d{2}(?:-full)?\.webp$/.test(photo[key]), `Invalid photo URL: ${photo.id}`);
+        assert(/^\.\/media\/photo-\d{2,}(?:-full)?\.webp$/.test(photo[key]), `Invalid photo URL: ${photo.id}`);
         assert(readFileSync(join(root, 'gallery', photo[key].slice(2))).length > 0, `Missing published photo: ${photo.id}/${key}`);
         assert(noScript.includes(`/personal-homepage/gallery/${photo[key].slice(2)}`), `Missing no-JS photo destination: ${photo.id}/${key}`);
       }
