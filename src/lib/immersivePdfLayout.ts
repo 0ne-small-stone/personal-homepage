@@ -15,7 +15,7 @@ export function pdfModeGroup(page: number, pages: number, columns: number) {
 export function pdfModeGeometry(input: ModeInput & { scale: number }) {
   const { width, height, sizes, columns, scale } = input;
   if (![width, height, scale].every((value) => Number.isFinite(value) && value > 0)
-    || !Number.isInteger(columns) || columns < 1 || columns > 4 || !sizes.length
+    || !Number.isInteger(columns) || columns < 1 || columns > 5 || !sizes.length
     || sizes.some((paper) => ![paper.width, paper.height].every((value) => Number.isFinite(value) && value > 0))) return undefined;
   const paperWidth = Math.max(...sizes.map((paper) => paper.width));
   const paperHeight = Math.max(...sizes.map((paper) => paper.height));
@@ -36,4 +36,16 @@ export function fitPdfMode(input: ModeInput) {
     availableHeight / Math.max(...sizes.map((paper) => paper.height))) - 1e-8) * 10000) / 10000;
   const geometry = pdfModeGeometry({ ...input, scale });
   return geometry ? { ...geometry, scale } : undefined;
+}
+
+// Free flow follows the user's scale, without snapping back to a fitted mode.
+export function adaptivePdfGeometry(input: { width: number; height: number; sizes: PdfPaperSize[]; scale: number; pages: number }) {
+  const { width, height, sizes, scale, pages } = input;
+  if (![width, height, scale, pages].every(value => Number.isFinite(value) && value > 0)
+    || !Number.isInteger(pages) || !sizes.length
+    || sizes.some(paper => ![paper.width, paper.height].every(value => Number.isFinite(value) && value > 0))) return undefined;
+  const cellWidth = Math.ceil(Math.max(...sizes.map(paper => paper.width)) * scale + 34);
+  const columns = Math.min(pages, Math.max(1, Math.floor((width - 16) / cellWidth)));
+  return { columns, cellWidth, rowWidth: columns * cellWidth,
+    slotHeight: Math.ceil(Math.max(...sizes.map(paper => paper.height)) * scale + 34), fits: false };
 }

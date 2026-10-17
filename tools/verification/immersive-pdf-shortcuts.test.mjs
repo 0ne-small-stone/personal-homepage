@@ -9,13 +9,13 @@ test('F works with IME Process or composing keys via its physical position', () 
   }
   assert.equal(immersivePdfShortcut(key({key:'Process',code:'KeyG'})), undefined);
 });
-test('main row and numeric keypad retain modes 1 through 4 under an IME', () => {
-  for (const columns of [1,2,3,4]) for (const code of [`Digit${columns}`,`Numpad${columns}`]) {
+test('main row and numeric keypad retain modes 1 through 5 under an IME', () => {
+  for (const columns of [1,2,3,4,5]) for (const code of [`Digit${columns}`,`Numpad${columns}`]) {
     assert.deepEqual(immersivePdfShortcut(key({key:'Process',code})), {kind:'mode',columns});
   }
 });
 test('every remaining digit releases the fixed layout, including zero', () => {
-  for (const digit of [0,5,6,7,8,9]) for (const code of ['',`Digit${digit}`,`Numpad${digit}`]) {
+  for (const digit of [0,6,7,8,9]) for (const code of ['',`Digit${digit}`,`Numpad${digit}`]) {
     assert.deepEqual(immersivePdfShortcut(key({key:String(digit),code})), {kind:'free'});
   }
 });
