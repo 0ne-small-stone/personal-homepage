@@ -65,3 +65,9 @@ body, input, select, button { font-family: system-ui, -apple-system, "PingFang S
   :root { --sidebar-transition-duration: 0ms; }
   *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; }
 }
+
+/* The same native control returns to the document when its sidebar is open. */
+#viewsManagerToggleButton[aria-expanded="true"]::before {
+  -webkit-mask-image: url(images/findbarButton-previous.svg);
+  mask-image: url(images/findbarButton-previous.svg);
+}
