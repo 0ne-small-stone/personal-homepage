@@ -24,7 +24,7 @@ export async function prepareFastRange({ url, bytes, sha256, viewerOrigin, lib, 
         controller.abort(reason); signal?.removeEventListener('abort', externalAbort); cache.clear(); for (const item of queue.splice(0))
         item.reject(controller.signal.reason); };
     const base = new URL('fast/' + match[1] + '/' + sha256.slice(0, 16) + '/', new URL('./', file));
-    async function readLimited(response, limit, fixed = false) {
+    async function readLimited(response, limit, fixed = false, onChunk) {
         const reader = response.body.getReader(), chunks = [], buffer = fixed ? new Uint8Array(limit) : null;
         let total = 0;
         try {
@@ -35,6 +35,7 @@ export async function prepareFastRange({ url, bytes, sha256, viewerOrigin, lib, 
                 total += value.byteLength;
                 if (total > limit)
                     throw Error('Unexpected PDF response size');
+                onChunk?.();
                 if (buffer) buffer.set(value, total - value.byteLength);
                 else chunks.push(value);
             }
@@ -52,19 +53,21 @@ export async function prepareFastRange({ url, bytes, sha256, viewerOrigin, lib, 
         }
         return result;
     }
-    async function request(target, { headers, limit, timeout = 3000, validate, fixed = false }) {
+    async function request(target, { headers, limit, timeout = 3000, validate, fixed = false, slidingTimeout = false }) {
         const requestController = new AbortController(), cancel = () => requestController.abort(controller.signal.reason);
         if (controller.signal.aborted)
             throw controller.signal.reason;
         controller.signal.addEventListener('abort', cancel, { once: true });
-        const timer = timeout ? setTimeout(() => requestController.abort(), timeout) : null;
+        let timer;
+        const resetTimeout = () => { if (timer) clearTimeout(timer); if (timeout) timer = setTimeout(() => requestController.abort(), timeout); };
+        resetTimeout();
         try {
             const response = await fetchImpl(String(target), { headers, signal: requestController.signal, credentials: 'same-origin' });
             if (!validate(response)) {
                 await response.body?.cancel();
                 throw Error('Unexpected PDF transport response');
             }
-            return await readLimited(response, limit, fixed);
+            return await readLimited(response, limit, fixed, slidingTimeout ? resetTimeout : undefined);
         }
         finally {
             if (timer)
@@ -120,7 +123,7 @@ export async function prepareFastRange({ url, bytes, sha256, viewerOrigin, lib, 
             let total = 0;
             for (const part of metadata.parts) { bundleOffsets.set(part.index, total); total += part.bytes; }
             if (bundle.file !== 'first-render-v1.bin' || bundle.bytes !== total || total > 32 * 1024 * 1024 || !/^[a-f0-9]{64}$/.test(bundle.sha256)) throw Error('Invalid first-render PDF bundle');
-            bundleOffer = request(new URL(bundle.file, base), { limit: total, fixed: true, timeout: 45000, validate: response => response.status === 200 })
+            bundleOffer = request(new URL(bundle.file, base), { limit: total, fixed: true, timeout: 45000, slidingTimeout: true, validate: response => response.status === 200 })
                 .then(async data => {
                     if (data.length !== total || await checksum(data) !== bundle.sha256) throw Error('PDF bundle checksum mismatch');
                     return controller.signal.aborted ? null : data;

@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
 import {webcrypto,createHash} from 'node:crypto';
 import {prepareFastRange} from '../../public/pdfjs/web/lssh-range.mjs';
 const chunk=65536,bytes=4*1024*1024+173,source=Buffer.alloc(bytes);
@@ -76,4 +77,18 @@ test('scattered first-render bytes share one checked bundle; damage falls back t
 test('closing during a bundle transfer cancels without late bytes or fallback work',async()=>{
  const f=fixture({bundle:true,bundleDelay:1000}),r=await f.prepare(),work=r.requestDataRange(chunk,2*chunk);
  f.controller.abort();await work;assert.equal(f.deliveries.length,0);assert.equal(f.errors.length,0);assert.equal(f.requests.filter(r=>/\/1\.bin$/.test(r.target)||r.range).length,0);
+});
+
+test('healthy slow bundle data resets inactivity timeout rather than restarting through mirrors',async()=>{
+ const sourceModule=readFileSync(new URL('../../public/pdfjs/web/lssh-range.mjs',import.meta.url),'utf8').replace('timeout: 45000','timeout: 100');
+ const {prepareFastRange:prepare}=await import('data:text/javascript;base64,'+Buffer.from(sourceModule).toString('base64'));
+ const data=source.subarray(0,chunk*2),packedHash=hash(data),parts=[0,1].map(index=>({index,bytes:chunk,sha256:hash(source.subarray(index*chunk,(index+1)*chunk))}));let pieces=0,delivered;
+ class Native{constructor(){}onDataRange(_begin,bytes){delivered=bytes;}}
+ const transport=await prepare({url,bytes,sha256,viewerOrigin:'https://example.test',lib:{PDFDataRangeTransport:Native},cryptoImpl:webcrypto,fetchImpl:async(target,{signal})=>{
+  if(target.includes('index.json'))return Response.json({...metadata,parts,bundle:{file:'first-render-v1.bin',bytes:data.length,sha256:packedHash}});
+  if(target.endsWith('/0.bin')){pieces++;return new Response(source.subarray(0,chunk));}
+  if(!target.endsWith('/first-render-v1.bin'))throw Error('Unexpected fallback');
+  let offset=0,timer;return new Response(new ReadableStream({start(controller){signal.addEventListener('abort',()=>{clearTimeout(timer);controller.error(Error('aborted'));},{once:true});const next=()=>{timer=setTimeout(()=>{const end=Math.min(offset+16384,data.length);controller.enqueue(data.subarray(offset,end));offset=end;if(offset===data.length)controller.close();else next();},35);};next();}}));
+ }});
+ await transport.requestDataRange(chunk,2*chunk);assert.deepEqual(Buffer.from(delivered),source.subarray(chunk,2*chunk));assert.equal(pieces,1);transport.abort();
 });
