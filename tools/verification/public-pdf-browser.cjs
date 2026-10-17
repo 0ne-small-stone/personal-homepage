@@ -26,13 +26,13 @@ const rendered = async (frame) => {
     return ink > 50;
   });
 };
-const ready = async (page) => {
+const ready = async (page, expectedPages = 4) => {
   await page.locator('pdf-reader[aria-busy="false"] iframe').waitFor({ timeout: 45000 });
   const frame = page.frames().find((frame) => frame.url().includes('/pdfjs/web/viewer.html'));
   assert(frame, 'Missing PDF viewer');
   await frame.waitForFunction(() => window.PDFViewerApplication?.isInitialViewSet && window.PDFViewerApplication?.pdfDocument, null, { timeout: 45000 });
   await frame.locator('canvas').first().waitFor();
-  assert.equal(await frame.evaluate(() => window.PDFViewerApplication.pdfDocument.numPages), 4);
+  assert.equal(await frame.evaluate(() => window.PDFViewerApplication.pdfDocument.numPages), expectedPages);
   return frame;
 };
 (async () => {
@@ -144,9 +144,10 @@ const ready = async (page) => {
   await failure.close();
 
   await page.goto(`${base}/knowledge/notes/ads/ads-algorithms-notes/`);
-  assert.equal(await page.locator('pdf-reader iframe').count(), 0);
-  assert((await page.locator('[data-status]').textContent()).includes('尚未接入'));
-  record('clean build leaves private PDF unavailable truthfully');
+  // This attachment was explicitly approved and published on 2026-10-16.
+  await ready(page, 35);
+  assert.equal(await page.locator('pdf-reader iframe').getAttribute('data-sha256'), '3838b7c6820d94958870f30328e968f7ac0c1d3d6e52a0da8a6dd4f06b38e699');
+  record('approved public notes retain their registered source identity');
   // Private-copy regression is optional and must use an explicitly supplied preview.
   if (process.env.LOCAL_READING_PREVIEW) {
     const local = await context.newPage();

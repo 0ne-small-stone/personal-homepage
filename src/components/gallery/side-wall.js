@@ -39,7 +39,7 @@ export function createSideWall(main,photos,radius){
     if(!pitch)return;
     const sx=Math.floor(offsetX/pitch),sy=Math.floor(offsetY/pitch);
     if(sx!==shiftX||sy!==shiftY){
-      for(const {row,col,img,cell} of cells){const worldRow=row-sy;const key=worldRow*7+(col-sx)*11;const photo=photos[((key%photos.length)+photos.length)%photos.length];if(img.getAttribute('src')!==photo.image)img.src=photo.image;cell.style.transform=worldRow%2?`translateX(${pitch*.5}px)`:'';}
+      for(const {row,col,img,cell} of cells){const worldRow=row-sy;const key=worldRow*7+(col-sx)*11;const photo=photos[((key%photos.length)+photos.length)%photos.length];const src=photo.preview||photo.image;if(img.getAttribute('src')!==src)img.src=src;cell.style.transform=worldRow%2?`translateX(${pitch*.5}px)`:'';}
       shiftX=sx;shiftY=sy;
     }
     track.style.transform=`translate3d(${offsetX-sx*pitch-pitch*2}px,${offsetY-sy*pitch-pitch}px,0)`;

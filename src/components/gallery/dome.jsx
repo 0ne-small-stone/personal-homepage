@@ -1,4 +1,3 @@
-import React from 'react';
 import { createRoot } from 'react-dom/client';
 import DomeGallery from './vendor/DomeGallery.jsx';
 import './dome.css';
@@ -9,7 +8,7 @@ export const domeProps={fit:.8,minRadius:600,segments:34,dragDampening:2,maxVert
 export function mountDome(host,photos,callbacks,reduceMotion){
   const root=createRoot(host);
   return new Promise(resolve=>{
-    root.render(<DomeGallery {...domeProps} images={photos.map(photo=>({src:photo.image,full:photo.full,alt:photo.title}))}
+    root.render(<DomeGallery {...domeProps} images={photos.map(photo=>({src:photo.image,preview:photo.preview,full:photo.full,alt:photo.title}))}
       fullCoverage responsive reduceMotion={reduceMotion}
       onMotion={callbacks.onMotion} onSelect={callbacks.onSelect} onOpenImage={callbacks.onOpenImage}
       onReady={api=>{api.unmount=()=>root.unmount();resolve(api);}}/>);

@@ -30,9 +30,10 @@
     "test:home": "node --test tests/home-*.test.mjs tests/prism-ray.test.mjs",
     "music:publish-catalog": "node tools/music/export-public-catalog.mjs",
     "materials:fetch": "node tools/content/prepare-public-materials.mjs",
-    "prebuild": "npm run pdf:prepare && npm run materials:fetch",
+    "prebuild": "npm run pdf:prepare && npm run materials:fetch && npm run pdf:fast",
     "music:start": "pwsh -NoProfile -File tools/music/start-preview.ps1",
-    "test:links": "node --test tests/website-directory.test.mjs"
+    "test:links": "node --test tests/website-directory.test.mjs",
+    "pdf:fast": "node tools/content/prepare-fast-pdfs.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "7.3.2",

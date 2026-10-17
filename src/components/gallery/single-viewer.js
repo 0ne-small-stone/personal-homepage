@@ -20,7 +20,7 @@ export function createSingleViewer({photos,getOrigin,beforeOpen,afterClose,onErr
   function makePortal(s,photo,frame,source){
     const portal=document.createElement('div');portal.className='viewer-portal';portal.setAttribute('aria-hidden','true');
     const backdrop=document.createElement('div');backdrop.className='viewer-portal-backdrop';
-    const ghost=document.createElement('img');ghost.className='viewer-portal-photo';ghost.alt='';ghost.src=source??photo.image;
+    const ghost=document.createElement('img');ghost.className='viewer-portal-photo';ghost.alt='';ghost.src=source??photo.preview??photo.image;
     ghost.style.width=`${frame.width}px`;ghost.style.height=`${frame.height}px`;
     portal.append(backdrop,ghost);document.body.append(portal);
     s.portal=portal;s.ghost=ghost;s.backdrop=backdrop;return {ghost,backdrop};
@@ -64,15 +64,15 @@ export function createSingleViewer({photos,getOrigin,beforeOpen,afterClose,onErr
     if(session!==s)return;
     if(s.pswp)s.nativeClose();else restore(s);
   }
-  function addUI(s,pswp){
+  function addUI(pswp){
     let rail,caption,zoomText,lastIndex=-1,lastZoomText='',lastZoomData='';const buttons=[];
     pswp.on('uiRegister',()=>{
       pswp.ui.registerElement({name:'photo-rail',appendTo:'root',onInit:element=>{
         rail=element;rail.classList.add('viewer-rail');rail.setAttribute('role','group');rail.setAttribute('aria-label','照片缩略导航');
         const fragment=document.createDocumentFragment();
-        for(const [index,photo] of photos.entries()){
+        for(const photo of photos){
           const button=document.createElement('button');button.type='button';button.className='viewer-thumb';button.setAttribute('aria-label',`查看${photo.title}`);
-          const image=document.createElement('img');image.src=photo.image;image.alt='';image.draggable=false;image.decoding='async';button.append(image);
+          const image=document.createElement('img');image.src=photo.preview??photo.image;image.alt='';image.draggable=false;image.decoding='async';button.append(image);
           fragment.append(button);buttons.push(button);
         }
         rail.append(fragment);
@@ -126,7 +126,7 @@ export function createSingleViewer({photos,getOrigin,beforeOpen,afterClose,onErr
       ]);
       try{
         const PhotoSwipe=await prepare();if(session!==s||disposed)return;
-        const pswp=new PhotoSwipe({dataSource:photos.map(photo=>({src:photo.full,msrc:photo.image,width:photo.width,height:photo.height,alt:photo.title})),index,
+        const pswp=new PhotoSwipe({dataSource:photos.map(photo=>({src:photo.full,msrc:photo.preview??photo.image,width:photo.width,height:photo.height,alt:photo.title})),index,
           mainClass:'single-viewer is-opening',bgOpacity:1,showHideAnimationType:'none',showAnimationDuration:0,hideAnimationDuration:0,
           zoomAnimationDuration:reduceMotion()?0:180,
           paddingFn:viewerPadding,initialZoomLevel:'fit',secondaryZoomLevel:levels=>levels.fit*2,maxZoomLevel:levels=>levels.fit*4,
@@ -134,7 +134,7 @@ export function createSingleViewer({photos,getOrigin,beforeOpen,afterClose,onErr
           imageClickAction:'zoom',doubleTapAction:'zoom',tapAction:()=>s.immersion?.toggleTouch(),bgClickAction:'close',counter:false,zoom:false,
           closeTitle:'关闭单图',arrowPrevTitle:'上一张',arrowNextTitle:'下一张',arrowPrevSVG:arrowSVG,arrowNextSVG:arrowSVG,errorMsg:'照片未能载入，请切换下一张或重新打开。'});
         s.pswp=pswp;s.nativeClose=pswp.close.bind(pswp);pswp.close=()=>{void close(s);};
-        addUI(s,pswp);pswp.on('destroy',()=>restore(s));
+        addUI(pswp);pswp.on('destroy',()=>restore(s));
         probe.measure('viewer-init',()=>pswp.init());probe.flush(true);
         s.navigation=naturalNavigation(pswp,reduceMotion);
         pswp.element.setAttribute('aria-label','单图浏览');pswp.element.dataset.state='opening';pswp.element.dataset.scenePaused='true';pswp.element.dataset.reduced=String(reduceMotion());

@@ -4,6 +4,8 @@
 
 本轮接续P01/F05修正、P12/Elsewhere及P13/T25.37–39；PDF/知识、相册和Someone沿用最新main。F06/Afterimage等候选的真实缺口在本轮记录分列。
 
+P05/P10加载性能与依赖关系审查：[工程记录](technical/iterations/pdf-gallery-performance-2026-10-17.md)与[设计边界](design/iterations/u10-p05-2026-10-17-loading-performance.md)，沿用既有编号。
+
 ## 目录与文件对应
 
 ```text

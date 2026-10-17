@@ -46,6 +46,7 @@ const galleryPath = sitePath('gallery');
         <div class="gallery-static-grid">{photos.map(photo => <a href={`${galleryPath}${photo.full.slice(2)}`} aria-label={`查看${photo.title}`}><img src={`${galleryPath}${photo.image.slice(2)}`} alt={photo.title} loading="lazy" /></a>)}</div>
       </main>
     </noscript>
+    <script type="application/json" id="gallery-data" set:html={JSON.stringify(photos).replaceAll('<', '\\u003c')} />
     <!-- A separate document keeps the accepted gallery lifecycle and native history. -->
     <script>import '../components/gallery/scene.js';</script>
   </body>
