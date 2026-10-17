@@ -47,9 +47,19 @@ section.netease-app input.ne-player-progress::-webkit-slider-thumb{appearance:no
 section.netease-app input.ne-player-progress{min-height:3px;max-height:3px;height:3px}
 section.netease-app .ne-search-form input{background:transparent;border:0;border-radius:0;padding:0;color:inherit;font:inherit;min-height:48px}
 section.netease-app .ne-sidebar nav button{margin:0}
-section.netease-app .ne-volume input{appearance:auto;-webkit-appearance:auto;min-height:16px;height:16px;padding:0;background:transparent}
+section.netease-app .ne-volume input{appearance:none;-webkit-appearance:none;min-height:32px;height:32px;padding:0;margin:0;border:0;border-radius:0;background:transparent;box-shadow:none;cursor:pointer;outline:none}
 section.netease-app input.ne-player-progress{width:auto;right:28px}
-section.netease-app .ne-volume input{width:72px}
+section.netease-app .ne-volume input{width:84px}
+section.netease-app .ne-volume svg{width:18px;height:18px;color:#b9b9bf}
+section.netease-app .ne-volume input::-webkit-slider-runnable-track{height:3px;border:0;border-radius:999px;background:linear-gradient(to right,#ededf0 var(--range-fill,75%),#ffffff2e var(--range-fill,75%));box-shadow:none}
+section.netease-app .ne-volume input::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:10px;height:10px;margin-top:-3.5px;border:0;border-radius:50%;background:#f5f5f7;box-shadow:0 1px 3px #0004;transition:transform 140ms ease-out}
+section.netease-app .ne-volume input::-moz-range-track{height:3px;border:0;border-radius:999px;background:#ffffff2e;box-shadow:none}
+section.netease-app .ne-volume input::-moz-range-progress{height:3px;border-radius:999px;background:#ededf0}
+section.netease-app .ne-volume input::-moz-range-thumb{width:10px;height:10px;border:0;border-radius:50%;background:#f5f5f7;box-shadow:0 1px 3px #0004;transition:transform 140ms ease-out}
+section.netease-app .ne-volume input:hover::-webkit-slider-thumb{transform:scale(1.1)}
+section.netease-app .ne-volume input:hover::-moz-range-thumb{transform:scale(1.1)}
+section.netease-app .ne-volume input:focus-visible{outline:2px solid #ffffff80;outline-offset:4px;border-radius:6px}
+@media(prefers-reduced-motion:reduce){section.netease-app .ne-volume input::-webkit-slider-thumb{transition:none}section.netease-app .ne-volume input::-moz-range-thumb{transition:none}}
 @media(max-width:700px){section.netease-app input.ne-player-progress{left:24px;right:24px}}
 .ne-card-grid:has(>li>.vinyl-sleeve){grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
 @media(max-width:700px){.ne-card-grid:has(>li>.vinyl-sleeve){grid-template-columns:repeat(2,minmax(0,1fr))}}
