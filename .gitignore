@@ -30,3 +30,6 @@ Thumbs.db
 # Generated PDF.js runtime; fixed upstream sources retain their licenses.
 public/pdfjs/build/*.min.mjs
 public/pdfjs/web/viewer.min.mjs
+
+# Derived checksum-bound PDF prefix/tail assets.
+/public/materials/fast/

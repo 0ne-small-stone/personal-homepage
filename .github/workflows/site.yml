@@ -98,7 +98,7 @@ jobs:
         run: npm run check
 
       - name: Test content, homepage and PDF interactions
-        run: node --test tests/gallery-loading.test.mjs tests/home-copy.test.mjs tools/content/pdf-immersive-input.test.mjs tools/content/pdf-load-config.test.mjs tools/content/pdf-reader-ready.test.mjs tools/content/public-materials.test.mjs tools/content/pdf-reading-progress.test.mjs tools/content/reading-progress.test.mjs tools/content/article-date.test.mjs tools/content/knowledge-links.test.mjs tools/content/cms-auto-sync.test.mjs tests/prism-ray.test.mjs tests/home-motion-ranges.test.mjs tools/verification/immersive-pdf-layout.test.mjs tools/verification/immersive-pdf-shortcuts.test.mjs tests/home-loading.test.mjs tests/home-frame-activity.test.mjs tests/home-backdrop.test.mjs
+        run: node --test tests/gallery-loading.test.mjs tests/home-copy.test.mjs tools/content/pdf-immersive-input.test.mjs tools/content/pdf-load-config.test.mjs tools/content/pdf-fast-range.test.mjs tools/content/prepare-fast-pdfs.test.mjs tools/content/pdf-reader-ready.test.mjs tools/content/public-materials.test.mjs tools/content/pdf-reading-progress.test.mjs tools/content/reading-progress.test.mjs tools/content/article-date.test.mjs tools/content/knowledge-links.test.mjs tools/content/cms-auto-sync.test.mjs tests/prism-ray.test.mjs tests/home-motion-ranges.test.mjs tools/verification/immersive-pdf-layout.test.mjs tools/verification/immersive-pdf-shortcuts.test.mjs tests/home-loading.test.mjs tests/home-frame-activity.test.mjs tests/home-backdrop.test.mjs
 
       - name: Test music state and service boundaries
         run: npm run music:test
@@ -111,6 +111,9 @@ jobs:
 
       - name: Verify gallery preview assets
         run: node tools/content/prepare-gallery-previews.mjs --check
+
+      - name: Verify PDF first-page mirrors
+        run: node tools/content/prepare-fast-pdfs.mjs --check
 
       - name: Verify published music catalog
         run: node tools/verification/music-catalog-check.mjs

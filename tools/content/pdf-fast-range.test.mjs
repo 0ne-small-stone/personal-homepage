@@ -1,0 +1,62 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {webcrypto,createHash} from 'node:crypto';
+import {prepareFastRange} from '../../public/pdfjs/web/lssh-range.mjs';
+const chunk=65536,bytes=4*1024*1024+173,source=Buffer.alloc(bytes);
+for(let i=0;i<bytes;i++)source[i]=(i*17+(i>>>16))%251;
+const hash=data=>createHash('sha256').update(data).digest('hex'),sha256=hash(source),url='https://example.test/home/materials/source-test.pdf';
+const indices=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,64];
+const metadata={schemaVersion:1,source:'materials/source-test.pdf',sha256,bytes,chunkSize:chunk,parts:indices.map(index=>({index,bytes:Math.min(chunk,bytes-index*chunk),sha256:hash(source.subarray(index*chunk,Math.min(bytes,(index+1)*chunk)))}))};
+function fixture({badIndex,badFirst=false,badMetadata=false,failOriginal=false,delay=0}={}){
+ const requests=[],deliveries=[],errors=[];let active=0,peak=0;
+ class NativeRange{constructor(length,initialData,done,filename){Object.assign(this,{length,initialData,done,filename});}onDataRange(begin,data){deliveries.push({begin,data});}}
+ const fetchImpl=async(target,options)=>{
+  requests.push({target,range:options.headers?.Range});active++;peak=Math.max(peak,active);
+  try{
+   if(delay)await new Promise((resolve,reject)=>{const timer=setTimeout(resolve,delay);options.signal.addEventListener('abort',()=>{clearTimeout(timer);reject(options.signal.reason);},{once:true});});
+   if(options.signal.aborted)throw options.signal.reason;
+   if(target.endsWith('index.json'))return Response.json({...metadata,...(badMetadata?{sha256:'0'.repeat(64)}:{})});
+   const index=target.match(/\/(\d+)\.bin$/)?.[1];
+   if(index!==undefined){const i=Number(index),data=source.subarray(i*chunk,Math.min(bytes,(i+1)*chunk));return new Response((badFirst&&i===0)||i===badIndex?Buffer.alloc(data.length):data);}
+   const match=options.headers.Range.match(/bytes=(\d+)-(\d+)/),begin=Number(match[1]),end=Number(match[2])+1;
+   return new Response(source.subarray(begin,end),{status:failOriginal?200:206,headers:{'Content-Range':'bytes '+begin+'-'+(end-1)+'/'+bytes}});
+  }finally{active--;}
+ };
+ const controller=new AbortController();
+ return {requests,deliveries,errors,controller,get peak(){return peak;},async prepare(){return prepareFastRange({url,bytes,sha256,viewerOrigin:'https://example.test',lib:{PDFDataRangeTransport:NativeRange},signal:controller.signal,onError:error=>errors.push(error),fetchImpl,cryptoImpl:webcrypto});}};
+}
+test('fast ranges preserve exact head, tail, unmirrored and partial bytes',async()=>{
+ const f=fixture(),r=await f.prepare();assert.equal(r.length,bytes);assert.equal(r.done,true);assert.deepEqual(Buffer.from(r.initialData),source.subarray(0,chunk));
+ for(const[begin,end]of[[43,chunk+91],[bytes-171,bytes],[40*chunk+7,41*chunk+15]]){await r.requestDataRange(begin,end);assert.deepEqual(Buffer.from(f.deliveries.at(-1).data),source.subarray(begin,end));}
+ assert.equal(f.errors.length,0);assert.ok(f.requests.some(r=>r.range));r.abort();
+});
+test('cache survives native ownership transfer and coalesces concurrent requests',async()=>{
+ const f=fixture({delay:4}),r=await f.prepare();structuredClone(r.initialData,{transfer:[r.initialData.buffer]});
+ await Promise.all([r.requestDataRange(chunk,3*chunk),r.requestDataRange(chunk,2*chunk)]);
+ assert.equal(f.requests.filter(r=>r.target.endsWith('/1.bin')).length,1);
+ const sent=f.deliveries[0].data;structuredClone(sent,{transfer:[sent.buffer]});await r.requestDataRange(0,2*chunk);
+ assert.deepEqual(Buffer.from(f.deliveries.at(-1).data),source.subarray(0,2*chunk));r.abort();
+});
+test('range work is bounded to four network requests and cancellation suppresses late deliveries',async()=>{
+ const f=fixture({delay:15}),r=await f.prepare();const work=r.requestDataRange(chunk,15*chunk);setTimeout(()=>f.controller.abort(),20);await work;
+ assert.ok(f.peak<=4);assert.equal(f.deliveries.length,0);assert.equal(f.errors.length,0);
+});
+test('corrupt later mirror falls back to verified original range',async()=>{
+ const f=fixture({badIndex:1}),r=await f.prepare();await r.requestDataRange(chunk,2*chunk);
+ assert.deepEqual(Buffer.from(f.deliveries[0].data),source.subarray(chunk,2*chunk));assert.equal(f.requests.filter(r=>r.range).length,1);assert.equal(f.errors.length,0);r.abort();
+});
+test('invalid identity and corrupt first chunk fall back to native transport',async()=>{
+ for(const options of[{badMetadata:true},{badFirst:true}])assert.equal(await fixture(options).prepare(),null);
+ const f=fixture();assert.equal(await prepareFastRange({url:'https://other.test/materials/source-test.pdf',bytes,sha256,viewerOrigin:'https://example.test',lib:{PDFDataRangeTransport:class{}},fetchImpl:()=>{throw Error('must not fetch');},cryptoImpl:webcrypto}),null);
+});
+test('full reads keep a single original range and malformed responses fail once',async()=>{
+ const f=fixture(),r=await f.prepare();await r.requestDataRange(0,2*1024*1024);
+ assert.equal(f.requests.filter(r=>r.range).length,1);assert.deepEqual(Buffer.from(f.deliveries[0].data),source.subarray(0,2*1024*1024));r.abort();
+ const bad=fixture({failOriginal:true}),broken=await bad.prepare();await broken.requestDataRange(40*chunk,41*chunk);await broken.requestDataRange(42*chunk,43*chunk);
+ assert.equal(bad.errors.length,1);assert.equal(bad.deliveries.length,0);
+});
+
+test('a larger profiled first-render span uses mirrors while full downloads retain original transport',async()=>{
+ const f=fixture(),r=await f.prepare();await r.requestDataRange(0,18*chunk);
+ assert.equal(f.requests.filter(r=>r.range).length,0);assert.deepEqual(Buffer.from(f.deliveries[0].data),source.subarray(0,18*chunk));r.abort();
+});

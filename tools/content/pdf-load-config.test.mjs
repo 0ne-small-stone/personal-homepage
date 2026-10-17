@@ -9,7 +9,7 @@ test('on-demand settings apply after preferences and before viewer initialize co
   let finish,settings;
   const promise=new Promise(resolve=>{finish=resolve;});
   const window={frameElement:{dataset:{bytes:String(bytes)}},PDFViewerApplication:{preferences:{initializedPromise:promise}},PDFViewerApplicationOptions:{setAll:options=>{settings=options;order.push('configured');}}};
-  vm.runInNewContext(source,{document,parent:{document:parentDocument},window});
+  vm.runInNewContext(source,{document,parent:{document:parentDocument},window,URLSearchParams});
   const unrelated=new Event('webviewerloaded');unrelated.detail={source:{}};parentDocument.dispatchEvent(unrelated);assert.equal(settings,undefined);
   const event=new Event('webviewerloaded');event.detail={source:window};parentDocument.dispatchEvent(event);
   promise.then(()=>order.push('viewer initializes'));finish();await promise;await Promise.resolve();
@@ -27,10 +27,18 @@ test('native worker starts before preferences, is reused, and respects BFCache/u
   const ready=new Promise(resolve=>finish=resolve),worker={promise:Promise.resolve(),destroy(){destroyed++;this.destroyed=true;}};
   const app={preferences:{initializedPromise:ready},open(args){assert.equal(this,app);calls.push(args);return 'native-return';}};
   Object.assign(window,{frameElement:{dataset:{bytes:String(bytes)}},PDFViewerApplication:app,PDFViewerApplicationOptions:{setAll:value=>settings=value},pdfjsLib:{GlobalWorkerOptions:{},PDFWorker:{create(){calls.push('worker-start');return worker;}}}});
-  vm.runInNewContext(source,{document,parent:{document:parentDocument},window});const event=new Event('webviewerloaded');event.detail={source:window};parentDocument.dispatchEvent(event);
+  vm.runInNewContext(source,{document,parent:{document:parentDocument},window,URLSearchParams});const event=new Event('webviewerloaded');event.detail={source:window};parentDocument.dispatchEvent(event);
   assert.deepEqual(calls,['worker-start']);assert.equal(settings,undefined);finish();await ready;await Promise.resolve();
-  assert.equal(app.open({url:'approved.pdf',filename:'kept.pdf'}),'native-return');assert.equal(calls[1].worker,worker);assert.equal(calls[1].filename,'kept.pdf');assert.equal(calls[1].rangeChunkSize,undefined);
+  assert.equal(await app.open({url:'approved.pdf',filename:'kept.pdf'}),'native-return');assert.equal(calls[1].worker,worker);assert.equal(calls[1].filename,'kept.pdf');assert.equal(calls[1].rangeChunkSize,undefined);
   const cached=new Event('pagehide');cached.persisted=true;window.dispatchEvent(cached);assert.equal(destroyed,0);
-  window.dispatchEvent(new Event('pagehide'));assert.equal(destroyed,1);app.open({url:'next.pdf'});assert.equal(calls[2].worker,undefined);
+  window.dispatchEvent(new Event('pagehide'));assert.equal(destroyed,1);await app.open({url:'next.pdf'});assert.equal(calls[2].worker,undefined);
  }
+});
+
+test('native loading failures reach retry UI without an unhandled startup rejection',async()=>{
+ const document=new EventTarget(),parentDocument=new EventTarget(),window=new EventTarget(),events=[];
+ const error=new Error('network failure'),app={preferences:{initializedPromise:Promise.resolve()},open(){return Promise.reject(error);},eventBus:{dispatch(name,event){events.push({name,event});}}};
+ Object.assign(window,{PDFViewerApplication:app,PDFViewerApplicationOptions:{setAll(){}},frameElement:{dataset:{bytes:'65959'}}});
+ vm.runInNewContext(source,{document,parent:{document:parentDocument},window,URLSearchParams});const event=new Event('webviewerloaded');event.detail={source:window};parentDocument.dispatchEvent(event);
+ await app.open({url:'sample.pdf'});assert.equal(events.length,1);assert.equal(events[0].name,'documenterror');assert.equal(events[0].event.error,error);
 });
