@@ -36,7 +36,10 @@ export async function stageAsset(publicRoot, asset, { sourceFile, fetchImpl = fe
     if (matches(await digestFile(target), asset)) return 'cached';
   }
   await mkdir(dirname(target), { recursive: true });
-  const temporary = `${target}.download-${randomUUID()}`;
+  // Never keep incomplete bytes below public/: Astro copies that directory verbatim.
+  const staging=resolve(publicRoot,'../.ci-tmp/material-downloads');
+  await mkdir(staging,{recursive:true});
+  const temporary=join(staging,`${randomUUID()}.part`);
   let input;
   if (sourceFile) input = createReadStream(sourceFile);
   else {

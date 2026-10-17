@@ -1,5 +1,7 @@
 # 个人主页技术实现方案
 
+2026-10-17 P05/P10加载优化：按用户反馈审查PDF和照片墙的资源、依赖、初始化、生命周期与失败恢复，先实测再改；保持原功能/构图、沿既有框架，无新依赖或其他候选整合。[范围及验收](iterations/pdf-gallery-performance-2026-10-17.md)。
+
 2026-10-16整合边界：F05仅接home-motion/frame-activity/copy-state及对应测试，保持main渲染/加载生命周期。Elsewhere共用类型化11站数据与SSR/浏览器筛选、当前URL恢复/清理；P13接续分类换批、连接错误反馈及三张原创入口，公共catalog/账号/下载降级沿main。F06与Afterimage等未完成候选不接入。[进度与验收](acceptance/progress-2026-10-16.md)。
 
 2026-10-16 P05/T08、T09、T26–T27 [本片记录](iterations/t08-pdf-2026-10-16-speed-shortcuts.md)：用户反馈“加载太慢、沉浸后1234F无效”。本片仅优化PDF运行资产及按需传输，补齐iframe Window捕获/中文输入法keyup与隐藏控件焦点，保留1–4固定页数、其余数字解除固定、F适配和Esc/右滑退出。源码/组件测试与实际键盘验收分记；完成后经受保护PR与Pages验证，不改其他栏目。

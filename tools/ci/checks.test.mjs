@@ -88,3 +88,5 @@ test('发布拒绝本机运行目录、原始照片和登录密文', (t) => {
   writeFileSync(join(root, 'login.dpapi'), 'fixture-only');
   assert.throws(() => inspectDist(root), /配置或密钥/u);
 });
+
+test('incomplete downloads cannot enter the Pages artifact',t=>{for(const name of['source.pdf.download-fixture','source.pdf.part']){const root=fixture(t);writeFileSync(join(root,'index.html'),'<!doctype html>');writeFileSync(join(root,name),'partial');assert.throws(()=>inspectDist(root),/未完成下载/u);}});

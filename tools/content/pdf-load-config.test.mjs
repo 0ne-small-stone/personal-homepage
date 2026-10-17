@@ -20,3 +20,17 @@ test('on-demand settings apply after preferences and before viewer initialize co
   assert.equal(settings.disablePreferences,undefined);
  }
 });
+
+test('native worker starts before preferences, is reused, and respects BFCache/unload',async()=>{
+ for(const bytes of[65959,186298673]){
+  const document=new EventTarget(),parentDocument=new EventTarget(),window=new EventTarget(),calls=[];let finish,settings,destroyed=0;
+  const ready=new Promise(resolve=>finish=resolve),worker={promise:Promise.resolve(),destroy(){destroyed++;this.destroyed=true;}};
+  const app={preferences:{initializedPromise:ready},open(args){assert.equal(this,app);calls.push(args);return 'native-return';}};
+  Object.assign(window,{frameElement:{dataset:{bytes:String(bytes)}},PDFViewerApplication:app,PDFViewerApplicationOptions:{setAll:value=>settings=value},pdfjsLib:{GlobalWorkerOptions:{},PDFWorker:{create(){calls.push('worker-start');return worker;}}}});
+  vm.runInNewContext(source,{document,parent:{document:parentDocument},window});const event=new Event('webviewerloaded');event.detail={source:window};parentDocument.dispatchEvent(event);
+  assert.deepEqual(calls,['worker-start']);assert.equal(settings,undefined);finish();await ready;await Promise.resolve();
+  assert.equal(app.open({url:'approved.pdf',filename:'kept.pdf'}),'native-return');assert.equal(calls[1].worker,worker);assert.equal(calls[1].filename,'kept.pdf');assert.equal(calls[1].rangeChunkSize,undefined);
+  const cached=new Event('pagehide');cached.persisted=true;window.dispatchEvent(cached);assert.equal(destroyed,0);
+  window.dispatchEvent(new Event('pagehide'));assert.equal(destroyed,1);app.open({url:'next.pdf'});assert.equal(calls[2].worker,undefined);
+ }
+});

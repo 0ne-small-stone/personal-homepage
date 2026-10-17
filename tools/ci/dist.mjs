@@ -22,6 +22,7 @@ export function inspectDist(root, { localPreview = false } = {}) {
       if (/^\.env(?:\.|$)/u.test(entry.name) || entry.name.endsWith('.pem') || entry.name.endsWith('.key') || entry.name.endsWith('.dpapi')) {
         throw new Error(`静态产物含配置或密钥文件：${entry.name}`);
       }
+      if (/\.download-|\.part$/.test(entry.name)) throw new Error(`静态产物含未完成下载：${entry.name}`);
       if (entry.isDirectory()) walk(path);
       else if (entry.isFile()) { files += 1; bytes += stats.size; }
     }

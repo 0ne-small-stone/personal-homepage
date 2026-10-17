@@ -93,7 +93,7 @@ function buildItems(pool, seg, fullCoverage) {
     if (typeof image === 'string') {
       return { src: image, alt: '' };
     }
-    return { src: image.src || '', alt: image.alt || '', full:image.full || image.src || '' };
+    return { src: image.src || '', alt: image.alt || '', full:image.full || image.src || '', preview:image.preview || image.src || '' };
   });
 
   const usedImages = Array.from({ length: totalSlots }, (_, i) => normalizedImages[i % normalizedImages.length]);
@@ -115,7 +115,8 @@ function buildItems(pool, seg, fullCoverage) {
     ...c,
     src: usedImages[i].src,
     alt: usedImages[i].alt,
-    full:usedImages[i].full
+    full:usedImages[i].full,
+    preview:usedImages[i].preview
   }));
 }
 
@@ -718,7 +719,7 @@ export default function DomeGallery({
         return Number(best?.dataset.pool??0);
       },
       freeze({reveal=true}={}){stopInertia();frozenRef.current=true;if(reveal){cullCards(rotationRef.current.x,rotationRef.current.y,true);mainRef.current.style.background='transparent';}},
-      detail(pool,enabled){const node=sphereRef.current.querySelector(`.item[data-pool="${pool}"]`);if(node)node.querySelector('img').src=enabled?node.dataset.full:node.dataset.src;},
+      detail(pool,enabled){const node=sphereRef.current.querySelector(`.item[data-pool="${pool}"]`);if(node)node.querySelector('img').src=enabled?node.dataset.full:(node.dataset.preview||node.dataset.src);},
       camera({position,projection,p,insets,height}){
         const scale=this.radius/6.2;
         sphereRef.current.style.transform=`translate3d(${-position.x*scale}px,${position.y*scale}px,${projection-position.z*scale}px) rotateX(${rotationRef.current.x}deg) rotateY(${rotationRef.current.y}deg)`;
@@ -807,6 +808,7 @@ export default function DomeGallery({
                 className="item"
                 data-src={it.src}
                 data-full={it.full}
+                data-preview={it.preview}
                 data-pool={i}
                 data-offset-x={it.x}
                 data-offset-y={it.y}
@@ -828,7 +830,7 @@ export default function DomeGallery({
                   onPointerUp={onTilePointerUp}
                   onKeyDown={e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();onTileClick(e);}}}
                 >
-                  <img src={it.src} draggable={false} alt={it.alt} />
+                  <img src={it.preview||it.src} draggable={false} alt={it.alt} decoding="async" onError={event=>{const image=event.currentTarget;if(!image.dataset.retried){image.dataset.retried='true';image.src=it.src;}else image.style.visibility='hidden';}} />
                 </div>
               </div>
             ))}

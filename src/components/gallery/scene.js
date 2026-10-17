@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { waitForOverview, loadSpaceImages } from './loading.js';
 import { createFieldQuery, FADE_START, FADE_END, ENTRY_PHOTO_HEIGHT } from './infinite-field.js';
 import { createFlight, addWheel, advanceFlight, stopFlight, flightMoving } from './flight.js';
 import { mountDome } from './dome.jsx';
@@ -19,7 +20,6 @@ const smooth = (a, b, x) => { const t = clamp((x - a) / (b - a), 0, 1); return t
 const galleryInsets=()=>{const css=getComputedStyle(domeHost);return ['top','side','bottom'].map(side=>parseFloat(css.getPropertyValue(`--dome-${side}`)));};
 const RADIUS = 6.2;
 const ENTRY_Z = -45;
-const Z_AXIS = new THREE.Vector3(0, 0, 1);
 const identity = new THREE.Quaternion();
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(46, 1, .1, 500);
@@ -27,7 +27,6 @@ const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 const rotation = new THREE.Quaternion();
 const targetRotation = new THREE.Quaternion();
-const turn = new THREE.Quaternion();
 const radii = new THREE.Vector3(RADIUS, RADIUS, RADIUS);
 const spaceOffset = new THREE.Vector3();
 const entryAnchor = new THREE.Vector3();
@@ -64,6 +63,16 @@ let viewer,pendingViewerResize=false;
 let detailTexture;
 let detailPool = -1;
 let detailEpoch = 0;
+const loadingController=new AbortController();
+let spaceReady=false,spacePreparation=null,prepareTimer;
+let resizeObserver;
+const preparationWaiters=new Set();
+function resumePreparation(){if(document.hidden||viewer?.isOpen)return;for(const wake of [...preparationWaiters])wake();}
+function availableForPreparation(){
+ if(!document.hidden&&!viewer?.isOpen)return Promise.resolve();
+ return new Promise((resolve,reject)=>{const signal=loadingController.signal;const cancel=()=>{preparationWaiters.delete(wake);reject(signal.reason);};const wake=()=>{preparationWaiters.delete(wake);signal.removeEventListener('abort',cancel);resolve();};preparationWaiters.add(wake);signal.addEventListener('abort',cancel,{once:true});if(signal.aborted)cancel();});
+}
+const nextFrame=()=>new Promise((resolve,reject)=>{const signal=loadingController.signal;const cancel=()=>{cancelAnimationFrame(id);reject(signal.reason);};const id=requestAnimationFrame(()=>{signal.removeEventListener('abort',cancel);resolve();});signal.addEventListener('abort',cancel,{once:true});if(signal.aborted)cancel();});
 
 const vertexShader = `
   varying vec2 vUv;
@@ -317,6 +326,10 @@ function beginExit() {
 function progressTo(value) {
   if (!ready || disposed || viewer?.isOpen || !renderer) return;
   const target = clamp(value, 0, 1);
+  if(!spaceReady){
+    queuedProgress=target>0?target:null;if(target===0)queuedWheel=0;
+    if(target>0){showNotice('正在准备影像空间…');void prepareSpace();}return;
+  }
   if(state.phase==='sphere'&&domeApi.isOpen){
     queuedProgress=target;
     if(target<1)queuedWheel=0;
@@ -697,7 +710,7 @@ function pauseForViewer(){
 }
 
 function resumeFromViewer(){
-  shell.inert=false;shell.dataset.viewer='closed';
+  shell.inert=false;shell.dataset.viewer='closed';resumePreparation();
   if(state.phase==='sphere')domeApi?.resume({layout:pendingViewerResize});
   if(pendingViewerResize){pendingViewerResize=false;resize();}
 }
@@ -738,6 +751,7 @@ function fallback() {
 function dispose() {
   if (disposed) return;
   disposed = true;
+  clearTimeout(prepareTimer);loadingController.abort();resizeObserver?.disconnect();
   probe.dispose();
   viewer?.dispose();
   sideWall?.dispose();starfield?.dispose();
@@ -749,11 +763,39 @@ function dispose() {
   geometry?.dispose(); renderer?.dispose();
 }
 
+async function prepareSpace(){
+ if(spaceReady||disposed)return;if(spacePreparation)return spacePreparation;
+ clearTimeout(prepareTimer);shell.dataset.space='preparing';
+ spacePreparation=(async()=>{
+  const images=await loadSpaceImages(photos,{signal:loadingController.signal,onProgress:(done,total)=>{shell.dataset.spaceProgress=`${done}/${total}`;}});
+  await availableForPreparation();if(disposed)return;
+  const overviewImages=new Map([...domeHost.querySelectorAll('.item[data-src]')].map(node=>[node.dataset.src,node.querySelector('img')]));
+  for(const [index,image]of images.entries()){
+    const fallback=overviewImages.get(photos[index].image);
+    const source=image||(fallback?.naturalWidth?fallback:null);
+    const texture=source?new THREE.Texture(source):new THREE.DataTexture(new Uint8Array([31,31,31,255]),1,1);
+    texture.colorSpace=THREE.SRGBColorSpace;texture.anisotropy=Math.min(4,renderer.capabilities.getMaxAnisotropy());texture.needsUpdate=true;textures[index]=texture;
+  }
+  starfield??=createStarfield(scene);resize();
+  const warmTile=tiles[sphereCount]??addTile(0);warmTile.material.uniforms.uFieldPhoto.value=textures[0];warmTile.mesh.visible=false;
+  await renderer.compileAsync(scene,camera);if(disposed)return;
+  for(let index=0;index<textures.length;index+=3){await availableForPreparation();await nextFrame();await availableForPreparation();if(disposed)return;for(const texture of textures.slice(index,index+3))renderer.initTexture(texture);}
+  await availableForPreparation();if(disposed)return;
+  warmTile.material.uniforms.uOpacity.value=0;warmTile.mesh.visible=true;
+  probe.measure('warm-render',()=>renderer.render(scene,camera));warmTile.mesh.visible=false;warmTile.material.uniforms.uOpacity.value=1;
+  spaceReady=true;shell.dataset.space='ready';shell.dataset.textureFallbacks=String(images.filter(image=>!image).length);
+  if(el('hint').textContent==='正在准备影像空间…'){el('hint').classList.add('sr-only');el('hint').textContent='上下左右拖动旋转 · 点击选中 · 滚轮进入';}
+  const next=queuedProgress;queuedProgress=null;
+  if(next!==null&&next>0){el('hint').classList.add('sr-only');progressTo(next);if(queuedWheel){const carry=queuedWheel;queuedWheel=0;zoomBy(carry);}}
+ })().catch(error=>{if(disposed)return;for(const texture of textures)texture.dispose();textures.length=0;shell.dataset.space='error';showNotice('影像空间暂未就绪，可继续浏览照片；再次滚动可重试。');console.warn('Gallery space preparation failed',error);}).finally(()=>{spacePreparation=null;});
+ return spacePreparation;
+}
+
 async function init() {
   shell.dataset.reduced = String(reduceMotion());
-  const response = await fetch('./manifest.json');
-  if (!response.ok) throw new Error('图片样本尚未准备');
-  photos = await response.json();
+  const embedded=document.getElementById('gallery-data');
+  if(embedded)photos=JSON.parse(embedded.textContent);
+  else{const response=await fetch('./manifest.json');if(!response.ok)throw new Error('图片样本尚未准备');photos=await response.json();}
   viewer=createSingleViewer({photos,getOrigin:photoOrigin,beforeOpen:()=>probe.measure('viewer-background-pause',pauseForViewer),afterClose:()=>{probe.measure('viewer-background-resume',resumeFromViewer);probe.flush(true);},reduceMotion,
     onError:()=>showNotice('大图未能打开，请再试一次。')});
   el('load-progress').max = photos.length;
@@ -773,51 +815,26 @@ async function init() {
   reduced.addEventListener('change',()=>{domeApi.setReduced(reduceMotion());stopFlight(flight);state.velocityX=state.velocityY=0;state.driftX=state.driftY=0;shell.dataset.reduced=String(reduceMotion());schedule();});
   document.addEventListener('visibilitychange',()=>{
     if(document.hidden){domeApi.pause();stopFlight(flight);cancelAnimationFrame(frame);frame=0;pointers.clear();state.velocityX=state.velocityY=0;renderer?.domElement.classList.remove('dragging');}
-    else{lastTime=performance.now();schedule();}
+    else{lastTime=performance.now();schedule();resumePreparation();if(renderer&&ready&&!spaceReady)void prepareSpace();}
   });
   window.addEventListener('pagehide',event=>{if(event.persisted){domeApi.pause();stopFlight(flight);cancelAnimationFrame(frame);frame=0;}else dispose();});
-  window.addEventListener('pageshow',event=>{if(event.persisted){lastTime=performance.now();schedule();}});
+  window.addEventListener('pageshow',event=>{if(event.persisted){lastTime=performance.now();schedule();resumePreparation();}});
   try { if(new URL(location.href).searchParams.get('render')==='css')throw new Error('CSS-only validation');renderer = new THREE.WebGLRenderer({antialias:false,alpha:false}); }
   catch { fallback(); return; }
   renderer.setClearColor(0x000000);
   probe.inspectRenderer(renderer);
-  starfield=createStarfield(scene);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   stage.append(renderer.domElement);
-  const loader = new THREE.TextureLoader();
-  let loaded = 0;
-  await Promise.all(photos.map(async (photo, index) => {
-    const texture = await loader.loadAsync(photo.image);
-    texture.colorSpace = THREE.SRGBColorSpace;
-    texture.anisotropy = Math.min(4, renderer.capabilities.getMaxAnisotropy());
-    textures[index] = texture;
-    loaded++;
-    el('load-progress').value = loaded;
-    el('loading-text').textContent = `正在展开照片 ${loaded} / ${photos.length}`;
-  }));
-  stage.dataset.photos = String(photos.length);
   wireCanvas();
-  // Upload a small batch per frame and compile while the loading state is visible.
-  // The first wheel gesture then uses prepared textures/programs instead of stalling.
-  el('loading-text').textContent='正在准备影像空间';
-  resize();
-  const warmTile=addTile(0);warmTile.mesh.visible=false;
-  await renderer.compileAsync(scene,camera);
-  for(let index=0;index<textures.length;index+=3){
-    await new Promise(resolve=>requestAnimationFrame(resolve));
-    if(disposed)return;
-    for(const texture of textures.slice(index,index+3))renderer.initTexture(texture);
-  }
-  // Compile alone does not initialize draw-time buffers/material state.
-  // One transparent draw under the loader prepares those without a first-entry stall.
-  warmTile.material.uniforms.uOpacity.value=0;warmTile.mesh.visible=true;
-  probe.measure('warm-render',()=>renderer.render(scene,camera));
-  warmTile.mesh.visible=false;warmTile.material.uniforms.uOpacity.value=1;
-  ready = true;
-  resize();
-  el('loading').hidden = true;
-  probe.ready();
-  new ResizeObserver(resize).observe(stage);
+  const overview=await waitForOverview(domeHost,{signal:loadingController.signal,onProgress:(done,total)=>{el('load-progress').value=done;el('loading-text').textContent=`正在展开照片 ${done} / ${total}`;}});
+  if(disposed)return;
+  if(!overview.loaded){el('loading-text').textContent='照片未能载入，请重试';const retry=document.createElement('button');retry.textContent='重新载入';retry.addEventListener('click',()=>location.reload());el('loading').append(retry);return;}
+  shell.dataset.overviewLoaded=String(overview.loaded);shell.dataset.space='idle';
+  ready = true;resize();el('loading').hidden = true;probe.ready();if(overview.missing)showNotice('部分照片暂未显示，点击照片可查看完整影像。');
+  resizeObserver=new ResizeObserver(resize);resizeObserver.observe(stage);
+  // Let the accepted CSS overview paint and become usable before preparing GPU assets.
+  prepareTimer=setTimeout(()=>{if(!document.hidden&&!disposed)void prepareSpace();},800);
+
 }
 
 init().catch(error => {
