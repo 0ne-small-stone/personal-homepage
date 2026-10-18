@@ -232,6 +232,7 @@ function setFieldPlane(tile, plane) {
 
 function defineField() {
   fieldView='';fieldPlanes=[];
+  queryField.reset();
   state.fieldOriginX = state.fieldOriginY = state.fieldOriginZ = 0;
   state.selectedKey = 'anchor';
   for(const tile of tiles.slice(sphereCount)) { tile.fieldActive=false;tile.fieldKey='';tile.fieldOpacity=0; }
@@ -241,7 +242,7 @@ function recycleField() {
   const globalCamera = {x:(camera.position.x-spaceOffset.x)/spaceScale+state.fieldOriginX,y:(camera.position.y-spaceOffset.y)/spaceScale+state.fieldOriginY,z:(camera.position.z-spaceOffset.z)/spaceScale+state.fieldOriginZ};
   const view=[globalCamera.x,globalCamera.y,globalCamera.z,camera.aspect,state.phase,state.returning].join(',');
   if(view!==fieldView){
-    fieldPlanes=probe.measure('candidates',()=>queryField(globalCamera,camera.aspect,tiles[state.entrySelected].sphereImage,plane=>photoAspect(plane.key==='anchor'?tiles[state.entrySelected].sphereImage:plane.media%photos.length),photos.length)).filter(plane=>state.phase==='space'||state.returning||plane.z<-22);
+    fieldPlanes=probe.measure('candidates',()=>queryField(globalCamera,camera.aspect,tiles[state.entrySelected].sphereImage,plane=>photoAspect(plane.key==='anchor'?tiles[state.entrySelected].sphereImage:plane.media%photos.length),photos.length,{seed:state.phase==='transition'&&!state.returning,onAdmission:probe.fieldAdmission})).filter(plane=>state.phase==='space'||state.returning||plane.z<-22);
     fieldView=view;
   }
   const planes=fieldPlanes;

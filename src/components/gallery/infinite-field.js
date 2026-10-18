@@ -6,6 +6,7 @@
 export const CHUNK_SIZE = 110;
 export const FADE_START = 140;
 export const FADE_END = 260;
+export const FAR_ENTRY_DEPTH = 220;
 export const PHOTO_SIZE_SCALE = 1.25;
 export const ENTRY_PHOTO_HEIGHT = 14 * PHOTO_SIZE_SCALE;
 const seededRandom = seed => { const x = Math.sin(seed * 9999) * 10000; return x - Math.floor(x); };
@@ -26,7 +27,7 @@ export function projectFieldFrame(plane,camera,aspect,imageAspect=1){
   return {left:Math.max(-1,x-halfWidth),right:Math.min(1,x+halfWidth),bottom:Math.max(-1,y-halfHeight),top:Math.min(1,y+halfHeight)};
 }
 
-export function fieldCandidates(camera, aspect, anchorImage, imageAspect=()=>1,getChunk=chunkPlanes,photoCount=0) {
+export function fieldCandidates(camera, aspect, anchorImage, imageAspect=()=>1,getChunk=chunkPlanes,photoCount=0,policy={}) {
   const center = [camera.x, camera.y, camera.z].map(v => Math.floor(v / CHUNK_SIZE));
   const planes = [];
   const tangent = Math.tan(Math.PI / 6);
@@ -47,12 +48,14 @@ export function fieldCandidates(camera, aspect, anchorImage, imageAspect=()=>1,g
     planes.push({key:'anchor',x:0,y:0,z:0,height:ENTRY_PHOTO_HEIGHT,media:anchorImage,score:-1});
   }
   const accepted=[],frames=[],usedPhotos=new Set(),gapY=.04,gapX=gapY/aspect;
-  // Keep the original world positions. Only suppress projected collisions.
-  for(const plane of planes.sort((a,b)=>(a.key==='anchor'?-1:b.key==='anchor'?1:(camera.z-a.z)-(camera.z-b.z))||a.score-b.score||a.key.localeCompare(b.key))){
+  // Residents win over newcomers, so a newly uncovered neighbour cannot evict
+  // an already visible photograph or take over its repeated-media identity.
+  for(const plane of planes.sort((a,b)=>(a.key==='anchor'?-1:b.key==='anchor'?1:0)||Number(policy.retained?.has(b.key)??false)-Number(policy.retained?.has(a.key)??false)||(camera.z-a.z)-(camera.z-b.z)||a.score-b.score||a.key.localeCompare(b.key))){
     const photo=plane.key==='anchor'?anchorImage:plane.media%photoCount;
     if(photoCount&&usedPhotos.has(photo))continue;
     const frame=projectFieldFrame(plane,camera,aspect,imageAspect(plane));
     if(frame.left>=frame.right||frame.bottom>=frame.top)continue;
+    if(policy.admit&&!policy.admit(plane,frame))continue;
     if(frames.some(other=>frame.left<other.right+gapX&&frame.right>other.left-gapX&&frame.bottom<other.top+gapY&&frame.top>other.bottom-gapY))continue;
     accepted.push(plane);frames.push(frame);usedPhotos.add(photo);if(accepted.length>=96)break;
   }
@@ -61,8 +64,8 @@ export function fieldCandidates(camera, aspect, anchorImage, imageAspect=()=>1,g
 
 // Keep only the current 7×7×7 region window; crossing a chunk retains its neighbours.
 export function createFieldQuery(){
-  const chunks=new Map();let currentCenter='';
-  return (camera,aspect,anchorImage,imageAspect,photoCount)=>{
+  const chunks=new Map(),seen=new Set();let currentCenter='',retained=new Set(),previousCamera,previousAspect;
+  const query=(camera,aspect,anchorImage,imageAspect,photoCount,options)=>{
     const center=[camera.x,camera.y,camera.z].map(v=>Math.floor(v/CHUNK_SIZE));
     const key=center.join(',');
     if(key!==currentCenter){
@@ -72,8 +75,37 @@ export function createFieldQuery(){
         if(!chunks.has(id))chunks.set(id,chunkPlanes(...coords));
       }
       for(const id of chunks.keys())if(!wanted.has(id))chunks.delete(id);
+      for(const id of seen)if(id!=='anchor'&&!wanted.has(id.split(':')[0]))seen.delete(id);
       currentCenter=key;
     }
-    return fieldCandidates(camera,aspect,anchorImage,imageAspect,(x,y,z)=>chunks.get(`${x},${y},${z}`),photoCount);
+    const getChunk=(x,y,z)=>chunks.get(`${x},${y},${z}`);
+    if(!options)return fieldCandidates(camera,aspect,anchorImage,imageAspect,getChunk,photoCount);
+    const seeding=options.seed||!previousCamera;
+    const resizing=previousAspect!==undefined&&previousAspect!==aspect;
+    const dx=previousCamera?camera.x-previousCamera.x:0,dy=previousCamera?camera.y-previousCamera.y:0,dz=previousCamera?camera.z-previousCamera.z:0;
+    const edgeMotion=dz>.00001||(Math.hypot(dx,dy)>.001&&Math.hypot(dx,dy)>Math.abs(dz)*.05);
+    const reasons=new Map();
+    const result=fieldCandidates(camera,aspect,anchorImage,imageAspect,getChunk,photoCount,{
+      retained,
+      admit(plane,frame){
+        if(retained.has(plane.key))return true;
+        const depth=camera.z-plane.z;
+        // A lateral entry must be confined to a viewport sliver. A giant
+        // central near plane touching every edge is deliberately not an edge entry.
+        const edge=edgeMotion&&(frame.left>=.85||frame.right<=-.85||frame.bottom>=.85||frame.top<=-.85);
+        const reason=seeding?'initial':resizing?'resize':plane.key==='anchor'?'anchor':depth>=FAR_ENTRY_DEPTH?'far':edge?'edge':null;
+        if(!reason)return false;
+        reasons.set(plane.key,reason);return true;
+      }
+    });
+    for(const plane of result){
+      if(!retained.has(plane.key))options.onAdmission?.({key:plane.key,photo:plane.key==='anchor'?anchorImage:plane.media%photoCount,depth:camera.z-plane.z,reason:reasons.get(plane.key),first:!seen.has(plane.key)});
+      seen.add(plane.key);
+    }
+    retained=new Set(result.map(plane=>plane.key));previousCamera={...camera};previousAspect=aspect;
+    return result;
   };
+  query.reset=()=>{seen.clear();retained.clear();previousCamera=previousAspect=undefined;};
+  query.inspect=()=>({chunks:chunks.size,residents:retained.size,history:seen.size});
+  return query;
 }

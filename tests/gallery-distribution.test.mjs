@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
 import ts from 'typescript';
 import { distributeDomePhotos, createWallPhotoPicker } from '../src/components/gallery/photo-distribution.js';
-import { fieldCandidates, createFieldQuery, chunkPlanes } from '../src/components/gallery/infinite-field.js';
+import { fieldCandidates, createFieldQuery, chunkPlanes, projectFieldFrame, FAR_ENTRY_DEPTH, FADE_END } from '../src/components/gallery/infinite-field.js';
 
 const source = readFileSync(new URL('../src/components/gallery/vendor/DomeGallery.jsx', import.meta.url), 'utf8');
 const file = ts.createSourceFile('DomeGallery.jsx', source, ts.ScriptTarget.Latest, true, ts.ScriptKind.JSX);
@@ -88,4 +88,58 @@ test('cached space queries remain deterministic across chunk boundaries and neve
   }
   assert.deepEqual(query(views[0], 1.7, 20, () => 1.3, 101).map(p => [p.key, p.media]),
     fieldCandidates(views[0], 1.7, 20, () => 1.3, chunkPlanes, 101).map(p => [p.key, p.media]));
+});
+
+test('a resident photograph wins over new near overlap and duplicate-media competitors', () => {
+  const entries = [at('resident', 0, -230, 7), at('new-overlap', 0, -40, 8), at('new-repeat', 14, -40, 108)];
+  const result = fieldCandidates({x:0,y:0,z:0}, 1.7, 0, () => 1, chunks(entries), 101, {retained:new Set(['resident'])});
+  assert.deepEqual(result.map(p=>p.key), ['resident']);
+  const far = fieldCandidates({x:0,y:0,z:0}, 1.7, 0, () => 1, chunks(entries), 101, {admit:p=>-p.z>=FAR_ENTRY_DEPTH});
+  assert.deepEqual(far.map(p=>p.key), ['resident']);
+});
+
+const photos = JSON.parse(readFileSync(new URL('../public/gallery/manifest.json', import.meta.url), 'utf8'));
+const actualRatio = plane => {const p=photos[plane.key==='anchor'?20:plane.media%photos.length];return p.width/p.height;};
+test('forward, backward, drift and pan never add a new central near card with the real 101-photo ratios', () => {
+  for(const aspect of [390/844,16/9,2.4]) for(const mode of ['forward','reverse','drift','pan']) {
+    const query=createFieldQuery();let lastCamera,far=0,edge=0,total=0;
+    for(let step=0;step<340;step++) {
+      const z=mode==='reverse'?(step<170?-45-step*4:-45-680+(step-170)*4):-45-(mode==='pan'?0:step*4);
+      const camera={x:mode==='pan'?step*4:mode==='drift'?Math.sin(step/70)*8:0,y:0,z};
+      const events=[];
+      const result=query(camera,aspect,20,actualRatio,photos.length,{seed:step===0,onAdmission:e=>events.push(e)});
+      const byKey=new Map(result.map(p=>[p.key,p]));
+      assert(result.length<=96);assert(result.length>0);total+=result.length;
+      assert.equal(new Set(result.map(p=>p.key==='anchor'?20:p.media%photos.length)).size,result.length);
+      for(const event of events) {
+        if(step===0){assert.equal(event.reason,'initial');continue;}
+        if(event.reason==='anchor')continue;
+        if(event.reason==='far'){assert(event.depth>=FAR_ENTRY_DEPTH&&event.depth<=FADE_END);far++;}
+        else {
+          assert.equal(event.reason,'edge');assert(lastCamera);
+          const plane=byKey.get(event.key),frame=projectFieldFrame(plane,camera,aspect,actualRatio(plane));
+          assert(frame.left>=.85||frame.right<=-.85||frame.bottom>=.85||frame.top<=-.85);
+          edge++;
+        }
+      }
+      const cache=query.inspect();assert(cache.chunks<=343);assert(cache.history<=1716);assert(cache.residents<=96);
+      lastCamera=camera;
+    }
+    assert(far>0);assert(total/340>3);
+    if(mode==='forward')assert.equal(edge,0);
+  }
+});
+
+test('same-view reuse is stable; resize and a new journey explicitly reseed without keeping stale history', () => {
+  const query=createFieldQuery(),camera={x:0,y:0,z:-45},events=[];
+  const first=query(camera,1.7,20,actualRatio,photos.length,{onAdmission:e=>events.push(e)});
+  assert(events.length>0);assert(events.every(e=>e.reason==='initial'));
+  events.length=0;
+  const stable=query(camera,1.7,20,actualRatio,photos.length,{onAdmission:e=>events.push(e)});
+  assert.deepEqual(stable.map(p=>p.key),first.map(p=>p.key));assert.equal(events.length,0);
+  query(camera,390/844,20,actualRatio,photos.length,{onAdmission:e=>events.push(e)});
+  assert(events.every(e=>e.reason==='resize'));events.length=0;
+  query.reset();assert.equal(query.inspect().history,0);assert.equal(query.inspect().residents,0);
+  query(camera,1.7,20,actualRatio,photos.length,{onAdmission:e=>events.push(e)});
+  assert(events.length>0);assert(events.every(e=>e.reason==='initial'));
 });
