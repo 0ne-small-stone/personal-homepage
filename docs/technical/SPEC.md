@@ -1,5 +1,7 @@
 # 个人主页技术实现方案
 
+2026-10-18 用户继续后，六批技术复用优化经集中 PR #86 Squash 合并至 main f683a6ad；原六份候选已收束。主线部署与正式站验证见[发布验收](iterations/reuse-release-2026-10-18.md)。下方候选与未发布描述为各固定输入的历史记录，不替代该发布结果。
+
 2026-10-18 六批复用优化已在独立集中分支接入：Query、Pages CMS、HTTP、原生 dialog、上游搜索补丁和旧源清理；在线/离线冲突保留主线快照，组合检查与统一预览见[集中整合记录](iterations/reuse-integration-2026-10-18.md)。当前待集中 Draft PR 审查和用户体验，未合并发布。
 
 2026-10-18 复用清单收尾：Pages CMS 当前 reference 仍不能等价提供跨目录、仅已发布内容的关联候选，保留原生 select 与现有生成/回写，不新增后台。生产入口与 Knip/人工引用核对后移除两份孤立的旧音乐实现，推歌样式由实际 RecommendationForm 直接导入；其他历史、测试及第三方来源文件保留。见[本片](iterations/reuse-remainder-2026-10-18.md)。

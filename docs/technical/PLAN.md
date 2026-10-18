@@ -1,5 +1,7 @@
 # 个人主页技术实施计划和验收标准
 
+2026-10-18 用户继续后，六批技术复用优化经集中 PR #86 Squash 合并至 main f683a6ad；原六份候选已收束。主线部署与正式站验证见[发布验收](iterations/reuse-release-2026-10-18.md)。下方候选与未发布描述为各固定输入的历史记录，不替代该发布结果。
+
 2026-10-18 六批复用优化已在独立集中分支接入：Query、Pages CMS、HTTP、原生 dialog、上游搜索补丁和旧源清理；在线/离线冲突保留主线快照，组合检查与统一预览见[集中整合记录](iterations/reuse-integration-2026-10-18.md)。当前待集中 Draft PR 审查和用户体验，未合并发布。
 
 2026-10-18 复用优化队列收尾：独立 main d8affcc1 分支删除明确无生产引用的 RadioPlayer/SharedPlaylistCatalog，将既有推歌 CSS 移回现用组件的依赖链；CMS reference 复验后保留现成 select 方案。只做可证明等价的清理，其他历史实现/测试/许可留档不批量删除，验证见[本片](iterations/reuse-remainder-2026-10-18.md)。各候选仍经独立 Draft PR，未合并发布。
