@@ -1,0 +1,141 @@
+[
+  {
+    "case": "direct-search",
+    "inputs": 1,
+    "links": [
+      "博客阅读验证（功能验证样稿）",
+      "博客阅读验证（功能验证样稿）",
+      "把阅读过程写清楚",
+      "回到刚才的位置",
+      "PDF 阅读验证说明（功能样本）",
+      "PDF 阅读验证说明（功能样本）",
+      "内容说明",
+      "Becoming",
+      "Becoming"
+    ],
+    "query": "验证",
+    "tag": "SITE-SEARCH"
+  },
+  {
+    "case": "filters-before-reading",
+    "modal": true,
+    "query": "验证",
+    "selected": [
+      {
+        "name": "主题",
+        "value": "阅读与整理"
+      },
+      {
+        "name": "类型",
+        "value": "文章"
+      }
+    ]
+  },
+  {
+    "case": "return-search",
+    "focus": "博客阅读验证（功能验证样稿）",
+    "instances": 1,
+    "modal": true,
+    "query": "验证",
+    "selected": [
+      {
+        "name": "主题",
+        "value": "阅读与整理"
+      },
+      {
+        "name": "类型",
+        "value": "文章"
+      }
+    ]
+  },
+  {
+    "case": "final-build-return",
+    "focus": "博客阅读验证（功能验证样稿）",
+    "inputs": 1,
+    "query": "验证",
+    "selected": [
+      {
+        "name": "主题",
+        "value": "阅读与整理"
+      },
+      {
+        "name": "类型",
+        "value": "文章"
+      }
+    ],
+    "shortcut": ""
+  },
+  {
+    "case": "escape-final",
+    "locked": false,
+    "open": 0
+  },
+  {
+    "case": "shortcut-final",
+    "inputs": 1,
+    "locked": false,
+    "open": 0
+  },
+  {
+    "case": "narrow-final",
+    "height": 844,
+    "inputs": 1,
+    "modal": true,
+    "query": "计算机",
+    "selected": [
+      {
+        "name": "主题",
+        "value": "计算机系统"
+      },
+      {
+        "name": "类型",
+        "value": "笔记"
+      }
+    ],
+    "width": 390,
+    "widths": {
+      "dialog": 388,
+      "page": 390
+    }
+  },
+  {
+    "case": "worker-fix-return-1",
+    "focus": "博客阅读验证（功能验证样稿）",
+    "inputs": 1,
+    "query": "验证",
+    "selected": [
+      "阅读与整理",
+      "文章"
+    ],
+    "shortcut": ""
+  },
+  {
+    "case": "worker-fix-return-2",
+    "focus": "博客阅读验证（功能验证样稿）",
+    "inputs": 1,
+    "query": "验证",
+    "selected": [
+      "阅读与整理",
+      "文章"
+    ]
+  },
+  {
+    "case": "worker-fix-narrow",
+    "height": 844,
+    "inputs": 1,
+    "modal": true,
+    "pageWidth": 390,
+    "query": "验证",
+    "selected": [
+      "阅读与整理",
+      "文章"
+    ],
+    "width": 390
+  },
+  {
+    "case": "worker-fix-final-closed",
+    "inputs": 1,
+    "locked": false,
+    "open": 0
+  }
+]

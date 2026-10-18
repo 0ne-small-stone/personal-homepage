@@ -1,0 +1,34 @@
+[
+  {
+    "path": ".gitattributes",
+    "sha256": "b09638d812f96f94c1236d918d5647f86b11b68bce5079215e0b0ecee26fcc9a"
+  },
+  {
+    "path": "astro.config.mjs",
+    "sha256": "517e15829cf22b402e4f0e79804abfa757308c9992f780396e773561aab9a75c"
+  },
+  {
+    "path": "package.json",
+    "sha256": "966c09a835165dd705ffc15c413422d4c0dd95e99e665e7d89ba962b1d010c98"
+  },
+  {
+    "path": "package-lock.json",
+    "sha256": "123c8a71bd253861763f2b06aef97a95484a4e62ec19d1239eca94729bfaa567"
+  },
+  {
+    "path": "patches/@astrojs+starlight+0.42.5.patch",
+    "sha256": "c969938d6ed26f7b03d39303ae0a1badc10ba9603257798427c30a0f13b980fd"
+  },
+  {
+    "path": "patches/@pagefind+default-ui+1.5.2.patch",
+    "sha256": "eb672bc570b9259e0b14c6e776507806665f46ea59b2b9b6cf81940d40af4bde"
+  },
+  {
+    "path": "tests/search-lifecycle.test.mjs",
+    "sha256": "e34ae75bbd849e3afdcb7c2595b34d4fcec516014d1278bb8e20baa649d0c7c7"
+  },
+  {
+    "path": "tests/search-pagefind.test.mjs",
+    "sha256": "abb5a0ae35e4d60f8700e8f00b5adfe5503f881083c95ec42ce45af3f13de0e6"
+  }
+]
