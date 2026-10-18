@@ -27,7 +27,6 @@ export default defineConfig({
         Head: './src/components/KnowledgeHead.astro',
         SiteTitle: './src/components/KnowledgeSiteTitle.astro',
         PageFrame: './src/components/knowledge/PageFrame.astro',
-        Search: './src/components/knowledge/Search.astro',
       },
       plugins: [starlightBlog({
         title: '文章',

@@ -1,0 +1,127 @@
+diff --git a/node_modules/@astrojs/starlight/dist/components/Search.astro b/node_modules/@astrojs/starlight/dist/components/Search.astro
+index d8c80d8..63721af 100644
+--- a/node_modules/@astrojs/starlight/dist/components/Search.astro
++++ b/node_modules/@astrojs/starlight/dist/components/Search.astro
+@@ -77,16 +77,30 @@ if (project.trailingSlash === 'never') dataAttributes['data-strip-trailing-slash
+ 	import { pagefindUserConfig } from 'virtual:starlight/pagefind-config';
+ 
+ 	class SiteSearch extends HTMLElement {
+-		constructor() {
+-			super();
++		private dispose?: () => void;
++		connectedCallback() {
++			if (this.dispose) return;
++			const controller = new AbortController();
++			const { signal } = controller;
++			const body = document.body;
+ 			const openBtn = this.querySelector<HTMLButtonElement>('button[data-open-modal]')!;
+ 			const closeBtn = this.querySelector<HTMLButtonElement>('button[data-close-modal]')!;
+ 			const dialog = this.querySelector('dialog')!;
+ 			const dialogFrame = this.querySelector('.dialog-frame')!;
++			// Inline scripts do not always rerun during a ClientRouter visit.
++			const shortcut = openBtn.querySelector<HTMLElement>('kbd');
++			if (shortcut) {
++				const platformKey = shortcut.querySelector('kbd');
++				if (platformKey && /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) {
++					platformKey.textContent = '⌘';
++					openBtn.setAttribute('aria-keyshortcuts', 'Meta+K');
++				}
++				shortcut.style.display = '';
++			}
+ 
+ 			/** Close the modal if a user clicks on a link or outside of the modal. */
+ 			const onClick = (event: MouseEvent) => {
+-				const isLink = 'href' in (event.target || {});
++				const isLink = event.target instanceof Element && event.target.closest('a[href]');
+ 				if (
+ 					isLink ||
+ 					(document.body.contains(event.target as Node) &&
+@@ -98,7 +112,7 @@ if (project.trailingSlash === 'never') dataAttributes['data-strip-trailing-slash
+ 
+ 			const openModal = (event?: MouseEvent) => {
+ 				dialog.showModal();
+-				document.body.toggleAttribute('data-search-modal-open', true);
++				body.toggleAttribute('data-search-modal-open', true);
+ 				this.querySelector('input')?.focus();
+ 				event?.stopPropagation();
+ 				window.addEventListener('click', onClick);
+@@ -106,14 +120,15 @@ if (project.trailingSlash === 'never') dataAttributes['data-strip-trailing-slash
+ 
+ 			const closeModal = () => dialog.close();
+ 
+-			openBtn.addEventListener('click', openModal);
++			openBtn.addEventListener('click', openModal, { signal });
+ 			openBtn.disabled = false;
+-			closeBtn.addEventListener('click', closeModal);
++			closeBtn.addEventListener('click', closeModal, { signal });
+ 
+ 			dialog.addEventListener('close', () => {
+-				document.body.toggleAttribute('data-search-modal-open', false);
++				if (dialog.open) return;
++				body.toggleAttribute('data-search-modal-open', false);
+ 				window.removeEventListener('click', onClick);
+-			});
++			}, { signal });
+ 
+ 			// Listen for `ctrl + k` and `cmd + k` keyboard shortcuts.
+ 			window.addEventListener('keydown', (e) => {
+@@ -121,7 +136,7 @@ if (project.trailingSlash === 'never') dataAttributes['data-strip-trailing-slash
+ 					dialog.open ? closeModal() : openModal();
+ 					e.preventDefault();
+ 				}
+-			});
++			}, { signal });
+ 
+ 			let translations = {};
+ 			try {
+@@ -132,13 +147,22 @@ if (project.trailingSlash === 'never') dataAttributes['data-strip-trailing-slash
+ 			const stripTrailingSlash = (path: string) => path.replace(/(.)\/(#.*)?$/, '$1$2');
+ 			const formatURL = shouldStrip ? stripTrailingSlash : (path: string) => path;
+ 
+-			window.addEventListener('DOMContentLoaded', () => {
+-				if (import.meta.env.DEV) return;
+-				const onIdle = window.requestIdleCallback || ((cb) => setTimeout(cb, 1));
+-				onIdle(async () => {
++			let active = true;
++			let initialized = false;
++			let idle: number | undefined;
++			let ui: { destroy: () => void } | undefined;
++			const onIdle = window.requestIdleCallback?.bind(window) || ((cb: () => void) => window.setTimeout(cb, 1));
++			const cancelIdle = window.cancelIdleCallback?.bind(window) || window.clearTimeout.bind(window);
++			const initializeSearch = () => {
++				if (import.meta.env.DEV || initialized || idle !== undefined) return;
++				idle = onIdle(async () => {
++					idle = undefined;
++					if (!active || !this.isConnected || initialized) return;
++					initialized = true;
+ 					// @ts-expect-error — Missing types for @pagefind/default-ui package.
+ 					const { PagefindUI } = await import('@pagefind/default-ui');
+-					new PagefindUI({
++					if (!active || !this.isConnected) return;
++					ui = new PagefindUI({
+ 						...pagefindUserConfig,
+ 						element: '#starlight__search',
+ 						baseUrl: import.meta.env.BASE_URL,
+@@ -155,8 +179,21 @@ if (project.trailingSlash === 'never') dataAttributes['data-strip-trailing-slash
+ 						},
+ 					});
+ 				});
+-			});
++			};
++			document.addEventListener('astro:page-load', initializeSearch, { signal });
++			if (document.readyState === 'loading') window.addEventListener('DOMContentLoaded', initializeSearch, { once: true, signal });
++			else initializeSearch();
++			this.dispose = () => {
++				active = false;
++				controller.abort();
++				if (idle !== undefined) cancelIdle(idle);
++				window.removeEventListener('click', onClick);
++				ui?.destroy();
++				if (dialog.open) dialog.close();
++				body.toggleAttribute('data-search-modal-open', false);
++			};
+ 		}
++		disconnectedCallback() { this.dispose?.(); this.dispose = undefined; }
+ 	}
+ 	customElements.define('site-search', SiteSearch);
+ </script>

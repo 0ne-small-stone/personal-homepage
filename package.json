@@ -7,6 +7,8 @@
     "node": ">=24 <25"
   },
   "scripts": {
+    "postinstall": "patch-package --error-on-fail",
+    "test:search": "node --test tests/search-*.test.mjs",
     "dev": "astro dev",
     "predev": "npm run pdf:prepare",
     "pdf:prepare": "node tools/content/prepare-pdfjs.mjs",
@@ -61,6 +63,7 @@
     "@types/three": "0.186.0",
     "esbuild": "0.28.2",
     "music-metadata": "12.1.0",
+    "patch-package": "8.0.1",
     "typescript": "~5.9.3"
   }
 }

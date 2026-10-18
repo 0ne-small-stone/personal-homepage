@@ -14,3 +14,6 @@ public/pdfjs/** -text
 # Preserve upstream license and vendor formatting verbatim.
 docs/**/vendor/** whitespace=-blank-at-eol
 public/music/attribution.txt whitespace=-blank-at-eol
+
+# Unified-diff context prefixes are part of the patch, including empty lines/tabs.
+patches/*.patch text eol=lf whitespace=-blank-at-eol,-space-before-tab
