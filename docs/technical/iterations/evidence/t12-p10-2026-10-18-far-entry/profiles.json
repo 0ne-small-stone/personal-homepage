@@ -1,0 +1,278 @@
+[
+  {
+    "aspect": 0.46208530805687204,
+    "mode": "forward",
+    "oldBirths": 304,
+    "oldNearBirths": 127,
+    "oldMinDepth": 36.23152011417096,
+    "newEvents": 187,
+    "reasons": {
+      "far": 187,
+      "edge": 0,
+      "backtrack": 0,
+      "anchor": 0
+    },
+    "farMinDepth": 221.04011437561712,
+    "meanBefore": 9.37037037037037,
+    "meanAfter": 9.205555555555556,
+    "minAfter": 1,
+    "cache": {
+      "chunks": 343,
+      "residents": 11,
+      "history": 70
+    }
+  },
+  {
+    "aspect": 0.46208530805687204,
+    "mode": "drift",
+    "oldBirths": 298,
+    "oldNearBirths": 110,
+    "oldMinDepth": 36.23152011417096,
+    "newEvents": 188,
+    "reasons": {
+      "far": 188,
+      "edge": 0,
+      "backtrack": 0,
+      "anchor": 0
+    },
+    "farMinDepth": 220.04131882102956,
+    "meanBefore": 9.551851851851852,
+    "meanAfter": 9.411111111111111,
+    "minAfter": 1,
+    "cache": {
+      "chunks": 343,
+      "residents": 9,
+      "history": 70
+    }
+  },
+  {
+    "aspect": 0.46208530805687204,
+    "mode": "backtrack",
+    "oldBirths": 309,
+    "oldNearBirths": 182,
+    "oldMinDepth": 3.2469847611191653,
+    "newEvents": 194,
+    "reasons": {
+      "far": 129,
+      "edge": 65,
+      "backtrack": 0,
+      "anchor": 0
+    },
+    "farMinDepth": 220.07667305262294,
+    "meanBefore": 9.588888888888889,
+    "meanAfter": 9.577777777777778,
+    "minAfter": 1,
+    "cache": {
+      "chunks": 343,
+      "residents": 11,
+      "history": 29
+    }
+  },
+  {
+    "aspect": 0.46208530805687204,
+    "mode": "pan",
+    "oldBirths": 280,
+    "oldNearBirths": 184,
+    "oldMinDepth": 5.417760733571413,
+    "newEvents": 178,
+    "reasons": {
+      "far": 62,
+      "edge": 116,
+      "backtrack": 0,
+      "anchor": 0
+    },
+    "farMinDepth": 221.20519257658088,
+    "meanBefore": 9.496296296296297,
+    "meanAfter": 9.192592592592593,
+    "minAfter": 5,
+    "cache": {
+      "chunks": 343,
+      "residents": 5,
+      "history": 63
+    }
+  },
+  {
+    "aspect": 1.7777777777777777,
+    "mode": "forward",
+    "oldBirths": 1188,
+    "oldNearBirths": 530,
+    "oldMinDepth": 25.67382581397078,
+    "newEvents": 643,
+    "reasons": {
+      "far": 643,
+      "edge": 0,
+      "backtrack": 0,
+      "anchor": 0
+    },
+    "farMinDepth": 220.00317826296123,
+    "meanBefore": 26.35,
+    "meanAfter": 26.20925925925926,
+    "minAfter": 5,
+    "cache": {
+      "chunks": 343,
+      "residents": 27,
+      "history": 229
+    }
+  },
+  {
+    "aspect": 1.7777777777777777,
+    "mode": "drift",
+    "oldBirths": 1162,
+    "oldNearBirths": 514,
+    "oldMinDepth": 25.67382581397078,
+    "newEvents": 656,
+    "reasons": {
+      "far": 656,
+      "edge": 0,
+      "backtrack": 0,
+      "anchor": 0
+    },
+    "farMinDepth": 220.04131882102956,
+    "meanBefore": 26.238888888888887,
+    "meanAfter": 26.096296296296295,
+    "minAfter": 1,
+    "cache": {
+      "chunks": 343,
+      "residents": 28,
+      "history": 237
+    }
+  },
+  {
+    "aspect": 1.7777777777777777,
+    "mode": "backtrack",
+    "oldBirths": 1136,
+    "oldNearBirths": 612,
+    "oldMinDepth": 3.2469847611191653,
+    "newEvents": 701,
+    "reasons": {
+      "far": 506,
+      "edge": 195,
+      "backtrack": 0,
+      "anchor": 0
+    },
+    "farMinDepth": 220.00317826296123,
+    "meanBefore": 26.505555555555556,
+    "meanAfter": 26.511111111111113,
+    "minAfter": 5,
+    "cache": {
+      "chunks": 343,
+      "residents": 26,
+      "history": 94
+    }
+  },
+  {
+    "aspect": 1.7777777777777777,
+    "mode": "pan",
+    "oldBirths": 619,
+    "oldNearBirths": 370,
+    "oldMinDepth": 5.417760733571413,
+    "newEvents": 254,
+    "reasons": {
+      "far": 122,
+      "edge": 132,
+      "backtrack": 0,
+      "anchor": 0
+    },
+    "farMinDepth": 221.20519257658088,
+    "meanBefore": 29.474074074074075,
+    "meanAfter": 28.32962962962963,
+    "minAfter": 20,
+    "cache": {
+      "chunks": 343,
+      "residents": 26,
+      "history": 73
+    }
+  },
+  {
+    "aspect": 2.4,
+    "mode": "forward",
+    "oldBirths": 1591,
+    "oldNearBirths": 774,
+    "oldMinDepth": 25.67382581397078,
+    "newEvents": 798,
+    "reasons": {
+      "far": 798,
+      "edge": 0,
+      "backtrack": 0,
+      "anchor": 0
+    },
+    "farMinDepth": 220.1049209032717,
+    "meanBefore": 33.568518518518516,
+    "meanAfter": 33.012962962962966,
+    "minAfter": 10,
+    "cache": {
+      "chunks": 343,
+      "residents": 36,
+      "history": 277
+    }
+  },
+  {
+    "aspect": 2.4,
+    "mode": "drift",
+    "oldBirths": 1584,
+    "oldNearBirths": 762,
+    "oldMinDepth": 25.67382581397078,
+    "newEvents": 811,
+    "reasons": {
+      "far": 811,
+      "edge": 0,
+      "backtrack": 0,
+      "anchor": 0
+    },
+    "farMinDepth": 220.18551547072275,
+    "meanBefore": 33.52777777777778,
+    "meanAfter": 32.987037037037034,
+    "minAfter": 1,
+    "cache": {
+      "chunks": 343,
+      "residents": 37,
+      "history": 278
+    }
+  },
+  {
+    "aspect": 2.4,
+    "mode": "backtrack",
+    "oldBirths": 1535,
+    "oldNearBirths": 881,
+    "oldMinDepth": 3.2469847611191653,
+    "newEvents": 877,
+    "reasons": {
+      "far": 621,
+      "edge": 256,
+      "backtrack": 0,
+      "anchor": 0
+    },
+    "farMinDepth": 220.0046631248806,
+    "meanBefore": 33.6037037037037,
+    "meanAfter": 33.84074074074074,
+    "minAfter": 10,
+    "cache": {
+      "chunks": 343,
+      "residents": 34,
+      "history": 117
+    }
+  },
+  {
+    "aspect": 2.4,
+    "mode": "pan",
+    "oldBirths": 779,
+    "oldNearBirths": 463,
+    "oldMinDepth": 5.417760733571413,
+    "newEvents": 248,
+    "reasons": {
+      "far": 129,
+      "edge": 119,
+      "backtrack": 0,
+      "anchor": 0
+    },
+    "farMinDepth": 221.20519257658088,
+    "meanBefore": 37.675925925925924,
+    "meanAfter": 35.79259259259259,
+    "minAfter": 29,
+    "cache": {
+      "chunks": 343,
+      "residents": 31,
+      "history": 80
+    }
+  }
+]

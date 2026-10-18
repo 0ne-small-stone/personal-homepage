@@ -1,5 +1,7 @@
 # 设计与技术文档对应表
 
+P10/R06/U10/T12、T26、T27：[2026-10-18无限空间远端补图](technical/iterations/t12-p10-2026-10-18-far-entry.md)，修复候选重筛导致近处补图的生命周期问题，现有视觉/操作保持。
+
 P10 / R06 / U10 / T12、T26、T27：[2026-10-17同图分散排布](technical/iterations/t12-p10-2026-10-17-photo-distribution.md)，保持现有卡位与101张内容，优化曲面/平铺/空间的同图邻近关系。
 
 P13 / R04、R12 / U12、U14 / T25.32、T25.41：网易云收录机与音量修订补发、静态站沿用新版布局和真实共享歌单，见[补发记录](technical/iterations/t25-p13-2026-10-17-netease-latest-release.md)。
