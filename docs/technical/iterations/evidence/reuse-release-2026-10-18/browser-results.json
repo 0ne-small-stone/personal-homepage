@@ -1,0 +1,63 @@
+[
+  {
+    "name": "deployment-transition-old-document",
+    "state": {
+      "tag": "lssh-site-search",
+      "script": "Search.astro_astro_type_script_index_0_lang.wP8-CdFn.js",
+      "returnSearchRestored": false
+    },
+    "boundary": "在Pages部署完成前打开，随后回链消费旧文档；不能用于判定新包。部署Success后reload得到site-search/BHC05PKT，以下单独复测。"
+  },
+  {
+    "name": "published-search-input",
+    "state": {
+      "checked": [
+        "文章"
+      ],
+      "native": 1,
+      "query": "验证"
+    }
+  },
+  {
+    "name": "live-new-search-return",
+    "state": {
+      "checked": [
+        "文章"
+      ],
+      "focus": "/personal-homepage/knowledge/blog/article-reading-check/",
+      "modal": true,
+      "query": [
+        "验证"
+      ],
+      "url": "https://0ne-small-stone.github.io/personal-homepage/knowledge/",
+      "width": 1280
+    }
+  },
+  {
+    "name": "live-new-search-escape",
+    "state": {
+      "locked": false,
+      "open": false
+    }
+  },
+  {
+    "name": "live-music-static-390",
+    "state": {
+      "audio": 1,
+      "dialog": "推荐一首歌\n关闭\n\n把喜欢的歌分享给 Echoes。通过审核后，会加入网易云共享歌单。\n\n推荐服务尚未接通，暂时无法提交。你可以先打开共享歌单收听。",
+      "modal": true,
+      "overflow": "hidden",
+      "pageWidth": 390,
+      "width": 390
+    }
+  },
+  {
+    "name": "live-music-close",
+    "state": {
+      "audio": 1,
+      "focus": "推荐一首歌",
+      "open": 0,
+      "overflow": ""
+    }
+  }
+]
