@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { qualityLabel } from '../../lib/music';
 import VinylTurntable from './VinylTurntable';
 import { MusicIcon, PlaybackControls, type PlaybackPresentation } from './RadioNowPlaying';
 import LyricPanel from './LyricPanel';
+import { cancelNativeDialog, useNativeDialog } from './useNativeDialog';
 
 /** View-only dialog: the owning audio runtime stays mounted while this opens/closes. */
 export default function ListeningRoom(props: PlaybackPresentation & {
@@ -13,14 +14,8 @@ export default function ListeningRoom(props: PlaybackPresentation & {
   const [seekVersion, setSeekVersion] = useState(0);
   const open = props.open ?? true;
   const seek = (time: number) => { setSeekVersion(value => value + 1);props.onSeek(time); };
-  useEffect(() => {
-    const element = dialog.current;if (!element || !open) return;
-    const origin = document.activeElement instanceof HTMLElement ? document.activeElement : null;
-    const overflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';element.showModal();back.current?.focus();
-    return () => { element.close();document.body.style.overflow = overflow;origin?.focus({ preventScroll: true }); };
-  }, [open]);
-  return <dialog ref={dialog} className="music-listening-room" aria-labelledby="music-listening-title" onCancel={event => { event.preventDefault();props.onClose(); }}>
+  useNativeDialog(dialog, open, back);
+  return <dialog ref={dialog} className="music-listening-room" aria-labelledby="music-listening-title" onCancel={event => cancelNativeDialog(event, props.onClose)}>
     <header className="music-room-header"><button ref={back} type="button" onClick={props.onClose} className="music-room-back"><MusicIcon name="back" /><span>返回音乐库</span></button><span>{props.source}</span></header>
     <div className="music-room-body">
       <section className="music-room-turntable"><VinylTurntable track={props.track} playing={props.playing} progress={props.duration ? props.time / props.duration : 0} onToggle={props.onToggle} active={open} /><div key={props.track?.id || 'empty'} className="music-room-info"><h2 id="music-listening-title">{props.track?.title || '等待第一首歌'}</h2><p className="music-room-artist">{props.track?.artist || '从音乐库选择一首歌'}</p><p className="music-room-album">{props.track?.album}</p></div></section>
