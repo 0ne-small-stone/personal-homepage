@@ -1,8 +1,8 @@
 import { createServer } from 'node:http';
-import { readFile, stat, mkdir, open, unlink } from 'node:fs/promises';
+import { readFile, mkdir, open, unlink } from 'node:fs/promises';
 import { randomUUID } from 'node:crypto';
 import { parseFile } from 'music-metadata';
-import { extname, resolve, sep } from 'node:path';
+import { resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { createPlaybackIndexService } from './playback-index.mjs';
 import { createPlaybackAccount } from './playback-account.mjs';
@@ -12,23 +12,23 @@ import {createLxDownloads,completedWebFiles,webAudioMiddleware} from './lx-downl
 import {createNetEaseCore,musicId} from './netease-core.mjs';
 import {verifyCloudUpload} from './netease-upload.mjs';
 import {localAudioMiddleware,localAudioUrls} from './local-playback.mjs';
+import {readJson,sameOrigin,sendJson,sendStaticFile} from './http.mjs';
 
 const project=fileURLToPath(new URL('../../',import.meta.url));
 const base='/personal-homepage';
-const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.webp':'image/webp','.png':'image/png','.jpg':'image/jpeg','.woff2':'font/woff2','.txt':'text/plain; charset=utf-8'};
 export function createMusicPreview({root=resolve(project,'.local-tools/music/library-layout-dist'), playback=createPlaybackIndexService(resolve(project,'.local-tools/music/playback-runtime')), account=createPlaybackAccount(), downloads=null}={}) {
   const netease=createNetEaseCore({account,downloads});
   const localManifest=resolve(project,'.local-tools/music/audio-map.json');
   const localAudio=localAudioMiddleware({base,manifestFile:localManifest,fallthroughIfMissing:true});
   // Playback addresses are runtime data, outside the directory Astro rebuilds.
   const server=createServer(async(req,res)=>{
-    const send=(status,data)=>{res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});res.end(JSON.stringify(data));};
+    const send=(status,data)=>sendJson(res,status,data);
     if(req.headers.host!==`127.0.0.1:${server.address()?.port}`){send(403,{error:'仅允许本机访问。'});return;}
     try {
       const pathname=decodeURIComponent(new URL(req.url,'http://127.0.0.1').pathname);
       const origin=`http://127.0.0.1:${server.address().port}`;
       if(pathname===`${base}/api/music/netease-upload`){
-        if(req.method!=='POST'||req.headers.origin!==origin||req.headers['sec-fetch-site']==='cross-site'){send(403,{error:'请在当前电台页面上传。'});return;}
+        if(req.method!=='POST'||!sameOrigin(req,origin,true)){send(403,{error:'请在当前电台页面上传。'});return;}
         await account.ready();if(!account.state().authorized){send(401,{error:'登录后上传到你的网易云云盘。'});return;}
         let name;try{name=decodeURIComponent(req.headers['x-music-name']||'');}catch{}
         if(typeof name!=='string'||name.length>200||/[<>:"/\\|?*\x00-\x1f]/.test(name)||!/\.(mp3|flac|m4a|wav|ogg)$/i.test(name)||req.headers['content-type']!=='application/octet-stream'){send(400,{error:'请上传有效的音乐文件。'});return;}
@@ -41,26 +41,20 @@ export function createMusicPreview({root=resolve(project,'.local-tools/music/lib
         }catch{send(503,{error:'上传暂未完成，请重试。'});}finally{await handle?.close().catch(()=>{});await unlink(temporary).catch(()=>{});}return;
       }
       if(pathname===`${base}/api/music/netease`){
-        if(req.method!=='POST'||req.headers.origin!==origin||req.headers['sec-fetch-site']==='cross-site'){send(403,{error:'请在当前电台页面操作。'});return;}
-        if(req.headers['content-type']?.split(';')[0]!=='application/json'){send(400,{error:'请求格式无效。'});return;}
-        let raw='';for await(const chunk of req){raw+=chunk;if(Buffer.byteLength(raw)>8192){send(413,{error:'请求过长。'});return;}}
-        let input;try{input=JSON.parse(raw);}catch{send(400,{error:'请求格式无效。'});return;}
-        if(!input||typeof input!=='object'||Array.isArray(input)){send(400,{error:'请求格式无效。'});return;}
+        if(req.method!=='POST'||!sameOrigin(req,origin,true)){send(403,{error:'请在当前电台页面操作。'});return;}
+        let input;try{input=await readJson(req,res,8192);}catch(error){send(error.status,{error:error.message});return;}
         try{await account.ready();send(200,await netease.handle(input));}
         catch(error){send(error.auth?401:503,{error:error.message?.slice(0,160)||'网易云服务暂时不可用。'});}return;
       }
       if(pathname.startsWith(`${base}/api/music/lx/`)) {
-        if((req.headers.origin&&req.headers.origin!==origin)||req.headers['sec-fetch-site']==='cross-site'){send(403,{error:'请在当前电台页面操作。'});return;}
+        if(!sameOrigin(req,origin)){send(403,{error:'请在当前电台页面操作。'});return;}
         if(!downloads){send(503,{error:'网页下载服务尚未启动，请打开本机音乐预览。'});return;}
         const route=pathname.slice(`${base}/api/music/lx/`.length);
         try {
           if(req.method==='GET'&&route==='status'){send(200,await downloads.status());return;}
           if(req.method==='GET'&&route==='jobs'){send(200,{jobs:downloads.jobs()});return;}
-          if(req.method!=='POST'||req.headers.origin!==origin){send(403,{error:'下载需要同源页面。'});return;}
-          if(req.headers['content-type']?.split(';')[0]!=='application/json'){send(400,{error:'请求格式无效。'});return;}
-          let raw='';for await(const chunk of req){raw+=chunk;if(Buffer.byteLength(raw)>2048){send(413,{error:'请求过长。'});return;}}
-          let input;try{input=JSON.parse(raw);}catch{send(400,{error:'请求格式无效。'});return;}
-          if(!input||typeof input!=='object'||Array.isArray(input)){send(400,{error:'请求格式无效。'});return;}
+          if(req.method!=='POST'||!sameOrigin(req,origin,true)){send(403,{error:'下载需要同源页面。'});return;}
+          let input;try{input=await readJson(req,res,2048);}catch(error){send(error.status,{error:error.message});return;}
           if(route==='search'){send(200,await downloads.search(input.source,input.keyword,input.page||1));return;}
           if(route==='download'){send(200,downloads.download(input.id,input.quality));return;}
           if(route==='cancel'){downloads.cancel(input.id);send(200,{ok:true});return;}
@@ -69,14 +63,11 @@ export function createMusicPreview({root=resolve(project,'.local-tools/music/lib
         return;
       }
       if(pathname.startsWith(`${base}/api/music/playback/`)){
-        if((req.headers.origin&&req.headers.origin!==origin)||req.headers['sec-fetch-site']==='cross-site'){send(403,{error:'请在当前电台页面操作。'});return;}
+        if(!sameOrigin(req,origin)){send(403,{error:'请在当前电台页面操作。'});return;}
         const route=pathname.slice(`${base}/api/music/playback/`.length);
         if(route==='account'&&req.method==='GET'){send(200,account.state());return;}
-        if(req.method!=='POST'||req.headers.origin!==origin){send(403,{error:'登录和播放需要同源页面。'});return;}
-        if(req.headers['content-type']?.split(';')[0]!=='application/json'){send(400,{error:'请求格式无效。'});return;}
-        let raw='';for await(const chunk of req){raw+=chunk;if(Buffer.byteLength(raw)>1024){send(413,{error:'请求过长。'});return;}}
-        let input;try{input=JSON.parse(raw);}catch{send(400,{error:'请求格式无效。'});return;}
-        if(!input||typeof input!=='object'||Array.isArray(input)){send(400,{error:'请求格式无效。'});return;}
+        if(req.method!=='POST'||!sameOrigin(req,origin,true)){send(403,{error:'登录和播放需要同源页面。'});return;}
+        let input;try{input=await readJson(req,res,1024);}catch(error){send(error.status,{error:error.message});return;}
         try{
           if(route==='qr'){send(200,await account.createQr());return;}
           if(route==='qr-check'){send(200,await account.checkQr());return;}
@@ -97,7 +88,7 @@ export function createMusicPreview({root=resolve(project,'.local-tools/music/lib
       }
       if(!['GET','HEAD'].includes(req.method)){send(405,{error:'只支持读取。'});return;}
       if(pathname.startsWith(`${base}/music/local-`)) {
-        if((req.headers.origin&&req.headers.origin!==origin)||req.headers['sec-fetch-site']==='cross-site'){send(403,{error:'仅允许电台读取。'});return;}
+        if(!sameOrigin(req,origin)){send(403,{error:'仅允许电台读取。'});return;}
         let next=false;await localAudio(req,res,()=>{next=true;});if(!next)return;
         next=false;await webAudioMiddleware(req,res,()=>{next=true;});if(!next)return;
       }
@@ -112,12 +103,7 @@ export function createMusicPreview({root=resolve(project,'.local-tools/music/lib
         return;
       }
       if(!pathname.startsWith(base+'/')){res.writeHead(404);res.end();return;}
-      let target=resolve(root,'.'+pathname.slice(base.length));
-      if(target!==resolve(root)&&!target.startsWith(resolve(root)+sep)){send(403,{error:'路径无效。'});return;}
-      if((await stat(target)).isDirectory())target=resolve(target,'index.html');
-      const content=await readFile(target);
-      res.writeHead(200,{'Content-Type':mime[extname(target)]||'application/octet-stream','Cache-Control':'no-store'});
-      res.end(req.method==='HEAD'?undefined:content);
+      await sendStaticFile(req,res,root,pathname.slice(base.length));
     }catch{res.writeHead(404);res.end();}
   });
   server.on('listening',()=>playback.start());server.on('close',()=>{playback.stop();account.dispose?.();downloads?.dispose();});
