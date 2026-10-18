@@ -1,0 +1,153 @@
+[
+  {
+    "name": "desktop-search-return",
+    "dom": "清空\n筛选\n主题\n主题\n先秦哲学 (0)\n大学物理Ⅱ (0)\n大学物理实验 (0)\n概率论与数理统计 (0)\n计算机系统 (0)\n阅读与整理 (1)\n高级数据结构与算法分析 (0)\n标签\n类型\n类型\n文章 (1)\n笔记 (0)\n资料 (0)\n\n“验证”共有 1 条结果\n\n博客阅读验证（功能验证样稿）\n\n博客阅读验证（功能验证样稿）\n\n阅读验证（功能验证样稿） 2026年10月8\n\n把阅读过程写清楚\n\n仍待验证的部分。 这里的内容是功能验证\n\n回到刚才的位置\n\n的浏览入口。 本文的验证范围到这里结束。",
+    "state": {
+      "active": "/personal-homepage/knowledge/blog/article-reading-check/",
+      "checked": [
+        "阅读与整理",
+        "文章"
+      ],
+      "inputs": 0
+    }
+  },
+  {
+    "name": "narrow-search-return",
+    "state": {
+      "active": "/personal-homepage/knowledge/blog/article-reading-check/",
+      "checked": [
+        "阅读与整理",
+        "文章"
+      ],
+      "inputs": [
+        {
+          "type": "text",
+          "value": "验证"
+        }
+      ],
+      "pageWidth": 390,
+      "width": 390
+    }
+  },
+  {
+    "name": "search-escape",
+    "state": {
+      "body": null,
+      "open": false
+    }
+  },
+  {
+    "name": "offline-recommend-desktop",
+    "state": {
+      "audio": 1,
+      "open": [
+        {
+          "modal": true,
+          "text": "推荐一首歌\n关闭\n\n把喜欢的歌分享给 Echoes。通过审核后，会加入网易云共享歌单。\n\n推荐服务尚未接通，暂时无法提交。你可以先打开共享歌单收听。"
+        }
+      ],
+      "overflow": "hidden",
+      "pageWidth": 1280,
+      "width": 1280
+    }
+  },
+  {
+    "name": "offline-recommend-closed",
+    "state": {
+      "audio": 1,
+      "focus": "推荐一首歌",
+      "open": 0,
+      "overflow": ""
+    }
+  },
+  {
+    "name": "online-pagination",
+    "state": {
+      "audio": 1,
+      "pageWidth": 1280,
+      "songs": [
+        "播放歌曲：模拟歌曲 101",
+        "播放歌曲：模拟歌曲 102",
+        "播放歌曲：模拟歌曲 103"
+      ],
+      "width": 1280
+    }
+  },
+  {
+    "name": "online-core-dialog",
+    "state": {
+      "open": [
+        {
+          "modal": true,
+          "name": "下载歌曲"
+        }
+      ],
+      "overflow": "hidden"
+    }
+  },
+  {
+    "name": "online-nested-dialog-390",
+    "state": {
+      "audio": 1,
+      "open": [
+        {
+          "modal": true,
+          "name": "音乐库"
+        },
+        {
+          "modal": true,
+          "name": null
+        }
+      ],
+      "overflow": "hidden",
+      "pageWidth": 390,
+      "width": 390
+    }
+  },
+  {
+    "name": "nested-first-escape",
+    "state": {
+      "focus": "登录网易云账号",
+      "open": [
+        "音乐库"
+      ],
+      "overflow": "hidden"
+    }
+  },
+  {
+    "name": "nested-second-escape",
+    "state": {
+      "focus": "打开音乐库导航",
+      "open": 0,
+      "overflow": ""
+    }
+  },
+  {
+    "name": "offline-viewport-not-applied",
+    "state": {
+      "audio": 1,
+      "open": true,
+      "overflow": "hidden",
+      "pageWidth": 1280,
+      "width": 1280
+    }
+  },
+  {
+    "name": "offline-recommend-390-final",
+    "state": {
+      "audio": 1,
+      "open": true,
+      "overflow": "hidden",
+      "pageWidth": 390,
+      "width": 390
+    }
+  },
+  {
+    "name": "offline-390-close",
+    "state": {
+      "focus": "推荐一首歌",
+      "open": 0,
+      "overflow": ""
+    }
+  }
+]
