@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import '../../styles/music-recommendations.css';
 
 interface Receipt { song: { title: string; artist: string }; status: string; message: string; }
 const receiptKey = 'lssh.music.recommendation.v1';
