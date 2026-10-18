@@ -1,5 +1,6 @@
 # 个人主页技术实施计划和验收标准
 
+2026-10-18 复用优化队列收尾：独立 main d8affcc1 分支删除明确无生产引用的 RadioPlayer/SharedPlaylistCatalog，将既有推歌 CSS 移回现用组件的依赖链；CMS reference 复验后保留现成 select 方案。只做可证明等价的清理，其他历史实现/测试/许可留档不批量删除，验证见[本片](iterations/reuse-remainder-2026-10-18.md)。各候选仍经独立 Draft PR，未合并发布。
 2026-10-18 复用优化第五片：在 main d8affcc1 的独立分支收拢搜索，验证直接进入/客户端进入、筛选与搜索返回、重复切页和关闭时的清理；CMS reference 与历史源码先按现状复验，不因队列名称强行替换。查询/CMS/HTTP/dialog 四片仍为独立 Draft PR，本片不合并或发布。见[施工与验收](iterations/reuse-search-2026-10-18.md)。
 2026-10-18 P13/T25–T27：复用优化第四片工程及限定浏览器验证完成，统一五处原生 dialog 生命周期，修复嵌套 Escape 连关，138 测试及 171 文件检查通过；1280/390 原生键盘、错序关闭与 Astro 离页有证据，见[本片](iterations/reuse-dialog-2026-10-18.md)。待 Draft PR 审查，未合并发布；不提升前两批及 HTTP 候选的发布状态。
 
