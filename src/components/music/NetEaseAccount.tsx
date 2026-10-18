@@ -1,4 +1,5 @@
 import {useEffect,useRef,useState} from 'react';
+import { cancelNativeDialog, useNativeDialog } from './useNativeDialog';
 import {audioSession} from '../../lib/audio-session';
 import {musicConfig} from '../../config/music';
 import '../../styles/music-account.css';
@@ -38,11 +39,10 @@ export default function NetEaseAccount() {
     void status();const timer=setInterval(()=>{if(!document.hidden)void status();},15000);
     return()=>{mounted.current=false;controller.abort();clearInterval(timer);};
   },[]);
+  useNativeDialog(dialog,open);
   useEffect(()=>{
-    if(!open||!dialog.current)return;
-    const element=dialog.current;const origin=document.activeElement instanceof HTMLElement?document.activeElement:null;
-    const overflow=document.body.style.overflow;document.body.style.overflow='hidden';element.showModal();
-    return()=>{element.close();document.body.style.overflow=overflow;origin?.focus({preventScroll:true});if(account.available)void request('cancel',{}).catch(()=>{});};
+    if(!open)return;
+    return()=>{if(account.available)void request('cancel',{}).catch(()=>{});};
   },[open]);
   useEffect(()=>{
     if(!open||!qr||service!=='ready')return;
@@ -87,7 +87,7 @@ export default function NetEaseAccount() {
     <button type="button" className="music-account-entry" aria-label={service!=='ready'?'网易云账号服务状态':account.authorized?`网易云账号：${account.account?.nickname}`:'登录网易云账号'} aria-haspopup="dialog" onClick={show}>
       <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20v-2a7 7 0 0 1 14 0v2"/></svg><span>{service==='checking'?'连接账号服务':service==='unavailable'?'账号服务未接通':account.restoring?'恢复登录中':account.authorized?account.account?.nickname:'登录网易云'}</span>
     </button>
-    {open&&<dialog ref={dialog} className="music-account-dialog" aria-labelledby="music-account-title" onCancel={()=>setOpen(false)}>
+    {open&&<dialog ref={dialog} className="music-account-dialog" aria-labelledby="music-account-title" onCancel={event=>cancelNativeDialog(event,()=>setOpen(false))}>
       <header><h2 id="music-account-title">{service!=='ready'?'网易云账号服务':account.authorized?'网易云账号':'登录网易云'}</h2><button type="button" className="music-account-close" aria-label="关闭账号窗口" onClick={()=>setOpen(false)}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></header>
       {service!=='ready'?<div className="music-account-unavailable"><p className="music-account-intro" role="status">{service==='checking'?'正在检查账号服务…':'账号服务尚未接通，当前无法扫码登录。你可以在网易云继续收听共享歌单。'}</p><div className="music-account-actions"><button type="button" className="music-account-primary" disabled={service==='checking'} onClick={()=>{setService('checking');void checkAccount();}}>{service==='checking'?'正在检查…':'重新检查服务'}</button><a className="radio-link" href={musicConfig.playlistUrl} target="_blank" rel="noopener noreferrer">打开共享歌单（新窗口）</a></div></div>:account.authorized?<div className="music-account-signed"><p className="music-account-nickname">{account.account?.nickname}</p><p>播放时使用你的账号权限。歌曲是否完整可听，以网易云实际返回为准。</p><div className="music-account-status" role="status">{account.saved?'登录已安全保存，下次启动自动恢复。':message.includes('登录成功')?message:'你已登录当前电台。'}</div><div className="music-account-actions"><button type="button" className="music-account-primary" onClick={()=>setOpen(false)}>完成</button>{account.saved===false&&<button type="button" disabled={busy} onClick={()=>void saveOrRestore('remember')}>重试保存登录</button>}<button type="button" disabled={busy} onClick={()=>void logout()}>{busy?'正在处理…':'退出当前账号'}</button></div></div>:<>
         <p className="music-account-intro">登录后，有权限的歌曲会使用账号音源播放。</p>
