@@ -1,0 +1,48 @@
+{
+  "repo": "hunvreus/pagescms",
+  "commit": "6f4e860a35d934406580287e7042e5e111e207a1",
+  "files": [
+    {
+      "path": "lib/github-cache-file.ts",
+      "blob": "7f120cd63a1191dcd01a23b67fecb6c720dec830",
+      "url": "https://github.com/hunvreus/pagescms/blob/6f4e860a35d934406580287e7042e5e111e207a1/lib/github-cache-file.ts",
+      "found": [
+        {
+          "line": 799,
+          "text": "const getCollectionCache = async ("
+        },
+        {
+          "line": 1000,
+          "text": "  nocache?: boolean"
+        },
+        {
+          "line": 1020,
+          "text": "        eq(cacheFileTable.parentPath, path)"
+        },
+        {
+          "line": 1124,
+          "text": "  getCollectionCache,"
+        }
+      ]
+    },
+    {
+      "path": "fields/core/reference/edit-component.tsx",
+      "blob": "8af0db235a95f7ab3216346d6267ce57dcf6dd68",
+      "url": "https://github.com/hunvreus/pagescms/blob/6f4e860a35d934406580287e7042e5e111e207a1/fields/core/reference/edit-component.tsx",
+      "found": [
+        {
+          "line": 78,
+          "text": "  const collectionName = typeof field.options?.collection === \"string\" ? field.options.collection : null;"
+        },
+        {
+          "line": 107,
+          "text": "        const response = await fetch(`${url}?${searchParams.toString()}`);"
+        },
+        {
+          "line": 173,
+          "text": "        const response = await fetch(`${url}?${searchParams.toString()}`);"
+        }
+      ]
+    }
+  ]
+}

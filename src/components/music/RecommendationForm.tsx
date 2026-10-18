@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
+import '../../styles/music-recommendations.css';
+import { cancelNativeDialog, useNativeDialog } from './useNativeDialog';
 
 interface Receipt { song: { title: string; artist: string }; status: string; message: string; }
 const receiptKey = 'lssh.music.recommendation.v1';
@@ -34,13 +36,7 @@ export default function RecommendationForm({ apiUrl }: { apiUrl: string }) {
     void status();const interval=setInterval(()=>{if(!document.hidden)void status();},15000);
     return()=>{alive.current=false;controller.abort();clearInterval(interval);};
   }, [apiUrl]);
-  useEffect(() => {
-    if(!open || !dialog.current)return;
-    const element=dialog.current;const origin=document.activeElement instanceof HTMLElement?document.activeElement:null;
-    const overflow=document.body.style.overflow;document.body.style.overflow='hidden';
-    element.showModal();first.current?.focus();
-    return()=>{element.close();document.body.style.overflow=overflow;origin?.focus({preventScroll:true});};
-  }, [open]);
+  useNativeDialog(dialog, open, first);
   async function submit(event: React.SyntheticEvent<HTMLFormElement>) {
     event.preventDefault();if(!available || busy || receipt)return;
     setBusy(true);setError('');
@@ -57,7 +53,7 @@ export default function RecommendationForm({ apiUrl }: { apiUrl: string }) {
   return <div className="music-recommend-entry">
     <button type="button" className="radio-refresh" onClick={()=>setOpen(true)}>推荐一首歌</button>
     {receipt && <span role="status">{receipt.message}</span>}
-    {open && <dialog ref={dialog} className="music-recommend-dialog" aria-labelledby="recommend-title" onCancel={event=>{event.preventDefault();setOpen(false);}}>
+    {open && <dialog ref={dialog} className="music-recommend-dialog" aria-labelledby="recommend-title" onCancel={event=>cancelNativeDialog(event,()=>setOpen(false))}>
       <header><h2 id="recommend-title">推荐一首歌</h2><button type="button" className="radio-refresh" aria-label="关闭推歌窗口" onClick={()=>setOpen(false)}>关闭</button></header>
       <p>把喜欢的歌分享给 Echoes。通过审核后，会加入网易云共享歌单。</p>
       {available===null?<p role="status">正在连接推荐服务…</p>:available===false?<p role="status">推荐服务尚未接通，暂时无法提交。你可以先打开共享歌单收听。</p>:receipt?<div className="music-recommend-receipt" role="status"><h3>{receipt.song.title}</h3><p>{receipt.song.artist}</p><p>{receipt.message}</p><button type="button" className="radio-primary" onClick={another}>再推荐一首</button></div>:<form onSubmit={submit}>

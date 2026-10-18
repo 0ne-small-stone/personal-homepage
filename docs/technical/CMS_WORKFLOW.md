@@ -1,5 +1,7 @@
 # 网页编辑与草稿验证
 
+2026-10-17 公开资料编辑候选：[英文资料](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Freuse-cms-2026-10-17/file/profile-en)、[中文资料](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Freuse-cms-2026-10-17/file/profile-zh)、[常用网站](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Freuse-cms-2026-10-17/file/websites)复用原生 file/object/list/select；全部内容属于公开仓库。英文资料已实际保存/刷新/恢复，中文与网站表单已读回，见[验证范围](iterations/cms-native-data-2026-10-17.md)。当前为独立候选，尚未合并或更新下方正式内容编辑分支；保存后仍需 PR 检查、合并及部署生效。
+
 2026-10-13 当前正式流程：[内容编辑分支](https://app.pagescms.org/0ne-small-stone/personal-homepage/codex%2Fcontent-editor/collection/writing-notes)从已发布main建立。Save → 三项检查 → `.pages.yml`候选生成区自动回写 → 新head三项检查 → PR合并main → 官方Pages部署。无候选变化不产生bot提交；main/PR不回写。当前原生新建表单、默认草稿与41个关联候选已读回，此次只读核对未Save新稿。不要在受保护main直接Save。后文旧t13分支链接供历史复现；实际范围及结果见[上线记录](iterations/pages-release-2026-10-12.md)。
 
 ## 学习区收尾：自写笔记与当前保存流程

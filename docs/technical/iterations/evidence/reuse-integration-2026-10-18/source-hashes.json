@@ -1,0 +1,190 @@
+[
+  {
+    "path": ".github/workflows/site.yml",
+    "bytes": 7420,
+    "sha256": "aff99b1da4a64f09f800b2b0f36ea95dcdfa415c23c93ac652aa4f79af7f7709"
+  },
+  {
+    "path": ".pages.yml",
+    "bytes": 24318,
+    "sha256": "2a51963d06ae43b5e3d5e25ecc84cf2ea6a450c5551ed468ca4163e6e05226ad"
+  },
+  {
+    "path": "astro.config.mjs",
+    "bytes": 2922,
+    "sha256": "517e15829cf22b402e4f0e79804abfa757308c9992f780396e773561aab9a75c"
+  },
+  {
+    "path": "package-lock.json",
+    "bytes": 490312,
+    "sha256": "df134b842f53f946dc2d7d2773aeb7cf614e1d386bab0b6b7fc93748cf9121d8"
+  },
+  {
+    "path": "package.json",
+    "bytes": 3593,
+    "sha256": "4b42975a2973d8acea68644ce0667c201d36217be3f102ba7a3b33502c1c83c9"
+  },
+  {
+    "path": "patches/@astrojs+starlight+0.42.5.patch",
+    "bytes": 5559,
+    "sha256": "c969938d6ed26f7b03d39303ae0a1badc10ba9603257798427c30a0f13b980fd"
+  },
+  {
+    "path": "patches/@pagefind+default-ui+1.5.2.patch",
+    "bytes": 10623,
+    "sha256": "eb672bc570b9259e0b14c6e776507806665f46ea59b2b9b6cf81940d40af4bde"
+  },
+  {
+    "path": "patches/README.md",
+    "bytes": 1263,
+    "sha256": "818075e3936bb72d6ad84cebcdb7a4856c5082d1b1d02e1fd2af95371a12d67c"
+  },
+  {
+    "path": "src/components/knowledge/Search.astro",
+    "deleted": true
+  },
+  {
+    "path": "src/components/knowledge/starlight-virtual.d.ts",
+    "deleted": true
+  },
+  {
+    "path": "src/components/links/website-directory.ts",
+    "bytes": 4874,
+    "sha256": "538d9d2ee8a25c3229311b6560346974c4af592e24320bef442c7ab629248ba4"
+  },
+  {
+    "path": "src/components/music/AlbumSwitcher.tsx",
+    "bytes": 7888,
+    "sha256": "43a42496d5ff7cf65b39a7a3ac880872a897d4420d668d3d8055b39c6e65a733"
+  },
+  {
+    "path": "src/components/music/ListeningRoom.tsx",
+    "bytes": 2605,
+    "sha256": "c53106b70b64cb5bf97647a13e62b4a3184a579c7e9b750d3695208591c369fc"
+  },
+  {
+    "path": "src/components/music/NetEaseAccount.tsx",
+    "bytes": 9914,
+    "sha256": "dccfa9104ad4601e0b55bbf065160ad6ded040c4a7204685eac2b31d82a5ed0d"
+  },
+  {
+    "path": "src/components/music/NetEaseCoreExperience.tsx",
+    "bytes": 31372,
+    "sha256": "59f624f880dd4f3d0b1cbcc83ca0f646d13282c0aa8f730f3151f90a923bf79c"
+  },
+  {
+    "path": "src/components/music/RadioPlayer.tsx",
+    "deleted": true
+  },
+  {
+    "path": "src/components/music/RecommendationForm.tsx",
+    "bytes": 5642,
+    "sha256": "40838c96ed32b0cda571b8706d20c328cc87fa0bea30513167e9baccf4bc9d7d"
+  },
+  {
+    "path": "src/components/music/SharedPlaylistCatalog.tsx",
+    "deleted": true
+  },
+  {
+    "path": "src/components/music/useNativeDialog.ts",
+    "bytes": 477,
+    "sha256": "a7adad44da9ff1f7ad4473d56ce7d997d77eb7bd92c7e36b66d85e962dfb65cc"
+  },
+  {
+    "path": "src/components/music/useNetEaseCore.ts",
+    "bytes": 12766,
+    "sha256": "4a272aaa7a26bc1807cdeb4effb8e9ecebe71a2b05b48b62c6ac6a5e60d9481b"
+  },
+  {
+    "path": "src/data/profile-en.json",
+    "bytes": 4869,
+    "sha256": "ab0de204bcda4a5b5f3453b77151ee2ca85929010da87f7ac3083c48430ffa11"
+  },
+  {
+    "path": "src/data/profile-zh-CN.json",
+    "bytes": 4303,
+    "sha256": "d4437a83dc41354f9f41f5bcfc764416b2f3a55a4c00dcfaaa8a139cf984dba3"
+  },
+  {
+    "path": "src/data/profile.ts",
+    "bytes": 1541,
+    "sha256": "591e4234c548ff58f049944c9caf51d34b963ff3f08dc696ef42b0dcd86cd4fb"
+  },
+  {
+    "path": "src/data/websites.json",
+    "bytes": 3702,
+    "sha256": "8a433ca31ed216edbcfff46400745c22a7a8e5991b782a6a7adfcf2c88c10ffd"
+  },
+  {
+    "path": "src/data/websites.ts",
+    "bytes": 1511,
+    "sha256": "cc43f1809fdb59c0b433a1c7d9afe83866d5d62c33d5da117945834b1b20cbe1"
+  },
+  {
+    "path": "src/lib/music-query.ts",
+    "bytes": 3900,
+    "sha256": "8584e565e6036015ba1dce28502d1e0d6518e0ee72277d8919aa9a64e29e2186"
+  },
+  {
+    "path": "src/lib/native-dialog.ts",
+    "bytes": 2460,
+    "sha256": "1dae16d8b310160db8a00f5db66903838d42b2c52419ef19953b730c450f8e1a"
+  },
+  {
+    "path": "src/lib/website-directory.ts",
+    "bytes": 1760,
+    "sha256": "cb4a0a539f79b4886763d92b6828dba03dfdcdbc30c1871b44a6d3313da001b6"
+  },
+  {
+    "path": "tools/content/public-data.test.mjs",
+    "bytes": 1839,
+    "sha256": "54dd14bd99714db0c08731ebbccc3f089bfceac51ded7ddc33a3073b378b059f"
+  },
+  {
+    "path": "tools/music/http.mjs",
+    "bytes": 2808,
+    "sha256": "ce2a89435347e6118c321d5ce7cc5966d4e5e5f7d6a07bb4a99ba82339f0b4c8"
+  },
+  {
+    "path": "tools/music/http.test.mjs",
+    "bytes": 7684,
+    "sha256": "9741166016ef877939910126853817b5f3fc09e68dc98e8e285b28fcbdfc3334"
+  },
+  {
+    "path": "tools/music/music-query.test.mjs",
+    "bytes": 6867,
+    "sha256": "7369a47f57a9a239d56af78900dbf9a7b37251652cab7c06233966af8dffb71c"
+  },
+  {
+    "path": "tools/music/native-dialog.test.mjs",
+    "bytes": 5967,
+    "sha256": "3548d76e0578ca9463cc3718c8b2983b304ee2fca09e7b222cab627a4659e6bd"
+  },
+  {
+    "path": "tools/music/preview-service.mjs",
+    "bytes": 9985,
+    "sha256": "9180c3a8fe9e4c2374b575b3e83e53f0b29b520ff311007a7a8c01009e5e59e8"
+  },
+  {
+    "path": "tools/music/recommendation-service.mjs",
+    "bytes": 5167,
+    "sha256": "12a7922f9faf2d97baa4a5f67714a9c2b4d727d44677740b6505f5e10823033b"
+  },
+  {
+    "path": "tools/music/query-service.test.mjs",
+    "bytes": 5054,
+    "sha256": "4c4f4b352c24555df24b562d5d5c1eace06aed0b6fe302fc5065e24ab3251215"
+  },
+  {
+    "path": "node_modules/@astrojs/starlight/dist/components/Search.astro",
+    "installed": true,
+    "bytes": 18513,
+    "sha256": "de3566916474aa99a34243140a649cb73219e437f146b7ee31603e17f4948129"
+  },
+  {
+    "path": "node_modules/@pagefind/default-ui/npm_dist/mjs/ui-core.mjs",
+    "installed": true,
+    "bytes": 211144,
+    "sha256": "03ef0bbbe46a5d16973b11c8e9b9dd511dd01fabb3c1dd6e9a9edd103ce72051"
+  }
+]

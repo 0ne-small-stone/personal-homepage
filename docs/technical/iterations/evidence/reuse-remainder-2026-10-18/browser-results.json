@@ -1,0 +1,32 @@
+[
+  {
+    "audio": 1,
+    "borderRadius": "20px",
+    "case": "desktop-offline-dialog",
+    "inputs": 0,
+    "modal": true,
+    "overflow": "hidden",
+    "padding": "28px",
+    "width": 1280
+  },
+  {
+    "case": "desktop-close",
+    "dialogs": 0,
+    "focus": "推荐一首歌",
+    "overflow": ""
+  },
+  {
+    "audio": 1,
+    "case": "narrow-offline-dialog",
+    "modal": true,
+    "padding": "20px",
+    "pageWidth": 390,
+    "width": 390
+  },
+  {
+    "case": "narrow-repeat-close",
+    "dialogs": 0,
+    "focus": "推荐一首歌",
+    "overflow": ""
+  }
+]

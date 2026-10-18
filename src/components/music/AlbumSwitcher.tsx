@@ -1,6 +1,7 @@
 import { Component, Suspense, lazy, useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
 import AlbumArtwork from './AlbumArtwork';
 import { formatDuration } from '../../lib/music';
+import { cancelNativeDialog, useNativeDialog } from './useNativeDialog';
 
 const JewelCaseScene = lazy(() => import('./JewelCaseScene'));
 export interface SwitcherTrack { id: string; title: string; artist: string; duration: number; playable: boolean; }
@@ -35,14 +36,12 @@ export default function AlbumSwitcher({ albums, initialAlbumId, currentTrackId, 
   const nextFrame = useRef(0);
   const moveRef = useRef<(target: number) => void>(() => {});
   const album = albums[index] || albums[0];
+  useNativeDialog(dialog, Boolean(album), heading);
   useEffect(() => {
     const el = dialog.current;if (!el) return;
-    const origin = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     const preference = matchMedia('(prefers-reduced-motion: reduce)');
     const update = () => setReduced(preference.matches);update();preference.addEventListener('change', update);
-    const previousOverflow = document.body.style.overflow;document.body.style.overflow = 'hidden';
-    el.showModal();heading.current?.focus();
-    return () => { cancelAnimationFrame(nextFrame.current);pending.current = null;preference.removeEventListener('change', update);el.close();document.body.style.overflow = previousOverflow;origin?.focus({ preventScroll: true }); };
+    return () => { cancelAnimationFrame(nextFrame.current);pending.current = null;preference.removeEventListener('change', update); };
   }, []);
   function moveTo(target: number) {
     const next = Math.min(albums.length - 1, Math.max(0, target));
@@ -62,7 +61,7 @@ export default function AlbumSwitcher({ albums, initialAlbumId, currentTrackId, 
   if (!album) return null;
   const selectedTrack = album.tracks.find(t => t.id === currentTrackId) || album.tracks[0];
   function sceneFailure() { pending.current = null;busyRef.current = false;setBusy(false);setOutgoing(null);setSceneFailed(true); }
-  return <dialog ref={dialog} className="album-switcher" aria-labelledby="album-switcher-title" onCancel={event => { event.preventDefault();onClose(); }}>
+  return <dialog ref={dialog} className="album-switcher" aria-labelledby="album-switcher-title" onCancel={event => cancelNativeDialog(event, onClose)}>
     <header className="album-switcher-heading"><h2 ref={heading} id="album-switcher-title" tabIndex={-1}>选择专辑与歌曲</h2><button type="button" className="album-switcher-close" aria-label="关闭专辑切换" onClick={onClose}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg></button></header>
     <div className="album-switcher-body"><div className="album-switcher-visual">
       <div className="album-case-stage" aria-busy={busy} data-album={album.title}><SceneBoundary album={album} onFailure={sceneFailure}><Suspense fallback={<p className="album-case-loading" role="status">正在准备专辑盒…</p>}><JewelCaseScene album={album} outgoing={outgoing === null ? null : albums[outgoing]} direction={direction} changeKey={changeKey} open={open} angle={viewAngle} reduced={reduced} artwork={artwork} previousArtwork={previousArtwork} onToggle={() => { if (!busyRef.current) setOpen(value => !value); }} onSettled={settled} /></Suspense></SceneBoundary>

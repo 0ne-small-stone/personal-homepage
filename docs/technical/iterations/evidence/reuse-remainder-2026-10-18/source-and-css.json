@@ -1,0 +1,35 @@
+{
+  "sources": [
+    {
+      "path": "src/components/music/RadioPlayer.tsx",
+      "before": "b4542b394633db6223e833359ac40832e3e87e4c3b30ad3a51d96593777e333b",
+      "after": null
+    },
+    {
+      "path": "src/components/music/SharedPlaylistCatalog.tsx",
+      "before": "795b77fcac6f8444a01ddc0ea65537ec6a0987125cdc7729a2e8a704595a1504",
+      "after": null
+    },
+    {
+      "path": "src/components/music/RecommendationForm.tsx",
+      "before": "49b488740eff3b1ddfbe1aec668797b3ae5d151864cb7304fb909db960c2e3a7",
+      "after": "5f3949c0672f6f419d99547a35884db56f8bf8bb09d933420ea41e0a8cce25c2"
+    },
+    {
+      "path": "src/styles/music-recommendations.css",
+      "before": "42aacc4cfc9115efd1582a7ebc69c0e1ee8a7b1a66b9e374e14bac47a4633c96",
+      "after": "0e69efa874f10c507e33d9cf21e5d68162bc5f70504696ad829211234f68770a"
+    }
+  ],
+  "before": {
+    "scope": "same main baseline, search-only worktree build",
+    "cssAssets": 11,
+    "matches": []
+  },
+  "after": {
+    "cssAssets": 11,
+    "matches": [
+      "NetEaseCoreExperience.-5fuP6Zm.css"
+    ]
+  }
+}

@@ -1,0 +1,364 @@
+{
+  "account": "A",
+  "fail": false,
+  "batch": 1,
+  "calls": [
+    {
+      "input": {
+        "action": "browse",
+        "view": "home",
+        "category": "all",
+        "page": 0
+      },
+      "account": "A",
+      "time": 1792245655450
+    },
+    {
+      "input": {
+        "action": "jobs"
+      },
+      "account": "A",
+      "time": 1792245655450
+    },
+    {
+      "input": {
+        "action": "browse",
+        "view": "home",
+        "category": "all",
+        "page": 0
+      },
+      "account": "A",
+      "time": 1792245655466
+    },
+    {
+      "input": {
+        "action": "liked-ids"
+      },
+      "account": "A",
+      "time": 1792245655466
+    },
+    {
+      "input": {
+        "action": "jobs"
+      },
+      "account": "A",
+      "time": 1792245655467
+    },
+    {
+      "input": {
+        "action": "search",
+        "keyword": "Echoes",
+        "kind": "song",
+        "page": 0
+      },
+      "account": "A",
+      "time": 1792245665254
+    },
+    {
+      "input": {
+        "action": "search",
+        "keyword": "Echoes",
+        "kind": "song",
+        "page": 1
+      },
+      "account": "A",
+      "time": 1792245665314
+    },
+    {
+      "input": {
+        "action": "search",
+        "keyword": "Echoes",
+        "kind": "song",
+        "page": 0
+      },
+      "account": "A",
+      "time": 1792245671881
+    },
+    {
+      "input": {
+        "action": "jobs"
+      },
+      "account": "A",
+      "time": 1792245671882
+    },
+    {
+      "input": {
+        "action": "search",
+        "keyword": "Echoes",
+        "kind": "song",
+        "page": 0
+      },
+      "account": "A",
+      "time": 1792245671901
+    },
+    {
+      "input": {
+        "action": "liked-ids"
+      },
+      "account": "A",
+      "time": 1792245671903
+    },
+    {
+      "input": {
+        "action": "jobs"
+      },
+      "account": "A",
+      "time": 1792245671905
+    },
+    {
+      "input": {
+        "action": "search",
+        "keyword": "Echoes",
+        "kind": "song",
+        "page": 0
+      },
+      "account": "A",
+      "time": 1792245746704
+    },
+    {
+      "input": {
+        "action": "jobs"
+      },
+      "account": "A",
+      "time": 1792245746706
+    },
+    {
+      "input": {
+        "action": "search",
+        "keyword": "Echoes",
+        "kind": "song",
+        "page": 0
+      },
+      "account": "A",
+      "time": 1792245746727
+    },
+    {
+      "input": {
+        "action": "liked-ids"
+      },
+      "account": "A",
+      "time": 1792245746728
+    },
+    {
+      "input": {
+        "action": "jobs"
+      },
+      "account": "A",
+      "time": 1792245746730
+    },
+    {
+      "input": {
+        "action": "search",
+        "keyword": "Echoes",
+        "kind": "song",
+        "page": 1
+      },
+      "account": "A",
+      "time": 1792245751654
+    },
+    {
+      "input": {
+        "action": "search",
+        "keyword": "Echoes",
+        "kind": "song",
+        "page": 0
+      },
+      "account": "B",
+      "time": 1792245756320
+    },
+    {
+      "input": {
+        "action": "liked-ids"
+      },
+      "account": "B",
+      "time": 1792245756385
+    },
+    {
+      "input": {
+        "action": "jobs"
+      },
+      "account": "B",
+      "time": 1792245756385
+    },
+    {
+      "input": {
+        "action": "search",
+        "keyword": "Echoes",
+        "kind": "song",
+        "page": 0
+      },
+      "account": "",
+      "time": 1792245786881
+    },
+    {
+      "input": {
+        "action": "jobs"
+      },
+      "account": "",
+      "time": 1792245786882
+    },
+    {
+      "input": {
+        "action": "browse",
+        "view": "liked",
+        "category": "all",
+        "page": 0
+      },
+      "account": "",
+      "time": 1792245787897
+    },
+    {
+      "input": {
+        "action": "browse",
+        "view": "liked",
+        "category": "all",
+        "page": 0
+      },
+      "account": "A",
+      "time": 1792245788073
+    },
+    {
+      "input": {
+        "action": "liked-ids"
+      },
+      "account": "A",
+      "time": 1792245788074
+    },
+    {
+      "input": {
+        "action": "jobs"
+      },
+      "account": "A",
+      "time": 1792245788075
+    },
+    {
+      "input": {
+        "action": "browse",
+        "view": "podcasts",
+        "category": "all",
+        "page": 0
+      },
+      "account": "A",
+      "time": 1792245788433
+    },
+    {
+      "input": {
+        "action": "browse",
+        "view": "podcasts",
+        "category": "all",
+        "page": 0,
+        "refresh": true,
+        "shownIds": [
+          "100"
+        ]
+      },
+      "account": "A",
+      "time": 1792245801366
+    },
+    {
+      "input": {
+        "action": "browse",
+        "view": "podcasts",
+        "category": "all",
+        "page": 0,
+        "refresh": true,
+        "shownIds": [
+          "100"
+        ]
+      },
+      "account": "A",
+      "time": 1792245802371
+    },
+    {
+      "input": {
+        "action": "browse",
+        "view": "podcasts",
+        "category": "all",
+        "page": 1
+      },
+      "account": "A",
+      "time": 1792245803598
+    },
+    {
+      "input": {
+        "action": "search",
+        "keyword": "slow",
+        "kind": "song",
+        "page": 0
+      },
+      "account": "A",
+      "time": 1792245808688
+    },
+    {
+      "input": {
+        "action": "browse",
+        "view": "home",
+        "category": "all",
+        "page": 0
+      },
+      "account": "A",
+      "time": 1792245808748
+    },
+    {
+      "input": {
+        "action": "browse",
+        "view": "home",
+        "category": "all",
+        "page": 0
+      },
+      "account": "A",
+      "time": 1792245815943
+    },
+    {
+      "input": {
+        "action": "jobs"
+      },
+      "account": "A",
+      "time": 1792245815943
+    },
+    {
+      "input": {
+        "action": "browse",
+        "view": "home",
+        "category": "all",
+        "page": 0
+      },
+      "account": "A",
+      "time": 1792245815956
+    },
+    {
+      "input": {
+        "action": "liked-ids"
+      },
+      "account": "A",
+      "time": 1792245815956
+    },
+    {
+      "input": {
+        "action": "jobs"
+      },
+      "account": "A",
+      "time": 1792245815956
+    },
+    {
+      "input": {
+        "action": "search",
+        "keyword": "Echoes",
+        "kind": "song",
+        "page": 0
+      },
+      "account": "A",
+      "time": 1792245918447
+    },
+    {
+      "input": {
+        "action": "search",
+        "keyword": "Echoes",
+        "kind": "song",
+        "page": 1
+      },
+      "account": "A",
+      "time": 1792245918508
+    }
+  ]
+}

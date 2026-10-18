@@ -1,0 +1,14 @@
+[
+  {
+    "level": "error",
+    "message": "Error: Pagefind worker terminated\n    at releaseSharedWorker (http://127.0.0.1:4394/personal-homepage/pagefind/pagefind.js:6:12824)\n    at PagefindWrapper.destroy (http://127.0.0.1:4394/personal-homepage/pagefind/pagefind.js:6:16957)\n    at async Module.destroy (http://127.0.0.1:4394/personal-homepage/pagefind/pagefind.js:6:17791)",
+    "timestamp": "2026-10-18T07:08:53.848Z",
+    "url": "http://127.0.0.1:4394/personal-homepage/pagefind/pagefind.js"
+  },
+  {
+    "level": "error",
+    "message": "Error: Pagefind worker terminated\n    at releaseSharedWorker (http://127.0.0.1:4394/personal-homepage/pagefind/pagefind.js:6:12824)\n    at PagefindWrapper.destroy (http://127.0.0.1:4394/personal-homepage/pagefind/pagefind.js:6:16957)\n    at async Module.destroy (http://127.0.0.1:4394/personal-homepage/pagefind/pagefind.js:6:17791)",
+    "timestamp": "2026-10-18T07:30:47.350Z",
+    "url": "http://127.0.0.1:4394/personal-homepage/pagefind/pagefind.js"
+  }
+]

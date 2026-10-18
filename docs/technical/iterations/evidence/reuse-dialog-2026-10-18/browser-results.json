@@ -1,0 +1,162 @@
+[
+  {
+    "case": "account-tab",
+    "focus": "生成登录二维码",
+    "inside": true
+  },
+  {
+    "case": "account-wrap",
+    "focus": null,
+    "inside": false
+  },
+  {
+    "case": "account-escape",
+    "dialogs": 0,
+    "focus": "登录网易云账号",
+    "overflow": ""
+  },
+  {
+    "case": "recommend-initial",
+    "inside": true,
+    "label": "nickname",
+    "overflow": "hidden",
+    "tag": "INPUT"
+  },
+  {
+    "case": "recommend-escape",
+    "dialogs": 0,
+    "focus": "推荐一首歌",
+    "overflow": ""
+  },
+  {
+    "case": "recommend-repeat-close",
+    "focus": "推荐一首歌",
+    "overflow": ""
+  },
+  {
+    "audio": 1,
+    "case": "listening-open",
+    "focus": "返回音乐库",
+    "modal": true,
+    "overflow": "hidden"
+  },
+  {
+    "audio": 1,
+    "case": "listening-escape",
+    "dialogs": 0,
+    "focus": "打开黑胶播放页",
+    "overflow": ""
+  },
+  {
+    "case": "mobile-nested-open",
+    "dialogs": 2,
+    "focus": "关闭账号窗口",
+    "modals": 2,
+    "overflow": "hidden",
+    "width": 390
+  },
+  {
+    "case": "mobile-inner-escape",
+    "dialogs": 0,
+    "focus": "打开音乐库导航",
+    "overflow": ""
+  },
+  {
+    "case": "out-of-order-outer-close",
+    "dialogs": 1,
+    "focus": "先关闭外层窗口",
+    "modal": true,
+    "overflow": "hidden"
+  },
+  {
+    "case": "out-of-order-last-close",
+    "dialogs": 0,
+    "focus": "打开外层窗口",
+    "overflow": ""
+  },
+  {
+    "case": "astro-leave",
+    "dialogs": 1,
+    "focus": "A",
+    "overflow": "hidden",
+    "title": "原生弹窗生命周期专项 · Little Stone Still Here"
+  },
+  {
+    "case": "astro-leave-settled",
+    "dialogs": 0,
+    "focus": "BODY",
+    "overflow": "",
+    "title": "离页验证 · Little Stone Still Here"
+  },
+  {
+    "case": "mobile-inner-escape-fixed",
+    "dialogs": 1,
+    "focus": "登录网易云账号",
+    "inside": true,
+    "overflow": "hidden"
+  },
+  {
+    "case": "mobile-outer-escape-fixed",
+    "dialogs": 0,
+    "focus": "打开音乐库导航",
+    "overflow": "",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "case": "album-open",
+    "focus": "选择专辑与歌曲",
+    "modal": true,
+    "overflow": "hidden",
+    "width": 390
+  },
+  {
+    "case": "album-escape",
+    "dialogs": 0,
+    "focus": "打开专辑窗口",
+    "overflow": ""
+  },
+  {
+    "case": "album-repeat-close",
+    "focus": "打开专辑窗口",
+    "overflow": ""
+  },
+  {
+    "case": "account-terminal-tab-fixed",
+    "focus": null,
+    "inDialog": false,
+    "open": 1,
+    "tag": "BODY"
+  },
+  {
+    "case": "account-next-tab-fixed",
+    "focus": "关闭账号窗口",
+    "inDialog": true,
+    "open": 1,
+    "tag": "BUTTON"
+  },
+  {
+    "audio": 1,
+    "case": "listening-final-fixed",
+    "dialogs": 0,
+    "focus": "打开黑胶播放页",
+    "height": 720,
+    "overflow": "",
+    "width": 1280
+  },
+  {
+    "case": "mobile-final-build-inner",
+    "dialogs": 1,
+    "focus": "登录网易云账号",
+    "overflow": "hidden"
+  },
+  {
+    "audio": 1,
+    "case": "final-build-desktop",
+    "dialogs": 0,
+    "focus": "打开黑胶播放页",
+    "height": 720,
+    "overflow": "",
+    "width": 1280
+  }
+]
