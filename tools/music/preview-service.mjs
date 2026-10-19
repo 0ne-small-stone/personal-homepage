@@ -13,13 +13,17 @@ import {createNetEaseCore,musicId} from './netease-core.mjs';
 import {verifyCloudUpload} from './netease-upload.mjs';
 import {localAudioMiddleware,localAudioUrls} from './local-playback.mjs';
 import {readJson,sameOrigin,sendJson,sendStaticFile} from './http.mjs';
+import {createRecommendationHandler} from './recommendation-service.mjs';
+import {createNetEaseAdapter} from './netease-adapter.mjs';
+import {createRecommendationStore} from './recommendations.mjs';
 
 const project=fileURLToPath(new URL('../../',import.meta.url));
 const base='/personal-homepage';
-export function createMusicPreview({root=resolve(project,'.local-tools/music/library-layout-dist'), playback=createPlaybackIndexService(resolve(project,'.local-tools/music/playback-runtime')), account=createPlaybackAccount(), downloads=null}={}) {
+export function createMusicPreview({root=resolve(project,'.local-tools/music/library-layout-dist'), playback=createPlaybackIndexService(resolve(project,'.local-tools/music/playback-runtime')), account=createPlaybackAccount(), downloads=null,recommendations=null}={}) {
   const netease=createNetEaseCore({account,downloads});
   const localManifest=resolve(project,'.local-tools/music/audio-map.json');
   const localAudio=localAudioMiddleware({base,manifestFile:localManifest,fallthroughIfMissing:true});
+  const recommendationHandler=recommendations?createRecommendationHandler({root,...recommendations,ownedRoutesOnly:true,getOrigin:()=>`http://127.0.0.1:${server.address()?.port}`}):null;
   // Playback addresses are runtime data, outside the directory Astro rebuilds.
   const server=createServer(async(req,res)=>{
     const send=(status,data)=>sendJson(res,status,data);
@@ -27,6 +31,7 @@ export function createMusicPreview({root=resolve(project,'.local-tools/music/lib
     try {
       const pathname=decodeURIComponent(new URL(req.url,'http://127.0.0.1').pathname);
       const origin=`http://127.0.0.1:${server.address().port}`;
+      if(recommendationHandler&&await recommendationHandler(req,res))return;
       if(pathname===`${base}/api/music/netease-upload`){
         if(req.method!=='POST'||!sameOrigin(req,origin,true)){send(403,{error:'请在当前电台页面上传。'});return;}
         await account.ready();if(!account.state().authorized){send(401,{error:'登录后上传到你的网易云云盘。'});return;}
@@ -70,7 +75,7 @@ export function createMusicPreview({root=resolve(project,'.local-tools/music/lib
         let input;try{input=await readJson(req,res,1024);}catch(error){send(error.status,{error:error.message});return;}
         try{
           if(route==='qr'){send(200,await account.createQr());return;}
-          if(route==='qr-check'){send(200,await account.checkQr());return;}
+          if(route==='qr-check'){const state=await account.checkQr();send(200,state);if(state.code===803)void recommendations?.store.resume().catch(()=>{});return;}
           if(route==='cancel'){account.cancel();send(200,{ok:true});return;}
           if(route==='logout'){await account.logout();send(200,account.state());return;}
           if(route==='remember'){await account.remember();send(200,account.state());return;}
@@ -109,12 +114,15 @@ export function createMusicPreview({root=resolve(project,'.local-tools/music/lib
   server.on('listening',()=>playback.start());server.on('close',()=>{playback.stop();account.dispose?.();downloads?.dispose();});
   return server;
 }
-export function startMusicPreview() {
+export async function startMusicPreview() {
   // SDK diagnostics can contain response cookies; expose only our bounded state.
   console.log=console.info=console.warn=console.error=()=>{};
   const root=resolve(project,process.env.MUSIC_PREVIEW_DIR||'.local-tools/music/library-layout-dist');
-  const server=createMusicPreview({root,account:createPlaybackAccount({store:createSavedLoginStore()}),downloads:createLxDownloads()});
+  const account=createPlaybackAccount({store:createSavedLoginStore()});
+  const adapter=createNetEaseAdapter({account});
+  const store=await createRecommendationStore(resolve(project,'.local-tools/music/recommendations/queue.json'),adapter);
+  const server=createMusicPreview({root,account,downloads:createLxDownloads(),recommendations:{adapter,store}});
   server.listen(Number(process.env.LSSH_MUSIC_PREVIEW_PORT||61173),'127.0.0.1',()=>process.stdout.write(`音乐预览：http://127.0.0.1:${server.address().port}${base}/music/\n`));
   return server;
 }
-if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href)startMusicPreview();
+if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href)void startMusicPreview();

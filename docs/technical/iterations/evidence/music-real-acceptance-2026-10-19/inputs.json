@@ -1,0 +1,40 @@
+{
+  "base": "c7d30159d21fbba7d3d8a7a1ca6e549349544a08",
+  "files": [
+    {
+      "file": "tools/music/netease-adapter.mjs",
+      "bytes": 1879,
+      "sha256": "9b72165538a3341bf94a34119afed7aa42347282542255b5350af2f3429bb914"
+    },
+    {
+      "file": "tools/music/preview-service.mjs",
+      "bytes": 10788,
+      "sha256": "94c282b767294d0835ac51bccdb15e65d8deb3ea7761952bd044c1c2fc6a8032"
+    },
+    {
+      "file": "tools/music/recommendation-service.mjs",
+      "bytes": 5825,
+      "sha256": "40a0454801edd4fbf73d9a70ba9be45076827e0a92ae0750fa0344f71a24c96f"
+    },
+    {
+      "file": "tools/music/recommendation-admin.html",
+      "bytes": 1319,
+      "sha256": "d1c4cc46fd7582d523ea05d5eb4855fc7f871550c56ef12f27637dc8c8c955cb"
+    },
+    {
+      "file": "tools/music/recommendation-account.test.mjs",
+      "bytes": 6038,
+      "sha256": "83f3ad504c089a6ec67a031d679b94162866eb175c13868fe1dd381158a00e55"
+    },
+    {
+      "file": "package.json",
+      "bytes": 3637,
+      "sha256": "447df35d65166c7b7662030a1b4f7efcd9a97e52762842d9b087955fad7da2d5"
+    },
+    {
+      "file": "package-lock.json",
+      "bytes": 490312,
+      "sha256": "df134b842f53f946dc2d7d2773aeb7cf614e1d386bab0b6b7fc93748cf9121d8"
+    }
+  ]
+}
