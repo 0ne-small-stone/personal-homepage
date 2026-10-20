@@ -29,7 +29,7 @@ const { title = 'Little Stone Still Here', description = '小石的学习、作�
     </script>}
     <a class="home-skip" href="#main-content">{lang === 'en' ? 'Skip to content' : '跳到正文'}</a><HomeHeader homeIconOnly={homeIconOnly} journey={journey} lang={lang} languageHref={languageHref} />
     <main id="main-content" tabindex="-1"><slot /></main>
-    {!journey && <footer class="home-page-footer">{!homeIconOnly && <a href={sitePath()}>{lang === 'en' ? 'Back to Little Stone Still Here' : '回到 Little Stone Still Here'}</a>}{languageHref ? <PublicDirectory lang={lang} placement="above" /> : <span>LSSH</span>}</footer>}
+    {!journey && <footer class="home-page-footer">{!homeIconOnly && <a href={sitePath()}>{lang === 'en' ? 'Back to Little Stone Still Here' : '回到 Little Stone Still Here'}</a>}{languageHref || homeIconOnly ? <PublicDirectory lang={lang} placement="above" /> : <span>LSSH</span>}</footer>}
     <PersistentPlayer client:load transition:persist="lssh-audio" transition:persist-props />
   </body>
 </html>
