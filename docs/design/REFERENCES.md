@@ -770,3 +770,7 @@ Moosync本次官网未定位完整界面，仓库Screenshots仍TODO，未作为�
 ## Becoming 总览选定参考（2026-10-14）
 
 用户选定[Framer Developers](https://www.framer.com/developers/)的侧栏与内容布局、[shadcn文档](https://ui.shadcn.com/docs)的灰色圆角选中，范围只到P03首片。采用设计规律，不复制原站图像/字体/代码，不引入第二主题或依赖；本站参数由SYSTEM5.2.1管理，实施与实际验收见[本片](iterations/u09-p03-2026-10-14-framer-overview.md)。参考方向获用户选择，不等于本站实现或外观验收通过。
+
+## P12 导航页身份图片（2026-10-20发布）
+
+用户确认4350并明确要求合并发布；本版采用10个原站/维护组织/学校身份图形和李志现场照片，仅服务对应网址导航。公开出处和处理分别见[品牌来源](../../src/assets/links/brands/README.md)及[照片来源](../../src/assets/links/README.md)。ASIO的浙江大学校标+CS为本站关联组合，不冒称项目官方Logo。第三方图片/标志权利仍归原权利方；用户授权发布不等于权利方授权，不声明开放许可、官方合作或本站原创。构建输出同源小WebP，不依赖远程图片请求。

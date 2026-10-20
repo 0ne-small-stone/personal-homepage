@@ -1,0 +1,17 @@
+---
+import { divisionBellGlyph } from './division-bell-glyph';
+import '../../styles/division-bell-return.css';
+import type { HTMLAttributes } from 'astro/types';
+type Props = HTMLAttributes<'a'> & { href: string; label: string; compact?: boolean; iconOnly?: boolean; };
+const { href, label, compact = false, iconOnly = false, class: className, ...attrs } = Astro.props;
+const glyph = divisionBellGlyph(crypto.randomUUID());
+---
+<division-bell-return class="db-return-host"><a {...attrs} href={href} class:list={['db-return', className]} data-compact={compact || undefined} data-icon-only={iconOnly || undefined} title={iconOnly ? undefined : attrs.title} aria-label={attrs['aria-label'] || label}><span class="db-return-glyph-slot" set:html={glyph}/><span class="db-return-label" data-db="word" hidden={iconOnly}>{label}</span></a></division-bell-return>
+<script>
+  import { installDivisionBellReturn } from './division-bell-return';
+  if (!customElements.get('division-bell-return')) customElements.define('division-bell-return', class extends HTMLElement {
+    dispose?: () => void;
+    connectedCallback() { const control = this.querySelector<HTMLElement>('.db-return'); if (control) this.dispose = installDivisionBellReturn(control); }
+    disconnectedCallback() { this.dispose?.(); this.dispose = undefined; }
+  });
+</script>

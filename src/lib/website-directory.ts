@@ -7,6 +7,8 @@ export const websiteCategories = [
 export type WebsiteCategory = typeof websiteCategories[number]['id'];
 export const websiteIcons = ['guitar', 'graduation', 'compass', 'lecture', 'terminal', 'television', 'koala', 'index', 'ice', 'code-book', 'circuit'] as const;
 export type WebsiteIconName = typeof websiteIcons[number];
+export const websiteBrands = ["learning-in-zju","zjuers","icourse","pta","bilibili","koala-oa","zju-cs-asio","zju-icicles","csdiy","turing-courses"] as const;
+export type WebsiteBrandName = typeof websiteBrands[number];
 export interface Website {
   id: string;
   name: string;
@@ -16,6 +18,8 @@ export interface Website {
   tags?: readonly string[];
   icon: WebsiteIconName;
   featured?: boolean;
+  portrait?: 'li-zhi';
+  brand?: WebsiteBrandName;
 }
 export function websiteDomain(url: string): string { return new URL(url).hostname.replace(/^www\./, ''); }
 export function searchText(value: string): string {

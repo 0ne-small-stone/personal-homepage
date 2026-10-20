@@ -1,0 +1,35 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import type { WebsiteBrandName } from '../../data/websites';
+import learning from '../../assets/links/brands/learning-in-zju.png';
+import zjuers from '../../assets/links/brands/zjuers.png';
+import icourse from '../../assets/links/brands/icourse.png';
+import pta from '../../assets/links/brands/pta.png';
+import bilibili from '../../assets/links/brands/bilibili.png';
+import koala from '../../assets/links/brands/koala-oa.png';
+import zju from '../../assets/links/brands/zju-cs-asio.png';
+import qsctech from '../../assets/links/brands/zju-icicles.png';
+import csdiy from '../../assets/links/brands/csdiy.png';
+import turing from '../../assets/links/brands/turing-courses.png';
+
+interface Props { name: WebsiteBrandName; }
+const { name } = Astro.props;
+const brands: Record<WebsiteBrandName, { image: ImageMetadata; title: string; badge?: string }> = {
+  'learning-in-zju': { image: learning, title: '学在浙大 · 原站标志' },
+  zjuers: { image: zjuers, title: 'ZJUers · 原站标志' },
+  icourse: { image: icourse, title: '中国大学MOOC · 原站标志' },
+  pta: { image: pta, title: 'PTA · 原站标志' },
+  bilibili: { image: bilibili, title: '哔哩哔哩 · 原站标志' },
+  'koala-oa': { image: koala, title: '考拉工作室 · 原站校徽' },
+  'zju-cs-asio': { image: zju, title: '浙江大学校标 · CS学习资料', badge: 'CS' },
+  'zju-icicles': { image: qsctech, title: 'QSCTech · 项目维护组织' },
+  csdiy: { image: csdiy, title: 'CS自学指南 · 原站标志' },
+  'turing-courses': { image: turing, title: '图灵班学习指南 · 原站校徽' },
+};
+const brand = brands[name];
+const width = Math.min(384, brand.image.width);
+const height = Math.round(width * brand.image.height / brand.image.width);
+---
+<Image src={brand.image} width={width} height={height} format="webp" quality={90} alt="" title={brand.title} />
+{brand.badge && <span class="elsewhere-brand-badge">{brand.badge}</span>}
