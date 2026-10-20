@@ -1,0 +1,13 @@
+---
+import { sitePath } from '../../lib/paths';
+---
+<section class="ai-site-map" aria-labelledby="ai-site-map-title">
+  <div class="ai-site-map-heading"><h2 id="ai-site-map-title">一处入口，几种节奏。</h2><p>从空间靠近，停下来阅读，再回到日常。</p></div>
+  <a class="ai-map-root" href={sitePath()}><span>Little Stone Still Here</span><strong>从这里出发 <span aria-hidden="true">↗</span></strong></a>
+  <div class="ai-map-branches">
+    <a href={sitePath('knowledge')}><span>Becoming</span><strong>读 · 学习与笔记</strong><p>资料、文章和随手记下的思考。</p></a>
+    <a href={sitePath('showcase')}><span>Afterimage</span><strong>看 · 项目与影像</strong><p>选一件作品，进入它自己的叙述。</p></a>
+    <a href={sitePath('zh/about')}><span>Someone</span><strong>认识 · 小石</strong><p>经历、兴趣，以及正在做的事。</p></a>
+  </div>
+  <p class="ai-map-note">本站栏目关系示意。点击可进入实际页面。</p>
+</section>

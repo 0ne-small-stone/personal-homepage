@@ -41,7 +41,7 @@ const neighborImage = await getImage({src:neighborCover,width:1000,format:'webp'
   </div>
   <div class="home-works-outro" aria-hidden="true"></div><div class="home-works-expand" aria-hidden="true"></div><div class="home-wall-reveal" aria-hidden="true"></div>
   <section id="wall" class="home-chapter home-wall" aria-labelledby="title-wall" data-chapter="wall">
-    <div class="home-chapter-viewport"><div class="home-wall-surface" aria-hidden="true"></div><div class="home-chapter-content">
+    <div class="home-chapter-viewport"><div class="home-wall-surface" aria-hidden="true"></div><div class="home-chapter-content" data-lenis-prevent tabindex="0" role="region" aria-label="留言墙内容">
       <h2 id="title-wall">The Wall</h2><p class="home-description">走到这里，也留下你的回声。</p>
       <div class="home-wall-empty"><Guestbook /></div>
       <HomeCta href={sitePath('guestbook')} label="查看留言区" id="entry-wall" />

@@ -6,7 +6,6 @@ const { title, description, status, detail } = Astro.props;
 ---
 <SiteLayout title={title} description={description}>
   <div class="page-content">
-    <a class="breadcrumb" href={sitePath()}>← 返回首页</a>
     <h1>{title}</h1>
     <p class="muted">{description}</p>
     <section class="empty-state" aria-label="当前状态">

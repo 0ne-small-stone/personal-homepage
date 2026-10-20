@@ -1,0 +1,11 @@
+---
+import '../../styles/floating-player.css';
+---
+<div class="lssh-audio-carrier" transition:persist="lssh-audio">
+  <audio id="lssh-global-audio" preload="none"></audio>
+  <div id="lssh-player-ui"></div>
+</div>
+<script>
+  import { installAudioCarrier } from '../../lib/audio-carrier';
+  installAudioCarrier();
+</script>

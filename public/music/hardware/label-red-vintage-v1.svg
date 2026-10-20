@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="44" viewBox="0 0 120 44" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2=".2" y2="1">
+      <stop stop-color="#eee9d9"/>
+      <stop offset=".68" stop-color="#e7dfc8"/>
+      <stop offset="1" stop-color="#d9ccac"/>
+    </linearGradient>
+    <radialGradient id="age" cx=".04" cy=".06" r=".88">
+      <stop stop-color="#9d814e" stop-opacity=".24"/>
+      <stop offset=".42" stop-color="#b59d66" stop-opacity=".06"/>
+      <stop offset="1" stop-color="#b59d66" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <path d="M7 0H113L120 7V37L113 44H7L0 37V7Z" fill="url(#paper)"/>
+  <path d="M7 0H113L120 7V37L113 44H7L0 37V7Z" fill="url(#age)"/>
+  <path d="M8.5 3H111.5L117 8.5V35.5L111.5 41H8.5L3 35.5V8.5Z" fill="none" stroke="#ae4941" stroke-width="2.4"/>
+  <path d="M10 6.5H110L113.5 10V34L110 37.5H10L6.5 34V10Z" fill="none" stroke="#b75b50" stroke-width=".8"/>
+  <path d="M8 32.5H112" fill="none" stroke="#b75b50" stroke-width=".55" opacity=".24"/>
+  <path d="m29 2.8 1.6.3m57.4 37.7 2.4.2M3 18.5v1.4m110.2-8.9.5 1.6" fill="none" stroke="#e8dec5" stroke-width="1.15" opacity=".8"/>
+  <path d="m7.5.8 1.8.3M118.6 31.2l-.3 2.1M17.4 42.8l2.9-.2" fill="none" stroke="#a48a55" stroke-width=".65" opacity=".26"/>
+  <path d="M7.5.65H112.7L119.35 7.3" fill="none" stroke="#fff8e8" stroke-width=".65" opacity=".56"/>
+</svg>

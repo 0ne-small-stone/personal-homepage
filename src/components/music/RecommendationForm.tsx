@@ -19,8 +19,14 @@ export default function RecommendationForm({ apiUrl }: { apiUrl: string }) {
   const first = useRef<HTMLInputElement>(null);
   const alive = useRef(false);
   useEffect(() => {
-    alive.current = true;const controller = new AbortController();
+    alive.current = true;
     try { submissionId.current = localStorage.getItem(receiptKey) || ''; } catch {}
+    return()=>{alive.current=false;};
+  }, []);
+  useEffect(() => {
+    if (!open) return;
+    const controller = new AbortController();
+    setAvailable(null);
     async function status() {
       try {
         const response = await fetch(apiUrl + '/status',{cache:'no-store',credentials:'omit',signal:controller.signal});
@@ -34,8 +40,8 @@ export default function RecommendationForm({ apiUrl }: { apiUrl: string }) {
       } catch { if(alive.current && !controller.signal.aborted)setAvailable(false); }
     }
     void status();const interval=setInterval(()=>{if(!document.hidden)void status();},15000);
-    return()=>{alive.current=false;controller.abort();clearInterval(interval);};
-  }, [apiUrl]);
+    return()=>{controller.abort();clearInterval(interval);};
+  }, [apiUrl, open]);
   useNativeDialog(dialog, open, first);
   async function submit(event: React.SyntheticEvent<HTMLFormElement>) {
     event.preventDefault();if(!available || busy || receipt)return;

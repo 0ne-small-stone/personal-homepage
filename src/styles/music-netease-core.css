@@ -243,7 +243,10 @@ section.netease-app .ne-search-form input:focus-visible{outline:none;box-shadow:
 
 /* T25.36: an explicit current-category refresh, aligned with the page title. */
 .ne-page-heading>div:first-child{min-width:0}
+.ne-page-heading.ne-page-heading-home{margin-bottom:0}
+.ne-page-heading-home .ne-home-title{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .ne-refresh-recommendations{display:flex;align-items:center;gap:8px;margin-left:auto;flex-shrink:0;min-height:44px}
 .ne-refresh-recommendations svg{width:18px;height:18px}
 .ne-refresh-short{display:none}
 @media(max-width:700px){.ne-refresh-recommendations{padding-inline:12px;gap:6px}.ne-refresh-label{display:none}.ne-refresh-short{display:inline}.ne-page-heading:has(.ne-refresh-recommendations){gap:8px}.ne-page-heading:has(.ne-refresh-recommendations) .ne-mobile-menu{margin-left:0}}
+@media(max-width:700px){.ne-page-heading.ne-page-heading-home{margin-bottom:20px}}

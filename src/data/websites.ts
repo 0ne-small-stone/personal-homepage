@@ -1,3 +1,4 @@
+import {websitePresentation} from './website-presentation.ts';
 import { z } from 'astro/zod';
 import rawWebsites from './websites.json' with { type: 'json' };
 import { websiteCategories, websiteIcons, type Website } from '../lib/website-directory.ts';
@@ -24,4 +25,4 @@ export const websitesSchema = z.array(websiteSchema).superRefine((entries, ctx) 
   });
 });
 export function validateWebsites(entries: readonly Website[]): void { websitesSchema.parse(entries); }
-export const websites: readonly Website[] = websitesSchema.parse(rawWebsites);
+export const websites: readonly Website[] = websitesSchema.parse(rawWebsites).map(site=>({...site,...websitePresentation[site.id]}));

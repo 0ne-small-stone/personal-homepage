@@ -9,6 +9,15 @@ import { createMusicPreview } from './preview-service.mjs';
 import { createRecommendationService } from './recommendation-service.mjs';
 
 const base = '/personal-homepage';
+test('only versioned public assets cache immutably; pages, APIs and missing files stay fresh',async t=>{
+  const root=path.resolve('.local-tools/cache-test',randomUUID());await mkdir(path.join(root,'_astro'),{recursive:true});
+  await writeFile(path.join(root,'_astro','fixture.ABCDef12.js'),'export default 1');await writeFile(path.join(root,'index.html'),'<h1>Fixture</h1>');
+  const origin=await running(t,createMusicPreview({root,account:{state:()=>({authorized:false}),dispose(){}},playback:{start(){},stop(){}}}));
+  const asset=await fetch(origin+base+'/_astro/fixture.ABCDef12.js');assert.match(asset.headers.get('cache-control'),/immutable/);assert.ok(asset.headers.get('etag'));await asset.text();
+  for(const route of ['/', '/api/music/playback/account','/_astro/missing.ABCDef12.js']){
+    const response=await fetch(origin+base+route);assert.equal(response.headers.get('cache-control'),'no-store');await response.text();
+  }
+});
 async function running(t, server) {
   server.listen(0, '127.0.0.1'); await once(server, 'listening');
   t.after(() => new Promise(resolve => { server.closeAllConnections(); server.close(resolve); }));

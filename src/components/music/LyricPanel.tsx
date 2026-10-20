@@ -7,7 +7,7 @@ const cache = new Map<string, LyricsResult>();
 let retryAt = 0;
 
 export default function LyricPanel({ track, time, playing, seekVersion = 0, canSeek, onSeek }: { track?: MusicTrack; time: number; playing: boolean; seekVersion?: number; canSeek: boolean; onSeek: (time: number) => void }) {
-  const key = track ? JSON.stringify([track.title, track.artist, track.album, track.duration]) : '';
+  const key = track ? JSON.stringify([track.title, track.artist, track.album, track.duration, track.lyricsUrl]) : '';
   const [result, setResult] = useState<{ key: string; value: LyricsResult } | null>(null);
   const [attempt, setAttempt] = useState(0);
   const [follow, setFollow] = useState(true);
@@ -46,6 +46,16 @@ export default function LyricPanel({ track, time, playing, seekVersion = 0, canS
     const controller = new AbortController();
     async function load() {
       try {
+        if (track!.lyricsUrl) {
+          const response = await fetch(track!.lyricsUrl, { signal: controller.signal, credentials: 'omit', cache: 'force-cache' });
+          if (!response.ok) throw Error('lyrics');
+          const data = await response.json();
+          if (typeof data.text !== 'string' || data.text.length > 65536) throw Error('lyrics');
+          if (controller.signal.aborted) return;
+          const value: LyricsResult = { text: data.text, status: data.text ? 'ready' : 'missing' };
+          if (cache.size >= 128) cache.delete(cache.keys().next().value!);
+          cache.set(key, value);setResult({ key, value });return;
+        }
         if (Date.now() < retryAt) throw new Error('cooldown');
         const url = new URL('https://lrclib.net/api/get');
         url.search = new URLSearchParams({ track_name: track!.title, artist_name: track!.artist, album_name: track!.album, duration: String(track!.duration) }).toString();

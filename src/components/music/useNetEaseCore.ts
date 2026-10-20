@@ -2,7 +2,9 @@ import {useCallback,useEffect,useMemo,useRef,useState,type Dispatch,type SetStat
 import {hashKey,useInfiniteQuery,useQuery,useQueryClient,type InfiniteData} from '@tanstack/react-query';
 import {audioSession,type AudioTrack} from '../../lib/audio-session';
 import type {MusicTrack} from '../../lib/music';
-import {neteaseRequest,readNetEaseRoute,type NetEaseView,type NetEaseKind,type NetEasePodcastCategory,type NetEaseData,type NetEaseTrack,type NetEaseCard,type NetEaseJob,type NetEaseAccountState} from '../../lib/netease-core';
+import {neteaseRequest,readNetEaseRoute,type NetEaseView,type NetEaseKind,type NetEasePodcastCategory,type NetEaseData,type NetEaseTrack,type NetEaseCard,type NetEaseJob} from '../../lib/netease-core';
+import {useMusicAccount} from './useMusicAccount';
+import {markMusicRender} from './render-profile';
 import {useAudioSession} from './useAudioSession';
 import type {PlaybackPresentation} from './RadioNowPlaying';
 import {catalogQueryOptions,mergeMusicPages,musicKeys,musicReadOptions,musicScope,updateMusicData} from '../../lib/music-query';
@@ -10,12 +12,13 @@ import sharedPlaylist from '../../data/music/netease-playlist.json';
 import {sharedPlaylistData,neteaseServiceMessage,type NetEaseServiceState} from '../../lib/netease-snapshot';
 export const asNetEaseAudio=(track:NetEaseTrack):AudioTrack=>({...track,audioUrl:`https://music.163.com/song/media/outer/url?id=${track.id}.mp3`,source:'netease'});
 export default function useNetEaseCore(service:NetEaseServiceState='ready'){
-  const audio=useAudioSession();
+  const audio=useAudioSession(false);
+  markMusicRender('neteaseCatalog');
   const client=useQueryClient();
   const [route,setRoute]=useState<{view:NetEaseView;kind:NetEaseKind;id:string;query:string;category:NetEasePodcastCategory}>({view:'home',kind:'playlist',id:'',query:'',category:'all'});
   const [ready,setReady]=useState(false);const [refreshing,setRefreshing]=useState(false);
   const [notice,setNotice]=useState('');
-  const [account,setAccount]=useState<NetEaseAccountState>({authorized:false,account:null});const [mutationBusy,setMutationBusy]=useState(false);
+  const {account}=useMusicAccount(false,service==='ready');const [mutationBusy,setMutationBusy]=useState(false);
   const metadata=useRef(new Map<string,NetEaseTrack>());const controller=useRef<AbortController|null>(null);const scroll=useRef<HTMLElement>(null);const previous=useRef(route);const mounted=useRef(false);const identity=useRef('');const queueOrigin=useRef<{view:NetEaseView;kind:NetEaseKind;id:string;page:number;more:boolean}|null>(null);const refilling=useRef(false);
   const scope=musicScope(account.authorized?account.account?.id??'':'');
   const online=service==='ready';
@@ -30,12 +33,13 @@ export default function useNetEaseCore(service:NetEaseServiceState='ready'){
   const setData:Dispatch<SetStateAction<NetEaseData>>=update=>{if(online)client.setQueryData<InfiniteData<NetEaseData,number>>(options.queryKey,current=>updateMusicData(current,update));};
   useEffect(()=>{
     mounted.current=true;const restore=()=>{controller.current?.abort();controller.current=null;setRefreshing(false);setNotice('');setRoute(readNetEaseRoute());setReady(true);};restore();window.addEventListener('popstate',restore);
-    if(!online){client.removeQueries();identity.current='';setAccount({authorized:false,account:null});return()=>{mounted.current=false;controller.current?.abort();window.removeEventListener('popstate',restore);};}
-    let accountRequest:AbortController|undefined;
-    const readAccount=async()=>{accountRequest?.abort();const request=new AbortController();accountRequest=request;try{const response=await fetch(`${import.meta.env.BASE_URL}api/music/playback/account`,{cache:'no-store',credentials:'omit',signal:AbortSignal.any([request.signal,AbortSignal.timeout(10000)])});if(!response.ok)return;const next:NetEaseAccountState=await response.json();if(!mounted.current||request.signal.aborted)return;const nextIdentity=next.authorized?String(next.account?.id??''):'';if(identity.current!==nextIdentity){client.removeQueries({queryKey:musicKeys.scope(musicScope(identity.current))});identity.current=nextIdentity;controller.current?.abort();controller.current=null;setRefreshing(false);}setAccount(next);}catch{}};
-    void readAccount();const timer=setInterval(()=>{if(!document.hidden)void readAccount();},15000);window.addEventListener('netease-account-change',readAccount);
-    return()=>{mounted.current=false;controller.current?.abort();accountRequest?.abort();clearInterval(timer);window.removeEventListener('popstate',restore);window.removeEventListener('netease-account-change',readAccount);};
+    if(!online){client.removeQueries({queryKey:['netease-read']});identity.current='';return()=>{mounted.current=false;controller.current?.abort();window.removeEventListener('popstate',restore);};}
+    return()=>{mounted.current=false;controller.current?.abort();window.removeEventListener('popstate',restore);};
   },[client,online]);
+  useEffect(()=>{const next=account.authorized?String(account.account?.id??''):'';if(next===identity.current)return;
+    client.removeQueries({queryKey:musicKeys.scope(musicScope(identity.current))});identity.current=next;
+    controller.current?.abort();controller.current=null;setRefreshing(false);
+  },[client,account]);
   useEffect(()=>{for(const track of data.tracks??[])metadata.current.set(track.id,track);},[data]);
   const load=useCallback(()=>online?catalog.refetch():Promise.resolve(),[online,catalog.refetch]);
   const likedOptions=musicReadOptions<{ids:string[]}>(scope,{action:'liked-ids'},neteaseRequest);

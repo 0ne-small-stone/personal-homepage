@@ -1,16 +1,18 @@
 ---
 import '../styles/site.css';
+import PageTransitions from '../components/navigation/PageTransitions.astro';
 import { ClientRouter } from 'astro:transitions';
-import PersistentPlayer from '../components/music/PersistentPlayer';
+import PersistentAudio from '../components/music/PersistentAudio.astro';
 import { sitePath } from '../lib/paths';
 import PublicDirectory from '../components/PublicDirectory.astro';
+import ReturnLink from '../components/navigation/DivisionBellReturn.astro';
 interface Props { title: string; description?: string; }
 const { title, description = '学习、记录与日常。' } = Astro.props;
 ---
 <!doctype html>
 <html lang="zh-CN" transition:animate="none">
   <head>
-    <ClientRouter />
+    <ClientRouter /><PageTransitions />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
@@ -20,7 +22,7 @@ const { title, description = '学习、记录与日常。' } = Astro.props;
   <body>
     <a class="skip-link" href="#main-content">跳到正文</a>
     <header class="site-header container">
-      <a class="brand" href={sitePath()} aria-label="Little Stone Still Here · 首页">LSSH</a>
+      <ReturnLink class="brand" href={sitePath()} label="首页" compact iconOnly />
       <PublicDirectory />
     </header>
     <main id="main-content" class="container" tabindex="-1"><slot /></main>
@@ -28,6 +30,6 @@ const { title, description = '学习、记录与日常。' } = Astro.props;
       <p>结构预览 · 内容正在整理</p>
       <div><a href={sitePath('about')}>关于</a><span aria-hidden="true">　/　</span><a href={sitePath('guestbook')}>留言</a></div>
     </footer>
-    <PersistentPlayer client:load transition:persist="lssh-audio" transition:persist-props />
+    <PersistentAudio />
   </body>
 </html>

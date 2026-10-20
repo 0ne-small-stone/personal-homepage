@@ -49,7 +49,6 @@ const sections = [
     <div class="someone-reading-layout">
       <aside class="someone-index">
         <nav aria-label={copy.index}>{sections.map(section => <a href={`#${section.id}`}>{section.label}</a>)}</nav>
-        <a class="someone-home-link" href={`${sitePath()}#intro`}>{copy.home}</a>
       </aside>
       <div class="someone-reading">
         <section id="experience" class="someone-section" aria-labelledby="experience-title" data-reading-block>

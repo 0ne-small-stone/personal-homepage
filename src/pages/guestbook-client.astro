@@ -1,0 +1,35 @@
+---
+import { giscusConfig } from '../config/giscus';
+import { sitePath } from '../lib/paths';
+import DivisionBellReturn from '../components/navigation/DivisionBellReturn.astro';
+---
+<!doctype html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width" /><meta name="robots" content="noindex,nofollow" /><meta name="giscus:backlink" content="https://0ne-small-stone.github.io/personal-homepage/#wall" /><title>留言 · Little Stone Still Here</title></head>
+  <body data-repo={giscusConfig.repo} data-repo-id={giscusConfig.repoId} data-category={giscusConfig.category} data-category-id={giscusConfig.categoryId} data-term={giscusConfig.term}>
+    <header class="standalone-header">
+      <DivisionBellReturn href={`${sitePath()}#wall`} label="首页" iconOnly />
+      <h1>The Wall</h1>
+      <p>留下你的回声。登录后，也会回到这里继续。</p>
+      <p data-standalone-status role="status">正在连接留言区…</p>
+      <button type="button" data-standalone-retry hidden>重新连接</button>
+    </header>
+    <main><div id="wall" class="giscus"></div></main>
+    <noscript>留言需要 JavaScript。<a href={`https://github.com/${giscusConfig.repo}/discussions?discussions_q=${encodeURIComponent(giscusConfig.term)}`}>在 GitHub 查看此留言区</a></noscript>
+    <a class="standalone-return" href={`https://github.com/${giscusConfig.repo}/discussions?discussions_q=${encodeURIComponent(giscusConfig.term)}`} target="_blank" rel="noopener noreferrer">在 GitHub 查看此留言区</a>
+    <script>import '../components/home/guestbook-embed';</script>
+  </body>
+</html>
+<style is:global>
+  html,body { margin:0; padding:0; background:#f2efe8; color:#272a2c; font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif; }
+  body { box-sizing:border-box; max-width:704px; padding:24px 32px; margin:auto; }
+  h1 { font-size:28px; font-weight:500; }
+  p { font-size:14px; line-height:1.7; }
+  button { min-height:44px; padding:0 16px; font:inherit; color:inherit; background:#faf8f4; border:1px solid #c3bfb5; border-radius:8px; }
+  [hidden] { display:none; }
+  .giscus,.giscus-frame { width:100%; border:0; }
+  .standalone-return { display:inline-flex; min-height:44px; align-items:center; color:inherit; }
+  html[data-embedded] :is(.standalone-return,.standalone-header) { display:none; }
+  html[data-embedded] body { max-width:none; padding:0; }
+  @media(max-width:360px) {body {padding:20px;}}
+</style>

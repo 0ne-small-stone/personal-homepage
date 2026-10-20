@@ -1,3 +1,4 @@
+import {glowRenderBudget} from './render-budget.mjs';
 import { Camera, Color, ExtrudeGeometry, Float32BufferAttribute, LinearFilter, Mesh, NoColorSpace, NoToneMapping, Scene, ShaderMaterial, UniformsUtils, Vector3, WebGLRenderer, WebGLRenderTarget } from 'three';
 import { FullScreenQuad } from 'three/addons/postprocessing/Pass.js';
 import { HorizontalBlurShader } from 'three/addons/shaders/HorizontalBlurShader.js';
@@ -78,10 +79,8 @@ export default class GlassGlow {
     const canvas = gl.domElement;
     // The mobile camera projects a much smaller prism; match diffusion to that
     // scale instead of dissolving its edges across desktop-sized CSS radii.
-    const width = Math.max(32, Math.round(canvas.clientWidth / (this.mobile ? 3 : 12)));
-    const height = Math.max(32, Math.round(canvas.clientHeight / (this.mobile ? 3 : 12)));
-    const nearWidth = Math.max(32, Math.round(canvas.clientWidth / (this.mobile ? 1 : 4)));
-    const nearHeight = Math.max(32, Math.round(canvas.clientHeight / (this.mobile ? 1 : 4)));
+    const budget = glowRenderBudget(canvas.clientWidth, canvas.clientHeight, this.mobile, gl.getPixelRatio());
+    const [width, height] = budget.far, [nearWidth, nearHeight] = budget.near;
     this.targets.forEach((target, i) => {
       if (i === 3) return;
       const w = i === 1 || i === 4 ? nearWidth : width;
@@ -106,16 +105,16 @@ export default class GlassGlow {
       if (this.intensity < .0001) return;
       // Each Gaussian uses adjacent texels at its own scale. The near field
       // prefilters the far field, so broad diffusion does not stamp sharp copies.
-      this.horizontal.uniforms.h.value = 1 / nearWidth;
+      this.horizontal.uniforms.h.value = budget.nearStep[0];
       this.horizontal.uniforms.tDiffuse.value = coverage.texture;
       this.quad.material = this.horizontal; gl.setRenderTarget(this.targets[1]); this.quad.render(gl);
-      this.vertical.uniforms.v.value = 1 / nearHeight;
+      this.vertical.uniforms.v.value = budget.nearStep[1];
       this.vertical.uniforms.tDiffuse.value = this.targets[1].texture;
       this.quad.material = this.vertical; gl.setRenderTarget(this.targets[4]); this.quad.render(gl);
-      this.horizontal.uniforms.h.value = 1 / width;
+      this.horizontal.uniforms.h.value = budget.farStep[0];
       this.horizontal.uniforms.tDiffuse.value = this.targets[4].texture;
       this.quad.material = this.horizontal; gl.setRenderTarget(this.targets[0]); this.quad.render(gl);
-      this.vertical.uniforms.v.value = 1 / height;
+      this.vertical.uniforms.v.value = budget.farStep[1];
       this.vertical.uniforms.tDiffuse.value = this.targets[0].texture;
       this.quad.material = this.vertical; gl.setRenderTarget(this.targets[2]); this.quad.render(gl); this.passes += 4;
       gl.setRenderTarget(old.target); gl.autoClear = false;

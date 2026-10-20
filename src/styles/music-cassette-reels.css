@@ -1,0 +1,72 @@
+/* Same v2 bitmap, measured in its 1000 × 636 source coordinates.
+   Fixed ellipse matches cassette-material's existing nonuniform calibration.
+   The inner masks keep the six-tooth gears separate from the stationary well. */
+.cassette-body .cassette-reel {
+  --reel-crop-left: -190.079365%;
+  --reel-well-left: -555%;
+  --reel-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20126%20126%22%3E%3Cpath%20fill%3D%22white%22%20fill-rule%3D%22evenodd%22%20d%3D%22M63%200a63%2063%200%201%200%200%20126a63%2063%200%201%200%200-126Z%20M92.35%2063.00L94.48%2065.75L102.49%2069.96L101.49%2073.31L100.45%2076.63L98.89%2079.74L97.08%2082.67L86.84%2079.69L84.14%2080.74L82.69%2082.69L80.74%2084.14L78.83%2085.61L82.68%2097.08L79.52%2098.44L76.63%20100.45L73.31%20101.49L69.96%20102.49L65.67%2093.48L63.00%2093.35L60.33%2093.48L57.64%2093.38L52.69%20101.49L49.37%20100.45L45.95%2099.57L43.08%2097.51L40.14%2095.64L44.29%2085.29L42.42%2083.58L41.47%2081.06L39.37%2079.55L37.58%2077.67L25.52%2080.48L24.38%2077.06L23.54%2073.57L22.52%2070.14L21.56%2066.63L21.40%2063.00L31.52%2060.25L32.62%2057.64L32.48%2054.82L33.54%2052.28L32.55%2048.80L26.54%2041.95L27.69%2038.28L29.98%2035.30L32.35%2032.35L35.30%2029.98L43.01%2034.45L46.57%2034.55L49.22%2033.45L51.51%2031.43L54.30%2030.54L55.52%2020.55L59.20%2019.57L63.00%2019.40L66.80%2019.57L70.48%2020.55L74.09%2021.61L74.06%2032.60L76.78%2033.45L78.93%2035.42L81.56%2036.50L90.38%2030.37L92.59%2033.41L95.63%2035.62L97.49%2038.85L99.03%2042.20L100.48%2045.52L92.46%2052.28L92.56%2055.08L92.40%2057.82L92.49%2060.42Z%22%2F%3E%3C%2Fsvg%3E");
+  position: absolute;
+  z-index: 1;
+  left: 29.528454%;
+  top: 46.176183%;
+  width: 13.039342%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  transform: translate(-50%, -50%) scaleY(1.038943);
+  pointer-events: none;
+  user-select: none;
+}
+.cassette-body .cassette-reel-right {
+  --reel-crop-left: -504.365079%;
+  --reel-well-left: -1347%;
+  --reel-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20126%20126%22%3E%3Cpath%20fill%3D%22white%22%20fill-rule%3D%22evenodd%22%20d%3D%22M63%200a63%2063%200%201%200%200%20126a63%2063%200%201%200%200-126Z%20M91.35%2063.00L101.45%2066.36L101.51%2069.79L100.53%2073.06L98.57%2075.95L97.53%2079.10L95.56%2081.80L85.40%2078.69L82.80%2079.62L81.63%2081.63L79.62%2082.80L78.11%2084.58L81.80%2095.56L79.10%2097.53L76.29%2099.51L73.06%20100.53L69.92%20102.24L65.75%2094.48L63.00%2093.35L60.33%2093.48L57.64%2093.38L52.43%20102.46L49.20%20100.92L45.95%2099.57L42.45%2098.59L39.43%2096.67L43.33%2086.44L42.42%2083.58L40.71%2081.71L39.16%2079.69L37.37%2077.80L24.39%2081.00L23.44%2077.40L22.33%2073.90L20.55%2070.48L20.56%2066.71L19.40%2063.00L30.52%2060.16L30.40%2057.25L31.51%2054.56L31.43%2051.51L23.48%2044.57L25.24%2041.20L26.47%2037.42L29.41%2034.81L31.29%2031.29L34.81%2029.41L43.01%2034.45L45.95%2033.47L48.80%2032.55L51.17%2030.49L51.59%2020.40L55.34%2019.57L59.11%2018.57L63.00%2018.40L66.80%2019.57L70.66%2019.57L71.70%2030.54L74.06%2032.60L76.78%2033.45L78.93%2035.42L81.56%2036.50L90.38%2030.37L92.59%2033.41L94.68%2036.42L96.67%2039.43L98.59%2042.45L99.57%2045.95L90.58%2052.96L90.38%2055.66L91.41%2057.99L91.49%2060.51Z%22%2F%3E%3C%2Fsvg%3E");
+  left: 70.509243%;
+}
+/* A static crop of the empty hub center covers the original stationary teeth.
+   Its enlarged smooth shading remains fixed underneath the rotating gear. */
+.cassette-reel-background {
+  position: absolute;
+  inset: 14.285714%;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.cassette-body .cassette-reel-background > img {
+  position: absolute;
+  left: var(--reel-well-left);
+  top: -539%;
+  width: 2000%;
+  height: 1272%;
+  max-width: none;
+  pointer-events: none;
+}
+.cassette-reel-turn {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  mask-image: var(--reel-mask);
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  -webkit-mask-image: var(--reel-mask);
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  transform-origin: 50% 50%;
+  animation: cassette-reel-clockwise 13s linear infinite;
+  animation-play-state: paused;
+}
+.cassette-body .cassette-reel-turn > img {
+  position: absolute;
+  left: var(--reel-crop-left);
+  top: -183.730159%;
+  width: 793.650794%;
+  height: 504.761905%;
+  max-width: none;
+  pointer-events: none;
+}
+.cassette-reel-right .cassette-reel-turn { animation-duration: 17s; }
+.cassette-body[data-playing='true'] .cassette-reel-turn { animation-play-state: running; }
+@keyframes cassette-reel-clockwise { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .cassette-body[data-playing] .cassette-reel-turn { animation-play-state: paused; }
+}
+

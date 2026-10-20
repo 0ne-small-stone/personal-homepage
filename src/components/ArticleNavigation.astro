@@ -1,11 +1,12 @@
 ---
 import { sitePath } from '../lib/paths';
+import ReturnLink from './navigation/DivisionBellReturn.astro';
 interface Props { kind?: 'resource' | 'article' | 'note'; }
 const { kind = 'article' } = Astro.props;
 const fallback = kind === 'article' ? sitePath('knowledge/blog') : `${sitePath('knowledge')}?type=${kind}`;
 ---
 <nav class="article-navigation" aria-label="知识阅读导航" data-pagefind-ignore>
-  <a data-article-return href={fallback}>← {kind === 'article' ? '返回文章列表' : '返回学习总览'}</a>
+  <ReturnLink data-article-return href={fallback} label={kind === 'article' ? '返回文章列表' : '返回学习总览'} compact />
   {kind === 'article' && <a href={`${sitePath('knowledge')}?type=article`}>学习总览 · 文章</a>}
 </nav>
 <style>

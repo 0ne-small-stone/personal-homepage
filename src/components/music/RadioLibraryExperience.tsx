@@ -1,20 +1,23 @@
-import { useEffect, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { parseMusicCatalog, type MusicCatalog, type MusicTrack } from '../../lib/music';
 import { audioSession, type AudioTrack } from '../../lib/audio-session';
+import MusicQueryProvider from './MusicQueryProvider';
+import { markMusicRender } from './render-profile';
 import { useAudioSession } from './useAudioSession';
 import LocalMusicCatalog from './LocalMusicCatalog';
 import NetEaseMusicCatalog from './NetEaseMusicCatalog';
 import RadioNowPlaying, { type PlaybackPresentation } from './RadioNowPlaying';
-import ListeningRoom from './ListeningRoom';
 import type { RadioConfig } from './RadioExperience';
 import LxDownloadPanel from './LxDownloadPanel';
 import type { LibraryView } from './LibrarySidebar';
 
+const ListeningRoom = lazy(() => import('./ListeningRoom'));
 const albumKey = (track: MusicTrack) => JSON.stringify([track.albumArtist, track.album]);
 const asAudioTrack = (track: MusicTrack): AudioTrack => ({ id: track.id, title: track.title, artist: track.artist, album: track.album, coverUrl: track.coverUrl || undefined, audioUrl: track.audioUrl!, source: 'cloud' });
 
-export default function RadioLibraryExperience({ initialCatalog, config }: { initialCatalog: MusicCatalog; config: RadioConfig }) {
-  const state = useAudioSession();
+function RadioLibraryContent({ initialCatalog, config }: { initialCatalog: MusicCatalog; config: RadioConfig }) {
+  const state = useAudioSession(false);
+  markMusicRender('localCatalog');
   const [mode, setMode] = useState<'cloud' | 'netease'>('cloud');
   const [catalog, setCatalog] = useState(initialCatalog);
   const [selectedId, setSelectedId] = useState(initialCatalog.tracks[0]?.id || '');
@@ -33,10 +36,10 @@ export default function RadioLibraryExperience({ initialCatalog, config }: { ini
   async function refresh(manual = false) {
     request.current?.abort();const controller = new AbortController();request.current = controller;
     try {
-      const response = await fetch(config.catalogUrl, { cache: 'no-store', credentials: 'omit', signal: controller.signal });
+      const response = await fetch(config.catalogUrl, { cache: ['127.0.0.1', 'localhost'].includes(location.hostname) ? 'no-store' : 'default', credentials: 'omit', signal: controller.signal });
       if (!response.ok) throw new Error('目录不可用');
       const next = parseMusicCatalog(await response.json(), import.meta.env.DEV || location.hostname === '127.0.0.1');
-      if (mounted.current) { setCatalog(next);setNotice(manual ? `目录已刷新，共 ${next.tracks.length} 首。` : ''); }
+      if (mounted.current) { setCatalog(current=>JSON.stringify(current)===JSON.stringify(next)?current:next);setNotice(manual ? `目录已刷新，共 ${next.tracks.length} 首。` : ''); }
     } catch { if (mounted.current && !controller.signal.aborted) setNotice('目录暂时无法更新，保留上次曲目。请稍后刷新。'); }
   }
   useEffect(() => {
@@ -55,7 +58,7 @@ export default function RadioLibraryExperience({ initialCatalog, config }: { ini
     return () => { mounted.current = false;request.current?.abort();window.removeEventListener('popstate', restore);document.removeEventListener('astro:page-load', restore); };
   }, []);
   useEffect(() => {
-    if (mode !== 'cloud') return;
+    if (mode !== 'cloud' || !['127.0.0.1', 'localhost'].includes(location.hostname)) return;
     void refresh();const interval = window.setInterval(() => { if (!document.hidden) void refresh(); }, 15000);
     return () => { clearInterval(interval);request.current?.abort(); };
   }, [mode]);
@@ -95,7 +98,11 @@ export default function RadioLibraryExperience({ initialCatalog, config }: { ini
     {mode === 'cloud' ? <section aria-label="本地收藏电台" className="radio-cloud">
       <LocalMusicCatalog catalog={catalog} selectedId={selected?.id || ''} view={view} setView={changeView} query={query} setQuery={setQuery} albumFilter={albumFilter} setAlbumFilter={setAlbumFilter} onSelect={chooseTrack} notice={notice} error={active ? state.error : ''} onMode={changeMode} downloadPage={downloads} />
       <RadioNowPlaying {...playback} onExpand={() => setRoom(true)} />
-      <ListeningRoom {...playback} open={room} error={active ? state.error : ''} onClose={() => setRoom(false)} />
+      {room && <Suspense fallback={<p role="status">正在打开黑胶播放页…</p>}><ListeningRoom {...playback} open error={active ? state.error : ''} onClose={() => setRoom(false)} /></Suspense>}
     </section> : <NetEaseMusicCatalog config={config} onMode={changeMode} />}
   </div>;
+}
+
+export default function RadioLibraryExperience(props: { initialCatalog: MusicCatalog; config: RadioConfig }) {
+  return <MusicQueryProvider><RadioLibraryContent {...props} /></MusicQueryProvider>;
 }

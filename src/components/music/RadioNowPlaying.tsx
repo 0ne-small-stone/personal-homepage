@@ -1,3 +1,4 @@
+import {useAudioSession} from './useAudioSession';
 import type { CSSProperties } from 'react';
 import AlbumArtwork from './AlbumArtwork';
 import { formatDuration, type MusicTrack } from '../../lib/music';
@@ -13,7 +14,10 @@ export function MusicIcon({ name }: { name: 'play' | 'pause' | 'previous' | 'nex
 }
 
 export function PlaybackControls(props: PlaybackPresentation) {
-  const { track, playing, waiting, time, duration, volume, canPrevious, canNext, onToggle, onPrevious, onNext, onSeek, onVolume } = props;
+  const live=useAudioSession();
+  const current=live.track?.id===props.track?.id;
+  const { track, playing, waiting, duration, volume, canPrevious, canNext, onToggle, onPrevious, onNext, onSeek, onVolume } = props;
+  const time=current?live.time:props.time;
   const active = playing || waiting;
   return <>
     <div className="music-playback-center">

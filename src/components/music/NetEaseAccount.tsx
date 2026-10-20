@@ -1,10 +1,12 @@
 import {useEffect,useRef,useState} from 'react';
 import { cancelNativeDialog, useNativeDialog } from './useNativeDialog';
+import {useMusicAccount} from './useMusicAccount';
+import {musicAccountKey,type MusicAccountState} from '../../lib/music-account';
 import {audioSession} from '../../lib/audio-session';
 import {musicConfig} from '../../config/music';
 import '../../styles/music-account.css';
 
-type AccountState={available:boolean;local?:boolean;authorized:boolean;account:{nickname:string}|null;saved?:boolean;restoring?:boolean;persistenceError?:string};
+type AccountState=MusicAccountState;
 type LoginQr={image:string;expiresAt:number};
 const base=`${import.meta.env.BASE_URL}api/music/playback`;
 async function request(path:string,body?:object,signal?:AbortSignal) {
@@ -13,32 +15,16 @@ async function request(path:string,body?:object,signal?:AbortSignal) {
   const data=await response.json();if(!response.ok)throw Error(data.error||'网易云服务暂时不可用，请重试。');return data;
 }
 export default function NetEaseAccount() {
-  const [account,setAccount]=useState<AccountState>({available:false,authorized:false,account:null});
-  const [service,setService]=useState<'checking'|'ready'|'unavailable'>('checking');
-  const statusAttempt=useRef(0);
+  const {account,service,client,refetch}=useMusicAccount();
   const [open,setOpen]=useState(false);const [busy,setBusy]=useState(false);const [qr,setQr]=useState<LoginQr|null>(null);
   const [message,setMessage]=useState('使用网易云 App 扫码，并在手机上确认登录。');const [error,setError]=useState('');
   const dialog=useRef<HTMLDialogElement>(null);const mounted=useRef(false);const wasAuthorized=useRef(false);
   function apply(data:AccountState) {
     if(wasAuthorized.current&&!data.authorized&&audioSession.getSnapshot().track?.source==='netease')audioSession.stop();
-    const changed=wasAuthorized.current!==data.authorized;wasAuthorized.current=data.authorized;setAccount(data);if(changed)window.dispatchEvent(new Event('netease-account-change'));setService(data.available===true?'ready':'unavailable');
+    const changed=wasAuthorized.current!==data.authorized;wasAuthorized.current=data.authorized;client.setQueryData(musicAccountKey,data);if(changed)window.dispatchEvent(new Event('netease-account-change'));
   }
-  async function checkAccount(signal?:AbortSignal) {
-    const attempt=++statusAttempt.current;
-    try {
-      const next=await request('account',undefined,signal);
-      if(next.available!==true||typeof next.authorized!=='boolean')throw Error('账号服务尚未接通。');
-      if(mounted.current&&attempt===statusAttempt.current)apply(next);
-    } catch {
-      if(mounted.current&&!signal?.aborted&&attempt===statusAttempt.current)setService('unavailable');
-    }
-  }
-  useEffect(()=>{
-    mounted.current=true;const controller=new AbortController();
-    const status=()=>checkAccount(controller.signal);
-    void status();const timer=setInterval(()=>{if(!document.hidden)void status();},15000);
-    return()=>{mounted.current=false;controller.abort();clearInterval(timer);};
-  },[]);
+  useEffect(()=>{mounted.current=true;return()=>{mounted.current=false;};},[]);
+  useEffect(()=>{if(wasAuthorized.current&&!account.authorized&&audioSession.getSnapshot().track?.source==='netease')audioSession.stop();wasAuthorized.current=account.authorized;},[account.authorized]);
   useNativeDialog(dialog,open);
   useEffect(()=>{
     if(!open)return;
@@ -66,7 +52,7 @@ export default function NetEaseAccount() {
     try{
       const next=await request('qr',{});if(!mounted.current)return;
       if(!next.image?.startsWith('data:image/png;base64,')||!Number.isFinite(next.expiresAt))throw Error('二维码格式无效，请重新获取。');
-      setQr(next);setMessage('请用网易云 App 扫码。');setAccount(current=>({...current,available:true}));
+      setQr(next);setMessage('请用网易云 App 扫码。');
     }catch(cause){if(mounted.current){setError(cause instanceof Error?cause.message:'登录二维码暂时无法获取，请重试。');setMessage('可以重新生成二维码。');}}
     finally{if(mounted.current)setBusy(false);}
   }
@@ -89,7 +75,7 @@ export default function NetEaseAccount() {
     </button>
     {open&&<dialog ref={dialog} className="music-account-dialog" aria-labelledby="music-account-title" onCancel={event=>cancelNativeDialog(event,()=>setOpen(false))}>
       <header><h2 id="music-account-title">{service!=='ready'?'网易云账号服务':account.authorized?'网易云账号':'登录网易云'}</h2><button type="button" className="music-account-close" aria-label="关闭账号窗口" onClick={()=>setOpen(false)}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></header>
-      {service!=='ready'?<div className="music-account-unavailable"><p className="music-account-intro" role="status">{service==='checking'?'正在检查账号服务…':'账号服务尚未接通，当前无法扫码登录。你可以在网易云继续收听共享歌单。'}</p><div className="music-account-actions"><button type="button" className="music-account-primary" disabled={service==='checking'} onClick={()=>{setService('checking');void checkAccount();}}>{service==='checking'?'正在检查…':'重新检查服务'}</button><a className="radio-link" href={musicConfig.playlistUrl} target="_blank" rel="noopener noreferrer">打开共享歌单（新窗口）</a></div></div>:account.authorized?<div className="music-account-signed"><p className="music-account-nickname">{account.account?.nickname}</p><p>播放时使用你的账号权限。歌曲是否完整可听，以网易云实际返回为准。</p><div className="music-account-status" role="status">{account.saved?'登录已安全保存，下次启动自动恢复。':message.includes('登录成功')?message:'你已登录当前电台。'}</div><div className="music-account-actions"><button type="button" className="music-account-primary" onClick={()=>setOpen(false)}>完成</button>{account.saved===false&&<button type="button" disabled={busy} onClick={()=>void saveOrRestore('remember')}>重试保存登录</button>}<button type="button" disabled={busy} onClick={()=>void logout()}>{busy?'正在处理…':'退出当前账号'}</button></div></div>:<>
+      {service!=='ready'?<div className="music-account-unavailable"><p className="music-account-intro" role="status">{service==='checking'?'正在检查账号服务…':'账号服务尚未接通，当前无法扫码登录。你可以在网易云继续收听共享歌单。'}</p><div className="music-account-actions"><button type="button" className="music-account-primary" disabled={service==='checking'} onClick={()=>void refetch()}>{service==='checking'?'正在检查…':'重新检查服务'}</button><a className="radio-link" href={musicConfig.playlistUrl} target="_blank" rel="noopener noreferrer">打开共享歌单（新窗口）</a></div></div>:account.authorized?<div className="music-account-signed"><p className="music-account-nickname">{account.account?.nickname}</p><p>播放时使用你的账号权限。歌曲是否完整可听，以网易云实际返回为准。</p><div className="music-account-status" role="status">{account.saved?'登录已安全保存，下次启动自动恢复。':message.includes('登录成功')?message:'你已登录当前电台。'}</div><div className="music-account-actions"><button type="button" className="music-account-primary" onClick={()=>setOpen(false)}>完成</button>{account.saved===false&&<button type="button" disabled={busy} onClick={()=>void saveOrRestore('remember')}>重试保存登录</button>}<button type="button" disabled={busy} onClick={()=>void logout()}>{busy?'正在处理…':'退出当前账号'}</button></div></div>:<>
         <p className="music-account-intro">登录后，有权限的歌曲会使用账号音源播放。</p>
         <div className="music-account-qr">{qr?<img src={qr.image} width="224" height="224" alt="网易云登录二维码"/>:<span>{busy?'正在生成二维码…':'使用网易云 App 扫码登录'}</span>}</div>
         <p className="music-account-status" role="status">{message}</p>
