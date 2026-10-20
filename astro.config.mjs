@@ -9,6 +9,9 @@ import { localMusicPlayback } from './tools/music/local-playback.mjs';
 const base = '/personal-homepage';
 
 export default defineConfig({
+  // Keep build and Vite caches inside this checkout.
+  cacheDir: './.astro-cache/',
+  vite: { cacheDir: './.vite-cache/' },
   site: 'https://0ne-small-stone.github.io',
   base,
   output: 'static',
@@ -53,7 +56,6 @@ export default defineConfig({
           { label: '计算机系统', collapsed: true, items: [{ autogenerate: { directory: 'knowledge/notes/computer-systems' } }] },
         ] },
         { label: '文章列表', link: '/knowledge/blog/' },
-        { label: '返回首页', link: '/' },
       ],
     }),
   ],

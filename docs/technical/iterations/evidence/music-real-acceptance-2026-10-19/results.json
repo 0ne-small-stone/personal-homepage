@@ -1,0 +1,220 @@
+{
+  "pre-submit.json": {
+    "count": 11,
+    "originalOrderUnchanged": true,
+    "testAbsent": true
+  },
+  "playback-resolution.json": {
+    "id": "4238136",
+    "status": "full",
+    "previewSeconds": null,
+    "quality": "exhigh"
+  },
+  "playback-start.json": {
+    "at": "2026-10-19T08:26:21.280Z",
+    "audios": [
+      {
+        "attributes": [
+          [
+            "id",
+            "lssh-global-audio"
+          ],
+          [
+            "preload",
+            "none"
+          ],
+          [
+            "data-session-id",
+            "8016438f-4eb3-44d6-b49a-c2d543d9d9c5"
+          ]
+        ],
+        "currentTime": 18.842827,
+        "duration": 129.474467,
+        "error": null,
+        "paused": false,
+        "readyState": 4
+      }
+    ]
+  },
+  "playback-over30.json": {
+    "at": "2026-10-19T08:28:08.684Z",
+    "audios": [
+      {
+        "attributes": [
+          [
+            "id",
+            "lssh-global-audio"
+          ],
+          [
+            "preload",
+            "none"
+          ],
+          [
+            "data-session-id",
+            "8016438f-4eb3-44d6-b49a-c2d543d9d9c5"
+          ]
+        ],
+        "currentTime": 126.237346,
+        "duration": 129.474467,
+        "error": null,
+        "paused": false,
+        "readyState": 4
+      }
+    ]
+  },
+  "playback-natural-next.json": {
+    "at": "2026-10-19T08:28:23.388Z",
+    "audios": [
+      {
+        "attributes": [
+          [
+            "id",
+            "lssh-global-audio"
+          ],
+          [
+            "preload",
+            "none"
+          ],
+          [
+            "data-session-id",
+            "8016438f-4eb3-44d6-b49a-c2d543d9d9c5"
+          ]
+        ],
+        "currentTime": 10.433852,
+        "duration": 226.626757,
+        "error": null,
+        "paused": false,
+        "readyState": 4
+      }
+    ]
+  },
+  "playback-home-confirmed.json": {
+    "at": "2026-10-19T08:48:29.316Z",
+    "audios": [
+      {
+        "attributes": [
+          [
+            "id",
+            "lssh-global-audio"
+          ],
+          [
+            "preload",
+            "none"
+          ],
+          [
+            "data-session-id",
+            "8016438f-4eb3-44d6-b49a-c2d543d9d9c5"
+          ]
+        ],
+        "currentTime": 30.608991,
+        "duration": 226.626757,
+        "error": null,
+        "paused": false,
+        "readyState": 4
+      }
+    ]
+  },
+  "playback-knowledge.json": {
+    "at": "2026-10-19T08:49:24.267Z",
+    "audios": [
+      {
+        "attributes": [
+          [
+            "id",
+            "lssh-global-audio"
+          ],
+          [
+            "preload",
+            "none"
+          ],
+          [
+            "data-session-id",
+            "8016438f-4eb3-44d6-b49a-c2d543d9d9c5"
+          ]
+        ],
+        "currentTime": 85.561976,
+        "duration": 226.626757,
+        "error": null,
+        "paused": false,
+        "readyState": 4
+      }
+    ]
+  },
+  "playback-return.json": {
+    "at": "2026-10-19T08:56:03.583Z",
+    "audios": [
+      {
+        "attributes": [
+          [
+            "id",
+            "lssh-global-audio"
+          ],
+          [
+            "preload",
+            "none"
+          ],
+          [
+            "data-session-id",
+            "8016438f-4eb3-44d6-b49a-c2d543d9d9c5"
+          ]
+        ],
+        "currentTime": 115.338225,
+        "duration": 226.626757,
+        "error": null,
+        "paused": false,
+        "readyState": 4
+      }
+    ]
+  },
+  "playback-final.json": {
+    "at": "2026-10-19T09:06:48.290Z",
+    "audios": [
+      {
+        "attributes": [
+          [
+            "id",
+            "lssh-global-audio"
+          ],
+          [
+            "preload",
+            "none"
+          ],
+          [
+            "data-session-id",
+            "8016438f-4eb3-44d6-b49a-c2d543d9d9c5"
+          ]
+        ],
+        "currentTime": 115.518929,
+        "duration": 226.626757,
+        "error": null,
+        "paused": true,
+        "readyState": 4
+      }
+    ]
+  },
+  "restored.json": {
+    "removed": true,
+    "count": 11,
+    "testAbsent": true,
+    "exactOriginalOrder": true
+  },
+  "protected-after.json": [
+    {
+      "path": "netease-login.dpapi",
+      "unchanged": true
+    },
+    {
+      "path": "recommendations/queue.json",
+      "unchanged": true
+    }
+  ],
+  "synchronization": {
+    "status": "synced",
+    "count": 12,
+    "testOccurrences": 1
+  },
+  "idempotence": {
+    "samePlaylist": true,
+    "queueCount": 1
+  }
+}

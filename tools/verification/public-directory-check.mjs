@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
 
 // Check generated pages: URL prefix and current destination are release risks.
@@ -13,10 +13,18 @@ assert(pages.length > 0, 'No website HTML pages found. Run npm run build first.'
 let currentPages = 0;
 let currentLocations = 0;
 let immersiveGalleryPages = 0;
+let compactHeaders = 0;
+const sectionLandings = new Set();
 for (const file of pages) {
   const html = readFileSync(file, 'utf8');
   const route = relative(root, file).replaceAll('\\', '/').replace(/index\.html$/, '');
+  if ([...targets, 'zh/about/'].includes(route)) sectionLandings.add(route);
   assert(!html.includes('/personal-homepage/personal-homepage/'), `Repeated base: ${relative(root, file)}`);
+  // Validate actual built destinations for both the legacy directory and F08 headers.
+  for (const match of html.matchAll(/<a\b[^>]*href="(\/personal-homepage\/[^"#]*)/g)) {
+    const path = decodeURIComponent(new URL(match[1].replaceAll('&amp;', '&'), 'https://example.org').pathname).slice('/personal-homepage/'.length);
+    assert(existsSync(join(root, path.endsWith('/') ? path + 'index.html' : path)), `Missing internal destination ${match[1]} in ${route}`);
+  }
   if (route === 'about/' || route === 'zh/about/') {
     const english = route === 'about/';
     const other = english ? 'zh/about/' : 'about/';
@@ -31,8 +39,7 @@ for (const file of pages) {
     if (english) assert(!/\p{Script=Han}/u.test(article), 'English Someone contains Chinese copy');
   }
   // The accepted P10 is a full-screen gallery, rather than a directory shell.
-  // Validate its real entry points and published assets; all other pages still
-  // require the unchanged six-link public directory below.
+  // Validate its real entry points and published assets independently of headers.
   if (route === 'gallery/') {
     assert(html.includes('<title>A Moment Remains · Little Stone Still Here</title>'), 'Missing gallery identity');
     assert(/rel="canonical" href="https:\/\/0ne-small-stone\.github\.io\/personal-homepage\/gallery\/"/.test(html), 'Invalid gallery canonical/base');
@@ -60,6 +67,20 @@ for (const file of pages) {
     continue;
   }
   const nav = html.match(/<nav\b[^>]*aria-label="(?:全站目录|Site directory)"[\s\S]*?<\/nav>/)?.[0];
+  if (!nav) {
+    // F08 deliberately uses the shared three-link header plus original return
+    // controls. Do not require the retired six-link footer on those pages.
+    if (!route) {
+      for (const chapter of ['intro', 'album', 'radio', 'projects', 'wall']) assert(html.includes(`href="#${chapter}"`), `Missing home chapter: ${chapter}`);
+    } else {
+      assert(/href="\/personal-homepage\/(?:#[^"]*)?"/.test(html), `Missing home return: ${route}`);
+    }
+    if (!/^guestbook(?:-client)?\/$/.test(route)) {
+      for (const target of ['knowledge/', 'links/', 'about/']) assert(html.includes(`href="/personal-homepage/${target}"`), `Missing shared header destination ${target} in ${route}`);
+    }
+    compactHeaders++;
+    continue;
+  }
   assert(nav, `Missing public directory: ${relative(root, file)}`);
   const links = [...nav.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/g)].map((match) => ({
     href: match[1], current: match[0].match(/aria-current="([^"]+)"/)?.[1],
@@ -73,6 +94,6 @@ for (const file of pages) {
     if (link.current === 'location') currentLocations++;
   }
 }
-assert.equal(currentPages, 7, 'All six section landing pages and Chinese Someone must exist.');
+assert.equal(sectionLandings.size, 7, 'All six section landing pages and Chinese Someone must exist.');
 assert.equal(immersiveGalleryPages, 1, 'The immersive gallery must be built exactly once.');
-console.log(JSON.stringify({ websiteHtml: pages.length, destinations: targets.length, currentPages, currentLocations, immersiveGalleryPages, result: 'passed' }));
+console.log(JSON.stringify({ websiteHtml: pages.length, destinations: targets.length, sectionLandings: sectionLandings.size, compactHeaders, currentPages, currentLocations, immersiveGalleryPages, result: 'passed' }));

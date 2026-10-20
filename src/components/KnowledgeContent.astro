@@ -5,16 +5,23 @@ import ArticleNavigation from './ArticleNavigation.astro';
 import RelatedKnowledge from './RelatedKnowledge.astro';
 import ReadingMode from './ReadingMode.astro';
 import BlogListIntro from './knowledge/BlogListIntro.astro';
+import ReturnLink from './navigation/DivisionBellReturn.astro';
 import { sitePath } from '../lib/paths';
 const { entry } = Astro.locals.starlightRoute;
 const source = entry.data.source;
 const isBlogList = entry.data.kind !== 'article' && Astro.url.pathname.startsWith(sitePath('knowledge/blog'));
 ---
 {isBlogList && <BlogListIntro />}
+{!entry.data.kind && !isBlogList && Astro.url.pathname.startsWith(sitePath('knowledge')) && Astro.url.pathname.replace(/\/$/, '') !== sitePath('knowledge').replace(/\/$/, '') && <nav class="knowledge-generic-return" aria-label="返回学习导航"><ReturnLink href={sitePath('knowledge')} label="返回学习总览" compact /></nav>}
 {entry.data.kind === 'article' ? (
   <div class="article-reading-actions">
     <ArticleNavigation kind={entry.data.kind} />
     <ReadingMode />
+  </div>
+) : entry.data.kind && source?.format === 'pdf' ? (
+  <div class="article-reading-actions pdf-reading-actions">
+    <ReadingMode pdf />
+    <ArticleNavigation kind={entry.data.kind} />
   </div>
 ) : entry.data.kind && <>
   <ReadingMode pdf={source?.format === 'pdf'} />

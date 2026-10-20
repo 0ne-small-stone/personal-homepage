@@ -1,6 +1,9 @@
+import {useAudioSession} from './useAudioSession';
+import '../../styles/music-return.css';
 import { useEffect, useRef, useState, type CSSProperties, type KeyboardEvent, type PointerEvent } from 'react';
 import { audioSession, type AudioState } from '../../lib/audio-session';
 import { formatDuration } from '../../lib/music';
+import { DivisionBellReturnLink } from '../navigation/DivisionBellReturn';
 
 type Position = { x: number; y: number };
 type IconName = 'play' | 'pause' | 'prev' | 'next' | 'volume' | 'hide' | 'return' | 'more' | 'drag' | 'expand' | 'compact';
@@ -9,7 +12,9 @@ function Icon({ name }: { name: IconName }) {
   return <svg viewBox="0 0 24 24" aria-hidden="true">{path ? <path d={path} /> : name === 'more' ? <><circle cx="5" cy="12" r="1" /><circle cx="12" cy="12" r="1" /><circle cx="19" cy="12" r="1" /></> : <path d={name === 'drag' ? 'M3 12h18' : name === 'expand' ? 'M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4' : 'M9 3v6H3m12-6v6h6M3 15h6v6m12-6h-6v6'} />}</svg>;
 }
 
-export default function FloatingMusicPlayer({ state, open, onHide }: { state: AudioState; open: boolean; onHide: () => void }) {
+export default function FloatingMusicPlayer({ state: initialState, open, onHide }: { state: AudioState; open: boolean; onHide: () => void }) {
+  const live = useAudioSession(open);
+  const state = open ? live : initialState;
   const panel = useRef<HTMLElement>(null);
   const drag = useRef<{ id: number; offsetX: number; offsetY: number } | null>(null);
   const menu = useRef<HTMLDetailsElement>(null);
@@ -82,7 +87,7 @@ export default function FloatingMusicPlayer({ state, open, onHide }: { state: Au
         <button type="button" aria-label="悬窗上一首" disabled={index <= 0} onClick={() => audioSession.next(-1)}><Icon name="prev" /></button>
         <button type="button" className="lssh-floating-play" aria-label={active ? '暂停音乐' : '继续播放音乐'} onClick={audioSession.toggle}><Icon name={active ? 'pause' : 'play'} /></button>
         <button type="button" aria-label="悬窗下一首" disabled={index < 0 || index >= state.queue.length - 1} onClick={() => audioSession.next(1)}><Icon name="next" /></button>
-        <details ref={menu} className="lssh-floating-more"><summary aria-label="更多悬窗操作" title="更多操作"><Icon name="more" /></summary><div><button type="button" aria-label="调节悬窗音量" aria-expanded={showVolume} aria-controls="lssh-floating-volume" onClick={() => closeMenu(() => setShowVolume(current => !current))}>音量</button><a href={musicUrl}>返回音乐电台</a><button type="button" onClick={() => closeMenu(resetPosition)}>还原悬窗位置</button><button type="button" onClick={() => closeMenu(audioSession.stop)}>停止播放</button></div></details>
+        <details ref={menu} className="lssh-floating-more"><summary aria-label="更多悬窗操作" title="更多操作"><Icon name="more" /></summary><div><button type="button" aria-label="调节悬窗音量" aria-expanded={showVolume} aria-controls="lssh-floating-volume" onClick={() => closeMenu(() => setShowVolume(current => !current))}>音量</button><DivisionBellReturnLink href={musicUrl} label="返回音乐电台" className="music-floating-return" compact /><button type="button" onClick={() => closeMenu(resetPosition)}>还原悬窗位置</button><button type="button" onClick={() => closeMenu(audioSession.stop)}>停止播放</button></div></details>
       </div>
       {showVolume && <label id="lssh-floating-volume" className="lssh-floating-volume">音量<input type="range" aria-label="悬窗音量" min="0" max="1" step=".01" value={state.volume} style={{ '--range-fill': `${state.volume * 100}%` } as CSSProperties} onChange={event => audioSession.setVolume(Number(event.target.value))} /></label>}
       {state.error ? <p className="lssh-floating-message" role="alert">{state.error}</p> : state.waiting && <p className="lssh-floating-message" role="status">正在缓冲…</p>}

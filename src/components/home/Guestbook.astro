@@ -1,30 +1,31 @@
 ---
 import { giscusConfig, isGiscusConfigured } from '../../config/giscus';
-const discussionUrl = `https://github.com/${giscusConfig.repo}/discussions`;
+import { sitePath } from '../../lib/paths';
+import '../../styles/home-guestbook.css';
+const discussionUrl = `https://github.com/${giscusConfig.repo}/discussions?discussions_q=${encodeURIComponent(giscusConfig.term)}`;
 ---
-<div class="home-guestbook" data-giscus-configured={isGiscusConfigured}>
+<div class="home-guestbook" data-home-guestbook data-guestbook-state="idle" data-embed-url={sitePath('guestbook-client')} data-repo={giscusConfig.repo}>
   {isGiscusConfigured ? <>
     <p>使用 GitHub 账号留下话语，留言会公开显示。</p>
-    <button class="home-cta" type="button" data-load-giscus data-repo={giscusConfig.repo} data-repo-id={giscusConfig.repoId} data-category={giscusConfig.category} data-category-id={giscusConfig.categoryId} data-term={giscusConfig.term}>打开留言</button>
-    <div class="giscus" aria-live="polite"></div><p data-giscus-status role="status"></p>
+    <button id="home-open-guestbook" class="home-cta" type="button" data-open-guestbook aria-haspopup="dialog" aria-controls="home-guestbook-dialog" aria-expanded="false">打开留言</button>
+    <dialog id="home-guestbook-dialog" class="home-guestbook-dialog" aria-labelledby="home-guestbook-title" aria-describedby="home-guestbook-description" data-lenis-prevent>
+      <header class="home-guestbook-heading">
+        <span class="home-guestbook-eyebrow">The Wall</span>
+        <h2 id="home-guestbook-title">留下你的回声</h2>
+        <p id="home-guestbook-description">在这里相遇的话语，会留在同一面墙上。</p>
+        <button type="button" class="home-guestbook-close" data-close-guestbook aria-label="收起留言" autofocus><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m4 4 10 10M14 4 4 14" /></svg></button>
+      </header>
+      <div class="home-guestbook-scroll" data-lenis-prevent tabindex="0" role="region" aria-label="留言内容滚动区">
+        <p data-guestbook-status role="status" aria-live="polite"></p>
+        <p class="home-guestbook-fixture" data-guestbook-fixture hidden>本地失败夹具，仅用于验证重试。</p>
+        <button type="button" class="home-guestbook-retry" data-retry-guestbook hidden>重新连接</button>
+        <div data-guestbook-mount aria-busy="false"></div>
+        <a class="home-discussion-link" data-guestbook-discussion href={discussionUrl} target="_blank" rel="noopener noreferrer">在 GitHub 查看此留言区<span class="sr-only">（新窗口）</span></a>
+      </div>
+    </dialog>
   </> : <><p>留言区暂未开放。</p><p class="home-description">接通后，用 GitHub 账号留下话语，与后来的人相遇。</p></>}
-  <a class="home-discussion-link" href={discussionUrl} target="_blank" rel="noreferrer">查看 GitHub 讨论区<span class="sr-only">（新窗口）</span></a>
+  <a class="home-discussion-link" href={discussionUrl} target="_blank" rel="noopener noreferrer">查看 GitHub 留言<span class="sr-only">（新窗口）</span></a>
 </div>
 <script>
-  document.querySelectorAll<HTMLButtonElement>('[data-load-giscus]').forEach(button=>{
-    button.addEventListener('click',()=>{
-      const host=button.closest<HTMLElement>('.home-guestbook')!;
-      if(host.querySelector('.giscus iframe'))return;
-      const status=host.querySelector<HTMLElement>('[data-giscus-status]')!;
-      const mount=host.querySelector<HTMLElement>('.giscus')!;
-      status.textContent='正在连接留言区…';button.disabled=true;
-      const script=document.createElement('script');script.src='https://giscus.app/client.js';script.async=true;script.crossOrigin='anonymous';
-      const attrs={'repo':button.dataset.repo!,'repo-id':button.dataset.repoId!,'category':button.dataset.category!,'category-id':button.dataset.categoryId!,'mapping':'specific','term':button.dataset.term!,'strict':'1','reactions-enabled':'1','emit-metadata':'1','input-position':'top','theme':document.body.classList.contains('has-journey')?'light':'dark','lang':'zh-CN','loading':'lazy'};
-      Object.entries(attrs).forEach(([key,value])=>script.setAttribute(`data-${key}`,value));
-      const fail=()=>{status.textContent='留言区未能连接，可以在 GitHub 讨论区继续。';button.disabled=false;script.remove();};
-      const timer=setTimeout(fail,10000);script.onerror=()=>{clearTimeout(timer);fail();};
-      const receive=(event:MessageEvent)=>{if(event.origin!=='https://giscus.app'||event.source!==mount.querySelector<HTMLIFrameElement>('iframe')?.contentWindow||!event.data?.giscus)return;clearTimeout(timer);status.textContent=event.data.giscus.error?'留言区暂不可用，可以在 GitHub 讨论区继续。':'';window.removeEventListener('message',receive);};
-      window.addEventListener('message',receive);window.addEventListener('pagehide',()=>{clearTimeout(timer);window.removeEventListener('message',receive);},{once:true});mount.append(script);
-    });
-  });
+  import './home-guestbook';
 </script>

@@ -15,11 +15,10 @@ const adminFiles = new Map([
   [base + '/music/manage/admin.css', 'recommendation-admin.css'],
 ]);
 
-export function createRecommendationService({ root, adapter, store }) {
+export function createRecommendationHandler({root,adapter,store,getOrigin,ownedRoutesOnly=false}) {
   const rates = new Map();
-  const server = http.createServer(async (req, res) => {
+  const handle = async (req, res, origin) => {
     const send = (status, data) => sendJson(res, status, data);
-    const origin = `http://127.0.0.1:${server.address()?.port}`;
     if (req.headers.host !== new URL(origin).host) { send(403, { error: '仅允许本机同源访问。' }); return; }
     let url;
     try {
@@ -44,7 +43,7 @@ export function createRecommendationService({ root, adapter, store }) {
         }
         if (route === '/admin/qr') { send(200, await adapter.createQr()); return; }
         if (route === '/admin/qr-check') { const state = await adapter.checkQr(); send(200, state); if (state.code === 803) void store.resume().catch(() => {}); return; }
-        if (route === '/admin/logout') { adapter.logout(); send(200, { ok: true }); return; }
+        if (route === '/admin/logout') { await adapter.logout(); send(200, { ok: true }); return; }
         if (route === '/admin/review') { send(200, await store.review(input.id, input.decision)); return; }
         send(404, { error: '接口不存在。' }); return;
       }
@@ -59,7 +58,20 @@ export function createRecommendationService({ root, adapter, store }) {
       const api = url?.pathname.startsWith(apiBase + '/');
       send(api ? error.status === 413 ? 413 : 400 : 404, { error: api ? error.message?.slice(0, 160) || '操作未完成。' : '页面不存在。' });
     }
-  });
+  };
+  return async(req,res)=>{
+    const origin=getOrigin();
+    if(ownedRoutesOnly){
+      let pathname;try{pathname=new URL(req.url,origin).pathname;}catch{return false;}
+      if(!adminFiles.has(pathname)&&pathname!==apiBase+'/status'&&pathname!==apiBase+'/recommendations'&&pathname!==apiBase+'/recommendations/status'&&!pathname.startsWith(apiBase+'/admin/'))return false;
+    }
+    await handle(req,res,origin);return true;
+  };
+}
+
+export function createRecommendationService({ root, adapter, store }) {
+  const handler=createRecommendationHandler({root,adapter,store,getOrigin:()=>`http://127.0.0.1:${server.address()?.port}`});
+  const server=http.createServer((req,res)=>void handler(req,res));
   return server;
 }
 

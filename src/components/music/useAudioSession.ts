@@ -1,5 +1,5 @@
 import { useSyncExternalStore } from 'react';
 import { audioSession } from '../../lib/audio-session';
-export function useAudioSession() {
-  return useSyncExternalStore(audioSession.subscribe, audioSession.getSnapshot, audioSession.getServerSnapshot);
+export function useAudioSession(progress = true) {
+  return useSyncExternalStore(audioSession.subscribe, progress ? audioSession.getSnapshot : audioSession.getControlSnapshot, audioSession.getServerSnapshot);
 }

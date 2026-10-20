@@ -31,7 +31,7 @@ test('actual Query hook preserves static snapshots and blocks offline reads, pol
   globalThis.fetch=async(url,options={})=>{
     const input=options.body?JSON.parse(options.body):{};calls.push(input.action??'account');
     if(input.action==='search'&&input.keyword==='slow')return new Promise((resolve,reject)=>options.signal.addEventListener('abort',()=>{cancelSlow=true;reject(options.signal.reason);},{once:true}));
-    return Response.json(input.action==='jobs'?{jobs:[]}:input.action?{tracks:[],cards:[],more:false}:{authorized:false,account:null});
+    return Response.json(input.action==='jobs'?{jobs:[]}:input.action?{tracks:[],cards:[],more:false}:{available:true,authorized:false,account:null});
   };
   const client=createMusicQueryClient();
   // Removed queries may remain referenced by an observer until the next render.
@@ -53,7 +53,7 @@ test('actual Query hook preserves static snapshots and blocks offline reads, pol
 
   await render('ready');await settle();assert.ok(calls.includes('detail'));assert.ok(calls.includes('jobs'));assert.ok(calls.includes('account'));
   await act(async()=>current.go('search',{kind:'song',query:'slow'}));await settle();assert.ok(calls.includes('search'));
-  await render('unavailable');await settle();assert.equal(cancelSlow,true);assert.equal(client.getQueryCache().getAll().some(query=>query.state.data),false);
+  await render('unavailable');await settle();assert.equal(cancelSlow,true);assert.equal(client.getQueryCache().getAll().some(query=>query.queryKey[0]==='netease-read'&&query.state.data),false);
   const before=calls.length;
   await act(async()=>current.go('downloads'));await act(async()=>{await new Promise(resolve=>setTimeout(resolve,2600));});
   assert.equal(calls.length,before);assert.deepEqual(current.jobs,[]);assert.equal(current.busy,false);

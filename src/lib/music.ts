@@ -13,6 +13,7 @@ export interface MusicTrack {
   audioUrl: string | null;
   coverUrl?: string | null;
   lyrics?: string | null;
+  lyricsUrl?: string | null;
 }
 
 export interface MusicCatalog {
@@ -59,6 +60,7 @@ export function parseMusicCatalog(value: unknown, allowLocalAudio = false): Musi
       sampleRate: number(track.sampleRate), bitsPerSample: number(track.bitsPerSample),
       audioUrl: safeAudioUrl(track.audioUrl, allowLocalAudio),
       coverUrl: safeCoverUrl(track.coverUrl, allowLocalAudio),
+      ...(typeof track.lyricsUrl === 'string' && /^\/personal-homepage\/music\/lyrics\/[a-f0-9]{24}\.json$/.test(track.lyricsUrl) ? { lyricsUrl: track.lyricsUrl } : {}),
       lyrics: typeof track.lyrics === 'string' && track.lyrics.length <= 65536 ? track.lyrics.replaceAll('\u0000', '') : null,
     };
   });

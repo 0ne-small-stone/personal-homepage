@@ -1,9 +1,10 @@
 ---
 import DefaultPageFrame from '@astrojs/starlight/components/PageFrame.astro';
-import PersistentPlayer from '../music/PersistentPlayer';
+import PersistentAudio from '../music/PersistentAudio.astro';
 import { sitePath } from '../../lib/paths';
 import '../../styles/becoming-overview.css';
 import '../../styles/becoming-blog.css';
+import '../../styles/knowledge-return.css';
 
 const isOverview = Astro.url.pathname.replace(/\/$/, '') === sitePath('knowledge').replace(/\/$/, '');
 const isPdf = Astro.locals.starlightRoute?.entry?.data.source?.format === 'pdf';
@@ -25,4 +26,4 @@ const isBlogList = !isArticle && Astro.url.pathname.startsWith(sitePath('knowled
     <slot />
   </DefaultPageFrame>
 )}
-<PersistentPlayer client:load transition:persist="lssh-audio" transition:persist-props />
+<PersistentAudio />

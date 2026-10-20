@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { MeshBasicMaterial, type Mesh } from 'three';
 import GlassGlow from './GlassGlow';
@@ -9,12 +9,11 @@ import type { JourneyModel } from './scene-state';
 // Keep the single-canvas order: world/glass, local edge glow, then layer-1 cards.
 // This owns only draw order; no flow field, optical transport, or spectrum work.
 export default function GlassRenderLayer({model,quiet}:{model:JourneyModel;quiet:boolean}) {
-  const ownerBody=useRef(document.body);
   const portal=useMemo(()=>new WallPortal(model),[model]);
   const opening=useMemo(()=>new LoadingReveal(),[model]);
   useEffect(()=>()=>{
     opening.dispose();
-    if(ownerBody.current.classList.contains('has-journey')&&document.documentElement.dataset.motionDiagnostics==='true')ownerBody.current.dataset.homeLoadingPass=JSON.stringify(opening.diagnostics());
+    if(document.body.classList.contains('has-journey')&&document.documentElement.dataset.motionDiagnostics==='true')document.body.dataset.homeLoadingPass=JSON.stringify(opening.diagnostics());
   },[opening]);
   const hiddenCap=useMemo(()=>new MeshBasicMaterial({visible:false}),[]);
   useEffect(()=>()=>portal.dispose(),[portal]);
@@ -60,7 +59,7 @@ export default function GlassRenderLayer({model,quiet}:{model:JourneyModel;quiet
         catch {model.loading.onSampleError?.();opening.dispose();}
       } else opening.dispose();
       if(drawn&&!model.loading.frameReady){model.loading.frameReady=true;model.loading.onFrame?.();}
-      if(document.documentElement.dataset.motionDiagnostics==='true')ownerBody.current.dataset.homeLoadingPass=JSON.stringify({...opening.diagnostics(),glassId:glass?.uuid,geometryId:glass?.geometry.uuid,worldDrawn:drawn});
+      if(document.documentElement.dataset.motionDiagnostics==='true')document.body.dataset.homeLoadingPass=JSON.stringify({...opening.diagnostics(),glassId:glass?.uuid,geometryId:glass?.geometry.uuid,worldDrawn:drawn});
     } catch {
       // Recover the readable scene if the optional local glow pass fails.
       try {

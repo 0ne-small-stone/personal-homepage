@@ -1,0 +1,84 @@
+---
+import HomeLayout from '../../layouts/HomeLayout.astro';
+import ReturnLink from '../../components/navigation/DivisionBellReturn.astro';
+import { showcaseWorks, workCover, videoSource, workImageSize } from '../../data/showcase';
+import WebsiteMap from '../../components/showcase/WebsiteMap.astro';
+import type { ShowcaseWork } from '../../data/showcase';
+import { sitePath } from '../../lib/paths';
+import '../../styles/showcase.css';
+
+export function getStaticPaths() {
+  return showcaseWorks.map((work, index) => ({ params: { slug: work.slug }, props: { work, next: showcaseWorks[(index + 1) % showcaseWorks.length] } }));
+}
+interface Props { work: ShowcaseWork; next: ShowcaseWork; }
+const { work, next } = Astro.props;
+const cover = workCover(work, import.meta.env.BASE_URL);
+const coverSize = workImageSize(work);
+const back = `${sitePath('showcase')}?work=${work.slug}&return=1`;
+---
+<HomeLayout title={work.title} description={work.description}>
+  <article class="ai-detail" data-work-slug={work.slug}>
+    <ReturnLink data-work-back href={back} label="返回作品展览" />
+    <header class="ai-detail-header">
+      <p class="ai-discipline">{work.discipline}</p>
+      <h1>{work.title}</h1>
+      <div class="ai-detail-deck"><p>{work.description}</p><span>{work.video ? work.video.duration : work.period}<br /><span class="ai-detail-state">{work.status}</span></span></div>
+      {work.contribution && <dl class="ai-contribution"><dt>我的参与</dt><dd>{work.contribution}</dd></dl>}
+    </header>
+    <figure class="ai-detail-figure">
+      {work.video ? <afterimage-video class="ai-video" data-player-src={videoSource(work.video.bvid)} data-player-title={work.title}>
+        <div class="ai-video-poster" transition:name={`afterimage-cover-${work.slug}`}>
+          <img src={cover} alt={`${work.title}的B站封面`} width={coverSize.width} height={coverSize.height} referrerpolicy="no-referrer" fetchpriority="high" />
+          <span class="ai-cover-fallback" hidden>封面暂时无法显示<span>可以直接加载播放器</span></span>
+          <button type="button" class="ai-video-load"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="m9 5 11 7-11 7z"/></svg>加载 B站播放器</button>
+        </div>
+        <div class="ai-video-screen" hidden></div>
+        <div class="ai-video-actions"><p data-video-status role="status">点击后连接 B站，可在播放器中开始观看。</p><button type="button" data-video-retry hidden>重新连接</button><button type="button" data-video-close hidden>关闭播放器</button><a href={`https://www.bilibili.com/video/${work.video.bvid}/`} target="_blank" rel="noopener noreferrer">B站观看 <span class="ai-sr">（新标签页）</span><span aria-hidden="true">↗</span></a></div>
+        <noscript><p class="ai-noscript">站内播放器需要 JavaScript，也可直接前往 B站观看。</p></noscript>
+      </afterimage-video> : <img class="ai-detail-cover" transition:name={`afterimage-cover-${work.slug}`} src={cover} alt={work.coverNote} width={coverSize.width} height={coverSize.height} fetchpriority="high" />}
+      <figcaption>{work.coverNote}</figcaption>
+    </figure>
+    {work.slug === 'little-stone-still-here' && <WebsiteMap />}
+    <div class="ai-detail-body"><aside class="ai-detail-meta"><p>{work.video ? work.contribution ? '参与的影像' : '选入的影像' : '项目记录'}</p><span>{work.video ? `B站发布：${work.video.owner}` : work.period}</span><nav class="ai-reading-nav" aria-label="本页内容">{work.sections.map((section, index) => <a href={`#work-section-${index + 1}`}>{section.title}</a>)}</nav><a href={sitePath('zh/about')}>关于小石 <span aria-hidden="true">↗</span></a></aside>
+      <div class="ai-detail-reading">
+        {work.sections.map((section, index) => <section id={`work-section-${index + 1}`}><h2>{section.title}</h2>{section.paragraphs.map(paragraph => <p>{paragraph}</p>)}</section>)}
+        {work.destination && <a class="ai-detail-visit" href={`${sitePath(work.destination.path)}${work.destination.hash ? `#${work.destination.hash}` : ''}`}>{work.destination.label}<span aria-hidden="true">↗</span></a>}
+      </div>
+    </div>
+    <nav class="ai-next" aria-label="继续浏览作品" data-work-cycle={JSON.stringify(showcaseWorks.map(item => ({ slug: item.slug, title: item.title, kind: item.kind })))}><ReturnLink data-work-back href={back} label="返回全部作品" compact /><a data-work-next href={sitePath(`projects/${next.slug}`)}><span>下一件作品</span><strong>{next.title}</strong><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></nav>
+  </article>
+</HomeLayout>
+<script>
+  import '../../components/showcase/showcase-video';
+  function setReturnLinks() {
+    const article = document.querySelector<HTMLElement>('[data-work-slug]');
+    if (!article) return;
+    const current = new URL(location.href);
+    document.querySelectorAll<HTMLAnchorElement>('[data-work-back]').forEach(link => {
+      const back = new URL(link.href);
+      if (current.searchParams.get('from') === 'index') back.searchParams.set('view', 'index');
+      const kind = current.searchParams.get('type');
+      if (kind === 'video' || kind === 'project' || kind === 'writing') back.searchParams.set('type', kind);
+      link.href = back.href;
+    });
+    const nextLink = document.querySelector<HTMLAnchorElement>('[data-work-next]');
+    const cycle = document.querySelector<HTMLElement>('[data-work-cycle]')?.dataset.workCycle;
+    if (nextLink && cycle) {
+      const all: { slug: string; title: string; kind: string }[] = JSON.parse(cycle);
+      const kind = current.searchParams.get('type');
+      const works = kind === 'video' || kind === 'project' ? all.filter(item => item.kind === kind) : all;
+      const index = works.findIndex(item => item.slug === article.dataset.workSlug);
+      const next = works[(index + 1) % works.length];
+      if (next) {
+        const target = new URL(nextLink.href);
+        target.pathname = target.pathname.replace(/\/[^/]+\/$/, `/${next.slug}/`);
+        if (current.searchParams.get('from') === 'index') target.searchParams.set('from', 'index');
+        if (kind === 'video' || kind === 'project') target.searchParams.set('type', kind);
+        nextLink.href = target.href;
+        nextLink.querySelector('strong')!.textContent = next.title;
+      }
+    }
+  }
+  setReturnLinks();
+  document.addEventListener('astro:page-load', setReturnLinks);
+</script>

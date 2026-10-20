@@ -6,11 +6,14 @@ import { choosePublicMusicCatalog } from '../../tools/music/public-catalog.mjs';
 import cloudSnapshot from '../data/music/cloud-catalog.json';
 import cloudConfig from '../config/music-cloud.json';
 
+// Static routes must share one public catalog for this build, including lyrics.
+let productionCatalog: Promise<MusicCatalog> | undefined;
+
 /** Read public cloud metadata first; local fallback never reads original audio in this request. */
 export async function loadMusicCatalog(): Promise<MusicCatalog> {
+  if (!import.meta.env.DEV) return productionCatalog ??= loadCloudCatalog().then(cloud =>
+    choosePublicMusicCatalog({ remote: cloud, snapshot: cloudSnapshot, shareUrl: cloudConfig.shareUrl }).catalog);
   const cloud = await loadCloudCatalog();
-  // Production must be reproducible without private .local-tools state.
-  if (!import.meta.env.DEV) return choosePublicMusicCatalog({ remote: cloud, snapshot: cloudSnapshot, shareUrl: cloudConfig.shareUrl }).catalog;
   if (cloud?.tracks.length) return await localAudioUrls(cloud, import.meta.env.BASE_URL);
   try {
     const catalog = parseMusicCatalog(JSON.parse(await readFile('.local-tools/music/catalog.json', 'utf8')));

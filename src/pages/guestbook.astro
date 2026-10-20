@@ -1,6 +1,84 @@
 ---
-import HomeLayout from '../layouts/HomeLayout.astro';
-import Guestbook from '../components/home/Guestbook.astro';
+import '../components/wall/style.css';
+import '../styles/division-bell-return.css';
+import '../components/wall/composer.css';
+import ReturnLink from '../components/navigation/DivisionBellReturn.astro';
 import {sitePath} from '../lib/paths';
 ---
-<HomeLayout title="The Wall"><section class="home-destination"><a class="home-back" href={`${sitePath()}#wall`}>返回留言墙</a><h1>The Wall</h1><p class="home-description">走到这里，也留下你的回声。</p><Guestbook /></section></HomeLayout>
+<!doctype html><html lang="zh-CN"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Wall，可移动白砖墙与留言阅读体验。">
+  <meta name="giscus:backlink" content="https://0ne-small-stone.github.io/personal-homepage/guestbook/">
+  <title>The Wall · Little Stone Still Here</title>
+</head><body>
+  <a class="skip-link" href="#message-list-button">跳到留言列表</a>
+  <main>
+    <section id="wall-stage" class="wall-stage" tabindex="0" aria-label="留言砖墙，可拖动探索，也可用方向键移动" aria-describedby="wall-hint">
+      <canvas id="star-field" class="star-field" aria-hidden="true" hidden></canvas>
+      <canvas id="break-field" class="break-field" aria-hidden="true" hidden></canvas>
+      <div id="wall" class="wall"></div>
+    </section>
+    <header class="site-header">
+      <div class="identity"><h1>The Wall</h1><p>Little Stone Still Here</p></div>
+      <div class="header-actions"><div class="wall-home-return"><ReturnLink id="wall-home-return" href={`${sitePath()}#wall`} label="首页" compact iconOnly /></div><button id="return-wall" class="return-wall" type="button" hidden>返回砖墙</button><button id="flow-toggle" class="flow-toggle" type="button" aria-label="暂停墙面波动" aria-pressed="false" title="暂停墙面波动"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><g class="flow-running"><path d="M4 9c3-5 5 5 8 0s5 5 8 0M4 15c3-5 5 5 8 0s5 5 8 0"/></g><path class="flow-paused" d="m9 6 8 6-8 6Z"/></svg></button><button id="leave-button" class="leave-button" type="button">留下话语<span aria-hidden="true">＋</span></button></div>
+    </header>
+    <aside id="wall-state" class="wall-state" hidden aria-live="polite">
+      <h2 id="wall-state-title"></h2><p id="wall-state-description"></p>
+      <button id="wall-state-action" type="button" class="plain-button">重新连接</button>
+      <a id="wall-state-link" href="https://github.com/0ne-small-stone/personal-homepage/discussions" target="_blank" rel="noopener noreferrer">查看 GitHub 讨论区</a>
+    </aside>
+    <p id="circle-progress" class="circle-progress" role="status" aria-live="polite" hidden></p>
+    <footer class="wall-footer">
+      <p id="wall-hint"><span id="wall-source-label">读取留言中</span><span aria-hidden="true"> · </span><span id="hint-text">拖动探索 · 悬停显字</span></p>
+      <nav class="toolbar" aria-label="浏览留言墙">
+        <button id="latest-button" type="button">最新留言</button>
+        <button id="message-list-button" type="button">列表</button>
+        <button id="center-button" type="button" aria-label="回到中心">居中</button>
+        <button id="refresh-button" type="button">刷新</button>
+        <button id="move-button" type="button" aria-expanded="false" aria-controls="move-controls">移动</button>
+      </nav>
+    </footer>
+    <div id="move-controls" class="move-controls" hidden role="group" aria-label="移动墙面">
+      <button type="button" data-pan="left" aria-label="查看墙面左侧">←</button>
+      <button type="button" data-pan="up" aria-label="查看墙面上方">↑</button>
+      <button type="button" data-pan="down" aria-label="查看墙面下方">↓</button>
+      <button type="button" data-pan="right" aria-label="查看墙面右侧">→</button>
+    </div>
+    <p id="status" class="sr-only" role="status" aria-live="polite"></p>
+    <noscript><p class="no-script">当前浏览器未启用脚本，独立体验需要 JavaScript。真实留言接通后仍提供普通列表。</p></noscript>
+  </main>
+  <dialog id="message-dialog" class="message-dialog" aria-labelledby="message-title" aria-describedby="message-meta">
+    <article id="reading-surface" class="reading-surface">
+      <button id="message-close" class="close-button" type="button" aria-label="关闭留言，回到原砖">×</button>
+      <div id="reading-content" class="reading-content">
+        <p id="message-meta" class="message-meta"></p>
+        <h2 id="message-title"></h2>
+        <div id="message-body" class="message-body"></div>
+        <section id="message-replies" class="message-replies" aria-label="这条留言的公开回复" hidden><h3>回复</h3><div id="reply-list"></div></section>
+        <footer class="message-bottom"><span id="message-reply-count"></span><a id="reply-link" target="_blank" rel="noopener noreferrer">在 GitHub 回复<span class="sr-only">（新窗口，定位这条留言）</span></a></footer>
+      </div>
+    </article>
+  </dialog>
+  <dialog id="list-dialog" class="utility-dialog" aria-labelledby="list-title">
+    <button class="close-button" type="button" data-close-dialog="list-dialog" aria-label="关闭留言列表">×</button>
+    <div class="utility-content"><p class="message-meta">公开留言</p><h2 id="list-title">墙上的话</h2><p id="list-empty" hidden>还没有读到留言，可以先留下话语。</p><div id="message-list" class="message-list"></div></div>
+  </dialog>
+  <dialog id="notice-dialog" class="utility-dialog notice-dialog" aria-labelledby="notice-title">
+    <button class="close-button" type="button" data-close-dialog="notice-dialog" aria-label="关闭留言区">×</button>
+    <header class="composer-heading"><p class="composer-eyebrow">The Wall</p><h2 id="notice-title">把话留在这里</h2><p class="composer-description">通过 GitHub 账号，公开留下一句话。</p></header>
+    <div class="utility-content composer-content"><p id="giscus-status" role="status"></p><div id="wall-comments" class="giscus"></div><button id="giscus-retry" class="plain-button" type="button" hidden>重新连接</button><footer class="composer-footer"><a id="giscus-discussion-link" class="discussion-link" href="https://github.com/0ne-small-stone/personal-homepage/discussions" target="_blank" rel="noopener noreferrer">查看完整讨论<span aria-hidden="true"> ↗</span><span class="sr-only">（GitHub，新窗口）</span></a><p class="sync-note">关闭窗口后，墙面会更新。</p></footer></div>
+  </dialog>
+
+<script>import '../components/wall/app.js';</script>
+</body></html>
+<style>
+  .wall-home-return { display:flex; pointer-events:auto; }
+  :global(body:is([data-scene="stars"],[data-scene="breaking"])) .wall-home-return { display:none; }
+  .wall-home-return :global(.db-return) { padding:2px 0; gap:6px; min-width:44px; font-size:12px; }
+  @media(max-width:650px) {
+    .site-header { flex-wrap:wrap; gap:12px; }
+    .identity { flex-basis:100%; }
+    .header-actions { width:100%; justify-content:space-between; }
+  }
+</style>

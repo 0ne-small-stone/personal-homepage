@@ -1,9 +1,10 @@
 ---
-import SiteTitle from '@astrojs/starlight/components/SiteTitle.astro';
+import ReturnLink from './navigation/DivisionBellReturn.astro';
+import {sitePath} from '../lib/paths';
 import PublicDirectory from './PublicDirectory.astro';
 ---
 <div class="site-title-directory">
-  <SiteTitle />
+  <ReturnLink href={sitePath()} label="首页" compact iconOnly />
   <PublicDirectory align="start" />
 </div>
 <style>

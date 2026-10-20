@@ -5,7 +5,6 @@ import { activeFrameDelta, FrameActivity } from './frame-activity';
 import type { JourneyModel } from './scene-state';
 
 export default function HomeFrameLoop({model,enabled}:{model:JourneyModel;enabled:boolean}) {
-  const ownerBody=useRef(document.body);
   const activity=useMemo(()=>new FrameActivity(),[]);
   const lastRunning=useRef(false),rawDelta=useRef(0);
   const canRun=useRef(enabled);canRun.current=enabled;
@@ -18,7 +17,7 @@ export default function HomeFrameLoop({model,enabled}:{model:JourneyModel;enable
     for(const type of ['wheel','touchstart','touchmove','scroll','keydown','click','focusin'])
       window.addEventListener(type,wake,{passive:true,capture:true,signal:controller.signal});
     wake();
-    return()=>{controller.abort();if(model.invalidate===wake)model.invalidate=()=>{};delete ownerBody.current.dataset.homeFrameLoop;};
+    return()=>{controller.abort();if(model.invalidate===wake)model.invalidate=()=>{};delete document.body.dataset.homeFrameLoop;};
   },[activity,invalidate,model,setFrameloop,get]);
   useEffect(()=>{if(!enabled&&get().frameloop!=='demand')setFrameloop('demand');model.invalidate();},[enabled,model,setFrameloop,get]);
   useFrame((_,dt)=>{rawDelta.current=dt;model.frameDelta=activeFrameDelta(dt,!lastRunning.current);model.lastFrame=performance.now();},-4);
@@ -39,7 +38,7 @@ export default function HomeFrameLoop({model,enabled}:{model:JourneyModel;enable
     // off after settling; visibility/quiet override the activity window.
     const mode=running?'always':'demand';
     if(frameloop!==mode)setFrameloop(mode);
-    if(document.documentElement.dataset.motionDiagnostics==='true')ownerBody.current.dataset.homeFrameLoop=JSON.stringify({
+    if(document.documentElement.dataset.motionDiagnostics==='true')document.body.dataset.homeFrameLoop=JSON.stringify({
       mode,running,frame:motion.frame,time:now,velocity:motion.velocity,snap:motion.snapActive,loading:model.loading.active,
       renderFrame:gl.info.render.frame,transmissionVisible:glass?(!Array.isArray(glass.material)&&glass.material.visible):null,
       trackingGlass:Boolean(trackGlass),

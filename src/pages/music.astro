@@ -2,6 +2,7 @@
 import HomeLayout from '../layouts/HomeLayout.astro';
 import RadioLibraryExperience from '../components/music/RadioLibraryExperience';
 import { musicConfig } from '../config/music';
+import { musicSummary } from '../lib/music-payload';
 import { loadMusicCatalog } from '../lib/music-server';
 import '../styles/music.css';
 import '../styles/music-experience.css';
@@ -9,7 +10,7 @@ import '../styles/music-shell.css';
 import '../styles/music-library-layout.css';
 import '../styles/music-lyrics.css';
 import '../styles/music-radio.css';
-const catalog = await loadMusicCatalog();
+const catalog = musicSummary(await loadMusicCatalog());
 ---
 <HomeLayout title="Echoes" description="小石的音乐电台。听考拉云盘收藏，也听网易云共享歌单。">
   <div class="radio-page">

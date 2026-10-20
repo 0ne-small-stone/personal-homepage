@@ -5,8 +5,8 @@ import { sitePath } from '../../lib/paths';
 interface Props { title: string; description: string; status: string; detail: string; chapter: string; }
 const { title, description, status, detail, chapter } = Astro.props;
 ---
-<HomeLayout title={title} description={description}>
-  <section class="home-destination"><a class="home-back" href={`${sitePath()}#${chapter}`}>返回首页</a><h1>{title}</h1><p class="home-description">{description}</p>
+<HomeLayout title={title} description={description} homeHref={`${sitePath()}#${chapter}`}>
+  <section class="home-destination"><h1>{title}</h1><p class="home-description">{description}</p>
     <div class="home-empty"><h2>{status}</h2><p>{detail}</p><slot /></div><HomeCta href={sitePath('knowledge')} label="去学习总览" />
   </section>
 </HomeLayout>

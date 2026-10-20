@@ -18,13 +18,18 @@ const mediaErrorMessage = (source: AudioTrack['source'] | undefined, code?: numb
 // The DOM carrier survives Astro navigation; pages never own its lifetime.
 export function createAudioSession(resolvePlayback?: (track: AudioTrack) => Promise<PlaybackResolution>) {
   let state = initial;
+  let controls = initial;
   let element: HTMLAudioElement | null = null;
   let revision = 0;
   let playAttempt = 0;
   let navigation: { revision: number; resume: boolean } | null = null;
   const listeners = new Set<() => void>();
   let detach = () => {};
-  const update = (patch: Partial<AudioState>) => { state = { ...state, ...patch };listeners.forEach(listener => listener()); };
+  const update = (patch: Partial<AudioState>) => {
+    state = { ...state, ...patch };
+    if ((Object.keys(state) as (keyof AudioState)[]).some(key => key !== 'time' && !Object.is(state[key], controls[key]))) controls = state;
+    listeners.forEach(listener => listener());
+  };
   function getElement() {
     if (!element && typeof document !== 'undefined') {
       const carrier = document.getElementById('lssh-global-audio');
@@ -127,7 +132,7 @@ export function createAudioSession(resolvePlayback?: (track: AudioTrack) => Prom
     revision++;const carrier = getElement();carrier?.pause();update({ ...initial, volume: state.volume });carrier?.removeAttribute('src');carrier?.load();
   }
   function setQuality(value:string){if(!['standard','exhigh','lossless','hires'].includes(value))return;const track=state.track;if(track?.source!=='netease'){update({quality:value});return;}revision++;update({quality:value,track:{...track,quality:value},queue:state.queue.map(item=>item.source==='netease'?{...item,quality:value}:item)});void play();}
-  return { bind, getSnapshot: () => state, getServerSnapshot: () => initial,
+  return { bind, getSnapshot: () => state, getControlSnapshot: () => controls, getServerSnapshot: () => initial,
     subscribe: (listener: () => void) => { listeners.add(listener);return () => { listeners.delete(listener); }; },
     select, play, pause, toggle: () => state.playing || state.waiting ? pause() : void play(), next, seek, setVolume, stop, beginNavigation, finishNavigation,setQuality,setRepeat:(repeat:AudioState['repeat'])=>{if(['off','all','one'].includes(repeat))update({repeat});},setShuffle:(shuffle:boolean)=>update({shuffle:Boolean(shuffle)}) };
 }

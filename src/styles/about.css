@@ -70,7 +70,7 @@
 .someone-contact-icon:active { background: var(--color-divider, #242424); }
 .someone-contact .someone-copy-status { min-height: 1.6em; margin-top: .5rem; font-size: .875rem; line-height: 1.6; color: var(--color-muted); }
 .someone-wall-link { display: inline-flex; min-height: var(--target-min); align-items: center; gap: .75rem; margin-top: .5rem; font-size: 1rem; }
-.lssh-home:has(.someone-page) .home-page-footer { width: min(calc(100% - 5rem), var(--someone-frame)); margin-inline: auto; padding-inline: calc(var(--someone-rail) + var(--someone-gap)) 0; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.lssh-home:has(.someone-page) .home-page-footer { width: min(calc(100% - 5rem), var(--someone-frame)); margin-inline: auto; padding-inline: calc(var(--someone-rail) + var(--someone-gap)) 0; }
 @media (hover: hover) {
   .lssh-home:has(.someone-page) .home-language-switch:hover { background: var(--color-divider, #242424); }
   .someone-button:hover, .someone-contact-icon:hover { background: var(--color-text); color: var(--color-bg); border-color: var(--color-text); }
@@ -103,11 +103,12 @@
   .someone-traces a { gap: .75rem; }
   .someone-trace-label { font-size: .8125rem; }
   .someone-contact { padding-bottom: 4rem; }
-  .lssh-home:has(.someone-page) .home-page-footer { width: min(calc(100% - 2rem), var(--someone-frame)); flex-direction: column; align-items: flex-start; }
-  .lssh-home:has(.someone-page) .home-page-footer .directory-panel { inset-inline-start: 0; inset-inline-end: auto; }
+  .lssh-home:has(.someone-page) .home-page-footer { width: min(calc(100% - 2rem), var(--someone-frame)); }
 }
 @media (max-width: 360px) {
-  .lssh-home:has(.someone-page) .home-header { grid-template-columns: minmax(0, 1fr) auto; }
-  .lssh-home:has(.someone-page) .home-brand { display: none; }
+  .lssh-home:has(.someone-page) .home-header { grid-template-columns: auto minmax(0, 1fr) auto; }
+  .lssh-home:has(.someone-page) .home-brand { display: inline-flex; }
   .lssh-home:has(.someone-page) .home-header nav { justify-content: flex-start; gap: .5rem; }
 }
+
+@media (max-width:360px) { .lssh-home:has(.someone-page) .home-header nav a { font-size:.6875rem; } }

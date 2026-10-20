@@ -10,6 +10,17 @@ class FakeAudio extends EventTarget {
   play() { this.paused = false;this.dispatchEvent(new Event('playing'));return Promise.resolve(); }
   pause() { this.paused = true;this.dispatchEvent(new Event('pause')); }
 }
+
+test('time updates preserve control snapshots while transport and volume still update', async () => {
+  const session = createAudioSession(), audio = new FakeAudio();session.bind(audio);
+  const track = {id:'progress-fixture',source:'cloud',title:'Fixture',artist:'Fixture',album:'Fixture',audioUrl:'https://example.org/fixture.mp3'};
+  session.select(track,[track]);await session.play();
+  const controls = session.getControlSnapshot();
+  for (let time=1;time<=120;time++) {audio.currentTime=time;audio.dispatchEvent(new Event('timeupdate'));assert.equal(session.getControlSnapshot(),controls);}
+  assert.equal(session.getSnapshot().time,120);
+  session.setVolume(.3);assert.notEqual(session.getControlSnapshot(),controls);assert.equal(audio.volume,.3);
+  session.pause();assert.equal(session.getControlSnapshot().playing,false);assert.equal(audio.paused,true);
+});
 const song = (id, source = 'cloud') => ({ id, source, title: id, artist: 'Artist', album: 'Album', audioUrl: `https://example.org/${source}/${id}.flac` });
 test('list repeat wraps only when enabled, one-song repeat restarts without a second audio owner',async()=>{
   const {session,audio}=setup();const queue=[song('a'),song('b')];session.select(queue[1],queue,true);session.setRepeat('all');audio.dispatchEvent(new Event('ended'));assert.equal(session.getSnapshot().track.id,'a');session.setRepeat('one');audio.currentTime=179;audio.dispatchEvent(new Event('ended'));await Promise.resolve();assert.equal(session.getSnapshot().track.id,'a');assert.equal(audio.currentTime,0);assert.equal(session.getSnapshot().playing,true);

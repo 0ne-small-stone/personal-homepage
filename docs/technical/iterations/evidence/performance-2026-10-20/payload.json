@@ -1,0 +1,90 @@
+{
+  "at": "2026-10-20T02:49:37.736Z",
+  "control": {
+    "music": {
+      "htmlBytes": 256280,
+      "gzipHtmlBytes": 97541,
+      "initialModuleGraph": {
+        "files": 20,
+        "bytes": 315302,
+        "gzipBytes": 106021
+      },
+      "islands": 2
+    },
+    "about": {
+      "htmlBytes": 29100,
+      "gzipHtmlBytes": 9426,
+      "initialModuleGraph": {
+        "files": 17,
+        "bytes": 274247,
+        "gzipBytes": 90826
+      },
+      "islands": 1
+    },
+    "knowledge": {
+      "htmlBytes": 77066,
+      "gzipHtmlBytes": 16147,
+      "initialModuleGraph": {
+        "files": 21,
+        "bytes": 289796,
+        "gzipBytes": 97386
+      },
+      "islands": 1
+    },
+    "catalog": {
+      "tracks": 20,
+      "albums": 5,
+      "bytes": 210931,
+      "gzipBytes": 85658,
+      "inlineLyricsBytes": 199490,
+      "lyricAssets": 0
+    }
+  },
+  "optimized": {
+    "music": {
+      "htmlBytes": 52036,
+      "gzipHtmlBytes": 11387,
+      "initialModuleGraph": {
+        "files": 21,
+        "bytes": 327984,
+        "gzipBytes": 108631
+      },
+      "islands": 1
+    },
+    "about": {
+      "htmlBytes": 24314,
+      "gzipHtmlBytes": 7617,
+      "initialModuleGraph": {
+        "files": 10,
+        "bytes": 39098,
+        "gzipBytes": 15584
+      },
+      "islands": 0
+    },
+    "knowledge": {
+      "htmlBytes": 72187,
+      "gzipHtmlBytes": 14299,
+      "initialModuleGraph": {
+        "files": 14,
+        "bytes": 56113,
+        "gzipBytes": 22677
+      },
+      "islands": 0
+    },
+    "catalog": {
+      "tracks": 24,
+      "albums": 9,
+      "bytes": 14765,
+      "gzipBytes": 2766,
+      "inlineLyricsBytes": 0,
+      "lyricAssets": 18
+    }
+  },
+  "catalogMetadataIdentical": false,
+  "commonMetadataUnchanged": true,
+  "notes": [
+    "The remote catalog changed: control 20 tracks, final 24 tracks. Compare the saved 20-track checkpoint separately; do not label this final pair identical content.",
+    "Module graph is a static import estimate, not network transfer or measured load time.",
+    "GitHub Pages cache headers are not controlled by the local preview service."
+  ]
+}

@@ -1,18 +1,18 @@
 ---
 import { sitePath } from '../../lib/paths';
-import PublicDirectory from '../PublicDirectory.astro';
-import HomeReturn from '../navigation/DivisionBellReturn.astro';
-interface Props { journey?: boolean; lang?: 'zh-CN' | 'en'; languageHref?: string; homeIconOnly?: boolean; }
-const { journey = false, lang = 'zh-CN', languageHref, homeIconOnly = false } = Astro.props;
+import ReturnLink from '../navigation/DivisionBellReturn.astro';
+interface Props { journey?: boolean; lang?: 'zh-CN' | 'en'; languageHref?: string; homeHref?: string; }
+const { journey = false, lang = 'zh-CN', languageHref, homeHref } = Astro.props;
+const pagePath = Astro.url.pathname;
+const homeTarget = homeHref ?? `${sitePath()}#${pagePath.includes('/music') ? 'radio' : /\/(showcase|projects)(\/|$)/.test(pagePath) ? 'projects' : 'intro'}`;
 const links = [{ name: 'Becoming', cn: '学习', en: 'Learning', path: 'knowledge' }, { name: 'Elsewhere', cn: '常用网站', en: 'Websites', path: 'links' }, { name: 'Someone', cn: '关于小石', en: 'About Little Stone', path: 'about' }];
 ---
 <header class:list={['home-header', { 'has-language-switch': Boolean(languageHref) }]}>
-  {homeIconOnly ? <HomeReturn class="home-brand" href={`${sitePath()}#intro`} label={lang === 'en' ? 'Home' : '首页'} compact iconOnly /> : languageHref ? <a class="home-brand" href={sitePath()} aria-label={`Little Stone Still Here · ${lang === 'en' ? 'Home' : '首页'}`}>LSSH</a> : <div class="home-header-directory">
-    {!journey && <a class="home-brand" href={sitePath()} aria-label="Little Stone Still Here · 首页">LSSH</a>}
-    <PublicDirectory align="start" compact />
-  </div>}
+  {!journey && <ReturnLink class="home-brand" href={homeTarget} label={lang === 'en' ? 'Home' : '首页'} compact iconOnly />}
   <nav aria-label={lang === 'en' ? 'Main navigation' : '主要导航'}>
-    {links.map(({ name, cn, en, path }) => <a id={`nav-${path}`} href={sitePath(path === 'about' && lang === 'zh-CN' && languageHref ? 'zh/about' : path)} data-home-link aria-label={`${name} · ${lang === 'en' ? en : cn}`}><span data-scramble={name} aria-hidden="true">{name}</span></a>)}
+    {links.map(({ name, cn, en, path }) => <a id={`nav-${path}`} href={sitePath(path === 'about' && lang === 'zh-CN' && languageHref ? 'zh/about' : path)} data-home-link data-astro-prefetch="viewport" aria-label={`${name} · ${lang === 'en' ? en : cn}`}>
+      {journey ? <span class="home-nav-label" aria-hidden="true"><span class="home-nav-reserve">{name}</span><span data-scramble={name} aria-hidden="true">{name}</span></span> : <span data-scramble={name} aria-hidden="true">{name}</span>}
+    </a>)}
   </nav>
   {languageHref ? <div class="home-header-actions">
     <a class="home-header-wall" href={`${sitePath()}#wall`} aria-label={lang === 'en' ? 'Go to The Wall' : '去留言墙'}><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4V5Z" /></svg><span>The Wall</span></a>
