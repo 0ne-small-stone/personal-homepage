@@ -9,8 +9,8 @@ import PersistentPlayer from '../components/music/PersistentPlayer';
 import { sitePath } from '../lib/paths';
 import { homeChapters } from '../components/home/home-chapters';
 import PublicDirectory from '../components/PublicDirectory.astro';
-interface Props { title?: string; description?: string; journey?: boolean; lang?: 'zh-CN' | 'en'; languageHref?: string; }
-const { title = 'Little Stone Still Here', description = '小石的学习、作品、影像与音乐。留下的东西，仍在这里。', journey = false, lang = 'zh-CN', languageHref } = Astro.props;
+interface Props { title?: string; description?: string; journey?: boolean; lang?: 'zh-CN' | 'en'; languageHref?: string; homeIconOnly?: boolean; }
+const { title = 'Little Stone Still Here', description = '小石的学习、作品、影像与音乐。留下的东西，仍在这里。', journey = false, lang = 'zh-CN', languageHref, homeIconOnly = false } = Astro.props;
 ---
 <!doctype html>
 <html lang={lang} transition:animate="none">
@@ -27,9 +27,9 @@ const { title = 'Little Stone Still Here', description = '小石的学习、作�
         }
       } catch { /* Storage or navigation timing is optional. */ }
     </script>}
-    <a class="home-skip" href="#main-content">{lang === 'en' ? 'Skip to content' : '跳到正文'}</a><HomeHeader journey={journey} lang={lang} languageHref={languageHref} />
+    <a class="home-skip" href="#main-content">{lang === 'en' ? 'Skip to content' : '跳到正文'}</a><HomeHeader homeIconOnly={homeIconOnly} journey={journey} lang={lang} languageHref={languageHref} />
     <main id="main-content" tabindex="-1"><slot /></main>
-    {!journey && <footer class="home-page-footer"><a href={sitePath()}>{lang === 'en' ? 'Back to Little Stone Still Here' : '回到 Little Stone Still Here'}</a>{languageHref ? <PublicDirectory lang={lang} placement="above" /> : <span>LSSH</span>}</footer>}
+    {!journey && <footer class="home-page-footer">{!homeIconOnly && <a href={sitePath()}>{lang === 'en' ? 'Back to Little Stone Still Here' : '回到 Little Stone Still Here'}</a>}{languageHref || homeIconOnly ? <PublicDirectory lang={lang} placement="above" /> : <span>LSSH</span>}</footer>}
     <PersistentPlayer client:load transition:persist="lssh-audio" transition:persist-props />
   </body>
 </html>
