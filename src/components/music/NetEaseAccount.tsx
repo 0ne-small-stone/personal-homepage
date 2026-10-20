@@ -1,3 +1,4 @@
+import {musicApiFetch} from '../../lib/music-api';
 import {useEffect,useRef,useState} from 'react';
 import { cancelNativeDialog, useNativeDialog } from './useNativeDialog';
 import {audioSession} from '../../lib/audio-session';
@@ -8,7 +9,7 @@ type AccountState={available:boolean;local?:boolean;authorized:boolean;account:{
 type LoginQr={image:string;expiresAt:number};
 const base=`${import.meta.env.BASE_URL}api/music/playback`;
 async function request(path:string,body?:object,signal?:AbortSignal) {
-  const response=await fetch(`${base}/${path}`,{method:body?'POST':'GET',headers:body?{'Content-Type':'application/json'}:{},body:body?JSON.stringify(body):undefined,cache:'no-store',credentials:'omit',signal:signal?AbortSignal.any([signal,AbortSignal.timeout(20000)]):AbortSignal.timeout(20000)});
+  const response=await musicApiFetch(`${base}/${path}`,{method:body?'POST':'GET',headers:body?{'Content-Type':'application/json'}:{},body:body?JSON.stringify(body):undefined,signal:signal?AbortSignal.any([signal,AbortSignal.timeout(20000)]):AbortSignal.timeout(20000)});
   if(response.status===404)throw Error('账号登录服务尚未连接，请稍后重试。');
   const data=await response.json();if(!response.ok)throw Error(data.error||'网易云服务暂时不可用，请重试。');return data;
 }

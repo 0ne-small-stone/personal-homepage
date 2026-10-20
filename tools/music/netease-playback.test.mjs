@@ -30,6 +30,6 @@ test('network, service and invalid JSON failures remain distinct from track perm
 test('account-aware playback POST sends only a song ID and preserves authenticated full permissions',async()=>{
   const calls=[];const full={...entry,status:'full',previewSeconds:null};
   const result=await resolveNetEasePlayback({id:entry.id},{apiUrl:'/account/resolve',fetcher:async(url,options)=>{calls.push({url,options});return Response.json(index(full));}});
-  assert.equal(result.previewSeconds,null);assert.equal(calls.length,1);assert.equal(calls[0].options.method,'POST');assert.deepEqual(JSON.parse(calls[0].options.body),{id:entry.id});assert.equal(calls[0].options.credentials,'omit');
+  assert.equal(result.previewSeconds,null);assert.equal(calls.length,1);assert.equal(calls[0].options.method,'POST');assert.deepEqual(JSON.parse(calls[0].options.body),{id:entry.id});assert.equal(calls[0].options.credentials,'same-origin');assert.equal(calls[0].options.cache,'no-store');assert.ok(calls[0].options.signal instanceof AbortSignal);
   await assert.rejects(resolveNetEasePlayback({id:entry.id},{apiUrl:'/account/resolve',fetcher:async()=>new Response('',{status:401})}),/登录已失效/);
 });

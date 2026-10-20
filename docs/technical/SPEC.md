@@ -1,5 +1,7 @@
 # 个人主页技术实现方案
 
+2026-10-20 P13/T25.42：按用户要求保持 GitHub Pages 前端，独立 Cloudflare Workers Free + D1 接入网易云扫码及账号已有权限播放，免绑卡且不升级付费。浏览器以不可导出设备密钥签名恢复会话，平台 Cookie 仅后端加密保存；现行实施与公网验收见[本片](iterations/t25-p13-2026-10-20-pages-free-backend.md)。此前 Render 同源候选未部署，仅保留历史。
+
 2026-10-18 用户继续后，六批技术复用优化经集中 PR #86 Squash 合并至 main f683a6ad；原六份候选已收束。主线部署与正式站验证见[发布验收](iterations/reuse-release-2026-10-18.md)。下方候选与未发布描述为各固定输入的历史记录，不替代该发布结果。
 
 2026-10-18 六批复用优化已在独立集中分支接入：Query、Pages CMS、HTTP、原生 dialog、上游搜索补丁和旧源清理；在线/离线冲突保留主线快照，组合检查与统一预览见[集中整合记录](iterations/reuse-integration-2026-10-18.md)。当前待集中 Draft PR 审查和用户体验，未合并发布。
