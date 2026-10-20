@@ -1,0 +1,34 @@
+/* P13: adapt frozen shared return controls to music's existing layout rules. */
+:is(.music-page-return,.music-floating-return).db-return.db-return { flex: 0 0 auto; width: auto; max-width: 100%; margin: 0; border-radius: 0; background: transparent; color: inherit; font-size: 14px; text-align: left; }
+:is(.music-page-return,.music-floating-return).db-return .db-return-glyph-slot { flex: 0 0 40px; width: 40px; }
+:is(.music-page-return,.music-floating-return).db-return .db-return-glyph { display: block; width: 100%; height: auto; max-width: none; aspect-ratio: 160 / 172; flex-shrink: 0; }
+:is(.music-page-return,.music-floating-return).db-return .db-return-label { white-space: nowrap; font-size: 14px; line-height: 1.5; }
+.radio-heading:has(.music-page-return) { gap: 8px; }
+.radio-heading .music-page-return.db-return { padding-inline: 0 8px; }
+.music-library-back.music-page-return.db-return { margin-bottom: 16px; }
+.ne-page-return { flex: 0 0 auto; align-self: flex-start; margin: 0 0 8px -8px; }
+.netease-app .ne-back.music-page-return.db-return { color: var(--ne-muted); font-size: 14px !important; padding: 4px 8px; }
+.music-room-header .music-page-return.db-return { font-size: 14px !important; padding: 4px 8px; }
+.music-room-header .music-page-return.db-return:hover { background: transparent; }
+.lssh-floating-more > div .music-floating-return.db-return { height: auto; min-height: 48px; padding: 4px 6px; gap: 8px; border-radius: 0; }
+.lssh-floating-more:has(.music-floating-return) > div { width: max(190px, 100%); max-width: calc(100vw - 32px); }
+@media (max-width: 700px) {
+  .ne-page-return { margin-bottom: 8px; }
+  .music-room-header { flex-wrap: wrap; }
+  .music-room-header .music-page-return { flex-basis: auto; }
+}
+
+
+/* Responsive equivalents: only one home control is visible at a time. */
+.ne-home-mobile.db-return.db-return { display:none; }
+.ne-page-heading > div:first-of-type { min-width:0; }
+.ne-sidebar .ne-brand.db-return { width:48px; min-width:48px; }
+@media(max-width:700px) {
+ .ne-home-mobile.db-return.db-return { display:inline-flex; flex:0 0 48px; }
+ .ne-page-heading > div:first-of-type { flex:1; min-width:0; }
+}
+@media(max-width:360px) {
+ .radio-topline:has(.radio-heading [data-icon-only]) { grid-template-columns:max-content minmax(0,1fr); column-gap:8px; }
+ .radio-topline:has(.radio-heading [data-icon-only]) .radio-mode { min-width:0; flex-wrap:nowrap; }
+ .radio-topline:has(.radio-heading [data-icon-only]) .radio-mode button { min-width:0; flex:1 1 auto; padding-inline:6px; }
+}
