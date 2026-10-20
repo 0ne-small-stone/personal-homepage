@@ -19,3 +19,9 @@ header{justify-content:flex-end}
 @media(max-height:560px) and (min-width:651px){header{top:18px}.identity{font-size:12px}.identity span{font-size:11px}footer{bottom:18px;gap:12px}.caption{max-width:350px}.caption output{font-size:24px}.caption p{font-size:11px;margin-top:6px}.caption p.sample{display:none}}
 
 @media(max-width:650px) and (pointer:coarse){footer{bottom:138px}}
+
+/* One visible return per gallery mode; the approved shared glyph stays at 40px. */
+#experience .gallery-return-control.db-return{color:var(--text);white-space:nowrap}
+#experience #return:disabled{display:none}
+#experience:is([data-view="space"],[data-view="transition"]) #gallery-home-return{display:none}
+#experience[data-view="loading"] header{z-index:4}
