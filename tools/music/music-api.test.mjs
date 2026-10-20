@@ -137,7 +137,7 @@ test('signed JSON requests preserve the caller headers, payload and signal, with
   assert.equal(request.headers.get('Content-Type'),'application/json');assert.equal(request.headers.get('X-Caller'),'intact');assert.equal(headers.has('X-Music-Proof'),false);
   const saved = [...storage.rows.values()][0];
   assert.equal(saved.privateKey.extractable,false);assert.equal(saved.privateKey.type,'private');
-  await assert.rejects(crypto.subtle.exportKey('jwk',saved.privateKey), error => error.name === 'InvalidAccessException');
+  await assert.rejects(crypto.subtle.exportKey('jwk',saved.privateKey), error => ['InvalidAccessError','InvalidAccessException'].includes(error.name));
   assert.deepEqual(Object.keys(saved).sort(),['privateKey','publicJwk','session']);assert.equal('cookie' in saved.session,false);
 });
 

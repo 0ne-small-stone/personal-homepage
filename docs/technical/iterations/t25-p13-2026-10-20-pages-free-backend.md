@@ -19,3 +19,5 @@
 2026-10-20 云端：用户完成Cloudflare官方授权，OAuth凭据加密文件的密钥由Windows Credential Manager保护；未绑卡、未升级付费。免费D1在APAC创建并应用7条schema命令；Worker启动18ms（不是每请求CPU耗时），公开地址为[音乐API](https://echoes-music-api.3400489513-1f1.workers.dev/healthz)。首次新域名TLS未生效的失败保留；随后严格HTTPS实测health200、匿名账号200、真实网易云二维码PNG200、取消200、搜索29曲200、退出200。测试二维码未交用户扫码，测试会话已撤销。密钥仅Worker Secret，未读回或进入仓库。
 
 GitHub Pages公开构建变量PUBLIC_MUSIC_API_ORIGIN已配置为该HTTPS Origin；前端PR/Pages发布、真实扫码及完整权限播放仍待实际验收。此前Render草稿PR93未合并，不再作为部署入口。
+
+PR95首轮CI在私钥拒绝导出的断言失败：Linux Node返回标准InvalidAccessError，本机版本返回InvalidAccessException；两者均实际拒绝导出。修正为兼容这两种错误名，继续校验nonextractable及真实签名，不降低私钥保护。同时给共享设备注册添加独立15秒网络超时，避免一次挂起阻塞之后重试；调用方取消继续不影响其他等待者。

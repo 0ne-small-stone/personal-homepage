@@ -102,6 +102,7 @@ export function createMusicDeviceSessionManager(config: DeviceConfig) {
       const current = record!;
       const response = await fetcher(`${config.apiOrigin}/personal-homepage/api/music/session`, {
         method: 'POST', credentials: 'omit', cache: 'no-store', mode: 'cors', redirect: 'error',
+        signal: AbortSignal.timeout(15000),
         headers: {'Content-Type': 'application/json'}, body: JSON.stringify({publicJwk: current.publicJwk}),
       });
       if (!response.ok) throw Error('音乐设备授权暂时不可用，请稍后重试。');
