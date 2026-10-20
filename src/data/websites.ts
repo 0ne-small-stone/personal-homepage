@@ -1,7 +1,6 @@
-import {websitePresentation} from './website-presentation.ts';
 import { z } from 'astro/zod';
 import rawWebsites from './websites.json' with { type: 'json' };
-import { websiteCategories, websiteIcons, type Website } from '../lib/website-directory.ts';
+import { websiteCategories, websiteIcons, websiteBrands, type Website } from '../lib/website-directory.ts';
 export * from '../lib/website-directory.ts';
 
 export const websiteSchema = z.object({
@@ -13,6 +12,8 @@ export const websiteSchema = z.object({
   tags: z.array(z.string()).optional(),
   icon: z.enum(websiteIcons),
   featured: z.boolean().optional(),
+  portrait: z.literal('li-zhi').optional(),
+  brand: z.enum(websiteBrands).optional(),
 });
 export const websitesSchema = z.array(websiteSchema).superRefine((entries, ctx) => {
   const ids = new Set<string>(); const urls = new Set<string>();
@@ -25,4 +26,4 @@ export const websitesSchema = z.array(websiteSchema).superRefine((entries, ctx) 
   });
 });
 export function validateWebsites(entries: readonly Website[]): void { websitesSchema.parse(entries); }
-export const websites: readonly Website[] = websitesSchema.parse(rawWebsites).map(site=>({...site,...websitePresentation[site.id]}));
+export const websites: readonly Website[] = websitesSchema.parse(rawWebsites);

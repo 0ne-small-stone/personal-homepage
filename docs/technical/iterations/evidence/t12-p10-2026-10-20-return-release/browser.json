@@ -1,0 +1,432 @@
+{
+  "states": [
+    {
+      "step": "initial",
+      "state": {
+        "experience": {
+          "actualCamera": "0.0000,0.0000,18.6000",
+          "axes": "6.200,6.200,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "distance": "-45.00",
+          "domeRadius": "628",
+          "flightVelocity": "0.0000",
+          "imageFit": "contain",
+          "layout": "react-bits-dome",
+          "layoutAspect": "1.778",
+          "orientation": "0.000,0.000",
+          "overviewLoaded": "101",
+          "pan": "0.00,0.00",
+          "portal": "0.0000,0.0000,0.0000",
+          "progress": "0.000",
+          "quaternion": "0.00000,0.00000,0.00000,1.00000",
+          "reduced": "false",
+          "rotationMode": "dome-limited-pitch",
+          "space": "idle",
+          "starfield": "hidden",
+          "view": "sphere"
+        },
+        "focus": "",
+        "home": {
+          "hiddenWord": true,
+          "href": "/personal-homepage/#album",
+          "iconOnly": "true",
+          "rect": {
+            "bottom": 79,
+            "height": 51,
+            "left": 1192,
+            "right": 1240,
+            "top": 28,
+            "width": 48,
+            "x": 1192,
+            "y": 28
+          },
+          "title": null
+        },
+        "size": [
+          1280,
+          720
+        ],
+        "stage": {
+          "fieldPool": "0",
+          "overview": "358",
+          "photos": "101",
+          "pool": "358"
+        },
+        "url": "http://127.0.0.1:4390/personal-homepage/gallery/"
+      }
+    },
+    {
+      "step": "rotated",
+      "state": {
+        "experience": {
+          "actualCamera": "0.0000,0.0000,18.6000",
+          "axes": "6.200,6.200,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "distance": "-45.00",
+          "domeRadius": "628",
+          "flightVelocity": "0.0000",
+          "imageFit": "contain",
+          "layout": "react-bits-dome",
+          "layoutAspect": "1.778",
+          "orientation": "0.160,0.160",
+          "overviewLoaded": "101",
+          "pan": "0.00,0.00",
+          "portal": "0.0000,0.0000,0.0000",
+          "progress": "0.000",
+          "quaternion": "0.07966,0.07966,0.00639,0.99361",
+          "reduced": "false",
+          "rotationMode": "dome-limited-pitch",
+          "space": "ready",
+          "spaceProgress": "101/101",
+          "starfield": "hidden",
+          "textureFallbacks": "0",
+          "view": "sphere"
+        },
+        "focus": "sphere-main",
+        "home": {
+          "hiddenWord": true,
+          "href": "/personal-homepage/#album",
+          "iconOnly": "true",
+          "rect": {
+            "bottom": 79,
+            "height": 51,
+            "left": 1192,
+            "right": 1240,
+            "top": 28,
+            "width": 48,
+            "x": 1192,
+            "y": 28
+          },
+          "title": null
+        },
+        "size": [
+          1280,
+          720
+        ],
+        "stage": {
+          "fieldPool": "0",
+          "overview": "358",
+          "photos": "101",
+          "pool": "358"
+        },
+        "url": "http://127.0.0.1:4390/personal-homepage/gallery/"
+      }
+    },
+    {
+      "step": "space",
+      "state": {
+        "experience": {
+          "actualCamera": "-0.4282,0.4423,3.7324",
+          "anchorPose": "-0.4282,0.4423,6.1694",
+          "aspectError": "2.220e-16",
+          "axes": "6.200,6.200,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "detail": "ready",
+          "distance": "-45.00",
+          "domeRadius": "628",
+          "fieldCount": "29",
+          "fieldLayout": "projection-gap",
+          "fieldRetiring": "0",
+          "flightVelocity": "0.0000",
+          "imageFit": "contain",
+          "layout": "react-bits-dome",
+          "layoutAspect": "1.778",
+          "orientation": "0.160,0.160",
+          "overviewLoaded": "101",
+          "pan": "0.00,0.00",
+          "portal": "-0.4282,0.4423,6.1694",
+          "progress": "1.000",
+          "quaternion": "0.07966,0.07966,0.00639,0.99361",
+          "reduced": "false",
+          "regions": "21",
+          "rotationMode": "dome-limited-pitch",
+          "space": "ready",
+          "spaceProgress": "101/101",
+          "starfield": "subtle",
+          "textureFallbacks": "0",
+          "view": "space"
+        },
+        "focus": "",
+        "home": {
+          "hiddenWord": true,
+          "href": "/personal-homepage/#album",
+          "iconOnly": "true",
+          "rect": {
+            "bottom": 0,
+            "height": 0,
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          },
+          "title": null
+        },
+        "size": [
+          1280,
+          720
+        ],
+        "stage": {
+          "fieldPool": "59",
+          "overview": "358",
+          "photos": "101",
+          "pool": "417"
+        },
+        "url": "http://127.0.0.1:4390/personal-homepage/gallery/"
+      }
+    },
+    {
+      "step": "native-overview-return",
+      "state": {
+        "experience": {
+          "actualCamera": "0.0000,0.0000,18.6000",
+          "anchorPose": "-0.4282,0.4423,6.1694",
+          "aspectError": "2.220e-16",
+          "axes": "6.200,6.200,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "detail": "ready",
+          "distance": "-45.00",
+          "domeRadius": "628",
+          "fieldCount": "29",
+          "fieldLayout": "projection-gap",
+          "fieldRetiring": "0",
+          "flightVelocity": "0.0000",
+          "imageFit": "contain",
+          "layout": "react-bits-dome",
+          "layoutAspect": "1.778",
+          "orientation": "0.160,0.160",
+          "overviewLoaded": "101",
+          "pan": "0.00,0.00",
+          "portal": "-0.4282,0.4423,6.1694",
+          "progress": "0.000",
+          "quaternion": "0.07966,0.07966,0.00639,0.99361",
+          "reduced": "false",
+          "regions": "21",
+          "rotationMode": "dome-limited-pitch",
+          "space": "ready",
+          "spaceProgress": "101/101",
+          "starfield": "hidden",
+          "textureFallbacks": "0",
+          "view": "sphere"
+        },
+        "focus": "sphere-main",
+        "home": {
+          "hiddenWord": true,
+          "href": "/personal-homepage/#album",
+          "iconOnly": "true",
+          "rect": {
+            "bottom": 79,
+            "height": 51,
+            "left": 1192,
+            "right": 1240,
+            "top": 28,
+            "width": 48,
+            "x": 1192,
+            "y": 28
+          },
+          "title": null
+        },
+        "size": [
+          1280,
+          720
+        ],
+        "stage": {
+          "fieldPool": "71",
+          "overview": "358",
+          "photos": "101",
+          "pool": "429"
+        },
+        "url": "http://127.0.0.1:4390/personal-homepage/gallery/"
+      }
+    },
+    {
+      "step": "native-home-return",
+      "url": "http://127.0.0.1:4390/personal-homepage/#album"
+    },
+    {
+      "step": "390-initial",
+      "state": {
+        "experience": {
+          "actualCamera": "0.0000,0.0000,18.6000",
+          "axes": "6.200,6.200,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "distance": "-45.00",
+          "domeRadius": "315",
+          "flightVelocity": "0.0000",
+          "imageFit": "contain",
+          "layout": "react-bits-dome",
+          "layoutAspect": "0.462",
+          "orientation": "0.000,0.000",
+          "overviewLoaded": "101",
+          "pan": "0.00,0.00",
+          "portal": "0.0000,0.0000,0.0000",
+          "progress": "0.000",
+          "quaternion": "0.00000,0.00000,0.00000,1.00000",
+          "reduced": "false",
+          "rotationMode": "dome-limited-pitch",
+          "space": "ready",
+          "spaceProgress": "101/101",
+          "starfield": "hidden",
+          "textureFallbacks": "0",
+          "view": "sphere"
+        },
+        "focus": "",
+        "home": {
+          "hiddenWord": true,
+          "href": "/personal-homepage/#album",
+          "iconOnly": "true",
+          "rect": {
+            "bottom": 71,
+            "height": 51,
+            "left": 322,
+            "right": 370,
+            "top": 20,
+            "width": 48,
+            "x": 322,
+            "y": 20
+          },
+          "title": null
+        },
+        "size": [
+          390,
+          844
+        ],
+        "stage": {
+          "fieldPool": "0",
+          "overview": "358",
+          "photos": "101",
+          "pool": "358"
+        },
+        "url": "http://127.0.0.1:4390/personal-homepage/gallery/"
+      }
+    },
+    {
+      "step": "390-enter-return",
+      "state": {
+        "experience": {
+          "actualCamera": "0.0000,0.0000,18.6000",
+          "anchorPose": "-0.5702,-0.5709,12.3343",
+          "aspectError": "2.220e-16",
+          "axes": "6.200,6.200,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "detail": "ready",
+          "distance": "-45.00",
+          "domeRadius": "315",
+          "fieldCount": "11",
+          "fieldLayout": "projection-gap",
+          "fieldRetiring": "0",
+          "flightVelocity": "0.0000",
+          "imageFit": "contain",
+          "layout": "react-bits-dome",
+          "layoutAspect": "0.462",
+          "orientation": "0.000,0.000",
+          "overviewLoaded": "101",
+          "pan": "0.00,0.00",
+          "portal": "-0.5702,-0.5709,12.3343",
+          "progress": "0.000",
+          "quaternion": "0.00000,0.00000,0.00000,1.00000",
+          "reduced": "false",
+          "regions": "7",
+          "rotationMode": "dome-limited-pitch",
+          "space": "ready",
+          "spaceProgress": "101/101",
+          "starfield": "hidden",
+          "textureFallbacks": "0",
+          "view": "sphere"
+        },
+        "focus": "sphere-main",
+        "home": {
+          "hiddenWord": true,
+          "href": "/personal-homepage/#album",
+          "iconOnly": "true",
+          "rect": {
+            "bottom": 71,
+            "height": 51,
+            "left": 322,
+            "right": 370,
+            "top": 20,
+            "width": 48,
+            "x": 322,
+            "y": 20
+          },
+          "title": null
+        },
+        "size": [
+          390,
+          844
+        ],
+        "stage": {
+          "fieldPool": "23",
+          "overview": "358",
+          "photos": "101",
+          "pool": "381"
+        },
+        "url": "http://127.0.0.1:4390/personal-homepage/gallery/"
+      }
+    },
+    {
+      "step": "390-home-enter",
+      "url": "http://127.0.0.1:4390/personal-homepage/#album"
+    },
+    {
+      "step": "back-loaded",
+      "state": {
+        "experience": {
+          "actualCamera": "0.0000,0.0000,18.6000",
+          "axes": "6.200,6.200,6.200",
+          "camera": "0.00,0.00,-45.00",
+          "distance": "-45.00",
+          "domeRadius": "628",
+          "flightVelocity": "0.0000",
+          "imageFit": "contain",
+          "layout": "react-bits-dome",
+          "layoutAspect": "1.778",
+          "orientation": "0.000,0.000",
+          "overviewLoaded": "101",
+          "pan": "0.00,0.00",
+          "portal": "0.0000,0.0000,0.0000",
+          "progress": "0.000",
+          "quaternion": "0.00000,0.00000,0.00000,1.00000",
+          "reduced": "false",
+          "rotationMode": "dome-limited-pitch",
+          "space": "ready",
+          "spaceProgress": "101/101",
+          "starfield": "hidden",
+          "textureFallbacks": "0",
+          "view": "sphere"
+        },
+        "focus": "",
+        "home": {
+          "hiddenWord": true,
+          "href": "/personal-homepage/#album",
+          "iconOnly": "true",
+          "rect": {
+            "bottom": 79,
+            "height": 51,
+            "left": 1192,
+            "right": 1240,
+            "top": 28,
+            "width": 48,
+            "x": 1192,
+            "y": 28
+          },
+          "title": null
+        },
+        "size": [
+          1280,
+          720
+        ],
+        "stage": {
+          "fieldPool": "0",
+          "overview": "358",
+          "photos": "101",
+          "pool": "358"
+        },
+        "url": "http://127.0.0.1:4390/personal-homepage/gallery/"
+      }
+    }
+  ],
+  "errors": [],
+  "note": "Final Back readiness exceeded the first 3000ms observation; subsequent DOM showed 101/101 overview,358 loaded cards and sphere ready."
+}

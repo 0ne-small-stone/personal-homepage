@@ -12,7 +12,7 @@ const { entries = websites } = Astro.props;
 validateWebsites(entries);
 const ordered = [...entries].sort((a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured)));
 ---
-<HomeLayout title="Elsewhere · 常用网站" description="常去的地方，也有新的发现。小石的课程、校园、影像与音乐网址收藏。">
+<HomeLayout homeIconOnly title="Elsewhere · 常用网站" description="常去的地方，也有新的发现。小石的课程、校园、影像与音乐网址收藏。">
   <div class="elsewhere-page" data-website-directory>
     <section class="elsewhere-intro" aria-labelledby="elsewhere-title">
       <div class="elsewhere-intro-copy">
