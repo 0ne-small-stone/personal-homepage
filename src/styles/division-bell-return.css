@@ -1,0 +1,32 @@
+/* Shared return semantics only; inherits the host page's foreground and font. */
+.db-return .db-return-glyph-slot { pointer-events: none; }
+.db-return.db-return { --db-face: 12px; --db-eye: 3.7px; --db-left: 0px; --db-right: 0px; --db-eye-left: 0px; --db-eye-right: 0px; position: relative; display: inline-flex; align-items: center; justify-content: flex-start; gap: 12px; min-width: 44px; min-height: 56px; padding: 4px 8px; border: 0; border-radius: 0; background: transparent; box-shadow: none; color: inherit; font: inherit; font-size: 14px; line-height: 1.5; text-decoration: none; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; overflow: visible; }
+.db-return.db-return[data-compact] { --db-face: 14px; --db-eye: 4.4px; min-height: 48px; gap: 10px; }
+.db-return-glyph-slot { display: block; flex: 0 0 48px; width: 48px; pointer-events: none; transition: transform 100ms cubic-bezier(.2,.7,.25,1); }
+.db-return[data-pressed="true"]:not(:disabled):not([aria-disabled="true"]) .db-return-glyph-slot { transform: scale(.98); }
+.db-return[data-compact] .db-return-glyph-slot { flex-basis: 40px; width: 40px; }
+.db-return-glyph { display: block; width: 100%; height: auto; aspect-ratio: 160 / 172; overflow: visible; pointer-events: none; }
+.db-return-left { transform: translateX(var(--db-left)); }
+.db-return-right { transform: translateX(var(--db-right)); }
+.db-return-eye-left { transform: translateX(var(--db-eye-left)); }
+.db-return-eye-right { transform: translateX(var(--db-eye-right)); }
+.db-return :is(.db-return-left,.db-return-right,.db-return-eye-left,.db-return-eye-right) { transition: transform 180ms cubic-bezier(.16,1,.3,1); }
+.db-return[data-engaged="true"]:not(:disabled):not([aria-disabled="true"]) { --db-left: calc(-1 * var(--db-face)); --db-right: var(--db-face); --db-eye-left: var(--db-eye); --db-eye-right: calc(-1 * var(--db-eye)); }
+.db-return[data-engaged="true"] :is(.db-return-left,.db-return-right,.db-return-eye-left,.db-return-eye-right) { transition-duration: 260ms; }
+.db-return-label { position: relative; display: block; }
+.db-return-label::after { content: ''; position: absolute; inset: auto 0 -4px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform 220ms cubic-bezier(.16,1,.3,1); }
+.db-return[data-engaged="true"]:not(:disabled):not([aria-disabled="true"]) .db-return-label::after { transform: scaleX(1); }
+.db-return.db-return:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.db-return.db-return:is(:hover,:focus-visible) { text-decoration: none; }
+.db-return[data-playing="true"] :is(.db-return-left,.db-return-right,.db-return-eye-left,.db-return-eye-right) { transition: none; }
+.db-return.db-return:is(:disabled,[aria-disabled="true"]) { opacity: .45; cursor: default; }
+.db-return[data-static="true"] :is(.db-return-left,.db-return-right,.db-return-eye-left,.db-return-eye-right,.db-return-label,.db-return-glyph-slot) { transition: none; transform: none; }
+.db-return[data-static="true"] .db-return-label::after { transition: none; transform: none; }
+.db-return-host { display: contents; }
+@media (prefers-reduced-motion: reduce) {
+  .db-return :is(.db-return-left,.db-return-right,.db-return-eye-left,.db-return-eye-right,.db-return-label,.db-return-glyph-slot), .db-return .db-return-label::after { transition: none !important; transform: none !important; }
+}
+
+/* Home navigation explicitly opts in; internal return labels stay visible. */
+.db-return.db-return[data-icon-only] { gap: 0; min-width: 48px; padding: 4px; justify-content: center; }
+.db-return.db-return[data-icon-only] > .db-return-label { display: none !important; }
