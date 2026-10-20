@@ -1,3 +1,4 @@
+import {musicApiFetch} from './music-api.ts';
 import type { AudioTrack } from './audio-session';
 
 export interface PlaybackResolution { url: string; expiresAt?: number; previewSeconds: number | null; notice: string; quality?:string; }
@@ -20,7 +21,7 @@ export function readPlaybackResolution(data: unknown, id: string, now = Date.now
 export async function resolveNetEasePlayback(track: AudioTrack, options: { indexUrl?: string; apiUrl?: string; fetcher?: typeof fetch } = {}): Promise<PlaybackResolution> {
   const env=import.meta.env||{BASE_URL:'/'};const fetcher=options.fetcher||fetch;
   const request=async(url: string, init: RequestInit={})=>{
-    try{return await fetcher(url,{...init,cache:'no-store',credentials:'omit',signal:AbortSignal.timeout(20000)});}
+    try{return await musicApiFetch(url,{...init,signal:AbortSignal.timeout(20000)},fetcher);}
     catch{throw Error('暂时无法连接网易云播放服务，请重新播放。');}
   };
   const read=async(response: Response)=>{

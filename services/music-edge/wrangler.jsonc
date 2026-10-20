@@ -1,0 +1,13 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "echoes-music-api",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-10-20",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "preview_urls": false,
+  "observability": {"enabled": false},
+  "vars": {"MUSIC_PAGE_ORIGIN": "https://0ne-small-stone.github.io"},
+  "triggers": {"crons": ["17 */6 * * *"]},
+  "d1_databases": [{"binding": "DB", "database_name": "echoes-music-sessions", "database_id": "44664b27-71ad-4107-a5d8-7d59687344dc", "migrations_dir": "../../migrations"}]
+}

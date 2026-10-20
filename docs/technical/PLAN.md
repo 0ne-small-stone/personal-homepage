@@ -1,5 +1,7 @@
 # 个人主页技术实施计划和验收标准
 
+2026-10-20 P13/T25.42：继续公网账号与许可播放，前端固定 GitHub Pages，免费独立 API 改用 Cloudflare Workers/D1。后端部署、跨站恢复及真实账号扫码/超过30秒和中后段收听分别验收，不以 fixture 或成功上传代替公网接通。见[本片](iterations/t25-p13-2026-10-20-pages-free-backend.md)。
+
 2026-10-20 P12/T11、T26–27：用户授权[导航页合并发布](iterations/t11-p12-2026-10-20-publish.md)。基于main a6ff673e保留正式JSON/CMS、Zod和纯筛选函数，新增可选品牌/照片键与本页无字首页键；批准布局/图标按源消费，其他栏目/依赖/服务逻辑保持，待本地与PR必需检查后Squash/Pages发布。
 
 2026-10-20 P10/T12、T26–T27：用户确认图库无字双头像并要求合并发布，现从main a6ff673e窄接图库返回适配，保留PR89音乐与PR82远端补图。仅图库返回消费、Astro/DOM接口及对应记录；检查/构建/PR门槛与Pages读回按[发布片](iterations/t12-p10-2026-10-20-return-release.md)登记，不混本机其他候选。

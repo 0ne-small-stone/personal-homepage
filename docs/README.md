@@ -98,6 +98,7 @@ P10 最新独立交互样本：[A Moment Remains：Dome Gallery照片墙 → 三
 | P11 社交作品 | R05 | U10 | T11 平台内容与原站入口，T13 内容编辑 |
 | P12 常用网站 | R03、R12 | U11、U14；[已确认导航页发布](technical/iterations/t11-p12-2026-10-20-publish.md) | T11 分类导航与搜索，T13 链接编辑，T26–T27发布与回归 |
 | P13 音乐电台 | R04、R12 | U12 | T20–T25 能力验证、展示、提交、审核、自动同步与播放器 |
+| P13 Pages 与免费网易云后端 | R04、R12 | U12；既有收录机/黑胶布局保持 | T25.42；[Workers/D1 与跨站设备会话](technical/iterations/t25-p13-2026-10-20-pages-free-backend.md)，以真实公网扫码/完整权限播放验收 |
 | P13 专辑收放动画 | R04、R12 | U12；[当前空间与停顿修复](design/iterations/u12-p13-2026-10-14-record-clearance.md) | T25.22；完全离套并静止停顿后切层、缓慢回位，套大于盘/同专辑仅换信息，本地验证/用户视觉另验 |
 | P13 纸质唱片套 | R04、R12 | U12；[纸套细节](design/iterations/u12-p13-2026-10-14-paper-sleeve.md) | T25.19；纸边/开口/哑光本地接入及执行者读图完成 |
 | P13 歌词间距 | R04、R12 | U12；[歌词右移](design/iterations/u12-p13-2026-10-14-lyrics-spacing.md) | T25.17；桌面歌词列留白本地验证，手机余量0 |
@@ -221,6 +222,8 @@ P10 最新独立交互样本：[A Moment Remains：Dome Gallery照片墙 → 三
 2026-10-07 新增 [TOOLKIT](design/TOOLKIT.md)：配置平面设计、UI、UX 技能及安装来源；原有页面、任务和八份核心设计/技术规划职责沿用。
 
 ## 文件迁移记录
+
+P13 / R02、R12 / U12、U14 / T25：[网易云公网账号与播放服务](technical/iterations/t25-p13-2026-10-20-online-service.md)，独立会话、加密持久化与Render免费部署；代码验证和真实公网权限验收分记。
 
 P13 / R02、R12 / U12、U14 / T25：[2026-10-20 复古收录机与音乐电台发布](technical/iterations/t25-p13-2026-10-20-cassette-publish.md)，仅合入用户确认的音乐界面与动效，保留正式服务探测、查询和权限边界。
 
