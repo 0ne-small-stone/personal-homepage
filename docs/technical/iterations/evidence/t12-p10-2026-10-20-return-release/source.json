@@ -1,0 +1,41 @@
+{
+  "base": "a6ff673ef887343fd4402abd807265b202bb000a",
+  "files": [
+    {
+      "file": "src/pages/gallery.astro",
+      "bytes": 3295,
+      "sha256": "d121f1827edf8f1ef8738d7d5f156666a456ca487e3e88b315adbb42b7d476bd",
+      "matchesAcceptedPreview": true
+    },
+    {
+      "file": "src/components/gallery/scene.js",
+      "bytes": 44307,
+      "sha256": "2a37ae009534a53228c8314a9edbf1c82f4fae645839a22c60ba22e5b28f36d6",
+      "matchesAcceptedPreview": true
+    },
+    {
+      "file": "src/components/gallery/style.css",
+      "bytes": 6052,
+      "sha256": "f28d46ad9eaa16ac7f1358d957c9b64715bc37082ed67561e3b9f7c5bebc51fa",
+      "matchesAcceptedPreview": true
+    },
+    {
+      "file": "src/components/gallery/standalone-entry.js",
+      "bytes": 491,
+      "sha256": "7f360f4f92ff0beefd2f215cc719ce563f6549098c2dfea8c8a3c8508275eac2",
+      "matchesAcceptedPreview": true
+    },
+    {
+      "file": "src/components/navigation/DivisionBellReturn.astro",
+      "bytes": 1348,
+      "sha256": "a82f4565b2c2241efde117d973f3ccd1494bfe223de43c0bf7d119d79fe71d7c",
+      "matchesAcceptedPreview": true
+    },
+    {
+      "file": "src/components/navigation/division-bell-dom.ts",
+      "bytes": 1453,
+      "sha256": "fc8365181f90bffcb76f6dad2dc1a262259d32867eb3e0f4162c0b62e887bb92",
+      "matchesAcceptedPreview": true
+    }
+  ]
+}

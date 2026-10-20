@@ -7,6 +7,7 @@ import { createSideWall } from './side-wall.js';
 import { createStarfield } from './starfield.js';
 import { probe } from './performance-probe.js';
 import {createSingleViewer} from './single-viewer.js';
+import {decorateDivisionBellReturn} from '../navigation/division-bell-dom';
 
 const el = id => document.getElementById(id);
 const stage = el('stage');
@@ -66,6 +67,7 @@ let detailEpoch = 0;
 const loadingController=new AbortController();
 let spaceReady=false,spacePreparation=null,prepareTimer;
 let resizeObserver;
+let disposeReturn;
 const preparationWaiters=new Set();
 function resumePreparation(){if(document.hidden||viewer?.isOpen)return;for(const wake of [...preparationWaiters])wake();}
 function availableForPreparation(){
@@ -437,7 +439,7 @@ function update(dt) {
       domeHost.style.inset='';domeHost.style.clipPath='';
       domeApi.resume();
       resize();
-      if(document.activeElement===renderer.domElement)domeHost.querySelector('.sphere-main').focus({preventScroll:true});
+      if(document.activeElement===renderer.domElement||document.activeElement===el('return'))domeHost.querySelector('.sphere-main').focus({preventScroll:true});
       sideWall?.setProgress(0);shell.style.setProperty('--unfold','0');
       domeHost.style.inset='';domeHost.style.opacity='';renderer.domElement.style.opacity='0';renderer.domElement.tabIndex=-1;
       shell.dataset.starfield='hidden';updateUI();return false;
@@ -724,6 +726,8 @@ function showPhoto(image = state.selectedImage,pool=state.selectedPool) {
 function showNotice(text){el('hint').textContent=text;el('hint').classList.remove('sr-only');}
 
 function wireControls() {
+  disposeReturn=decorateDivisionBellReturn(el('return'),{label:'返回总览',compact:true});
+  if(forceReduced)for(const control of [el('return'),el('gallery-home-return')])control.dataset.returnPaused='true';
   el('return').addEventListener('click', () => progressTo(0));
   window.addEventListener('keydown', e => { if (e.key === 'Escape' && !viewer?.isOpen && state.phase !== 'sphere') { progressTo(0); } });
 }
@@ -752,6 +756,7 @@ function fallback() {
 function dispose() {
   if (disposed) return;
   disposed = true;
+  disposeReturn?.();
   clearTimeout(prepareTimer);loadingController.abort();resizeObserver?.disconnect();
   probe.dispose();
   viewer?.dispose();
