@@ -1,0 +1,17 @@
+<!-- The native image keeps the same four inks without requiring WebGL. -->
+<svg class="home-relief-palette" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="home-relief-four-ink" color-interpolation-filters="sRGB" x="0" y="0" width="100%" height="100%">
+      <feColorMatrix in="SourceGraphic" type="matrix" values=".2126 .7152 .0722 0 0 .2126 .7152 .0722 0 0 .2126 .7152 .0722 0 0 0 0 0 1 0" result="gray" />
+      <feComponentTransfer in="gray" result="monochrome"><feFuncR type="discrete" tableValues="0 1" /><feFuncG type="discrete" tableValues="0 1" /><feFuncB type="discrete" tableValues="0 1" /></feComponentTransfer>
+      <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 20 0 -20 0 -3.9" result="warm" />
+      <feComponentTransfer in="warm" result="warm-mask"><feFuncA type="discrete" tableValues="0 1" /></feComponentTransfer>
+      <feFlood flood-color="#ff0000" result="red" /><feComposite in="red" in2="warm-mask" operator="in" result="red-ink" />
+      <feComposite in="red-ink" in2="monochrome" operator="over" result="red-black-white" />
+      <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -20 0 20 0 -.3" result="cool" />
+      <feComponentTransfer in="cool" result="cool-mask"><feFuncA type="discrete" tableValues="0 1" /></feComponentTransfer>
+      <feFlood flood-color="#0000ff" result="blue" /><feComposite in="blue" in2="cool-mask" operator="in" result="blue-ink" />
+      <feComposite in="blue-ink" in2="red-black-white" operator="over" />
+    </filter>
+  </defs>
+</svg>

@@ -1,0 +1,75 @@
+/* F06: journey controls only. Shared headers and independent pages stay native. */
+.has-journey { --home-control-duration: .3s; --home-control-ease: cubic-bezier(.25,.46,.45,.94); }
+.has-journey .home-nav-label { position: relative; display: block; white-space: nowrap; }
+.has-journey .home-nav-reserve { visibility: hidden; }
+.has-journey .home-nav-label [data-scramble] { position: absolute; inset: 0; overflow: hidden; white-space: nowrap; }
+.has-journey :is(.home-header a, .home-cta, .home-scroll, .home-wall-bottom a, .home-discussion-link, .home-chapter-index a, .home-scene-controls button, .home-loader button) {
+  min-width: 44px; min-height: 44px; touch-action: manipulation;
+}
+.has-journey :is(.home-header a, .home-cta, .home-scroll, .home-wall-bottom a, .home-discussion-link, .home-chapter-index a, .home-scene-controls button, .home-loader button):focus-visible {
+  outline: 2px solid currentColor; outline-offset: 3px;
+}
+.has-journey :is(.home-cta, .home-header-wall, .home-scene-controls button, .home-loader button) {
+  transition: color var(--home-control-duration) var(--home-control-ease), background-color var(--home-control-duration) var(--home-control-ease), border-color var(--home-control-duration) var(--home-control-ease);
+}
+.has-journey .home-cta-clip > span { transition: transform var(--home-control-duration) var(--home-control-ease), opacity var(--home-control-duration) var(--home-control-ease); }
+.has-journey .home-cta-clip > span + span { opacity: 0; }
+.has-journey .home-cta:hover .home-cta-clip > span { transform: none; }
+@media (hover: hover) and (pointer: fine) {
+  .has-journey[data-home-controls-ready="true"]:not([data-home-controls-static="true"]) .home-cta:hover .home-cta-clip > span { transform: translateY(-100%); }
+  .has-journey[data-home-controls-ready="true"]:not([data-home-controls-static="true"]) .home-cta:hover .home-cta-clip > span:first-child { opacity: 0; }
+  .has-journey[data-home-controls-ready="true"]:not([data-home-controls-static="true"]) .home-cta:hover .home-cta-clip > span + span { opacity: 1; }
+}
+.has-journey[data-home-controls-static="true"] .home-cta-clip > span,
+.has-journey .home-cta:focus-visible .home-cta-clip > span { transform: none !important; transition: none; }
+.has-journey[data-home-controls-static="true"] .home-cta-clip > span:first-child,
+.has-journey .home-cta:focus-visible .home-cta-clip > span:first-child { opacity: 1 !important; }
+.has-journey[data-home-controls-static="true"] .home-cta-clip > span + span,
+.has-journey .home-cta:focus-visible .home-cta-clip > span + span { opacity: 0 !important; }
+.has-journey .home-cta:focus-visible,
+.has-journey .home-cta:active { color: var(--color-bg); background: var(--color-text); border-color: var(--color-text); }
+.has-journey :is(.home-header nav a, .home-scroll, .home-wall-bottom a, .home-discussion-link) {
+  text-decoration: none !important; background-image: linear-gradient(currentColor,currentColor); background-repeat: no-repeat;
+  background-position: right calc(100% - 5px); background-size: 0 1px; transition: background-size .3s ease;
+}
+.has-journey :is(.home-header nav a, .home-scroll, .home-wall-bottom a, .home-discussion-link):hover { text-decoration: none; }
+@media (hover: hover) and (pointer: fine) {
+  .has-journey[data-home-controls-ready="true"]:not([data-home-controls-static="true"]) :is(.home-header nav a, .home-scroll, .home-wall-bottom a, .home-discussion-link):hover {
+    background-position: left calc(100% - 5px); background-size: 100% 1px;
+  }
+}
+.has-journey :is(.home-header nav a, .home-scroll, .home-wall-bottom a, .home-discussion-link):focus-visible { background-position: left calc(100% - 5px); background-size: 100% 1px; }
+.has-journey .home-chapter-index a { border: 1px solid transparent; transition: color .3s var(--home-control-ease), border-color .3s var(--home-control-ease), background-color .3s var(--home-control-ease); }
+.has-journey .home-chapter-index a[aria-current] { border-color: currentColor; }
+.has-journey :is(.home-chapter-index a, .home-header nav a, .home-scroll, .home-wall-bottom a):active { background-color: rgb(161 161 161 / .16); }
+.has-journey .home-scene-controls button[aria-pressed="true"] { border-color: currentColor; }
+/* Keep the wall's final links above the fixed controls, including short viewports. */
+.has-journey.home-enhanced:not(.home-quiet) .home-wall .home-chapter-viewport {
+  min-height: 0; height: 100svh; grid-template-rows: minmax(0, 1fr);
+  padding-top: clamp(5rem, 15svh, 10rem); padding-bottom: clamp(6rem, 15svh, 8rem);
+}
+.has-journey.home-enhanced:not(.home-quiet) .home-wall .home-chapter-content {
+  min-height: 0; max-height: 100%; overflow-y: auto; overscroll-behavior: contain;
+  padding: 4px 8px 4px 4px; margin-left: -4px; scroll-padding-block: 8px;
+  scrollbar-width: thin; scrollbar-color: #72746e transparent;
+}
+.has-journey .home-scene-controls button:active:not(:disabled),
+.has-journey .home-header-wall:active,
+.has-journey .home-loader button:active { background-color: #ededed; border-color: #ededed; color: #000; }
+.has-journey.home-on-wall .home-header-wall:is(:hover,:active),
+.has-journey.home-on-wall .home-scene-controls button:is(:hover,:active):not(:disabled) { color: #e8e4dc; background-color: #272a2c; border-color: #272a2c; }
+.has-journey[data-home-controls-static="true"] .home-scroll svg { animation-play-state: paused; }
+@media (hover: none), (pointer: coarse) {
+  .has-journey .home-scroll svg { animation-play-state: paused; }
+  .has-journey .home-cta:hover:not(:active):not(:focus-visible) { color: var(--color-text); background: transparent; border-color: var(--color-border); }
+}
+@media (max-width: 767px) {
+  .has-journey .home-chapter-index a { min-width: 44px; min-height: 44px; }
+}
+@media (max-width: 360px) {
+  /* Five 44px chapters and pause need separate rows at 320px. */
+  .has-journey .home-scene-controls { bottom: calc(4.25rem + env(safe-area-inset-bottom)); }
+  .has-journey .home-status { bottom: 7.5rem; }
+  .has-journey .home-chapter-viewport { padding-bottom: 8rem; }
+  .has-journey.home-enhanced:not(.home-quiet) .home-wall .home-chapter-viewport { padding-bottom: 9rem; }
+}

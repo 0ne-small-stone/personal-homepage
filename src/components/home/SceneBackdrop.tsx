@@ -6,7 +6,6 @@ import { backdropState } from './backdrop-state';
 
 export default function SceneBackdrop({ model, mobile, quiet }: { model: JourneyModel; mobile: boolean; quiet: boolean }) {
   const ref = useRef<Mesh>(null);
-  const ownerBody=useRef(document.body);
   const { viewport, camera, size } = useThree();
   const aspect = size.width / size.height;
   const width = mobile ? 768 : 1536, height = Math.round(width / aspect);
@@ -103,7 +102,7 @@ export default function SceneBackdrop({ model, mobile, quiet }: { model: Journey
         gl_FragColor=sRGBTransferEOTF(vec4(base,1.));
         #include <colorspace_fragment>
       }`}),[texture]);
-  useEffect(()=>()=>{material.dispose();delete ownerBody.current.dataset.homeBackdrop;},[material]);
+  useEffect(()=>()=>{material.dispose();delete document.body.dataset.homeBackdrop;},[material]);
   useFrame(() => {
     if (!ref.current) return;
     const m=model.motion,state=backdropState(m.rendered.index,m.rendered.intro,m.raw.outro,m.rendered.prepare,model.progress,mobile,quiet);
@@ -120,7 +119,7 @@ export default function SceneBackdrop({ model, mobile, quiet }: { model: Journey
     if(document.documentElement.dataset.motionDiagnostics==='true') {
       ref.current.updateMatrixWorld(true);
       const corners=[[-.5,-.5],[.5,-.5],[.5,.5],[-.5,.5]].map(([x,y])=>new Vector3(x,y,0).applyMatrix4(ref.current!.matrixWorld).project(camera).toArray());
-      ownerBody.current.dataset.homeBackdrop=JSON.stringify({...state,visible:ref.current.visible,texture:texture.uuid,textureSize:[width,height],corners});
+      document.body.dataset.homeBackdrop=JSON.stringify({...state,visible:ref.current.visible,texture:texture.uuid,textureSize:[width,height],corners});
     }
   },-1);
   return <mesh ref={ref} position={[0,0,-2]}>

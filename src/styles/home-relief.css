@@ -1,0 +1,13 @@
+.home-relief-palette { position: absolute; overflow: hidden; pointer-events: none; }
+.home-work-chapter .home-project-cover { display: block; border-radius: 0; filter: url(#home-relief-four-ink); }
+.home-relief-native { display: block; touch-action: pan-y; }
+.home-relief-native:focus-visible { outline: 2px solid #0000ff; outline-offset: 6px; }
+.home-relief-hit { display: none; }
+.home-enhanced:not(.home-quiet) .home-work-chapter[data-work-active="true"]:not([inert]) .home-relief-hit {
+  display: block; position: fixed; left: 0; top: 0; z-index: 2;
+  pointer-events: auto; cursor: pointer; touch-action: pan-y;
+}
+.home-relief-hit:active { background: rgb(0 0 255 / .035); }
+@media (prefers-reduced-motion: reduce) {
+  .home-relief-hit:active { background: transparent; }
+}

@@ -726,7 +726,7 @@ function showPhoto(image = state.selectedImage,pool=state.selectedPool) {
 function showNotice(text){el('hint').textContent=text;el('hint').classList.remove('sr-only');}
 
 function wireControls() {
-  disposeReturn=decorateDivisionBellReturn(el('return'),{label:'返回总览',compact:true});
+  disposeReturn=decorateDivisionBellReturn(el('return'),{label:'返回总览',compact:true,iconOnly:true});
   if(forceReduced)for(const control of [el('return'),el('gallery-home-return')])control.dataset.returnPaused='true';
   el('return').addEventListener('click', () => progressTo(0));
   window.addEventListener('keydown', e => { if (e.key === 'Escape' && !viewer?.isOpen && state.phase !== 'sphere') { progressTo(0); } });

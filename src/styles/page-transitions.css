@@ -1,0 +1,3 @@
+/* JS installs this gate only for a real, eligible navigation; default stays visible. */
+html[data-f07-incoming] main { opacity: 0; }
+/* No overflow lock, persistent-player selector, transition-name, or global keyframes. */
