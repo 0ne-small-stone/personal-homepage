@@ -9,7 +9,6 @@ export default function PersistentPlayer() {
   const audio = useRef<HTMLAudioElement>(null);
   const [onMusicPage, setOnMusicPage] = useState(true);
   const [dismissed, setDismissed] = useState(false);
-  const restore = useRef<HTMLButtonElement>(null);
   useEffect(() => {
     const carrier = audio.current;if (!carrier) return;
     carrier.dataset.sessionId ||= crypto.randomUUID();audioSession.bind(carrier);
@@ -26,7 +25,7 @@ export default function PersistentPlayer() {
       document.removeEventListener('astro:after-swap', audioSession.finishNavigation);
     };
   }, []);
-  const visible = Boolean(state.track) && !onMusicPage;
+  const visible = Boolean(state.track) && !onMusicPage && !dismissed;
   useEffect(() => {
     const reserve = () => document.body.toggleAttribute('data-radio-mini', visible);
     reserve();document.addEventListener('astro:page-load', reserve);
@@ -44,10 +43,18 @@ export default function PersistentPlayer() {
     navigator.mediaSession.setActionHandler('nexttrack', () => audioSession.next(1));
     navigator.mediaSession.setActionHandler('seekto', action => { if (action.seekTime !== undefined) audioSession.seek(action.seekTime); });
   }, []);
-  function hideWindow() { setDismissed(true);requestAnimationFrame(() => restore.current?.focus()); }
-  function restoreWindow() { setDismissed(false);requestAnimationFrame(() => document.querySelector<HTMLButtonElement>('.lssh-floating-play')?.focus()); }
+  function hideWindow() {
+    setDismissed(true);
+    requestAnimationFrame(() => {
+      const main = document.querySelector<HTMLElement>('main, [role="main"]');
+      if (!main) return;
+      const hadTabIndex = main.hasAttribute('tabindex');
+      if (!hadTabIndex) main.setAttribute('tabindex', '-1');
+      main.focus({ preventScroll: true });
+      if (!hadTabIndex) main.removeAttribute('tabindex');
+    });
+  }
   return <div className="lssh-audio-carrier"><audio id="lssh-global-audio" ref={audio} preload="none" />
-    {state.track && <FloatingMusicPlayer state={state} open={visible && !dismissed} onHide={hideWindow} />}
-    {visible && dismissed && <button ref={restore} type="button" className="lssh-floating-restore" aria-label={`打开音乐悬窗：${state.track?.title}`} onClick={restoreWindow}>{state.track?.coverUrl && <img src={state.track.coverUrl} alt="" width="28" height="28" />}<span>打开音乐悬窗</span></button>}
+    {state.track && <FloatingMusicPlayer state={state} open={visible} onHide={hideWindow} />}
   </div>;
 }

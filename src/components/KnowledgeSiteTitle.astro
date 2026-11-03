@@ -1,13 +1,12 @@
 ---
-import SiteTitle from '@astrojs/starlight/components/SiteTitle.astro';
-import PublicDirectory from './PublicDirectory.astro';
+import ReturnLink from './navigation/DivisionBellReturn.astro';
+const { siteTitleHref } = Astro.locals.starlightRoute;
 ---
 <div class="site-title-directory">
-  <SiteTitle />
-  <PublicDirectory align="start" />
+  <ReturnLink class="site-title" href={siteTitleHref} label="首页" compact iconOnly />
 </div>
 <style>
   .site-title-directory { display: flex; align-items: center; gap: var(--space-3); position: relative; min-width: 0; }
-  /* Keep the disclosure outside the native title clipping box. Search/TOC stay native. */
+  /* Keep the approved glyph's full hit area. Search/TOC stay native. */
   :global(.title-wrapper:has(.site-title-directory)) { overflow: visible; }
 </style>

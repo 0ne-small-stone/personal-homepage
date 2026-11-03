@@ -60,7 +60,9 @@
     "sharp": "0.35.3",
     "starlight-blog": "0.30.0",
     "three": "0.186.1",
-    "three-mesh-bvh": "0.8.3"
+    "three-mesh-bvh": "0.8.3",
+    "hast-util-from-html": "2.0.3",
+    "hast-util-to-text": "4.0.2"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",

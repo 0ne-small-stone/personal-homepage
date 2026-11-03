@@ -35,7 +35,7 @@ const sections = [
   { id: 'contact', label: copy.contact },
 ];
 ---
-<HomeLayout title="Someone" lang={lang} description={copy.description} languageHref={sitePath(lang === 'en' ? 'zh/about' : 'about')}>
+<HomeLayout homeHref={`${sitePath()}#intro`} title="Someone" lang={lang} description={copy.description} languageHref={sitePath(lang === 'en' ? 'zh/about' : 'about')}>
   <article class="someone-page" data-copy-label={copy.emailLabel} data-copied={copy.copied} data-copy-success={copy.copySuccess} data-copy-failure={copy.copyFailure}>
     <section id="intro" class="someone-hero" aria-labelledby="someone-title" data-reading-block>
       <div class="someone-hero-copy">
@@ -49,7 +49,6 @@ const sections = [
     <div class="someone-reading-layout">
       <aside class="someone-index">
         <nav aria-label={copy.index}>{sections.map(section => <a href={`#${section.id}`}>{section.label}</a>)}</nav>
-        <a class="someone-home-link" href={`${sitePath()}#intro`}>{copy.home}</a>
       </aside>
       <div class="someone-reading">
         <section id="experience" class="someone-section" aria-labelledby="experience-title" data-reading-block>

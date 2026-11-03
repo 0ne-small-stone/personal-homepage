@@ -30,9 +30,9 @@ for (const file of pages) {
     assert(/<noscript>[\s\S]*?3400489513@qq.com[\s\S]*?<\/noscript>/.test(article), `Missing manual email fallback: ${route}`);
     if (english) assert(!/\p{Script=Han}/u.test(article), 'English Someone contains Chinese copy');
   }
-  // The accepted P10 is a full-screen gallery, rather than a directory shell.
-  // Validate its real entry points and published assets; all other pages still
-  // require the unchanged six-link public directory below.
+  // The public cross-section disclosure has been explicitly removed.
+  // Keep routing, language, gallery and asset guards independent of that UI.
+  assert(!/<public-directory\b|class="[^"]*\bpublic-directory\b|class="[^"]*\bdirectory-panel\b|data-directory-close/.test(html), `Removed directory returned: ${relative(root, file)}`);
   if (route === 'gallery/') {
     assert(html.includes('<title>A Moment Remains · Little Stone Still Here</title>'), 'Missing gallery identity');
     assert(/rel="canonical" href="https:\/\/0ne-small-stone\.github\.io\/personal-homepage\/gallery\/"/.test(html), 'Invalid gallery canonical/base');
@@ -59,19 +59,8 @@ for (const file of pages) {
     immersiveGalleryPages++;
     continue;
   }
-  const nav = html.match(/<nav\b[^>]*aria-label="(?:全站目录|Site directory)"[\s\S]*?<\/nav>/)?.[0];
-  assert(nav, `Missing public directory: ${relative(root, file)}`);
-  const links = [...nav.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/g)].map((match) => ({
-    href: match[1], current: match[0].match(/aria-current="([^"]+)"/)?.[1],
-  }));
-  const pageTargets = targets.map(target => target === 'about/' && route === 'zh/about/' ? 'zh/about/' : target);
-  assert.deepEqual(links.map((link) => link.href), pageTargets.map((target) => '/personal-homepage/' + target), file);
-  for (const [i, link] of links.entries()) {
-    const expected = route === pageTargets[i] ? 'page' : route.startsWith(pageTargets[i]) ? 'location' : undefined;
-    assert.equal(link.current, expected, `${relative(root, file)}: ${link.href}`);
-    if (link.current === 'page') currentPages++;
-    if (link.current === 'location') currentLocations++;
-  }
+  if ([...targets, 'zh/about/'].includes(route)) currentPages++;
+  else if (targets.some(target => route.startsWith(target))) currentLocations++;
 }
 assert.equal(currentPages, 7, 'All six section landing pages and Chinese Someone must exist.');
 assert.equal(immersiveGalleryPages, 1, 'The immersive gallery must be built exactly once.');

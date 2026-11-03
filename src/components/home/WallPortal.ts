@@ -6,6 +6,8 @@ import { FullScreenQuad } from 'three/addons/postprocessing/Pass.js';
 import type { JourneyModel } from './scene-state';
 import { portalCoversViewport, portalUvProjection, portalWallY, type PortalQuad } from './wall-portal-geometry';
 import { wallBuild, wallView } from './wall-assembly';
+import {prepareWallPrograms} from './prepare-wall-programs.mjs';
+import {prepareWorkPrograms} from './prepare-work-programs.mjs';
 
 const vertexShader = `varying vec2 vUv;
   void main(){ vUv=uv; gl_Position=vec4(position.xy,0.,1.); }`;
@@ -80,6 +82,38 @@ export default class WallPortal {
   private disposed = false;
   private error: string | null = null;
   private lastDiagnosticAt = 0;
+  private preparationAttempted=false;
+  private workPreparationIdentity='';
+
+  prepareWorks(gl:WebGLRenderer,scene:Scene,camera:Camera) {
+    if(this.disposed)return;
+    const cards=scene.userData.lsshWorkCards as Object3D|undefined;if(!cards)return;
+    if(cards.uuid===this.workPreparationIdentity)return;
+    this.workPreparationIdentity=cards.uuid;this.model.wallProbe?.start('known-work-programs');
+    try {
+      if(!this.formatConfigured){this.target.texture.type=gl.extensions.has('EXT_color_buffer_float')?HalfFloatType:UnsignedByteType;this.formatConfigured=true;}
+      const submitted=prepareWorkPrograms(gl,scene,camera,cards,this.target,scene.userData.lsshWallGroup);
+      this.model.wallProbe?.note('work-preparation',{submitted});
+    }catch(error){this.model.wallProbe?.note('work-preparation',{submitted:false,error:error instanceof Error?error.message:'work-preparation-failed'});}
+    finally{this.model.wallProbe?.end('known-work-programs');}
+  }
+
+  prepare(gl:WebGLRenderer,scene:Scene,camera:Camera) {
+    if(this.disposed||this.preparationAttempted)return;
+    const wall=scene.userData.lsshWallGroup as Object3D|undefined;if(!wall)return;
+    this.preparationAttempted=true;
+    this.model.wallProbe?.start('known-wall-programs');
+    try {
+      this.target.texture.type=gl.extensions.has('EXT_color_buffer_float')?HalfFloatType:UnsignedByteType;
+      this.formatConfigured=true;
+      const submitted=prepareWallPrograms(gl,scene,camera,wall,this.target,this.material);
+      this.model.wallProbe?.note('wall-preparation',{submitted});
+    } catch(error) {
+      // Optional preparation can fail; the existing first-use render/fallback
+      // still owns the scene. Do not retry this work on every active frame.
+      this.model.wallProbe?.note('wall-preparation',{submitted:false,error:error instanceof Error?error.message:'preparation-failed'});
+    } finally {this.model.wallProbe?.end('known-wall-programs');}
+  }
 
   constructor(private readonly model: JourneyModel) {
     this.target.texture.colorSpace = NoColorSpace;
@@ -106,6 +140,7 @@ export default class WallPortal {
     const height = Math.max(1, Math.round(canvas.height * ratio));
     const size = `${width}:${height}`;
     if (this.targetSize !== size) {
+      this.model.wallProbe?.note('portal-target-size',{width,height,type:this.target.texture.type});
       this.target.setSize(width, height);
       this.targetSize = size;
       this.targetReady = false;
@@ -120,8 +155,10 @@ export default class WallPortal {
         visible: this.wallGroup.visible, position: this.wallGroup.position.y,
       };
       const lightLayers: { layers: { mask: number }; mask: number }[] = [];
+      const lights=this.model.wallProbe?{} as Record<string,number>:undefined;
       scene.traverse(object => {
         if ((object as Object3D & { isLight?: boolean }).isLight) {
+          if(lights)lights[object.type]=(lights[object.type]??0)+1;
           lightLayers.push({ layers: object.layers, mask: object.layers.mask });
           object.layers.enable(2);
         }
@@ -137,9 +174,15 @@ export default class WallPortal {
         gl.autoClear = true;
         gl.setClearColor(0x000000, 0);
         camera.layers.set(2);
+        this.model.wallProbe?.note('portal-draw-state',{allSceneLights:lights,toneMapping:gl.toneMapping});
+        this.model.wallProbe?.start('portal-target-bind');
         gl.setRenderTarget(this.target);
+        this.model.wallProbe?.note('portal-bound-target',gl.getRenderTarget()===this.target);
         gl.clear(true, true, true);
+        this.model.wallProbe?.end('portal-target-bind');
+        this.model.wallProbe?.start('portal-wall-draw');
         gl.render(scene, camera);
+        this.model.wallProbe?.end('portal-wall-draw');
         this.cameraState = [...camera.matrixWorld.elements, ...camera.projectionMatrix.elements];
         this.targetReady = true;
         this.sampleY = wallY;

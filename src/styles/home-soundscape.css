@@ -1,0 +1,17 @@
+/* F09 lives in the existing auxiliary controls, with no animated decoration. */
+.has-journey .home-sound-control { display: inline-flex; }
+.has-journey .home-sound-reason { position: absolute; bottom: calc(100% + 8px); right: 0; width: max-content; max-width: min(260px,calc(100vw - 32px)); margin: 0; font: 12px/1.5 var(--font-body); color: inherit; }
+.has-journey .home-sound-reason:empty { display: none; }
+.has-journey .home-sound[aria-disabled="true"] { cursor: default; border-color: currentColor; }
+.has-journey .home-sound { min-width: 88px; white-space: nowrap; }
+/* The existing floating component reads this numeric reserve in its bounds. */
+.has-journey .lssh-floating-player { --float-safe-bottom: 144px; max-height: calc(100dvh - 176px); }
+@media(max-width:767px) {
+  .has-journey .home-scene-controls { bottom: calc(4.25rem + env(safe-area-inset-bottom)); gap: 8px; }
+  .has-journey .home-scene-controls .home-sound { display: inline-block; }
+  .has-journey .home-chapter-index { bottom: calc(.5rem + env(safe-area-inset-bottom)); }
+  .has-journey .home-status { bottom: calc(8rem + env(safe-area-inset-bottom)); }
+  .has-journey.home-enhanced:not(.home-quiet) .home-wall .home-chapter-viewport { padding-bottom: 11rem; }
+  .has-journey:is(.home-quiet,.home-static) .home-chapter-viewport { padding-bottom: 11rem; }
+  .has-journey .home-sound-reason { max-width: calc(100vw - 40px); }
+}

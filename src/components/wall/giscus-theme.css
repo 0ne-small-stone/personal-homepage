@@ -1,0 +1,83 @@
+/* The Wall — original Giscus theme, via the official data-theme extension.
+ * Base: https://giscus.app/themes/light.css (Giscus / Primer, MIT).
+ * Site overrides below are original. Keep native identity, errors and actions.
+ */
+@import url("https://giscus.app/themes/light.css");
+
+main {
+  color-scheme: light;
+  --color-fg-default: #272a2c;
+  --color-fg-muted: #62645d;
+  --color-fg-subtle: #62645d;
+  --color-canvas-default: #f2efe8;
+  --color-canvas-overlay: #faf8f4;
+  --color-canvas-inset: #faf8f4;
+  --color-canvas-subtle: #ebe7df;
+  --color-border-default: #c3bfb5;
+  --color-border-muted: #d5d1c8;
+  --color-neutral-muted: #272a2c0c;
+  --color-accent-fg: #272a2c;
+  --color-accent-emphasis: #1f1f1f;
+  --color-accent-muted: #72746e;
+  --color-accent-subtle: #ebe7df;
+  --color-btn-text: #272a2c;
+  --color-btn-bg: #f2efe8;
+  --color-btn-border: #c3bfb5;
+  --color-btn-shadow: none;
+  --color-btn-inset-shadow: none;
+  --color-btn-hover-bg: #e8e4dc;
+  --color-btn-hover-border: #72746e;
+  --color-btn-active-bg: #e8e4dc;
+  --color-btn-active-border: #72746e;
+  --color-btn-selected-bg: #e8e4dc;
+  --color-btn-primary-text: #faf8f4;
+  --color-btn-primary-bg: #1f1f1f;
+  --color-btn-primary-border: #1f1f1f;
+  --color-btn-primary-shadow: none;
+  --color-btn-primary-inset-shadow: none;
+  --color-btn-primary-hover-bg: #363837;
+  --color-btn-primary-hover-border: #363837;
+  --color-btn-primary-selected-bg: #1f1f1f;
+  --color-btn-primary-selected-shadow: none;
+  --color-btn-primary-disabled-text: #62645d;
+  --color-btn-primary-disabled-bg: #e1ddd4;
+  --color-btn-primary-disabled-border: #c3bfb5;
+  --color-segmented-control-bg: #ebe7df;
+  --color-segmented-control-button-bg: #f2efe8;
+  --color-segmented-control-button-selected-border: #72746e;
+  --color-primer-shadow-inset: none;
+  --color-action-list-item-default-hover-bg: #272a2c0c;
+  --color-scale-gray-1: #e8e4dc;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+.gsc-main { font-family: inherit; }
+.gsc-header { margin-bottom: 16px; }
+.gsc-comments-count { font-size: 13px; font-weight: 500; }
+.gsc-comment-box { border-radius: 8px; }
+.gsc-comment-box-tabs { border-radius: 8px 8px 0 0; }
+.gsc-right-header .btn, .gsc-comment-box-tabs button { min-height: 44px; }
+.gsc-comment-box-md-toolbar .gsc-toolbar-item { min-width: 44px; min-height: 44px; }
+.gsc-comment-box-textarea {
+  min-height: 132px;
+  padding: 14px;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.75;
+  border-radius: 5px;
+  resize: vertical;
+}
+.gsc-comment-box-textarea::placeholder { color: #62645d; opacity: 1; }
+.gsc-comment-box-bottom { align-items: center; gap: 8px; }
+.gsc-comment-box-bottom button, .gsc-comment-box-bottom a { min-height: 44px; }
+.gsc-comment-box-bottom button { display: inline-flex; align-items: center; }
+.gsc-comment-box-buttons .btn-primary { padding-inline: 22px; border-radius: 24px; }
+.gsc-reply-box button { min-height: 44px; font-size: 14px; }
+.gsc-comment-content, .gsc-reply-content { font-size: 15px; line-height: 1.8; overflow-wrap: anywhere; }
+.gsc-comment { border-radius: 8px; }
+.gsc-comment-author { font-size: 13px; }
+main :is(button, a, textarea):focus-visible { outline: 2px solid #444; outline-offset: 2px; box-shadow: none; }
+@media (max-width: 400px) {
+  .gsc-comment-box-textarea { padding: 12px; }
+  .gsc-comment-box-buttons .btn-primary { padding-inline: 18px; }
+}

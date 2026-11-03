@@ -6,10 +6,15 @@ import type { JourneyModel } from './scene-state';
 import { wallReadingReady } from './wall-assembly';
 import { workCopyState } from './copy-state';
 import { hasActiveSnap } from './frame-activity';
+import { scrollProbeEnabled } from './scroll-probe';
+import { chapterPosition } from './chapter-position.mjs';
+import { createRestorationSnap } from './restoration-snap.mjs';
 
 export function installWorksMotion(model: JourneyModel) {
   gsap.registerPlugin(ScrollTrigger);
   const body = document.body;
+  const scrollSample=scrollProbeEnabled()?{targetY:0,progress:0,centerTarget:0}:undefined;
+  if(scrollSample)model.scrollSample=scrollSample;
   const sections = [...document.querySelectorAll<HTMLElement>('[data-work-item]')];
   const hero = document.querySelector<HTMLElement>('#intro .home-chapter-viewport')!;
   const identityFallback = document.querySelector<HTMLAnchorElement>('.home-chapter-index a[href="#intro"]')!;
@@ -58,13 +63,14 @@ export function installWorksMotion(model: JourneyModel) {
     body.style.setProperty('--journey-height', `${innerHeight}px`);
   };
   measure();
+  const restorationSnap=createRestorationSnap(gsap.utils.snap(1/(workCount-1)));
   const channels: MotionChannel[] = ['kv', 'intro', 'works', 'event', 'snap', 'outro', 'prepare', 'expand', 'wall'];
   const triggers = channels.map(channel => ScrollTrigger.create({
     id: `lssh-${channel}`, start: () => motionRange(channel, model.motion.height)[0],
     end: () => motionRange(channel, model.motion.height)[1],
     onUpdate: trigger => { model.motion.raw[channel] = trigger.progress; model.invalidate(); },
     onRefresh: trigger => { model.motion.raw[channel] = trigger.progress; model.invalidate(); },
-    ...(channel === 'snap' ? { snap: { snapTo: 1 / (workCount - 1), duration: 1, delay: .1, ease: 'power3', directional: false } } : {}),
+    ...(channel === 'snap' ? { snap: { snapTo: restorationSnap.snapTo, duration: 1, delay: .1, ease: 'power3', directional: false } } : {}),
   }));
 
   const lenis = new Lenis({ lerp: .1, smoothWheel: true, syncTouch: false, autoRaf: false,
@@ -80,11 +86,9 @@ export function installWorksMotion(model: JourneyModel) {
     const h = model.motion.height;
     return s <= introGap ? 'kv' : s < h + introGap ? 'works_intro' : s < (workCount + 1) * h + introGap ? 'works' : s < (workCount + 2.5) * h + introGap ? 'works_outro' : s < motionRange('wall', h)[0] ? 'portal' : 'wall';
   };
-  const centeredIndex = (p: number) => {
-    const o = (workCount + 1) * p, rounded = Math.round(o + Number.EPSILON * 8);
-    return rounded + .4 * (o - rounded);
-  };
+  const centeredIndex = (p: number) => chapterPosition(p,workCount);
   function initialize(y: number, reason: string) {
+    restorationSnap.hold();
     abortSnap(); lenis.resize(); lenis.scrollTo(y, { immediate: true, force: true }); ScrollTrigger.update();
     const s = scrollY, h = model.motion.height;
     for (const channel of channels) {
@@ -112,10 +116,11 @@ export function installWorksMotion(model: JourneyModel) {
     const h = model.motion.height, s = scrollY;
     model.motion.phase = phaseAt(s);
     const p = progress.read(model.motion.raw.works);
+    if(scrollSample){scrollSample.targetY=lenis.targetScroll;scrollSample.progress=p;scrollSample.centerTarget=centeredIndex(p);}
     const renderedWall = wall.read(model.motion.portalCovered ? model.motion.raw.wall : 0);
     const renderedExpand = expand.read(renderedWall > .001 ? 1 : model.motion.raw.expand);
-    // Stabilize the exact half index after N=6 → N=4 floating point conversion.
-    // The 8-ULP tie tolerance is far smaller than a physical scroll pixel.
+    // Continuous chapter targets preserve the exact resting poses without a
+    // half-chapter step that the trailing center lerper has to catch up with.
     model.motion.rendered = { progress: p, index: center.read(centeredIndex(p)),
       background: background.read(model.motion.raw.works) * (workCount + 1), intro: title.read(model.motion.raw.intro),
       prepare: prepare.read(model.motion.raw.prepare), expand: renderedExpand, wall: renderedWall };
@@ -148,7 +153,7 @@ export function installWorksMotion(model: JourneyModel) {
     const currentIndex=chapter==='wall'?workCount+1:current;
     if(currentIndex!==lastCurrent){lastCurrent=currentIndex;chapterLinks.forEach((link,index)=>index===currentIndex?link.setAttribute('aria-current','location'):link.removeAttribute('aria-current'));}
   };
-  model.afterFrame = dt => {
+  model.flushRestore = () => {
     // Camera and cards have consumed this revision in the same R3F frame.
     if (pendingFocus !== undefined && body.classList.contains('home-enhanced')) {
       const focusOrigin = pendingFocus; pendingFocus = undefined;
@@ -156,6 +161,9 @@ export function installWorksMotion(model: JourneyModel) {
       document.getElementById(focusOrigin)?.focus({ preventScroll: true });
       document.dispatchEvent(new CustomEvent('lssh:home-restored', { detail: { ...model.motion.initialization, focusOrigin } }));
     }
+  };
+  model.afterFrame = dt => {
+    model.flushRestore?.();
     // Optional read-only diagnostics: browser tests subscribe; no product controls or text.
     if (document.documentElement.dataset.motionDiagnostics === 'true') {
       const snapshot = { ...structuredClone(model.motion), lerpers: {
@@ -179,9 +187,18 @@ export function installWorksMotion(model: JourneyModel) {
     const tween = triggers[4].getTween(true);
     if (tween) tween.pause().kill();
   }
-  window.addEventListener('wheel', abortSnap, { passive: true, signal: controller.signal });
-  window.addEventListener('touchstart', abortSnap, { passive: true, signal: controller.signal });
-  const resize = () => { measure(); lenis.resize(); ScrollTrigger.refresh(); model.invalidate(); };
+  const scrollIntent=(event:Event)=>{
+    if(!event.isTrusted)return;
+    if(event instanceof KeyboardEvent){
+      const element=event.target instanceof Element?event.target:null;
+      if(element?.closest('input, textarea, select, [contenteditable]')||(event.key===' '&&element?.closest('button, a'))||!['ArrowDown','ArrowUp','PageDown','PageUp','Home','End',' '].includes(event.key))return;
+    }
+    restorationSnap.release();abortSnap();
+  };
+  window.addEventListener('wheel', scrollIntent, { passive: true, signal: controller.signal });
+  window.addEventListener('touchstart', scrollIntent, { passive: true, signal: controller.signal });
+  window.addEventListener('keydown', scrollIntent, { passive: true, signal: controller.signal });
+  const resize = () => { restorationSnap.hold();abortSnap();measure(); lenis.resize(); ScrollTrigger.refresh(); document.dispatchEvent(new Event('lssh:home-layout-ready'));model.invalidate(); };
   window.addEventListener('resize', resize, { signal: controller.signal });
   window.addEventListener('pageshow', event => { if (event.persisted) { ScrollTrigger.refresh(); initialize(scrollY, 'pageshow'); } }, { signal: controller.signal });
   document.addEventListener('click', event => {
@@ -189,7 +206,7 @@ export function installWorksMotion(model: JourneyModel) {
     if (!anchor || event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.altKey || event.shiftKey) return;
     const url = new URL(anchor.href); if (url.pathname !== location.pathname || !url.hash) return;
     const target = document.getElementById(url.hash.slice(1)); if (!target) return;
-    event.preventDefault(); abortSnap();
+    event.preventDefault(); restorationSnap.release();abortSnap();
     lenis.scrollTo(target.offsetTop, { duration: 1.2, easing: t => Math.min(1, 1.001 - 2 ** (-10 * t)) });
     model.invalidate();
     const chapterHistory={...history.state};delete chapterHistory.lsshHome;
@@ -208,10 +225,12 @@ export function installWorksMotion(model: JourneyModel) {
     pendingFocus = focusOrigin;
     initialize(y, reason || 'restore');
   }, { signal: controller.signal });
+  document.addEventListener('lssh:home-restore-cancel',()=>{pendingFocus=undefined;delete body.dataset.homeRestoring;},{signal:controller.signal});
   ScrollTrigger.refresh(); initialize(scrollY, 'layout');
   body.dataset.homeMotion = 'ready'; document.dispatchEvent(new Event('lssh:home-layout-ready'));
   return () => {
-    model.drive = undefined; model.afterFrame = undefined;
+    if(model.scrollSample===scrollSample)delete model.scrollSample;
+    model.drive = undefined; model.afterFrame = undefined;model.flushRestore=undefined;
     controller.abort(); disconnect(); triggers.forEach(trigger => trigger.kill()); lenis.destroy();
     delete body.dataset.homeMotion;
     delete body.dataset.homeMotionSample;

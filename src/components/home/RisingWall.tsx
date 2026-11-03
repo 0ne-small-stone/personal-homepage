@@ -12,6 +12,10 @@ export default function RisingWall({model,quiet}:{model:JourneyModel;quiet:boole
   const {scene,camera}=useThree();
   const floors=useMemo(()=>({brick:new InstancedBufferAttribute(new Float32Array(count),1).setUsage(DynamicDrawUsage),
     seam:new InstancedBufferAttribute(new Float32Array(count),1).setUsage(DynamicDrawUsage)}),[]);
+  // Both are live instanced-colour materials from their first compile. The
+  // former seam allocation at the first visible brick changed the program key.
+  const colors=useMemo(()=>({brick:new InstancedBufferAttribute(new Float32Array(count*3),3),
+    seam:new InstancedBufferAttribute(new Float32Array(count*3),3)}),[]);
   const geometry=useMemo(()=>new RoundedBoxGeometry(wallBrick.width,wallBrick.height,wallBrick.depth,3,wallBrick.bevel).setAttribute('stoneFloor',floors.brick),[floors]);
   const material=useMemo(()=>makeWallMaterial(),[]),seamMaterial=useMemo(()=>makeWallMaterial(true),[]);
   // Each brick carries its own seam support; no complete pale backing before assembly.
@@ -40,6 +44,8 @@ export default function RisingWall({model,quiet}:{model:JourneyModel;quiet:boole
   },[scene]);
   useFrame(()=>{
     const root=group.current,mesh=bricks.current,seams=mortar.current;if(!root||!mesh||!seams)return;
+    model.wallProbe?.start('wall-assembly');
+    model.wallProbe?.note('wall-before',{brickColor:Boolean(mesh.instanceColor),seamColor:Boolean(seams.instanceColor)});
     const e=model.motion.rendered.expand,w=model.motion.rendered.wall,build=quiet?0:wallBuild(e,w);
     root.position.set(0,0,-1);
     root.visible=!quiet&&e>=.999&&model.motion.portalCovered&&build>0;
@@ -77,12 +83,14 @@ export default function RisingWall({model,quiet}:{model:JourneyModel;quiet:boole
       summary.current=stats;revision.current++;
     }
     scene.userData.lsshWallRevision=revision.current;scene.userData.lsshWallBuild=build;
+    model.wallProbe?.note('wall-after',{build,revision:revision.current,drawn:mesh.count,visible:root.visible,brickColor:Boolean(mesh.instanceColor),seamColor:Boolean(seams.instanceColor)});
+    model.wallProbe?.end('wall-assembly');
     if(document.documentElement.dataset.motionDiagnostics==='true')model.motion.wall={raw:model.motion.raw.wall,rise:w,build,
       position:root.position.toArray(),visible:root.visible,revision:revision.current,...summary.current};
   },-1);
   return <group ref={group}>
     <pointLight position={[-3,3.8,4.4]} intensity={14} decay={2} color="#f3f1eb" />
-    <instancedMesh ref={mortar} args={[support,seamMaterial,count]} frustumCulled={false} />
-    <instancedMesh ref={bricks} args={[geometry,material,count]} frustumCulled={false} />
+    <instancedMesh ref={mortar} args={[support,seamMaterial,count]} instanceColor={colors.seam} frustumCulled={false} />
+    <instancedMesh ref={bricks} args={[geometry,material,count]} instanceColor={colors.brick} frustumCulled={false} />
   </group>;
 }
