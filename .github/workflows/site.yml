@@ -119,6 +119,9 @@ jobs:
       - name: Test latest homepage and public guestbook
         run: node --test tests/home-*.test.mjs tests/native-transition-ready.test.mjs tests/wall-*.test.mjs tests/guestbook-*.test.mjs tools/tests/relief-helpers.test.mjs
 
+      - name: Test integrated learning, showcase and invitation interactions
+        run: node --test tools/verification/knowledge-return.test.mjs tests/showcase*.test.mjs tests/music-invite.test.mjs
+
       - name: Prepare complete public guestbook snapshot
         run: node tools/guestbook/export-pages.mjs
 
@@ -128,7 +131,7 @@ jobs:
           PUBLIC_MUSIC_API_ORIGIN: ${{ vars.PUBLIC_MUSIC_API_ORIGIN }}
 
       - name: Test website directory with built markup
-        run: node --test tests/website-directory.test.mjs
+        run: node --test tests/website-directory.test.mjs tests/website-invite.test.mjs
 
       - name: Verify gallery preview assets
         run: node tools/content/prepare-gallery-previews.mjs --check

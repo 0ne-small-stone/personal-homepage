@@ -1,77 +1,95 @@
-/* P13 / T25.41: original photographic hardware, measured native interaction regions. */
-@font-face { font-family: 'Echoes Tape Hand'; src: url('../../public/music/fonts/long-cang-tape-v1.ttf') format('truetype'); font-style: normal; font-weight: 400; font-display: swap; }
-.cassette-station { --key-face-height: 4.1cqw; --cassette-head-height: clamp(44px, 5.3cqw, 48px); --cassette-handle-lift: max(0px, calc(48px - 4cqw)); position: relative; width: 100%; max-width: 900px; container: cassette-station / inline-size; }
-.cassette-hardware-stack { padding-top: var(--cassette-handle-lift); }
-.cassette-radio { position: relative; isolation: isolate; width: 100%; aspect-ratio: 1881 / 836; margin-bottom: max(8px, calc(44px - var(--key-face-height))); pointer-events: none; }
-.cassette-bay, .cassette-keys { pointer-events: auto; }
-.cassette-radio-material { position: relative; z-index: 0; display: block; width: 100%; height: 100%; clip-path: inset(16% 0 0); pointer-events: none; user-select: none; -webkit-user-select: none; }
-.netease-app .cassette-radio-front, .netease-app .cassette-radio-handle, .netease-app .cassette-handle-extension { position: absolute; left: 0; width: 100%; height: 100%; max-width: none; fill: none; stroke: none; pointer-events: none; }
-.netease-app .cassette-radio-front { z-index: 5; top: 0; }
-.netease-app .cassette-radio-handle { z-index: 4; top: calc(-1 * var(--cassette-handle-lift)); }
-.netease-app .cassette-handle-extension { z-index: 3; top: calc(4.25cqw - var(--cassette-handle-lift)); height: calc(3cqw + var(--cassette-handle-lift)); }
-.cassette-bay { position: absolute; z-index: 2; left: 59.3%; top: 33%; width: 36%; height: 37.5%; display: grid; place-items: center; overflow: hidden; border-radius: 3px; isolation: isolate; transition: box-shadow 180ms ease; }
-.cassette-bay.is-over { box-shadow: inset 0 0 0 2px #d6d6ca; }
-.cassette-slot { display: block; position: absolute; left: 2.6%; top: -5.75%; width: 91%; aspect-ratio: 1.6; z-index: 1; }
-.cassette-glass { position: absolute; z-index: 3; inset: 0; pointer-events: none; background: linear-gradient(125deg, #ffffff08, transparent 38%, #00000009); box-shadow: inset 0 1px 1px #ffffff08, inset 0 -2px 4px #0005; transform-origin: center bottom; transition: transform 250ms ease, opacity 250ms ease; }
-.cassette-bay.is-changing .cassette-glass { transform: perspective(600px) rotateX(-7deg); opacity: .25; }
-.cassette-keys { position: absolute; z-index: 6; left: 63.6%; top: 76.4%; width: 26.3%; height: 10%; display: flex; gap: 2.6%; }
-.netease-app .cassette-key { --engrave-shadow: #000d; --engrave-rim: #ffffff42; position: relative; flex: 1; min-width: 44px; min-height: 44px; height: 100%; margin: 0; padding: 0; border: 0; border-radius: 2px; background: transparent; color: #99998f; font: inherit; font-size: clamp(10px, 1.25cqw, 12px); line-height: 1.2; cursor: pointer; -webkit-tap-highlight-color: transparent; }
-.netease-app .cassette-key-play { --engrave-shadow: #0009; --engrave-rim: #ffffffe0; color: #45433d; }
-.cassette-key-content { display: flex; align-items: center; justify-content: center; gap: 6px; position: absolute; inset: 0 0 auto; height: var(--key-face-height); font-weight: 500; letter-spacing: .08em; }
-.cassette-key-content > span { text-shadow: 0 -.65px .45px var(--engrave-shadow), 0 .75px .35px var(--engrave-rim); }
-.netease-app .cassette-key svg { width: 1.1em; height: 1.1em; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 -.65px .35px var(--engrave-shadow)) drop-shadow(0 .75px .25px var(--engrave-rim)); }
-.netease-app .cassette-key:disabled { opacity: 1; cursor: default; }
-.netease-app .cassette-key:not(:disabled):active { --engrave-rim: #ffffff2b; }
-.netease-app .cassette-key:focus-visible, .netease-app .cassette-choice:focus-visible { outline: 2px solid #deded6; outline-offset: 4px; }
-.cassette-radio-footer { display: grid; grid-template-columns: 59.3% 36% 4.7%; align-items: center; }
-.cassette-lcd { box-sizing: border-box; position: absolute; z-index: 2; top: calc(var(--cassette-handle-lift) + 11.6cqw); left: 59.3%; width: 36%; height: 3cqw; padding: 2px; border: 1px solid #53574c; border-radius: 2px; background: #34382f; box-shadow: inset 0 1px 2px #0009; pointer-events: none; }
-.cassette-lcd-screen { box-sizing: border-box; position: relative; display: flex; align-items: center; gap: 8px; width: 100%; height: 100%; padding: 0 8px; overflow: hidden; color: #253127; background: #a2aa91; box-shadow: inset 0 2px 3px #39452c50; }
-.cassette-lcd-screen::after { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .22; background: radial-gradient(#27362250 .4px, transparent .7px) 0 0 / 2px 2px, linear-gradient(168deg, #ffffff18, transparent 55%); }
-.cassette-lcd .cassette-lcd-symbol { flex: 0 0 17px; width: 17px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.4; }
-.cassette-lcd-mode { min-width: 0; margin: 0; font-size: clamp(14px, 1.7cqw, 15px); line-height: 1.2; font-weight: 600; letter-spacing: .12em; white-space: nowrap; text-shadow: 1px 1px #65735440; }
-.cassette-lcd-state { flex-shrink: 0; margin-left: auto; font-size: 12px; line-height: 1.2; font-weight: 500; letter-spacing: .05em; }
-.cassette-shelf { position: absolute; z-index: 1; top: calc(4cqw - var(--cassette-handle-lift) + 1px); left: 10%; display: grid; grid-template-columns: repeat(3, minmax(0, 210px)); justify-content: center; gap: clamp(8px, 3cqw, 28px); width: 80%; height: var(--cassette-head-height); pointer-events: auto; }
-.netease-app .cassette-choice { min-width: 0; height: 100%; padding: 0; margin: 0; border: 0; border-radius: 5px 5px 0 0; color: #c5c4bd; background: none; text-align: center; font: inherit; touch-action: none; user-select: none; -webkit-user-select: none; cursor: pointer; }
-.cassette-choice-case { position: relative; display: block; height: 100%; overflow: hidden; border-radius: 5px 5px 0 0; cursor: grab; }
-.cassette-choice-case::after { content: ''; position: absolute; z-index: 2; inset: auto 0 0; height: 12px; background: linear-gradient(transparent, #111c); pointer-events: none; }
-.cassette-choice-case > .cassette-body { width: max(100%, 180px); margin-left: 50%; transform: translateX(-50%); transition: transform 180ms cubic-bezier(.2,.7,.3,1); }
-.cassette-choice:active .cassette-choice-case { cursor: grabbing; }
-.cassette-choice.is-selected .cassette-choice-case, .cassette-choice.is-selected:active .cassette-choice-case { cursor: pointer; }
-.netease-app .cassette-choice:disabled, .cassette-choice:disabled .cassette-choice-case { cursor: default; }
-.cassette-choice.is-selected .cassette-body, .cassette-choice.is-moving .cassette-body { opacity: 0; }
-.cassette-body, .cassette-body * { box-sizing: border-box; }
-.cassette-body { container-type: inline-size; position: relative; display: block; width: 100%; aspect-ratio: 1.6; isolation: isolate; filter: drop-shadow(0 5px 5px #0005); }
-.cassette-body .cassette-material { position: absolute; left: -1.776316%; top: -4.485777%; width: 103.486842%; height: 109.40919%; max-width: none; pointer-events: none; user-select: none; -webkit-user-select: none; }
-.cassette-body[data-mode='daily'] { --tape-label-angle: -1.2deg; }
-.cassette-body[data-mode='heart'] { --tape-label-angle: .8deg; }
-.cassette-body[data-mode='fm'] { --tape-label-angle: -.6deg; }
-.cassette-paper-title { position: absolute; top: 4%; left: 27.5%; right: 27.5%; display: flex; align-items: center; justify-content: center; height: 26%; margin: 0; color: #4a3e2c; font-family: 'Echoes Tape Hand', KaiTi, STKaiti, cursive; font-size: max(8px, 8cqw); line-height: 1; font-weight: 400; letter-spacing: .03em; white-space: nowrap; transform: rotate(var(--tape-label-angle, 0deg)); pointer-events: none; }
-.cassette-paper-title::before { content: ''; position: absolute; inset: 0; background: url('../../public/music/hardware/label-red-vintage-v1.svg') center / 100% 100% no-repeat; filter: drop-shadow(0 1px 1px #0005); }
-.cassette-paper-title::after { content: ''; position: absolute; inset: 0; border-radius: 1px; opacity: .55; background: radial-gradient(ellipse at 5% 12%, #65513046 0 .6px, transparent 1.3px), radial-gradient(ellipse at 91% 82%, #7d653540 0 .7px, transparent 1.5px), linear-gradient(0deg, transparent 5%, #f9efd333 5.5%, transparent 7%, transparent 93%, #79633e22 96%, transparent 98%); pointer-events: none; }
-.cassette-paper-title > span { position: relative; z-index: 1; padding-bottom: .04em; opacity: .94; text-shadow: .3px .15px #62503938; }
-.cassette-slot .cassette-body { filter: drop-shadow(0 2px 2px #0009); }
-.cassette-flight { position: absolute; z-index: 1; top: 0; left: 0; visibility: hidden; transform-origin: 0 0; pointer-events: none; }
-.cassette-choice:not(:disabled):not(.is-selected):focus-visible .cassette-body { transform: translateX(-50%) translateY(-4px); }
+/* P13: three original cut-paper paintings, with labels outside the artwork. */
+.ne-listening-modes {
+  --ne-mode-surface: #161617;
+  --ne-mode-ink: #f5f5f7;
+  --ne-mode-secondary: #b6b6bd;
+  --ne-mode-ease: cubic-bezier(.22, 1, .36, 1);
+  container: listening-modes / inline-size;
+}
+.ne-listening-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ne-listening-grid > li { min-width: 0; }
+.netease-app .ne-listening-mode {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--ne-mode-ink);
+  text-align: left;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.ne-mode-art {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--ne-mode-surface);
+  pointer-events: none;
+  transition: transform 320ms var(--ne-mode-ease), box-shadow 200ms ease;
+}
+.ne-mode-art > img { display: block; width: 100%; height: 100%; max-width: none; object-fit: contain; }
+.ne-listening-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 2px 4px;
+}
+.ne-listening-copy { display: grid; gap: 4px; min-width: 0; }
+.ne-listening-copy > strong { font-size: 20px; font-weight: 600; line-height: 1.4; letter-spacing: -.025em; }
+.ne-listening-copy > span { color: var(--ne-mode-secondary); font-size: 13px; line-height: 1.5; }
+.ne-listening-arrow {
+  display: grid;
+  flex: 0 0 28px;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgb(255 255 255 / 20%);
+  border-radius: 50%;
+  color: #d2d2d7;
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+.ne-listening-arrow .invite-mark { display: inline-flex; width: 20px; height: 20px; pointer-events: none; }
+.netease-app .ne-listening-arrow .invite-mark > svg { display: block; width: 20px; height: 20px; overflow: visible; stroke-width: 1.5; }
+.netease-app .ne-listening-mode:focus-visible { outline: 2px solid var(--ne-mode-ink); outline-offset: 6px; }
+.ne-listening-mode:focus-visible .ne-listening-arrow { background: rgb(255 255 255 / 7%); }
+.netease-app .ne-listening-mode:active .ne-mode-art { transform: scale(.985); }
+.ne-mode-art.is-unavailable { background: #29292c; }
 @media (hover: hover) and (pointer: fine) {
-  .cassette-choice:not(:disabled):not(.is-selected):hover .cassette-body { filter: drop-shadow(0 7px 7px #0008); }
-  .cassette-choice:not(:disabled):not(.is-selected):hover .cassette-body { transform: translateX(-50%) translateY(-4px); }
+  .ne-listening-mode:hover .ne-mode-art { transform: translateY(-3px); box-shadow: 0 8px 24px rgb(0 0 0 / 18%); }
+  .ne-listening-mode:hover .ne-listening-arrow { background: rgb(255 255 255 / 7%); }
 }
-@container cassette-station (max-width: 760px) {
-  .cassette-radio-footer { grid-template-columns: minmax(0, 1fr); gap: 10px; padding-inline: 3px; }
-  .cassette-lcd { position: static; width: 100%; height: 36px; padding: 3px; }
-  .cassette-lcd-screen { gap: 10px; padding-inline: 12px; }
-  .cassette-lcd-mode { font-size: 15px; }
-}
-@container cassette-station (max-width: 600px) {
-  .cassette-shelf { left: 2%; width: 96%; }
-}
-@container cassette-station (max-width: 310px) {
-  .cassette-radio-footer { gap: 6px; }
-}
-@container cassette-station (max-width: 350px) {
-  .cassette-keys { left: calc(76.75% - 45px); width: 90px; gap: 2px; }
+@container listening-modes (max-width: 620px) {
+  .ne-listening-grid { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .netease-app .ne-listening-mode {
+    display: grid;
+    grid-template-columns: clamp(92px, 30cqw, 120px) minmax(0, 1fr);
+    align-items: center;
+    gap: 16px;
+    padding: 8px;
+    border-radius: 14px;
+    background: var(--ne-mode-surface);
+  }
+  .ne-mode-art { border-radius: 8px; }
+  .ne-listening-meta { padding: 8px 6px 8px 0; gap: 8px; }
+  .ne-listening-copy > strong { font-size: 18px; }
+  .ne-listening-copy > span { font-size: 12px; }
+  .ne-listening-arrow { width: 24px; height: 24px; flex-basis: 24px; border-color: transparent; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .cassette-glass, .cassette-bay, .cassette-key-content, .cassette-choice-case > .cassette-body { transition: none; }
-  .cassette-choice:not(:disabled):not(.is-selected):hover .cassette-body, .cassette-choice:not(:disabled):not(.is-selected):focus-visible .cassette-body { transform: translateX(-50%); }
+  .ne-mode-art, .ne-listening-arrow { transition: none; }
+  .netease-app .ne-listening-mode:hover .ne-mode-art,
+  .netease-app .ne-listening-mode:active .ne-mode-art,
+  .ne-listening-mode:hover .ne-listening-arrow { transform: none; }
 }

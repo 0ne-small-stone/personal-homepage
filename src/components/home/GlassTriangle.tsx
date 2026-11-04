@@ -38,7 +38,15 @@ export default function GlassTriangle({ model, paused, hover, mobile,frozen=fals
     mesh.current.visible = paused || (model.motion.rendered.expand < .999 && model.motion.rendered.wall < .9999);
     // Drei checks material.visible, not the parent's visibility, before its
     // transmission capture. A covered prism must not render the wall again.
-    if(transmission.current)transmission.current.visible=mesh.current.visible;
+    if(transmission.current){
+      transmission.current.visible=mesh.current.visible;
+      // An explicit map keeps the gain local to this material. Three otherwise
+      // replaces envMapIntensity with scene.environmentIntensity each frame.
+      if(scene.environment&&transmission.current.envMap!==scene.environment){
+        transmission.current.envMap=scene.environment;
+        transmission.current.needsUpdate=true;
+      }
+    }
     scene.userData.lsshGlassMesh=mesh.current;
     if (document.documentElement.dataset.motionDiagnostics === 'true') {
       model.motion.glassRotation = diagnostics;
@@ -73,7 +81,7 @@ export default function GlassTriangle({ model, paused, hover, mobile,frozen=fals
       ref={transmission}
       transmission={1}
       ior={1.45}
-      roughness={.08}
+      roughness={.055}
       thickness={.25}
       chromaticAberration={0}
       distortion={0}
@@ -82,8 +90,8 @@ export default function GlassTriangle({ model, paused, hover, mobile,frozen=fals
       resolution={mobile ? 256 : 512}
       backside={false}
       color="#ffffff"
-      envMapIntensity={.8}
-      specularIntensity={.35}
+      envMapIntensity={.48}
+      specularIntensity={.32}
     />
     <GlassEdgeLight mesh={mesh} geometry={geometry} model={model} mobile={mobile} quiet={paused} />
   </mesh>;

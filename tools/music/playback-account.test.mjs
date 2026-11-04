@@ -4,6 +4,7 @@ import {once} from 'node:events';
 import {createPlaybackAccount} from './playback-account.mjs';
 import {createMusicPreview} from './preview-service.mjs';
 import {fetchPlaybackIndex} from './playback-index.mjs';
+import api from '@neteasecloudmusicapienhanced/api';
 
 const now=Date.now();
 const index=status=>({version:1,updatedAt:new Date(now).toISOString(),tracks:[{id:'4238134',status,audioUrl:'https://m701.music.126.net/account.mp3',expiresAt:new Date(now+600000).toISOString(),previewSeconds:status==='preview'?30:null}]});
@@ -11,6 +12,30 @@ function setup(extra={}) {
   const sdk={login_qr_key:async()=>({body:{code:200,data:{unikey:'qr-key'}}}),login_qr_create:async()=>({body:{data:{qrimg:'data:image/png;base64,test'}}}),login_qr_check:async()=>({body:{code:803,cookie:'test-account-cookie'}}),login_status:async()=>({body:{data:{code:200,profile:{userId:123,nickname:'测试账号'}}}}),...extra};
   const cookies=[];const account=createPlaybackAccount({sdk,resolve:async cookie=>{cookies.push(cookie);return index('full');}});return{account,sdk,cookies};
 }
+test('web QR login opts into the upstream chainId flow without sending account credentials',async()=>{
+  let input;
+  const {account}=setup({login_qr_create:async query=>{input=query;return{body:{data:{qrimg:'data:image/png;base64,test'}}};}});
+  await account.createQr();
+  assert.equal(input.platform,'web');assert.equal(input.key,'qr-key');assert.equal(input.qrimg,true);
+  assert.equal(input.cookie,undefined);
+  account.cancel();assert.equal((await account.checkQr()).code,800);account.dispose();
+});
+
+test('installed QR generator creates the official web login URL with chainId',async()=>{
+  const result=await api.login_qr_create({key:'test-only-key',platform:'web',qrimg:true});
+  const data=(result.body||result).data;const url=new URL(data.qrurl);
+  assert.equal(url.origin,'https://music.163.com');assert.equal(url.pathname,'/login');
+  assert.equal(url.searchParams.get('codekey'),'test-only-key');
+  assert.match(url.searchParams.get('chainId'),/^v1_.+_web_login_\d+$/);
+  assert.match(data.qrimg,/^data:image\/png;base64,/);
+});
+
+test('memory-only account reports persistence as unavailable',()=>{
+  const {account}=setup();assert.equal(account.state().persistenceAvailable,false);account.dispose();
+  const persisted=createPlaybackAccount({store:{load:async()=>null}});
+  assert.equal(persisted.state().persistenceAvailable,true);persisted.dispose();
+});
+
 test('QR login verifies a personal account, keeps credentials private and resolves licensed full audio',async()=>{
   const {account,cookies}=setup();assert.equal(account.state().authorized,false);
   await account.createQr();const result=await account.checkQr();assert.equal(result.code,803);assert.equal(account.state().account.nickname,'测试账号');

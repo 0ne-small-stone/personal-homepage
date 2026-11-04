@@ -26,7 +26,7 @@ const { title = 'Little Stone Still Here', description = '小石的学习、作�
         }
       } catch { /* Storage or navigation timing is optional. */ }
     </script>}
-    <a class="home-skip" href="#main-content">{lang === 'en' ? 'Skip to content' : '跳到正文'}</a><HomeHeader homeHref={homeHref} homeIconOnly={homeIconOnly} journey={journey} lang={lang} languageHref={languageHref} />
+    <a class="home-skip" href="#main-content">{lang === 'en' ? 'Skip to content' : '跳到正文'}</a><HomeHeader homeHref={homeHref} journey={journey} lang={lang} languageHref={languageHref} />
     <main id="main-content" tabindex="-1"><slot /></main>
     {!journey && !languageHref && !homeIconOnly && <footer class="home-page-footer"><span>LSSH</span></footer>}
     <PersistentPlayer client:load transition:persist="lssh-audio" transition:persist-props />

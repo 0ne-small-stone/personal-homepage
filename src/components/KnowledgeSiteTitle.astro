@@ -1,12 +1,14 @@
 ---
 import ReturnLink from './navigation/DivisionBellReturn.astro';
-const { siteTitleHref } = Astro.locals.starlightRoute;
+import {sitePath} from '../lib/paths';
+import PublicDirectory from './PublicDirectory.astro';
 ---
 <div class="site-title-directory">
-  <ReturnLink class="site-title" href={siteTitleHref} label="首页" compact iconOnly />
+  <ReturnLink href={sitePath()} label="首页" compact iconOnly />
+  <PublicDirectory align="start" />
 </div>
 <style>
   .site-title-directory { display: flex; align-items: center; gap: var(--space-3); position: relative; min-width: 0; }
-  /* Keep the approved glyph's full hit area. Search/TOC stay native. */
+  /* Keep the disclosure outside the native title clipping box. Search/TOC stay native. */
   :global(.title-wrapper:has(.site-title-directory)) { overflow: visible; }
 </style>

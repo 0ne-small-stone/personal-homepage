@@ -1,0 +1,155 @@
+/* P03/P05/P06: Someone reading frame. SYSTEM 5.2.5. */
+html:has(.becoming-shell) {
+  --becoming-bg: #000; --becoming-surface: #141414; --becoming-active: #262626;
+  --becoming-border: #242424; --becoming-control-border: #777;
+  --becoming-text: #ededed; --becoming-muted: #a1a1a1;
+  --becoming-measure: 40.5rem; --becoming-rail: 10rem; --becoming-gap: 4rem;
+  --becoming-frame: calc(var(--becoming-rail) + var(--becoming-gap) + var(--becoming-measure));
+  --becoming-gutter: max(2.5rem, calc((100% - var(--becoming-frame)) / 2));
+  --sl-nav-height: calc(80px + env(safe-area-inset-top,0px)); --sl-sidebar-width: var(--becoming-rail); --sl-content-width: var(--becoming-measure);
+  --sl-color-bg: var(--becoming-bg); --sl-color-bg-nav: var(--becoming-bg); --sl-color-bg-sidebar: var(--becoming-bg); --sl-color-black: var(--becoming-bg);
+  --sl-color-white: var(--becoming-text); --sl-color-text: var(--becoming-text); --sl-color-gray-1: var(--becoming-text);
+  --sl-color-gray-2: var(--becoming-muted); --sl-color-gray-3: var(--becoming-control-border); --sl-color-gray-5: var(--becoming-border); --sl-color-gray-6: var(--becoming-surface);
+  --sl-color-hairline: var(--becoming-border); --sl-color-hairline-shade: var(--becoming-border); --sl-color-hairline-light: var(--becoming-border);
+  --sl-color-accent: var(--becoming-text); --sl-color-accent-low: var(--becoming-surface); --sl-color-accent-high: var(--becoming-text);
+  --sl-font: var(--font-reading);
+  background: var(--becoming-bg); scrollbar-width: thin; scrollbar-color: var(--becoming-border) var(--becoming-bg);
+}
+html[data-theme='light']:has(.becoming-shell) {
+  --becoming-bg: #fff; --becoming-surface: #f5f5f5; --becoming-active: #e5e5e5;
+  --becoming-border: #e5e5e5; --becoming-control-border: #737373; --becoming-text: #171717; --becoming-muted: #525252;
+}
+.becoming-shell { color: var(--becoming-text); background: var(--becoming-bg); font-family: var(--font-reading); }
+.becoming-shell :focus-visible { outline: 2px solid var(--becoming-text); outline-offset: 3px; }
+.becoming-shell .page > .header { height: var(--sl-nav-height); padding: 0; border: 0; background: #000; }
+.becoming-shell .sidebar-pane { background: var(--becoming-bg); border: 0; scrollbar-width: thin; scrollbar-color: var(--becoming-border) var(--becoming-bg); }
+.becoming-shell .sidebar-content { padding: 0; gap: 1.5rem; }
+.becoming-sidebar-search lssh-site-search { display: block; width: 100%; }
+.becoming-sidebar-search lssh-site-search > button { width: 100%; min-height: 44px; border: 1px solid var(--becoming-control-border); border-radius: .625rem; background: transparent; color: var(--becoming-muted); font-size: .875rem; }
+.becoming-sidebar-search lssh-site-search > button > kbd { display: none !important; }
+.becoming-shell .sidebar .top-level > li + li { margin-top: 1rem; }
+.becoming-shell .sidebar :is(a, summary) { display: flex; align-items: center; min-height: 44px; padding: .5rem 0; border-radius: 0; color: var(--becoming-muted); font-size: .875rem; line-height: 1.8; text-decoration: none; }
+.becoming-shell .sidebar summary { justify-content: space-between; gap: .5rem; }
+.becoming-shell .sidebar .large { font-size: .875rem; font-weight: 400; color: inherit; }
+.becoming-shell .sidebar ul ul li { margin-inline-start: 0; border-inline-start: 0; padding-inline-start: .75rem; }
+.becoming-shell .sidebar a[aria-current='page'] { color: var(--becoming-text); background: transparent; text-decoration: underline; text-underline-offset: .4em; }
+.becoming-shell .sidebar .group-label > .large { color: var(--becoming-text); font-weight: 500; }
+.becoming-shell .sidebar .mobile-preferences { display: none; }
+.becoming-theme { display: grid; gap: .25rem; padding-block: 1.5rem 2rem; border-top: 1px solid var(--becoming-border); font-size: .8125rem; color: var(--becoming-muted); }
+.becoming-theme select { min-height: 44px; }
+.becoming-reading-directory { margin: 0; }
+.becoming-shell .becoming-reading-directory > summary { color: var(--becoming-muted); }
+.becoming-shell .becoming-sidebar-toc h2 { margin: 0 0 1rem; font-size: .8125rem; font-weight: 400; color: var(--becoming-muted); }
+.becoming-shell .becoming-sidebar-toc a { padding: .5rem 0; }
+.becoming-shell .becoming-sidebar-toc a[aria-current='true'] { color: var(--becoming-text); background: transparent; text-decoration: underline; text-underline-offset: .4em; }
+.becoming-shell .main-frame { padding: clamp(8rem, 16svh, 11rem) 0 0; }
+.becoming-shell .main-pane { min-width: 0; width: 100%; }
+.becoming-shell .content-panel { padding: 0 0 2rem; }
+.becoming-shell .content-panel:has(h1) { padding-block: 0; }
+.becoming-shell .content-panel + .content-panel { border-top: 0; padding-top: 1rem; }
+.becoming-shell .sl-container { max-width: var(--becoming-measure); margin-inline: 0; }
+.becoming-page-label { margin: 0 0 2rem; color: var(--becoming-muted); font-size: .875rem; }
+.becoming-shell h1 { margin: 0; font: 400 1.5rem/1.4 var(--font-reading); letter-spacing: 0; overflow-wrap: anywhere; }
+.becoming-shell .becoming-intro { margin: 0 0 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--becoming-border); }
+.becoming-shell .becoming-lede { margin: 0; color: var(--becoming-muted); font-size: 1.125rem; line-height: 1.8; }
+.becoming-shell .becoming-collection-meta { display: flex; align-items: baseline; flex-wrap: wrap; gap: .5rem 1.25rem; margin-top: 1.5rem; color: var(--becoming-muted); font-size: .8125rem; }
+.becoming-shell .becoming-collection-meta > p { margin: 0; }
+.becoming-shell .becoming-collection-meta > p > span { padding-inline: .375rem; }
+.becoming-shell .becoming-collection-status { max-width: 100%; margin: 0; border: 0; padding: 0; background: transparent; }
+.becoming-shell .becoming-collection-status summary { min-height: 44px; display: flex; align-items: center; gap: .5rem; cursor: pointer; color: var(--becoming-muted); }
+.becoming-shell .becoming-collection-status summary::before { content: '+'; font-size: 1rem; position: static; width: auto; height: auto; margin: 0; background: none; mask: none; transform: none; }
+.becoming-shell .becoming-collection-status summary::marker { content: ''; }
+.becoming-shell .becoming-collection-status summary::-webkit-details-marker { display: none; }
+.becoming-shell .becoming-collection-status[open] { flex-basis: 100%; }
+.becoming-shell .becoming-collection-status[open] summary::before { content: '−'; }
+.becoming-shell .becoming-collection-status div { padding-inline-start: 1rem; border-inline-start: 1px solid var(--becoming-border); }
+.becoming-shell .becoming-collection-status div > p { margin: 0 0 .5rem; font-size: .875rem; line-height: 1.8; }
+.becoming-shell knowledge-type-filter { margin: 0; }
+.becoming-shell .knowledge-filter-toolbar { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--becoming-border); }
+.becoming-shell .knowledge-type-controls { grid-column: 1 / -1; min-width: 0; margin: 0; }
+.becoming-shell .knowledge-type-controls legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.becoming-shell .knowledge-type-options { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; }
+.becoming-shell .knowledge-type-options > .knowledge-type-option { position: relative; justify-content: center; min-height: 44px; padding: .5rem 0; border: 0; border-radius: 0; color: var(--becoming-muted); font-size: .875rem; font-weight: 400; background: transparent; }
+.becoming-shell .knowledge-type-option input { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.becoming-shell .knowledge-type-option:has(input:checked) { background: transparent; color: var(--becoming-text); text-decoration: underline; text-underline-offset: .5rem; font-weight: 500; }
+.becoming-shell .knowledge-type-option:focus-within { outline: 2px solid var(--becoming-text); outline-offset: 3px; }
+.becoming-shell :is(.knowledge-topic-controls, .knowledge-sort-controls) { display: grid; grid-template-columns: auto minmax(0,1fr); gap: .75rem; margin: 0; min-width: 0; }
+.becoming-shell :is(.knowledge-topic-controls, .knowledge-sort-controls) label { color: var(--becoming-muted); font-size: .8125rem; font-weight: 400; }
+.becoming-shell :is(.knowledge-topic-controls, .knowledge-sort-controls) select { width: 100%; min-width: 0; min-height: 44px; padding: .5rem; border: 1px solid var(--becoming-control-border); border-radius: .625rem; background: transparent; color: var(--becoming-text); font-size: 1rem; }
+.becoming-shell .knowledge-results-caption { display: flex; align-items: center; flex-wrap: wrap; justify-content: space-between; gap: .25rem 1rem; min-height: 44px; margin-block: .75rem; }
+.becoming-shell .knowledge-result-status { margin: 0; color: var(--becoming-muted); font-size: .8125rem; line-height: 1.8; }
+.becoming-shell [data-clear-filters] { min-height: 44px; padding: .5rem 0; border: 0; background: transparent; color: var(--becoming-text); font: inherit; font-size: .8125rem; cursor: pointer; text-decoration: underline; text-underline-offset: .3em; }
+.becoming-shell .knowledge-list { margin: 0; padding: 0; list-style: none; }
+.becoming-shell .knowledge-list > li { margin: 0; padding: 2rem 0; border-top: 0; border-bottom: 1px solid var(--becoming-border); border-radius: 0; }
+.becoming-shell .knowledge-list a { display: flex; align-items: center; min-height: 44px; padding: 0; color: var(--becoming-text); font-size: 1.25rem; font-weight: 500; line-height: 1.4; text-decoration: none; }
+.becoming-shell .knowledge-list > li > p { margin: .75rem 0 0; color: var(--becoming-muted); font-size: 1.125rem; line-height: 1.8; }
+.becoming-shell .knowledge-list > li > .knowledge-meta { margin: 1rem 0 0; color: var(--becoming-muted); font-size: .8125rem; line-height: 1.8; }
+.becoming-shell .knowledge-empty { padding-block: 2rem; color: var(--becoming-muted); }
+.becoming-shell .becoming-overview-footer { margin-top: 2rem; padding-bottom: 2rem; }
+.becoming-shell .becoming-overview-footer a { display: inline-flex; align-items: center; min-height: 44px; color: var(--becoming-muted); font-size: .875rem; text-underline-offset: .3em; }
+.becoming-shell .right-sidebar-container { display: none; }
+.becoming-article .sl-markdown-content { color: var(--becoming-muted); font-size: 1.125rem; line-height: 1.8; }
+.becoming-article .sl-markdown-content :is(h2,h3) { color: var(--becoming-text); font-weight: 500; letter-spacing: 0; }
+.becoming-article .sl-markdown-content h2 { margin-top: 4rem; font-size: 1.5rem; line-height: 1.4; }
+.becoming-article .sl-markdown-content h3 { font-size: 1.25rem; line-height: 1.4; }
+.becoming-article .sl-markdown-content p { margin-top: 1.5rem; }
+.becoming-article .sl-blog-metadata { color: var(--becoming-muted); font-size: .8125rem; }
+.becoming-article .sl-markdown-content a { text-underline-offset: .3em; }
+.becoming-article .sl-markdown-content blockquote { border-inline-start: 1px solid var(--becoming-control-border); color: var(--becoming-muted); padding-inline-start: 1.5rem; }
+.becoming-article .starlight-aside--note { border-color: var(--becoming-border); border-radius: .625rem; background: transparent; color: var(--becoming-text); }
+.becoming-article .starlight-aside--note .starlight-aside__title { color: var(--becoming-text); }
+.becoming-article .expressive-code { --ec-brdCol: var(--becoming-border); --ec-brdRad: .625rem; }
+.becoming-article .article-reading-actions { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem 1rem; position: sticky; top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height)); z-index: 10; padding-block: .5rem; border-bottom: 1px solid var(--becoming-border); background: var(--becoming-bg); }
+.becoming-article .article-reading-actions .article-navigation { flex: 1 1 20rem; gap: .25rem 1rem; margin: 0; font-size: .8125rem; }
+.becoming-article .article-navigation a { font-weight: 400; color: var(--becoming-muted); text-decoration: none; }
+.becoming-article .article-reading-actions learning-reading-mode { position: static; padding: 0; margin: 0; border: 0; }
+.becoming-article .related-knowledge { margin-top: 4rem; padding-top: 2rem; }
+.becoming-article .related-knowledge h2 { font-size: 1.25rem; font-weight: 500; }
+.becoming-shell mobile-starlight-toc .toggle { min-height: 44px; }
+.becoming-pdf .reader-bar { color: var(--becoming-muted); font-size: .8125rem; }
+
+@media (min-width:50rem) {
+  .becoming-shell .main-frame { width: var(--becoming-measure); margin-inline-start: calc(var(--becoming-gutter) + var(--becoming-rail) + var(--becoming-gap)); }
+  .becoming-shell .sidebar-pane { inset-block: clamp(8rem,16svh,11rem) 0; inset-inline-start: var(--becoming-gutter); width: var(--becoming-rail); }
+  html:not([data-reading-immersive]) .becoming-pdf .main-frame { width: calc(100% - var(--becoming-gutter) - var(--becoming-rail) - var(--becoming-gap) - 2.5rem); }
+  .becoming-pdf .sl-container { max-width: none; }
+}
+@media (max-width:71.999rem) {
+  .becoming-sidebar-toc { display: none; }
+  html:has(.becoming-article) { --becoming-mobile-toc: var(--sl-mobile-toc-height); }
+  .becoming-shell mobile-starlight-toc nav { inset-inline-start: 0; }
+  .becoming-shell .main-frame { padding-top: calc(clamp(8rem,16svh,11rem) + var(--becoming-mobile-toc,0px)); }
+}
+@media (min-width:72rem) { .becoming-article .article-reading-actions { top: var(--sl-nav-height); } }
+@media (min-width:50rem) and (max-width:63.999rem) {
+  html:has(.becoming-shell) { --becoming-gap: 2.5rem; --becoming-measure: calc(100vw - 5rem - var(--becoming-rail) - var(--becoming-gap)); }
+}
+@media (max-width:49.999rem) {
+  html:has(.becoming-shell) { --sl-nav-height: calc(112px + env(safe-area-inset-top,0px)); --sl-menu-button-size: 44px; }
+  .becoming-shell .page > .header { height: var(--sl-nav-height); padding: 0; border: 0; background: #000; }
+  .becoming-shell .sl-menu-button { position: fixed; inset: calc(10px + env(safe-area-inset-top,0px)) 16px auto auto; width: 44px; height: 44px; color: #ededed; background: #000; border: 1px solid #777; border-radius: 50%; box-shadow: none; }
+  .becoming-shell .sidebar-content { max-width: 40.5rem; padding: 2rem 1rem; margin-inline: auto; }
+  .becoming-shell .main-frame { width: min(calc(100% - 2rem), var(--becoming-measure)); margin-inline: auto; padding-top: calc(8rem + var(--becoming-mobile-toc,0px)); }
+  .becoming-shell .becoming-page-label { margin-bottom: 1.5rem; }
+  .becoming-shell .sl-container { max-width: none; }
+  .becoming-shell .becoming-lede, .becoming-article .sl-markdown-content, .becoming-shell .knowledge-list > li > p { font-size: 1rem; }
+  .becoming-shell .becoming-collection-meta { gap: 0 .75rem; margin-top: 1rem; }
+  .becoming-shell .knowledge-filter-toolbar { gap: .75rem; }
+  .becoming-shell .knowledge-type-options { gap: .5rem 1.5rem; }
+  .becoming-shell :is(.knowledge-topic-controls, .knowledge-sort-controls) { grid-template-columns: minmax(0,1fr); gap: .25rem; }
+  .becoming-shell .knowledge-list > li { padding-block: 1.5rem; }
+  .becoming-shell .knowledge-list a { font-size: 1.25rem; }
+}
+
+@media (hover:hover) {
+  .becoming-shell .sidebar :is(a,summary):hover, .becoming-shell .knowledge-list a:hover, .becoming-article .article-navigation a:hover { color: var(--becoming-text); text-decoration: underline; text-underline-offset: .3em; }
+}
+@media (prefers-reduced-motion:reduce) { .becoming-shell *, .becoming-shell *::before, .becoming-shell *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
+
+/* After all regular layout/breakpoint rules, to preserve true immersion. */
+html[data-reading-immersive] .becoming-shell .main-frame { width: 100%; margin: 0; padding: 0; }
+html[data-reading-immersive] .becoming-article .article-reading-actions { display: none; }
+html[data-reading-immersive] .becoming-article .content-panel { padding: 2rem 1rem; }
+html[data-reading-immersive] .becoming-article .content-panel > .sl-container { max-width: 40.5rem; margin-inline: auto; }
+html[data-reading-immersive] .becoming-page-label { display: none; }
+html[data-reading-pdf] .becoming-shell pdf-reader iframe { position: fixed; inset: 0; width: 100%; height: 100dvh; min-height: 0; margin: 0; border: 0; border-radius: 0; }

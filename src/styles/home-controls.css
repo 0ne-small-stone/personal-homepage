@@ -28,20 +28,20 @@
 .has-journey .home-cta:focus-visible .home-cta-clip > span + span { opacity: 0 !important; }
 .has-journey .home-cta:focus-visible,
 .has-journey .home-cta:active { color: var(--color-bg); background: var(--color-text); border-color: var(--color-text); }
-.has-journey :is(.home-header nav a, .home-scroll, .home-wall-bottom a, .home-discussion-link) {
+.has-journey :is(.home-scroll, .home-wall-bottom a, .home-discussion-link) {
   text-decoration: none !important; background-image: linear-gradient(currentColor,currentColor); background-repeat: no-repeat;
   background-position: right calc(100% - 5px); background-size: 0 1px; transition: background-size .3s ease;
 }
-.has-journey :is(.home-header nav a, .home-scroll, .home-wall-bottom a, .home-discussion-link):hover { text-decoration: none; }
+.has-journey :is(.home-scroll, .home-wall-bottom a, .home-discussion-link):hover { text-decoration: none; }
 @media (hover: hover) and (pointer: fine) {
-  .has-journey[data-home-controls-ready="true"]:not([data-home-controls-static="true"]) :is(.home-header nav a, .home-scroll, .home-wall-bottom a, .home-discussion-link):hover {
+  .has-journey[data-home-controls-ready="true"]:not([data-home-controls-static="true"]) :is(.home-scroll, .home-wall-bottom a, .home-discussion-link):hover {
     background-position: left calc(100% - 5px); background-size: 100% 1px;
   }
 }
-.has-journey :is(.home-header nav a, .home-scroll, .home-wall-bottom a, .home-discussion-link):focus-visible { background-position: left calc(100% - 5px); background-size: 100% 1px; }
+.has-journey :is(.home-scroll, .home-wall-bottom a, .home-discussion-link):focus-visible { background-position: left calc(100% - 5px); background-size: 100% 1px; }
 .has-journey .home-chapter-index a { border: 1px solid transparent; transition: color .3s var(--home-control-ease), border-color .3s var(--home-control-ease), background-color .3s var(--home-control-ease); }
 .has-journey .home-chapter-index a[aria-current] { border-color: currentColor; }
-.has-journey :is(.home-chapter-index a, .home-header nav a, .home-scroll, .home-wall-bottom a):active { background-color: rgb(161 161 161 / .16); }
+.has-journey :is(.home-chapter-index a, .home-scroll, .home-wall-bottom a):active { background-color: rgb(161 161 161 / .16); }
 .has-journey .home-scene-controls button[aria-pressed="true"] { border-color: currentColor; }
 /* Keep the wall's final links above the fixed controls, including short viewports. */
 .has-journey.home-enhanced:not(.home-quiet) .home-wall .home-chapter-viewport {

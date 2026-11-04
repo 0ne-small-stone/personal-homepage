@@ -1,5 +1,6 @@
 ---
 import { sitePath } from '../../lib/paths';
+import ReturnLink from '../navigation/DivisionBellReturn.astro';
 import { blogSettings } from '../../lib/blog-settings';
 
 const posts = Astro.locals.starlightBlog.posts;
@@ -20,7 +21,7 @@ const current = (href: string) => decodeURI(href) === decodeURI(Astro.url.pathna
   {!isTag && <p class="becoming-lede">关于学习、阅读与整理的记录。</p>}
   <div class="becoming-blog-meta">
     {!isTag && <p>共 {posts.length} 篇{examples > 0 && <span>其中 {examples} 篇为功能样稿</span>}</p>}
-    <a href={`${sitePath('knowledge')}?type=article`}>学习总览</a>
+    <ReturnLink href={`${sitePath('knowledge')}?type=article`} label="返回学习总览" compact />
   </div>
   {blogSettings.tagBrowsingEnabled && tagLinks.length > 0 && <nav class="becoming-blog-tags" aria-label="文章标签">
     <a href={root} aria-current={!isTag ? (current(root) ? 'page' : 'true') : undefined}>全部文章</a>

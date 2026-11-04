@@ -76,7 +76,10 @@ export default function HomeJourney({wordmarkUrl,albumUrl,projectUrl,neighborUrl
     gsap.registerPlugin(ScrollTrigger);
     const pointer = (event: PointerEvent) => {
       if (event.pointerType !== 'mouse') return;
-      if (event.target instanceof Element && event.target.closest(homeControlSelector)) {model.pointer.active=false;return;}
+      if (event.target instanceof Element && event.target.closest(homeControlSelector)) {
+        if(model.pointer.active){model.pointer.active=false;model.invalidate();}
+        return;
+      }
       if (model.loading.active) return;
       const x = event.clientX / innerWidth * 2 - 1, y = -(event.clientY / innerHeight * 2 - 1);
       if(x!==model.pointer.x||y!==model.pointer.y)model.pointer.movedAt=performance.now();
@@ -117,7 +120,7 @@ export default function HomeJourney({wordmarkUrl,albumUrl,projectUrl,neighborUrl
       contextCleanup.current();contextCleanup.current=()=>gl.domElement.removeEventListener('webglcontextlost',lost);
       gl.domElement.addEventListener('webglcontextlost',lost,{once:true});
     }} fallback={<span>图形不可用</span>}>
-      <Suspense fallback={null}><HomeFrameLoop model={model} enabled={visible&&!paused&&!reduced&&status!=='waiting'&&!loading.previewHeld} /><WorksMotionDriver model={model} stopped={paused&&portalPaused} /><CameraRig model={model} mobile={mobile} quiet={quiet} frozen={paused&&portalPaused} /><SceneLighting /><SceneBackdrop model={model} mobile={mobile} quiet={quiet} /><GlassTriangle model={model} paused={quiet||!visible||loading.active} frozen={paused&&portalPaused} hover={hover} mobile={mobile} />{!quiet&&<WorksScene model={model} projectUrl={projectUrl} neighborUrl={neighborUrl} albumUrl={albumUrl} />}<RisingWall model={model} quiet={quiet} /><GlassRenderLayer model={model} quiet={quiet} flowEnabled={hover&&!paused&&!reduced&&visible&&!loading.active&&!loading.previewHeld} /></Suspense>
+      <Suspense fallback={null}><HomeFrameLoop model={model} enabled={visible&&!paused&&!reduced&&status!=='waiting'&&!loading.previewHeld} /><WorksMotionDriver model={model} stopped={paused&&portalPaused} /><CameraRig model={model} mobile={mobile} quiet={quiet} frozen={paused&&portalPaused} /><SceneLighting /><SceneBackdrop model={model} mobile={mobile} quiet={quiet} pointerLight={hover&&!paused&&!reduced&&visible&&!loading.active&&!loading.previewHeld} /><GlassTriangle model={model} paused={quiet||!visible||loading.active} frozen={paused&&portalPaused} hover={hover} mobile={mobile} />{!quiet&&<WorksScene model={model} projectUrl={projectUrl} neighborUrl={neighborUrl} albumUrl={albumUrl} />}<RisingWall model={model} quiet={quiet} /><GlassRenderLayer model={model} quiet={quiet} flowEnabled={hover&&!paused&&!reduced&&visible&&!loading.active&&!loading.previewHeld} /></Suspense>
     </Canvas></SceneBoundary></div>}
     {loading.active&&<div className="home-loader" aria-label="首页加载"><p role="status">{status==='waiting'?'正在载入':'空间正在显现'}</p><button onClick={()=>fallback()}>普通浏览</button></div>}
     {loading.preview==='1'&&loading.active&&<div className="home-loading-lab" aria-label="本机加载预览"><span>本机加载预览</span><button disabled={!loading.wordmarkDecoded} onClick={loading.start}>开始揭幕</button><button disabled={!loading.wordmarkDecoded} onClick={()=>loading.seek(.16)}>轮廓</button><button disabled={!loading.wordmarkDecoded} onClick={()=>loading.seek(.55)}>展开</button><button disabled={!loading.wordmarkDecoded} onClick={()=>loading.seek(1)}>完成</button></div>}

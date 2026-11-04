@@ -4,13 +4,14 @@ import { CanvasTexture, SRGBColorSpace, ShaderMaterial, Vector2, Vector3, type M
 import type { JourneyModel } from './scene-state';
 import { backdropState } from './backdrop-state';
 
-export default function SceneBackdrop({ model, mobile, quiet }: { model: JourneyModel; mobile: boolean; quiet: boolean }) {
+export default function SceneBackdrop({ model, mobile, quiet, pointerLight }: { model: JourneyModel; mobile: boolean; quiet: boolean; pointerLight: boolean }) {
   const ref = useRef<Mesh>(null);
   const { viewport, camera, size } = useThree();
   const aspect = size.width / size.height;
   const width = mobile ? 768 : 1536, height = Math.round(width / aspect);
   const overscan = 1.12;
   const center = useMemo(() => new Vector3(0, 0, -2), []);
+  const glassCenter = useMemo(() => new Vector3(), []);
   const texture = useMemo(() => {
     const canvas = document.createElement('canvas'); canvas.width = width; canvas.height = height;
     const ctx = canvas.getContext('2d')!;
@@ -74,13 +75,19 @@ export default function SceneBackdrop({ model, mobile, quiet }: { model: Journey
   useEffect(() => () => texture.dispose(), [texture]);
   const material=useMemo(()=>new ShaderMaterial({depthWrite:false,toneMapped:false,
     uniforms:{original:{value:texture},resolution:{value:new Vector2()},weights:{value:new Vector2(1,0)},
-      farOffset:{value:new Vector2()},gridOffset:{value:new Vector2()},lightCenter:{value:new Vector2()},strength:{value:[.52,.048,.048,36/255]},spacing:{value:104},mobile:{value:0}},
+      farOffset:{value:new Vector2()},gridOffset:{value:new Vector2()},lightCenter:{value:new Vector2()},strength:{value:[.52,.048,.048,36/255]},spacing:{value:104},mobile:{value:0},
+      glassCenter:{value:new Vector2(.5,.5)},cursorCenter:{value:new Vector2(.5,.5)},cursorStrength:{value:0}},
     vertexShader:'varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',
     fragmentShader:`varying vec2 vUv;uniform sampler2D original;uniform vec2 resolution;uniform vec2 weights;
       uniform vec2 farOffset;uniform vec2 gridOffset;uniform vec2 lightCenter;uniform vec4 strength;uniform float spacing;uniform float mobile;
+      uniform vec2 glassCenter;uniform vec2 cursorCenter;uniform float cursorStrength;
       void main(){
         vec2 screen=(vUv-.5)*1.12+.5;screen.y=1.-screen.y;
         vec3 base=sRGBTransferOETF(texture2D(original,vUv)).rgb*weights.x;
+        // Lower the local brick/grout contrast without adding a bright fog layer.
+        vec2 glassDistance=(screen-glassCenter)/vec2(.29,.38);
+        float retreat=.35*exp(-2.*dot(glassDistance,glassDistance))*weights.x;
+        base=mix(base,vec3(.012)*weights.x,retreat);
         if(weights.y>0.){
           vec2 uv=vUv+vec2(farOffset.x,-farOffset.y)/1.12;
           vec3 far=sRGBTransferOETF(texture2D(original,uv)).rgb*strength.x;
@@ -97,6 +104,11 @@ export default function SceneBackdrop({ model, mobile, quiet }: { model: Journey
           vec3 space=far*mix(.36,1.,safe)+vec3(field*safe*(strength.y+strength.z*line));
           base+=min(space,vec3(strength.w))*weights.y;
         }
+        // CSS-sized light lives in the scene, including its glass transmission capture.
+        // No hard disc, separate canvas, bloom pass or animation clock.
+        vec2 cursorDistance=(screen-cursorCenter)*resolution/132.;
+        float cursorField=exp(-2.2*dot(cursorDistance,cursorDistance));
+        base+=vec3(.055*cursorField*cursorStrength*clamp(weights.x+weights.y,0.,1.));
         // Keep the background limit in display values; output linear radiance
         // for the glass capture and Three's normal display conversion.
         gl_FragColor=sRGBTransferEOTF(vec4(base,1.));
@@ -109,6 +121,13 @@ export default function SceneBackdrop({ model, mobile, quiet }: { model: Journey
     ref.current.visible = state.intro+state.weight > .001;
     material.uniforms.resolution.value.set(size.width,size.height);
     material.uniforms.weights.value.set(state.intro,state.weight);
+    glassCenter.set(0,0,0).project(camera);
+    material.uniforms.glassCenter.value.set((glassCenter.x+1)/2,(1-glassCenter.y)/2);
+    material.uniforms.cursorCenter.value.set((model.pointer.x+1)/2,(1-model.pointer.y)/2);
+    const cursorTarget=pointerLight&&model.pointer.active?1:0;
+    let cursorStrength=pointerLight?MathUtils.damp(material.uniforms.cursorStrength.value,cursorTarget,18,model.frameDelta):0;
+    if(Math.abs(cursorTarget-cursorStrength)<.001)cursorStrength=cursorTarget;
+    material.uniforms.cursorStrength.value=cursorStrength;
     material.uniforms.farOffset.value.fromArray(state.farOffset);material.uniforms.gridOffset.value.fromArray(state.gridOffset);
     material.uniforms.lightCenter.value.fromArray(state.light);material.uniforms.spacing.value=state.spacing;material.uniforms.mobile.value=mobile?1:0;
     const strength=material.uniforms.strength.value as number[];
@@ -119,7 +138,8 @@ export default function SceneBackdrop({ model, mobile, quiet }: { model: Journey
     if(document.documentElement.dataset.motionDiagnostics==='true') {
       ref.current.updateMatrixWorld(true);
       const corners=[[-.5,-.5],[.5,-.5],[.5,.5],[-.5,.5]].map(([x,y])=>new Vector3(x,y,0).applyMatrix4(ref.current!.matrixWorld).project(camera).toArray());
-      document.body.dataset.homeBackdrop=JSON.stringify({...state,visible:ref.current.visible,texture:texture.uuid,textureSize:[width,height],corners});
+      document.body.dataset.homeBackdrop=JSON.stringify({...state,visible:ref.current.visible,texture:texture.uuid,textureSize:[width,height],corners,
+        cursor:{enabled:pointerLight,active:model.pointer.active,strength:cursorStrength,center:material.uniforms.cursorCenter.value.toArray(),radius:132,peak:.055}});
     }
   },-1);
   return <mesh ref={ref} position={[0,0,-2]}>

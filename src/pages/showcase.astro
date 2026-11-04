@@ -1,4 +1,8 @@
 ---
-import JourneyPage from '../components/home/JourneyPage.astro';
+import HomeLayout from '../layouts/HomeLayout.astro';
+import ShowcaseGallery from '../components/showcase/ShowcaseGallery.astro';
+import '../styles/showcase.css';
 ---
-<JourneyPage title="Afterimage" description="项目、照片与社交作品，在这里汇合。" status="作品正在整理" detail="第一个项目是 Little Stone Still Here 本身。目前处于建造阶段，其余项目与社交作品将在整理后发布。" chapter="projects" />
+<HomeLayout title="Afterimage" description="小石的项目、视频与文字创作。想法、影像与留下的作品。">
+  <ShowcaseGallery />
+</HomeLayout>

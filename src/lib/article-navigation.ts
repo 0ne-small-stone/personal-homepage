@@ -1,5 +1,6 @@
 // Native navigation/Pagefind/PDF.js stay in charge. Reuse the article return adapter for all reading.
 import { sitePath } from './paths';
+import { updateDivisionBellReturnLabel } from '../components/navigation/division-bell-dom';
 
 interface ReadingVisit {
   id: string;
@@ -115,7 +116,7 @@ function whenAvailable(root: Node, ready: () => boolean, signal: AbortSignal) {
 function restoreSource(visit: ReadingVisit, signal: AbortSignal) {
   if (visit.from !== location.href) return;
   if (visit.search !== null) {
-    const search = document.querySelector('site-search');
+    const search = document.querySelector('lssh-site-search, site-search');
     if (!search) return;
     whenAvailable(search, () => {
       const input = search.querySelector<HTMLInputElement>('.pagefind-ui__search-input');
@@ -196,7 +197,7 @@ function activate() {
         if (pending === visit.id) sessionStorage.removeItem(pendingKey);
       } catch { /* Keep real href. */ }
       back.href = visit.from;
-      back.textContent = visit.label;
+      updateDivisionBellReturnLabel(back, visit.label.replace(/^←\s*/, ''));
       back.addEventListener('click', (event) => {
         if (!plainClick(event, back)) return;
         // A chapter hash can add another entry; follow the real source href directly.

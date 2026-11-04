@@ -21,6 +21,10 @@ export function createAudioSession(resolvePlayback?: (track: AudioTrack) => Prom
   let element: HTMLAudioElement | null = null;
   let revision = 0;
   let playAttempt = 0;
+  let ownership: symbol | null = null;
+  // Completion belongs to the selected single track, not its mounted UI lease.
+  // A page teardown may happen between the native pause and ended events.
+  let ownedCompletion: symbol | null = null;
   let navigation: { revision: number; resume: boolean } | null = null;
   const listeners = new Set<() => void>();
   let detach = () => {};
@@ -43,6 +47,8 @@ export function createAudioSession(resolvePlayback?: (track: AudioTrack) => Prom
       loadedmetadata: () => update({ duration: finite(carrier.duration), waiting: false }),
       durationchange: () => update({ duration: finite(carrier.duration) }),
       ended: () => {
+        // A home-owned single track never inherits the music queue or repeat.
+        if (ownedCompletion) { ownership = null;ownedCompletion = null;revision++;update({ playing: false, waiting: false });return; }
         update({ playing: false });
         if (state.previewSeconds) update({ notice: `${Math.round(state.previewSeconds)} 秒试听已结束，完整收听请在网易云打开。` });
         else if(state.repeat==='one'){carrier.currentTime=0;void play();}
@@ -56,7 +62,7 @@ export function createAudioSession(resolvePlayback?: (track: AudioTrack) => Prom
     detach = () => Object.entries(handlers).forEach(([event, listener]) => carrier.removeEventListener(event, listener));
     if (state.track && carrier.getAttribute('src') !== state.track.audioUrl) { carrier.src = state.track.audioUrl;carrier.load(); }
   }
-  async function play() {
+  async function playInternal() {
     const carrier = getElement();if (!carrier || !state.track) return;
     const expected = revision;const attempt = ++playAttempt;const track = state.track;update({ error: '' });
     try {
@@ -67,7 +73,7 @@ export function createAudioSession(resolvePlayback?: (track: AudioTrack) => Prom
         if (carrier.getAttribute('src') !== resolved.url) {
           const position = carrier.ended ? 0 : finite(carrier.currentTime);
           if (position) carrier.addEventListener('loadedmetadata', () => {
-            if (expected === revision && attempt === playAttempt) seek(position);
+            if (expected === revision && attempt === playAttempt) seekInternal(position);
           }, { once: true });
           carrier.src = resolved.url;carrier.load();
         }
@@ -87,17 +93,27 @@ export function createAudioSession(resolvePlayback?: (track: AudioTrack) => Prom
       update({ waiting: false, playing: false, error: message });
     }
   }
-  function pause() { revision++;getElement()?.pause();update({ playing: false, waiting: false }); }
-  function beginNavigation() { navigation = { revision, resume: Boolean(element && !element.paused && state.track) }; }
+  function revokeOwnership(invalidate = true) {
+    ownedCompletion = null;
+    if (!ownership) return;
+    ownership = null;if (invalidate) revision++;update(invalidate?{waiting:false}:{});
+  }
+  function play() { revokeOwnership();return playInternal(); }
+  function pauseInternal() { revision++;getElement()?.pause();update({ playing: false, waiting: false }); }
+  function pause() { revokeOwnership();pauseInternal(); }
+  function beginNavigation() {
+    if (ownership) { ownership = null;pauseInternal(); }
+    navigation = { revision, resume: Boolean(element && !element.paused && state.track) };
+  }
   function finishNavigation() {
     const saved = navigation;navigation = null;
     // Some engines pause media while its persisted DOM is moved. Restore only
     // an uninterrupted user-started session; an explicit pause/selection wins.
     if (saved?.resume && saved.revision === revision && element?.paused && state.track) void play();
   }
-  function select(track: AudioTrack, queue: AudioTrack[], autoPlay = false) {
+  function selectInternal(track: AudioTrack, queue: AudioTrack[], autoPlay = false, restart = false) {
     const carrier = getElement();
-    if (sameTrack(state.track, track)) { update({ queue });if (autoPlay) void play();return; }
+    if (!restart && sameTrack(state.track, track)) { update({ queue });if (autoPlay) void playInternal();return; }
     revision++;carrier?.pause();
     update({ track, queue, playing: false, waiting: false, time: 0, duration: 0, error: '', notice: '', previewSeconds: null });
     if (carrier) {
@@ -105,9 +121,14 @@ export function createAudioSession(resolvePlayback?: (track: AudioTrack) => Prom
       else carrier.src = track.audioUrl;
       carrier.load();
     }
-    if (autoPlay) void play();
+    if (autoPlay) void playInternal();
+  }
+  function select(track: AudioTrack, queue: AudioTrack[], autoPlay = false) {
+    // Even an explicit selection of the same ID transfers ownership to music.
+    revokeOwnership();selectInternal(track, queue, autoPlay);
   }
   function next(direction: -1 | 1, autoPlay = state.playing) {
+    revokeOwnership();
     const index = state.queue.findIndex(track => state.track && sameTrack(state.track, track));
     const size=state.queue.length;let targetIndex=index+direction;
     if(state.shuffle&&size>1&&direction===1)targetIndex=(index+1+Math.floor(Math.random()*(size-1)))%size;
@@ -115,20 +136,45 @@ export function createAudioSession(resolvePlayback?: (track: AudioTrack) => Prom
     const target = index >= 0 ? state.queue[targetIndex] : undefined;
     if (target) select(target, state.queue, autoPlay);
   }
-  function seek(time: number) {
+  function seekInternal(time: number) {
     const carrier = getElement();if (!carrier || !state.duration || !Number.isFinite(time)) return;
     const target = Math.min(state.duration, Math.max(0, time));carrier.currentTime = target;update({ time: target });
   }
+  function seek(time: number) {
+    if (!getElement() || !state.duration || !Number.isFinite(time)) return;
+    // User transport controls adopt the current playback, including its pending
+    // resolution. Metadata restoration above must never adopt it implicitly.
+    revokeOwnership(false);seekInternal(time);
+  }
   function setVolume(volume: number) {
     if (!Number.isFinite(volume)) return;
-    const target = Math.min(1, Math.max(0, volume));const carrier = getElement();if (carrier) carrier.volume = target;update({ volume: target });
+    const target = Math.min(1, Math.max(0, volume));if (target > 0) revokeOwnership(false);
+    const carrier = getElement();if (carrier) carrier.volume = target;update({ volume: target });
   }
   function stop() {
+    revokeOwnership();
     revision++;const carrier = getElement();carrier?.pause();update({ ...initial, volume: state.volume });carrier?.removeAttribute('src');carrier?.load();
   }
-  function setQuality(value:string){if(!['standard','exhigh','lossless','hires'].includes(value))return;const track=state.track;if(track?.source!=='netease'){update({quality:value});return;}revision++;update({quality:value,track:{...track,quality:value},queue:state.queue.map(item=>item.source==='netease'?{...item,quality:value}:item)});void play();}
+  function setQuality(value:string){if(!['standard','exhigh','lossless','hires'].includes(value))return;revokeOwnership();const track=state.track;if(track?.source!=='netease'){update({quality:value});return;}revision++;update({quality:value,track:{...track,quality:value},queue:state.queue.map(item=>item.source==='netease'?{...item,quality:value}:item)});void play();}
+  function createOwnedPlayback(track: AudioTrack) {
+    const token = Symbol('owned-playback');let started = false;
+    return {
+      owns: () => ownership === token,
+      start: async () => {
+        if (started) return;started = true;
+        ownership = ownedCompletion = token;
+        selectInternal(track, [track], false, true);
+        await playInternal();
+      },
+      stop: () => {
+        started = true;
+        if (ownership !== token) return;
+        ownership = null;pauseInternal();
+      },
+    };
+  }
   return { bind, getSnapshot: () => state, getServerSnapshot: () => initial,
     subscribe: (listener: () => void) => { listeners.add(listener);return () => { listeners.delete(listener); }; },
-    select, play, pause, toggle: () => state.playing || state.waiting ? pause() : void play(), next, seek, setVolume, stop, beginNavigation, finishNavigation,setQuality,setRepeat:(repeat:AudioState['repeat'])=>{if(['off','all','one'].includes(repeat))update({repeat});},setShuffle:(shuffle:boolean)=>update({shuffle:Boolean(shuffle)}) };
+    select, play, pause, toggle: () => state.playing || state.waiting ? pause() : void play(), next, seek, setVolume, stop, beginNavigation, finishNavigation,createOwnedPlayback,setQuality,setRepeat:(repeat:AudioState['repeat'])=>{if(['off','all','one'].includes(repeat)){revokeOwnership(false);update({repeat});}},setShuffle:(shuffle:boolean)=>{revokeOwnership(false);update({shuffle:Boolean(shuffle)});} };
 }
 export const audioSession = createAudioSession(resolveNetEasePlayback);
