@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs><radialGradient id="bg"><stop stop-color="#454545"/><stop offset="1" stop-color="#101010"/></radialGradient><linearGradient id="side" x2="1" y2=".5"><stop stop-color="#888"/><stop offset=".5" stop-color="#202020"/><stop offset="1" stop-color="#666"/></linearGradient><linearGradient id="face" x2="1" y2="1"><stop stop-color="#d9d9d9"/><stop offset="1" stop-color="#777"/></linearGradient><filter id="blur"><feGaussianBlur stdDeviation="23"/></filter></defs>
+<path fill="url(#bg)" d="M0 0h1600v900H0z"/>
+<ellipse cx="800" cy="760" rx="330" ry="35" fill="#000" opacity=".8" filter="url(#blur)"/>
+<g transform="translate(800 440)">
+ <path d="m-270-120 210-110 330 170v210L60 270-270 95z" fill="url(#side)" stroke="#777"/>
+ <path d="m-270-120 210-110 330 170L60 50z" fill="url(#face)" stroke="#ddd"/>
+ <path d="M60 50v220l210-120V-60z" fill="#262626" stroke="#555"/>
+ <path d="m-225-90 165-87 238 123L14 33z" fill="#252525" stroke="#999"/>
+ <g fill="none" stroke="#888" opacity=".5"><path d="m-206-80 165-87m-125 108L0-146m-126 108 165-87m-126 108 165-87m-127 108L116-84m-126 109 165-88"/></g>
+ <path d="m-220 0 160 84v80l-160-84z" fill="#272727" stroke="#999"/>
+ <circle cx="-140" cy="82" r="26" fill="#0b0b0b" stroke="#777"/>
+ <circle cx="-140" cy="82" r="12" fill="#bbb"/>
+ <path d="m-10 130 32 17v45l-32-17z" fill="#999"/>
+ <path d="m100 70 130-73m-130 95 130-73m-130 95 130-73" stroke="#777" stroke-width="3"/>
+ <path d="M-60-230v-115m-40 0h80" stroke="#999"/>
+</g>
+<g fill="none" stroke="#999" stroke-opacity=".2"><path d="M200 680V250l400-100m400 600 400-220V200M200 680l400 70"/><path d="M200 230v40m-20-20h40m1160 300v40m-20-20h40"/></g>
+</svg>

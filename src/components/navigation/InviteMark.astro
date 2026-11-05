@@ -1,0 +1,40 @@
+---
+import '../../styles/invite.css';
+interface Props { direction?: 'right' | 'diagonal'; size?: number; className?: string; }
+const { direction = 'right', size = 20, className } = Astro.props;
+const strokes = [
+  { part: 'head', arrow: 'M7.333 7.333 C7.589 7.333 7.844 7.333 8.1 7.333 C8.356 7.333 8.611 7.333 8.867 7.333 C9.122 7.333 9.378 7.333 9.633 7.333 C9.889 7.333 10.144 7.333 10.4 7.333', person: 'M10 7 C8.785 7 7.8 6.015 7.8 4.8 C7.8 3.585 8.785 2.6 10 2.6 C11.215 2.6 12.2 3.585 12.2 4.8 C12.2 6.015 11.215 7 10 7' },
+  { part: 'left-arm', arrow: 'M10.4 7.333 C10.922 7.333 11.444 7.333 11.967 7.333 C12.489 7.333 13.011 7.333 13.533 7.333', person: 'M10 9.5 C8.9 10.2 7.8 11.3 7.1 12.4 C6.6 13.3 6.1 14.4 5.9 15.5' },
+  { part: 'right-arm', arrow: 'M13.533 7.333 C14.578 7.333 15.622 7.333 16.667 7.333', person: 'M10 9.5 C11.433 9.767 12.867 10.033 14.3 10.3' },
+  { part: 'forearm', arrow: 'M16.667 7.333 C16.667 8.889 16.667 10.444 16.667 12 C16.667 13.556 16.667 15.111 16.667 16.667', person: 'M14.3 10.3 C15.3 8.867 16.3 7.433 17.3 6 C17.3 5.233 17.3 4.467 17.3 3.7' },
+  { part: 'left-leg', arrow: 'M7.333 16.667 C8.111 15.889 8.889 15.111 9.667 14.333', person: 'M10 15.5 C8.933 17.333 7.867 19.167 6.8 21' },
+  { part: 'body', arrow: 'M9.667 14.333 C10.445 13.555 11.222 12.778 12 12', person: 'M10 7 C10 9.833 10 12.667 10 15.5' },
+  { part: 'right-leg', arrow: 'M12 12 C13.556 10.444 15.111 8.889 16.667 7.333', person: 'M10 15.5 C11.067 17.333 12.133 19.167 13.2 21' },
+];
+// The horizontal arrow uses the same stroke topology as the diagonal original.
+const rotateArrow = (path: string) => {
+  const points = path.match(/-?\d*\.?\d+/g)!.map(Number);
+  let index = 0;
+  return path.replace(/-?\d*\.?\d+/g, () => {
+    const i = index++, pair = i - i % 2;
+    const x = points[pair] - 12, y = points[pair + 1] - 12;
+    return (12 + (i % 2 === 0 ? x - y : x + y) / Math.SQRT2).toFixed(3);
+  });
+};
+---
+<span class:list={['invite-mark', className]} data-invite-mark data-invite-direction={direction} style={`--invite-size:${size}px`} aria-hidden="true">
+  <svg class:list={['invite-figure', className === 'elsewhere-invite' && 'elsewhere-invite-figure']} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+    {strokes.map(({ part, arrow, person }) => {
+      const start = direction === 'right' ? rotateArrow(arrow) : arrow;
+      return <path data-invite-part={part} data-invite-arrow={start} data-invite-person={person} d={start} />;
+    })}
+  </svg>
+</span>
+<script>
+  import { mountInviteMarks } from '../../lib/invite-motion';
+  let cleanup: (() => void) | undefined;
+  const mount = () => { cleanup?.(); cleanup = mountInviteMarks(document.body); };
+  mount();
+  document.addEventListener('astro:page-load', mount);
+  document.addEventListener('astro:before-swap', () => { cleanup?.(); cleanup = undefined; });
+</script>

@@ -1,0 +1,8 @@
+---
+import '@fontsource/ibm-plex-mono/latin-400.css';
+import HomeHeader from '../home/HomeHeader.astro';
+import DefaultHeader from '@astrojs/starlight/components/Header.astro';
+import { sitePath } from '../../lib/paths';
+const isKnowledge = Astro.url.pathname.startsWith(sitePath('knowledge'));
+---
+{isKnowledge ? <div class="becoming-site-header"><HomeHeader /></div> : <DefaultHeader />}

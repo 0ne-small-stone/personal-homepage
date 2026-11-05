@@ -1,5 +1,6 @@
 ---
 import HomeLayout from '../../layouts/HomeLayout.astro';
+import InviteMark from '../navigation/InviteMark.astro';
 import ContactIcon from './ContactIcon.astro';
 import { profiles, type SomeoneLanguage } from '../../data/profile';
 import { sitePath } from '../../lib/paths';
@@ -35,7 +36,7 @@ const sections = [
   { id: 'contact', label: copy.contact },
 ];
 ---
-<HomeLayout homeHref={`${sitePath()}#intro`} title="Someone" lang={lang} description={copy.description} languageHref={sitePath(lang === 'en' ? 'zh/about' : 'about')}>
+<HomeLayout title="Someone" lang={lang} description={copy.description} languageHref={sitePath(lang === 'en' ? 'zh/about' : 'about')}>
   <article class="someone-page" data-copy-label={copy.emailLabel} data-copied={copy.copied} data-copy-success={copy.copySuccess} data-copy-failure={copy.copyFailure}>
     <section id="intro" class="someone-hero" aria-labelledby="someone-title" data-reading-block>
       <div class="someone-hero-copy">
@@ -43,7 +44,7 @@ const sections = [
         <h1 id="someone-title" class="someone-greeting">{copy.greeting}</h1>
         <p class="someone-identity">{copy.identity}</p>
         <div class="someone-introduction">{profile.introduction.map(paragraph => <p>{paragraph}</p>)}</div>
-        <a class="someone-button" href="#contact">{copy.talk}<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5" /></svg></a>
+        <a class="someone-button" href="#contact">{copy.talk}<InviteMark /></a>
       </div>
     </section>
     <div class="someone-reading-layout">
@@ -69,7 +70,7 @@ const sections = [
         <section id="life" class="someone-section" aria-labelledby="life-title" data-reading-block>
           <h2 id="life-title">{copy.life}</h2>
           {profile.life.map(paragraph => <p>{paragraph}</p>)}
-          <div class="someone-traces"><h3>{copy.traces}</h3><ul>{profile.traces.map(trace => <li><a href={sitePath(trace.path)}><span class="someone-trace-name">{trace.name}</span><span class="someone-trace-label">{trace.label}</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5" /></svg></a></li>)}</ul></div>
+          <div class="someone-traces"><h3>{copy.traces}</h3><ul>{profile.traces.map(trace => <li><a href={sitePath(trace.path)}><span class="someone-trace-name">{trace.name}</span><span class="someone-trace-label">{trace.label}</span><InviteMark /></a></li>)}</ul></div>
         </section>
         <section id="contact" class="someone-section someone-contact" aria-labelledby="contact-title" data-reading-block>
           <h2 id="contact-title">{copy.talk}</h2>
@@ -80,7 +81,7 @@ const sections = [
           </div>
           <noscript><p class="someone-copy-fallback">{lang === 'en' ? 'Copy this address manually:' : '可手动复制邮箱：'} {profile.email}</p></noscript>
           <p class="someone-copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
-          <a class="someone-wall-link" href={sitePath('guestbook')}>{copy.wall}<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5" /></svg></a>
+          <a class="someone-wall-link" href={sitePath('guestbook')}>{copy.wall}<InviteMark /></a>
         </section>
       </div>
     </div>

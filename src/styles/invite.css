@@ -1,0 +1,12 @@
+.invite-mark { --invite-progress: 0; display: inline-flex; position: relative; flex: 0 0 auto; width: var(--invite-size, 20px); height: var(--invite-size, 20px); vertical-align: middle; color: var(--invite-ink, currentColor); pointer-events: none; }
+.invite-mark > svg { display: block; width: var(--invite-size, 20px); height: var(--invite-size, 20px); overflow: visible; stroke-width: 1.5px; }
+.invite-mark.elsewhere-invite { display: block; width: 16px; height: 24px; }
+.invite-mark > .elsewhere-invite-figure { position: absolute; top: 0; left: -4px; }
+.ai-enter .invite-mark { --invite-ink: #000; }
+.ai-end-links .invite-mark, .ai-detail-meta > a .invite-mark { --invite-ink: var(--ai-soft, #a1a1a1); }
+.ai-empty-actions .invite-mark, .ai-detail-visit .invite-mark { --invite-ink: #ededed; }
+.ai-work-link:has(.invite-mark):hover .ai-enter { transform: none; }
+@media (hover: hover) {
+  .ai-detail-visit:has(.invite-mark):hover { color: #ededed; background: rgb(237 237 237 / .08); border-color: #ededed; }
+  .home-cta:has(.invite-mark):hover, .someone-button:has(.invite-mark):hover { color: var(--color-text); background: color-mix(in srgb, currentColor 8%, transparent); border-color: var(--color-text); }
+}

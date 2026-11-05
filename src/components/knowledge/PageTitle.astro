@@ -1,0 +1,9 @@
+---
+import { sitePath } from '../../lib/paths';
+import DefaultTitle from '@astrojs/starlight/components/PageTitle.astro';
+const { entry } = Astro.locals.starlightRoute;
+const isOverview = Astro.url.pathname.replace(/\/$/, '') === sitePath('knowledge').replace(/\/$/, '');
+const label = isOverview ? '学习总览' : entry.data.kind === 'article' ? '文章' : entry.data.kind === 'note' ? '笔记' : entry.data.kind === 'resource' ? '学习资料' : 'Becoming';
+const isKnowledge = Astro.url.pathname.startsWith(sitePath('knowledge'));
+---
+{isKnowledge ? <><p class="becoming-page-label">{label}</p><h1 id="_top">{entry.data.title}</h1></> : <DefaultTitle />}

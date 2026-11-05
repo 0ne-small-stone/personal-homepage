@@ -52,7 +52,7 @@ function WorkCard({ model, index, texture, imageAspect }: { model: JourneyModel;
     const enabled=!document.hidden&&document.body.dataset.homePaused!=='true'&&!model.loading.active;
     if(Math.abs(d)>.55||model.motion.rendered.prepare>.01){interaction.targetAmount=0;interaction.targetX=0;interaction.targetY=0;}
     stepReliefInteraction(interaction,model.frameDelta,enabled);
-    group.current.position.set((orbitRadius*Math.sin(d)+1.9*(1-sp))*responsiveScale, (-d * MathUtils.lerp(1, .6, sp) + .8 * sp) * sceneUnitScale+.35*responsiveScale, (orbitRadius * Math.cos(d) - orbitRadius - 1) * responsiveScale);
+    group.current.position.set(orbitRadius*Math.sin(d)*responsiveScale, (-d * MathUtils.lerp(1, .6, sp) + .8 * sp) * sceneUnitScale+.35*responsiveScale, (orbitRadius * Math.cos(d) - orbitRadius - 1) * responsiveScale);
     group.current.rotation.set(-interaction.y*.045,.6*d+interaction.x*.065,-interaction.x*.006);
     group.current.scale.setScalar(localScale * responsiveScale);
     group.current.visible = alpha > .01;

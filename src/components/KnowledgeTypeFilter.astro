@@ -1,6 +1,7 @@
 ---
 import { kindLabels, publishedKnowledge } from '../lib/knowledge';
 import { sitePath } from '../lib/paths';
+import KnowledgeSelect from './KnowledgeSelect.astro';
 
 interface Props { entries: Awaited<ReturnType<typeof publishedKnowledge>>; }
 const { entries } = Astro.props;
@@ -18,42 +19,50 @@ const titleOrder = new Map([...entries].sort((a, b) =>
 <knowledge-type-filter>
   <div class="knowledge-filter-toolbar">
   <fieldset class="knowledge-type-controls" hidden data-pagefind-ignore>
-    <legend>内容类型</legend>
+    <legend class="sr-only">内容类型</legend>
     <div class="knowledge-type-options">
       {types.map(({ value, label }) => <label class="knowledge-type-option">
         <input type="radio" name="knowledge-type" value={value} data-label={label} checked={value === 'all'} />
-        <span>{label}</span>
+        <span>{label}</span><span class="becoming-type-count" aria-hidden="true">{value === 'all' ? entries.length : entries.filter((entry) => entry.data.kind === value).length}</span>
       </label>)}
     </div>
   </fieldset>
   <div class="knowledge-topic-controls" hidden data-pagefind-ignore>
-    <label for="knowledge-topic">主题</label>
+    <label class="sr-only" id="knowledge-topic-label" for="knowledge-topic">主题</label>
+    <KnowledgeSelect>
     <select id="knowledge-topic" name="knowledge-topic">
       <option value="">全部主题</option>
       {topics.map((topic) => <option value={topic}>{topic}</option>)}
     </select>
+    </KnowledgeSelect>
   </div>
   <div class="knowledge-sort-controls" hidden data-pagefind-ignore>
-    <label for="knowledge-sort">排序</label>
+    <label class="sr-only" id="knowledge-sort-label" for="knowledge-sort">排序</label>
+    <KnowledgeSelect>
     <select id="knowledge-sort" name="knowledge-sort">
-      <option value="default">按主题（默认）</option>
+      <option value="default">按主题</option>
       <option value="title-asc">标题升序</option>
       <option value="title-desc">标题降序</option>
     </select>
+    </KnowledgeSelect>
   </div>
   </div>
+  <p class="knowledge-result-status sr-only" role="status" aria-live="polite" aria-atomic="true" data-pagefind-ignore>全部主题 · 全部：{entries.length} 条内容。</p>
   <div class="knowledge-results-caption">
-  <p class="knowledge-result-status" role="status" aria-live="polite" aria-atomic="true" data-pagefind-ignore>全部主题 · 全部：{entries.length} 条内容。</p>
   <button type="button" data-clear-filters hidden>清空筛选</button>
   </div>
   <p class="knowledge-empty" hidden data-pagefind-ignore>当前筛选暂无已发布内容。可调整主题或类型，也可“清空筛选”查看全部内容。</p>
   <ul class="knowledge-list">
     {entries.map((entry, index) => <li data-knowledge-kind={entry.data.kind} data-knowledge-topics={JSON.stringify(entry.data.topics)} data-knowledge-order={index} data-knowledge-title-order={titleOrder.get(entry.data.entryId)}>
 
+      <svg class="becoming-entry-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
       <a href={entry.data.source?.format === 'link' ? entry.data.source.url : sitePath(entry.id)}>{entry.data.title}</a>
       <p>{entry.data.description}</p>
       <div class="knowledge-meta">{kindLabels[entry.data.kind]} · {entry.data.topics.join(' / ')}{entry.data.example ? ' · 演示内容' : ''}
-        {entry.data.source?.format === 'pdf' && ` · PDF · ${((entry.data.source.bytes ?? 0) / 1024 / 1024).toFixed(2)} MiB · ${entry.data.source.pages} 页`}
+        {entry.data.source?.format === 'pdf' && <>
+          {' · PDF · '}<span class="knowledge-meta-unit">{((entry.data.source.bytes ?? 0) / 1024 / 1024).toFixed(2)} MiB</span>
+          {' · '}<span class="knowledge-meta-unit">{entry.data.source.pages} 页</span>
+        </>}
         {entry.data.source?.format === 'link' && ` · 外部笔记 · ${entry.data.source.author}`}
       </div>
     </li>)}
@@ -117,6 +126,7 @@ const titleOrder = new Map([...entries].sort((a, b) =>
         status.textContent = `${invalid ? '未识别此类型，已显示全部类型。' : ''}${invalidTopic ? '未识别此主题，已显示全部主题。' : ''}${invalidSort ? '未识别此排序，已按主题排序。' : ''}${topic || '全部主题'} · ${label}：${count} 条内容。排序：${sortLabel}。`;
         empty.hidden = count !== 0;
         clear.hidden = requested === null && requestedTopic === null;
+        this.dispatchEvent(new Event('knowledge-filter-update'));
       };
 
       const navigate = (url: URL) => {

@@ -1,4 +1,4 @@
-import { Camera, Color, ExtrudeGeometry, Float32BufferAttribute, LinearFilter, Mesh, NoColorSpace, NoToneMapping, Scene, ShaderMaterial, UniformsUtils, Vector3, WebGLRenderer, WebGLRenderTarget } from 'three';
+import { Camera, Color, ExtrudeGeometry, Float32BufferAttribute, LinearFilter, Matrix4, Mesh, NoColorSpace, NoToneMapping, Scene, ShaderMaterial, UniformsUtils, Vector3, WebGLRenderer, WebGLRenderTarget } from 'three';
 import { FullScreenQuad } from 'three/addons/postprocessing/Pass.js';
 import { HorizontalBlurShader } from 'three/addons/shaders/HorizontalBlurShader.js';
 import { VerticalBlurShader } from 'three/addons/shaders/VerticalBlurShader.js';
@@ -25,17 +25,19 @@ export default class GlassGlow {
   private readonly horizontal = new ShaderMaterial({ ...HorizontalBlurShader, uniforms: UniformsUtils.clone(HorizontalBlurShader.uniforms), depthTest: false, depthWrite: false, toneMapped: false });
   private readonly vertical = new ShaderMaterial({ ...VerticalBlurShader, uniforms: UniformsUtils.clone(VerticalBlurShader.uniforms), depthTest: false, depthWrite: false, toneMapped: false });
   private readonly composite = new ShaderMaterial({ transparent: true, depthTest: false, depthWrite: false, toneMapped: false,
-    uniforms: { glow: { value: this.targets[2].texture }, nearGlow: { value: this.targets[4].texture }, intensity: { value: 0 } },
+    uniforms: { glow: { value: this.targets[2].texture }, nearGlow: { value: this.targets[4].texture }, core: { value: this.targets[3].texture }, intensity: { value: 0 } },
     vertexShader: 'varying vec2 vUv; void main(){vUv=uv;gl_Position=vec4(position.xy,0.,1.);}',
-    fragmentShader: `uniform sampler2D glow; uniform sampler2D nearGlow; uniform float intensity; varying vec2 vUv;
-      void main(){float light=.45*texture2D(nearGlow,vUv).r+.55*texture2D(glow,vUv).r;
-        // One continuous field crosses the glass boundary; no sharp coverage cut.
-        float alpha=.32*(1.-exp(-light*3.))*intensity;
+    fragmentShader: `uniform sampler2D glow; uniform sampler2D nearGlow; uniform sampler2D core; uniform float intensity; varying vec2 vUv;
+      void main(){float light=.22*texture2D(core,vUv).r+.70*texture2D(nearGlow,vUv).r+.08*texture2D(glow,vUv).r;
+        // Reuse resolved edge radiance for a legible core with a close, soft halo.
+        float alpha=.35*(1.-exp(-light*2.6))*intensity;
         gl_FragColor=vec4(vec3(1.),alpha);
         #include <colorspace_fragment>
       }` });
   private readonly quad = new FullScreenQuad(this.horizontal);
   private readonly clearColor = new Color();
+  private readonly inverseWorld = new Matrix4();
+  private readonly keyDirection = new Vector3();
   private disposed = false;
   private draws = 0;
   private passes = 0;
@@ -48,22 +50,26 @@ export default class GlassGlow {
     for (let i = 0; i < front.length; i++) front[i] = Math.abs(normals.getZ(i)) > .999 ? 1 : 0;
     geometry.setAttribute('portalFrontCoverage', new Float32BufferAttribute(front, 1));
     const material = new ShaderMaterial({ toneMapped: false,
-      uniforms: { outerPlanes: { value: planes }, halfDepth: { value: geometry.boundingBox!.max.z }, coverageOnly: { value: 0 },outlineProgress:{value:1},heightRange:{value:new Vector3(geometry.boundingBox!.min.y,geometry.boundingBox!.max.y,0)} },
+      uniforms: { outerPlanes: { value: planes }, halfDepth: { value: geometry.boundingBox!.max.z }, coverageOnly: { value: 0 },keyDirection:{value:new Vector3(-.85,.55,.3).normalize()},outlineProgress:{value:1},heightRange:{value:new Vector3(geometry.boundingBox!.min.y,geometry.boundingBox!.max.y,0)} },
       vertexShader: `attribute float portalFrontCoverage;varying float front;varying vec3 p; varying vec3 n;
         void main(){front=portalFrontCoverage;p=position;n=normal;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
-      fragmentShader: `uniform vec3 outerPlanes[3];uniform float halfDepth;uniform float coverageOnly;uniform float outlineProgress;uniform vec3 heightRange;varying float front;varying vec3 p;varying vec3 n;
+      fragmentShader: `uniform vec3 outerPlanes[3];uniform float halfDepth;uniform float coverageOnly;uniform vec3 keyDirection;uniform float outlineProgress;uniform vec3 heightRange;varying float front;varying vec3 p;varying vec3 n;
         void main(){if(coverageOnly>.5){gl_FragColor=vec4(vec3(0.),front);return;}float outside=100.;float second=100.;
+          vec2 edgeNormal=vec2(0.);
           for(int i=0;i<3;i++){
             float d=max(outerPlanes[i].z-dot(outerPlanes[i].xy,p.xy),0.);
-            if(d<outside){second=outside;outside=d;}else{second=min(second,d);}
+            if(d<outside){second=outside;outside=d;edgeNormal=outerPlanes[i].xy;}else{second=min(second,d);}
           }
           // Front/back perimeter plus longitudinal corner edges, never a whole face.
           float distance=min(length(vec2(outside,max(halfDepth-abs(p.z),0.))),length(vec2(outside,second)));
-          float edge=exp(-pow(distance/.06,2.));
-          float direction=.85+.15*max(dot(normalize(n.xy+vec2(.00001)),normalize(vec2(-.85,.25))),0.);
+          float edge=exp(-pow(distance/.045,2.));
+          // World-fixed light, local bevel: rotation moves the highlight naturally.
+          vec3 facing=normalize(vec3(edgeNormal,.18)+.25*n);
+          float direction=.20+.80*pow(max(dot(facing,keyDirection),0.),1.35);
+          float lowerEdge=mix(.60,1.,smoothstep(-.85,-.4,edgeNormal.y));
           float h=1.-clamp((p.y-heightRange.x)/(heightRange.y-heightRange.x),0.,1.);
           float formed=outlineProgress>=1.?1.:smoothstep(h-.2,h+.2,outlineProgress*1.4-.2);
-          float emission=.72*edge*direction*formed;gl_FragColor=vec4(vec3(emission),front);
+          float emission=1.05*edge*direction*lowerEdge*formed;gl_FragColor=vec4(vec3(emission),front);
         }` });
     this.mask = new Mesh(geometry, material);
     this.mask.matrixAutoUpdate = false;
@@ -96,6 +102,9 @@ export default class GlassGlow {
     try {
       source.updateWorldMatrix(true, false);
       this.mask.matrix.copy(source.matrixWorld);
+      this.inverseWorld.copy(source.matrixWorld).invert();
+      this.keyDirection.set(-.85,.55,.3).transformDirection(this.inverseWorld);
+      (this.mask.material as ShaderMaterial).uniforms.keyDirection.value.copy(this.keyDirection);
       (this.mask.material as ShaderMaterial).uniforms.coverageOnly.value = this.intensity < .0001 ? 1 : 0;
       (this.mask.material as ShaderMaterial).uniforms.outlineProgress.value=this.outlineProgress;
       gl.xr.enabled = false; gl.shadowMap.autoUpdate = false; gl.toneMapping = NoToneMapping;
@@ -106,10 +115,10 @@ export default class GlassGlow {
       if (this.intensity < .0001) return;
       // Each Gaussian uses adjacent texels at its own scale. The near field
       // prefilters the far field, so broad diffusion does not stamp sharp copies.
-      this.horizontal.uniforms.h.value = 1 / nearWidth;
+      this.horizontal.uniforms.h.value = .65 / nearWidth;
       this.horizontal.uniforms.tDiffuse.value = coverage.texture;
       this.quad.material = this.horizontal; gl.setRenderTarget(this.targets[1]); this.quad.render(gl);
-      this.vertical.uniforms.v.value = 1 / nearHeight;
+      this.vertical.uniforms.v.value = .65 / nearHeight;
       this.vertical.uniforms.tDiffuse.value = this.targets[1].texture;
       this.quad.material = this.vertical; gl.setRenderTarget(this.targets[4]); this.quad.render(gl);
       this.horizontal.uniforms.h.value = 1 / width;

@@ -23,6 +23,11 @@ export default defineConfig({
       description: '资料、文章与笔记，共用一个学习入口。',
       customCss: ['./src/styles/tokens.css', './src/styles/knowledge.css'],
       components: {
+        Header: './src/components/knowledge/Header.astro',
+        Sidebar: './src/components/knowledge/Sidebar.astro',
+        PageTitle: './src/components/knowledge/PageTitle.astro',
+        TableOfContents: './src/components/knowledge/TableOfContents.astro',
+        Search: './src/components/knowledge/Search.astro',
         MarkdownContent: './src/components/KnowledgeContent.astro',
         Head: './src/components/KnowledgeHead.astro',
         SiteTitle: './src/components/KnowledgeSiteTitle.astro',
@@ -38,7 +43,7 @@ export default defineConfig({
       })],
       sidebar: [
         { label: '学习总览', link: '/knowledge/' },
-        { label: '学习资料', items: [
+        { label: '学习资料', collapsed: true, items: [
           { slug: 'knowledge/resources/reading-guide' },
           { label: '大学物理Ⅱ', collapsed: true, items: [{ autogenerate: { directory: 'knowledge/resources/physics' } }] },
           { label: '大学物理实验', collapsed: true, items: [{ autogenerate: { directory: 'knowledge/resources/physics-lab' } }] },
@@ -47,13 +52,12 @@ export default defineConfig({
           { label: '计算机系统', collapsed: true, items: [{ autogenerate: { directory: 'knowledge/resources/computer-systems' } }] },
           { label: '先秦哲学', collapsed: true, items: [{ autogenerate: { directory: 'knowledge/resources/pre-qin-philosophy' } }] },
         ] },
-        { label: '笔记', items: [
+        { label: '笔记', collapsed: true, items: [
           { label: '我的笔记', collapsed: true, items: [{ autogenerate: { directory: 'knowledge/notes/writing' } }] },
           { label: '高级数据结构与算法分析', collapsed: true, items: [{ autogenerate: { directory: 'knowledge/notes/ads' } }] },
           { label: '计算机系统', collapsed: true, items: [{ autogenerate: { directory: 'knowledge/notes/computer-systems' } }] },
         ] },
         { label: '文章列表', link: '/knowledge/blog/' },
-        { label: '返回首页', link: '/' },
       ],
     }),
   ],

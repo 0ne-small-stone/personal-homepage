@@ -6,7 +6,7 @@ export function createPlaybackAccount({sdk=api,now=Date.now,resolve=cookie=>fetc
   let cookie='';let profile=null;let key='';let expiresAt=0;let revision=0;let qrRevision=0;let lastVerified=0;
   let saved=false;let restoring=Boolean(store);let persistenceError='';let mutations=Promise.resolve();
   const privateIndex=createPlaybackIndexService('',{load:async()=>null,update:()=>resolve(cookie),now});
-  const state=()=>({available:true,local:true,authorized:Boolean(cookie&&profile),account:profile?{...profile}:null,saved,restoring,persistenceError});
+  const state=()=>({available:true,local:true,persistenceAvailable:Boolean(store),authorized:Boolean(cookie&&profile),account:profile?{...profile}:null,saved,restoring,persistenceError});
   const mutate=operation=>{const job=mutations.then(operation,operation);mutations=job.catch(()=>{});return job;};
   function cancel(){qrRevision++;key='';expiresAt=0;}
   function reset(){revision++;cancel();cookie='';profile=null;lastVerified=0;privateIndex.invalidate();}
@@ -31,7 +31,7 @@ export function createPlaybackAccount({sdk=api,now=Date.now,resolve=cookie=>fetc
       const result=bodyOf(await sdk.login_qr_key({cookie:{},timeout:12000,crypto:'weapi',e_r:false}));
       const nextKey=result?.data?.unikey;
       if(Number(result?.code)!==200||!nextKey)throw Error();
-      const qr=bodyOf(await sdk.login_qr_create({key:nextKey,qrimg:true}));
+      const qr=bodyOf(await sdk.login_qr_create({key:nextKey,qrimg:true,platform:'web'}));
       if(expected!==qrRevision)throw Error();
       if(typeof qr?.data?.qrimg!=='string'||!qr.data.qrimg.startsWith('data:image/png;base64,'))throw Error();
       key=nextKey;expiresAt=now()+180000;return{image:qr.data.qrimg,expiresAt};

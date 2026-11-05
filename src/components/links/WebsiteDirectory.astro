@@ -1,6 +1,7 @@
 ---
 import HomeLayout from '../../layouts/HomeLayout.astro';
 import DirectoryIcon from './DirectoryIcon.astro';
+import WebsiteInvite from './WebsiteInvite.astro';
 import WebsiteIcon from './WebsiteIcon.astro';
 import WebsiteBrandIcon from './WebsiteBrandIcon.astro';
 import { Image } from 'astro:assets';
@@ -12,7 +13,7 @@ const { entries = websites } = Astro.props;
 validateWebsites(entries);
 const ordered = [...entries].sort((a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured)));
 ---
-<HomeLayout homeIconOnly title="Elsewhere · 常用网站" description="常去的地方，也有新的发现。小石的课程、校园、影像与音乐网址收藏。">
+<HomeLayout title="Elsewhere · 常用网站" description="常去的地方，也有新的发现。小石的课程、校园、影像与音乐网址收藏。">
   <div class="elsewhere-page" data-website-directory>
     <section class="elsewhere-intro" aria-labelledby="elsewhere-title">
       <div class="elsewhere-intro-copy">
@@ -35,14 +36,19 @@ const ordered = [...entries].sort((a, b) => Number(Boolean(b.featured)) - Number
             <input id="website-search" name="q" type="search" placeholder="搜索名称、用途或域名" maxlength="160" autocomplete="off" enterkeyhint="search" />
             <button class="elsewhere-clear-query" type="button" data-clear-query aria-label="清空搜索" hidden><DirectoryIcon name="close" /></button>
           </form>
-          <div class="elsewhere-filter-actions"><button class="elsewhere-reset" type="button" data-reset hidden>清除条件</button></div>
         </div>
       </div>
-      <div class="elsewhere-directory-heading"><h2 id="directory-title" data-results-heading>收藏的网站</h2><p class="elsewhere-count" role="status" aria-live="polite" aria-atomic="true" data-result-count>{entries.length} 个网站</p></div>
+      <div class="elsewhere-directory-heading">
+        <h2 id="directory-title" data-results-heading>收藏的网站</h2>
+        <div class="elsewhere-filter-actions">
+          <button class="elsewhere-reset" type="button" data-reset hidden>清除条件</button>
+          <p class="elsewhere-count" role="status" aria-live="polite" aria-atomic="true" data-result-count>{entries.length} 个网站</p>
+        </div>
+      </div>
       <div class="elsewhere-grid" data-results>
-        {ordered.map((entry, index) => <article class="elsewhere-card" id={ordered.findIndex(site => site.category === entry.category) === index ? `websites-${entry.category}` : `website-${entry.id}`} data-website-card data-category-id={entry.category} data-search-text={websiteSearchText(entry)}>
+        {ordered.map((entry, index) => <article class="elsewhere-card" id={ordered.findIndex(site => site.category === entry.category) === index ? `websites-${entry.category}` : `website-${entry.id}`} data-website-card data-invite-surface data-category-id={entry.category} data-search-text={websiteSearchText(entry)}>
               <a href={entry.url} target="_blank" rel="noopener noreferrer" class="elsewhere-card-link">
-                <div class="elsewhere-card-top"><span class:list={['elsewhere-site-mark', { 'elsewhere-site-mark-photo': entry.portrait, 'elsewhere-site-mark-brand': entry.brand }, entry.brand && `brand-${entry.brand}`]} aria-hidden="true">{entry.portrait === 'li-zhi' ? <Image src={liZhiPortrait} width={384} height={288} format="webp" quality={85} alt="" title="李志演出照 · 来源：看理想" /> : entry.brand ? <WebsiteBrandIcon name={entry.brand} /> : <WebsiteIcon name={entry.icon} />}</span><h3>{entry.name}</h3><DirectoryIcon name="arrow" class="elsewhere-external-arrow" /></div>
+                <div class="elsewhere-card-top"><span class:list={['elsewhere-site-mark', { 'elsewhere-site-mark-photo': entry.portrait, 'elsewhere-site-mark-brand': entry.brand }, entry.brand && `brand-${entry.brand}`]} aria-hidden="true">{entry.portrait === 'li-zhi' ? <Image src={liZhiPortrait} width={384} height={288} format="webp" quality={85} alt="" title="李志演出照 · 来源：看理想" /> : entry.brand ? <WebsiteBrandIcon name={entry.brand} /> : <WebsiteIcon name={entry.icon} />}</span><h3>{entry.name}</h3><WebsiteInvite /></div>
                 <p class="elsewhere-card-description">{entry.description}</p>
                 <div class="elsewhere-card-bottom"><span class="elsewhere-domain">{websiteDomain(entry.url)}</span>{entry.featured && <span class="elsewhere-featured">常用</span>}</div>
               </a>
@@ -62,7 +68,10 @@ const ordered = [...entries].sort((a, b) => Number(Boolean(b.featured)) - Number
   document.addEventListener('astro:page-load', () => {
     cleanup?.();
     const root = document.querySelector<HTMLElement>('[data-website-directory]');
-    cleanup = root ? mountWebsiteDirectory(root) : undefined;
+    if (root) {
+      const stopDirectory = mountWebsiteDirectory(root);
+      cleanup = stopDirectory;
+    } else cleanup = undefined;
   });
   document.addEventListener('astro:before-swap', () => { cleanup?.(); cleanup = undefined; });
 </script>

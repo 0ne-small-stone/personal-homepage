@@ -1,0 +1,11 @@
+/* Local layout only. Shared glyph and feedback remain single-source. */
+.article-navigation { align-items: center; }
+.becoming-pdf .pdf-reading-actions { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem 1rem; position: sticky; top: var(--sl-nav-height); z-index: 10; padding-block: .5rem; margin-bottom: 1rem; border-bottom: 1px solid var(--becoming-border); background: var(--becoming-bg); }
+.becoming-pdf .pdf-reading-actions learning-reading-mode { position: static; padding: 0; margin: 0; border: 0; }
+.becoming-pdf .pdf-reading-actions .article-navigation { position: static; margin: 0; }
+html[data-reading-immersive] .becoming-pdf .pdf-reading-actions { display: none !important; }
+.becoming-blog .becoming-blog-meta { align-items: center; }
+.knowledge-not-found-return { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.article-navigation .db-return.db-return, .becoming-shell .sidebar-content .db-return.db-return { text-decoration: none; }
+.becoming-shell .sidebar-content .db-return.db-return { display: inline-flex; padding: 4px 8px; gap: 10px; overflow: visible; border-radius: 0; background: transparent; }
+.db-return-host { max-width: 100%; }

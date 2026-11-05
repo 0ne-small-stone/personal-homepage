@@ -36,7 +36,7 @@ const reliefs = {
   <div class="home-works" data-work-count={homeWorkChapters.length}>
   {homeWorkChapters.map((chapter,index) => <section id={chapter.id} class:list={['home-chapter','home-work-chapter',`home-work-${chapter.id}`]} aria-labelledby={`title-${chapter.id}`} data-chapter={chapter.id} data-work-item={index}>
     <div class="home-chapter-viewport">
-      <div class="home-chapter-content"><h2 id={`title-${chapter.id}`}>{chapter.title}</h2><p class="home-description">{chapter.description}</p><HomeCta href={sitePath(chapter.path)} label={chapter.action} id={`entry-${chapter.id}`} />
+      <div class="home-chapter-content" data-lenis-prevent><h2 id={`title-${chapter.id}`}>{chapter.title}</h2><p class="home-description">{chapter.description}</p><HomeCta href={sitePath(chapter.path)} label={chapter.action} id={`entry-${chapter.id}`} />
         <p class="home-chapter-note">{reliefs[chapter.id].title}</p>
       </div>
       <figure class="home-art home-art--scene"><a class="home-relief-native" href={sitePath(chapter.path)} data-home-link><img class="home-project-cover" src={reliefs[chapter.id].image.src} width={reliefs[chapter.id].image.attributes.width} height={reliefs[chapter.id].image.attributes.height} alt={reliefs[chapter.id].alt} loading="lazy" /></a></figure>

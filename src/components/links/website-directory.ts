@@ -1,4 +1,4 @@
-import { matchesWebsite, readWebsiteFilter, websiteCategories } from '../../lib/website-directory';
+import { matchesWebsite, readWebsiteFilter, websiteCategories } from '../../data/websites';
 export function mountWebsiteDirectory(root: HTMLElement, view: Window = window): () => void {
   const input = root.querySelector<HTMLInputElement>('#website-search')!;
   const categories = [...root.querySelectorAll<HTMLAnchorElement>('[data-category]')];
@@ -12,10 +12,20 @@ export function mountWebsiteDirectory(root: HTMLElement, view: Window = window):
   const clear = root.querySelector<HTMLButtonElement>('[data-clear-query]')!;
   const form = root.querySelector<HTMLFormElement>('form')!;
   let state = readWebsiteFilter(new URL(view.location.href));
+  let revealedCategory: string | undefined;
   const listeners: (() => void)[] = [];
   const listen = (target: EventTarget, name: string, callback: EventListener) => {
     target.addEventListener(name, callback); listeners.push(() => target.removeEventListener(name, callback));
   };
+  function revealCategory() {
+    // Keep the active scope visible without moving the page or taking focus.
+    const nav = root.querySelector<HTMLElement>('[data-category-nav]')!;
+    const selected = state.category === 'all' ? all : categories.find(item => item.dataset.category === state.category)!;
+    const bounds = nav.getBoundingClientRect();
+    const item = selected.getBoundingClientRect();
+    if (item.left < bounds.left + 6) nav.scrollLeft -= bounds.left + 6 - item.left;
+    else if (item.right > bounds.right - 6) nav.scrollLeft += item.right - bounds.right + 6;
+  }
   function render() {
     input.value = state.query;
     let visible = 0;
@@ -33,6 +43,7 @@ export function mountWebsiteDirectory(root: HTMLElement, view: Window = window):
     root.querySelector<HTMLElement>('[data-empty-title]')!.textContent = cards.length ? '没有找到匹配的网站' : '还没有收录网站';
     root.querySelector<HTMLElement>('[data-empty-copy]')!.textContent = cards.length ? '试试其他关键词，或换一个分类。' : '收藏的网址会在这里按分类整理。';
     root.querySelector<HTMLElement>('[data-results]')!.hidden = visible === 0;
+    if (revealedCategory !== state.category) { revealCategory(); revealedCategory = state.category; }
   }
   function update(mode: 'push' | 'replace') {
     const url = new URL(view.location.href);
@@ -61,6 +72,7 @@ export function mountWebsiteDirectory(root: HTMLElement, view: Window = window):
   const resetAll = () => { state = { category: 'all', query: '' }; update('push'); input.focus(); };
   listen(reset, 'click', resetAll); listen(emptyReset, 'click', resetAll);
   listen(view, 'popstate', () => { state = readWebsiteFilter(new URL(view.location.href)); render(); });
+  listen(view, 'resize', revealCategory);
   root.querySelectorAll<HTMLElement>('[data-enhanced-only]').forEach(element => { element.hidden = false; });
   root.ownerDocument.querySelector('#nav-links')?.setAttribute('aria-current', 'page');
   root.dataset.enhanced = 'true'; render();
