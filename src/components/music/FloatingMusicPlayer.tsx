@@ -21,9 +21,10 @@ export default function FloatingMusicPlayer({ state, open, onHide }: { state: Au
     if (!panel.current) return null;
     const rect = panel.current.getBoundingClientRect();const styles = getComputedStyle(panel.current);
     const edge = parseFloat(styles.getPropertyValue('--float-edge')) || 16;
+    const safeTop = parseFloat(styles.getPropertyValue('--float-safe-top')) || 0;
     const safeBottom = parseFloat(styles.getPropertyValue('--float-safe-bottom')) || 0;
     const viewport = window.visualViewport;
-    const left = (viewport?.offsetLeft || 0) + edge;const top = (viewport?.offsetTop || 0) + edge;
+    const left = (viewport?.offsetLeft || 0) + edge;const top = (viewport?.offsetTop || 0) + edge + safeTop;
     return { left, top, right: Math.max(left, (viewport?.offsetLeft || 0) + (viewport?.width || document.documentElement.clientWidth) - rect.width - edge), bottom: Math.max(top, (viewport?.offsetTop || 0) + (viewport?.height || window.innerHeight) - rect.height - edge - safeBottom) };
   }
   function clamp(next: Position) {
