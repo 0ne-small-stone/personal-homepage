@@ -1,17 +1,50 @@
-/* F09 lives in the existing auxiliary controls, with no animated decoration. */
-.has-journey .home-sound-control { display: inline-flex; }
-.has-journey .home-sound-reason { position: absolute; bottom: calc(100% + 8px); right: 0; width: max-content; max-width: min(260px,calc(100vw - 32px)); margin: 0; font: 12px/1.5 var(--font-body); color: inherit; }
-.has-journey .home-sound-reason:empty { display: none; }
-.has-journey .home-sound[aria-disabled="true"] { cursor: default; border-color: currentColor; }
-.has-journey .home-sound { min-width: 88px; white-space: nowrap; }
+/* Two quiet controls with finite, locally owned invitation gestures. */
+.has-journey .home-header .home-scene-controls {
+  position: static; inset: auto; z-index: auto; display: flex; align-items: center; gap: 8px;
+  width: 96px; height: 44px; padding: 0; color: #aaaab0; background: none; mix-blend-mode: normal;
+}
+.has-journey .home-header .home-control { position: relative; display: inline-flex; width: 44px; height: 44px; flex: none; }
+.has-journey .home-header .home-scene-button {
+  display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box;
+  width: 44px; min-width: 44px; height: 44px; min-height: 44px; padding: 0;
+  border: 1px solid transparent; border-radius: 50%; background: transparent; --home-control-ink: #aaaab0; color: var(--home-control-ink);
+  cursor: pointer; touch-action: manipulation;
+}
+.has-journey .home-header .home-scene-button svg { display: block; flex: none; }
+.has-journey .home-control-mark { display: inline-flex; width: 22px; height: 22px; flex: none; pointer-events: none; }
+.has-journey .home-header .home-scene-button[aria-pressed="true"] { --home-control-ink: #ededed; color: var(--home-control-ink); border-color: transparent; }
+.has-journey .home-header .home-scene-button:disabled { opacity: .45; cursor: default; }
+.has-journey .home-header .home-sound[aria-disabled="true"] { cursor: default; }
+.has-journey .home-header .home-scene-button:focus-visible { outline: 2px solid #ededed; outline-offset: 3px; }
+.has-journey .home-header .home-scene-controls .home-scene-button:active:not(:disabled):not([aria-disabled="true"]) { color: #ededed; background: #242424; border-color: transparent; }
+.has-journey .home-control-tooltip {
+  position: absolute; top: calc(100% + 8px); right: 0; z-index: 1; width: max-content;
+  max-width: min(260px,calc(100vw - 32px)); box-sizing: border-box; padding: 8px 12px;
+  border: 1px solid #383838; border-radius: 12px; background: #1f1f1f; color: #ededed;
+  font: 12px/1.5 var(--font-body); text-align: left; white-space: normal;
+  opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 160ms ease, visibility 160ms;
+}
+.has-journey .home-control-tooltip > span { display: block; margin-top: 3px; color: #a1a1a1; }
+.has-journey .home-scene-button:focus-visible + .home-control-tooltip { opacity: 1; visibility: visible; }
+.has-journey .home-sound-reason { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (hover:hover) and (pointer:fine) {
+  .has-journey .home-header .home-scene-controls .home-scene-button:hover:not(:disabled) { color: var(--home-control-ink); background: #1f1f1f; border-color: transparent; }
+  .has-journey .home-control:hover .home-control-tooltip { opacity: 1; visibility: visible; transition-delay: 180ms; }
+}
+@media (prefers-reduced-motion:reduce) { .has-journey .home-control-tooltip, .has-journey .home-header .home-scene-button { transition: none; } }
+/* A scene failure keeps its separate recovery action outside the toolbar. */
+.has-journey .home-scene-retry { position: fixed; right: var(--home-gutter); bottom: 1.8rem; z-index: 18; }
+.has-journey .home-scene-retry button { min-height: 44px; padding: 0 16px; border: 1px solid #777; border-radius: 999px; background: #000; color: #ededed; cursor: pointer; }
+.has-journey .home-scene-retry button:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 /* The existing floating component reads this numeric reserve in its bounds. */
-.has-journey .lssh-floating-player { --float-safe-bottom: 144px; max-height: calc(100dvh - 176px); }
+.has-journey .lssh-floating-player {
+  --float-safe-top: 80px; --float-safe-bottom: 144px;
+  max-height: calc(100dvh - 2 * var(--float-edge) - var(--float-safe-top) - var(--float-safe-bottom) - env(safe-area-inset-top,0px));
+}
+@media(max-width:49.999rem) { .has-journey .lssh-floating-player { --float-safe-top: 112px; } }
 @media(max-width:767px) {
-  .has-journey .home-scene-controls { bottom: calc(4.25rem + env(safe-area-inset-bottom)); gap: 8px; }
-  .has-journey .home-scene-controls .home-sound { display: inline-block; }
   .has-journey .home-chapter-index { bottom: calc(.5rem + env(safe-area-inset-bottom)); }
   .has-journey .home-status { bottom: calc(8rem + env(safe-area-inset-bottom)); }
   .has-journey.home-enhanced:not(.home-quiet) .home-wall .home-chapter-viewport { padding-bottom: 11rem; }
   .has-journey:is(.home-quiet,.home-static) .home-chapter-viewport { padding-bottom: 11rem; }
-  .has-journey .home-sound-reason { max-width: calc(100vw - 40px); }
 }

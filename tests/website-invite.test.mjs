@@ -131,3 +131,27 @@ test('解析解在不同常规帧间隔下得到相同展开进度', t => {
   });
   assert.ok(Math.max(...positions) - Math.min(...positions) < .0002);
 });
+
+const homeHtml = await readFile(new URL('../dist/index.html', import.meta.url), 'utf8');
+const exploreLink = JSDOM.fragment(homeHtml).querySelector('.home-scroll').outerHTML;
+test('首页探索链接有限邀请、快速折返及离屏复位，保持原生章节导航', t => {
+  const f = fixture(t, false, exploreLink, true);
+  assert.equal(f.card.textContent.trim(), '向下探索');
+  assert.equal(f.card.getAttribute('href'), '#album');
+  assert.equal(f.card.tagName, 'A');
+  f.enter(); f.step(0); f.run(800);
+  const moving = f.snapshot(); f.leave(); assert.deepEqual(f.snapshot(), moving);
+  f.run(1500); assert.ok(isArrow(f)); assert.equal(f.callbacks.size, 0);
+  f.card.focus(); f.step(0); f.run(3500);
+  assert.ok(isPerson(f)); assert.equal(f.callbacks.size, 0);
+  const rest = f.snapshot(); f.run(3000); assert.deepEqual(f.snapshot(), rest);
+  f.intersect(false); assert.ok(isArrow(f)); assert.equal(f.callbacks.size, 0);
+  f.card.blur(); f.intersect(true); f.enter(); f.step(0); f.run(100);
+  f.dispose(); assert.ok(isArrow(f)); assert.equal(f.callbacks.size, 0);
+});
+test('首页探索触摸无悬停，减少动画直接端点且不排帧', t => {
+  const f = fixture(t, true, exploreLink);
+  f.enter(true); assert.ok(isArrow(f)); assert.equal(f.callbacks.size, 0);
+  f.card.focus(); assert.ok(isPerson(f)); assert.equal(f.callbacks.size, 0);
+  f.card.blur(); assert.ok(isArrow(f)); assert.equal(f.callbacks.size, 0);
+});

@@ -1,11 +1,11 @@
+import { gestureDuration, gestureSignal, gesturePoint } from './invite-gestures.ts';
 type Spring = { value: number; velocity: number };
-type Stroke = { element: SVGPathElement; arrow: string; person: string; start: number[]; end: number[]; forearm: boolean };
+type Stroke = { element: SVGPathElement; arrow: string; person: string; start: number[]; end: number[]; previousEnd: number[]; part: string };
 type Invite = {
   card: HTMLElement; link: HTMLAnchorElement | HTMLButtonElement; mark: HTMLElement; strokes: Stroke[];
-  morph: Spring; arm: Spring; target: number; hovered: boolean; waveElapsed: number | null; visible: boolean;
+  gesture: string | undefined; morph: Spring; arm: Spring; pose: Spring; target: number; hovered: boolean; waveElapsed: number | null; visible: boolean;
 };
 const numbers = /-?\d*\.?\d+(?:e[-+]?\d+)?/gi;
-const waveDuration = 1.45;
 
 // Exact critically damped response: interruptions retain both position and velocity.
 function advance(spring: Spring, target: number, omega: number, dt: number) {
@@ -16,7 +16,8 @@ function advance(spring: Spring, target: number, omega: number, dt: number) {
   spring.velocity = (spring.velocity - omega * coefficient * dt) * decay;
 }
 
-export function mountInviteMarks(root: HTMLElement, view: Window = window): () => void {
+// A local selector keeps React-owned marks outside the automatic page-wide mount.
+export function mountInviteMarks(root: HTMLElement, view: Window = window, selector = '[data-invite-mark]'): () => void {
   if (!view.matchMedia || !view.requestAnimationFrame) return () => {};
   const doc = root.ownerDocument;
   const reduced = view.matchMedia('(prefers-reduced-motion: reduce)');
@@ -30,40 +31,37 @@ export function mountInviteMarks(root: HTMLElement, view: Window = window): () =
     target.addEventListener(event, listener);
     removers.push(() => target.removeEventListener(event, listener));
   };
-  const invites: Invite[] = [...root.querySelectorAll<HTMLElement>('[data-invite-mark]')].flatMap(mark => {
+  const invites: Invite[] = [...root.querySelectorAll<HTMLElement>(selector)].flatMap(mark => {
     const link = mark.closest<HTMLAnchorElement | HTMLButtonElement>('a, button');
     if (!link) return [];
     const card = link.closest<HTMLElement>('[data-invite-surface]') ?? link;
     const strokes = [...mark.querySelectorAll<SVGPathElement>('[data-invite-part]')].map(element => {
       const arrow = element.dataset.inviteArrow!;
       const person = element.dataset.invitePerson!;
-      return { element, arrow, person, start: arrow.match(numbers)!.map(Number), end: person.match(numbers)!.map(Number), forearm: element.dataset.invitePart === 'forearm' };
+      const end = person.match(numbers)!.map(Number);
+      return { element, arrow, person, start: arrow.match(numbers)!.map(Number), end, previousEnd: end, part: element.dataset.invitePart! };
     });
-    return [{ card, link, mark, strokes, morph: { value: 0, velocity: 0 }, arm: { value: 0, velocity: 0 }, target: 0, hovered: false, waveElapsed: null, visible: true } satisfies Invite];
+    return [{ card, link, mark, strokes, gesture: mark.dataset.inviteGesture, morph: { value: 0, velocity: 0 }, arm: { value: 0, velocity: 0 }, pose: { value: 1, velocity: 0 }, target: 0, hovered: false, waveElapsed: null, visible: true } satisfies Invite];
   });
   const unavailable = (invite: Invite) => !invite.visible || invite.link.matches(':disabled, [aria-disabled="true"]') || !!invite.card.closest('[hidden], [inert], [aria-hidden="true"]');
 
   function paint(invite: Invite) {
     const progress = Math.max(0, Math.min(1, invite.morph.value));
     invite.mark.style.setProperty('--invite-progress', progress.toFixed(4));
-    const angle = invite.arm.value * Math.PI / 180;
-    const cosine = Math.cos(angle), sine = Math.sin(angle);
+    const pose = Math.max(0, Math.min(1, invite.pose.value));
     for (const stroke of invite.strokes) {
       if (progress === 0) { stroke.element.setAttribute('d', stroke.arrow); continue; }
-      if (progress === 1 && angle === 0) { stroke.element.setAttribute('d', stroke.person); continue; }
+      if (progress === 1 && invite.arm.value === 0 && pose === 1) { stroke.element.setAttribute('d', stroke.person); continue; }
+      const endpoint = stroke.end.map((value,index) => stroke.previousEnd[index] + (value - stroke.previousEnd[index]) * pose);
       let index = 0;
       stroke.element.setAttribute('d', stroke.arrow.replace(numbers, () => {
-        const i = index++;
-        let end = stroke.end[i];
-        if (stroke.forearm && angle !== 0) {
-          const pair = i - i % 2;
-          const x = stroke.end[pair] - 14.3, y = stroke.end[pair + 1] - 10.3;
-          end = i % 2 === 0 ? 14.3 + x * cosine - y * sine : 10.3 + x * sine + y * cosine;
-        }
-        return (stroke.start[i] + (end - stroke.start[i]) * progress).toFixed(3);
+        const i = index++, pair = i - i % 2;
+        const point = gesturePoint(invite.gesture, stroke.part, endpoint[pair], endpoint[pair+1], invite.arm.value);
+        return (stroke.start[i] + (point[i % 2] - stroke.start[i]) * progress).toFixed(3);
       }));
     }
   }
+
   function stopClock() {
     if (frame) view.cancelAnimationFrame(frame);
     frame = 0; previousTime = undefined;
@@ -72,6 +70,8 @@ export function mountInviteMarks(root: HTMLElement, view: Window = window): () =
     invite.target = target;
     invite.morph.value = target; invite.morph.velocity = 0;
     invite.arm.value = 0; invite.arm.velocity = 0; invite.waveElapsed = null;
+    invite.pose.value = 1; invite.pose.velocity = 0;
+    invite.strokes.forEach(stroke => { stroke.previousEnd = stroke.end; });
     moving.delete(invite); paint(invite);
   }
   function schedule() {
@@ -84,17 +84,20 @@ export function mountInviteMarks(root: HTMLElement, view: Window = window): () =
     for (const invite of moving) {
       if (unavailable(invite)) { reset(invite); continue; }
       advance(invite.morph, invite.target, invite.target ? 16 : 20, dt);
+      advance(invite.pose, 1, 18, dt);
+      const gesture = invite.gesture, duration = gestureDuration(gesture);
       let desiredAngle = 0;
       if (invite.target && invite.morph.value >= .84) {
-        invite.waveElapsed = Math.min(waveDuration, (invite.waveElapsed ?? 0) + dt);
-        const phase = invite.waveElapsed / waveDuration;
-        desiredAngle = -20 * Math.sin(phase * Math.PI * 4) * Math.sin(phase * Math.PI) ** 2;
+        invite.waveElapsed = Math.min(duration, (invite.waveElapsed ?? 0) + dt);
+        const phase = invite.waveElapsed / duration;
+        desiredAngle = gestureSignal(gesture, phase);
       }
       advance(invite.arm, desiredAngle, 22, dt);
       const settled = Math.abs(invite.morph.value - invite.target) < .0005 && Math.abs(invite.morph.velocity) < .008;
       const armSettled = Math.abs(invite.arm.value) < .025 && Math.abs(invite.arm.velocity) < .25;
-      const waveFinished = !invite.target || invite.waveElapsed === waveDuration;
-      if (settled && armSettled && waveFinished) reset(invite, invite.target);
+      const waveFinished = !invite.target || invite.waveElapsed === duration;
+      const poseSettled = Math.abs(1 - invite.pose.value) < .0005 && Math.abs(invite.pose.velocity) < .008;
+      if (settled && armSettled && waveFinished && poseSettled) reset(invite, invite.target);
       else paint(invite);
     }
     if (moving.size) schedule(); else previousTime = undefined;
@@ -130,10 +133,43 @@ export function mountInviteMarks(root: HTMLElement, view: Window = window): () =
   // Filtering may hide a settled, focused card while no frame is running.
   const Observer = (view as Window & typeof globalThis).MutationObserver;
   const observer = new Observer(() => {
+    // Preserve the visible pose when a hovered toggle changes its available action.
+    for (const invite of invites) {
+      let changed = false, poseChanged = false;
+      const pose = Math.max(0, Math.min(1, invite.pose.value));
+      const currentEnds = invite.strokes.map(stroke => {
+        const end = stroke.end.map((value,index) => stroke.previousEnd[index] + (value-stroke.previousEnd[index])*pose);
+        return end.map((_,index) => {
+          const pair = index - index % 2;
+          return gesturePoint(invite.gesture,stroke.part,end[pair],end[pair+1],invite.arm.value)[index % 2];
+        });
+      });
+      for (const stroke of invite.strokes) {
+        const {inviteArrow: arrow, invitePerson: person} = stroke.element.dataset;
+        if (arrow && person && (arrow !== stroke.arrow || person !== stroke.person)) {
+          if (person !== stroke.person) poseChanged = true;
+          stroke.arrow = arrow; stroke.person = person;
+          stroke.start = arrow.match(numbers)!.map(Number); stroke.end = person.match(numbers)!.map(Number);
+          changed = true;
+        }
+      }
+      const gesture = invite.mark.dataset.inviteGesture;
+      poseChanged ||= gesture !== invite.gesture;
+      invite.gesture = gesture;
+      if (poseChanged) {
+        // Retarget the geometry actually on screen, even during the previous action.
+        invite.arm.value = 0; invite.arm.velocity = 0; invite.waveElapsed = null;
+        invite.pose.value = reduced.matches || invite.morph.value === 0 ? 1 : 0;
+        invite.pose.velocity = 0;
+        if (invite.pose.value === 0) { moving.add(invite); schedule(); }
+      }
+      if (poseChanged) invite.strokes.forEach((stroke,index) => { stroke.previousEnd = currentEnds[index]; });
+      if (changed) paint(invite);
+    }
     for (const invite of invites) if (unavailable(invite) && (invite.target || moving.has(invite))) { invite.hovered = false; reset(invite); }
     if (!moving.size) stopClock();
   });
-  observer.observe(root, { subtree: true, attributes: true, attributeFilter: ['hidden', 'inert', 'aria-hidden', 'disabled', 'aria-disabled'] });
+  observer.observe(root, { subtree: true, attributes: true, attributeFilter: ['hidden', 'inert', 'aria-hidden', 'disabled', 'aria-disabled', 'data-invite-arrow', 'data-invite-person', 'data-invite-gesture'] });
   // Cancel hidden/offscreen marks, including the compact work-list view.
   const Intersector = (view as Window & typeof globalThis).IntersectionObserver;
   const byMark = new Map(invites.map(invite => [invite.mark, invite]));

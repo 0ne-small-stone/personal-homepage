@@ -1,5 +1,8 @@
 import { Component, Suspense, useEffect, useRef, useState, type ReactNode } from 'react';
 import { Canvas } from '@react-three/fiber';
+import { createPortal } from 'react-dom';
+import HomeControlIcon from './HomeControlIcon';
+import { mountInviteMarks } from '../../lib/invite-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { createJourneyModel } from './scene-state';
@@ -37,6 +40,9 @@ export default function HomeJourney({wordmarkUrl,albumUrl,projectUrl,neighborUrl
   const [hover,setHover] = useState(false);
   const [visible,setVisible] = useState(true);
   const [attempt,setAttempt] = useState(0);
+  const [toolbar,setToolbar] = useState<HTMLElement | null>(null);
+  useEffect(() => { setToolbar(document.querySelector<HTMLElement>('[data-home-scene-toolbar]')); }, []);
+  useEffect(() => toolbar ? mountInviteMarks(toolbar.closest<HTMLElement>('[data-home-control-group]') ?? toolbar, window, '[data-home-control-mark]') : undefined, [toolbar]);
   const loading=useHomeLoading(model,wordmarkUrl,attempt,quiet);
   const status=loading.phase,message=loading.message,fallback=loading.fallback;
   const canRender=status!=='error'&&status!=='fallback';
@@ -124,7 +130,16 @@ export default function HomeJourney({wordmarkUrl,albumUrl,projectUrl,neighborUrl
     </Canvas></SceneBoundary></div>}
     {loading.active&&<div className="home-loader" aria-label="首页加载"><p role="status">{status==='waiting'?'正在载入':'空间正在显现'}</p><button onClick={()=>fallback()}>普通浏览</button></div>}
     {loading.preview==='1'&&loading.active&&<div className="home-loading-lab" aria-label="本机加载预览"><span>本机加载预览</span><button disabled={!loading.wordmarkDecoded} onClick={loading.start}>开始揭幕</button><button disabled={!loading.wordmarkDecoded} onClick={()=>loading.seek(.16)}>轮廓</button><button disabled={!loading.wordmarkDecoded} onClick={()=>loading.seek(.55)}>展开</button><button disabled={!loading.wordmarkDecoded} onClick={()=>loading.seek(1)}>完成</button></div>}
-    <div className="home-scene-controls"><HomeSoundscape /><button data-home-pause onClick={togglePaused} disabled={reduced} aria-pressed={paused||reduced}>{reduced ? '减少动画已启用' : paused ? '继续动态' : '暂停动态'}</button>{status === 'error' && attempt < 1 && <button onClick={()=>setAttempt(value=>value+1)}>重试场景</button>}</div>
+    {toolbar && createPortal(<div className="home-scene-controls" role="group" aria-label="首页体验设置">
+      <HomeSoundscape />
+      <span className="home-control">
+        <button type="button" className="home-scene-button" data-home-pause onClick={togglePaused} disabled={reduced} aria-pressed={paused||reduced} aria-label={reduced ? '减少动画已启用' : paused ? '继续动态' : '暂停动态'}>
+          <HomeControlIcon kind="motion" active={!paused&&!reduced} />
+        </button>
+        <span className="home-control-tooltip" aria-hidden="true">{reduced ? '减少动画已启用' : paused ? '继续动态' : '暂停动态'}</span>
+      </span>
+    </div>, toolbar)}
+    {status === 'error' && attempt < 1 && <div className="home-scene-retry"><button type="button" onClick={()=>setAttempt(value=>value+1)}>重试场景</button></div>}
     <p className="home-status" role="status">{message}</p>
   </>;
 }

@@ -3,6 +3,7 @@ import '../styles/home-soundscape.css';
 import '../styles/home-relief.css';
 import HomeLayout from '../layouts/HomeLayout.astro';
 import HomeCta from '../components/home/HomeCta.astro';
+import InviteMark from '../components/navigation/InviteMark.astro';
 import HomeReliefPalette from '../components/home/HomeReliefPalette.astro';
 import HomeJourney from '../components/home/HomeJourney';
 import { homeChapters, homeWorkChapters } from '../components/home/home-chapters';
@@ -29,7 +30,7 @@ const reliefs = {
     <div class="home-chapter-viewport"><div class="home-chapter-content">
       <h1 id="home-title" class="sr-only">Little Stone Still Here</h1>
       <Image class="home-wordmark" src={wordmark} width={768} alt="Little Stone Still Here" loading="eager" format="webp" quality={90} />
-      <a class="home-scroll" href={`#${homeWorkChapters[0].id}`}><svg width="16" height="20" viewBox="0 0 16 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v14M3 11l5 5 5-5" /></svg>向下探索</a>
+      <a class="home-scroll" href={`#${homeWorkChapters[0].id}`}><InviteMark direction="down" size={22} className="home-explore-invite" />向下探索</a>
     </div></div>
   </section>
   <section class="home-works-intro" aria-hidden="true"></section>

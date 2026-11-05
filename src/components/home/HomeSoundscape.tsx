@@ -1,4 +1,5 @@
 import {useLayoutEffect,useRef,useState} from 'react';
+import HomeControlIcon from './HomeControlIcon';
 import {audioSession,type AudioTrack} from '../../lib/audio-session';
 import playlist from '../../data/music/netease-playlist.json';
 
@@ -83,5 +84,12 @@ export default function HomeSoundscape(){
   const active=state.phase==='on'||state.phase==='starting';
   const label=({on:'开',starting:'连接中',off:'关',yielded:'让位',muted:'静音',paused:'暂停',ended:'结束',error:'重试'} as Record<string,string>)[state.phase]||'关';
   const reason=blocked||state.reason;
-  return <span className="home-sound-control"><button type="button" className="home-sound" aria-pressed={active} aria-disabled={!active&&Boolean(blocked)} aria-describedby={reason?'home-sound-reason':undefined} aria-label={active?'关闭声景':`开启 Breathe 声景${reason?`，${reason}`:''}`} onClick={()=>enable.current()}>声景：{label}</button><span id="home-sound-reason" className="home-sound-reason" role="status">{reason}</span></span>;
+  const action=active?'关闭声景':state.phase==='error'?'重试 Breathe 声景':'开启 Breathe 声景';
+  return <span className="home-sound-control home-control">
+    <button type="button" className="home-sound home-scene-button" data-state={state.phase} aria-pressed={active} aria-disabled={!active&&Boolean(blocked)} aria-describedby={reason?'home-sound-reason':undefined} aria-label={action} onClick={()=>enable.current()}>
+      <HomeControlIcon kind="sound" active={active} />
+    </button>
+    <span className="home-control-tooltip" aria-hidden="true">{`声景 · ${label}`}{reason&&<span>{reason}</span>}</span>
+    <span id="home-sound-reason" className="home-sound-reason" role="status">{reason}</span>
+  </span>;
 }
