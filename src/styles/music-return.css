@@ -23,6 +23,12 @@
 .ne-home-mobile.db-return.db-return { display:none; }
 .ne-page-heading > div:first-of-type { min-width:0; }
 .ne-sidebar .ne-brand.db-return { width:48px; min-width:48px; }
+@media(min-width:701px) {
+ .ne-sidebar > .ne-brand.music-page-return.db-return {
+  width:48px; min-width:48px; min-height:52px;
+  padding:4px 6px 4px 2px; margin:0 0 16px; justify-content:flex-start;
+ }
+}
 @media(max-width:700px) {
  .ne-home-mobile.db-return.db-return { display:inline-flex; flex:0 0 48px; }
  .ne-page-heading > div:first-of-type { flex:1; min-width:0; }

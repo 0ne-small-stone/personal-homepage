@@ -1,6 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { NetEaseCard } from '../../lib/netease-core';
+import { directoryPainting } from '../../lib/chart-directory-art';
 import AlbumArtwork from './AlbumArtwork';
+import InviteMark from '../navigation/InviteMark';
+import { mountInviteMarks } from '../../lib/invite-motion';
 import rising from '../../assets/music/charts/chart-rising.webp';
 import newMusic from '../../assets/music/charts/chart-new.webp';
 import original from '../../assets/music/charts/chart-original.webp';
@@ -35,14 +38,16 @@ export default function NetEaseChartGallery({ items, onSelect }: {
   items: NetEaseCard[];
   onSelect: (item: NetEaseCard) => void;
 }) {
+  const root = useRef<HTMLDivElement>(null);
+  useEffect(() => root.current ? mountInviteMarks(root.current) : undefined, [items]);
   const featured = items.filter(item => Object.hasOwn(paintings, item.title));
   const more = items.filter(item => !Object.hasOwn(paintings, item.title));
-  return <div className="ne-chart-gallery">
+  return <div className="ne-chart-gallery" ref={root}>
     {featured.length > 0 && <ul className="ne-chart-paintings" aria-label="精选排行榜">
       {featured.map(item => <li key={`${item.kind}:${item.id}`}>
         <button type="button" className="ne-chart-card" aria-label={`打开${item.title}`} onClick={() => onSelect(item)}>
           <ChartPainting item={item} src={paintings[item.title].src} />
-          <span className="ne-chart-caption"><strong>{item.title}</strong><span aria-hidden="true">↗</span></span>
+          <span className="ne-chart-caption"><strong>{item.title}</strong><InviteMark direction="diagonal" /></span>
           <small>{paintings[item.title].caption}</small>
         </button>
       </li>)}
@@ -52,9 +57,9 @@ export default function NetEaseChartGallery({ items, onSelect }: {
       <ul className="ne-chart-directory">
         {more.map(item => <li key={`${item.kind}:${item.id}`}>
           <button type="button" className="ne-chart-directory-item" aria-label={`打开${item.title}`} onClick={() => onSelect(item)}>
-            <span className="ne-chart-directory-art" aria-hidden="true"><AlbumArtwork src={item.coverUrl} title={item.title} artist={item.subtitle} /></span>
+            <span className="ne-chart-directory-art" aria-hidden="true"><img src={directoryPainting(item.title).src} alt="" width={256} height={256} loading="lazy" decoding="async" /></span>
             <span className="ne-chart-directory-copy"><strong>{item.title}</strong><small>{item.count > 0 ? `${item.count} 首歌曲` : '探索榜单'}</small></span>
-            <span className="ne-chart-directory-arrow" aria-hidden="true">↗</span>
+            <InviteMark direction="diagonal" />
           </button>
         </li>)}
       </ul>

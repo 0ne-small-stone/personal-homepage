@@ -120,7 +120,7 @@ jobs:
         run: node --test tests/home-*.test.mjs tests/native-transition-ready.test.mjs tests/wall-*.test.mjs tests/guestbook-*.test.mjs tools/tests/relief-helpers.test.mjs
 
       - name: Test integrated learning, showcase and invitation interactions
-        run: node --test tools/verification/knowledge-return.test.mjs tests/showcase*.test.mjs tests/music-invite.test.mjs
+        run: node --test tools/verification/knowledge-return.test.mjs tests/showcase*.test.mjs tests/music-invite.test.mjs tests/music-sidebar-scroll.test.mjs
 
       - name: Prepare complete public guestbook snapshot
         run: node tools/guestbook/export-pages.mjs
