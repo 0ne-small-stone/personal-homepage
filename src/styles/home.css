@@ -93,7 +93,7 @@ html:has(.lssh-home) { scrollbar-width: thin; scrollbar-color: #303030 #000; }
 .home-wall-bottom { display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 2rem; font-size: .875rem; }
 .home-wall-bottom a { min-height: 2.75rem; display: inline-flex; align-items: center; text-decoration: underline; text-underline-offset: .4rem; }
 .home-chapter-index { position: fixed; left: var(--home-gutter); bottom: 1.8rem; z-index: 18; display: flex; gap: .9rem; color: #a1a1a1; }
-.home-chapter-index a { display: inline-flex; justify-content: center; align-items: center; font: .6875rem var(--font-home-nav); min-width: 2.75rem; min-height: 2.75rem; border-radius: 50%; }
+.home-chapter-index a { display: inline-flex; justify-content: center; align-items: center; font: .6875rem var(--font-home-nav); width: 2.75rem; height: 2.75rem; min-width: 2.75rem; min-height: 2.75rem; border: 1px solid transparent; border-radius: 50%; }
 .home-chapter-index a[aria-current] { color: #ededed; border: 1px solid currentColor; }
 .home-chapter-index a:hover { color: #ededed; }
 .home-scene-controls { position: fixed; right: var(--home-gutter); bottom: 1.8rem; z-index: 18; display: flex; align-items: center; gap: .8rem; color: #a1a1a1; font-size: .75rem; }
@@ -160,7 +160,7 @@ html:has(.lssh-home) { scrollbar-width: thin; scrollbar-color: #303030 #000; }
   .home-hero .home-chapter-content { align-self: end; padding-top: 0; }
   .home-wordmark { width: 19.5rem; margin: -2rem -2.1rem -1rem; }
   .home-chapter-index { gap: 0; bottom: .75rem; }
-  .home-chapter-index a { min-width: 2.3rem; min-height: 2.75rem; }
+  .home-chapter-index a { min-width: 2.75rem; min-height: 2.75rem; }
   .home-scene-controls { bottom: .75rem; gap: 0; }
   .home-scene-controls button { padding: 0 .7rem; font-size: .6875rem; }
   .home-scene-controls .home-sound { display: none; }
