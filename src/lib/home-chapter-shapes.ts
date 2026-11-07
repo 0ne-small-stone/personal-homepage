@@ -56,19 +56,21 @@ function path(c: Curve[]) {
   const value=(v:number)=>String(Math.round(v*10000)/10000);
   return `M${c[0].slice(0,2).map(value).join(' ')} `+c.map(v=>'C'+v.slice(2).map(value).join(' ')).join(' ');
 }
-function partition(d: string, count: number) {
-  const c=curves(d), length=Math.ceil(c.length/count)*count;
-  const divided=subdivide(c,length), each=length/count;
-  return Array.from({length:count},(_,i)=>path(divided.slice(i*each,(i+1)*each)));
+export const homeChapterNumerals = ['I', 'II', 'III', 'IV', 'V'] as const;
+
+function line(x1: number, y1: number, x2: number, y2: number): Curve {
+  const dx = (x2 - x1) / 3, dy = (y2 - y1) / 3;
+  return [x1, y1, x1 + dx, y1 + dy, x2 - dx, y2 - dy, x2, y2];
 }
-function zero(cx: number) {
-  return `M${cx} 7 C${cx+2.4} 7 ${cx+3.2} 8.8 ${cx+3.2} 12 C${cx+3.2} 15.2 ${cx+2.4} 17 ${cx} 17 C${cx-2.4} 17 ${cx-3.2} 15.2 ${cx-3.2} 12 C${cx-3.2} 8.8 ${cx-2.4} 7 ${cx} 7`;
-}
-const numerals = [zero(17.6),
-  'M14.7 9.4 C15.7 8.6 16.7 7.8 17.7 7 C17.7 10.333 17.7 13.667 17.7 17 C16.7 17 15.7 17 14.7 17 C16.7 17 18.7 17 20.7 17',
-  'M14.4 9 C15.5 6.2 20.8 6.3 20.8 9.5 C20.8 11.5 16.4 14.4 14.4 17 C16.533 17 18.667 17 20.8 17',
-  'M14.4 8 C17 6 20.8 6.7 20.8 9.5 C20.8 11.1 19.4 12 17.2 12 C19.7 12 21.1 12.9 20.8 14.8 C20.4 17.5 16.7 17.9 14.4 16',
-  'M19.1 7 C17.533 9.267 15.967 11.533 14.4 13.8 C16.533 13.8 18.667 13.8 20.8 13.8 C20.233 13.8 19.667 13.8 19.1 13.8 C19.1 11.533 19.1 9.267 19.1 7 C19.1 10.333 19.1 13.667 19.1 17',
+
+const stem = (x: number) => line(x, 7, x, 17);
+const vee = (x: number) => [line(x - 4, 7, x, 17), line(x, 17, x + 4, 7)];
+const numerals = [
+  [stem(12), line(9, 7, 15, 7), line(9, 17, 15, 17)],
+  [stem(9.5), stem(14.5)],
+  [stem(7), stem(12), stem(17)],
+  [stem(6.5), ...vee(13.5)],
+  vee(12),
 ];
 export function homeChapterGesture(chapter: ChapterId) {
   return ({intro:'wave',album:'home-photo',radio:'home-music',projects:'home-make',wall:'home-warm-listen'})[chapter];
@@ -78,10 +80,10 @@ export function homeChapterStrokes(chapter: ChapterId, index: number): Stroke[] 
   const people = chapter==='radio' ? homeControlStrokes('sound',false).map(({part,person})=>({part,person}))
     : chapter==='wall' ? homeControlStrokes('wall',false).map(({part,person})=>({part,person}))
     : [...parts.map((part,i)=>({part,person:(chapter==='album'?photo:chapter==='projects'?making:standing)[i]})),...(chapter==='album'?camera:chapter==='projects'?work:[])];
-  const first=partition(zero(6.4),3),second=partition(numerals[index],4);
-  const rest=[first[0],first[1],second[0],second[1],first[2],second[2],second[3]];
+  const strokes = subdivide(numerals[index], 7);
+  const [x, y] = strokes[0];
   return people.map(({part,person},i)=>{
-    const start=curves(rest[i] ?? 'M6.4 7 C6.4 7 6.4 7 6.4 7'),end=curves(person);
+    const start = [strokes[i] ?? line(x, y, x, y)], end = curves(person);
     const count=Math.max(start.length,end.length);
     return {part,arrow:path(subdivide(start,count)),person:path(subdivide(end,count))};
   });

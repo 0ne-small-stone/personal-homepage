@@ -7,6 +7,7 @@ import InviteMark from '../components/navigation/InviteMark.astro';
 import HomeChapterMark from '../components/home/HomeChapterMark.astro';
 import HomeReliefPalette from '../components/home/HomeReliefPalette.astro';
 import HomeJourney from '../components/home/HomeJourney';
+import { homeChapterNumerals } from '../lib/home-chapter-shapes';
 import { homeChapters, homeWorkChapters } from '../components/home/home-chapters';
 import { sitePath } from '../lib/paths';
 import { Image, getImage } from 'astro:assets';
@@ -55,5 +56,5 @@ const reliefs = {
       <div class="home-wall-bottom"><a href="#intro">回到序章</a><a href={sitePath('about')} id="wall-about" data-home-link>认识小石</a></div>
     </div></div>
   </section>
-  <nav class="home-chapter-index" aria-label="首页章节">{homeChapters.map((chapter,index) => <a href={`#${chapter.id}`} aria-label={`${String(index).padStart(2,'0')} · 转到${chapter.label}`} aria-current={index === 0 ? 'location' : undefined}><HomeChapterMark chapter={chapter.id} index={index} /></a>)}</nav>
+  <nav class="home-chapter-index" aria-label="首页章节"><div class="home-chapter-reel">{homeChapters.map((chapter,index) => <a href={`#${chapter.id}`} draggable="false" aria-label={`${homeChapterNumerals[index]} · 转到${chapter.label}`} aria-current={index === 0 ? 'location' : undefined}><HomeChapterMark chapter={chapter.id} index={index} /></a>)}</div></nav>
 </HomeLayout>
