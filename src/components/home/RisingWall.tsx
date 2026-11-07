@@ -7,6 +7,8 @@ import { assemblyLayout, brickLanding, brickState, wallBrick, wallBuild, wallCol
 import { makeWallMaterial } from './wall-material';
 
 const count=wallColumns*wallRows;
+const mortarWidth=wallBrick.stepX+(wallBrick.stepX-wallBrick.width);
+const mortarHeight=wallBrick.stepY+(wallBrick.stepY-wallBrick.height);
 export default function RisingWall({model,quiet}:{model:JourneyModel;quiet:boolean}) {
   const group=useRef<Group>(null),bricks=useRef<InstancedMesh>(null),mortar=useRef<InstancedMesh>(null);
   const {scene,camera}=useThree();
@@ -16,13 +18,14 @@ export default function RisingWall({model,quiet}:{model:JourneyModel;quiet:boole
   // former seam allocation at the first visible brick changed the program key.
   const colors=useMemo(()=>({brick:new InstancedBufferAttribute(new Float32Array(count*3),3),
     seam:new InstancedBufferAttribute(new Float32Array(count*3),3)}),[]);
-  const geometry=useMemo(()=>new RoundedBoxGeometry(wallBrick.width,wallBrick.height,wallBrick.depth,3,wallBrick.bevel).setAttribute('stoneFloor',floors.brick),[floors]);
+  // The smaller bricks still have a bevel with fewer triangles per instance.
+  const geometry=useMemo(()=>new RoundedBoxGeometry(wallBrick.width,wallBrick.height,wallBrick.depth,1,wallBrick.bevel).setAttribute('stoneFloor',floors.brick),[floors]);
   const material=useMemo(()=>makeWallMaterial(),[]),seamMaterial=useMemo(()=>makeWallMaterial(true),[]);
-  // Each brick carries its own seam support; no complete pale backing before assembly.
-  const support=useMemo(()=>new BoxGeometry(wallBrick.stepX,wallBrick.stepY,wallBrick.seamDepth).setAttribute('stoneFloor',floors.seam),[floors]);
+  // Overlap the recessed supports so adjacent tiles cannot expose a dark crack.
+  const support=useMemo(()=>new BoxGeometry(mortarWidth,mortarHeight,wallBrick.seamDepth).setAttribute('stoneFloor',floors.seam),[floors]);
   const matrix=useMemo(()=>new Matrix4(),[]);
   const turn=useMemo(()=>new Matrix4(),[]);
-  const tones=useMemo(()=>({base:new Color('#e5e3dc'),seam:new Color('#bbb9b3'),color:new Color()}),[]);
+  const tones=useMemo(()=>({base:new Color('#e5e3dc'),seam:new Color('#cfcdc6'),color:new Color()}),[]);
   const previous=useRef(''),revision=useRef(0);
   const summary=useRef({settled:0,falling:0,drawn:0,rows:0,samples:[] as {id:number;row:number;column:number;x:number;y:number;progress:number}[]});
   useEffect(()=>{
@@ -61,7 +64,7 @@ export default function RisingWall({model,quiet}:{model:JourneyModel;quiet:boole
         const i=row*wallColumns+column,state=brickState(build,row,column,layout);
         if(!state.visible)continue;
         const floor=brickLanding(row,column).y;
-        floors.brick.setX(slot,floor-wallBrick.height/2);floors.seam.setX(slot,floor-wallBrick.stepY/2);
+        floors.brick.setX(slot,floor-wallBrick.height/2);floors.seam.setX(slot,floor-mortarHeight/2);
         if(state.visible) {
           if(state.progress===1)matrix.makeTranslation(state.x,state.y,0);
           else {matrix.makeRotationX(state.tiltX);turn.makeRotationY(state.tiltY);matrix.multiply(turn);matrix.setPosition(state.x,state.y,state.z);}

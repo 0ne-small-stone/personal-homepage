@@ -1,9 +1,10 @@
 // F02: one reversible scroll state, no elapsed-time or random brick state.
-export const wallColumns = 23, wallRows = 39;
+// Keep full-wall coverage and the center-row stagger at the smaller pitch.
+export const wallColumns = 47, wallRows = 79;
 export const squareAt = .42, squareShortSide = .64;
-export const brickScale = .85;
+export const brickScale = .3825;
 export const wallBrick = {width:1.12*brickScale,height:.48*brickScale,depth:.16*brickScale,
-  stepX:1.13*brickScale,stepY:.49*brickScale,bevel:.020*brickScale,seamDepth:.04*brickScale,seamOffset:.11*brickScale};
+  stepX:1.13*brickScale,stepY:.49*brickScale,bevel:.050*brickScale,seamDepth:.04*brickScale,seamOffset:.11*brickScale};
 export const brickRiseDistance = .32*brickScale;
 export const clamp01 = (value: number) => Math.max(0, Math.min(1, value));
 export const smooth01 = (value: number) => { const t=clamp01(value); return t*t*(3-2*t); };

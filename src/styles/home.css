@@ -86,7 +86,14 @@ html:has(.lssh-home) { scrollbar-width: thin; scrollbar-color: #303030 #000; }
 .home-wall .home-chapter-content::before { content: ''; position: absolute; inset: -.75rem -2rem; z-index: -1; background: #efeeeb; mask-image: linear-gradient(90deg, #000 80%, transparent); }
 .home-enhanced:not(.home-quiet) .home-wall .home-chapter-content::before { display: none; }
 .home-wall h2 { font-size: clamp(4rem, 10vw, 9rem); }
-.home-wall-surface { position: absolute; inset: 0; z-index: 0; background-color: #e8e4dc; background-image: linear-gradient(#bcb9b3 1px, transparent 1px), linear-gradient(90deg, #c8c4bd 1px, transparent 1px), linear-gradient(90deg, #c8c4bd 1px, transparent 1px); background-size: 100% 7rem, 18rem 14rem, 18rem 14rem; background-position: 0 0, 0 0, 9rem 7rem; }
+.home-wall-surface {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: #cfcdc6;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 144 112'%3E%3Crect id='brick' x='1' y='1' width='143' height='55' rx='5.5' fill='%23e8e4dc'/%3E%3Cuse href='%23brick' x='-72' y='56'/%3E%3Cuse href='%23brick' x='72' y='56'/%3E%3C/svg%3E");
+  background-size: 9rem 7rem;
+}
 .home-wall { --color-bg: #e8e4dc; --color-text: #272a2c; --color-muted: #444740; --color-border: #72746e; color: var(--color-text); }
 .home-wall-empty { padding: 1rem 0; max-width: 32rem; }
 .home-wall-empty p { margin: 0 0 1rem; }

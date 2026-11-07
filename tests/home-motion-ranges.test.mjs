@@ -56,7 +56,7 @@ test('brick sequence starts after the square, rises from its foundation and is e
   const layout=assemblyLayout(4.27,2.4);
   assert.equal(wallBuild(.419,0),0);assert.equal(wallBuild(.42,0),0);
   assert.ok(wallBuild(1,0)<1);assert.equal(wallBuild(1,.76),1);
-  const row=layout.minRow,column=11;
+  const row=layout.minRow,column=Math.floor((layout.minColumn+layout.maxColumn)/2);
   const sequence=[0,.08,.2,.5,1,.5,.2,.08,0].map(build=>brickState(build,row,column,layout));
   for(let i=0;i<4;i++)assert.deepEqual(sequence[i],sequence[8-i]);
   assert.equal(sequence[0].visible,false);
@@ -112,7 +112,7 @@ test('individual brick timing breaks row cohorts while preserving each column fo
 });
 
 test('art-directed approach stays restrained, reversible and restores exact final pose',()=>{
-  const layout=assemblyLayout(4.27,2.4),row=layout.minRow,column=11;
+  const layout=assemblyLayout(4.27,2.4),row=layout.minRow,column=Math.floor((layout.minColumn+layout.maxColumn)/2);
   const timing=brickTiming(row,column,layout);
   const pose=brickState(timing.start+timing.duration*.5,row,column,layout);
   assert.ok(Math.abs(pose.x-brickLanding(row,column).x)<=.08);
@@ -123,11 +123,12 @@ test('art-directed approach stays restrained, reversible and restores exact fina
   assert.deepEqual(pose,brickState(timing.start+timing.duration*.5,row,column,layout));
 });
 
-test('compact wall draw set retains every viewport corner without all 897 bricks',()=>{
+test('compact wall draw set retains every viewport corner with only viewport-intersecting bricks',()=>{
   for(const [width,height] of [[4.27,2.4],[2.4,5.2],[2.4,5.6]]) {
     const layout=assemblyLayout(width,height),points=[];
     for(let r=layout.minRow;r<=layout.maxRow;r++)for(let c=layout.minColumn;c<=layout.maxColumn;c++)points.push(brickLanding(r,c));
-    assert.ok(points.length<200);
+    // The tallest test viewport uses 793 of the wall’s 3713 instances.
+    assert.ok(points.length<850);
     for(const x of [-width,width])for(const y of [-height,height]) {
       assert.ok(points.some(p=>Math.abs(p.x-x)<=wallBrick.stepX/2&&Math.abs(p.y-y)<=wallBrick.stepY/2),'viewport corner lost from compact instance set');
     }
