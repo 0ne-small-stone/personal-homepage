@@ -66,6 +66,14 @@ const isCurrent = (path: string) => pagePath.startsWith(sitePath(path)) || (path
     .home-header.has-scene-toolbar { grid-template-columns: 48px minmax(0,1fr); gap: 4px 16px; }
     .home-header.has-scene-toolbar > nav { justify-self: center; }
   }
+  @media (min-width:568px) and (max-width:799px) and (max-height:560px) {
+    .home-header.has-scene-toolbar {
+      height: calc(64px + env(safe-area-inset-top)); grid-template-columns: 1fr auto 1fr;
+      grid-template-rows: 48px; gap: 0 12px;
+    }
+    .home-header.has-scene-toolbar > nav { grid-column: 2; grid-row: 1; gap: 4px; }
+    .home-header.has-scene-toolbar .home-header-actions { grid-column: 3; }
+  }
   /* Equal framing for the three homepage actions; the circle is hover feedback only. */
   .home-header.has-scene-toolbar .home-header-actions .home-header-wall {
     position: relative; width: 44px; height: 44px; padding: 0;
