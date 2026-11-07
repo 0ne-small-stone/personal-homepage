@@ -15,13 +15,13 @@ export default function SceneBackdrop({ model, mobile, quiet, pointerLight }: { 
   const texture = useMemo(() => {
     const canvas = document.createElement('canvas'); canvas.width = width; canvas.height = height;
     const ctx = canvas.getContext('2d')!;
-    const brickWidth = mobile ? 128 : 256, brickHeight = brickWidth / 2;
+    const brickWidth = mobile ? 57.6 : 115.2, brickHeight = brickWidth / 2;
     ctx.fillStyle = '#000'; ctx.fillRect(0,0,width,height);
     for (let row=0;row<Math.ceil(height/brickHeight);row++) for(let col=-1;col<=Math.ceil(width/brickWidth);col++) {
       const x=col*brickWidth+(row%2)*brickWidth/2, y=row*brickHeight;
       const gradient=ctx.createLinearGradient(x,y,x+brickWidth,y+brickHeight);
       gradient.addColorStop(0,'#111'); gradient.addColorStop(1,'#050505');
-      ctx.fillStyle=gradient;ctx.fillRect(x+1,y+1,brickWidth-2,brickHeight-2);
+      ctx.fillStyle=gradient;ctx.fillRect(x+.5,y+.5,brickWidth-1,brickHeight-1);
     }
     // SYSTEM 9.3.1 coordinates describe the visible frame, within the overscan.
     const frameX = (x: number) => width * (.5 + (x - .5) / overscan);
