@@ -39,8 +39,10 @@
   }
 }
 .has-journey :is(.home-scroll, .home-wall-bottom a, .home-discussion-link):focus-visible { background-position: left calc(100% - 5px); background-size: 100% 1px; }
-.has-journey .home-chapter-index a { border: 1px solid transparent; transition: color .3s var(--home-control-ease), border-color .3s var(--home-control-ease), background-color .3s var(--home-control-ease); }
-.has-journey .home-chapter-index a[aria-current] { border-color: currentColor; }
+.has-journey .home-chapter-index a {
+  transition: color .3s var(--home-control-ease), background-color .3s var(--home-control-ease);
+}
+.has-journey .home-chapter-index a:focus-visible { outline-offset: -3px; }
 .has-journey :is(.home-chapter-index a, .home-scroll, .home-wall-bottom a):active { background-color: rgb(161 161 161 / .16); }
 .has-journey .home-scene-controls button[aria-pressed="true"] { border-color: currentColor; }
 /* Keep the wall's final links above the fixed controls, including short viewports. */
@@ -68,7 +70,7 @@
 }
 @media (max-width: 360px) {
   /* Five 44px chapters and pause need separate rows at 320px. */
-  .has-journey .home-scene-controls { bottom: calc(4.25rem + env(safe-area-inset-bottom)); }
+  .has-journey .home-scene-controls { bottom: calc(5rem + env(safe-area-inset-bottom)); }
   .has-journey .home-status { bottom: 7.5rem; }
   .has-journey .home-chapter-viewport { padding-bottom: 8rem; }
   .has-journey.home-enhanced:not(.home-quiet) .home-wall .home-chapter-viewport { padding-bottom: 9rem; }

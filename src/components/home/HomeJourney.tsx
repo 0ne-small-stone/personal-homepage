@@ -16,6 +16,7 @@ import 'lenis/dist/lenis.css';
 import CameraRig from './CameraRig';
 import RisingWall from './RisingWall';
 import { installHomeReturn } from './home-return';
+import { installHomeChapterWheel } from './home-chapter-wheel';
 import GlassRenderLayer from './GlassRenderLayer';
 import { initialHomeQuiet, useHomeLoading } from './useHomeLoading';
 import HomeFrameLoop from './HomeFrameLoop';
@@ -77,6 +78,7 @@ export default function HomeJourney({wordmarkUrl,albumUrl,projectUrl,neighborUrl
     return () => {media.removeEventListener('change',preference); hoverMedia.removeEventListener('change',resize); window.removeEventListener('resize',resize); document.removeEventListener('visibilitychange',visibility); window.removeEventListener('pagehide',pageHide); window.removeEventListener('pageshow',pageShow); contextCleanup.current();document.body.classList.remove('home-enhanced','home-static','home-on-wall');};
   }, [model]);
   useEffect(installHomeReturn,[]);
+  useEffect(installHomeChapterWheel,[]);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);

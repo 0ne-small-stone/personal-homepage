@@ -8,6 +8,18 @@ export function installHomeReturn() {
   let reloadAvailable=initialHomeReload({firstInstall,navigationType:navigation?.type,initialUrl:navigation?.name,currentUrl:location.href});
   firstInstall=false;
   const chapters=[...document.querySelectorAll<HTMLElement>('[data-chapter]')];
+  const chapterLinks = document.querySelector?.('.home-chapter-index')?.querySelectorAll<HTMLAnchorElement>('a[href^="#"]');
+  const updateNativeChapter = () => {
+    if (!geometry?.length || measuredMode !== 'native') return;
+    const { chapterId } = captureChapterPosition(geometry, scrollY + innerHeight * .25, '');
+    chapterLinks?.forEach(link => {
+      if (link.hash === `#${chapterId}`) {
+        if (!link.hasAttribute('aria-current')) link.setAttribute('aria-current', 'location');
+      } else if (link.hasAttribute('aria-current')) {
+        link.removeAttribute('aria-current');
+      }
+    });
+  };
   let focusOrigin='';
   let pending: ReturnState | undefined;
   let pendingMode:string|undefined,measuredMode:string|undefined,ignoredY:number|undefined;
@@ -29,6 +41,7 @@ export function installHomeReturn() {
     if(pending||!geometry||measuredMode!==layoutMode()||dimensions!==viewport())return;
     if(ignoredY!==undefined&&Math.abs(scrollY-ignoredY)<.5)return;
     ignoredY=undefined;retained=captureChapterPosition(geometry,scrollY,focusOrigin);
+    updateNativeChapter();
   };
   const snapshot=(): ReturnState=>{
     remember();
@@ -47,7 +60,7 @@ export function installHomeReturn() {
     const body=document.body;
     const mode=layoutMode();if(!mode)return;
     if(!pending){
-      if(!geometry||adoptNextLayout){geometry=measure();measuredMode=mode;dimensions=viewport();retained=captureChapterPosition(geometry,scrollY,focusOrigin);adoptNextLayout=false;return;}
+      if(!geometry||adoptNextLayout){geometry=measure();measuredMode=mode;dimensions=viewport();retained=captureChapterPosition(geometry,scrollY,focusOrigin);adoptNextLayout=false;updateNativeChapter();return;}
       if(mode===measuredMode)return;
       pending={...snapshot(),focusOrigin:'',reason:'layout-migration'};pendingMode=mode;
     }
@@ -61,6 +74,7 @@ export function installHomeReturn() {
     // Preserve unbounded spacer progress even if the native layout clamps y.
     // Replace it only after an actual movement in the new layout.
     retained={...state,scrollY};ignoredY=scrollY;
+    updateNativeChapter();
     trace('apply',{mode,state,y,geometry});
   };
   const beforeLayout=(event:Event)=>{
@@ -87,7 +101,9 @@ export function installHomeReturn() {
     if(!event.isTrusted||(!pending&&!document.body.hasAttribute('data-home-restoring')))return;
     const key=event instanceof KeyboardEvent?event.key:'';
     const chapter=event.type==='click'&&event.target instanceof Element&&event.target.closest('.home-chapter-index a,.home-scroll,.home-header-wall,.home-wall-bottom a[href="#intro"]');
-    if(!chapter&&!['wheel','touchstart'].includes(event.type)&&!['ArrowDown','ArrowUp','PageDown','PageUp','Home','End',' '].includes(key))return;
+    const drag = event.type === 'pointerup' && event instanceof PointerEvent && event.isPrimary && event.button === 0 &&
+      document.querySelector?.('.home-chapter-index[data-home-wheel-dragging]');
+    if(!chapter&&!drag&&!['wheel','touchstart'].includes(event.type)&&!['ArrowDown','ArrowUp','PageDown','PageUp','Home','End',' '].includes(key))return;
     layoutRevision++;pending=undefined;pendingMode=undefined;ignoredY=undefined;adoptNextLayout=true;awaitController=false;
     delete document.body.dataset.homeRestoring;document.dispatchEvent(new Event('lssh:home-restore-cancel'));
     trace('user-cancel',event.type);
@@ -124,7 +140,7 @@ export function installHomeReturn() {
   document.addEventListener('lssh:home-layout-before',beforeLayout);
   window.addEventListener('scroll',remember,{passive:true});window.addEventListener('resize',resize);
   const inputController=new AbortController();
-  for(const type of ['wheel','touchstart','keydown','click'])document.addEventListener(type,userIntent,{capture:true,passive:true,signal:inputController.signal});
+  for(const type of ['wheel','touchstart','keydown','click','pointerup'])document.addEventListener(type,userIntent,{capture:true,passive:true,signal:inputController.signal});
   document.addEventListener('click',click,true);window.addEventListener('pagehide',save);window.addEventListener('pageshow',restore);restore();
   return()=>{alive=false;inputController.abort();observer.disconnect();delete document.body.dataset.homeRestoring;delete document.body.dataset.homeLayoutTrace;document.removeEventListener('lssh:home-layout-ready',layoutReady);document.removeEventListener('lssh:home-layout-before',beforeLayout);window.removeEventListener('scroll',remember);window.removeEventListener('resize',resize);document.removeEventListener('click',click,true);window.removeEventListener('pagehide',save);window.removeEventListener('pageshow',restore);};
 }
