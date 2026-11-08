@@ -27,19 +27,20 @@ function WorkCard({ model, index, texture, imageAspect }: { model: JourneyModel;
     const aspect = width / height;
     const portrait = MathUtils.clamp((16 / 9 - aspect) / (16 / 9 - 9 / 16), 0, 1);
     const compact = globalThis.matchMedia?.('(min-width: 568px) and (max-height: 560px)').matches ?? false;
+    const wide = globalThis.matchMedia?.('(min-width: 1680px) and (min-aspect-ratio: 2/1) and (min-height: 700px)').matches ?? false;
     const orbitScale = MathUtils.lerp(1, .6, portrait) * sceneUnitScale;
     const restScale = (1.1 + .1 * portrait) * orbitScale;
     const focal = height / (2 * Math.tan(MathUtils.degToRad(35 + 18 / aspect) / 2));
     // The center of the curved face is nearer than its corners.
     const depth = 10 * sceneUnitScale + orbitScale - .53 * restScale;
-    const maxWidth = compact ? width * .44 : Math.min(width * .86, 1100);
-    const maxHeight = height * (compact ? .45 : .40);
+    const maxWidth = wide ? width * .64 : compact ? width * .44 : Math.min(width * .86, 1100);
+    const maxHeight = height * (wide ? .50 : compact ? .45 : .40);
     return {
-      compact, portrait, orbitScale,
-      coverScale: Math.min(orbitScale, maxWidth * depth / (focal * dimensions.width * (1.1 + .1 * portrait)),
+      compact, wide, portrait, orbitScale,
+      coverScale: Math.min(orbitScale * (wide ? 1.5 : 1), maxWidth * depth / (focal * dimensions.width * (1.1 + .1 * portrait)),
         maxHeight * depth / (focal * dimensions.height * (1.1 + .1 * portrait))),
       x: compact ? -.22 * width * depth / focal : 0,
-      y: height * (compact ? .015 : width < 800 ? .085 : .095) * depth / focal,
+      y: height * (wide ? .065 : compact ? .015 : width < 800 ? .085 : .095) * depth / focal,
     };
   }, [size, dimensions]);
   texture.colorSpace=SRGBColorSpace;
@@ -65,12 +66,12 @@ function WorkCard({ model, index, texture, imageAspect }: { model: JourneyModel;
   useFrame(() => {
     if(!group.current)return;
     const u = model.motion.rendered.index, d = index + 1 - u;
-    const { compact, portrait, orbitScale, coverScale, x, y } = layout;
+    const { compact, wide, portrait, orbitScale, coverScale, x, y } = layout;
     const distance = Math.abs(d);
     const localScale = .9 + .1 * portrait + .2 * (1 - Math.min(1, distance));
     const cardFade = 1 - MathUtils.smoothstep(distance, .8, 2.5);
     // On short screens the neighboring work recedes before it reaches the caption column.
-    const sideFade = compact ? 1 - MathUtils.smoothstep(distance, .45, 1) : 1;
+    const sideFade = compact || wide ? 1 - (wide ? .4 : 1) * MathUtils.smoothstep(distance, .45, 1) : 1;
     const alpha = cardFade * sideFade * Math.min(1, 2 * u) * Math.min(1, 2 * (workCount + 1 - u));
     const enabled=!document.hidden&&document.body.dataset.homePaused!=='true'&&!model.loading.active;
     if(Math.abs(d)>.55||model.motion.rendered.prepare>.01){interaction.targetAmount=0;interaction.targetX=0;interaction.targetY=0;}

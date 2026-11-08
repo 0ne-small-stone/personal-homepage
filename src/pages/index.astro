@@ -20,9 +20,9 @@ const albumImage = await getImage({src:albumCover,width:1600,format:'webp',quali
 const projectImage = await getImage({src:projectCover,width:1600,format:'webp',quality:85});
 const neighborImage = await getImage({src:neighborCover,width:1600,format:'webp',quality:85});
 const reliefs = {
-  album: { image: albumImage, title: '自己的取景', alt: '《自己的取景》：持相机的青年、门与交错的人群' },
-  radio: { image: neighborImage, title: '隔着回声', alt: '《隔着回声》：各自聆听的人与递出的耳机' },
-  projects: { image: projectImage, title: '暂时的形状', alt: '《暂时的形状》：折返的草稿、搭起的框架与共同创作的人' },
+  album: { image: albumImage, alt: '持相机的青年、门与交错的人群' },
+  radio: { image: neighborImage, alt: '各自聆听的人与递出的耳机' },
+  projects: { image: projectImage, alt: '折返的草稿、搭起的框架与共同创作的人' },
 };
 ---
 <HomeLayout journey description="小石的学习、作品、影像与音乐。">
@@ -39,8 +39,12 @@ const reliefs = {
   <div class="home-works" data-work-count={homeWorkChapters.length}>
   {homeWorkChapters.map((chapter,index) => <section id={chapter.id} class:list={['home-chapter','home-work-chapter',`home-work-${chapter.id}`]} aria-labelledby={`title-${chapter.id}`} data-chapter={chapter.id} data-work-item={index}>
     <div class="home-chapter-viewport">
-      <div class="home-chapter-content" data-lenis-prevent><h2 id={`title-${chapter.id}`}>{chapter.title}</h2><p class="home-description">{chapter.description}</p><HomeCta href={sitePath(chapter.path)} label={chapter.action} id={`entry-${chapter.id}`} />
-        <p class="home-chapter-note">{reliefs[chapter.id].title}</p>
+      <div class="home-chapter-content" data-lenis-prevent>
+        <div class="home-work-copy">
+          <h2 id={`title-${chapter.id}`}>{chapter.title}</h2>
+          <p class="home-description">{chapter.description}</p>
+        </div>
+        <HomeCta href={sitePath(chapter.path)} label={chapter.action} id={`entry-${chapter.id}`} />
       </div>
       <figure class="home-art home-art--scene"><a class="home-relief-native" href={sitePath(chapter.path)} data-home-link><img class="home-project-cover" src={reliefs[chapter.id].image.src} width={reliefs[chapter.id].image.attributes.width} height={reliefs[chapter.id].image.attributes.height} alt={reliefs[chapter.id].alt} loading="lazy" /></a></figure>
       <a class="home-relief-hit" data-relief-hit data-home-link href={sitePath(chapter.path)} tabindex="-1" aria-hidden="true"></a>
@@ -56,5 +60,5 @@ const reliefs = {
       <div class="home-wall-bottom"><a href="#intro">回到序章</a><a href={sitePath('about')} id="wall-about" data-home-link>认识小石</a></div>
     </div></div>
   </section>
-  <nav class="home-chapter-index" aria-label="首页章节"><div class="home-chapter-reel">{homeChapters.map((chapter,index) => <a href={`#${chapter.id}`} draggable="false" aria-label={`${homeChapterNumerals[index]} · 转到${chapter.label}`} aria-current={index === 0 ? 'location' : undefined}><HomeChapterMark chapter={chapter.id} index={index} /></a>)}</div></nav>
+  <nav class="home-chapter-index" aria-label="首页章节"><div class="home-chapter-reel">{homeChapters.map((chapter,index) => <a href={`#${chapter.id}`} draggable="false" aria-label={`${homeChapterNumerals[index]} · 转到${chapter.label}`} aria-current={index === 0 ? 'location' : undefined}><HomeChapterMark index={index} /></a>)}</div></nav>
 </HomeLayout>
