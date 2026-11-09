@@ -171,7 +171,6 @@ html:has(.lssh-home) { scrollbar-width: thin; scrollbar-color: #303030 #000; }
 }
 .home-chapter-index a[aria-current] {
   color: var(--home-wheel-ink);
-  background: color-mix(in srgb, var(--home-wheel-ink) 10%, transparent);
 }
 .home-chapter-numeral {
   font: 400 .9375rem/1 Georgia, 'Times New Roman', 'Noto Serif', serif;
