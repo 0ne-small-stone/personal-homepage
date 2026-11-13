@@ -74,6 +74,9 @@ jobs:
     if: needs.repository.outputs.app_ready == 'true'
     runs-on: ubuntu-24.04
     timeout-minutes: 20
+    permissions:
+      contents: read
+      pages: read
     steps:
       - name: Check out source
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -89,6 +92,17 @@ jobs:
 
       - name: Install website dependencies from lockfile
         run: npm ci --no-audit --no-fund
+
+      - name: Read GitHub Pages settings
+        id: pages
+        if: github.repository == '0ne-small-stone/personal-homepage'
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6
+
+      - name: Set the build URL
+        if: steps.pages.outcome == 'success'
+        env:
+          PAGES_SITE_URL: ${{ steps.pages.outputs.base_url }}
+        run: printf 'PAGES_SITE_URL=%s\n' "$PAGES_SITE_URL" >> "$GITHUB_ENV"
 
       - name: Prepare checksum-pinned public learning PDFs
         run: npm run materials:fetch

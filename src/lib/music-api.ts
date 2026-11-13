@@ -18,7 +18,8 @@ export function createMusicApiTransport(config: MusicApiConfig = {}) {
     let source: URL;
     try { source = new URL(input instanceof Request ? input.url : String(input), origin); }
     catch { return fetcher(input, {...init, credentials: 'same-origin', cache: 'no-store'}); }
-    if (!origin || source.origin !== origin || source.username || source.password || !/^\/personal-homepage\/api\/music\/(?:netease|playback\/[^/].*)$/.test(source.pathname)) {
+    const route = /^\/(?:personal-homepage\/)?api\/music\/(netease|playback\/[^/].*)$/.exec(source.pathname)?.[1];
+    if (!origin || source.origin !== origin || source.username || source.password || !route) {
       return fetcher(input, {...init, credentials: 'same-origin', cache: 'no-store'});
     }
     const request = input instanceof Request ? input : undefined;
@@ -29,7 +30,8 @@ export function createMusicApiTransport(config: MusicApiConfig = {}) {
     if (body != null && typeof body !== 'string') throw new TypeError('跨站音乐 API 仅接受 JSON 文本请求。');
     if (body && (method === 'GET' || method === 'HEAD')) throw new TypeError('GET 音乐请求不能包含正文。');
     const bodyText = typeof body === 'string' ? body : '';
-    const target = new URL(source.pathname + source.search, remote);
+    // The Worker keeps its existing API paths when the Pages site moves to the domain root.
+    const target = new URL(`/personal-homepage/api/music/${route}${source.search}`, remote);
     manager ??= createMusicDeviceSessionManager({...config, apiOrigin: remote, pageOrigin: origin});
     const options: RequestInit = request ? {method: request.method, headers: request.headers, mode: request.mode, redirect: request.redirect, referrer: request.referrer, referrerPolicy: request.referrerPolicy, integrity: request.integrity, keepalive: request.keepalive, ...init} : {...init};
     for (let attempt = 0; attempt < 2; attempt++) {

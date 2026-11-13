@@ -26,9 +26,10 @@ export function createEdgeMusic({sdk = createNetEaseSdk(), encodeQr = qrImage, n
   const profiles = new Map();
   return {
     async fetch(request, env, ctx) {
-      const allowed = env.MUSIC_PAGE_ORIGIN || 'https://0ne-small-stone.github.io';
       const origin = request.headers.get('Origin');
-      const cors = origin === allowed ? {'Access-Control-Allow-Origin': allowed, 'Access-Control-Expose-Headers': 'Retry-After', Vary: 'Origin'} : {Vary: 'Origin'};
+      const origins = (env.MUSIC_PAGE_ORIGIN || 'https://0ne-small-stone.github.io').split(',');
+      const allowed = origin && origin.startsWith('https://') && origins.some(value => value.trim() === origin);
+      const cors = allowed ? {'Access-Control-Allow-Origin': origin, 'Access-Control-Expose-Headers': 'Retry-After', Vary: 'Origin'} : {Vary: 'Origin'};
       const json = (status, value, extra = {}) => Response.json(value, {status, headers: {...cors, 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'no-referrer', ...extra}});
       let session, sessions, store, loadedCookie = '', activeRoute = '';
       try {
@@ -38,7 +39,7 @@ export function createEdgeMusic({sdk = createNetEaseSdk(), encodeQr = qrImage, n
           await env.DB.prepare('SELECT 1 FROM music_device_sessions LIMIT 1').first();
           return json(200, {ok: true, service: 'echoes-music', version: 1});
         }
-        if (origin !== allowed || new URL(allowed).protocol !== 'https:') throw fail(403, '请从电台正式页面访问。');
+        if (!allowed) throw fail(403, '请从电台正式页面访问。');
         if (!url.pathname.startsWith(prefix) || url.search || /[%\\\x00-\x1f]/.test(url.pathname)) throw fail(404, '功能入口不存在。');
         if (request.method === 'OPTIONS') {
           const method = request.headers.get('Access-Control-Request-Method');

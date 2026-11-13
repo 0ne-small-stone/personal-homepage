@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
+import { pagesBase, pagesSite } from '../ci/pages-site.mjs';
 
 // Check generated pages: URL prefix and current destination are release risks.
 const root = resolve(process.argv[2] ?? 'dist');
@@ -16,13 +17,15 @@ let immersiveGalleryPages = 0;
 for (const file of pages) {
   const html = readFileSync(file, 'utf8');
   const route = relative(root, file).replaceAll('\\', '/').replace(/index\.html$/, '');
-  assert(!html.includes('/personal-homepage/personal-homepage/'), `Repeated base: ${relative(root, file)}`);
+  if (pagesBase !== '/') {
+    assert(!html.includes(pagesBase.slice(0, -1) + pagesBase), `Repeated base: ${relative(root, file)}`);
+  }
   if (route === 'about/' || route === 'zh/about/') {
     const english = route === 'about/';
     const other = english ? 'zh/about/' : 'about/';
     assert(html.includes(`lang="${english ? 'en' : 'zh-CN'}"`), `Incorrect Someone language: ${route}`);
     const switchLink = html.match(/<a\b[^>]*data-language-switch[^>]*>/)?.[0];
-    assert(switchLink?.includes(`href="/personal-homepage/${other}"`), `Missing reciprocal language link: ${route}`);
+    assert(switchLink?.includes(`href="${pagesBase}${other}"`), `Missing reciprocal language link: ${route}`);
     const article = html.match(/<article\b[^>]*class="someone-page"[\s\S]*?<\/article>/)?.[0];
     assert(article && !/<img\b|someone-portrait|mailto:|class="someone-copy"/.test(article), `Old portrait or email action returned: ${route}`);
     assert(article.includes('href="https://github.com/0ne-small-stone"'), `Missing GitHub contact: ${route}`);
@@ -35,14 +38,15 @@ for (const file of pages) {
   assert(!/<public-directory\b|class="[^"]*\bpublic-directory\b|class="[^"]*\bdirectory-panel\b|data-directory-close/.test(html), `Removed directory returned: ${relative(root, file)}`);
   if (route === 'gallery/') {
     assert(html.includes('<title>A Moment Remains · Little Stone Still Here</title>'), 'Missing gallery identity');
-    assert(/rel="canonical" href="https:\/\/0ne-small-stone\.github\.io\/personal-homepage\/gallery\/"/.test(html), 'Invalid gallery canonical/base');
+    const canonical = new URL(`${pagesBase}gallery/`, pagesSite.origin);
+    assert(html.includes(`rel="canonical" href="${canonical.href}"`), 'Invalid gallery canonical/base');
     assert(/id="experience"/.test(html) && /id="dome-host"/.test(html) && /id="stage"/.test(html), 'Missing gallery interaction hosts');
     assert(/id="return"[^>]*aria-label="返回总览"/.test(html), 'Missing accessible overview return');
     assert(!/id="(?:journey|enter|selection|view-photo|zoom-in|zoom-out)"/.test(html), 'Removed gallery toolbar returned');
     assert(!html.includes('name="astro-view-transitions-enabled"'), 'Gallery must keep its native document lifecycle');
     const scripts = [...html.matchAll(/<script\b[^>]+src="([^"]+)"/g)].map(match => match[1]);
-    assert(scripts.length > 0 && scripts.every(src => src.startsWith('/personal-homepage/_astro/')), 'Gallery modules need the project base');
-    for (const src of scripts) assert(readFileSync(join(root, src.slice('/personal-homepage/'.length))).length > 0, `Missing gallery module: ${src}`);
+    assert(scripts.length > 0 && scripts.every(src => src.startsWith(`${pagesBase}_astro/`)), 'Gallery modules need the configured base');
+    for (const src of scripts) assert(readFileSync(join(root, src.slice(pagesBase.length))).length > 0, `Missing gallery module: ${src}`);
     const photos = JSON.parse(readFileSync(join(root, 'gallery/manifest.json'), 'utf8'));
     assert.equal(photos.length, 101, 'Published gallery must contain the synchronized 101 photographs');
     assert.equal(new Set(photos.map(photo => photo.id)).size, photos.length, 'Gallery photo IDs must be unique');
@@ -53,7 +57,7 @@ for (const file of pages) {
       for (const key of ['image', 'full']) {
         assert(/^\.\/media\/photo-\d{2,}(?:-full)?\.webp$/.test(photo[key]), `Invalid photo URL: ${photo.id}`);
         assert(readFileSync(join(root, 'gallery', photo[key].slice(2))).length > 0, `Missing published photo: ${photo.id}/${key}`);
-        assert(noScript.includes(`/personal-homepage/gallery/${photo[key].slice(2)}`), `Missing no-JS photo destination: ${photo.id}/${key}`);
+        assert(noScript.includes(`${pagesBase}gallery/${photo[key].slice(2)}`), `Missing no-JS photo destination: ${photo.id}/${key}`);
       }
     }
     immersiveGalleryPages++;

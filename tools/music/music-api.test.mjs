@@ -73,7 +73,7 @@ function memoryStorage() {
   };
 }
 const gate = () => {let resolve;const promise = new Promise(done => {resolve = done;});return {promise,resolve};};
-function service({now = () => Date.now(), respond = () => Response.json({ok: true}), enrollWait} = {}) {
+function service({now = () => Date.now(), respond = () => Response.json({ok: true}), enrollWait, origin = pageOrigin} = {}) {
   const identities = new Map(), requests = [], enrollments = [];
   let count = 0;
   return {identities,requests,enrollments,fetcher: async (input, options) => {
@@ -96,7 +96,7 @@ function service({now = () => Date.now(), respond = () => Response.json({ok: tru
     const signature = Buffer.from(headers.get('X-Music-Proof') || '', 'base64url');
     assert.match(time, /^(0|[1-9]\d*)$/);assert.ok(Math.abs(Number(time)-now()) < 60000);
     assert.equal(Buffer.from(nonce, 'base64url').length, 16);assert.equal(signature.length, 64);
-    const canonical = await canonicalProof({id,time,nonce,method:options.method,path:url.pathname+url.search,origin:pageOrigin,bodyText:options.body || ''});
+    const canonical = await canonicalProof({id,time,nonce,method:options.method,path:url.pathname+url.search,origin,bodyText:options.body || ''});
     assert.equal(await crypto.subtle.verify({name: 'ECDSA',hash: 'SHA-256'}, identities.get(id), signature, new TextEncoder().encode(canonical)), true, 'the independent server canonical must verify the actual wire request');
     requests.push({url,options,headers,id,nonce});
     return respond(requests.at(-1),requests.length);
@@ -125,6 +125,16 @@ test('only own-origin playback subroutes and exact netease move to the API; othe
     assert.equal(called,true);
   }
   assert.equal(server.enrollments.length,1);assert.equal(storage.reads,1);
+});
+
+test('custom-domain routes use the existing Worker endpoints with proofs scoped to the new origin', async () => {
+  const origin = 'https://littlestonestillhere.com';
+  const server = service({origin});
+  const transport = remoteTransport(memoryStorage(), {pageOrigin: origin});
+  await transport('/api/music/playback/account', {}, server.fetcher);
+  await transport('/api/music/netease', {method: 'POST', body: '{"action":"browse"}'}, server.fetcher);
+  assert.deepEqual(server.requests.map(({url}) => url.pathname), [accountPath, '/personal-homepage/api/music/netease']);
+  assert.equal(server.enrollments.length, 1);
 });
 
 test('signed JSON requests preserve the caller headers, payload and signal, with authentic WebCrypto proofs', async () => {
