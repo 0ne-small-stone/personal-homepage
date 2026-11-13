@@ -9,6 +9,7 @@ import {build} from 'esbuild';
 import {Miniflare} from 'miniflare';
 
 const origin = 'https://0ne-small-stone.github.io';
+const customOrigin = 'https://littlestonestillhere.com';
 const base = 'https://music-worker.test/personal-homepage/api/music/';
 const initialTime = 1800000000000;
 const key = Buffer.alloc(32, 37).toString('base64');
@@ -79,7 +80,7 @@ test('complete gateway runs in workerd with real D1 and synthetic upstream accou
               return Response.json({isolate: typeof WebSocketPair === 'function', sequence: state.sequence,
                 calls: state.calls});
             }
-            return gateway.fetch(request, {...env, MUSIC_PAGE_ORIGIN: ${JSON.stringify(origin)}, MUSIC_SESSION_KEY: ${JSON.stringify(key)}}, ctx);
+            return gateway.fetch(request, {...env, MUSIC_PAGE_ORIGIN: ${JSON.stringify(`${origin},${customOrigin}`)}, MUSIC_SESSION_KEY: ${JSON.stringify(key)}}, ctx);
           },
         };
       `,
@@ -163,10 +164,12 @@ test('complete gateway runs in workerd with real D1 and synthetic upstream accou
   }
 
   await t.test('CORS is exact, unauthenticated access and arbitrary proxy paths are rejected', async () => {
-    const allowed = await mf.dispatchFetch(base + 'playback/account', {method: 'OPTIONS', headers: {Origin: origin,
-      'Access-Control-Request-Method': 'GET', 'Access-Control-Request-Headers': 'X-Music-Proof, X-Music-Session, X-Music-Time, X-Music-Nonce'}});
-    assert.equal(allowed.status, 204); assert.equal(allowed.headers.get('Access-Control-Allow-Origin'), origin);
-    assert.equal(allowed.headers.get('Access-Control-Allow-Credentials'), null);
+    for (const pageOrigin of [origin, customOrigin]) {
+      const allowed = await mf.dispatchFetch(base + 'playback/account', {method: 'OPTIONS', headers: {Origin: pageOrigin,
+        'Access-Control-Request-Method': 'GET', 'Access-Control-Request-Headers': 'X-Music-Proof, X-Music-Session, X-Music-Time, X-Music-Nonce'}});
+      assert.equal(allowed.status, 204); assert.equal(allowed.headers.get('Access-Control-Allow-Origin'), pageOrigin);
+      assert.equal(allowed.headers.get('Access-Control-Allow-Credentials'), null);
+    }
     const blocked = await mf.dispatchFetch(base + 'playback/account', {headers: {Origin: 'https://attacker.test'}});
     assert.equal(blocked.status, 403); assert.equal(blocked.headers.get('Access-Control-Allow-Origin'), null);
     const anonymous = await decode(await mf.dispatchFetch(base + 'playback/account', {headers: {Origin: origin}}));

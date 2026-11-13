@@ -38,6 +38,6 @@ source:
 | 正文许可 | [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/) |
 | 嵌入字体 | Noto Sans SC · SIL Open Font License 1.1 |
 
-[文件来源与生成记录](/personal-homepage/materials/README.md) · [字体许可](/personal-homepage/materials/noto-sans-sc-OFL.txt)。正文和字体许可分别登记。
+[文件来源与生成记录](../../../materials/README.md) · [字体许可](../../../materials/noto-sans-sc-OFL.txt)。正文和字体许可分别登记。
 
 本文档可独立下载阅读。阅读历史只保存在当前浏览器和站点地址下；清除存储或换设备后可能从第 1 页开始。

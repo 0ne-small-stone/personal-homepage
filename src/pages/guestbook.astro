@@ -10,7 +10,7 @@ import {sitePath} from '../lib/paths';
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="The Wall，可移动白砖墙与留言阅读体验。">
-  <meta name="giscus:backlink" content="https://0ne-small-stone.github.io/personal-homepage/guestbook/">
+  <meta name="giscus:backlink" content={new URL(sitePath('guestbook'), Astro.site ?? Astro.url).href}>
   <title>The Wall · Little Stone Still Here</title>
 </head>
 <body>

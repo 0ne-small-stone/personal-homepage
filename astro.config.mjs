@@ -4,13 +4,11 @@ import starlight from '@astrojs/starlight';
 import starlightBlog from 'starlight-blog';
 import react from '@astrojs/react';
 import { localMusicPlayback } from './tools/music/local-playback.mjs';
-
-// GitHub Pages project sites require this prefix in routes, assets and search.
-const base = '/personal-homepage';
+import { pagesSite } from './tools/ci/pages-site.mjs';
 
 export default defineConfig({
-  site: 'https://0ne-small-stone.github.io',
-  base,
+  site: pagesSite.origin,
+  base: pagesSite.pathname,
   output: 'static',
   trailingSlash: 'always',
   integrations: [

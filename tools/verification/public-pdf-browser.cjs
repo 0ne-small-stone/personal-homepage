@@ -10,6 +10,7 @@ const output = path.resolve(process.argv[3] ?? '.ci-tmp/t06-01-browser');
 const title = 'PDF 阅读验证说明（功能样本）';
 const detail = `${base}/knowledge/resources/reading-guide/`;
 const file = `${base}/materials/lssh-pdf-reading-check.pdf`;
+const filePath = new URL(file).pathname;
 const expectedHash = '9e2aac37f32cc56aff3a15434a525659c95096d4481c8739c7ee9471fca953be';
 const checks = [];
 const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
@@ -101,7 +102,7 @@ const ready = async (page, expectedPages = 4) => {
   await page.getByRole('link', { name: /独立阅读器/ }).click();
   const popup = await popupPromise;
   await popup.waitForFunction(() => window.PDFViewerApplication?.pdfDocument?.numPages === 4, null, { timeout: 45000 });
-  assert.equal(new URL(popup.url()).searchParams.get('file'), '/personal-homepage/materials/lssh-pdf-reading-check.pdf');
+  assert.equal(new URL(popup.url()).searchParams.get('file'), filePath);
   record('full reader opens same-origin attachment');
   await popup.close();
 
@@ -164,7 +165,7 @@ const ready = async (page, expectedPages = 4) => {
   const native = await noJS.newPage();
   await native.goto(detail);
   const fallback = native.locator('noscript a');
-  assert.equal(await fallback.getAttribute('href'), '/personal-homepage/materials/lssh-pdf-reading-check.pdf');
+  assert.equal(await fallback.getAttribute('href'), filePath);
   assert(await fallback.isVisible());
   record('no JavaScript has directly accessible PDF fallback');
   await noJS.close();

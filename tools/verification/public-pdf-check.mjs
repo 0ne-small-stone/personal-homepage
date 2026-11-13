@@ -4,6 +4,7 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
 import { createRequire } from 'node:module';
 import { pathToFileURL } from 'node:url';
+import { pagesBase } from '../ci/pages-site.mjs';
 
 const require = createRequire(new URL('../../package.json', import.meta.url));
 const { parse } = require('yaml');
@@ -31,9 +32,9 @@ export function inspectPublicPdfs(root = process.cwd(), output = join(root, 'dis
     assert.deepEqual(published, original, `${file}: published attachment changed`);
     const route = relative(content, file).replaceAll('\\', '/').replace(/\.mdx?$/, '');
     const html = readFileSync(join(output, route, 'index.html'), 'utf8');
-    const url = `/personal-homepage/${source.file}`;
+    const url = `${pagesBase}${source.file}`;
     const frames = Array.from(html.matchAll(/<iframe\b[^>]*\bsrc="([^"]+)"/g), (match) => new URL(match[1].replaceAll('&amp;', '&'), 'https://artifact.invalid'));
-    assert(frames.some((frame) => frame.origin === 'https://artifact.invalid' && frame.pathname === '/personal-homepage/pdfjs/web/viewer.html'
+    assert(frames.some((frame) => frame.origin === 'https://artifact.invalid' && frame.pathname === `${pagesBase}pdfjs/web/viewer.html`
       && frame.searchParams.getAll('file').length === 1 && frame.searchParams.get('file') === url
       && Array.from(frame.searchParams.keys()).every((key) => key === 'file' || key === 'reader')
       && (!frame.searchParams.has('reader') || /^pure-v\d+$/.test(frame.searchParams.get('reader')))), `${file}: missing prefixed viewer`);
