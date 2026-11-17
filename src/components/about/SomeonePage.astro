@@ -10,18 +10,18 @@ interface Props { lang?: SomeoneLanguage; }
 const { lang = 'en' } = Astro.props;
 const profile = profiles[lang];
 const copy = lang === 'en' ? {
-  description: 'Zhang Xuanshi, also known as Little Stone. Software engineering student at Zhejiang University, making software and products, playing music and volunteering.',
+  description: `${profile.name} (Little Stone) studies software engineering at Zhejiang University and is a serial entrepreneur and musician focused on AI hardware products and interaction.`,
   about: 'About me', greeting: `I'm ${profile.nickname}.`, identity: `${profile.name} · ${profile.major}, ${profile.university}`,
-  talk: "Let's talk", index: 'On this page', home: 'Back home', experience: 'Experience', experienceIntro: 'Code, products and working with people.',
+  talk: "Let's talk", index: 'On this page', home: 'Back home', experience: 'Experience', experienceIntro: 'Ventures, competitions, volunteering and hands-on projects.',
   practice: 'What I do', skills: 'skills', learning: 'Still learning', life: 'Beyond the screen', traces: 'More of me, here', contact: 'Contact',
   contactIntro: 'About products, design, music or something you found here.', copied: 'Email copied',
   copySuccess: 'Email copied. You can paste it into your mail app.', copyFailure: `Could not copy. You can select this address to copy it: ${profile.email}`,
   githubLabel: 'GitHub profile (opens in a new tab)', emailLabel: `Copy email address: ${profile.email}`, contactLinks: 'Contact links',
   wall: 'Leave a note on The Wall',
 } : {
-  description: '我是小石，张轩石。浙江大学软件工程学生，做软件、设计产品，也在音乐和志愿服务里留下日常。',
+  description: `${profile.name}（小石），浙江大学软件工程在读，连续创业者、音乐人，关注 AI 硬件的产品形态与交互创新。`,
   about: '关于我', greeting: `我是${profile.nickname}。`, identity: `${profile.name}，${profile.university}${profile.major}学生。`,
-  talk: '聊一聊', index: 'Someone 页内目录', home: '返回首页', experience: '一些经历', experienceIntro: '从代码、产品到人与人之间的协作。',
+  talk: '聊一聊', index: 'Someone 页内目录', home: '返回首页', experience: '一些经历', experienceIntro: '创业、竞赛、志愿服务与项目实践。',
   practice: '能力与协作', skills: '相关能力', learning: '仍在学习', life: '生活的另一面', traces: '在这里，继续认识我', contact: '联系',
   contactIntro: '关于产品、设计、音乐，或者你在这里看到的东西。', copied: '邮箱已复制',
   copySuccess: '邮箱已复制，可以粘贴到你的邮件应用中。', copyFailure: `复制未成功，请选中这个地址复制：${profile.email}`,
