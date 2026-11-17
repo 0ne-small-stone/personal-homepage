@@ -60,7 +60,7 @@ content:
           - { name: period, label: 时间, type: string, required: true }
           - { name: title, label: 标题, type: string, required: true }
           - { name: role, label: 角色, type: string, required: true }
-          - { name: paragraphs, label: 说明（分段）, type: text, list: true, required: true }
+          - { name: paragraphs, label: 说明（分段）, type: text, list: true }
       - name: capabilities
         label: 能力与协作
         type: object
