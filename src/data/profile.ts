@@ -6,7 +6,7 @@ const text = z.string().trim().min(1);
 const paragraphs = z.array(text).min(1);
 const experienceSchema = z.object({
   id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
-  period: text, title: text, role: text, paragraphs,
+  period: text, title: text, role: text, paragraphs: z.array(text).default([]),
 });
 export type ProfileExperience = z.infer<typeof experienceSchema>;
 export const profileSchema = z.object({
