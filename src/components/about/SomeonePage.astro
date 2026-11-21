@@ -2,6 +2,7 @@
 import HomeLayout from '../../layouts/HomeLayout.astro';
 import InviteMark from '../navigation/InviteMark.astro';
 import ContactIcon from './ContactIcon.astro';
+import ProfileEntries from './ProfileEntries.astro';
 import { profiles, type SomeoneLanguage } from '../../data/profile';
 import { sitePath } from '../../lib/paths';
 import '../../styles/about.css';
@@ -12,7 +13,11 @@ const profile = profiles[lang];
 const copy = lang === 'en' ? {
   description: `${profile.name} (Little Stone) studies software engineering at Zhejiang University and is a serial entrepreneur and musician focused on AI hardware products and interaction.`,
   about: 'About me', greeting: `I'm ${profile.nickname}.`, identity: `${profile.name} · ${profile.major}, ${profile.university}`,
-  talk: "Let's talk", index: 'On this page', home: 'Back home', experience: 'Experience', experienceIntro: 'Ventures, competitions, volunteering and hands-on projects.',
+  talk: "Let's talk", index: 'On this page', home: 'Back home', experience: 'Ventures & projects', experienceIntro: 'Building products, making games and working with teams.',
+  education: 'Education', campus: 'On campus', service: 'Community & volunteering', awards: 'Awards',
+  campusIntro: 'Student organizations, class communities and the work behind the scenes.',
+  serviceIntro: 'Elder care, class-based volunteering and learning through social practice.',
+  campusDetails: 'More campus roles', serviceDetails: 'Projects & social practice',
   practice: 'What I do', skills: 'skills', learning: 'Still learning', life: 'Beyond the screen', traces: 'More of me, here', contact: 'Contact',
   contactIntro: 'About products, design, music or something you found here.', copied: 'Email copied',
   copySuccess: 'Email copied. You can paste it into your mail app.', copyFailure: `Could not copy. You can select this address to copy it: ${profile.email}`,
@@ -21,7 +26,11 @@ const copy = lang === 'en' ? {
 } : {
   description: `${profile.name}（小石），浙江大学软件工程在读，连续创业者、音乐人，关注 AI 硬件的产品形态与交互创新。`,
   about: '关于我', greeting: `我是${profile.nickname}。`, identity: `${profile.name}，${profile.university}${profile.major}学生。`,
-  talk: '聊一聊', index: 'Someone 页内目录', home: '返回首页', experience: '一些经历', experienceIntro: '创业、竞赛、志愿服务与项目实践。',
+  talk: '聊一聊', index: 'Someone 页内目录', home: '返回首页', experience: '创业与项目', experienceIntro: '做产品、做游戏，也和伙伴一起让想法落地。',
+  education: '教育背景', campus: '校园里的我', service: '志愿与实践', awards: '获奖记录',
+  campusIntro: '在学生组织与班级里，参与日常运营、活动组织和团队建设。',
+  serviceIntro: '从社区助老到班级公益，在实践里认识人与人之间的联结。',
+  campusDetails: '更多校园任职', serviceDetails: '项目与社会实践',
   practice: '能力与协作', skills: '相关能力', learning: '仍在学习', life: '生活的另一面', traces: '在这里，继续认识我', contact: '联系',
   contactIntro: '关于产品、设计、音乐，或者你在这里看到的东西。', copied: '邮箱已复制',
   copySuccess: '邮箱已复制，可以粘贴到你的邮件应用中。', copyFailure: `复制未成功，请选中这个地址复制：${profile.email}`,
@@ -29,8 +38,16 @@ const copy = lang === 'en' ? {
   wall: '也可以去留言墙看看',
 };
 
+const groups = [
+  { id: 'experience', category: 'work', label: copy.experience, introduction: copy.experienceIntro },
+  { id: 'campus', category: 'campus', label: copy.campus, introduction: copy.campusIntro, disclosure: copy.campusDetails },
+  { id: 'service', category: 'service', label: copy.service, introduction: copy.serviceIntro, disclosure: copy.serviceDetails },
+  { id: 'awards', category: 'awards', label: copy.awards },
+].map(group => ({ ...group, entries: profile.experiences.filter(entry => entry.category === group.category) }))
+  .filter(group => group.entries.length);
 const sections = [
-  { id: 'experience', label: copy.experience },
+  ...(profile.education.length ? [{ id: 'education', label: copy.education }] : []),
+  ...groups,
   { id: 'practice', label: copy.practice },
   { id: 'life', label: copy.life },
   { id: 'contact', label: copy.contact },
@@ -52,19 +69,26 @@ const sections = [
         <nav aria-label={copy.index}>{sections.map(section => <a href={`#${section.id}`}>{section.label}</a>)}</nav>
       </aside>
       <div class="someone-reading">
-        <section id="experience" class="someone-section" aria-labelledby="experience-title" data-reading-block>
-          <h2 id="experience-title">{copy.experience}</h2>
-          <p class="someone-section-intro">{copy.experienceIntro}</p>
-          <ol class="someone-experiences">
-            {profile.experiences.map(experience => <li id={`experience-${experience.id}`} data-reading-block>
-              <p class="someone-period">{experience.period}</p>
-              <div class="someone-experience-copy"><h3>{experience.title}</h3><p class="someone-role">{experience.role}</p>{experience.paragraphs.map(paragraph => <p>{paragraph}</p>)}</div>
-            </li>)}
-          </ol>
-        </section>
+        {profile.education.length > 0 && <section id="education" class="someone-section" aria-labelledby="education-title" data-reading-block>
+          <h2 id="education-title">{copy.education}</h2>
+          <ProfileEntries entries={profile.education} prefix="education" />
+        </section>}
+        {groups.map(group => {
+          const primary = group.entries.filter(entry => !entry.detail);
+          const more = group.entries.filter(entry => entry.detail);
+          return <section id={group.id} class="someone-section" aria-labelledby={`${group.id}-title`} data-reading-block>
+            <h2 id={`${group.id}-title`}>{group.label}</h2>
+            {group.introduction && <p class="someone-section-intro">{group.introduction}</p>}
+            {primary.length > 0 && <ProfileEntries entries={primary} />}
+            {more.length > 0 && <details class="someone-details" id={`${group.id}-details`}>
+              <summary><span>{group.disclosure ?? group.label}</span><span class="someone-details-count">{more.length}</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m7 10 5 5 5-5" /></svg></summary>
+              <ProfileEntries entries={more} />
+            </details>}
+          </section>;
+        })}
         <section id="practice" class="someone-section" aria-labelledby="practice-title" data-reading-block>
           <h2 id="practice-title">{copy.practice}</h2>
-          <div class="someone-capabilities">{profile.capabilities.map(capability => <div><h3>{capability.title}</h3><ul aria-label={`${capability.title} ${copy.skills}`}>{capability.items.map(item => <li>{item}</li>)}</ul><p>{capability.description}</p></div>)}</div>
+          <div class="someone-capabilities">{profile.capabilities.map(capability => <div><h3>{capability.title}</h3><ul aria-label={`${capability.title} ${copy.skills}`}>{capability.items.map(item => <li>{item}</li>)}</ul>{capability.description && <p>{capability.description}</p>}</div>)}</div>
           <div class="someone-learning"><h3>{copy.learning}</h3><p>{profile.learning}</p></div>
         </section>
         <section id="life" class="someone-section" aria-labelledby="life-title" data-reading-block>
@@ -97,6 +121,19 @@ const sections = [
     const page = document.querySelector<HTMLElement>('.someone-page');
     if (!page) return;
     const controller = new AbortController();
+    function revealReadingTarget() {
+      let id: string;
+      try { id = decodeURIComponent(location.hash.slice(1)); } catch { return; }
+      const target = document.getElementById(id);
+      if (!target || !page?.contains(target)) return;
+      const disclosure = target.closest('details');
+      if (disclosure && !disclosure.open) {
+        disclosure.open = true;
+        target.scrollIntoView({ block: 'start', behavior: 'instant' });
+      }
+    }
+    revealReadingTarget();
+    window.addEventListener('hashchange', revealReadingTarget, { signal: controller.signal });
     const disposeLanguage = setupSomeoneLanguage(page, controller.signal);
     let resetTimer: ReturnType<typeof setTimeout> | undefined;
     dispose = () => { controller.abort(); clearTimeout(resetTimer); disposeLanguage(); };

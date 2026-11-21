@@ -6,26 +6,34 @@
   "email": "3400489513@qq.com",
   "github": "https://github.com/0ne-small-stone",
   "introduction": [
-    "I study software engineering at Zhejiang University’s College of Computer Science and Technology and minor in the Intensive Training Program for Innovation and Entrepreneurship Management (ITP).",
+    "I study software engineering at Zhejiang University’s College of Computer Science and Technology and minor in the Intensive Training Program for Innovation and Entrepreneurship Management (ITP) at Chu Kochen Honors College.",
     "I’m a serial entrepreneur and musician. I’ve started ventures, worked on projects and competed across several fields. My current focus is exploring new forms for AI hardware and how people interact with it.",
     "Little Stone Still Here is where I keep what I learn, what I make and bits of everyday life. I hope these things give you a sense of who I am."
   ],
   "experiences": [
     {
       "id": "daimengde",
-      "period": "Entrepreneurship",
-      "title": "Diamond",
-      "role": "CEO",
+      "period": "Entrepreneurship & products",
+      "title": "Diamond (Hangzhou) Intelligent Technology Co., Ltd.",
+      "role": "Founder & CEO",
       "paragraphs": [
-        "We’re developing Flow Desk, a desktop controller for software development, video editing, and everyday work. It uses visual shortcut keys and a dial to trigger common actions, with presets that can be switched to match the task."
+        "I lead product management for four consumer electronics series—Suikong, Zaojing, Wanxiang and Huying. My responsibilities span product definition, technical roadmaps, software and hardware project management, brand design and business development."
+      ],
+      "aliases": [
+        "suikong"
       ]
     },
     {
       "id": "jiezuo",
-      "period": "Entrepreneurship",
+      "period": "Entrepreneurship & music",
       "title": "Jiezuo (Hangzhou) Intelligent Technology Co., Ltd.",
-      "role": "Co-initiator and Music Director",
-      "paragraphs": []
+      "role": "Co-initiator & Music Director",
+      "paragraphs": [
+        "I initiated an independent game project and contributed to gameplay design, game balancing and 2D art. I now arrange the soundtrack and create sound effects for AAA Magic Cram School."
+      ],
+      "aliases": [
+        "game"
+      ]
     },
     {
       "id": "koala",
@@ -33,101 +41,271 @@
       "title": "Koala Studio, Zhejiang University",
       "role": "Startup Incubation Team Lead",
       "paragraphs": [
-        "Koala Studio is a platform for hands-on student innovation."
-      ]
-    },
-    {
-      "id": "internet-plus",
-      "period": "Competition",
-      "title": "Zhejiang Provincial “Internet+” Innovation and Entrepreneurship Competition",
-      "role": "Gold Award",
-      "paragraphs": []
-    },
-    {
-      "id": "mathematical-modeling",
-      "period": "Competition",
-      "title": "Mathematical Modeling Competition",
-      "role": "Second Prize, Zhejiang Province",
-      "paragraphs": []
-    },
-    {
-      "id": "shaoguang",
-      "period": "Volunteering",
-      "title": "Shaoguang Elder Care Volunteer Team, Zhejiang University",
-      "role": "Deputy Team Leader",
-      "paragraphs": [
-        "The team is part of the “Eight Hundreds” initiative of the Zhejiang Provincial Committee of the Communist Youth League.",
-        "I helped organize more than 40 activities supporting and spending time with older adults across over 10 communities. Through SQTP, we brought volunteering into class activities and involved more than 10 classes from different majors."
+        "Koala Studio is a platform for hands-on student innovation. I manage the day-to-day operations of its startup teams."
       ]
     },
     {
       "id": "software",
       "period": "Aug 2026 — Present",
-      "title": "Software development",
-      "role": "Internet startup project",
+      "title": "Internet startup project",
+      "role": "Software development & requirements",
       "paragraphs": [
-        "I work on custom platforms and systems for government clients, translating requirements into software and gaining experience with real-world needs."
+        "I work on custom platforms and systems for government clients, handling requirements and software development."
       ]
     },
     {
-      "id": "suikong",
-      "period": "Apr 2026 — Present",
-      "title": "Suikong Desk",
-      "role": "Founder / Product and brand",
+      "id": "integer",
+      "period": "Company internship",
+      "title": "Zhengshu Intelligence",
+      "role": "Internship & competition support",
       "paragraphs": [
-        "A consumer electronics venture focused on smart desk setups. I handle product definition, brand design, software and hardware project management, and business development.",
-        "Hardware development stalled after a key team member left. While learning more and looking for new engineering collaborators, I have been working on better knowledge sharing and handovers within the team."
-      ]
-    },
-    {
-      "id": "game",
-      "period": "Feb 2026 — Present",
-      "title": "Independent game",
-      "role": "Co-initiator / Game design and music",
-      "paragraphs": [
-        "I am developing a game for Steam with a team, contributing to game balance, mechanics, audience research and product positioning. I also plan to work on its soundtrack arrangements and sound effects."
+        "Alongside a company internship, I contribute visual design and written materials for entrepreneurship competitions."
       ]
     },
     {
       "id": "robot",
       "period": "Nov 2025 — Oct 2026",
-      "title": "Power grid inspection robot",
-      "role": "Zhilian Dianwei project team",
+      "title": "Zhilian Dianwei · Power grid inspection robot",
+      "role": "Visual design, business planning & prototyping",
       "paragraphs": [
-        "A robotics project for enterprise and government clients. I worked on the business plan, pitch presentation, and the fabrication and testing of the first enclosure."
+        "I designed project visuals and pitch materials, wrote the business plan, and prototyped and tested the first enclosure."
       ]
+    },
+    {
+      "id": "one-stop",
+      "period": "Student services",
+      "title": "One-stop Student Services Center, Zhejiang University",
+      "role": "Deputy Head · Outreach & Promotion",
+      "paragraphs": [
+        "I handle communications, member recruitment and training, visual identity design and venue management."
+      ],
+      "category": "campus"
+    },
+    {
+      "id": "class-monitor",
+      "period": "Class community",
+      "title": "Information Engineering Cohort 2528 & Software Engineering Class 2501",
+      "role": "Class Monitor · Zhejiang University",
+      "paragraphs": [
+        "I coordinate class community building and organize class activities."
+      ],
+      "category": "campus"
+    },
+    {
+      "id": "guitar",
+      "period": "Music & events",
+      "title": "Guitar Association, Zhejiang University",
+      "role": "Deputy Head · External Relations",
+      "paragraphs": [
+        "I handle external relations and publicity, and plan and organize association events."
+      ],
+      "category": "campus",
+      "detail": true
+    },
+    {
+      "id": "electric-ensemble",
+      "period": "Live music",
+      "title": "Electric Music Ensemble, Zhejiang University",
+      "role": "Regular Band Member",
+      "paragraphs": [
+        "I perform at university music festivals and dedicated concerts."
+      ],
+      "category": "campus",
+      "detail": true
+    },
+    {
+      "id": "volunteer-center",
+      "period": "Volunteering",
+      "title": "Youth Volunteer Guidance Center, Zhejiang University",
+      "role": "Project Planning Team Member",
+      "paragraphs": [
+        "I contribute to event planning, communications and team building."
+      ],
+      "category": "campus",
+      "detail": true
+    },
+    {
+      "id": "koala-centers",
+      "period": "Design & internal systems",
+      "title": "Koala Studio, Zhejiang University",
+      "role": "Design Center Member · Information Resources Team Member, Innovation Center",
+      "paragraphs": [
+        "In the Design Center, I help with exhibition layouts, exhibit production and event publicity, and attend graphic design and management training.",
+        "In the studio’s Innovation Center, I help build the internal information management platform and recruitment system."
+      ],
+      "category": "campus",
+      "detail": true
+    },
+    {
+      "id": "youth-committee",
+      "period": "Administration",
+      "title": "Youth League Working Committee, Zhejiang University",
+      "role": "Administration Team Member",
+      "paragraphs": [
+        "I assist with venue management, internal coordination and information organization."
+      ],
+      "category": "campus",
+      "detail": true
+    },
+    {
+      "id": "shaoguang",
+      "period": "Volunteering",
+      "title": "Shaoguang Elder Care Volunteer Team, Zhejiang University",
+      "role": "Co-initiator & Deputy Team Leader",
+      "paragraphs": [
+        "I plan activities, liaise with communities, recruit and train volunteers, build the team, and coordinate outreach and publicity. I have helped organize over 40 elder care activities across more than 10 communities.",
+        "The team participates in the “Eight Hundreds” initiative of the Zhejiang Provincial Committee of the Communist Youth League."
+      ],
+      "category": "service"
+    },
+    {
+      "id": "sqtp-class",
+      "period": "SQTP",
+      "title": "Class-based volunteering: new approaches to class community and cohesion",
+      "role": "Project Lead · Outstanding Completion",
+      "paragraphs": [
+        "I brought volunteering into class community building, involving more than 10 classes in community service."
+      ],
+      "category": "service",
+      "detail": true
+    },
+    {
+      "id": "sqtp-elderly",
+      "period": "SQTP",
+      "title": "Warm Companionship & Smart Support for Older Adults",
+      "role": "Participant · Outstanding Completion",
+      "paragraphs": [],
+      "category": "service",
+      "detail": true
+    },
+    {
+      "id": "yuexi",
+      "period": "Winter social practice",
+      "title": "Youth Volunteers Supporting Older Adults in Yuexi",
+      "role": "Participant · Outstanding Social Practice Completion",
+      "paragraphs": [
+        "A Youth Volunteer Guidance Center project in Yuexi County, Anqing, Anhui."
+      ],
+      "category": "service",
+      "detail": true
+    },
+    {
+      "id": "energy-winter",
+      "period": "Winter social practice",
+      "title": "Energy Pioneers: Elder Care in Our Home Communities",
+      "role": "Project Lead · Outstanding Social Practice Completion",
+      "paragraphs": [
+        "A College of Energy Engineering project across Zhejiang, Shandong, Anhui, Sichuan and other regions."
+      ],
+      "category": "service",
+      "detail": true
+    },
+    {
+      "id": "energy-summer",
+      "period": "Summer social practice",
+      "title": "Shaoguang Companionship: Youth in Elder Care",
+      "role": "Project Lead",
+      "paragraphs": [
+        "A College of Energy Engineering project across Zhejiang, Guangdong, Guizhou, Gansu and other regions."
+      ],
+      "category": "service",
+      "detail": true
+    },
+    {
+      "id": "shenzhen",
+      "period": "Summer social practice",
+      "title": "Smart Manufacturing & Innovation in the Greater Bay Area",
+      "role": "Project Lead",
+      "paragraphs": [
+        "A School of Mechanical Engineering project in Shenzhen, Guangdong."
+      ],
+      "category": "service",
+      "detail": true
+    },
+    {
+      "id": "shandong",
+      "period": "Summer social practice",
+      "title": "Shaoguang in Shandong: Sharing Warmth with Older Adults",
+      "role": "Participant",
+      "paragraphs": [
+        "A Shaoguang Elder Care Volunteer Team project in Shandong."
+      ],
+      "category": "service",
+      "detail": true
+    },
+    {
+      "id": "internet-plus",
+      "period": "Innovation & entrepreneurship",
+      "title": "Zhejiang Provincial “Internet+” Innovation and Entrepreneurship Competition",
+      "role": "Gold Award",
+      "paragraphs": [],
+      "category": "awards"
+    },
+    {
+      "id": "mathematical-modeling",
+      "period": "Mathematical modeling",
+      "title": "Zhejiang Provincial College Student Mathematical Modeling Competition",
+      "role": "Provincial Second Prize",
+      "paragraphs": [],
+      "category": "awards"
     }
   ],
   "capabilities": [
     {
-      "title": "Software and making",
+      "title": "Products & projects",
       "items": [
-        "Full-stack development",
-        "Requirements",
-        "3D printing"
-      ],
-      "description": "Connecting software implementation with physical prototypes."
+        "Requirements analysis",
+        "Product feature definition",
+        "Technical roadmaps",
+        "Software & hardware project management"
+      ]
     },
     {
-      "title": "Design and communication",
+      "title": "Software development",
+      "items": [
+        "Web frontend development",
+        "Web backend development"
+      ]
+    },
+    {
+      "title": "Hardware & prototyping",
+      "items": [
+        "Mechatronics fundamentals",
+        "Embedded systems fundamentals",
+        "3D-printed prototypes",
+        "Prototype testing"
+      ]
+    },
+    {
+      "title": "Interaction & visual design",
       "items": [
         "UI/UX design",
-        "Graphic and brand design",
-        "Product positioning"
-      ],
-      "description": "Turning a problem into a clear interface and a product people can understand."
+        "Graphic design",
+        "Brand identity design",
+        "Pitch presentation design"
+      ]
     },
     {
-      "title": "Projects and collaboration",
+      "title": "Games & audio",
       "items": [
-        "Project management",
-        "Cross-disciplinary collaboration",
-        "Finding collaborators"
-      ],
-      "description": "Breaking ideas into tasks, bringing the right people together and following through."
+        "Gameplay design",
+        "Game balancing",
+        "2D art",
+        "Music arrangement",
+        "Sound effects production"
+      ]
+    },
+    {
+      "title": "Business & organization",
+      "items": [
+        "Business plan writing",
+        "Business development",
+        "Team management",
+        "Event planning & organization"
+      ]
     }
   ],
-  "learning": "PCB design and mechanical design are areas I am still learning. I want to understand design tradeoffs, spot schedule risks earlier and make sure important decisions are shared across the team.",
+  "learning": "I am learning mechatronics, embedded systems and mechanical design to better understand software–hardware tradeoffs and turn product ideas into testable prototypes.",
   "life": [
     "I love Pink Floyd and things that feel psychedelic, expansive and gentle. I play bass and erhu, sing and arrange music. As a regular band member in the university electric music ensemble, I have played at music festivals on and off campus.",
     "Away from the screen, I swim and enjoy ball sports. Making things, listening to music and volunteering are all parts of my everyday life."
@@ -152,6 +330,22 @@
       "name": "Echoes",
       "label": "Music radio",
       "path": "music"
+    }
+  ],
+  "education": [
+    {
+      "id": "software-engineering",
+      "period": "Sep 2025 — Present",
+      "title": "Zhejiang University · College of Computer Science and Technology",
+      "role": "BEng in Software Engineering · In progress",
+      "paragraphs": []
+    },
+    {
+      "id": "itp",
+      "period": "Nov 2026 — Present",
+      "title": "Zhejiang University · Chu Kochen Honors College",
+      "role": "Minor · Intensive Training Program for Innovation and Entrepreneurship Management (ITP)",
+      "paragraphs": []
     }
   ]
 }

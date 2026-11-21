@@ -32,6 +32,17 @@
 .someone-page .someone-section-intro { margin-top: .75rem; }
 .someone-experiences { list-style: none; padding: 0; margin: 2rem 0 0; }
 .someone-experiences > li { padding: 2rem 0; scroll-margin-top: 6rem; }
+.someone-experiences > li { position: relative; }
+.someone-anchor { position: absolute; top: 0; left: 0; scroll-margin-top: 6rem; }
+.someone-details { margin-top: 2rem; border-top: 1px solid var(--color-divider, #242424); }
+.someone-details summary { display: flex; align-items: center; gap: .75rem; min-height: 44px; padding-block: 1rem; list-style: none; cursor: pointer; font-size: 1rem; line-height: 1.5; }
+.someone-details summary::-webkit-details-marker { display: none; }
+.someone-details summary::marker { content: ''; }
+.someone-details-count { color: var(--color-muted); font-size: .875rem; font-variant-numeric: tabular-nums; }
+.someone-details summary svg { margin-left: auto; flex: none; }
+.someone-details[open] summary svg { transform: rotate(180deg); }
+.someone-details > .someone-experiences { margin-top: 1rem; }
+.someone-page h3, .someone-experience-copy p { overflow-wrap: break-word; }
 .someone-experiences > li:first-child { padding-top: 0; }
 .someone-experiences > li:last-child { padding-bottom: 0; }
 .someone-experiences > li + li { border-top: 1px solid var(--color-divider, #242424); }
@@ -76,6 +87,7 @@
   .lssh-home:has(.someone-page) .home-page-footer { padding-inline: 0; }
 }
 @media (max-width: 767px) {
+  .someone-hero, .someone-section, .someone-experiences > li, .someone-anchor { scroll-margin-top: calc(8.5rem + env(safe-area-inset-top, 0px)); }
   .someone-page { width: min(calc(100% - 2rem), var(--someone-frame)); padding-top: 8rem; font-size: 1rem; }
   .someone-hero { padding-bottom: 4rem; }
   .someone-page .someone-greeting { margin-top: 1.5rem; }

@@ -45,6 +45,17 @@ content:
         required: true
         pattern: { regex: '^https://[^\s]+$', message: 填写完整 HTTPS 地址 }
       - { name: introduction, label: 自我介绍（分段）, type: text, list: true, required: true }
+      - name: education
+        label: 教育背景
+        type: object
+        list:
+          collapsible: { collapsed: true, summary: '{fields.title}' }
+        fields:
+          - { name: id, label: 稳定标识, type: string, required: true, pattern: { regex: '^[a-z0-9]+(?:-[a-z0-9]+)*$', message: 使用小写英文、数字和短横线 } }
+          - { name: period, label: 时间, type: string, required: true }
+          - { name: title, label: 学校与学院, type: string, required: true }
+          - { name: role, label: 专业与学位, type: string, required: true }
+          - { name: paragraphs, label: 补充信息, type: text, list: true }
       - name: experiences
         label: 经历
         type: object
@@ -61,6 +72,18 @@ content:
           - { name: title, label: 标题, type: string, required: true }
           - { name: role, label: 角色, type: string, required: true }
           - { name: paragraphs, label: 说明（分段）, type: text, list: true }
+          - name: category
+            label: 所属分组
+            type: select
+            default: work
+            options:
+              values:
+                - { value: work, label: 创业与项目 }
+                - { value: campus, label: 校园任职 }
+                - { value: service, label: 志愿与实践 }
+                - { value: awards, label: 获奖记录 }
+          - { name: detail, label: 放入可展开明细, type: boolean, default: false }
+          - { name: aliases, label: 兼容旧锚点, type: string, list: true, description: '合并旧经历时保留其 ID，以维持已有外部链接。' }
       - name: capabilities
         label: 能力与协作
         type: object
@@ -69,7 +92,7 @@ content:
         fields:
           - { name: title, label: 标题, type: string, required: true }
           - { name: items, label: 关键词, type: string, list: true, required: true }
-          - { name: description, label: 说明, type: text, required: true }
+          - { name: description, label: 说明, type: text }
       - { name: learning, label: 正在学习, type: text, required: true }
       - { name: life, label: 日常（分段）, type: text, list: true, required: true }
       - name: traces
