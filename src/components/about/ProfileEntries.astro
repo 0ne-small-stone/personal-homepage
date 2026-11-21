@@ -1,0 +1,20 @@
+---
+import type { ProfileExperience } from '../../data/profile';
+
+interface Props {
+  entries: ProfileExperience[];
+  prefix?: 'experience' | 'education';
+}
+const { entries, prefix = 'experience' } = Astro.props;
+---
+<ol class="someone-experiences">
+  {entries.map(entry => <li id={`${prefix}-${entry.id}`} data-reading-block>
+    {entry.aliases.map(alias => <span id={`${prefix}-${alias}`} class="someone-anchor" aria-hidden="true"></span>)}
+    <p class="someone-period">{entry.period}</p>
+    <div class="someone-experience-copy">
+      <h3>{entry.title}</h3>
+      <p class="someone-role">{entry.role}</p>
+      {entry.paragraphs.map(paragraph => <p>{paragraph}</p>)}
+    </div>
+  </li>)}
+</ol>

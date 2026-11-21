@@ -13,7 +13,8 @@ export function setupSomeoneLanguage(page: HTMLElement, signal: AbortSignal) {
     try {
       sessionStorage.removeItem(storageKey);
       if (window.scrollY > 0) {
-        const blocks = [...page.querySelectorAll<HTMLElement>('[data-reading-block]')];
+        const blocks = [...page.querySelectorAll<HTMLElement>('[data-reading-block]')]
+          .filter(block => block.getClientRects().length > 0);
         const anchor = blocks.filter(block => block.getBoundingClientRect().top <= safeTop()).at(-1) ?? blocks[0];
         if (anchor) {
           const rect = anchor.getBoundingClientRect();
@@ -38,6 +39,8 @@ export function setupSomeoneLanguage(page: HTMLElement, signal: AbortSignal) {
           const ratio = Math.max(0, Math.min(1, pending.ratio));
           if (target) frame = requestAnimationFrame(() => {
             if (signal.aborted) return;
+            const disclosure = target.closest('details');
+            if (disclosure) disclosure.open = true;
             const rect = target.getBoundingClientRect();
             window.scrollTo({ top: Math.max(0, window.scrollY + rect.top + ratio * rect.height - safeTop()), behavior: 'instant' });
             link.focus({ preventScroll: true });
