@@ -12,7 +12,7 @@ const { lang = 'en' } = Astro.props;
 const profile = profiles[lang];
 const copy = lang === 'en' ? {
   description: `${profile.name} (Little Stone) studies software engineering at Zhejiang University and is a serial entrepreneur and musician focused on AI hardware products and interaction.`,
-  about: 'About me', greeting: `I'm ${profile.nickname}.`, identity: `${profile.name} �� ${profile.major}, ${profile.university}`,
+  about: 'About me', greeting: `I'm ${profile.nickname}.`, identity: `${profile.name} · ${profile.major}, ${profile.university}`,
   talk: "Let's talk", index: 'On this page', home: 'Back home', experience: 'Ventures & projects', experienceIntro: 'Building products, making games and working with teams.',
   education: 'Education', campus: 'On campus', service: 'Community & volunteering', awards: 'Awards',
   campusIntro: 'Student organizations, class communities and the work behind the scenes.',
@@ -24,18 +24,18 @@ const copy = lang === 'en' ? {
   githubLabel: 'GitHub profile (opens in a new tab)', emailLabel: `Copy email address: ${profile.email}`, contactLinks: 'Contact links',
   wall: 'Leave a note on The Wall',
 } : {
-  description: `${profile.name}��Сʯ�����㽭��ѧ���������ڶ���������ҵ�ߡ������ˣ���ע AI Ӳ���Ĳ�Ʒ��̬�뽻�����¡�`,
-  about: '������', greeting: `����${profile.nickname}��`, identity: `${profile.name}��${profile.university}${profile.major}ѧ����`,
-  talk: '��һ��', index: 'Someone ҳ��Ŀ¼', home: '������ҳ', experience: '��ҵ����Ŀ', experienceIntro: '����Ʒ������Ϸ��Ҳ�ͻ��һ�����뷨��ء�',
-  education: '��������', campus: 'У԰�����', service: '־Ը��ʵ��', awards: '�񽱼�¼',
-  campusIntro: '��ѧ����֯��༶������ճ���Ӫ�����֯���Ŷӽ��衣',
-  serviceIntro: '���������ϵ��༶���棬��ʵ������ʶ������֮������ᡣ',
-  campusDetails: '����У԰��ְ', serviceDetails: '��Ŀ�����ʵ��',
-  practice: '������Э��', skills: '�������', learning: '����ѧϰ', life: '�������һ��', traces: '�����������ʶ��', contact: '��ϵ',
-  contactIntro: '���ڲ�Ʒ����ơ����֣������������￴���Ķ�����', copied: '�����Ѹ���',
-  copySuccess: '�����Ѹ��ƣ�����ճ��������ʼ�Ӧ���С�', copyFailure: `����δ�ɹ�����ѡ�������ַ���ƣ�${profile.email}`,
-  githubLabel: 'GitHub ��ҳ�����±�ǩҳ�򿪣�', emailLabel: `���������ַ��${profile.email}`, contactLinks: '��ϵ��ʽ',
-  wall: 'Ҳ����ȥ����ǽ����',
+  description: `${profile.name}（小石），浙江大学软件工程在读，连续创业者、音乐人，关注 AI 硬件的产品形态与交互创新。`,
+  about: '关于我', greeting: `我是${profile.nickname}。`, identity: `${profile.name}，${profile.university}${profile.major}学生。`,
+  talk: '聊一聊', index: 'Someone 页内目录', home: '返回首页', experience: '创业与项目', experienceIntro: '做产品、做游戏，也和伙伴一起让想法落地。',
+  education: '教育背景', campus: '校园里的我', service: '志愿与实践', awards: '获奖记录',
+  campusIntro: '在学生组织与班级里，参与日常运营、活动组织和团队建设。',
+  serviceIntro: '从社区助老到班级公益，在实践里认识人与人之间的联结。',
+  campusDetails: '更多校园任职', serviceDetails: '项目与社会实践',
+  practice: '能力与协作', skills: '相关能力', learning: '仍在学习', life: '生活的另一面', traces: '在这里，继续认识我', contact: '联系',
+  contactIntro: '关于产品、设计、音乐，或者你在这里看到的东西。', copied: '邮箱已复制',
+  copySuccess: '邮箱已复制，可以粘贴到你的邮件应用中。', copyFailure: `复制未成功，请选中这个地址复制：${profile.email}`,
+  githubLabel: 'GitHub 主页（在新标签页打开）', emailLabel: `复制邮箱地址：${profile.email}`, contactLinks: '联系方式',
+  wall: '也可以去留言墙看看',
 };
 
 const groups = [
@@ -103,7 +103,7 @@ const sections = [
             <a class="someone-contact-icon" href={profile.github} target="_blank" rel="noopener noreferrer" aria-label={copy.githubLabel} title={copy.githubLabel}><ContactIcon name="github" /></a>
             <button class="someone-contact-icon" type="button" data-copy-email={profile.email} aria-label={copy.emailLabel} title={copy.emailLabel} disabled><ContactIcon name="email" /></button>
           </div>
-          <noscript><p class="someone-copy-fallback">{lang === 'en' ? 'Copy this address manually:' : '���ֶ��������䣺'} {profile.email}</p></noscript>
+          <noscript><p class="someone-copy-fallback">{lang === 'en' ? 'Copy this address manually:' : '可手动复制邮箱：'} {profile.email}</p></noscript>
           <p class="someone-copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
           <a class="someone-wall-link" href={sitePath('guestbook')}>{copy.wall}<InviteMark /></a>
         </section>

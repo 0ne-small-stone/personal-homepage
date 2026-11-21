@@ -21,13 +21,13 @@ export const profileSchema = z.object({
   experiences: z.array(experienceSchema).refine(rows => {
     const anchors = rows.flatMap(row => [row.id, ...row.aliases]);
     return new Set(anchors).size === anchors.length;
-  }, '���� ID �����ê�㲻���ظ�'),
+  }, '经历 ID 与兼容锚点不能重复'),
   capabilities: z.array(z.object({ title: text, items: paragraphs, description: text.optional() })),
   learning: text,
   life: paragraphs,
   traces: z.array(z.object({
     name: text, label: text, path: z.enum(['knowledge', 'showcase', 'gallery', 'music']),
-  })).refine(rows => new Set(rows.map(row => row.path)).size === rows.length, '��Ŀ��ַ�����ظ�'),
+  })).refine(rows => new Set(rows.map(row => row.path)).size === rows.length, '栏目地址不能重复'),
 });
 
 export type SomeoneLanguage = 'en' | 'zh-CN';

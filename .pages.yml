@@ -1,7 +1,7 @@
 # Native public profile, website, article, resource and note editors.
 media:
   - name: article-images
-    label: ����ͼƬ�������ֿ⣩
+    label: 文章图片（公开仓库）
     input: src/assets/article-images
     # Articles remain directly in src/content/docs/knowledge/blog/ (no subfolders).
     output: ../../../../assets/article-images
@@ -9,122 +9,122 @@ media:
     rename: random
     commit:
       templates:
-        create: 'content(media): �ϴ�����ͼƬ {filename}'
-        update: 'content(media): ��������ͼƬ {filename}'
-        delete: 'content(media): ɾ������ͼƬ {filename}'
-        rename: 'content(media): ����������ͼƬ {oldFilename} -> {newFilename}'
+        create: 'content(media): 上传文章图片 {filename}'
+        update: 'content(media): 更新文章图片 {filename}'
+        delete: 'content(media): 删除文章图片 {filename}'
+        rename: 'content(media): 重命名文章图片 {oldFilename} -> {newFilename}'
   - name: note-images
-    label: �ʼ�ͼƬ�����ù���ͼ�⣩
+    label: 笔记图片（共用公开图库）
     input: src/assets/article-images
     output: ../../../../../assets/article-images
     extensions: [png, jpg, jpeg, webp, avif]
     rename: random
 content:
   - name: profile-en
-    label: �������� �� English
+    label: 个人资料 · English
     type: file
     path: src/data/profile-en.json
     format: json
     operations: { create: false, rename: false, delete: false }
     commit:
       templates:
-        update: 'content(profile): ����Ӣ�Ĺ�������'
+        update: 'content(profile): 更新英文公开资料'
     fields: &publicProfileFields
-      - { name: name, label: ����, type: string, required: true }
-      - { name: nickname, label: �ǳ�, type: string, required: true }
-      - { name: university, label: ѧУ, type: string, required: true }
-      - { name: major, label: רҵ, type: string, required: true }
+      - { name: name, label: 姓名, type: string, required: true }
+      - { name: nickname, label: 昵称, type: string, required: true }
+      - { name: university, label: 学校, type: string, required: true }
+      - { name: major, label: 专业, type: string, required: true }
       - name: email
-        label: ��������
+        label: 公开邮箱
         type: string
         required: true
-        description: 'ֻ��д�ɹ�����Ϣ��Save д�빫���ֿ⣬�� PR �ϲ��Ͳ���������վ����Ҫ��������д˽�����ϡ�'
+        description: '只填写可公开信息。Save 写入公开仓库，需 PR 合并和部署后更新网站；不要在这里填写私人资料。'
       - name: github
-        label: GitHub ��ַ
+        label: GitHub 地址
         type: string
         required: true
-        pattern: { regex: '^https://[^\s]+$', message: ��д���� HTTPS ��ַ }
-      - { name: introduction, label: ���ҽ��ܣ��ֶΣ�, type: text, list: true, required: true }
+        pattern: { regex: '^https://[^\s]+$', message: 填写完整 HTTPS 地址 }
+      - { name: introduction, label: 自我介绍（分段）, type: text, list: true, required: true }
       - name: education
-        label: ��������
+        label: 教育背景
         type: object
         list:
           collapsible: { collapsed: true, summary: '{fields.title}' }
         fields:
-          - { name: id, label: �ȶ���ʶ, type: string, required: true, pattern: { regex: '^[a-z0-9]+(?:-[a-z0-9]+)*$', message: ʹ��СдӢ�ġ����ֺͶ̺��� } }
-          - { name: period, label: ʱ��, type: string, required: true }
-          - { name: title, label: ѧУ��ѧԺ, type: string, required: true }
-          - { name: role, label: רҵ��ѧλ, type: string, required: true }
-          - { name: paragraphs, label: ������Ϣ, type: text, list: true }
+          - { name: id, label: 稳定标识, type: string, required: true, pattern: { regex: '^[a-z0-9]+(?:-[a-z0-9]+)*$', message: 使用小写英文、数字和短横线 } }
+          - { name: period, label: 时间, type: string, required: true }
+          - { name: title, label: 学校与学院, type: string, required: true }
+          - { name: role, label: 专业与学位, type: string, required: true }
+          - { name: paragraphs, label: 补充信息, type: text, list: true }
       - name: experiences
-        label: ����
+        label: 经历
         type: object
         list:
           collapsible: { collapsed: true, summary: '{fields.title}' }
         fields:
           - name: id
-            label: �ȶ���ʶ
+            label: 稳定标识
             type: string
             required: true
-            description: 'ʹ��ΨһСдӢ�ġ����ֺͶ̺��ߣ��ѷ����ı�ʶ���ڶ���ê�㣬�뱣�ֲ��䡣'
-            pattern: { regex: '^[a-z0-9]+(?:-[a-z0-9]+)*$', message: ʹ��СдӢ�ġ����ֺͶ̺��� }
-          - { name: period, label: ʱ��, type: string, required: true }
-          - { name: title, label: ����, type: string, required: true }
-          - { name: role, label: ��ɫ, type: string, required: true }
-          - { name: paragraphs, label: ˵�����ֶΣ�, type: text, list: true }
+            description: '使用唯一小写英文、数字和短横线；已发布的标识用于段落锚点，请保持不变。'
+            pattern: { regex: '^[a-z0-9]+(?:-[a-z0-9]+)*$', message: 使用小写英文、数字和短横线 }
+          - { name: period, label: 时间, type: string, required: true }
+          - { name: title, label: 标题, type: string, required: true }
+          - { name: role, label: 角色, type: string, required: true }
+          - { name: paragraphs, label: 说明（分段）, type: text, list: true }
           - name: category
-            label: ��������
+            label: 所属分组
             type: select
             default: work
             options:
               values:
-                - { value: work, label: ��ҵ����Ŀ }
-                - { value: campus, label: У԰��ְ }
-                - { value: service, label: ־Ը��ʵ�� }
-                - { value: awards, label: �񽱼�¼ }
-          - { name: detail, label: �����չ����ϸ, type: boolean, default: false }
-          - { name: aliases, label: ���ݾ�ê��, type: string, list: true, description: '�ϲ��ɾ���ʱ������ ID����ά�������ⲿ���ӡ�' }
+                - { value: work, label: 创业与项目 }
+                - { value: campus, label: 校园任职 }
+                - { value: service, label: 志愿与实践 }
+                - { value: awards, label: 获奖记录 }
+          - { name: detail, label: 放入可展开明细, type: boolean, default: false }
+          - { name: aliases, label: 兼容旧锚点, type: string, list: true, description: '合并旧经历时保留其 ID，以维持已有外部链接。' }
       - name: capabilities
-        label: ������Э��
+        label: 能力与协作
         type: object
         list:
           collapsible: { collapsed: true, summary: '{fields.title}' }
         fields:
-          - { name: title, label: ����, type: string, required: true }
-          - { name: items, label: �ؼ���, type: string, list: true, required: true }
-          - { name: description, label: ˵��, type: text }
-      - { name: learning, label: ����ѧϰ, type: text, required: true }
-      - { name: life, label: �ճ����ֶΣ�, type: text, list: true, required: true }
+          - { name: title, label: 标题, type: string, required: true }
+          - { name: items, label: 关键词, type: string, list: true, required: true }
+          - { name: description, label: 说明, type: text }
+      - { name: learning, label: 正在学习, type: text, required: true }
+      - { name: life, label: 日常（分段）, type: text, list: true, required: true }
       - name: traces
-        label: ��Ŀ���
+        label: 栏目入口
         type: object
         list:
           collapsible: { collapsed: true, summary: '{fields.name}' }
         fields:
-          - { name: name, label: ����, type: string, required: true }
-          - { name: label, label: ˵��, type: string, required: true }
+          - { name: name, label: 名称, type: string, required: true }
+          - { name: label, label: 说明, type: string, required: true }
           - name: path
-            label: Ŀ����Ŀ
+            label: 目标栏目
             type: select
             required: true
             options:
               values:
-                - { value: knowledge, label: ѧϰ��ʼ� }
-                - { value: showcase, label: ��Ŀ����Ʒ }
-                - { value: gallery, label: ��Ƭ����� }
-                - { value: music, label: ���� }
+                - { value: knowledge, label: 学习与笔记 }
+                - { value: showcase, label: 项目与作品 }
+                - { value: gallery, label: 照片与相册 }
+                - { value: music, label: 音乐 }
   - name: profile-zh
-    label: �������� �� ����
+    label: 个人资料 · 中文
     type: file
     path: src/data/profile-zh-CN.json
     format: json
     operations: { create: false, rename: false, delete: false }
     commit:
       templates:
-        update: 'content(profile): �������Ĺ�������'
+        update: 'content(profile): 更新中文公开资料'
     fields: *publicProfileFields
   - name: websites
-    label: ������վ
+    label: 常用网站
     type: file
     path: src/data/websites.json
     format: json
@@ -132,60 +132,60 @@ content:
     operations: { create: false, rename: false, delete: false }
     commit:
       templates:
-        update: 'content(links): ���³�����վ'
+        update: 'content(links): 更新常用网站'
     fields:
       - name: id
-        label: �ȶ���ʶ
+        label: 稳定标识
         type: string
         required: true
-        description: 'ֻ������ϣ����������ַ��������� PR �ϲ������𣻱�ʶʹ��ΨһСдӢ�ġ����ֺͶ̺��ߡ�'
-        pattern: { regex: '^[a-z0-9]+(?:-[a-z0-9]+)*$', message: ʹ��СдӢ�ġ����ֺͶ̺��� }
-      - { name: name, label: ����, type: string, required: true }
+        description: '只添加你希望公开的网址。保存后需 PR 合并及部署；标识使用唯一小写英文、数字和短横线。'
+        pattern: { regex: '^[a-z0-9]+(?:-[a-z0-9]+)*$', message: 使用小写英文、数字和短横线 }
+      - { name: name, label: 名称, type: string, required: true }
       - name: url
-        label: ԭվ������ַ
+        label: 原站完整地址
         type: string
         required: true
-        description: '�������·�����Ҫ��ѯ����������д���˺Ż�����ĵ�ַ��'
-        pattern: { regex: '^https?://[^\s]+$', message: ��д���� HTTP �� HTTPS ��ַ }
-      - { name: description, label: ��;˵��, type: text, required: true }
+        description: '保留深层路径与必要查询参数，不填写带账号或密码的地址。'
+        pattern: { regex: '^https?://[^\s]+$', message: 填写完整 HTTP 或 HTTPS 地址 }
+      - { name: description, label: 用途说明, type: text, required: true }
       - name: category
-        label: ����
+        label: 分类
         type: select
         required: true
         options:
           values:
-            - { value: learning, label: �γ���ѧϰ }
-            - { value: campus, label: У԰��� }
-            - { value: media, label: Ӱ�������� }
-            - { value: work, label: ������Э�� }
-      - { name: tags, label: �����ؼ���, type: string, list: true }
+            - { value: learning, label: 课程与学习 }
+            - { value: campus, label: 校园入口 }
+            - { value: media, label: 影像与音乐 }
+            - { value: work, label: 工作与协作 }
+      - { name: tags, label: 搜索关键词, type: string, list: true }
       - name: icon
-        label: ͼ��
+        label: 图标
         type: select
         required: true
         options:
           values: [guitar, graduation, compass, lecture, terminal, television, koala, index, ice, code-book, circuit]
-      - { name: featured, label: ������ʾ, type: boolean, default: false }
+      - { name: featured, label: 优先显示, type: boolean, default: false }
   - name: blog-settings
-    label: ��������
+    label: 博客设置
     type: file
     path: src/data/blog-settings.json
     format: json
     commit:
       templates:
-        update: 'config(blog): ���²��ͱ�ǩ�������'
+        update: 'config(blog): 更新博客标签浏览设置'
     operations:
       create: false
       rename: false
       delete: false
     fields:
       - name: tagBrowsingEnabled
-        label: ���ñ�ǩ���
+        label: 启用标签浏览
         type: boolean
         default: true
-        description: '������ʾ���±�ǩ�ͱ�ǩҳ���ر����ر�ǩ�����ڣ�����ԭʼ��ǩ��Save ���蹹���������ܸ�����ʽ��վ��'
+        description: '开启显示文章标签和标签页；关闭隐藏标签浏览入口，保留原始标签。Save 后需构建发布才能更新正式网站。'
   - name: resources
-    label: ѧϰ���ϣ�˵���༭��
+    label: 学习资料（说明编辑）
     type: collection
     path: src/content/docs/knowledge/resources
     format: yaml-frontmatter
@@ -196,7 +196,7 @@ content:
       delete: false
     commit:
       templates:
-        update: 'content(resource): ��������˵�� {path}'
+        update: 'content(resource): 保存资料说明 {path}'
     view:
       fields: [title, topics]
       primary: title
@@ -207,21 +207,21 @@ content:
         order: asc
     fields:
       - name: title
-        label: ����
+        label: 标题
         type: string
         required: true
-        description: '�༭�������ϵ�˵������ Save �ɹ����뿪����ʽ��վ�蹹���������ܸ��¡�'
+        description: '编辑已有资料的说明。先 Save 成功再离开；正式网站需构建发布才能更新。'
       - name: description
-        label: ժҪ
+        label: 摘要
         type: text
         required: true
       - name: topics
-        label: ����
+        label: 主题
         type: string
         list: true
-        description: '����ѧϰ�������ࡣ���ı��������󣬹�����ѡ���ɿ�����ͬ����'
+        description: '用于学习总览分类。更改标题或主题后，关联候选需由开发者同步。'
   - name: notes
-    label: �ղرʼǣ�˵���༭��
+    label: 收藏笔记（说明编辑）
     type: collection
     path: src/content/docs/knowledge/notes
     exclude: [writing, writing/**]
@@ -233,7 +233,7 @@ content:
       delete: false
     commit:
       templates:
-        update: 'content(note): ����ʼ�˵�� {path}'
+        update: 'content(note): 保存笔记说明 {path}'
     view:
       fields: [title, topics]
       primary: title
@@ -244,21 +244,21 @@ content:
         order: asc
     fields:
       - name: title
-        label: ����
+        label: 标题
         type: string
         required: true
-        description: '�༭��վ�ղ�˵����ԭվ�� PDF ����ʹ�������Ķ���ڣ���վ˵�����Ĳ��ڴ˱༭���� Save �ɹ����뿪����ʽ��վ�蹹���������ܸ��¡�'
+        description: '编辑本站收藏说明。原站或 PDF 正文使用已有阅读入口，本站说明正文不在此编辑。先 Save 成功再离开；正式网站需构建发布才能更新。'
       - name: description
-        label: ժҪ
+        label: 摘要
         type: text
         required: true
       - name: topics
-        label: ����
+        label: 主题
         type: string
         list: true
-        description: '����ѧϰ�������ࡣ���ı��������󣬹�����ѡ���ɿ�����ͬ����'
+        description: '用于学习总览分类。更改标题或主题后，关联候选需由开发者同步。'
   - name: articles
-    label: ����
+    label: 文章
     type: collection
     path: src/content/docs/knowledge/blog
     format: yaml-frontmatter
@@ -280,132 +280,132 @@ content:
         order: desc
     fields:
       - name: title
-        label: ����
-        description: '�� Save �ɹ����뿪������ʧ��ʱ�ȱ����Ѹ��ֶ��� Source ���ģ�����ʾ�汾��ͻ����ˢ�¡������������ݻָ��޸Ĳ����ԡ������б������δ�������ݡ�'
+        label: 标题
+        description: '先 Save 成功再离开。保存失败时先备份已改字段与 Source 正文；如提示版本冲突，再刷新、对照最新内容恢复修改并重试。返回列表会放弃未保存内容。'
         type: string
         required: true
       - name: description
-        label: ժҪ
+        label: 摘要
         type: text
         required: true
       - name: entryId
-        label: ��ַ��ʶ
-        description: �½�ʱ��дΨһ��СдӢ�ġ����ֻ�̺��ߣ����� article-reading-notes��������뱣�ִ�ֵ���޸ı��ⲻ��ı����µ�ַ��
+        label: 地址标识
+        description: 新建时填写唯一的小写英文、数字或短横线，例如 article-reading-notes。保存后请保持此值；修改标题不会改变文章地址。
         type: string
         required: true
         pattern:
           regex: '^[a-z0-9]+(?:-[a-z0-9]+)*$'
-          message: ʹ��СдӢ�ġ����ֺ͵����̺��ߣ����ܺ��ո�����ġ�
+          message: 使用小写英文、数字和单个短横线，不能含空格或中文。
       - name: date
-        label: ��������
+        label: 文章日期
         type: date
         required: true
         options:
           time: false
           format: yyyy-MM-dd
       - name: topics
-        label: ����
+        label: 主题
         type: string
         list: true
       - name: tags
-        label: ��ǩ
+        label: 标签
         type: string
         list: true
       - name: related
-        label: ��������
-        description: '������������⣬ѡ���ѷ��������ϡ����»�ʼǣ��� �Ƴ������̣���/����Enter ѡ��Esc �رգ�������Ϊ��ʱ �� �۽���ѡ�Backspace �Ƴ�����Ҫѡ��ǰ���¡�Save ���蹹����������Ч�������������򷢲����ݺ��ɿ�����ͬ����ѡ��'
+        label: 关联内容
+        description: '搜索标题或主题，选择已发布的资料、文章或笔记；× 移除。键盘：↓/↑、Enter 选择，Esc 关闭；搜索框为空时 ← 聚焦已选项、Backspace 移除。不要选择当前文章。Save 后需构建发布才生效；新增、改名或发布内容后由开发者同步候选。'
         type: select
         options:
           multiple: true
-          placeholder: �������ϡ����»�ʼ�
+          placeholder: 搜索资料、文章或笔记
           values: &knowledgeRelatedOptions
           # BEGIN GENERATED KNOWLEDGE OPTIONS
           - value: "demo-article-reading-check"
-            label: "���� �� �����Ķ���֤��������֤���壩 �� �Ķ�������"
+            label: "文章 · 博客阅读验证（功能验证样稿） · 阅读与整理"
           - value: "note-ads-algorithms-notes"
-            label: "�ʼ� �� �߼����ݽṹ���㷨���� �� �㷨�ʼǣ�PDF�� �� �߼����ݽṹ���㷨����"
+            label: "笔记 · 高级数据结构与算法分析 · 算法笔记（PDF） · 高级数据结构与算法分析"
           - value: "note-ads-noughtq-notebook"
-            label: "�ʼ� �� �߼����ݽṹ���㷨���� �� NoughtQ �ıʼǱ� �� �߼����ݽṹ���㷨����"
+            label: "笔记 · 高级数据结构与算法分析 · NoughtQ 的笔记本 · 高级数据结构与算法分析"
           - value: "note-computer-organization-lihuamao-chapter5"
-            label: "�ʼ� �� �������� �� lihuamao0810 �ĵ����±ʼ� �� �����ϵͳ"
+            label: "笔记 · 计算机组成 · lihuamao0810 的第五章笔记 · 计算机系统"
           - value: "note-computer-system-review"
-            label: "�ʼ� �� �����ϵͳԭ�� �� ��ϰ�ʼǣ�RandomStar�� �� �����ϵͳ"
+            label: "笔记 · 计算机系统原理 · 复习笔记（RandomStar） · 计算机系统"
           - value: "note-computer-system-zhang-each-notebook"
-            label: "�ʼ� �� �����ϵͳ �� С������ѧϰ��¼ �� �����ϵͳ"
+            label: "笔记 · 计算机系统 · 小角龙的学习记录 · 计算机系统"
           - value: "resource-ads-2024-handout"
-            label: "���� �� �߼����ݽṹ���㷨���� �� 2024 ���Ľ��壨wyy�� �� �߼����ݽṹ���㷨����"
+            label: "资料 · 高级数据结构与算法分析 · 2024 春夏讲义（wyy） · 高级数据结构与算法分析"
           - value: "resource-computer-organization-risc-v-fifth-edition"
-            label: "���� �� ������������ƣ�Ӳ�������ӿڣ��� 5 �� �� RISC-V �棩 �� �����ϵͳ"
+            label: "资料 · 计算机组成与设计：硬件软件接口（第 5 版 · RISC-V 版） · 计算机系统"
           - value: "resource-engineering-physics-third-edition"
-            label: "���� �� ��������ѧ�������棩 �� ��ѧ������"
+            label: "资料 · 工程物理学（第三版） · 大学物理Ⅱ"
           - value: "resource-lssh-pdf-reading-check"
-            label: "���� �� PDF �Ķ���֤˵�������������� �� �Ķ�������"
+            label: "资料 · PDF 阅读验证说明（功能样本） · 阅读与整理"
           - value: "resource-physics-chapter-10"
-            label: "���� �� ��ѧ������ �� �� 10 �� �� ��ѧ������"
+            label: "资料 · 大学物理Ⅱ · 第 10 章 · 大学物理Ⅱ"
           - value: "resource-physics-chapter-11"
-            label: "���� �� ��ѧ������ �� �� 11 �� �� ��ѧ������"
+            label: "资料 · 大学物理Ⅱ · 第 11 章 · 大学物理Ⅱ"
           - value: "resource-physics-chapter-12"
-            label: "���� �� ��ѧ������ �� �� 12 �� �� ��ѧ������"
+            label: "资料 · 大学物理Ⅱ · 第 12 章 · 大学物理Ⅱ"
           - value: "resource-physics-chapter-13"
-            label: "���� �� ��ѧ������ �� �� 13 �� �� ��ѧ������"
+            label: "资料 · 大学物理Ⅱ · 第 13 章 · 大学物理Ⅱ"
           - value: "resource-physics-chapter-14"
-            label: "���� �� ��ѧ������ �� �� 14 �� �� ��ѧ������"
+            label: "资料 · 大学物理Ⅱ · 第 14 章 · 大学物理Ⅱ"
           - value: "resource-physics-chapter-15"
-            label: "���� �� ��ѧ������ �� �� 15 �� �� ��ѧ������"
+            label: "资料 · 大学物理Ⅱ · 第 15 章 · 大学物理Ⅱ"
           - value: "resource-physics-chapter-16"
-            label: "���� �� ��ѧ������ �� �� 16 �� �� ��ѧ������"
+            label: "资料 · 大学物理Ⅱ · 第 16 章 · 大学物理Ⅱ"
           - value: "resource-physics-chapter-17"
-            label: "���� �� ��ѧ������ �� �� 17 �� �� ��ѧ������"
+            label: "资料 · 大学物理Ⅱ · 第 17 章 · 大学物理Ⅱ"
           - value: "resource-physics-chapter-18"
-            label: "���� �� ��ѧ������ �� �� 18 �� �� ��ѧ������"
+            label: "资料 · 大学物理Ⅱ · 第 18 章 · 大学物理Ⅱ"
           - value: "resource-physics-chapter-19"
-            label: "���� �� ��ѧ������ �� �� 19 �� �� ��ѧ������"
+            label: "资料 · 大学物理Ⅱ · 第 19 章 · 大学物理Ⅱ"
           - value: "resource-physics-chapter-20"
-            label: "���� �� ��ѧ������ �� �� 20 �� �� ��ѧ������"
+            label: "资料 · 大学物理Ⅱ · 第 20 章 · 大学物理Ⅱ"
           - value: "resource-physics-chapter-21"
-            label: "���� �� ��ѧ������ �� �� 21 �� �� ��ѧ������"
+            label: "资料 · 大学物理Ⅱ · 第 21 章 · 大学物理Ⅱ"
           - value: "resource-physics-chapter-22"
-            label: "���� �� ��ѧ������ �� �� 22 �� �� ��ѧ������"
+            label: "资料 · 大学物理Ⅱ · 第 22 章 · 大学物理Ⅱ"
           - value: "resource-physics-chapter-23"
-            label: "���� �� ��ѧ������ �� �� 23 �� �� ��ѧ������"
+            label: "资料 · 大学物理Ⅱ · 第 23 章 · 大学物理Ⅱ"
           - value: "resource-physics-chapter-9"
-            label: "���� �� ��ѧ������ �� �� 9 �£��£�����еľ��糡 �� ��ѧ������"
+            label: "资料 · 大学物理Ⅱ · 第 9 章（下）真空中的静电场 · 大学物理Ⅱ"
           - value: "resource-physics-electrostatics-alt"
-            label: "���� �� ��ѧ������ �� �� 9 �£��ϣ�����еľ��糡 �� ��ѧ������"
+            label: "资料 · 大学物理Ⅱ · 第 9 章（上）真空中的静电场 · 大学物理Ⅱ"
           - value: "resource-physics-lab-recalled-exams"
-            label: "���� �� ��ѧ����ʵ�� �� ���������ϼ� �� ��ѧ����ʵ��"
+            label: "资料 · 大学物理实验 · 历年回忆卷合集 · 大学物理实验"
           - value: "resource-physics-lab-review"
-            label: "���� �� ��ѧ����ʵ�� �� ֪ʶ���̵� �� ��ѧ����ʵ��"
+            label: "资料 · 大学物理实验 · 知识点盘点 · 大学物理实验"
           - value: "resource-pre-qin-philosophers-reader"
-            label: "���� �� �������ӵ��� �� ������ѧ"
+            label: "资料 · 先秦诸子导读 · 先秦哲学"
           - value: "resource-probability-forliage"
-            label: "���� �� �����۽��壨Forliage�� �� ������������ͳ��"
+            label: "资料 · 概率论讲义（Forliage） · 概率论与数理统计"
           - value: "resource-probability-lecture-0"
-            label: "���� �� ������������ͳ�� �� �� 0 �� ��ͳ��������һ�� �� ������������ͳ��"
+            label: "资料 · 概率论与数理统计 · 第 0 讲 概统基本概念一览 · 概率论与数理统计"
           - value: "resource-probability-lecture-1"
-            label: "���� �� ������������ͳ�� �� �� 1 �� ����¼������ �� ������������ͳ��"
+            label: "资料 · 概率论与数理统计 · 第 1 讲 随机事件与概率 · 概率论与数理统计"
           - value: "resource-probability-lecture-2"
-            label: "���� �� ������������ͳ�� �� �� 2 �� һά��������ĸ��ʷֲ� �� ������������ͳ��"
+            label: "资料 · 概率论与数理统计 · 第 2 讲 一维随机变量的概率分布 · 概率论与数理统计"
           - value: "resource-probability-lecture-3"
-            label: "���� �� ������������ͳ�� �� �� 3 �� ��ά��������ĸ��ʷֲ� �� ������������ͳ��"
+            label: "资料 · 概率论与数理统计 · 第 3 讲 二维随机变量的概率分布 · 概率论与数理统计"
           - value: "resource-probability-lecture-4"
-            label: "���� �� ������������ͳ�� �� �� 4 �� ������������ĸ��ʷֲ� �� ������������ͳ��"
+            label: "资料 · 概率论与数理统计 · 第 4 讲 常见随机变量的概率分布 · 概率论与数理统计"
           - value: "resource-probability-lecture-5"
-            label: "���� �� ������������ͳ�� �� �� 5 �� ������������ĸ��ʷֲ� �� ������������ͳ��"
+            label: "资料 · 概率论与数理统计 · 第 5 讲 随机变量函数的概率分布 · 概率论与数理统计"
           - value: "resource-probability-lecture-6"
-            label: "���� �� ������������ͳ�� �� �� 6 �� �������������ļ��޶��� �� ������������ͳ��"
+            label: "资料 · 概率论与数理统计 · 第 6 讲 大数定律与中心极限定理 · 概率论与数理统计"
           - value: "resource-probability-lecture-7"
-            label: "���� �� ������������ͳ�� �� �� 7 �� ͳ����������ֲ� �� ������������ͳ��"
+            label: "资料 · 概率论与数理统计 · 第 7 讲 统计量与抽样分布 · 概率论与数理统计"
           - value: "resource-probability-lecture-8"
-            label: "���� �� ������������ͳ�� �� �� 8 �� ����� �� ������������ͳ��"
+            label: "资料 · 概率论与数理统计 · 第 8 讲 点估计 · 概率论与数理统计"
           - value: "resource-probability-lecture-9"
-            label: "���� �� ������������ͳ�� �� �� 9 �� ��������������� �� ������������ͳ��"
+            label: "资料 · 概率论与数理统计 · 第 9 讲 区间估计与假设检验 · 概率论与数理统计"
           - value: "resource-probability-tutorial-v1"
-            label: "���� �� ������������ͳ�� �� �������� v1.0 �� ������������ͳ��"
+            label: "资料 · 概率论与数理统计 · 辅导讲义 v1.0 · 概率论与数理统计"
           # END GENERATED KNOWLEDGE OPTIONS
       - name: draft
-        label: �ݸ�
-        description: ������Ĭ�ϲݸ塣�رպ󱣴��ʾ������ѡ���蹹��ͨ����PR �ϲ�������ɹ�����ʽ���ߡ�
+        label: 草稿
+        description: 新文章默认草稿。关闭后保存表示发布候选，需构建通过、PR 合并及部署成功才正式上线。
         type: boolean
         default: true
       - name: kind
@@ -419,8 +419,8 @@ content:
         hidden: true
         readonly: true
       - name: body
-        label: ����
-        description: 'Editor �������� / �� Image����֧�� PNG��JPG��JPEG��WebP��AVIF����ʽ�����뻻ͼ���ԣ���ˢ��δ�������ġ�Close/Esc ȡ���������ļ�����ȡ�����������ϴ�ͼƬ��Upload ѡͼ��д�빫���ֿ⡣ѡ������ͼƬ�� ALT���������� Enter Ӧ�ã��� Save ���ģ�ͼ��˵����д�����ӣ�ѡ�����ֵ�����ͼ�꣬���ַ�� Enter���� Save��Source �ɸ�����/��ַ��'
+        label: 正文
+        description: 'Editor 空行输入 / → Image；仅支持 PNG、JPG、JPEG、WebP、AVIF。格式错误请换图重试，勿刷新未保存正文。Close/Esc 取消后点击正文继续；取消不撤回已上传图片。Upload 选图即写入公开仓库。选中正文图片点 ALT，填描述后 Enter 应用，再 Save 正文；图下说明另写。链接：选中文字点链接图标，填地址后 Enter，再 Save；Source 可改文字/地址。'
         type: rich-text
         required: true
         options:
@@ -428,7 +428,7 @@ content:
           switcher: true
           media: article-images
   - name: writing-notes
-    label: �ҵıʼ�
+    label: 我的笔记
     type: collection
     path: src/content/docs/knowledge/notes/writing
     format: yaml-frontmatter
@@ -442,8 +442,8 @@ content:
       delete: false
     commit:
       templates:
-        create: 'content(note): �½��ʼ� {path}'
-        update: 'content(note): ����ʼ� {path}'
+        create: 'content(note): 新建笔记 {path}'
+        update: 'content(note): 保存笔记 {path}'
     view:
       fields: [title, draft, topics]
       primary: title
@@ -454,39 +454,39 @@ content:
         order: asc
     fields:
       - name: title
-        label: ����
+        label: 标题
         type: string
         required: true
-        description: '�༭��վ��д�ʼǡ��� Save �ɹ����뿪������ʧ���ȱ����ֶ��� Source ���ģ��汾��ͻʱˢ�¡����ջָ������ԡ���ʽ��վ�蹹���������ܸ��¡�'
+        description: '编辑本站自写笔记。先 Save 成功再离开；保存失败先备份字段与 Source 正文，版本冲突时刷新、对照恢复并重试。正式网站需构建发布才能更新。'
       - name: description
-        label: ժҪ
+        label: 摘要
         type: text
         required: true
       - name: entryId
-        label: ��ַ��ʶ
+        label: 地址标识
         type: string
         required: true
-        description: '��дΨһ��СдӢ�ġ����ֻ�̺��ߣ����� note-reading-notes������󱣳ִ�ֵ���޸ı��ⲻ��ı��ַ��'
+        description: '填写唯一的小写英文、数字或短横线，例如 note-reading-notes。保存后保持此值；修改标题不会改变地址。'
         pattern:
           regex: '^[a-z0-9]+(?:-[a-z0-9]+)*$'
-          message: ʹ��СдӢ�ġ����ֺ͵����̺��ߣ����ܺ��ո�����ġ�
+          message: 使用小写英文、数字和单个短横线，不能含空格或中文。
       - name: topics
-        label: ����
+        label: 主题
         type: string
         list: true
       - name: related
-        label: ��������
+        label: 关联内容
         type: select
-        description: '������ѡ���������ϡ����»�ʼǡ���Ҫѡ��ǰ�ʼǣ��� �Ƴ���Esc �رպ�ѡ��Save ���蹹���������ܸ�����վ��'
+        description: '搜索并选择已有资料、文章或笔记。不要选择当前笔记；× 移除，Esc 关闭候选。Save 后需构建发布才能更新网站。'
         options:
           multiple: true
-          placeholder: �������ϡ����»�ʼ�
+          placeholder: 搜索资料、文章或笔记
           values: *knowledgeRelatedOptions
       - name: draft
-        label: �ݸ�
+        label: 草稿
         type: boolean
         default: true
-        description: '�±ʼ�Ĭ�ϲݸ塣�رպ󱣴��ʾ������ѡ��������PR �ϲ��Ͳ���ɹ������ʽ���ߡ�'
+        description: '新笔记默认草稿。关闭后保存表示发布候选，构建、PR 合并和部署成功后才正式上线。'
       - name: kind
         type: string
         default: note
@@ -498,16 +498,16 @@ content:
         hidden: true
         readonly: true
       - name: body
-        label: ����
+        label: 正文
         type: rich-text
         required: true
-        description: 'Editor д���ģ�Source �༭ Markdown������ / �� Image���ϴ�ͼƬ��д�빫���ֿ⣬������������һ����ͼƬ����д ALT��ѡ�����ֿɲ������ӡ������б������δ�������롣'
+        description: 'Editor 写正文，Source 编辑 Markdown。空行 / → Image；上传图片即写入公开仓库，保存正文是另一步。图片需填写 ALT；选中文字可插入链接。返回列表会放弃未保存输入。'
         options:
           format: markdown
           switcher: true
           media: note-images
   - name: article-draft
-    label: ���±༭�뷢����֤
+    label: 文章编辑与发布验证
     type: file
     path: src/content/docs/knowledge/blog/editor-draft-check.md
     format: yaml-frontmatter
@@ -517,40 +517,40 @@ content:
       delete: false
     fields:
       - name: title
-        label: ����
-        description: '�� Save �ɹ����뿪������ʧ��ʱ�ȱ����Ѹ��ֶ��� Source ���ģ�����ʾ�汾��ͻ����ˢ�¡������������ݻָ��޸Ĳ����ԡ������б������δ�������ݡ�'
+        label: 标题
+        description: '先 Save 成功再离开。保存失败时先备份已改字段与 Source 正文；如提示版本冲突，再刷新、对照最新内容恢复修改并重试。返回列表会放弃未保存内容。'
         type: string
         required: true
       - name: description
-        label: ժҪ
+        label: 摘要
         type: text
         required: true
       - name: date
-        label: ��������
+        label: 文章日期
         type: date
         required: true
         options:
           time: false
           format: yyyy-MM-dd
       - name: topics
-        label: ����
+        label: 主题
         type: string
         list: true
       - name: tags
-        label: ��ǩ
+        label: 标签
         type: string
         list: true
       - name: related
-        label: ��������
-        description: '������������⣬ѡ���ѷ��������ϡ����»�ʼǣ��� �Ƴ������̣���/����Enter ѡ��Esc �رգ�������Ϊ��ʱ �� �۽���ѡ�Backspace �Ƴ�����Ҫѡ��ǰ���¡�Save ���蹹����������Ч�������������򷢲����ݺ��ɿ�����ͬ����ѡ��'
+        label: 关联内容
+        description: '搜索标题或主题，选择已发布的资料、文章或笔记；× 移除。键盘：↓/↑、Enter 选择，Esc 关闭；搜索框为空时 ← 聚焦已选项、Backspace 移除。不要选择当前文章。Save 后需构建发布才生效；新增、改名或发布内容后由开发者同步候选。'
         type: select
         options:
           multiple: true
-          placeholder: �������ϡ����»�ʼ�
+          placeholder: 搜索资料、文章或笔记
           values: *knowledgeRelatedOptions
       - name: draft
-        label: �ݸ�
-        description: ����ʱ��������������ҳ�棻�رձ�ʾ�ύ������������ȹ�����ͨ�� PR �ϲ�������ɹ������ʽ���ߡ����¿������ٴκϲ�����������ߡ�
+        label: 草稿
+        description: 开启时不生成生产文章页面；关闭表示提交发布。保存后先构建，通过 PR 合并并部署成功后才正式上线。重新开启需再次合并部署才能下线。
         type: boolean
         default: true
       - name: entryId
@@ -566,8 +566,8 @@ content:
         hidden: true
         readonly: true
       - name: body
-        label: ����
-        description: 'Editor �������� / �� Image����֧�� PNG��JPG��JPEG��WebP��AVIF������С�� 1 MiB����ʽ�����뻻ͼ���ԣ���ˢ��δ�������ġ�Close/Esc ȡ���������ļ�����ȡ�����������ϴ�ͼƬ��Upload ѡͼ��д�빫���ֿ⡣ѡ������ͼƬ�� ALT���������� Enter Ӧ�ã��� Save ���ģ�ͼ��˵����д�����ӣ�ѡ�����ֵ�����ͼ�꣬���ַ�� Enter���� Save��Source �ɸ�����/��ַ��'
+        label: 正文
+        description: 'Editor 空行输入 / → Image；仅支持 PNG、JPG、JPEG、WebP、AVIF，建议小于 1 MiB。格式错误请换图重试，勿刷新未保存正文。Close/Esc 取消后点击正文继续；取消不撤回已上传图片。Upload 选图即写入公开仓库。选中正文图片点 ALT，填描述后 Enter 应用，再 Save 正文；图下说明另写。链接：选中文字点链接图标，填地址后 Enter，再 Save；Source 可改文字/地址。'
         type: rich-text
         required: true
         options:
@@ -580,5 +580,5 @@ settings:
   commit:
     identity: app
     templates:
-      create: 'content(article): �½����� {path}'
-      update: 'content(article): �������� {path}'
+      create: 'content(article): 新建文章 {path}'
+      update: 'content(article): 保存文章 {path}'
