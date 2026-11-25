@@ -1,0 +1,160 @@
+---
+import HomeLayout from '../../layouts/HomeLayout.astro';
+import { sitePath } from '../../lib/paths';
+
+const homeProjects = `${sitePath()}#projects`;
+const description = 'Afterimage 作品展厅正在布展，暂未开放。';
+---
+<HomeLayout title="Afterimage" description={description} homeHref={homeProjects} homeIconOnly>
+  <Fragment slot="head">
+    <meta property="og:title" content="Afterimage · Little Stone Still Here" />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="robots" content="noindex,follow" />
+  </Fragment>
+  <section class="exhibition" data-showcase-construction aria-labelledby="exhibition-title">
+    <div class="notice">
+      <h1 id="exhibition-title" lang="en">Afterimage</h1>
+      <p>正在布展，展厅暂未开放。</p>
+      <a class="return" href={homeProjects}>
+        <span aria-hidden="true">←</span> 返回首页作品章节
+      </a>
+    </div>
+    <div class="gallery" aria-hidden="true">
+      <div class="floor"></div>
+      <div class="canvas"></div>
+      <div class="ladder"><i></i></div>
+    </div>
+  </section>
+</HomeLayout>
+
+<style>
+  .exhibition {
+    width: min(100%, 76rem);
+    min-height: 100svh;
+    margin: 0 auto;
+    padding: calc(var(--home-header-height) + 3rem) var(--home-gutter) 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: clamp(1.5rem, 4vw, 5rem);
+  }
+
+  h1 {
+    margin: 0;
+    font: 500 clamp(3.1rem, 6.5vw, 6.3rem)/1.05 var(--font-home-display);
+    letter-spacing: -.05em;
+  }
+
+  p {
+    margin: 1.15rem 0 1.9rem;
+    color: var(--color-muted);
+  }
+
+  .return {
+    display: inline-flex;
+    align-items: center;
+    gap: .65rem;
+    min-height: 2.75rem;
+    border-bottom: 1px solid var(--color-border);
+    font-size: .9rem;
+  }
+
+  .return:hover, .return:focus-visible { border-color: currentColor; }
+
+  /* A paper-wrapped canvas and stepladder in the pool of a gallery light. */
+  .gallery {
+    position: relative;
+    width: 100%;
+    max-width: 33rem;
+    justify-self: end;
+    aspect-ratio: 1.46;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 56% 36%, #343434, #171717 42%, transparent 73%);
+  }
+
+  .floor {
+    position: absolute;
+    inset: 74% 0 0;
+    background:
+      linear-gradient(90deg, transparent, #585858 48%, transparent) top / 100% 1px no-repeat,
+      radial-gradient(ellipse at 50% -30%, #252525, #000 70%);
+  }
+
+  .canvas {
+    position: absolute;
+    left: 27%;
+    top: 23%;
+    width: 46%;
+    height: 42%;
+    border: 2px solid #898989;
+    background: linear-gradient(142deg, #e2e0da, #c2c0bb 75%, #aba9a4);
+    box-shadow: inset 0 0 0 2px #d8d6d1, 3px 5px 0 #151515, 7px 11px 15px #111;
+  }
+
+  .canvas::before, .canvas::after {
+    position: absolute;
+    content: '';
+    width: 13%;
+    height: 8%;
+    background: #85837e;
+    opacity: .7;
+    transform: rotate(-42deg);
+  }
+
+  .canvas::before { top: 3%; left: -4%; }
+  .canvas::after { bottom: 3%; right: -4%; }
+
+  .ladder {
+    position: absolute;
+    left: 64%;
+    bottom: 17%;
+    width: 16%;
+    height: 34%;
+  }
+
+  .ladder::before, .ladder::after, .ladder i {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    transform-origin: bottom left;
+  }
+
+  .ladder::before {
+    left: 62%;
+    width: 37%;
+    height: 92%;
+    border-inline: 2px solid #777;
+    transform: skewX(15deg);
+  }
+
+  .ladder::after {
+    left: 0;
+    width: 66%;
+    height: 100%;
+    border: solid #dedede;
+    border-width: 3px 2px 0;
+    transform: skewX(-13deg);
+    background: repeating-linear-gradient(to top, transparent 0 18%, #a6a6a6 18% calc(18% + 2px), transparent calc(18% + 2px) 23%);
+  }
+
+  .ladder i {
+    left: 26%;
+    width: 59%;
+    height: 2px;
+    bottom: 39%;
+    background: #696969;
+    transform: rotate(9deg);
+  }
+
+  @media (max-width: 46rem) {
+    .exhibition {
+      grid-template-columns: minmax(0, 1fr);
+      align-content: center;
+      gap: 2rem;
+      padding-block: calc(var(--home-header-height) + 2rem) 3rem;
+    }
+
+    .gallery { justify-self: center; max-width: 25rem; }
+  }
+</style>

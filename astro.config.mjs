@@ -3,8 +3,10 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightBlog from 'starlight-blog';
 import react from '@astrojs/react';
+import sitemap from '@astrojs/sitemap';
+import { showcaseIsOpen } from './src/data/showcase-availability.mjs';
 import { localMusicPlayback } from './tools/music/local-playback.mjs';
-import { pagesSite } from './tools/ci/pages-site.mjs';
+import { pagesBase, pagesSite } from './tools/ci/pages-site.mjs';
 
 export default defineConfig({
   site: pagesSite.origin,
@@ -14,6 +16,12 @@ export default defineConfig({
   integrations: [
     localMusicPlayback(),
     react(),
+    ...(showcaseIsOpen ? [] : [sitemap({
+      filter: (url) => {
+        const section = new URL(url).pathname.slice(pagesBase.length).split('/')[0];
+        return section !== 'showcase' && section !== 'projects';
+      },
+    })]),
     starlight({
       title: 'LSSH',
       defaultLocale: 'root',

@@ -2,6 +2,8 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { JSDOM } from 'jsdom';
+import { showcaseWorks } from '../../src/data/showcase.ts';
+import { showcaseIsOpen } from '../../src/data/showcase-availability.mjs';
 import { pagesBase, pagesSite } from '../ci/pages-site.mjs';
 
 const root = resolve(process.argv[2] ?? 'dist');
@@ -10,16 +12,18 @@ const htmlParser = new DOMParser();
 const cards = [
   { path: 'about/', image: 'someone-en.png', title: 'Zhang Xuanshi', author: 'Zhang Xuanshi', summary: /AI hardware.*music/, locale: 'en_US', type: 'profile' },
   { path: 'zh/about/', image: 'someone-zh.png', title: '张轩石', author: '张轩石', summary: /AI 硬件.*音乐/, locale: 'zh_CN', type: 'profile' },
-  { path: 'projects/suikong-desk/', image: 'suikong-desk.png', title: '随控 Desk', author: '张轩石', summary: /小石.*产品定义与品牌设计.*回放/, locale: 'zh_CN', type: 'article' },
 ];
+if (showcaseIsOpen) {
+  cards.push({ path: 'projects/suikong-desk/', image: 'suikong-desk.png', title: '随控 Desk', author: '张轩石', summary: /小石.*产品定义与品牌设计.*回放/, locale: 'zh_CN', type: 'article' });
+}
 
-function headOf(page) {
+function documentOf(page) {
   const html = readFileSync(join(root, page, 'index.html'), 'utf8');
-  return htmlParser.parseFromString(html, 'text/html').head;
+  return htmlParser.parseFromString(html, 'text/html');
 }
 
 for (const card of cards) {
-  const head = headOf(card.path);
+  const { head } = documentOf(card.path);
   function value(selector, attribute = 'content') {
     const tags = head.querySelectorAll(selector);
     assert.equal(tags.length, 1, `${card.path} requires exactly one ${selector}`);
@@ -53,6 +57,27 @@ for (const card of cards) {
 }
 
 for (const path of ['', 'showcase/', 'projects/little-stone-still-here/']) {
-  assert.equal(headOf(path).querySelector('[property="og:image"], [name="twitter:card"]'), null, path);
+  assert.equal(documentOf(path).head.querySelector('[property="og:image"], [name="twitter:card"]'), null, path);
 }
-console.log('分享卡片检查通过，覆盖双语 Someone、随控 Desk、三张 PNG 和三个相邻页面。');
+
+if (!showcaseIsOpen) {
+  const pages = ['showcase/', ...showcaseWorks.map(work => `projects/${work.slug}/`)];
+  const exhibitContent = [
+    'afterimage-gallery', '.ai-rail', '[data-work-slug]', '.ai-detail-reading', '.desk-scenario',
+    'afterimage-video', '[data-player-src]', 'iframe[src*="bilibili.com"]',
+  ].join(', ');
+  const projectCard = [
+    '[property="og:type"][content="article"]',
+    '[property="og:title"][content*="随控 Desk"]', '[name="twitter:title"][content*="随控 Desk"]',
+    '[property="og:image"][content*="/share/suikong-desk.png"]', '[name="twitter:image"][content*="/share/suikong-desk.png"]',
+  ].join(', ');
+  for (const path of pages) {
+    const doc = documentOf(path);
+    assert.equal(doc.querySelectorAll('main [data-showcase-construction]').length, 1, `${path} needs a construction notice`);
+    assert.ok(doc.querySelector(`a[href="${pagesBase}#projects"]`), `${path} needs a return to the projects chapter`);
+    assert.equal(doc.querySelector(exhibitContent), null, `${path} contains exhibition content`);
+    assert.equal(doc.head.querySelector(projectCard), null, `${path} contains a project share card`);
+  }
+  console.log(`施工页检查通过，覆盖 ${pages.length} 个展览和作品地址。`);
+}
+console.log(`分享卡片检查通过，覆盖 ${cards.length} 张分享卡片及对应 PNG。`);

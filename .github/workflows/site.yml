@@ -159,6 +159,9 @@ jobs:
       - name: Verify public directory routes
         run: node tools/verification/public-directory-check.mjs
 
+      - name: Verify published share cards and exhibition availability
+        run: node tools/verification/share-cards-check.mjs
+
       - name: Verify static output
         run: node tools/ci/dist.mjs
 
