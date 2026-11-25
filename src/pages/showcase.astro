@@ -1,8 +1,9 @@
 ---
-import HomeLayout from '../layouts/HomeLayout.astro';
-import ShowcaseGallery from '../components/showcase/ShowcaseGallery.astro';
-import '../styles/showcase.css';
+import { showcaseIsOpen } from '../data/showcase-availability.mjs';
+import ShowcaseConstruction from '../components/showcase/ShowcaseConstruction.astro';
+
+const Page = showcaseIsOpen
+  ? (await import('../components/showcase/ShowcaseExhibition.astro')).default
+  : ShowcaseConstruction;
 ---
-<HomeLayout title="Afterimage" description="浏览小石的作品，阅读项目案例，了解每件作品背后的分工与经历。">
-  <ShowcaseGallery />
-</HomeLayout>
+<Page />

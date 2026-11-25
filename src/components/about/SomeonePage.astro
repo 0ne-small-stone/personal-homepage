@@ -5,6 +5,7 @@ import InviteMark from '../navigation/InviteMark.astro';
 import ContactIcon from './ContactIcon.astro';
 import ProfileEntries from './ProfileEntries.astro';
 import { profiles, type SomeoneLanguage } from '../../data/profile';
+import { showcaseIsOpen } from '../../data/showcase-availability.mjs';
 import { sitePath } from '../../lib/paths';
 import '../../styles/about.css';
 
@@ -41,10 +42,11 @@ const copy = lang === 'en' ? {
   wall: '也可以去留言墙看看', deskCase: '阅读随控 Desk 项目案例',
 };
 
-const deskCase = {
+const deskCase = showcaseIsOpen ? {
   label: copy.deskCase,
   href: sitePath('projects/suikong-desk') + (lang === 'en' ? '?from=someone-en' : ''),
-};
+} : undefined;
+const closedExhibitionLabel = lang === 'en' ? 'Exhibition in preparation' : '展厅布展中';
 const groups = [
   { id: 'experience', category: 'work', label: copy.experience, introduction: copy.experienceIntro },
   { id: 'campus', category: 'campus', label: copy.campus, introduction: copy.campusIntro, disclosure: copy.campusDetails },
@@ -110,7 +112,7 @@ const sections = [
         <section id="life" class="someone-section" aria-labelledby="life-title" data-reading-block>
           <h2 id="life-title">{copy.life}</h2>
           {profile.life.map(paragraph => <p>{paragraph}</p>)}
-          <div class="someone-traces"><h3>{copy.traces}</h3><ul>{profile.traces.map(trace => <li><a href={sitePath(trace.path)}><span class="someone-trace-name">{trace.name}</span><span class="someone-trace-label">{trace.label}</span><InviteMark /></a></li>)}</ul></div>
+          <div class="someone-traces"><h3>{copy.traces}</h3><ul>{profile.traces.map(trace => <li><a href={sitePath(trace.path)}><span class="someone-trace-name">{trace.name}</span><span class="someone-trace-label">{trace.path === 'showcase' && !showcaseIsOpen ? closedExhibitionLabel : trace.label}</span><InviteMark /></a></li>)}</ul></div>
         </section>
         <section id="contact" class="someone-section someone-contact" aria-labelledby="contact-title" data-reading-block>
           <h2 id="contact-title">{copy.talk}</h2>
