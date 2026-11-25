@@ -16,7 +16,7 @@ const titleOrder = new Map([...entries].sort((a, b) =>
   a.data.title.localeCompare(b.data.title, 'zh-CN', { numeric: true }) ||
   a.data.entryId.localeCompare(b.data.entryId, 'en')).map((entry, index) => [entry.data.entryId, index]));
 ---
-<knowledge-type-filter>
+<knowledge-type-filter data-pagefind-ignore>
   <div class="knowledge-filter-toolbar">
   <fieldset class="knowledge-type-controls" hidden data-pagefind-ignore>
     <legend class="sr-only">内容类型</legend>

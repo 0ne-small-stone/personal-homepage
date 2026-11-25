@@ -23,7 +23,7 @@ html:has(.becoming-shell) {
   --becoming-rail: 14.5rem;
   --becoming-gap: 2.5rem;
   --becoming-gutter: 0px;
-  --sl-nav-height: calc(80px + env(safe-area-inset-top,0px));
+  --sl-nav-height: var(--home-header-height);
   --sl-sidebar-width: var(--becoming-rail);
   --sl-color-bg-sidebar: var(--becoming-rail-bg);
 }
@@ -193,9 +193,14 @@ html:not([data-reading-immersive]) .becoming-pdf pdf-reader iframe { border: 1px
   .becoming-shell .main-frame { padding-inline: 1.75rem; }
 }
 @media (max-width:49.999rem) {
-  html:has(.becoming-shell) { --sl-nav-height: calc(112px + env(safe-area-inset-top,0px)); --sl-menu-button-size: 44px; }
-  .becoming-shell .page > .header { height: var(--sl-nav-height); padding: 0; border: 0; background: #000; }
-  .becoming-shell .sl-menu-button { position: fixed; inset: calc(10px + env(safe-area-inset-top,0px)) 16px auto auto; width: 44px; height: 44px; color: #ededed; background: #000; border: 1px solid #777; border-radius: 50%; box-shadow: none; }
+  html:has(.becoming-shell) { --sl-nav-height: calc(var(--home-header-height) + 48px); --sl-menu-button-size: 44px; }
+  .becoming-shell .page > .header { background: var(--becoming-bg); border-bottom: 1px solid var(--becoming-border); }
+  .becoming-shell .sl-menu-button {
+    position: fixed; inset: calc(var(--home-header-height) + 2px) auto auto max(16px,env(safe-area-inset-left,0px));
+    display: inline-flex; align-items: center; gap: .5rem; width: auto; min-width: 44px; height: 44px; padding: 0 .625rem;
+    color: var(--becoming-text); background: var(--becoming-bg); border: 0; border-radius: .5rem; box-shadow: none;
+  }
+  .becoming-shell .sl-menu-button .sr-only { position: static; width: auto; height: auto; margin: 0; overflow: visible; clip: auto; clip-path: none; white-space: nowrap; }
   .becoming-shell .sidebar-pane { width: 100%; }
   .becoming-shell .sidebar-content { max-width: 30rem; padding: 1.5rem 1rem; }
   .becoming-shell .main-frame { width: auto; margin: 0; padding: calc(var(--sl-nav-height) + 1.5rem + var(--becoming-mobile-toc,0px)) 1.25rem 0; }

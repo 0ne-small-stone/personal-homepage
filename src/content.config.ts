@@ -29,6 +29,7 @@ export const collections = {
         entryId: z.string().regex(/^[a-z0-9-]+$/).optional(),
         kind: z.enum(['resource', 'article', 'note']).optional(),
         topics: z.array(z.string()).default([]),
+        series: z.string().regex(/^[a-z0-9-]+$/).optional(),
         example: z.boolean().default(false),
         related: z.array(z.string()).default([]),
         source: z.discriminatedUnion('format', [

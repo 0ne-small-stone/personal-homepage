@@ -1,8 +1,5 @@
 /* F06: journey controls only. Shared headers and independent pages stay native. */
 .has-journey { --home-control-duration: .3s; --home-control-ease: cubic-bezier(.25,.46,.45,.94); }
-.has-journey .home-nav-label { position: relative; display: block; white-space: nowrap; }
-.has-journey .home-nav-reserve { visibility: hidden; }
-.has-journey .home-nav-label [data-scramble] { position: absolute; inset: 0; overflow: hidden; white-space: nowrap; }
 .has-journey :is(.home-header a, .home-cta, .home-scroll, .home-wall-bottom a, .home-discussion-link, .home-chapter-index a, .home-scene-controls button, .home-loader button) {
   min-width: 44px; min-height: 44px; touch-action: manipulation;
 }

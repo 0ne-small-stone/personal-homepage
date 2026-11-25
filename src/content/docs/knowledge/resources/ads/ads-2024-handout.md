@@ -37,9 +37,4 @@ source:
 
 原文件保持完整；阅读器支持翻页、缩放和下载。扫描 PDF 能否搜索文字取决于原件是否含文字层。
 
-## 同科目内容
-
-- [高级数据结构与算法分析 · 算法笔记（PDF）](../../../notes/ads/ads-algorithms-notes/)
-- [高级数据结构与算法分析 · NoughtQ 的笔记本](../../../notes/ads/ads-noughtq-notebook/)
-
 [返回学习总览](../../../)

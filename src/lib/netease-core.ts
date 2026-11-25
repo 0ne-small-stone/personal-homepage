@@ -7,7 +7,7 @@ export interface NetEaseTrack {id:string;title:string;artist:string;artistId:str
 export interface NetEaseCard {id:string;title:string;subtitle:string;coverUrl:string|null;kind:NetEaseKind;count:number;ownerId?:string;description?:string;category?:string;discoveryCategory?:string;}
 export interface NetEaseData {title?:string;subtitle?:string;description?:string;coverUrl?:string|null;id?:string;kind?:NetEaseKind;ownerId?:string;subscribed?:boolean;tracks?:NetEaseTrack[];cards?:NetEaseCard[];popular?:NetEaseCard[];charts?:NetEaseCard[];more?:boolean;total?:number;warnings?:string[];batchChanged?:boolean;}
 export interface NetEaseJob {id:string;title:string;artist:string;quality:string;status:string;received:number;total:number;error:string;trackId:string;}
-export interface NetEaseAccountState {authorized:boolean;restoring?:boolean;account:{id:string;nickname:string;avatarUrl:string|null}|null;}
+export interface NetEaseAccountState {authorized:boolean;restoring?:boolean;persistenceError?:string;account:{id:string;nickname:string;avatarUrl:string|null}|null;}
 export const neteaseViewTitles:Record<NetEaseView,string>={home:'主页',search:'搜索',discover:'新发现',charts:'排行榜','new-albums':'新碟上架',radio:'广播',daily:'每日推荐',heart:'心动模式',fm:'私人漫游',liked:'收藏歌曲',playlists:'收藏歌单',albums:'收藏专辑',artists:'收藏歌手',podcasts:'订阅播客','podcast-subscriptions':'订阅播客',cloud:'音乐云盘',downloads:'下载',history:'最近播放',detail:'音乐详情'};
 export async function neteaseRequest<T=NetEaseData>(input:Record<string,unknown>,signal?:AbortSignal):Promise<T>{
   let response:Response;

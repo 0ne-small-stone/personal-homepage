@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import ts from 'typescript';
 import { JSDOM } from 'jsdom';
-import { showcaseWorks } from '../src/data/showcase.ts';
+import { showcaseWorks, publishedWorkFilters } from '../src/data/showcase.ts';
 
 // Component tests only: JSDOM does not render CSS, perform touch scrolling or play B站.
 const dom = new JSDOM('<!doctype html><html><body></body></html>', { url: 'http://localhost/personal-homepage/showcase/', pretendToBeVisual: true });
@@ -40,11 +40,14 @@ await loadComponent('../src/components/showcase/showcase-video.ts', source => so
 function flushFrames() {
   const callbacks = [...frames.values()]; frames.clear(); callbacks.forEach(callback => callback(0));
 }
-function gallery(t, query = '') {
+function gallery(t, query = '', works = showcaseWorks) {
   history.replaceState({}, '', `/personal-homepage/showcase/${query}`);
   const element = document.createElement('afterimage-gallery');
   element.dataset.pagePath = '/personal-homepage/showcase/';
-  element.innerHTML = `<div>${['all', 'project', 'video', 'writing'].map(kind => `<button data-filter="${kind}">${kind}</button>`).join('')}<button data-view-button="exhibition">展览</button><button data-view-button="index">目录</button></div><p data-announcement role="status"></p><div class="ai-rail" tabindex="0">${showcaseWorks.map(work => `<article class="ai-work" data-slug="${work.slug}" data-kind="${work.kind}" data-title="${work.title}"><a class="ai-work-link" href="/personal-homepage/projects/${work.slug}/"><div class="ai-cover"><img><span class="ai-cover-fallback" hidden></span></div>${work.title}</a></article>`).join('')}</div><div class="ai-empty" hidden><button data-show-all>全部</button></div><div class="ai-exhibition-footer"><span data-position></span><button data-step="-1">上一件</button><button data-step="1">下一件</button></div>`;
+  const buttons = publishedWorkFilters(works).map(({ id, label, count }) => `<button data-filter="${id}">${label} ${count}</button>`).join('');
+  const actions = { video: '观看视频', project: '了解项目', writing: '阅读作品' };
+  const cards = works.map(work => `<article class="ai-work" data-slug="${work.slug}" data-kind="${work.kind}" data-title="${work.title}" data-action="${actions[work.kind]}"><a class="ai-work-link" href="/personal-homepage/projects/${work.slug}/"><div class="ai-cover"><img><span class="ai-cover-fallback" hidden></span></div>${work.title}</a></article>`).join('');
+  element.innerHTML = `<div>${buttons}<button data-view-button="exhibition">展览</button><button data-view-button="index">目录</button></div><p data-announcement role="status"></p><div class="ai-rail" tabindex="0">${cards}</div><div class="ai-exhibition-footer"><span data-position></span><button data-step="-1">上一件</button><button data-step="1">下一件</button></div>`;
   element.querySelectorAll('.ai-work').forEach(card => Object.defineProperty(card, 'offsetWidth', { value: 600 }));
   document.body.append(element);
   t.after(() => { element.remove(); frames.clear(); sessionStorage.clear(); });
@@ -74,27 +77,51 @@ test('Astro新页面连接时不读取旧详情URL，page-load后才恢复筛选
   assert.equal(frames.size, 0);
 });
 
-test('按钮、方向键、首尾与目录共享选择，文字空态可恢复全部', t => {
+test('按钮、方向键、首尾与目录共享选择，零项分类不显示', t => {
   const element = gallery(t); ready();
-  click(element, '[data-step="1"]');
   assert.equal(selected(element), 'opening-performance');
+  click(element, '[data-step="1"]');
+  assert.equal(selected(element), 'little-stone-still-here');
   const rail = element.querySelector('.ai-rail');
   rail.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'End', bubbles: true }));
   assert.equal(selected(element), 'inspection-robot');
   rail.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'Home', bubbles: true }));
-  assert.equal(selected(element), 'little-stone-still-here');
+  assert.equal(selected(element), 'opening-performance');
   click(element, '[data-view-button="index"]');
   assert.equal(element.dataset.view, 'index');
   assert.equal(element.querySelectorAll('.ai-work-link[tabindex="0"]').length, 6);
   assert.equal(element.querySelectorAll('.ai-work[aria-hidden]').length, 0);
-  click(element, '[data-filter="writing"]');
-  assert.equal(element.querySelector('.ai-empty').hidden, false);
-  assert.equal(rail.hidden, true);
-  click(element, '[data-show-all]');
+  assert.deepEqual([...element.querySelectorAll('[data-filter]')].map(button => button.textContent), ['全部 6', '项目 4', '视频 2']);
   assert.equal(rail.hidden, false);
-  assert.equal(document.activeElement.dataset.filter, 'all');
   assert.equal(new URL(location.href).searchParams.get('type'), null);
   assert.equal(frames.size, 0);
+});
+
+test('旧文字书签清理筛选时保留历史、视图、焦点和其余参数', t => {
+  const element = gallery(t, '?type=writing&view=index&work=inspection-robot&return=1&via=archive#main-content');
+  history.replaceState({ index: 3 }, '');
+  const length = history.length;
+  ready();
+  assert.equal(location.search, '?view=index&work=inspection-robot&return=1&via=archive');
+  assert.equal(location.hash, '#main-content');
+  assert.equal(history.length, length);
+  assert.deepEqual(history.state, { index: 3 });
+  assert.equal(element.querySelector('[data-filter][aria-pressed="true"]').dataset.filter, 'all');
+  assert.equal(element.dataset.view, 'index');
+  assert.equal(document.activeElement.closest('[data-slug]').dataset.slug, 'inspection-robot');
+});
+
+test('首件文字作品入展后自动显示真实计数并接受原文字书签', t => {
+  const writing = { kind: 'writing', slug: 'sample-essay', title: '文字测试作品' };
+  const element = gallery(t, '?type=writing', [...showcaseWorks, writing]);
+  ready();
+  assert.equal(location.search, '?type=writing');
+  const button = element.querySelector('[data-filter="writing"]');
+  assert.equal(button.textContent, '文字 1');
+  assert.equal(button.getAttribute('aria-pressed'), 'true');
+  assert.equal(selected(element), writing.slug);
+  assert.equal(element.querySelectorAll('.ai-work:not([hidden])').length, 1);
+  assert.equal(element.querySelector('.ai-work:not([hidden]) a').getAttribute('aria-label'), '文字测试作品，阅读作品');
 });
 
 test('侧面作品第一次选择、中央作品可进入；返回恢复焦点及原视图', t => {
@@ -141,7 +168,7 @@ test('横向拖动选择、抑制误入；纵向输入和取消恢复原作品�
   pointer(rail, 'pointermove', 180, 204);
   assert.equal(rail.dataset.dragging, 'true');
   pointer(window, 'pointerup', 180, 204);
-  assert.equal(selected(element), 'opening-performance');
+  assert.equal(selected(element), 'little-stone-still-here');
   const link = element.querySelector('[data-active="true"] a');
   const event = new window.MouseEvent('click', { bubbles: true, cancelable: true, detail: 1 });
   link.dispatchEvent(event);
@@ -152,7 +179,7 @@ test('横向拖动选择、抑制误入；纵向输入和取消恢复原作品�
   pointer(rail, 'pointerdown', 300, 200);
   pointer(rail, 'pointermove', 170, 202);
   pointer(window, 'pointercancel', 170, 202);
-  assert.equal(selected(element), 'opening-performance');
+  assert.equal(selected(element), 'little-stone-still-here');
   assert.equal(rail.dataset.dragging, undefined);
   pointer(rail, 'pointerdown', 300, 200);
   pointer(rail, 'pointermove', 170, 202);
@@ -165,7 +192,7 @@ test('减少动画偏好变更保留选择并撤去旋转；卸载取消尚未�
   const element = gallery(t); ready();
   click(element, '[data-step="1"]');
   motion.matches = true; motion.dispatchEvent(new window.Event('change'));
-  assert.equal(selected(element), 'opening-performance');
+  assert.equal(selected(element), 'little-stone-still-here');
   assert.ok([...element.querySelectorAll('.ai-work:not([hidden])')].every(card => card.style.getPropertyValue('--work-turn') === '0deg'));
   motion.matches = false; motion.dispatchEvent(new window.Event('change'));
   document.dispatchEvent(new window.Event('astro:page-load'));

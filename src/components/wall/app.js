@@ -20,7 +20,12 @@ const $ = selector=>document.querySelector(selector);
 const stage=$('#wall-stage'),wall=$('#wall'),dialog=$('#message-dialog'),surface=$('#reading-surface'),content=$('#reading-content');
 const listDialog=$('#list-dialog'),noticeDialog=$('#notice-dialog'),status=$('#status');
 const emptyInvitation=$('#empty-invitation');
-if(import.meta.env.PROD)document.querySelector('.sync-note').textContent='留言发布后需等待网站同步，再刷新墙面查看。';
+const sceneHints={
+  wall:{mouse:'拖动探索 · 悬停预览，点击阅读',touch:'拖动探索 · 点按留言砖阅读',keyboard:'方向键移动 · Tab 选砖，回车阅读'},
+  stars:{mouse:'拖动漫游 · 滚轮前后穿行',touch:'拖动漫游 · 点按星光阅读',keyboard:'方向键移动 · Tab 选星，回车阅读'}
+};
+let hintInput=matchMedia('(hover: hover) and (pointer: fine)').matches?'mouse':'touch';
+let mousePreviewTile=null;
 const motion=matchMedia('(prefers-reduced-motion: reduce)');
 const forcedReduced=new URLSearchParams(location.search).get('motion')==='reduce';
 const noMotion=()=>forcedReduced||motion.matches;
@@ -80,7 +85,7 @@ function showWallState(kind,text=''){
   $('#list-empty').hidden=!empty;
   $('#list-empty').textContent=kind==='loading'?'正在读取留言…':kind==='empty'?'还没有留言，可以留下第一句话。':uncertain?'留言内容尚未确认，请关闭后重新读取，或在 GitHub 查看讨论。':'暂时未能读取留言，请关闭后重试，或打开 GitHub 讨论区。';
   const label=$('#wall-hint');label.title=lastSnapshot?'读取于 '+new Date(lastSnapshot.fetchedAt).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai'}):'';
-  if(import.meta.env.PROD){$('#wall-source-label').textContent+=' · 公开快照';label.title+=' · 留言发布后需等待网站同步，刷新读取最新已部署快照。';}
+  if(import.meta.env.PROD){$('#wall-source-label').textContent+=' · 公开快照';label.title+=' · 刷新可重新读取已部署的公开快照。';}
   syncEmptyInvitation();
 }
 function applySnapshot(snapshot){
@@ -118,7 +123,6 @@ function refreshWall(){
     try{
       config=config||await resolveGiscus(giscusConfig,fetch,requestController.signal);
       const snapshot=await readDiscussion(config,toPlainText,fetch,requestController.signal);applySnapshot(snapshot);
-      if(giscusMounted&&snapshot.discussion)$('#giscus-discussion-link').href=snapshot.discussion.url;
       if(noticeDialog.open)ensureComposer();
       return snapshot;
     }catch(error){
@@ -246,6 +250,28 @@ function frozen(value){
   stopMotion();gesture?.reset();if(value)drag?.disable();else if(!listDialog.open&&!noticeDialog.open&&scene!=='breaking')drag?.enable();
   stage.dataset.frozen=String(value);flow?.freeze(value||scene!=='wall');
 }
+function updateSceneHint(){
+  const hints=scene==='wall'?sceneHints.wall:sceneHints.stars;
+  stage.dataset.hintInput=hintInput;
+  $('#hint-text').textContent=hints[hintInput];
+}
+function setMousePreview(tile){
+  if(mousePreviewTile===tile)return;
+  mousePreviewTile?.removeAttribute('data-mouse-preview');
+  mousePreviewTile=tile;
+  tile?.setAttribute('data-mouse-preview','');
+}
+function setHintInput(input){
+  if(hintInput===input)return;
+  hintInput=input;
+  if(input!=='mouse')setMousePreview(null);
+  updateSceneHint();
+}
+function pointerHint(event){
+  const mouse=event.pointerType==='mouse'&&!event.sourceCapabilities?.firesTouchEvents;
+  setHintInput(mouse?'mouse':'touch');
+  if(mouse)setMousePreview(event.target.closest?.('#wall [data-message]')||null);
+}
 function sceneUI(){
   wallTools.close();
   const toolbar=$('.toolbar');
@@ -256,7 +282,7 @@ function sceneUI(){
   document.dispatchEvent(new Event('lssh:return-motion-state'));
   $('#star-field').hidden=scene==='wall';$('#flow-toggle').hidden=scene!=='wall';$('#return-wall').hidden=scene==='wall';
   stage.setAttribute('aria-label',scene==='wall'?'无限留言砖墙，可拖动探索，也可用方向键移动':'无限留言星空，可拖动探索，也可用方向键移动');
-  $('#hint-text').textContent=scene==='wall'?'拖动探索 · 悬停显字':'拖动漫游 · 滚轮前后穿行';
+  updateSceneHint();
   $('#list-title').textContent=scene==='wall'?'墙上的话':'星空里的话';
   $('#message-close').setAttribute('aria-label',scene==='wall'?'关闭留言，回到原砖':'关闭留言，回到原星');
   syncEmptyInvitation();
@@ -302,6 +328,7 @@ function writeMessage(message){
   if(paragraphs[0]===$('#message-title').textContent)paragraphs.shift();
   for(const text of paragraphs){const paragraph=document.createElement('p');paragraph.textContent=text;$('#message-body').append(paragraph);}
   const replyLink=$('#reply-link');replyLink.hidden=Boolean(message.preview);
+  $('#reply-sync-note').hidden=replyLink.hidden;
   if(message.preview)replyLink.removeAttribute('href');else replyLink.href=message.url;
   $('#message-reply-count').textContent=message.preview?(message.replyCount?message.replyCount+'条示例回复':'示例留言 · 仅本地展示'):message.replyCount+'条回复';
   $('#reply-list').replaceChildren();$('#message-replies').hidden=message.replies.length===0;
@@ -404,6 +431,20 @@ function setupDrag(){
   })[0];
 }
 dimensions=size();sceneUI();layout();setupDrag();
+document.addEventListener('pointerdown',pointerHint,options);
+document.addEventListener('pointermove',event=>{
+  if(hintInput!=='mouse'&&event.pointerType==='mouse')pointerHint(event);
+},options);
+// A stationary mouse receives boundary events when a touch opens or closes a dialog.
+wall.addEventListener('pointerover',event=>{
+  if(hintInput==='mouse'&&event.pointerType==='mouse')setMousePreview(event.target.closest?.('#wall [data-message]')||null);
+},options);
+wall.addEventListener('pointerout',event=>{
+  if(hintInput==='mouse'&&event.pointerType==='mouse')setMousePreview(event.relatedTarget?.closest?.('#wall [data-message]')||null);
+},options);
+document.addEventListener('keydown',event=>{
+  if(event.key==='Tab'||event.key.startsWith('Arrow'))setHintInput('keyboard');
+},options);
 flow=mountWallFluid({stage,wall,button:$('#flow-toggle'),reduced:noMotion,position:()=>localView});flow.refresh(dimensions);
 gesture=mountCircleGesture({stage,progress:$('#circle-progress'),
   blocked:()=>scene!=='wall'||dialog.open||listDialog.open||noticeDialog.open||document.hidden,
@@ -490,7 +531,7 @@ motion.addEventListener('change',()=>{
   if(active){if(closing)finishClose();else{clearAnimation();gsap.set([surface,content],{opacity:1});dialog.dataset.phase='reading';}}
 },options);
 document.addEventListener('visibilitychange',()=>{if(document.hidden){if(scene==='breaking')finishBreak();stopMotion();gesture?.reset();}else maybeBreak();syncEmptyInvitation();},options);
-window.addEventListener('blur',()=>gesture?.reset(),options);
+window.addEventListener('blur',()=>{setMousePreview(null);gesture?.reset();},options);
 window.addEventListener('pagehide',event=>{
   pagePresent=false;syncEmptyInvitation();
   wallTools.close();

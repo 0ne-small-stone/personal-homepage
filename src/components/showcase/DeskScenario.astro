@@ -1,0 +1,60 @@
+<figure class="desk-scenario" aria-labelledby="desk-scenario-title" transition:name="afterimage-cover-suikong-desk">
+  <header>
+    <p>交互示意</p>
+    <h2 id="desk-scenario-title">从写代码，切到剪一段录屏</h2>
+  </header>
+  <ol class="desk-steps" role="list">
+    <li>
+      <span class="desk-glyph preset" aria-hidden="true"><i></i><i></i></span>
+      <strong>换到剪辑预设</strong>
+      <p>录好一段操作演示，接下来要检查讲解开头的一处停顿。</p>
+    </li>
+    <li>
+      <span class="desk-glyph dial" aria-hidden="true"><i></i></span>
+      <strong>转动旋钮定位</strong>
+      <p>沿时间线向前或向后找，把播放位置移到停顿前。</p>
+    </li>
+    <li>
+      <span class="desk-glyph playback" aria-hidden="true"><i></i></span>
+      <strong>按快捷键回放</strong>
+      <p>从刚找到的位置听一遍，决定从哪里开始剪。</p>
+    </li>
+  </ol>
+  <figcaption>这里用定位、回放举例，说明剪辑预设可以怎样分配控件。</figcaption>
+</figure>
+
+<style>
+  .desk-scenario {
+    margin: 0;
+    padding: clamp(1.25rem, 4vw, 3.5rem);
+    border: 1px solid var(--ai-line);
+    border-radius: 1rem;
+    background: #151515;
+    color: #ededed;
+  }
+  header p, figcaption { color: #b8b8b8; font-size: .8125rem; line-height: 1.65; }
+  header p { margin: 0 0 .7rem; }
+  h2 { margin: 0; font-size: clamp(1.4rem, 2.8vw, 2.35rem); font-weight: 400; line-height: 1.35; }
+  .desk-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 0; margin: 2rem 0 1.5rem; list-style: none; }
+  li { display: grid; align-content: start; gap: .65rem; padding: 0 clamp(.85rem, 2.7vw, 2.15rem); border-inline-start: 1px solid var(--ai-line); }
+  li:first-child { border: 0; padding-inline-start: 0; }
+  li:last-child { padding-inline-end: 0; }
+  strong { font-size: 1.075rem; font-weight: 500; }
+  li p { color: #b8b8b8; margin: 0; font-size: .9375rem; line-height: 1.7; }
+  figcaption { border-top: 1px solid var(--ai-line); padding-top: 1rem; }
+
+  .desk-glyph { position: relative; display: block; width: 2rem; height: 2rem; margin-bottom: .5rem; color: #ddd; }
+  .desk-glyph i { display: block; position: absolute; }
+  .preset i { width: 1.4rem; height: 1rem; border: 1px solid currentColor; border-radius: 3px; top: .18rem; left: 0; }
+  .preset i + i { top: .7rem; left: .4rem; background: #151515; }
+  .dial { width: 1.8rem; height: 1.8rem; margin-block: .1rem .6rem; border: 1px solid currentColor; border-radius: 50%; }
+  .dial i { top: .2rem; left: 50%; width: 1px; height: .6rem; background: currentColor; transform-origin: center .66rem; transform: rotate(42deg); }
+  .playback i { top: .25rem; left: .25rem; width: 0; height: 0; border-block: .7rem solid transparent; border-inline-start: 1rem solid currentColor; }
+  @media (max-width: 40rem) {
+    .desk-steps { grid-template-columns: 1fr; margin-block: 1.25rem 1rem; }
+    li, li:first-child { grid-template-columns: 2rem 1fr; align-items: center; gap: .25rem .9rem; padding: .85rem 0; border: 0; }
+    li + li { border-top: 1px solid var(--ai-line); }
+    li p { grid-column: 2; }
+    .desk-glyph { margin: 0; }
+  }
+</style>

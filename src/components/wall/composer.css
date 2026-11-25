@@ -25,9 +25,9 @@
 }
 .composer-content #giscus-status { margin: 0 0 12px; font-size: 14px; line-height: 1.7; }
 .composer-content #giscus-status:empty { display: none; }
-.composer-footer { margin-top: 12px; border-top: 1px solid #272a2c18; padding-top: 8px; display: flex; align-items: center; justify-content: space-between; gap: 8px 16px; flex-wrap: wrap; }
-.composer-footer .discussion-link { margin: 0; min-height: 44px; display: inline-flex; align-items: center; gap: 3px; font-size: 13px; line-height: 1.7; color: var(--text); text-decoration-color: #72746e; }
-.composer-footer .sync-note { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.composer-guide { margin-bottom: 16px; border-bottom: 1px solid #272a2c18; }
+.composer-guide .discussion-link { margin: 0; min-height: 44px; display: inline-flex; align-items: center; gap: 3px; font-size: 13px; line-height: 1.7; color: var(--text); text-decoration-color: #72746e; }
+.composer-guide .sync-note { margin: 0 0 8px; color: var(--muted); font-size: 13px; line-height: 1.7; }
 @media (max-width: 650px) {
   .notice-dialog { width: calc(100vw - 24px); max-height: calc(100dvh - 24px); }
   .composer-heading { padding: 24px 24px 16px; }

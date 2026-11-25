@@ -62,6 +62,26 @@ test('returning to filtered list restores its original focus and scroll',async()
  w.scrollTo=value=>{scrolled=value.top;};w.eval(article);await new Promise(resolve=>setTimeout(resolve,70));
  assert.equal(w.document.activeElement,anchor);assert.equal(scrolled,672);assert.equal(w.location.href,from);w.close();
 });
+test('return from a disclosed related chapter reopens its list before restoring focus and scroll', async () => {
+ const from = base + 'knowledge/resources/physics/chapter-10/#chapter-navigation';
+ const dom = fixture(from, `<div class="related-knowledge"><details><summary>其他章节</summary><ul><li><a href="${to}">chapter</a></li></ul></details></div>`);
+ const w = dom.window;
+ const details = w.document.querySelector('details');
+ const anchor = details.querySelector('a');
+ anchor.getClientRects = () => details.open ? [{ width: 60, height: 44 }] : [];
+ w.history.replaceState({ lsshArticleSource: 'visit' }, '', from);
+ w.sessionStorage.setItem('lssh:article-visits:v1', JSON.stringify([{
+   id: 'visit', from, to, scrollY: 720, search: null, label: '← 返回上一页', focusScope: 'related',
+ }]));
+ let scroll;
+ w.scrollTo = ({ top }) => { scroll = top; };
+ w.eval(article);
+ await new Promise(resolve => w.requestAnimationFrame(() => w.requestAnimationFrame(resolve)));
+ assert.equal(details.open, true);
+ assert.equal(w.document.activeElement, anchor);
+ assert.equal(scroll, 720);
+ w.close();
+});
 for(const tag of ['lssh-site-search','site-search'])test(`${tag} restores search query, dialog and exact chapter-result focus`,()=>{
  const from=base+'knowledge/',chapter=to+'#section';
  const dom=fixture(from,`<${tag}><button data-open-modal>search</button><dialog><div id="starlight__search"><input class="pagefind-ui__search-input"><a href="${chapter}">result</a></div></dialog></${tag}>`),w=dom.window;

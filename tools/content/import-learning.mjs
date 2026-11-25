@@ -42,6 +42,7 @@ for (const entry of catalog.entries) {
   const lines = [
     '---', `title: ${quote(entry.title)}`, `description: ${quote(entry.description)}`,
     `entryId: ${entry.entryId}`, `kind: ${entry.kind}`, `topics: [${quote(entry.topic)}]`,
+    ...(entry.series ? [`series: ${quote(entry.series)}`] : []),
     `related: ${quote(related.map((other) => other.entryId))}`,
     'tableOfContents: false',
     'sidebar:', `  order: ${entry.sidebarOrder ?? (numbered ? Number(numbered[1]) : 100)}`, 'source:', `  id: ${entry.sourceId}`,
@@ -68,10 +69,7 @@ for (const entry of catalog.entries) {
   else lines.push(`| 原文件 | ${source.path} |`, '| 格式 | PDF |', `| 大小 | ${(source.bytes / 1024 / 1024).toFixed(2)} MiB（${source.bytes.toLocaleString('en-US')} 字节） |`, `| 页数 | ${source.pages} |`, `| 作者 | ${entry.author ?? '未明确标注'} |`, '| 阅读方式 | 页面内 PDF 阅读器；附件缺失时显示实际待配置状态 |');
   lines.push('');
   if (!entry.url) lines.push('原文件保持完整；阅读器支持翻页、缩放和下载。扫描 PDF 能否搜索文字取决于原件是否含文字层。', '');
-  lines.push('## 同科目内容', '');
-  for (const other of related) lines.push(`- [${other.title}](${posix.relative(route(entry), route(other))}/)`);
-  if (!related.length) lines.push('当前只有这一条收藏。');
-  lines.push('', '[返回学习总览](' + '../'.repeat(route(entry).split('/').length - 1) + ')', '');
+  lines.push('[返回学习总览](' + '../'.repeat(route(entry).split('/').length - 1) + ')', '');
   const path = join(root, 'src/content/docs', route(entry) + '.md');
   if (existsSync(path)) {
     const existing = readFileSync(path, 'utf8');

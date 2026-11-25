@@ -7,7 +7,7 @@ import AlbumSwitcher, { type SwitcherAlbum } from './AlbumSwitcher';
 import { audioSession, type AudioTrack } from '../../lib/audio-session';
 import { useAudioSession } from './useAudioSession';
 
-export interface RadioConfig { cloudUrl: string; lxInstallUrl: string; lxSourceUrl: string; playlistUrl: string; playlistEmbedUrl: string; catalogUrl: string; recommendationApi: string; }
+export interface RadioConfig { cloudUrl: string; lxInstallUrl: string; lxSourceUrl: string; playlistId: string; playlistUrl: string; playlistEmbedUrl: string; catalogUrl: string; recommendationApi: string; }
 const albumKey = (track: MusicTrack) => JSON.stringify([track.albumArtist, track.album]);
 function Icon({ name }: { name: 'play' | 'pause' | 'previous' | 'next' | 'volume' | 'download' | 'back' | 'chevron' }) {
   return <svg viewBox="0 0 24 24" aria-hidden="true">{name === 'play' ? <path d="m9 5 10 7-10 7Z" /> : name === 'pause' ? <path d="M8 5v14M16 5v14" /> : name === 'previous' ? <path d="M5 5v14m14-14L9 12l10 7Z" /> : name === 'next' ? <path d="M19 5v14M5 5l10 7-10 7Z" /> : name === 'volume' ? <path d="M11 5 6 9H3v6h3l5 4V5Zm4 3a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14" /> : name === 'download' ? <path d="M12 3v12m-4-4 4 4 4-4M4 16v4h16v-4" /> : name === 'back' ? <path d="m14 5-7 7 7 7" /> : <path d="m6 9 6 6 6-6" />}</svg>;

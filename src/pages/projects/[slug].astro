@@ -1,10 +1,13 @@
 ---
 import HomeLayout from '../../layouts/HomeLayout.astro';
+import ShareCardHead from '../../components/ShareCardHead.astro';
 import ReturnLink from '../../components/navigation/DivisionBellReturn.astro';
 import InviteMark from '../../components/navigation/InviteMark.astro';
 import { showcaseWorks, workCover, videoSource, workImageSize } from '../../data/showcase';
 import WebsiteMap from '../../components/showcase/WebsiteMap.astro';
+import DeskScenario from '../../components/showcase/DeskScenario.astro';
 import type { ShowcaseWork } from '../../data/showcase';
+import { profiles } from '../../data/profile';
 import { sitePath } from '../../lib/paths';
 import '../../styles/showcase.css';
 
@@ -16,9 +19,16 @@ const { work, next } = Astro.props;
 const cover = workCover(work, import.meta.env.BASE_URL);
 const coverSize = workImageSize(work);
 const back = `${sitePath('showcase')}?work=${work.slug}&return=1`;
+const isDesk = work.slug === 'suikong-desk';
 ---
 <HomeLayout title={work.title} description={work.description}>
-  <article class="ai-detail" data-work-slug={work.slug}>
+  <Fragment slot="head">
+    {isDesk && <ShareCardHead page={`projects/${work.slug}`} lang="zh-CN" type="article"
+      title={`${work.title} · 桌面控制器`} author={profiles['zh-CN'].name} image="suikong-desk.png"
+      description={`${profiles['zh-CN'].nickname}负责产品定义与品牌设计。剪辑时，转动旋钮定位时间线，按快捷键回放。`}
+      imageAlt="随控 Desk 桌面控制器的交互示意，依次展示剪辑预设、旋钮定位和按键回放。" />}
+  </Fragment>
+  <article class="ai-detail" data-work-slug={work.slug} data-kind={work.kind}>
     <ReturnLink data-work-back href={back} label="返回作品展览" />
     <header class="ai-detail-header">
       <p class="ai-discipline">{work.discipline}</p>
@@ -26,7 +36,7 @@ const back = `${sitePath('showcase')}?work=${work.slug}&return=1`;
       <div class="ai-detail-deck"><p>{work.description}</p><span>{work.video ? work.video.duration : work.period}<br /><span class="ai-detail-state">{work.status}</span></span></div>
       {work.contribution && <dl class="ai-contribution"><dt>我的参与</dt><dd>{work.contribution}</dd></dl>}
     </header>
-    <figure class="ai-detail-figure">
+    {isDesk ? <DeskScenario /> : <figure class="ai-detail-figure">
       {work.video ? <afterimage-video class="ai-video" data-player-src={videoSource(work.video.bvid)} data-player-title={work.title}>
         <div class="ai-video-poster" transition:name={`afterimage-cover-${work.slug}`}>
           <img src={cover} alt={`${work.title}的B站封面`} width={coverSize.width} height={coverSize.height} referrerpolicy="no-referrer" fetchpriority="high" />
@@ -38,12 +48,14 @@ const back = `${sitePath('showcase')}?work=${work.slug}&return=1`;
         <noscript><p class="ai-noscript">站内播放器需要 JavaScript，也可直接前往 B站观看。</p></noscript>
       </afterimage-video> : <img class="ai-detail-cover" transition:name={`afterimage-cover-${work.slug}`} src={cover} alt={work.coverNote} width={coverSize.width} height={coverSize.height} fetchpriority="high" />}
       <figcaption>{work.coverNote}</figcaption>
-    </figure>
+    </figure>}
     {work.slug === 'little-stone-still-here' && <WebsiteMap />}
-    <div class="ai-detail-body"><aside class="ai-detail-meta"><p>{work.video ? work.contribution ? '参与的影像' : '选入的影像' : '项目记录'}</p><span>{work.video ? `B站发布：${work.video.owner}` : work.period}</span><nav class="ai-reading-nav" aria-label="本页内容">{work.sections.map((section, index) => <a href={`#work-section-${index + 1}`}>{section.title}</a>)}</nav><a href={sitePath('zh/about')}>关于小石 <InviteMark direction="diagonal" /></a></aside>
+    <div class="ai-detail-body"><aside class="ai-detail-meta"><p>{work.video ? work.contribution ? '参与的影像' : '选入的影像' : work.kind === 'writing' ? '文字作品' : '项目记录'}</p><span>{work.video ? `B站发布：${work.video.owner}` : work.period}</span><nav class="ai-reading-nav" aria-label="本页内容">{work.sections.map((section, index) => <a href={`#work-section-${index + 1}`}>{section.title}</a>)}</nav>
+      {isDesk ? <a href={`${sitePath('zh/about')}#contact`} data-english-href={`${sitePath('about')}#contact`}>联系小石 <InviteMark direction="diagonal" /></a> : <a href={sitePath('zh/about')}>关于小石 <InviteMark direction="diagonal" /></a>}
+    </aside>
       <div class="ai-detail-reading">
         {work.sections.map((section, index) => <section id={`work-section-${index + 1}`}><h2>{section.title}</h2>{section.paragraphs.map(paragraph => <p>{paragraph}</p>)}</section>)}
-        {work.destination && <a class="ai-detail-visit" href={`${sitePath(work.destination.path)}${work.destination.hash ? `#${work.destination.hash}` : ''}`}>{work.destination.label}<InviteMark direction="diagonal" /></a>}
+        {work.destination && <a class="ai-detail-visit" href={`${sitePath(work.destination.path)}${work.destination.hash ? `#${work.destination.hash}` : ''}`} data-english-href={isDesk ? `${sitePath('about')}#experience-suikong` : undefined}>{work.destination.label}<InviteMark direction="diagonal" /></a>}
       </div>
     </div>
     <nav class="ai-next" aria-label="继续浏览作品" data-work-cycle={JSON.stringify(showcaseWorks.map(item => ({ slug: item.slug, title: item.title, kind: item.kind })))}><ReturnLink data-work-back href={back} label="返回全部作品" compact /><a data-work-next href={sitePath(`projects/${next.slug}`)}><span>下一件作品</span><strong>{next.title}</strong><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></nav>
@@ -55,26 +67,34 @@ const back = `${sitePath('showcase')}?work=${work.slug}&return=1`;
     const article = document.querySelector<HTMLElement>('[data-work-slug]');
     if (!article) return;
     const current = new URL(location.href);
+    const requestedKind = current.searchParams.get('type');
+    const kind = requestedKind === article.dataset.kind ? requestedKind : null;
+    if (current.searchParams.get('from') === 'someone-en') {
+      for (const link of article.querySelectorAll<HTMLAnchorElement>('a[data-english-href]')) {
+        link.href = link.dataset.englishHref!;
+      }
+    }
     document.querySelectorAll<HTMLAnchorElement>('[data-work-back]').forEach(link => {
       const back = new URL(link.href);
       if (current.searchParams.get('from') === 'index') back.searchParams.set('view', 'index');
-      const kind = current.searchParams.get('type');
-      if (kind === 'video' || kind === 'project' || kind === 'writing') back.searchParams.set('type', kind);
+      if (kind) back.searchParams.set('type', kind);
+      else back.searchParams.delete('type');
       link.href = back.href;
     });
     const nextLink = document.querySelector<HTMLAnchorElement>('[data-work-next]');
     const cycle = document.querySelector<HTMLElement>('[data-work-cycle]')?.dataset.workCycle;
     if (nextLink && cycle) {
       const all: { slug: string; title: string; kind: string }[] = JSON.parse(cycle);
-      const kind = current.searchParams.get('type');
-      const works = kind === 'video' || kind === 'project' ? all.filter(item => item.kind === kind) : all;
+      const works = kind ? all.filter(item => item.kind === kind) : all;
+      nextLink.hidden = works.length < 2;
       const index = works.findIndex(item => item.slug === article.dataset.workSlug);
       const next = works[(index + 1) % works.length];
       if (next) {
         const target = new URL(nextLink.href);
         target.pathname = target.pathname.replace(/\/[^/]+\/$/, `/${next.slug}/`);
         if (current.searchParams.get('from') === 'index') target.searchParams.set('from', 'index');
-        if (kind === 'video' || kind === 'project') target.searchParams.set('type', kind);
+        if (kind) target.searchParams.set('type', kind);
+        else target.searchParams.delete('type');
         nextLink.href = target.href;
         nextLink.querySelector('strong')!.textContent = next.title;
       }

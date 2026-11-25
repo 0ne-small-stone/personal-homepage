@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef } from 'react';
-import { useFrame, useLoader, useThree } from '@react-three/fiber';
-import { BoxGeometry, PlaneGeometry, TextureLoader, SRGBColorSpace, MathUtils, Vector3, type Texture, type Group, type BufferGeometry, type MeshBasicMaterial } from 'three';
+import { useFrame, useThree } from '@react-three/fiber';
+import { BoxGeometry, PlaneGeometry, Texture, SRGBColorSpace, LinearFilter, MathUtils, Vector3, type Group, type BufferGeometry, type MeshBasicMaterial } from 'three';
 import type { JourneyModel } from './scene-state';
 import { sceneUnitScale, workCount } from './works-motion';
 import { homeWorkChapters } from './home-chapters';
@@ -16,11 +16,11 @@ function curve(geometry: BufferGeometry) {
 // Match the horizontal and depth radii; the front-facing card stays at z=-1.
 const orbitRadius=11;
 
-function WorkCard({ model, index, texture, imageAspect }: { model: JourneyModel; index: number; texture: Texture; imageAspect: number }) {
+function WorkCard({ model, index, imageAspect }: { model: JourneyModel; index: number; imageAspect: number }) {
   const group=useRef<Group>(null),hit=useRef<HTMLAnchorElement|null>(null);
   const carrier=useRef<MeshBasicMaterial>(null);
   const interaction=useRef(createReliefInteraction()).current;
-  const {size,camera}=useThree();
+  const {size,camera,gl}=useThree();
   const dimensions=useMemo(()=>reliefSize(imageAspect),[imageAspect]);
   const layout = useMemo(() => {
     const { width, height } = size;
@@ -43,8 +43,45 @@ function WorkCard({ model, index, texture, imageAspect }: { model: JourneyModel;
       y: height * (wide ? .065 : compact ? .015 : width < 800 ? .085 : .095) * depth / focal,
     };
   }, [size, dimensions]);
-  texture.colorSpace=SRGBColorSpace;
-  const material=useMemo(()=>createReliefMaterial(texture),[texture]);
+  const material=useMemo(()=>{
+    const texture = new Texture();
+    texture.colorSpace = SRGBColorSpace;
+    return createReliefMaterial(texture);
+  },[]);
+  useEffect(() => {
+    const link = document.getElementById(homeWorkChapters[index].id)?.querySelector('[data-relief-full]');
+    const showImage = () => {
+      const image = link?.querySelector('img');
+      if (!image?.complete || !image.naturalWidth || material.map?.image === image) return;
+      // A texture's storage dimensions are fixed after upload. Keep the material
+      // and its shader, and give the new resolution its own GPU storage.
+      const texture = new Texture(image);
+      texture.colorSpace = SRGBColorSpace;
+      // Three counts mip levels from the HTML layout dimensions but allocates
+      // storage from naturalWidth/Height. An upscaled picture only needs level 0.
+      if (Math.max(image.width, image.height) > Math.max(image.naturalWidth, image.naturalHeight)) {
+        texture.generateMipmaps = false;
+        texture.minFilter = LinearFilter;
+      }
+      texture.needsUpdate = true;
+      gl.initTexture(texture);
+      const previous = material.map;
+      material.map = texture;
+      material.userData.reliefUniforms.imageSize.value.set(image.naturalWidth, image.naturalHeight);
+      previous?.dispose();
+      model.invalidate();
+    };
+    const initial = link?.querySelector('img');
+    if (initial) initial.loading = 'eager';
+    link?.addEventListener('load', showImage, true);
+    link?.addEventListener('lssh:relief-ready', showImage);
+    showImage();
+    return () => {
+      link?.removeEventListener('load', showImage, true);
+      link?.removeEventListener('lssh:relief-ready', showImage);
+      material.map?.dispose();
+    };
+  }, [index, gl, material, model]);
   const projected=useMemo(()=>Array.from({length:4},()=>new Vector3()),[]);
   const geometries = useMemo(() => {
     const face = new PlaneGeometry(dimensions.width,dimensions.height,48,18);
@@ -106,19 +143,10 @@ function WorkCard({ model, index, texture, imageAspect }: { model: JourneyModel;
   </group>;
 }
 
-function ImageWorkCard({ url, ...props }: { model: JourneyModel; index: number; url: string; imageAspect: number }) {
-  const texture = useLoader(TextureLoader, url);
-  return <WorkCard {...props} texture={texture} />;
-}
-
-export default function WorksScene({ model, projectUrl, neighborUrl, albumUrl }: { model: JourneyModel; projectUrl: string; neighborUrl: string; albumUrl: string }) {
+export default function WorksScene({ model }: { model: JourneyModel }) {
   const root=useRef<Group>(null);const {scene}=useThree();
   useEffect(()=>{const group=root.current;if(!group)return;scene.userData.lsshWorkCards=group;
     return()=>{if(scene.userData.lsshWorkCards===group)delete scene.userData.lsshWorkCards;};},[scene]);
-  const images = {
-    album: { url: albumUrl, imageAspect: 2020 / 778 },
-    radio: { url: neighborUrl, imageAspect: 2035 / 773 },
-    projects: { url: projectUrl, imageAspect: 2022 / 778 },
-  };
-  return <group ref={root}>{homeWorkChapters.map((chapter, index) => <ImageWorkCard key={chapter.id} model={model} index={index} {...images[chapter.id]} />)}</group>;
+  const aspects = { album: 2020 / 778, radio: 2035 / 773, projects: 2022 / 778 };
+  return <group ref={root}>{homeWorkChapters.map((chapter, index) => <WorkCard key={chapter.id} model={model} index={index} imageAspect={aspects[chapter.id]} />)}</group>;
 }

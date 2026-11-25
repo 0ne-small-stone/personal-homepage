@@ -33,10 +33,4 @@ source:
 | 作者 / 笔记本 | 小角龙 |
 | 阅读方式 | 访问原站 |
 
-## 同科目内容
-
-- [计算机系统原理 · 复习笔记（RandomStar）](../computer-system-review/)
-- [计算机组成 · lihuamao0810 的第五章笔记](../computer-organization-lihuamao-chapter5/)
-- [计算机组成与设计：硬件软件接口（第 5 版 · RISC-V 版）](../../../resources/computer-systems/computer-organization-risc-v-fifth-edition/)
-
 [返回学习总览](../../../)

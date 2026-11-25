@@ -2,6 +2,8 @@
 import HomeLayout from '../layouts/HomeLayout.astro';
 import RadioLibraryExperience from '../components/music/RadioLibraryExperience';
 import { musicConfig } from '../config/music';
+import playlist from '../data/music/netease-playlist.json';
+import { sitePath } from '../lib/paths';
 import { loadMusicCatalog } from '../lib/music-server';
 import '../styles/music.css';
 import '../styles/music-experience.css';
@@ -13,8 +15,14 @@ const catalog = await loadMusicCatalog();
 ---
 <HomeLayout title="Echoes" description="小石的音乐电台。听考拉云盘收藏，也听网易云共享歌单。">
   <div class="radio-page">
-    {!import.meta.env.DEV && <p class="radio-nojs">现有考拉音源需要内网访问，外网播放尚未接通。你可以浏览曲库，或<a href={musicConfig.playlistUrl} target="_blank" rel="noopener noreferrer">打开网易云共享歌单（新窗口）</a>。</p>}
     <RadioLibraryExperience initialCatalog={catalog} config={musicConfig} client:load transition:persist="lssh-music-library" transition:persist-props />
-    <noscript><p class="radio-nojs">下载和目录交互需要启用 JavaScript。你也可以<a href={musicConfig.playlistUrl}>直接打开 Echoes 网易云歌单</a>。</p></noscript>
+    <noscript>
+      <section class="music-static-playlist" aria-labelledby="echoes-static-title">
+        <a href={sitePath('')+'#radio'}>回到首页音乐章</a>
+        <h1 id="echoes-static-title">Echoes 共享歌单</h1>
+        <a href={musicConfig.playlistUrl} target="_blank" rel="noopener noreferrer">在网易云收听歌单 ↗</a>
+        <ol>{playlist.tracks.map(track => <li><a href={`https://music.163.com/#/song?id=${track.id}`} target="_blank" rel="noopener noreferrer">{track.title} · {track.artist}</a></li>)}</ol>
+      </section>
+    </noscript>
   </div>
 </HomeLayout>

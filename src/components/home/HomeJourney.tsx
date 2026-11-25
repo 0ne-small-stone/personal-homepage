@@ -30,7 +30,7 @@ class SceneBoundary extends Component<{children: ReactNode; onError: () => void}
   render() { return this.state.failed ? null : this.props.children; }
 }
 
-export default function HomeJourney({wordmarkUrl,albumUrl,projectUrl,neighborUrl}: {wordmarkUrl: string;albumUrl:string;projectUrl:string;neighborUrl:string}) {
+export default function HomeJourney({wordmarkUrl}: {wordmarkUrl: string}) {
   const model = useRef(createJourneyModel()).current;
   const [paused,setPaused] = useState(()=>initialHomeQuiet().paused);
   const [portalPaused,setPortalPaused]=useState(false);
@@ -47,6 +47,7 @@ export default function HomeJourney({wordmarkUrl,albumUrl,projectUrl,neighborUrl
   const loading=useHomeLoading(model,wordmarkUrl,attempt,quiet);
   const status=loading.phase,message=loading.message,fallback=loading.fallback;
   const canRender=status!=='error'&&status!=='fallback';
+  const nativeWhileWaiting=status==='waiting'&&!loading.active;
   const contextCleanup=useRef(()=>{});
 
   useEffect(() => installHomeControls(document.body), []);
@@ -103,14 +104,15 @@ export default function HomeJourney({wordmarkUrl,albumUrl,projectUrl,neighborUrl
 
   useEffect(() => {
     if(!canRender)return;
-    if(quiet){loading.layoutReady();return;}
+    if(quiet||nativeWhileWaiting){loading.layoutReady();return;}
     const dispose=installWorksMotion(model);loading.layoutReady();return dispose;
-  }, [canRender, quiet, model, attempt]);
+  }, [canRender, quiet, nativeWhileWaiting, model, attempt]);
 
   useEffect(()=>{
     document.body.classList.toggle('home-quiet',quiet);
     if(quiet)model.progress=0;
-    ScrollTrigger.refresh();model.invalidate();
+    if (document.body.dataset.homeMotion === 'ready') ScrollTrigger.refresh();
+    model.invalidate();
     return ()=>document.body.classList.remove('home-quiet');
   },[quiet,model]);
 
@@ -128,7 +130,7 @@ export default function HomeJourney({wordmarkUrl,albumUrl,projectUrl,neighborUrl
       contextCleanup.current();contextCleanup.current=()=>gl.domElement.removeEventListener('webglcontextlost',lost);
       gl.domElement.addEventListener('webglcontextlost',lost,{once:true});
     }} fallback={<span>图形不可用</span>}>
-      <Suspense fallback={null}><HomeFrameLoop model={model} enabled={visible&&!paused&&!reduced&&status!=='waiting'&&!loading.previewHeld} /><WorksMotionDriver model={model} stopped={paused&&portalPaused} /><CameraRig model={model} mobile={mobile} quiet={quiet} frozen={paused&&portalPaused} /><SceneLighting /><SceneBackdrop model={model} mobile={mobile} quiet={quiet} pointerLight={hover&&!paused&&!reduced&&visible&&!loading.active&&!loading.previewHeld} /><GlassTriangle model={model} paused={quiet||!visible||loading.active} frozen={paused&&portalPaused} hover={hover} mobile={mobile} />{!quiet&&<WorksScene model={model} projectUrl={projectUrl} neighborUrl={neighborUrl} albumUrl={albumUrl} />}<RisingWall model={model} quiet={quiet} /><GlassRenderLayer model={model} quiet={quiet} flowEnabled={hover&&!paused&&!reduced&&visible&&!loading.active&&!loading.previewHeld} /></Suspense>
+      <Suspense fallback={null}><HomeFrameLoop model={model} enabled={visible&&!paused&&!reduced&&status!=='waiting'&&!loading.previewHeld} /><WorksMotionDriver model={model} stopped={paused&&portalPaused} /><CameraRig model={model} mobile={mobile} quiet={quiet} frozen={paused&&portalPaused} /><SceneLighting /><SceneBackdrop model={model} mobile={mobile} quiet={quiet} pointerLight={hover&&!paused&&!reduced&&visible&&!loading.active&&!loading.previewHeld} /><GlassTriangle model={model} paused={quiet||!visible||loading.active} frozen={paused&&portalPaused} hover={hover} mobile={mobile} />{!quiet&&<WorksScene model={model} />}<RisingWall model={model} quiet={quiet} /><GlassRenderLayer model={model} quiet={quiet} flowEnabled={hover&&!paused&&!reduced&&visible&&!loading.active&&!loading.previewHeld} /></Suspense>
     </Canvas></SceneBoundary></div>}
     {loading.active&&<div className="home-loader" aria-label="首页加载"><p role="status">{status==='waiting'?'正在载入':'空间正在显现'}</p><button onClick={()=>fallback()}>普通浏览</button></div>}
     {loading.preview==='1'&&loading.active&&<div className="home-loading-lab" aria-label="本机加载预览"><span>本机加载预览</span><button disabled={!loading.wordmarkDecoded} onClick={loading.start}>开始揭幕</button><button disabled={!loading.wordmarkDecoded} onClick={()=>loading.seek(.16)}>轮廓</button><button disabled={!loading.wordmarkDecoded} onClick={()=>loading.seek(.55)}>展开</button><button disabled={!loading.wordmarkDecoded} onClick={()=>loading.seek(1)}>完成</button></div>}

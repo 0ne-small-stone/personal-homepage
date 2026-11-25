@@ -24,6 +24,7 @@ export default defineConfig({
         Header: './src/components/knowledge/Header.astro',
         Sidebar: './src/components/knowledge/Sidebar.astro',
         PageTitle: './src/components/knowledge/PageTitle.astro',
+        Pagination: './src/components/knowledge/Pagination.astro',
         TableOfContents: './src/components/knowledge/TableOfContents.astro',
         Search: './src/components/knowledge/Search.astro',
         MarkdownContent: './src/components/KnowledgeContent.astro',

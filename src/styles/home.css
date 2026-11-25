@@ -147,6 +147,7 @@ html:has(.lssh-home) { scrollbar-width: thin; scrollbar-color: #303030 #000; }
 .home-chapter-index::before,
 .home-chapter-reel { transition: transform 300ms cubic-bezier(.22, .75, .22, 1); }
 .home-chapter-index:has(a:nth-child(2)[aria-current]) { --home-wheel-index: 1; }
+.home-chapter-index:not(:has(a[aria-current]))::before { visibility: hidden; }
 .home-chapter-index:has(a:nth-child(3)[aria-current]) { --home-wheel-index: 2; }
 .home-chapter-index:has(a:nth-child(4)[aria-current]) { --home-wheel-index: 3; }
 .home-chapter-index:has(a:nth-child(5)[aria-current]) { --home-wheel-index: 4; }
@@ -216,8 +217,7 @@ html:has(.lssh-home) { scrollbar-width: thin; scrollbar-color: #303030 #000; }
 .home-discussion-link { display: inline-flex; align-items: center; min-height: 2.75rem; text-decoration: underline !important; text-underline-offset: .4rem; font-size: .875rem; }
 .home-page-footer { padding: 2rem var(--home-gutter); display: flex; justify-content: space-between; color: #a1a1a1; font-size: .875rem; }
 .home-scene { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
-.lssh-home[data-home-restoring] #main-content,
-.lssh-home[data-home-restoring] #main-content * { visibility: hidden !important; }
+.has-journey:not(.home-enhanced) .home-scene { visibility: hidden; }
 .home-scene canvas { width: 100% !important; height: 100% !important; }
 .home-loader { position: fixed; inset: auto var(--home-gutter) max(1rem, env(safe-area-inset-bottom)); z-index: 30; color: #ededed; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .home-loader[hidden] { display: none; }
@@ -237,9 +237,9 @@ html:has(.lssh-home) { scrollbar-width: thin; scrollbar-color: #303030 #000; }
 .home-enhanced .home-art--scene, .home-enhanced .home-wall-surface { visibility: hidden; }
 .home-enhanced .home-hero .home-chapter-content { pointer-events: none; }
 .home-enhanced .home-hero .home-chapter-content a { pointer-events: auto; }
-.home-static .home-chapter { min-height: 100svh; }
-.home-static .home-chapter-viewport { position: relative; }
-.home-static .home-wall { background: #e8e4dc; }
+.has-journey:not(.home-enhanced) .home-chapter { min-height: 100svh; }
+.has-journey:not(.home-enhanced) .home-chapter-viewport { position: relative; }
+.has-journey:not(.home-enhanced) .home-wall { background: #e8e4dc; }
 .home-static .home-scene { display: none; }
 .home-quiet .home-scene { position: absolute; inset: 0 0 auto; height: 100svh; }
 .home-quiet .home-chapter-viewport { position: relative; }
@@ -272,9 +272,6 @@ html:has(.lssh-home) { scrollbar-width: thin; scrollbar-color: #303030 #000; }
   .home-status { bottom: 4.5rem; }
 }
 @media (prefers-reduced-motion: reduce) { .lssh-home *, .lssh-home *::before, .lssh-home *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
-
-/* Keep the public directory added on main usable with the current home shell. */
-@media (max-width: 767px) { .has-journey .home-header { grid-template-columns: 1fr auto 1fr; gap: 0; } .has-journey .home-header > nav { justify-self: center; } .lssh-home:not(.has-journey) .home-header { flex-wrap: wrap; } }
 
 /* WorkCard leaves room below the projected artwork for this caption band. */
 .has-journey .home-chapter-index { bottom: var(--home-index-inset); }

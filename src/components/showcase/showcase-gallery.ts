@@ -1,13 +1,12 @@
 import { clampSelection, dragIntent, exhibitPose, releaseSelection } from './gallery-state';
 
-type Filter = 'all' | 'project' | 'video' | 'writing';
 type View = 'exhibition' | 'index';
 
 class AfterimageGallery extends HTMLElement {
   private abort?: AbortController;
   private rail!: HTMLElement;
   private cards: HTMLElement[] = [];
-  private filter: Filter = 'all';
+  private filter = 'all';
   private view: View = 'exhibition';
   private active = '';
   private gesture?: { x: number; y: number; id: number; index: number; dx: number; dragging: boolean };
@@ -63,9 +62,14 @@ class AfterimageGallery extends HTMLElement {
     this.cancelGesture();
     cancelAnimationFrame(this.restoreFrame);
     delete this.dataset.ready;
-    const params = new URL(location.href).searchParams;
+    const url = new URL(location.href);
+    const params = url.searchParams;
     const requestedFilter = params.get('type');
-    this.filter = requestedFilter === 'project' || requestedFilter === 'video' || requestedFilter === 'writing' ? requestedFilter : 'all';
+    this.filter = requestedFilter && this.cards.some(card => card.dataset.kind === requestedFilter) ? requestedFilter : 'all';
+    if (requestedFilter !== null && this.filter === 'all') {
+      params.delete('type');
+      history.replaceState(history.state, '', url);
+    }
     this.view = params.get('view') === 'index' ? 'index' : 'exhibition';
     this.active = params.get('work') || this.cards[0]?.dataset.slug || '';
     this.render(false);
@@ -93,13 +97,12 @@ class AfterimageGallery extends HTMLElement {
     this.querySelectorAll<HTMLButtonElement>('[data-view-button]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.viewButton === this.view)));
     this.cards.forEach(card => { card.hidden = this.filter !== 'all' && card.dataset.kind !== this.filter; });
     const visible = this.visible();
-    this.querySelector<HTMLElement>('.ai-empty')!.hidden = visible.length > 0;
     this.rail.hidden = !visible.length;
     this.querySelector<HTMLElement>('.ai-exhibition-footer')!.hidden = !visible.length || this.view === 'index';
     const card = visible.find(item => item.dataset.slug === this.active) || visible[0];
     if (card) this.activate(card, false);
     else this.active = '';
-    if (announce) this.announce(visible.length ? `显示 ${visible.length} 件作品，${this.view === 'index' ? '目录' : '展览'}视图` : '文字作品还在整理');
+    if (announce) this.announce(`显示 ${visible.length} 件作品，${this.view === 'index' ? '目录' : '展览'}视图`);
     this.updateLinks();
   }
 
@@ -127,7 +130,7 @@ class AfterimageGallery extends HTMLElement {
       link.tabIndex = this.view === 'exhibition' && !selected ? -1 : 0;
       if (this.view === 'exhibition' && !selected) item.setAttribute('aria-hidden', 'true'); else item.removeAttribute('aria-hidden');
       if (selected && this.view === 'exhibition') link.setAttribute('aria-current', 'true'); else link.removeAttribute('aria-current');
-      link.setAttribute('aria-label', `${item.dataset.title}，${this.view === 'exhibition' && !selected ? '选择这件作品' : item.dataset.kind === 'video' ? '观看视频' : '了解项目'}`);
+      link.setAttribute('aria-label', `${item.dataset.title}，${this.view === 'exhibition' && !selected ? '选择这件作品' : item.dataset.action}`);
     });
     const visible = this.visible();
     const index = visible.indexOf(card);
@@ -181,10 +184,9 @@ class AfterimageGallery extends HTMLElement {
     const filter = target.closest<HTMLButtonElement>('[data-filter]');
     const view = target.closest<HTMLButtonElement>('[data-view-button]');
     const step = target.closest<HTMLButtonElement>('[data-step]');
-    if (filter || target.closest('[data-show-all]')) {
-      this.filter = (filter?.dataset.filter || 'all') as Filter;
+    if (filter) {
+      this.filter = filter.dataset.filter!;
       this.render(); this.writeUrl();
-      if (!filter) this.querySelector<HTMLButtonElement>('[data-filter="all"]')?.focus();
     } else if (view) {
       this.view = view.dataset.viewButton as View; this.render(); this.writeUrl();
     } else if (step) this.move(Number(step.dataset.step));

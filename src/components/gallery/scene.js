@@ -746,8 +746,8 @@ function fallback() {
   for (const [index, photo] of photos.entries()) {
     const button = document.createElement('button');
     const img = document.createElement('img');
-    img.src = photo.image; img.alt = photo.title; img.loading = 'lazy';
-    button.append(img); button.setAttribute('aria-label', `查看${photo.title}`);
+    img.src = photo.image; img.alt = photo.alt ?? photo.title; img.loading = 'lazy';
+    button.append(img); button.setAttribute('aria-label', `查看${img.alt}`);
     button.addEventListener('click', () => showPhoto(index));
     el('fallback-photos').append(button);
   }

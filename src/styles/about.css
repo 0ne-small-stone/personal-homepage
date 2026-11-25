@@ -5,6 +5,18 @@
   --someone-frame: calc(var(--someone-rail) + var(--someone-gap) + var(--someone-measure));
 }
 .someone-page { display: grid; grid-template-columns: var(--someone-rail) minmax(0, 1fr); column-gap: var(--someone-gap); row-gap: 4rem; align-items: start; width: min(calc(100% - 5rem), var(--someone-frame)); margin-inline: auto; padding-top: clamp(8rem, 16svh, 11rem); font-size: 1.125rem; line-height: 1.8; }
+.someone-language-tools {
+  position: sticky; top: var(--home-header-height); z-index: 5; height: 0;
+  display: flex; justify-content: flex-end; align-items: flex-start;
+  pointer-events: none;
+}
+.someone-language-tools a {
+  display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px;
+  margin-right: max(clamp(16px,2.5vw,40px),env(safe-area-inset-right,0px)); padding: 0 .75rem;
+  color: var(--color-muted); background: var(--color-bg); border-radius: 0 0 .5rem .5rem;
+  font-size: .875rem; line-height: 1.5; pointer-events: auto;
+}
+.someone-language-tools a:is(:hover,:focus-visible) { color: var(--color-text); text-decoration: underline; text-underline-offset: .3em; }
 .someone-page p { margin: 0; }
 .someone-page h1, .someone-page h2, .someone-page h3 { margin: 0; font-weight: 500; }
 .someone-page p + p { margin-top: 1.25rem; }
@@ -88,7 +100,7 @@
 }
 @media (max-width: 767px) {
   .someone-hero, .someone-section, .someone-experiences > li, .someone-anchor { scroll-margin-top: calc(8.5rem + env(safe-area-inset-top, 0px)); }
-  .someone-page { width: min(calc(100% - 2rem), var(--someone-frame)); padding-top: 8rem; font-size: 1rem; }
+  .someone-page { width: min(calc(100% - 2rem), var(--someone-frame)); padding-top: max(8rem,calc(var(--home-header-height) + 3.5rem)); font-size: 1rem; }
   .someone-hero { padding-bottom: 4rem; }
   .someone-page .someone-greeting { margin-top: 1.5rem; }
   .someone-introduction { margin-top: 1.5rem; }
