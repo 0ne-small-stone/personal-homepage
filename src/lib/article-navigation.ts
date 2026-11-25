@@ -161,8 +161,13 @@ function restoreSource(visit: ReadingVisit, signal: AbortSignal) {
     // Restore after native history/filter rendering so it cannot replace our focus.
     requestAnimationFrame(() => requestAnimationFrame(() => {
       if (signal.aborted) return;
-      const link = Array.from(document.querySelectorAll<HTMLAnchorElement>(selector))
-        .find((item) => item.href === visit.to && item.getClientRects().length > 0);
+      const matching = Array.from(document.querySelectorAll<HTMLAnchorElement>(selector))
+        .filter((item) => item.href === visit.to);
+      if (visit.focusScope === 'related') {
+        const disclosure = matching[0]?.closest('details');
+        if (disclosure) disclosure.open = true;
+      }
+      const link = matching.find((item) => item.getClientRects().length > 0);
       link?.focus({ preventScroll: true });
       window.scrollTo({ top: visit.scrollY, behavior: 'instant' });
     }));

@@ -4,7 +4,7 @@
 .invite-mark > .elsewhere-invite-figure { position: absolute; top: 0; left: -4px; }
 .ai-enter .invite-mark { --invite-ink: #000; }
 .ai-end-links .invite-mark, .ai-detail-meta > a .invite-mark { --invite-ink: var(--ai-soft, #a1a1a1); }
-.ai-empty-actions .invite-mark, .ai-detail-visit .invite-mark { --invite-ink: #ededed; }
+.ai-detail-visit .invite-mark { --invite-ink: #ededed; }
 .ai-work-link:has(.invite-mark):hover .ai-enter { transform: none; }
 @media (hover: hover) {
   .ai-detail-visit:has(.invite-mark):hover { color: #ededed; background: rgb(237 237 237 / .08); border-color: #ededed; }

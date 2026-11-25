@@ -2,7 +2,10 @@
 import '../components/wall/style.css';
 import '../components/wall/composer.css';
 import ReturnLink from '../components/navigation/DivisionBellReturn.astro';
+import {giscusConfig} from '../config/giscus';
 import {sitePath} from '../lib/paths';
+const discussionUrl = `https://github.com/${giscusConfig.repo}/discussions/61`;
+const syncNote = '发表成功后，可以先在 GitHub 原讨论里看到留言或回复。网站下次同步后，内容就会出现在墙上。';
 ---
 <!doctype html>
 <html lang="zh-CN">
@@ -12,6 +15,12 @@ import {sitePath} from '../lib/paths';
   <meta name="description" content="The Wall，可移动白砖墙与留言阅读体验。">
   <meta name="giscus:backlink" content={new URL(sitePath('guestbook'), Astro.site ?? Astro.url).href}>
   <title>The Wall · Little Stone Still Here</title>
+  <noscript>
+    <style is:inline>
+      .skip-link, main > .wall-stage, main > .wall-footer, .header-actions > button { display: none; }
+      html body { overflow: auto; }
+    </style>
+  </noscript>
 </head>
 <body>
   <a class="skip-link" href="#message-list-button">跳到留言列表</a>
@@ -32,11 +41,11 @@ import {sitePath} from '../lib/paths';
     <aside id="wall-state" class="wall-state" hidden aria-live="polite">
       <h2 id="wall-state-title"></h2><p id="wall-state-description"></p>
       <button id="wall-state-action" type="button" class="plain-button">重新连接</button>
-      <a id="wall-state-link" href="https://github.com/0ne-small-stone/personal-homepage/discussions" target="_blank" rel="noopener noreferrer">查看 GitHub 讨论区</a>
+      <a id="wall-state-link" href={discussionUrl} target="_blank" rel="noopener noreferrer">查看 GitHub 原讨论<span class="sr-only">（新窗口）</span></a>
     </aside>
     <p id="circle-progress" class="circle-progress" role="status" aria-live="polite" hidden></p>
     <footer class="wall-footer">
-      <p id="wall-hint"><span id="wall-source-label">读取留言中</span><span aria-hidden="true"> · </span><span id="hint-text">拖动探索 · 悬停显字</span></p>
+      <p id="wall-hint"><span id="wall-source-label">读取留言中</span><span aria-hidden="true"> · </span><span id="hint-text">拖动探索 · 选择留言砖阅读</span></p>
       <nav class="toolbar" aria-label="浏览留言墙">
         <button id="latest-button" type="button" disabled>最新留言</button>
         <button id="message-list-button" type="button">列表</button>
@@ -57,7 +66,12 @@ import {sitePath} from '../lib/paths';
       </nav>
     </footer>
     <p id="status" class="sr-only" role="status" aria-live="polite"></p>
-    <noscript><p class="no-script">当前浏览器未启用脚本，独立体验需要 JavaScript。真实留言接通后仍提供普通列表。</p></noscript>
+    <noscript>
+      <div class="no-script">
+        <p>互动砖墙需要 JavaScript。你可以在 GitHub 原讨论中阅读留言，也可以登录后发表或回复。</p>
+        <a class="discussion-link" href={discussionUrl}>在 GitHub 阅读留言</a>
+      </div>
+    </noscript>
   </main>
   <dialog id="message-dialog" class="message-dialog" aria-labelledby="message-title" aria-describedby="message-meta">
     <article id="reading-surface" class="reading-surface">
@@ -67,7 +81,8 @@ import {sitePath} from '../lib/paths';
         <h2 id="message-title"></h2>
         <div id="message-body" class="message-body"></div>
         <section id="message-replies" class="message-replies" aria-label="这条留言的公开回复" hidden><h3>回复</h3><div id="reply-list"></div></section>
-        <footer class="message-bottom"><span id="message-reply-count"></span><a id="reply-link" target="_blank" rel="noopener noreferrer">在 GitHub 回复<span class="sr-only">（新窗口，定位这条留言）</span></a></footer>
+        <footer class="message-bottom"><span id="message-reply-count"></span><a id="reply-link" aria-describedby="reply-sync-note" target="_blank" rel="noopener noreferrer">在 GitHub 回复<span class="sr-only">（新窗口，定位这条留言）</span></a></footer>
+        <p id="reply-sync-note" class="reply-sync-note" hidden>{syncNote}</p>
       </div>
     </article>
   </dialog>
@@ -78,7 +93,15 @@ import {sitePath} from '../lib/paths';
   <dialog id="notice-dialog" class="utility-dialog notice-dialog" aria-labelledby="notice-title">
     <button class="close-button" type="button" data-close-dialog="notice-dialog" aria-label="关闭留言区">×</button>
     <header class="composer-heading"><p class="composer-eyebrow">The Wall</p><h2 id="notice-title">把话留在这里</h2><p class="composer-description">通过 GitHub 账号，公开留下一句话。</p></header>
-    <div class="utility-content composer-content"><p id="giscus-status" role="status"></p><div id="wall-comments" class="giscus"></div><button id="giscus-retry" class="plain-button" type="button" hidden>重新连接</button><footer class="composer-footer"><a id="giscus-discussion-link" class="discussion-link" href="https://github.com/0ne-small-stone/personal-homepage/discussions" target="_blank" rel="noopener noreferrer">查看完整讨论<span aria-hidden="true"> ↗</span><span class="sr-only">（GitHub，新窗口）</span></a><p class="sync-note">关闭窗口后，墙面会更新。</p></footer></div>
+    <div class="utility-content composer-content">
+      <div class="composer-guide">
+        <p class="sync-note">{syncNote}</p>
+        <a id="giscus-discussion-link" class="discussion-link" href={discussionUrl} target="_blank" rel="noopener noreferrer">查看 GitHub 原讨论<span aria-hidden="true"> ↗</span><span class="sr-only">（新窗口）</span></a>
+      </div>
+      <p id="giscus-status" role="status"></p>
+      <div id="wall-comments" class="giscus"></div>
+      <button id="giscus-retry" class="plain-button" type="button" hidden>重新连接</button>
+    </div>
   </dialog>
   <script>import '../components/wall/app.js';</script>
 </body>

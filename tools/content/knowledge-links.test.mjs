@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { knowledgeIndex, resolveBacklinks, resolveRelated } from '../../src/lib/knowledge-links.ts';
+import { knowledgeIndex, resolveBacklinks, resolveReadingLinks, resolveRelated } from '../../src/lib/knowledge-links.ts';
 
 const entry = (entryId, kind = 'note', related = [], draft = false) => ({
   id: `knowledge/${kind}/${entryId}`,
@@ -121,4 +121,58 @@ test('every backlink is exactly the inverse of a validated public forward edge',
   for (const target of entries) for (const source of entries) {
     assert.equal(resolveBacklinks(target, index).includes(source), resolveRelated(source, index).includes(target));
   }
+});
+
+const chapter = (entryId, series, order, related = [], draft = false) => {
+  const document = entry(entryId, 'resource', related, draft);
+  return { ...document, data: { ...document.data, series, sidebar: { order } } };
+};
+
+test('split chapters follow their declared order, never an adjacent series, book or draft', () => {
+  const upper = chapter('physics-9-upper', 'physics', 9);
+  const lower = chapter('physics-9-lower', 'physics', 9.1);
+  const ten = chapter('physics-10', 'physics', 10);
+  const lecture = chapter('probability-0', 'probability', 0);
+  const index = knowledgeIndex([ten, lecture, lower, entry('book'), chapter('draft', 'physics', 9.05, [], true), upper]);
+  assert.equal(resolveReadingLinks(upper, index).previous, undefined);
+  assert.equal(resolveReadingLinks(upper, index).next, lower);
+  assert.equal(resolveReadingLinks(lower, index).previous, upper);
+  assert.equal(resolveReadingLinks(lower, index).next, ten);
+  assert.equal(resolveReadingLinks(ten, index).next, undefined);
+  assert.equal(resolveReadingLinks(lecture, index).next, undefined);
+});
+
+test('a zero-based series and its reciprocal, incoming-only and supplemental links each have one destination', () => {
+  const zero = chapter('zero', 'probability', 0, ['three', 'two', 'one', 'book', 'book', 'zero', 'draft']);
+  const one = chapter('one', 'probability', 1, ['zero']);
+  const two = chapter('two', 'probability', 2, ['zero']);
+  const three = chapter('three', 'probability', 3, ['zero']);
+  const book = entry('book', 'resource', ['zero', 'one', 'three', 'two']);
+  const note = entry('note', 'note', ['zero']);
+  const index = knowledgeIndex([three, book, two, note, chapter('draft', 'probability', 4, ['zero'], true), zero, one]);
+  assert.deepEqual(resolveReadingLinks(zero, index), {
+    previous: undefined, next: one, related: [book], otherChapters: [two, three], backlinks: [note],
+  });
+  assert.deepEqual(resolveReadingLinks(book, index), {
+    previous: undefined, next: undefined, related: [zero, one, two, three], otherChapters: [], backlinks: [],
+  });
+});
+
+test('legacy notes keep distinct outgoing and incoming links without inferred chapter navigation', () => {
+  const source = entry('source', 'note', ['article']);
+  const article = entry('article', 'article', ['source']);
+  const book = entry('book', 'resource', ['source']);
+  const index = knowledgeIndex([book, source, article]);
+  assert.deepEqual(resolveReadingLinks(source, index), {
+    previous: undefined, next: undefined, related: [article], otherChapters: [], backlinks: [book],
+  });
+  assert.deepEqual(resolveReadingLinks(undefined, index), {
+    previous: undefined, next: undefined, related: [], otherChapters: [], backlinks: [],
+  });
+});
+
+test('published series members require a unique numeric order within their own series', () => {
+  assert.throws(() => knowledgeIndex([chapter('chapter-a', 'physics', undefined)]), /physics.*chapter-a/);
+  assert.throws(() => knowledgeIndex([chapter('a', 'physics', 9), chapter('b', 'physics', 9)]), /physics.*9.*b/);
+  assert.doesNotThrow(() => knowledgeIndex([chapter('a', 'physics', 0), chapter('b', 'probability', 0), chapter('draft', 'physics', 0, [], true)]));
 });

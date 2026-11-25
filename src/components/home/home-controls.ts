@@ -49,7 +49,7 @@ const animateLabel: Animator = (target, text, onComplete) => {
 const installed = new WeakMap<HTMLElement, () => void>();
 export function installHomeControls(root: HTMLElement, animate: Animator = animateLabel) {
   installed.get(root)?.();
-  if (!root.classList.contains('has-journey')) return () => {};
+  if (!root.matches('.has-journey, .home-header.is-primary')) return () => {};
   const doc = root.ownerDocument, view = doc.defaultView;
   if (!view) return () => {};
   const controller = new AbortController(), options = { signal: controller.signal };
@@ -82,7 +82,7 @@ export function installHomeControls(root: HTMLElement, animate: Animator = anima
     if (touch) { touch = false; sync(); }
     if (!blocked() && !ready) { ready = true; root.dataset.homeControlsReady = 'true'; publish(); }
   };
-  root.querySelectorAll<HTMLElement>('.home-header [data-scramble]').forEach(target => {
+  root.querySelectorAll<HTMLElement>('[data-scramble]').forEach(target => {
     const link = target.closest('a'), text = target.dataset.scramble;
     if (!link || !text) return;
     const label = new FiniteScramble(target, text, complete => animate(target, text, complete), publish);

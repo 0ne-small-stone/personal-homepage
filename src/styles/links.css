@@ -120,23 +120,14 @@
 @media (prefers-reduced-motion: reduce) { .elsewhere-page *, .elsewhere-page *::before, .elsewhere-page *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; } .elsewhere-card { transform: none !important; } }
 
 /* Segmented controls share a container and retain an inset keyboard ring. */
-.lssh-home:has(.elsewhere-page) .home-header nav { gap: 4px; }
-.lssh-home:has(.elsewhere-page) .home-header nav a { text-decoration: none; transition: background-color 180ms ease-out, color 180ms ease-out; }
 .elsewhere-page .elsewhere-categories :focus-visible { outline-offset: 1px; }
 .elsewhere-categories .elsewhere-all { border: 0; color: #aaaab0; }
 .elsewhere-categories .elsewhere-all[aria-pressed='true'] { color: #f5f5f7; }
 .elsewhere-category { font-weight: 500; }
-@media (hover: hover) and (pointer: fine) {
-  .lssh-home:has(.elsewhere-page) .home-header nav a:hover { color: #f5f5f7; background: #242426; }
-}
 @media (max-width: 600px) {
   .elsewhere-directory-heading { gap: 8px; margin-bottom: 8px; }
   .elsewhere-directory-heading h2 { font-size: 18px; }
   .elsewhere-filter-actions { gap: 8px; }
   .elsewhere-reset, .elsewhere-count { font-size: 12px; }
   .elsewhere-card { border-radius: 18px; }
-}
-@media (max-width: 360px) { .lssh-home:has(.elsewhere-page) .home-header nav { gap: 0; } }
-@media (prefers-reduced-motion: reduce) {
-  .lssh-home:has(.elsewhere-page) .home-header nav a { transition: none; }
 }

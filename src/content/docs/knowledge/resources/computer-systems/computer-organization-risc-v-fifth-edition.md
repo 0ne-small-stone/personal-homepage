@@ -37,10 +37,4 @@ source:
 
 原文件保持完整；阅读器支持翻页、缩放和下载。扫描 PDF 能否搜索文字取决于原件是否含文字层。
 
-## 同科目内容
-
-- [计算机系统 · 小角龙的学习记录](../../../notes/computer-systems/computer-system-zhang-each-notebook/)
-- [计算机系统原理 · 复习笔记（RandomStar）](../../../notes/computer-systems/computer-system-review/)
-- [计算机组成 · lihuamao0810 的第五章笔记](../../../notes/computer-systems/computer-organization-lihuamao-chapter5/)
-
 [返回学习总览](../../../)

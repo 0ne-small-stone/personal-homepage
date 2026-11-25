@@ -1,5 +1,6 @@
 import {useEffect,useRef,useState} from 'react';
 import AlbumArtwork from './AlbumArtwork';
+import {musicConfig} from '../../config/music';
 import '../../styles/music-downloads.css';
 interface Result {id:string;title:string;artist:string;album:string;duration:string;coverUrl:string|null;qualities:string[]}
 interface Job {id:string;resultId:string;title:string;artist:string;quality:string;status:string;received:number;total:number;error:string;trackId:string}
@@ -48,6 +49,21 @@ export default function LxDownloadPanel({active,onComplete,onLibrary,cloudUrl,lx
   const renderJobs=(items:Job[])=><ul>{items.map(job=><li key={job.id}><div className="lx-job-heading"><strong>{job.title}</strong><span>{labels[job.quality]||job.quality}</span></div><div className="lx-job-state"><span>{stages[job.status]}{job.status==='downloading'&&job.total?` · ${Math.min(100,Math.floor(job.received/job.total*100))}%`:''}</span>{!finished(job)?<button type="button" onClick={()=>{void api('cancel',{id:job.id}).then(()=>api('jobs')).then(data=>updateJobs(data.jobs)).catch(()=>setError('取消暂时未生效，请重试。'));}}>取消</button>:job.status==='completed'?<button type="button" onClick={()=>onLibrary(job.title)}>在曲库查看</button>:null}</div>{job.status==='downloading'&&<progress aria-label={`${job.title}下载进度`} value={job.total?job.received:undefined} max={job.total||1} />}{job.error&&<p className="radio-error">{job.error}</p>}</li>)}</ul>;
   const pendingJobs=jobs.filter(job=>job.status!=='completed').slice(-5).reverse();
   const completedJobs=jobs.filter(job=>job.status==='completed').reverse();
+  if (!ready && (import.meta.env.PROD || error)) {
+    return <section className="lx-content" aria-labelledby="lx-page-title">
+      <header className="lx-page-heading"><h2 id="lx-page-title">找音乐</h2><p>在网易云曲库查找歌曲。在线服务暂不可用时，仍可搜索共享歌单中收录的曲目。</p></header>
+      <form className="lx-search" action={`${import.meta.env.BASE_URL}music/`} method="get" data-astro-reload>
+        <input type="hidden" name="mode" value="netease"/><input type="hidden" name="view" value="search"/><input type="hidden" name="kind" value="song"/>
+        <label className="lx-query">歌曲或歌手<input type="search" name="q" placeholder="搜索歌曲、歌手" maxLength={200} required/></label>
+        <button className="radio-primary" type="submit">搜索</button>
+      </form>
+      <p className="lx-help"><a href={musicConfig.playlistUrl} target="_blank" rel="noopener noreferrer">在网易云打开共享歌单 ↗</a></p>
+      <details><summary>本机下载服务</summary><p>连接本机音乐服务后，可以选择音质并下载到本地收藏。</p>
+        <button type="button" className="lx-connect-retry" onClick={()=>void api('status').then(data=>{if(mounted.current){setReady(data.ready);setPlatforms(data.platforms);updateJobs(data.jobs);setError(data.ready?'':'本机音乐服务尚未就绪。');}}).catch(cause=>{if(mounted.current)setError(cause.message);})}>重新连接</button>
+        {error&&<p className="radio-error" role="status">{error}</p>}
+      </details>
+    </section>;
+  }
   return <section className="lx-content" aria-labelledby="lx-page-title">
       <header className="lx-page-heading"><h2 id="lx-page-title">找音乐</h2><p>搜索歌曲，选择音质并收藏。下载完成后即可在电台播放。</p></header>
       <div className="lx-workspace">

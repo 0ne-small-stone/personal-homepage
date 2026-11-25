@@ -1,11 +1,13 @@
 ---
+import InviteMark from '../navigation/InviteMark.astro';
 import type { ProfileExperience } from '../../data/profile';
 
 interface Props {
   entries: ProfileExperience[];
+  deskCase?: { label: string; href: string };
   prefix?: 'experience' | 'education';
 }
-const { entries, prefix = 'experience' } = Astro.props;
+const { entries, prefix = 'experience', deskCase } = Astro.props;
 ---
 <ol class="someone-experiences">
   {entries.map(entry => <li id={`${prefix}-${entry.id}`} data-reading-block>
@@ -15,6 +17,8 @@ const { entries, prefix = 'experience' } = Astro.props;
       <h3>{entry.title}</h3>
       <p class="someone-role">{entry.role}</p>
       {entry.paragraphs.map(paragraph => <p>{paragraph}</p>)}
+      {deskCase && (entry.id === 'suikong' || entry.aliases.includes('suikong')) &&
+        <a class="someone-wall-link" href={deskCase.href}>{deskCase.label}<InviteMark /></a>}
     </div>
   </li>)}
 </ol>

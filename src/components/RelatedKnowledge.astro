@@ -1,31 +1,88 @@
 ---
-import { kindLabels, knowledgeRelations } from '../lib/knowledge';
+import { knowledgeRelations } from '../lib/knowledge';
 import { sitePath } from '../lib/paths';
-const { related, backlinks } = await knowledgeRelations(Astro.locals.starlightRoute.entry.data.entryId);
+import RelationList from './knowledge/RelationList.astro';
+
+const { entry } = Astro.locals.starlightRoute;
+const { previous, next, related, otherChapters, backlinks } = await knowledgeRelations(entry.data.entryId);
 const sections = [
-  { id: 'related-knowledge-title', title: '关联内容', relation: 'forward', entries: related },
-  { id: 'backlinks-knowledge-title', title: '哪些内容关联了它', relation: 'backlink', entries: backlinks },
+  { id: 'related-knowledge-title', title: '关联内容', entries: related },
+  { id: 'backlinks-knowledge-title', title: '提及本页的内容', entries: backlinks },
 ];
+const visibleCount = 3;
 ---
-{sections.map(({ id, title, relation, entries }) => entries.length > 0 && (
-  <nav class="related-knowledge" aria-labelledby={id} data-relation={relation} data-pagefind-ignore>
-    <h2 id={id}>{title}</h2>
-    <ul>
-      {entries.map((entry) => (
-        <li><a href={sitePath(entry.id)}>
-          <span class="kind">{kindLabels[entry.data.kind!]}</span>
-          <span>{entry.data.title}</span>
-        </a></li>
-      ))}
-    </ul>
-  </nav>
-))}
+{(previous || next || related.length > 0 || otherChapters.length > 0 || backlinks.length > 0) && (
+  <div class="related-knowledge" data-pagefind-ignore>
+    {(previous || next) && (
+      <nav id="chapter-navigation" aria-label="章节顺读" tabindex="-1">
+        {previous && <a rel="prev" href={sitePath(previous.id)}>
+          <span class="direction"><span aria-hidden="true">←</span> 上一篇</span>
+          <span class="chapter-title">{previous.data.title}</span>
+        </a>}
+        {next && <a rel="next" href={sitePath(next.id)}>
+          <span class="direction">下一篇 <span aria-hidden="true">→</span></span>
+          <span class="chapter-title">{next.data.title}</span>
+        </a>}
+      </nav>
+    )}
+    {sections.map(({ id, title, entries }) => entries.length > 0 && (
+      <nav class="relation-group" aria-labelledby={id}>
+        <h2 id={id}>{title}</h2>
+        <RelationList entries={entries.slice(0, visibleCount)} />
+        {entries.length > visibleCount && <details>
+          <summary>其余{entries.length - visibleCount}条{title}</summary>
+          <RelationList entries={entries.slice(visibleCount)} />
+        </details>}
+      </nav>
+    ))}
+    {otherChapters.length > 0 && <details data-other-chapters>
+      <summary>同系列其他章节（{otherChapters.length}）</summary>
+      <RelationList entries={otherChapters} showKind={false} />
+    </details>}
+  </div>
+)}
 <style>
-  .related-knowledge { margin-block: var(--space-5); border-top: 1px solid var(--sl-color-gray-5); padding-top: var(--space-4); }
-  h2 { font-size: 1.25rem; margin: 0 0 var(--space-3); }
-  ul { list-style: none; margin: 0; padding: 0; }
-  a { display: flex; align-items: baseline; gap: var(--space-3); min-height: var(--target-min); padding-block: var(--space-2); color: var(--sl-color-text-accent); text-underline-offset: 0.2em; }
-  .kind { flex: none; color: var(--sl-color-gray-2); font-size: 0.875rem; }
-  a span:last-child { overflow-wrap: anywhere; }
-  a:focus-visible { outline: 2px solid var(--sl-color-text-accent); outline-offset: 3px; border-radius: var(--space-1); }
+  .related-knowledge {
+    display: grid;
+    gap: var(--space-4);
+    margin-block: var(--space-6);
+    border-top: 1px solid var(--becoming-border);
+    padding-top: var(--space-4);
+  }
+  .related-knowledge > * { min-width: 0; }
+  #chapter-navigation {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
+    scroll-margin-block-start: calc(var(--sl-nav-height) + var(--space-4));
+  }
+  #chapter-navigation a {
+    display: grid;
+    align-content: start;
+    gap: var(--space-1);
+    min-width: 0;
+    min-height: var(--target-min);
+    padding-block: var(--space-2);
+    color: var(--becoming-text);
+    text-decoration: none;
+  }
+  #chapter-navigation a[rel='next'] { grid-column: 2; text-align: end; }
+  .direction, summary { color: var(--becoming-muted); font-size: .875rem; }
+  .chapter-title { line-height: 1.55; overflow-wrap: anywhere; }
+  .relation-group h2 { margin: 0; color: var(--becoming-text); font-size: 1rem; font-weight: 500; }
+  summary {
+    width: fit-content;
+    max-width: 100%;
+    min-height: var(--target-min);
+    padding-block: var(--space-3);
+    line-height: 1.5;
+    cursor: pointer;
+    overflow-wrap: anywhere;
+  }
+  #chapter-navigation a:hover .chapter-title, summary:hover { text-decoration: underline; text-underline-offset: .2em; }
+  :is(a, summary):focus-visible { outline: 2px solid var(--becoming-text); outline-offset: 2px; }
+  @media (max-width: 35rem) {
+    #chapter-navigation { grid-template-columns: minmax(0, 1fr); gap: var(--space-1); }
+    #chapter-navigation a[rel='next'] { grid-column: 1; text-align: start; }
+  }
 </style>

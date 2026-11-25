@@ -45,3 +45,74 @@ test('a frozen demand frame flushes restore completion without advancing the dri
     for(const frame of frames)frame.fn();assert.equal(driven,0);assert.equal(advanced,0);assert.equal(flushed,1);
   }finally{if(previous===undefined)delete globalThis.__testFrameHook;else globalThis.__testFrameHook=previous;}
 });
+
+test('native deep link stays usable during loading and carries the actually focused chapter into motion', () => {
+  const keys=['window','document','location','history','sessionStorage','MutationObserver','innerWidth','innerHeight','scrollY','scrollTo'];
+  const previous=Object.fromEntries(keys.map(key=>[key,globalThis[key]]));
+  const classes=new Set(), dataset={homeStatus:'waiting'};
+  const body={dataset,classList:{contains:name=>classes.has(name)}};
+  const ids=['intro','album','wall'];
+  const sections=ids.map((id,index)=>({id,get offsetTop(){return index*(classes.has('home-enhanced')?1200:600);},offsetHeight:600}));
+  const win=new EventTarget();
+  const entry={id:'entry-album',closest(){return this;},focus(){}};
+  const doc=Object.assign(new EventTarget(),{body,querySelectorAll:()=>sections,activeElement:null,getElementById:id=>id===entry.id?entry:null});
+  Object.assign(globalThis,{window:win,document:doc,location:{hostname:'localhost',search:'',href:'http://localhost/#wall',hash:'#wall'},history:{state:{}},
+    sessionStorage:{getItem(){return null;}},MutationObserver:class{observe(){}disconnect(){}},innerWidth:390,innerHeight:600,scrollY:0,scrollTo:(_,y)=>{globalThis.scrollY=y;}});
+  let stop;
+  try {
+    stop=installHomeReturn();
+    assert.equal(scrollY,1200);
+    assert.equal(dataset.homeRestoring,undefined);
+    globalThis.scrollY=630;
+    win.dispatchEvent(new Event('scroll'));
+    doc.activeElement=entry;
+    doc.dispatchEvent(new CustomEvent('lssh:home-layout-before',{detail:{mode:'dynamic',preserveFocus:true}}));
+    classes.add('home-enhanced');
+    dataset.homeStatus='ready';
+    dataset.homeMotion='ready';
+    let restored;
+    doc.addEventListener('lssh:home-restore',event=>{restored=event.detail;});
+    doc.dispatchEvent(new Event('lssh:home-layout-ready'));
+    assert.equal(restored.y,1230);
+    assert.equal(restored.focusOrigin,'entry-album');
+  } finally {
+    stop?.();
+    for(const [key,value] of Object.entries(previous))if(value===undefined)delete globalThis[key];else globalThis[key]=value;
+  }
+});
+
+test('Back keeps the saved chapter and focus across temporary native scroll resets', () => {
+  const keys=['window','document','location','history','sessionStorage','MutationObserver','innerWidth','innerHeight','scrollY','scrollTo'];
+  const previous=Object.fromEntries(keys.map(key=>[key,globalThis[key]]));
+  const classes=new Set(),dataset={homeStatus:'waiting'};
+  const body={dataset,classList:{contains:name=>classes.has(name)}};
+  const win=new EventTarget();
+  const entry={id:'entry-projects',focus(){}};
+  const sections=['intro','radio','projects','wall'].map((id,index)=>({
+    id,get offsetTop(){return index*(classes.has('home-enhanced')?1200:600);},offsetHeight:600
+  }));
+  const doc=Object.assign(new EventTarget(),{body,querySelectorAll:()=>sections,getElementById:id=>id===entry.id?entry:null});
+  const saved={chapterId:'projects',localProgress:.2,scrollY:2520,focusOrigin:entry.id};
+  Object.assign(globalThis,{window:win,document:doc,location:{hostname:'localhost',search:'',href:'http://localhost/#radio',hash:'#radio'},
+    history:{state:{lsshHome:saved}},sessionStorage:{getItem(){return null;}},MutationObserver:class{observe(){}disconnect(){}},
+    innerWidth:390,innerHeight:600,scrollY:0,scrollTo:(_,y)=>{globalThis.scrollY=y;}});
+  let stop;
+  try {
+    let target,restored;
+    doc.addEventListener('lssh:home-return-target',event=>{target=event.detail.chapterId;});
+    doc.addEventListener('lssh:home-restore',event=>{restored=event.detail;});
+    stop=installHomeReturn();
+    assert.equal(target,'projects');
+    assert.equal(scrollY,1320);
+    globalThis.scrollY=0;
+    win.dispatchEvent(new Event('scroll'));
+    doc.dispatchEvent(new CustomEvent('lssh:home-layout-before',{detail:{mode:'dynamic',preserveFocus:true}}));
+    classes.add('home-enhanced');dataset.homeStatus='ready';dataset.homeMotion='ready';
+    doc.dispatchEvent(new Event('lssh:home-layout-ready'));
+    assert.equal(restored.y,2520);
+    assert.equal(restored.focusOrigin,entry.id);
+  } finally {
+    stop?.();
+    for(const [key,value] of Object.entries(previous))if(value===undefined)delete globalThis[key];else globalThis[key]=value;
+  }
+});

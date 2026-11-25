@@ -16,16 +16,36 @@ export interface ShowcaseWork {
   video?: { bvid: string; owner: string; duration: string };
 }
 
-export const workKinds = [
+const workKinds = [
   { id: 'all', label: '全部' },
   { id: 'project', label: '项目' },
   { id: 'video', label: '视频' },
   { id: 'writing', label: '文字' },
 ] as const;
 
+export function publishedWorkFilters(works: readonly Pick<ShowcaseWork, 'kind'>[]) {
+  return workKinds.map(({ id, label }) => ({
+    id, label, count: id === 'all' ? works.length : works.filter(work => work.kind === id).length,
+  })).filter(kind => kind.id === 'all' || kind.count > 0);
+}
+
 // Project facts come from profile.ts; video roles were confirmed by the user on 2026-10-16.
 // A personal contribution does not imply ownership of the publishing account or footage.
 export const showcaseWorks: ShowcaseWork[] = [
+  {
+    slug: 'opening-performance', title: '如果说开幕式唱《国际歌》呢？', kind: 'video',
+    discipline: '舞台演出 / 乐队统筹与方阵策划', period: 'B站视频', status: '可观看',
+    description: '我以乐社社长的身份统筹乐队排练和设备布置，也以班长的身份策划班级方阵。',
+    contribution: '乐社社长：乐队排练与设备统筹；班长：班级方阵总策划',
+    cover: 'https://i0.hdslb.com/bfs/archive/ca88c983c8b3c9dd5e0c072928a6c909b8572f54.jpg',
+    coverSize: { width: 1024, height: 576 },
+    coverNote: '封面来自 B站 · lonelyheartsband',
+    video: { bvid: 'BV1gu4y1s7YC', owner: 'lonelyheartsband', duration: '03:26' },
+    sections: [
+      { title: '乐队排练与设备布置', paragraphs: ['作为乐社社长，我统筹乐队排练与设备布置。'] },
+      { title: '班级方阵策划', paragraphs: ['我同时担任班长，负责班级方阵的整体策划。'] },
+    ],
+  },
   {
     slug: 'little-stone-still-here', title: 'Little Stone Still Here', kind: 'project',
     discipline: '个人网站 / 交互设计', period: '2026', status: '持续建造',
@@ -37,19 +57,6 @@ export const showcaseWorks: ShowcaseWork[] = [
       { title: '一个可以慢慢认识我的地方', paragraphs: ['Little Stone Still Here 把学习、创作、影像、音乐与日常放在同一个网站里。Afterimage 是其中的作品入口，既容纳项目，也为视频与独立文字保留位置。'] },
       { title: '从空间进入内容', paragraphs: ['首页以玻璃三角体和黑灰空间作为入口，经过影像、音乐与项目，再向白色的 The Wall 展开。不同栏目保留各自的观看和阅读方式，共同连接回这个入口。', '展示画面可以有空间感，真正阅读时则需要清楚的标题、稳定的正文和可返回的路径。这也是 Afterimage 展览与目录两种浏览方式的出发点。'] },
       { title: '还在生长', paragraphs: ['网站正在分功能建设与体验调整。本页描述目前的设计方向，不把尚未接入的个人内容或后续功能写成已经完成。'] },
-    ],
-  },
-  {
-    slug: 'opening-performance', title: '如果说开幕式唱《国际歌》呢？', kind: 'video',
-    discipline: '舞台演出 / 组织与策划', period: 'B站视频', status: '可观看',
-    description: '以乐社社长和班长的身份，参与开幕式的组织与策划。',
-    contribution: '乐社社长：乐队排练与设备统筹；班长：班级方阵总策划',
-    cover: 'https://i0.hdslb.com/bfs/archive/ca88c983c8b3c9dd5e0c072928a6c909b8572f54.jpg',
-    coverNote: '封面来自 B站 · lonelyheartsband',
-    video: { bvid: 'BV1gu4y1s7YC', owner: 'lonelyheartsband', duration: '03:26' },
-    sections: [
-      { title: '乐队排练与设备布置', paragraphs: ['作为乐社社长，我统筹乐队排练与设备布置。'] },
-      { title: '班级方阵策划', paragraphs: ['我同时担任班长，负责班级方阵的整体策划。'] },
     ],
   },
   {
@@ -65,14 +72,14 @@ export const showcaseWorks: ShowcaseWork[] = [
   {
     slug: 'suikong-desk', title: '随控 Desk', kind: 'project',
     discipline: '智能桌搭 / 产品与品牌', period: '2026.04 — 至今', status: '推进中',
-    description: '从桌面上的日常，思考软硬件如何一起工作。',
+    description: '为开发、剪辑和日常工作设计的桌面控制器，用可视快捷键和旋钮操作，按任务切换预设。',
     cover: 'desk.svg', coverNote: '原创视觉示意，非实物图',
     contribution: '产品定义、品牌设计、软硬件项目管理与商务',
-    destination: { label: '了解我的项目经历', path: 'zh/about', hash: 'experience-suikong' },
+    destination: { label: '查看我的项目经历', path: 'zh/about', hash: 'experience-suikong' },
     sections: [
-      { title: '围绕桌面展开的尝试', paragraphs: ['随控 Desk 是围绕智能桌搭展开的消费电子创业尝试。小石参与项目发起，负责产品定义、品牌设计、软硬件项目管理和商务事务。'] },
-      { title: '让协作继续', paragraphs: ['硬件研发曾因核心成员离开而停滞。在继续学习与寻找工程伙伴的同时，项目也在处理团队知识共享和交接的问题。'] },
-      { title: '当前记录', paragraphs: ['本页先呈现已确认的项目方向与个人工作。具体产品照片、演示视频和设计过程会在整理后补充；封面是抽象视觉示意。'] },
+      { title: '为什么按任务切换预设', paragraphs: ['写代码和剪录屏可能发生在同一张桌子上，两件事需要的常用操作却不同。随控 Desk（Flow Desk）把这些操作组织成预设。换一项任务，人仍然用手边的快捷键和旋钮，控件的用途随预设改变。'] },
+      { title: '我在项目中负责什么', paragraphs: ['我发起了随控 Desk，负责产品定义和品牌设计。项目里有软件和硬件两部分，我负责协调两边的开发进度，也负责商务对接。'] },
+      { title: '一次中断之后', paragraphs: ['一位核心成员离开后，硬件研发一度停了下来。我开始补 PCB 和结构设计的知识，也在寻找新的工程伙伴。这次中断让我重新考虑如何交接工作，让团队里接手的人也能了解关键方案的取舍。'] },
     ],
   },
   {

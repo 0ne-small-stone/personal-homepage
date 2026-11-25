@@ -14,33 +14,67 @@ export default function FloatingMusicPlayer({ state, open, onHide }: { state: Au
   const drag = useRef<{ id: number; offsetX: number; offsetY: number } | null>(null);
   const menu = useRef<HTMLDetailsElement>(null);
   const [position, setPosition] = useState<Position | null>(null);
+  const userPositioned = useRef(false);
   const [compact, setCompact] = useState(false);
   const [showVolume, setShowVolume] = useState(false);
   const [failedCover, setFailedCover] = useState('');
   function bounds() {
-    if (!panel.current) return null;
-    const rect = panel.current.getBoundingClientRect();const styles = getComputedStyle(panel.current);
-    const edge = parseFloat(styles.getPropertyValue('--float-edge')) || 16;
-    const safeTop = parseFloat(styles.getPropertyValue('--float-safe-top')) || 0;
-    const safeBottom = parseFloat(styles.getPropertyValue('--float-safe-bottom')) || 0;
+    const element = panel.current;
+    if (!element) return null;
     const viewport = window.visualViewport;
-    const left = (viewport?.offsetLeft || 0) + edge;const top = (viewport?.offsetTop || 0) + edge + safeTop;
-    return { left, top, right: Math.max(left, (viewport?.offsetLeft || 0) + (viewport?.width || document.documentElement.clientWidth) - rect.width - edge), bottom: Math.max(top, (viewport?.offsetTop || 0) + (viewport?.height || window.innerHeight) - rect.height - edge - safeBottom) };
+    const originX = viewport?.offsetLeft ?? 0;
+    const originY = viewport?.offsetTop ?? 0;
+    const header = document.querySelector<HTMLElement>('.home-header.is-primary');
+    // On mobile the knowledge menu sits in the row immediately below the common header.
+    const navigation = header?.closest<HTMLElement>('.becoming-shell .header') ?? header;
+    const language = document.querySelector<HTMLElement>('.someone-language-tools a');
+    const navBottom = Math.max(navigation?.getBoundingClientRect().bottom ?? 0, language?.getBoundingClientRect().bottom ?? 0);
+    const safeTop = Math.max(0, navBottom - originY);
+    const reserve = safeTop + 'px';
+    if (element.style.getPropertyValue('--float-nav-reserve') !== reserve) element.style.setProperty('--float-nav-reserve', reserve);
+    const styles = getComputedStyle(element);
+    const edge = parseFloat(styles.getPropertyValue('--float-edge')) || 16;
+    const safeBottom = parseFloat(styles.getPropertyValue('--float-safe-bottom')) || 0;
+    const rect = element.getBoundingClientRect();
+    const left = originX + edge;
+    const top = originY + edge + safeTop;
+    return {
+      left, top,
+      right: Math.max(left, originX + (viewport?.width ?? document.documentElement.clientWidth) - rect.width - edge),
+      bottom: Math.max(top, originY + (viewport?.height ?? window.innerHeight) - rect.height - edge - safeBottom)
+    };
   }
-  function clamp(next: Position) {
-    const box = bounds();return box ? { x: Math.max(box.left, Math.min(box.right, next.x)), y: Math.max(box.top, Math.min(box.bottom, next.y)) } : next;
+  function clamp(next: Position, box = bounds()) {
+    return box ? { x: Math.max(box.left, Math.min(box.right, next.x)), y: Math.max(box.top, Math.min(box.bottom, next.y)) } : next;
   }
-  function resetPosition() { const box = bounds();if (box) setPosition({ x: box.right, y: box.bottom }); }
+  function resetPosition() {
+    userPositioned.current = false;
+    const box = bounds();
+    if (box) setPosition({ x: box.right, y: box.bottom });
+  }
   useEffect(() => {
     if (!open || !panel.current) return;
-    const fit = () => setPosition(current => {
-      const box = bounds();if (!box) return current;
-      const next = current ? clamp(current) : { x: box.right, y: box.bottom };
-      return current?.x === next.x && current?.y === next.y ? current : next;
-    });
-    fit();const observer = new ResizeObserver(fit);observer.observe(panel.current);
-    window.addEventListener('resize', fit);window.visualViewport?.addEventListener('resize', fit);
-    return () => { observer.disconnect();window.removeEventListener('resize', fit);window.visualViewport?.removeEventListener('resize', fit);drag.current = null; };
+    const fit = () => {
+      const box = bounds();
+      if (!box) return;
+      setPosition(current => {
+        const next = current && userPositioned.current ? clamp(current, box) : { x: box.right, y: box.bottom };
+        return current?.x === next.x && current?.y === next.y ? current : next;
+      });
+    };
+    fit();
+    const observer = new ResizeObserver(fit);
+    observer.observe(panel.current);
+    window.addEventListener('resize', fit);
+    window.visualViewport?.addEventListener('resize', fit);
+    document.addEventListener('astro:page-load', fit);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', fit);
+      window.visualViewport?.removeEventListener('resize', fit);
+      document.removeEventListener('astro:page-load', fit);
+      drag.current = null;
+    };
   }, [open]);
   function startDrag(event: PointerEvent<HTMLButtonElement>) {
     if (event.button !== 0 || !panel.current) return;
@@ -48,7 +82,10 @@ export default function FloatingMusicPlayer({ state, open, onHide }: { state: Au
     event.currentTarget.setPointerCapture(event.pointerId);
   }
   function moveDrag(event: PointerEvent<HTMLButtonElement>) {
-    const active = drag.current;if (active?.id === event.pointerId) setPosition(clamp({ x: event.clientX - active.offsetX, y: event.clientY - active.offsetY }));
+    const active = drag.current;
+    if (active?.id !== event.pointerId) return;
+    userPositioned.current = true;
+    setPosition(clamp({ x: event.clientX - active.offsetX, y: event.clientY - active.offsetY }));
   }
   function endDrag(event: PointerEvent<HTMLButtonElement>) {
     if (drag.current?.id !== event.pointerId) return;
@@ -58,7 +95,11 @@ export default function FloatingMusicPlayer({ state, open, onHide }: { state: Au
     if (event.key === 'Home') { event.preventDefault();event.stopPropagation();resetPosition();return; }
     const step = 24;const delta = event.key === 'ArrowLeft' ? [-step, 0] : event.key === 'ArrowRight' ? [step, 0] : event.key === 'ArrowUp' ? [0, -step] : event.key === 'ArrowDown' ? [0, step] : null;
     if (!delta || !panel.current) return;
-    event.preventDefault();event.stopPropagation();const rect = panel.current.getBoundingClientRect();setPosition(clamp({ x: rect.left + delta[0], y: rect.top + delta[1] }));
+    event.preventDefault();
+    event.stopPropagation();
+    userPositioned.current = true;
+    const rect = panel.current.getBoundingClientRect();
+    setPosition(clamp({ x: rect.left + delta[0], y: rect.top + delta[1] }));
   }
   function closeMenu(action: () => void) {
     if (menu.current) { menu.current.open = false;menu.current.querySelector<HTMLElement>('summary')?.focus(); }

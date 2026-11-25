@@ -41,10 +41,14 @@ export function useHomeLoading(model:JourneyModel,wordmarkUrl:string,attempt:num
     };
     const sync=()=>{
       const active=gate.active,normal=gate.phase!=='error'&&gate.phase!=='fallback';
+      if(lastPhase==='waiting' && gate.phase==='ready' && !document.body.classList.contains('home-enhanced')) {
+        const mode=document.body.classList.contains('home-quiet')?'native':'dynamic';
+        document.dispatchEvent(new CustomEvent('lssh:home-layout-before',{detail:{mode,preserveFocus:true}}));
+      }
       if(lastPhase!==gate.phase){lastPhase=gate.phase;events.push({phase:gate.phase,time:performance.now()});}
       const focused=document.activeElement?.closest('.home-loader');
       document.body.classList.toggle('home-loading-active',active);
-      document.body.classList.toggle('home-enhanced',normal);
+      document.body.classList.toggle('home-enhanced',normal && (active || gate.phase !== 'waiting'));
       document.body.classList.toggle('home-static',!normal);
       document.body.dataset.homeStatus=gate.phase;
       setPhase(gate.phase);publish();

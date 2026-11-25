@@ -3,7 +3,7 @@ export function setupSomeoneLanguage(page: HTMLElement, signal: AbortSignal) {
   const link = document.querySelector<HTMLAnchorElement>('[data-language-switch]');
   if (!link) return () => {};
   const storageKey = 'lssh.someone.reading';
-  const safeTop = () => (document.querySelector('.home-header')?.getBoundingClientRect().bottom ?? 72) + 24;
+  const safeTop = () => Math.max(document.querySelector('.home-header')?.getBoundingClientRect().bottom ?? 72, link.getBoundingClientRect().bottom) + 24;
   let frame: number | undefined;
 
   link.addEventListener('click', event => {

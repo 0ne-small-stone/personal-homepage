@@ -155,12 +155,15 @@ if (project.trailingSlash === 'never') dataAttributes['data-strip-trailing-slash
 						showImages: false,
 						translations,
 						showSubResults: true,
-						processResult: (result: { url: string; sub_results: Array<{ url: string }> }) => {
-							result.url = formatURL(result.url);
-							result.sub_results = result.sub_results.map((sub_result) => {
-								sub_result.url = formatURL(sub_result.url);
-								return sub_result;
-							});
+						processResult: (result: { url: string; meta: Record<string, string>; sub_results: Array<{ url: string }> }) => {
+							const url = formatURL(result.url);
+							const { reader, ...meta } = result.meta;
+							// PDF matches in source notes should open at the reader. Pagefind
+							// shows its highlighted excerpt under a matching root sub-result.
+							const sub_results = reader === 'pdf'
+								? [{ url }]
+								: result.sub_results.map((section) => ({ ...section, url: formatURL(section.url) }));
+							return { ...result, url, meta, sub_results };
 						},
 					});
 				});

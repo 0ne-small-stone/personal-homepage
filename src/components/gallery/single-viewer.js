@@ -126,7 +126,7 @@ export function createSingleViewer({photos,getOrigin,beforeOpen,afterClose,onErr
       ]);
       try{
         const PhotoSwipe=await prepare();if(session!==s||disposed)return;
-        const pswp=new PhotoSwipe({dataSource:photos.map(photo=>({src:photo.full,msrc:photo.preview??photo.image,width:photo.width,height:photo.height,alt:photo.title})),index,
+        const pswp=new PhotoSwipe({dataSource:photos.map(photo=>({src:photo.full,msrc:photo.preview??photo.image,width:photo.width,height:photo.height,alt:photo.alt??photo.title})),index,
           mainClass:'single-viewer is-opening',bgOpacity:1,showHideAnimationType:'none',showAnimationDuration:0,hideAnimationDuration:0,
           zoomAnimationDuration:reduceMotion()?0:180,
           paddingFn:viewerPadding,initialZoomLevel:'fit',secondaryZoomLevel:levels=>levels.fit*2,maxZoomLevel:levels=>levels.fit*4,

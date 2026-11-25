@@ -11,27 +11,35 @@ import { homeChapterNumerals } from '../lib/home-chapter-shapes';
 import { homeChapters, homeWorkChapters } from '../components/home/home-chapters';
 import { sitePath } from '../lib/paths';
 import { Image, getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import { srcDir } from 'astro:config/server';
+import { fileURLToPath } from 'node:url';
+import sharp from 'sharp';
 import wordmark from '../assets/home/lssh-wordmark.png';
-import albumCover from '../assets/home/reliefs/01-a-moment-remains-relief.png';
-import projectCover from '../assets/home/reliefs/03-afterimage-relief.png';
-import neighborCover from '../assets/home/reliefs/02-echoes-relief.png';
+const sources = import.meta.glob<ImageMetadata>('../assets/home/reliefs/*.png', { eager: true, import: 'default' });
+async function relief(name: string, alt: string) {
+  const path = `assets/home/reliefs/${name}.png`;
+  const [image, preview] = await Promise.all([
+    getImage({ src: sources[`../${path}`], width: 1600, format: 'webp', quality: 85 }),
+    sharp(fileURLToPath(new URL(path, srcDir))).resize(224).webp({ quality: 60 }).toBuffer(),
+  ]);
+  return { image, preview: `data:image/webp;base64,${preview.toString('base64')}`, alt };
+}
 const markImage = await getImage({src:wordmark,width:768,format:'webp',quality:90});
-const albumImage = await getImage({src:albumCover,width:1600,format:'webp',quality:85});
-const projectImage = await getImage({src:projectCover,width:1600,format:'webp',quality:85});
-const neighborImage = await getImage({src:neighborCover,width:1600,format:'webp',quality:85});
-const reliefs = {
-  album: { image: albumImage, alt: '持相机的青年、门与交错的人群' },
-  radio: { image: neighborImage, alt: '各自聆听的人与递出的耳机' },
-  projects: { image: projectImage, alt: '折返的草稿、搭起的框架与共同创作的人' },
-};
+const [album, radio, projects] = await Promise.all([
+  relief('01-a-moment-remains-relief', '持相机的青年、门与交错的人群'),
+  relief('02-echoes-relief', '各自聆听的人与递出的耳机'),
+  relief('03-afterimage-relief', '折返的草稿、搭起的框架与共同创作的人'),
+]);
+const reliefs = { album, radio, projects };
 ---
 <HomeLayout journey description="小石的学习、作品、影像与音乐。">
   <HomeReliefPalette />
-  <HomeJourney client:only="react" wordmarkUrl={markImage.src} albumUrl={albumImage.src} projectUrl={projectImage.src} neighborUrl={neighborImage.src} />
+  <HomeJourney client:only="react" wordmarkUrl={markImage.src} />
   <section id="intro" class="home-chapter home-hero" aria-labelledby="home-title" data-chapter="intro">
     <div class="home-chapter-viewport"><div class="home-chapter-content">
       <h1 id="home-title" class="sr-only">Little Stone Still Here</h1>
-      <Image class="home-wordmark" src={wordmark} width={768} alt="Little Stone Still Here" loading="eager" format="webp" quality={90} />
+      <Image class="home-wordmark" src={wordmark} width={768} alt="Little Stone Still Here" loading="eager" fetchpriority="high" format="webp" quality={90} />
       <a class="home-scroll" href={`#${homeWorkChapters[0].id}`}><InviteMark direction="down" size={22} className="home-explore-invite" />向下探索</a>
     </div></div>
   </section>
@@ -46,7 +54,14 @@ const reliefs = {
         </div>
         <HomeCta href={sitePath(chapter.path)} label={chapter.action} id={`entry-${chapter.id}`} />
       </div>
-      <figure class="home-art home-art--scene"><a class="home-relief-native" href={sitePath(chapter.path)} data-home-link><img class="home-project-cover" src={reliefs[chapter.id].image.src} width={reliefs[chapter.id].image.attributes.width} height={reliefs[chapter.id].image.attributes.height} alt={reliefs[chapter.id].alt} loading="lazy" /></a></figure>
+      <figure class="home-art home-art--scene">
+        <a class="home-relief-native" href={sitePath(chapter.path)} data-home-link data-relief-full={reliefs[chapter.id].image.src}>
+          <picture>
+            <source media="(scripting: enabled)" srcset={reliefs[chapter.id].preview} />
+            <img class="home-project-cover" src={reliefs[chapter.id].image.src} width={reliefs[chapter.id].image.attributes.width} height={reliefs[chapter.id].image.attributes.height} alt={reliefs[chapter.id].alt} loading="lazy" />
+          </picture>
+        </a>
+      </figure>
       <a class="home-relief-hit" data-relief-hit data-home-link href={sitePath(chapter.path)} tabindex="-1" aria-hidden="true"></a>
     </div>
   </section>)}
@@ -60,5 +75,14 @@ const reliefs = {
       <div class="home-wall-bottom"><a href="#intro">回到序章</a><a href={sitePath('about')} id="wall-about" data-home-link>认识小石</a></div>
     </div></div>
   </section>
-  <nav class="home-chapter-index" aria-label="首页章节"><div class="home-chapter-reel">{homeChapters.map((chapter,index) => <a href={`#${chapter.id}`} draggable="false" aria-label={`${homeChapterNumerals[index]} · 转到${chapter.label}`} aria-current={index === 0 ? 'location' : undefined}><HomeChapterMark index={index} /></a>)}</div></nav>
+  <div class="home-scene-toolbar-slot" data-home-scene-toolbar></div>
+  <nav class="home-chapter-index" aria-label="首页章节"><div class="home-chapter-reel">{homeChapters.map((chapter,index) => <a href={`#${chapter.id}`} draggable="false" aria-label={`${homeChapterNumerals[index]} · 转到${chapter.label}`}><HomeChapterMark index={index} /></a>)}</div></nav>
 </HomeLayout>
+<script>
+  import { installHomeChapterFocus } from '../components/home/home-chapter-focus';
+  import { installReliefLoading } from '../components/home/relief-loading';
+  installHomeChapterFocus();
+  let release = installReliefLoading();
+  document.addEventListener('astro:before-swap', () => { release(); });
+  document.addEventListener('astro:after-swap', () => { release = installReliefLoading(); });
+</script>

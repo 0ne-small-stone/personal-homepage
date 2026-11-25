@@ -42,7 +42,7 @@ const homeReturnPath = `${sitePath()}#album`;
       <main class="gallery-static">
         <ReturnLink href={homeReturnPath} label="首页" compact iconOnly />
         <h1>A Moment Remains</h1><p>有些瞬间，还没过去。</p>
-        <div class="gallery-static-grid">{photos.map(photo => <a href={`${galleryPath}${photo.full.slice(2)}`} aria-label={`查看${photo.title}`}><img src={`${galleryPath}${photo.image.slice(2)}`} alt={photo.title} loading="lazy" /></a>)}</div>
+        <div class="gallery-static-grid">{photos.map(photo => <a href={`${galleryPath}${photo.full.slice(2)}`} aria-label={`查看${photo.alt ?? photo.title}`}><img src={`${galleryPath}${photo.image.slice(2)}`} alt={photo.alt ?? photo.title} loading="lazy" /></a>)}</div>
       </main>
     </noscript>
     <script type="application/json" id="gallery-data" set:html={JSON.stringify(photos).replaceAll('<', '\\u003c')} />

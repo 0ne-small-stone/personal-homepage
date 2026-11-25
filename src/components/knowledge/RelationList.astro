@@ -1,0 +1,34 @@
+---
+import { kindLabels } from '../../lib/knowledge';
+import { sitePath } from '../../lib/paths';
+interface Props {
+  entries: { id: string; data: { title: string; kind?: keyof typeof kindLabels } }[];
+  showKind?: boolean;
+}
+const { entries, showKind = true } = Astro.props;
+---
+<ul>
+  {entries.map(({ id, data }) => <li>
+    <a href={sitePath(id)}>
+      <span class="title">{data.title}</span>
+      {showKind && data.kind && <span class="kind">{kindLabels[data.kind]}</span>}
+    </a>
+  </li>)}
+</ul>
+<style>
+  ul { list-style: none; margin: 0; padding: 0; }
+  a {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-3);
+    min-height: var(--target-min);
+    padding-block: var(--space-2);
+    color: var(--becoming-text);
+    text-decoration: none;
+  }
+  .title { min-width: 0; overflow-wrap: anywhere; line-height: 1.6; }
+  .kind { flex: none; color: var(--becoming-muted); font-size: .8125rem; }
+  a:hover .title, a:focus-visible .title { text-decoration: underline; text-underline-offset: .2em; }
+  a:focus-visible { outline: 2px solid var(--becoming-text); outline-offset: 2px; }
+</style>

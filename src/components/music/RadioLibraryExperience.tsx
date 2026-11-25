@@ -9,13 +9,14 @@ import ListeningRoom from './ListeningRoom';
 import type { RadioConfig } from './RadioExperience';
 import LxDownloadPanel from './LxDownloadPanel';
 import type { LibraryView } from './LibrarySidebar';
+import { musicEntryMode } from '../../lib/music-entry';
 
 const albumKey = (track: MusicTrack) => JSON.stringify([track.albumArtist, track.album]);
 const asAudioTrack = (track: MusicTrack): AudioTrack => ({ id: track.id, title: track.title, artist: track.artist, album: track.album, coverUrl: track.coverUrl || undefined, audioUrl: track.audioUrl!, source: 'cloud' });
 
 export default function RadioLibraryExperience({ initialCatalog, config }: { initialCatalog: MusicCatalog; config: RadioConfig }) {
   const state = useAudioSession();
-  const [mode, setMode] = useState<'cloud' | 'netease'>('cloud');
+  const [mode, setMode] = useState<'cloud' | 'netease'>(import.meta.env.DEV ? 'cloud' : 'netease');
   const [catalog, setCatalog] = useState(initialCatalog);
   const [selectedId, setSelectedId] = useState(initialCatalog.tracks[0]?.id || '');
   const [albumFilter, setAlbumFilter] = useState('');
@@ -43,10 +44,9 @@ export default function RadioLibraryExperience({ initialCatalog, config }: { ini
     mounted.current = true;
     const restore = () => {
       const url = new URL(location.href);
-      const requested = url.searchParams.get('mode');
       const requestedView = url.searchParams.get('view');
       const source = audioSession.getSnapshot().track?.source;
-      const next = requested === 'netease' || requested === 'cloud' ? requested : source || 'cloud';
+      const next = musicEntryMode(url, source, import.meta.env.DEV);
       if (source && source !== next) audioSession.pause();
       setRoom(false);setMode(next);setAlbumFilter('');
       setView(requestedView === 'discover' || url.hash === '#radio-download' ? 'discover' : requestedView === 'songs' ? 'songs' : 'albums');
@@ -93,6 +93,7 @@ export default function RadioLibraryExperience({ initialCatalog, config }: { ini
   const downloads = <LxDownloadPanel active={view === 'discover'} cloudUrl={config.cloudUrl} lxInstallUrl={config.lxInstallUrl} onComplete={() => void refresh()} onLibrary={title => { changeView('songs');setAlbumFilter('');setQuery(title);void refresh(); }} />;
   return <div className="radio-app">
     {mode === 'cloud' ? <section aria-label="本地收藏电台" className="radio-cloud">
+      {!import.meta.env.DEV && <p className="music-cloud-access">本地收藏使用考拉内网音源。外网访客可<a href={config.playlistUrl} target="_blank" rel="noopener noreferrer">在网易云收听共享歌单 ↗</a>。</p>}
       <LocalMusicCatalog catalog={catalog} selectedId={selected?.id || ''} view={view} setView={changeView} query={query} setQuery={setQuery} albumFilter={albumFilter} setAlbumFilter={setAlbumFilter} onSelect={chooseTrack} notice={notice} error={active ? state.error : ''} onMode={changeMode} downloadPage={downloads} />
       <RadioNowPlaying {...playback} onExpand={() => setRoom(true)} />
       <ListeningRoom {...playback} open={room} error={active ? state.error : ''} onClose={() => setRoom(false)} />

@@ -1,0 +1,5 @@
+---
+import DefaultPagination from '@astrojs/starlight/components/Pagination.astro';
+const { series } = Astro.locals.starlightRoute.entry.data;
+---
+{!series && <DefaultPagination />}

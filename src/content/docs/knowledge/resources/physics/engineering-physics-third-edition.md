@@ -37,23 +37,4 @@ source:
 
 原文件保持完整；阅读器支持翻页、缩放和下载。扫描 PDF 能否搜索文字取决于原件是否含文字层。
 
-## 同科目内容
-
-- [大学物理Ⅱ · 第 9 章（下）真空中的静电场](../physics-chapter-9/)
-- [大学物理Ⅱ · 第 9 章（上）真空中的静电场](../physics-electrostatics-alt/)
-- [大学物理Ⅱ · 第 10 章](../physics-chapter-10/)
-- [大学物理Ⅱ · 第 11 章](../physics-chapter-11/)
-- [大学物理Ⅱ · 第 12 章](../physics-chapter-12/)
-- [大学物理Ⅱ · 第 13 章](../physics-chapter-13/)
-- [大学物理Ⅱ · 第 14 章](../physics-chapter-14/)
-- [大学物理Ⅱ · 第 15 章](../physics-chapter-15/)
-- [大学物理Ⅱ · 第 16 章](../physics-chapter-16/)
-- [大学物理Ⅱ · 第 17 章](../physics-chapter-17/)
-- [大学物理Ⅱ · 第 18 章](../physics-chapter-18/)
-- [大学物理Ⅱ · 第 19 章](../physics-chapter-19/)
-- [大学物理Ⅱ · 第 20 章](../physics-chapter-20/)
-- [大学物理Ⅱ · 第 21 章](../physics-chapter-21/)
-- [大学物理Ⅱ · 第 22 章](../physics-chapter-22/)
-- [大学物理Ⅱ · 第 23 章](../physics-chapter-23/)
-
 [返回学习总览](../../../)

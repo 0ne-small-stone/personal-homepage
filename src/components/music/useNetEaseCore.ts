@@ -9,31 +9,44 @@ import type {PlaybackPresentation} from './RadioNowPlaying';
 import {catalogQueryOptions,mergeMusicPages,musicKeys,musicReadOptions,musicScope,updateMusicData} from '../../lib/music-query';
 import sharedPlaylist from '../../data/music/netease-playlist.json';
 import {sharedPlaylistData,neteaseServiceMessage,type NetEaseServiceState} from '../../lib/netease-snapshot';
+import {listeningModeLoginPrompt} from '../../lib/music-entry';
 export const asNetEaseAudio=(track:NetEaseTrack):AudioTrack=>({...track,audioUrl:`https://music.163.com/song/media/outer/url?id=${track.id}.mp3`,source:'netease'});
 export default function useNetEaseCore(service:NetEaseServiceState='ready'){
   const audio=useAudioSession();
   const client=useQueryClient();
   const [route,setRoute]=useState<{view:NetEaseView;kind:NetEaseKind;id:string;query:string;category:NetEasePodcastCategory}>({view:'home',kind:'playlist',id:'',query:'',category:'all'});
+  const [accountChecked,setAccountChecked]=useState(false);
   const [ready,setReady]=useState(false);const [refreshing,setRefreshing]=useState(false);
   const [notice,setNotice]=useState('');
   const [account,setAccount]=useState<NetEaseAccountState>({authorized:false,account:null});const [mutationBusy,setMutationBusy]=useState(false);
   const metadata=useRef(new Map<string,NetEaseTrack>());const controller=useRef<AbortController|null>(null);const scroll=useRef<HTMLElement>(null);const previous=useRef(route);const mounted=useRef(false);const identity=useRef('');const queueOrigin=useRef<{view:NetEaseView;kind:NetEaseKind;id:string;page:number;more:boolean}|null>(null);const refilling=useRef(false);
   const scope=musicScope(account.authorized?account.account?.id??'':'');
   const online=service==='ready';
-  const enabled=ready&&online&&route.view!=='downloads'&&(route.view!=='search'||Boolean(route.query));
+  const loginPrompt=listeningModeLoginPrompt(route.view,account.authorized,account.persistenceError);
+  const enabled=ready&&online&&!loginPrompt&&route.view!=='downloads'&&(route.view!=='search'||Boolean(route.query));
   const options=catalogQueryOptions(scope,route,neteaseRequest);
   const catalog=useInfiniteQuery({...options,enabled});
-  const data=useMemo<NetEaseData>(()=>!online?(service==='checking'?{}:sharedPlaylistData(sharedPlaylist,route)):enabled?mergeMusicPages(catalog.data?.pages):{},[online,service,route,enabled,catalog.data]);
-  const busy=!ready||service==='checking'||(enabled&&catalog.isFetching)||refreshing;
-  const error=enabled&&catalog.error?catalog.error.message:'';
+  const sharedDetail=route.view==='detail'&&route.kind==='playlist'&&route.id===sharedPlaylist.id;
+  const snapshotDetail=sharedDetail&&!catalog.data;
+  const snapshotSearch=route.view==='search'&&['song','playlist'].includes(route.kind)&&Boolean(catalog.error)&&!catalog.data;
+  const data=useMemo<NetEaseData>(()=>{
+    if(snapshotSearch){
+      const result=sharedPlaylistData(sharedPlaylist,route);
+      return {...result,warnings:['在线搜索暂不可用，以下结果来自 Echoes 共享歌单。']};
+    }
+    if(snapshotDetail||service==='unavailable')return sharedPlaylistData(sharedPlaylist,route);
+    return enabled?mergeMusicPages(catalog.data?.pages):{};
+  },[snapshotSearch,snapshotDetail,service,route,enabled,catalog.data]);
+  const busy=!ready||service==='checking'||(online&&Boolean(loginPrompt)&&!accountChecked)||(enabled&&catalog.isFetching)||refreshing;
+  const error=enabled&&catalog.error&&!snapshotDetail&&!snapshotSearch?catalog.error.message:'';
   const pageParam=catalog.data?.pageParams.at(-1);const page=typeof pageParam==='number'?pageParam:0;
   const currentKey=useRef('');currentKey.current=hashKey(options.queryKey);
   const setData:Dispatch<SetStateAction<NetEaseData>>=update=>{if(online)client.setQueryData<InfiniteData<NetEaseData,number>>(options.queryKey,current=>updateMusicData(current,update));};
   useEffect(()=>{
     mounted.current=true;const restore=()=>{controller.current?.abort();controller.current=null;setRefreshing(false);setNotice('');setRoute(readNetEaseRoute());setReady(true);};restore();window.addEventListener('popstate',restore);
-    if(!online){client.removeQueries();identity.current='';setAccount({authorized:false,account:null});return()=>{mounted.current=false;controller.current?.abort();window.removeEventListener('popstate',restore);};}
+    if(!online){setAccountChecked(false);client.removeQueries();identity.current='';setAccount({authorized:false,account:null});return()=>{mounted.current=false;controller.current?.abort();window.removeEventListener('popstate',restore);};}
     let accountRequest:AbortController|undefined;
-    const readAccount=async()=>{accountRequest?.abort();const request=new AbortController();accountRequest=request;try{const response=await musicApiFetch(`${import.meta.env.BASE_URL}api/music/playback/account`,{signal:AbortSignal.any([request.signal,AbortSignal.timeout(10000)])});if(!response.ok)return;const next:NetEaseAccountState=await response.json();if(!mounted.current||request.signal.aborted)return;const nextIdentity=next.authorized?String(next.account?.id??''):'';if(identity.current!==nextIdentity){client.removeQueries({queryKey:musicKeys.scope(musicScope(identity.current))});identity.current=nextIdentity;controller.current?.abort();controller.current=null;setRefreshing(false);}setAccount(next);}catch{}};
+    const readAccount=async()=>{accountRequest?.abort();const request=new AbortController();accountRequest=request;try{const response=await musicApiFetch(`${import.meta.env.BASE_URL}api/music/playback/account`,{signal:AbortSignal.any([request.signal,AbortSignal.timeout(10000)])});if(!response.ok)return;const next:NetEaseAccountState=await response.json();if(!mounted.current||request.signal.aborted)return;const nextIdentity=next.authorized?String(next.account?.id??''):'';if(identity.current!==nextIdentity){client.removeQueries({queryKey:musicKeys.scope(musicScope(identity.current))});identity.current=nextIdentity;controller.current?.abort();controller.current=null;setRefreshing(false);}setAccount(next);}catch{}finally{if(mounted.current&&!request.signal.aborted)setAccountChecked(true);}};
     void readAccount();const timer=setInterval(()=>{if(!document.hidden)void readAccount();},15000);window.addEventListener('netease-account-change',readAccount);
     return()=>{mounted.current=false;controller.current?.abort();accountRequest?.abort();clearInterval(timer);window.removeEventListener('popstate',restore);window.removeEventListener('netease-account-change',readAccount);};
   },[client,online]);
@@ -70,5 +83,5 @@ export default function useNetEaseCore(service:NetEaseServiceState='ready'){
   async function mutate(input:Record<string,unknown>,message:string){if(!online){setNotice(neteaseServiceMessage);return false;}const expectedIdentity=identity.current;setMutationBusy(true);setNotice('');try{await neteaseRequest(input);if(!mounted.current||identity.current!==expectedIdentity)return false;void client.invalidateQueries({queryKey:musicKeys.scope(scope),predicate:query=>query.queryKey[2]==='catalog',refetchType:'none'});if(['download','cancel-download'].includes(String(input.action)))void client.invalidateQueries({queryKey:musicKeys.read(scope,{action:'jobs'})});setNotice(message);return true;}catch(cause){if(mounted.current&&identity.current===expectedIdentity)setNotice(cause instanceof Error?cause.message:'操作未完成，请重试。');return false;}finally{if(mounted.current)setMutationBusy(false);}}
   async function toggleLike(track:NetEaseTrack){const enabled=!liked.has(track.id);if(await mutate({action:'like',id:track.id,enabled},enabled?'已加入收藏歌曲。':'已取消收藏。'))client.setQueryData(likedOptions.queryKey,current=>({ids:enabled?[...(current?.ids??[]),track.id]:(current?.ids??[]).filter(id=>id!==track.id)}));}
   const queueTracks=audio.queue.map(track=>metadata.current.get(track.id)||{...track,artistId:'',albumId:'',coverUrl:track.coverUrl||null,duration:0});
-  return{audio,route,data,setData,busy,refreshing,refreshPodcasts,error,notice,setNotice,account,liked,jobs,mutationBusy,scroll,previous,go,play,presentation,selected,active,load,mutate,toggleLike,queueTracks,more:()=>{if(online&&catalog.hasNextPage&&!catalog.isFetching)void catalog.fetchNextPage({cancelRefetch:false});},openCard:(card:NetEaseCard)=>go('detail',{kind:card.kind,id:card.id})};
+  return{audio,route,data,setData,loginPrompt,busy,refreshing,refreshPodcasts,error,notice,setNotice,account,liked,jobs,mutationBusy,scroll,previous,go,play,presentation,selected,active,load,mutate,toggleLike,queueTracks,more:()=>{if(online&&catalog.hasNextPage&&!catalog.isFetching)void catalog.fetchNextPage({cancelRefetch:false});},openCard:(card:NetEaseCard)=>go('detail',{kind:card.kind,id:card.id})};
 }
